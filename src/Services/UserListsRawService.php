@@ -67,8 +67,10 @@ final class UserListsRawService implements UserListsRawContract
      *
      * Update a OnlyFans User List
      *
-     * @param int $userListID Path param: OnlyFans User List ID
-     * @param array{account: string, name: string}|UserListUpdateParams $params
+     * @param string $userListID Path param: OnlyFans User List ID, or a default list name like `tagged`
+     * @param array{
+     *   account: string, name: string, isPinnedToFeed?: bool|null
+     * }|UserListUpdateParams $params
      * @param RequestOpts|null $requestOptions
      *
      * @return BaseResponse<UserListUpdateResponse>
@@ -76,7 +78,7 @@ final class UserListsRawService implements UserListsRawContract
      * @throws APIException
      */
     public function update(
-        int $userListID,
+        string $userListID,
         array|UserListUpdateParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse {
@@ -135,7 +137,7 @@ final class UserListsRawService implements UserListsRawContract
      *
      * Delete a OnlyFans User List
      *
-     * @param int $userListID OnlyFans User List ID
+     * @param string $userListID OnlyFans User List ID, or a default list name like `tagged`
      * @param array{account: string}|UserListDeleteParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -144,7 +146,7 @@ final class UserListsRawService implements UserListsRawContract
      * @throws APIException
      */
     public function delete(
-        int $userListID,
+        string $userListID,
         array|UserListDeleteParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse {

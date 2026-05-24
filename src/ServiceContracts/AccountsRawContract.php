@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Onlyfansapi\ServiceContracts;
 
 use Onlyfansapi\Accounts\AccountListParams;
+use Onlyfansapi\Accounts\AccountListResponseItem;
 use Onlyfansapi\Core\Contracts\BaseResponse;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\RequestOptions;
@@ -20,7 +21,7 @@ interface AccountsRawContract
      * @param array<string,mixed>|AccountListParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<list<mixed>>
+     * @return BaseResponse<list<AccountListResponseItem>>
      *
      * @throws APIException
      */

@@ -7,16 +7,13 @@ namespace Onlyfansapi\TrackingLinks\TrackingLinkListSpendersResponse;
 use Onlyfansapi\Core\Attributes\Optional;
 use Onlyfansapi\Core\Concerns\SdkModel;
 use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrackingLinks\TrackingLinkListSpendersResponse\Data\OnlyfansUserData;
 use Onlyfansapi\TrackingLinks\TrackingLinkListSpendersResponse\Data\Revenue;
 
 /**
- * @phpstan-import-type OnlyfansUserDataShape from \Onlyfansapi\TrackingLinks\TrackingLinkListSpendersResponse\Data\OnlyfansUserData
  * @phpstan-import-type RevenueShape from \Onlyfansapi\TrackingLinks\TrackingLinkListSpendersResponse\Data\Revenue
  *
  * @phpstan-type DataShape = array{
  *   onlyfansID?: string|null,
- *   onlyfansUserData?: null|OnlyfansUserData|OnlyfansUserDataShape,
  *   revenue?: null|Revenue|RevenueShape,
  *   username?: string|null,
  * }
@@ -28,9 +25,6 @@ final class Data implements BaseModel
 
     #[Optional('onlyfans_id')]
     public ?string $onlyfansID;
-
-    #[Optional('onlyfans_user_data')]
-    public ?OnlyfansUserData $onlyfansUserData;
 
     #[Optional]
     public ?Revenue $revenue;
@@ -48,19 +42,16 @@ final class Data implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
-     * @param OnlyfansUserData|OnlyfansUserDataShape|null $onlyfansUserData
      * @param Revenue|RevenueShape|null $revenue
      */
     public static function with(
         ?string $onlyfansID = null,
-        OnlyfansUserData|array|null $onlyfansUserData = null,
         Revenue|array|null $revenue = null,
         ?string $username = null,
     ): self {
         $self = new self;
 
         null !== $onlyfansID && $self['onlyfansID'] = $onlyfansID;
-        null !== $onlyfansUserData && $self['onlyfansUserData'] = $onlyfansUserData;
         null !== $revenue && $self['revenue'] = $revenue;
         null !== $username && $self['username'] = $username;
 
@@ -71,18 +62,6 @@ final class Data implements BaseModel
     {
         $self = clone $this;
         $self['onlyfansID'] = $onlyfansID;
-
-        return $self;
-    }
-
-    /**
-     * @param OnlyfansUserData|OnlyfansUserDataShape $onlyfansUserData
-     */
-    public function withOnlyfansUserData(
-        OnlyfansUserData|array $onlyfansUserData
-    ): self {
-        $self = clone $this;
-        $self['onlyfansUserData'] = $onlyfansUserData;
 
         return $self;
     }

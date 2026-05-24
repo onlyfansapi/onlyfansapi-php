@@ -42,7 +42,7 @@ final class VaultListParams implements BaseModel
     public ?string $field;
 
     /**
-     * Number of media to return per page. Default: `24`.
+     * Number of media to return per page (10 - 100). Default: `24`.
      */
     #[Optional]
     public ?int $limit;
@@ -62,7 +62,7 @@ final class VaultListParams implements BaseModel
     /**
      * Optionally, search for a text query.
      */
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $query;
 
     /**
@@ -131,7 +131,7 @@ final class VaultListParams implements BaseModel
     }
 
     /**
-     * Number of media to return per page. Default: `24`.
+     * Number of media to return per page (10 - 100). Default: `24`.
      */
     public function withLimit(int $limit): self
     {
@@ -166,7 +166,7 @@ final class VaultListParams implements BaseModel
     /**
      * Optionally, search for a text query.
      */
-    public function withQuery(string $query): self
+    public function withQuery(?string $query): self
     {
         $self = clone $this;
         $self['query'] = $query;

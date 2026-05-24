@@ -146,7 +146,7 @@ final class Author implements BaseModel
     #[Optional]
     public ?bool $showMediaCount;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribedOn;
 
     #[Optional]
@@ -510,7 +510,7 @@ final class Author implements BaseModel
         return $self;
     }
 
-    public function withSubscribedOn(string $subscribedOn): self
+    public function withSubscribedOn(?string $subscribedOn): self
     {
         $self = clone $this;
         $self['subscribedOn'] = $subscribedOn;

@@ -10,12 +10,16 @@ use Onlyfansapi\Core\Concerns\SdkParams;
 use Onlyfansapi\Core\Contracts\BaseModel;
 
 /**
- * Get a paginated list of transactions for an Account. Newest transactions are first.
+ * Get a paginated list of transactions for an Account. Newest transactions are first. You can filter by transaction type and tips source.
  *
  * @see Onlyfansapi\Services\TransactionsService::list()
  *
  * @phpstan-type TransactionListParamsShape = array{
- *   limit?: string|null, marker?: string|null, startDate?: string|null
+ *   limit?: string|null,
+ *   marker?: string|null,
+ *   startDate?: string|null,
+ *   tipsSource?: string|null,
+ *   type?: string|null,
  * }
  */
 final class TransactionListParams implements BaseModel
@@ -42,6 +46,18 @@ final class TransactionListParams implements BaseModel
     #[Optional]
     public ?string $startDate;
 
+    /**
+     * Filter tips by source. Only applies when `type=tips`. Options: `profile`, `post_all`, `chat`, `stream`, `story`.
+     */
+    #[Optional]
+    public ?string $tipsSource;
+
+    /**
+     * Filter by transaction type. Options: `subscribes`, `tips`, `post`, `chat_messages`, `stream`.
+     */
+    #[Optional]
+    public ?string $type;
+
     public function __construct()
     {
         $this->initialize();
@@ -55,13 +71,17 @@ final class TransactionListParams implements BaseModel
     public static function with(
         ?string $limit = null,
         ?string $marker = null,
-        ?string $startDate = null
+        ?string $startDate = null,
+        ?string $tipsSource = null,
+        ?string $type = null,
     ): self {
         $self = new self;
 
         null !== $limit && $self['limit'] = $limit;
         null !== $marker && $self['marker'] = $marker;
         null !== $startDate && $self['startDate'] = $startDate;
+        null !== $tipsSource && $self['tipsSource'] = $tipsSource;
+        null !== $type && $self['type'] = $type;
 
         return $self;
     }
@@ -95,6 +115,28 @@ final class TransactionListParams implements BaseModel
     {
         $self = clone $this;
         $self['startDate'] = $startDate;
+
+        return $self;
+    }
+
+    /**
+     * Filter tips by source. Only applies when `type=tips`. Options: `profile`, `post_all`, `chat`, `stream`, `story`.
+     */
+    public function withTipsSource(string $tipsSource): self
+    {
+        $self = clone $this;
+        $self['tipsSource'] = $tipsSource;
+
+        return $self;
+    }
+
+    /**
+     * Filter by transaction type. Options: `subscribes`, `tips`, `post`, `chat_messages`, `stream`.
+     */
+    public function withType(string $type): self
+    {
+        $self = clone $this;
+        $self['type'] = $type;
 
         return $self;
     }

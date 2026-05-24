@@ -30,7 +30,7 @@ final class UsersRawService implements UsersRawContract
      *
      * Add multiple Users To OnlyFans User List
      *
-     * @param int $userListID Path param: OnlyFans User List ID
+     * @param string $userListID Path param: OnlyFans User List ID, or a default list name like `tagged`
      * @param array{account: string, ids: list<string>}|UserAddParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -39,7 +39,7 @@ final class UsersRawService implements UsersRawContract
      * @throws APIException
      */
     public function add(
-        int $userListID,
+        string $userListID,
         array|UserAddParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse {
@@ -66,7 +66,7 @@ final class UsersRawService implements UsersRawContract
      * Remove User from OnlyFans User List
      *
      * @param int $userID OnlyFans User ID
-     * @param array{account: string, userListID: int}|UserRemoveParams $params
+     * @param array{account: string, userListID: string}|UserRemoveParams $params
      * @param RequestOpts|null $requestOptions
      *
      * @return BaseResponse<UserRemoveResponse>

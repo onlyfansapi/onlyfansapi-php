@@ -25,6 +25,7 @@ use Onlyfansapi\TrialLinks\TrialLinkListResponse\Data\List_\Revenue;
  *   revenue?: null|Revenue|RevenueShape,
  *   subscribeCounts?: int|null,
  *   subscribeDays?: int|null,
+ *   tags?: list<string>|null,
  *   trialLinkName?: string|null,
  *   url?: string|null,
  * }
@@ -46,7 +47,7 @@ final class List_ implements BaseModel
     #[Optional]
     public ?string $createdAt;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $expiredAt;
 
     #[Optional]
@@ -63,6 +64,10 @@ final class List_ implements BaseModel
 
     #[Optional]
     public ?int $subscribeDays;
+
+    /** @var list<string>|null $tags */
+    #[Optional(list: 'string')]
+    public ?array $tags;
 
     #[Optional]
     public ?string $trialLinkName;
@@ -82,6 +87,7 @@ final class List_ implements BaseModel
      *
      * @param Links|LinksShape|null $links
      * @param Revenue|RevenueShape|null $revenue
+     * @param list<string>|null $tags
      */
     public static function with(
         ?int $id = null,
@@ -94,6 +100,7 @@ final class List_ implements BaseModel
         Revenue|array|null $revenue = null,
         ?int $subscribeCounts = null,
         ?int $subscribeDays = null,
+        ?array $tags = null,
         ?string $trialLinkName = null,
         ?string $url = null,
     ): self {
@@ -109,6 +116,7 @@ final class List_ implements BaseModel
         null !== $revenue && $self['revenue'] = $revenue;
         null !== $subscribeCounts && $self['subscribeCounts'] = $subscribeCounts;
         null !== $subscribeDays && $self['subscribeDays'] = $subscribeDays;
+        null !== $tags && $self['tags'] = $tags;
         null !== $trialLinkName && $self['trialLinkName'] = $trialLinkName;
         null !== $url && $self['url'] = $url;
 
@@ -147,7 +155,7 @@ final class List_ implements BaseModel
         return $self;
     }
 
-    public function withExpiredAt(string $expiredAt): self
+    public function withExpiredAt(?string $expiredAt): self
     {
         $self = clone $this;
         $self['expiredAt'] = $expiredAt;
@@ -197,6 +205,17 @@ final class List_ implements BaseModel
     {
         $self = clone $this;
         $self['subscribeDays'] = $subscribeDays;
+
+        return $self;
+    }
+
+    /**
+     * @param list<string> $tags
+     */
+    public function withTags(array $tags): self
+    {
+        $self = clone $this;
+        $self['tags'] = $tags;
 
         return $self;
     }

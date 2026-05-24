@@ -19,6 +19,7 @@ use Onlyfansapi\Media\MediaUploadResponse\Thumb;
  *   extra?: string|null,
  *   fileName?: string|null,
  *   host?: string|null,
+ *   note?: string|null,
  *   prefixedID?: string|null,
  *   processID?: string|null,
  *   sourceURL?: string|null,
@@ -41,6 +42,9 @@ final class MediaUploadResponse implements BaseModel
 
     #[Optional]
     public ?string $host;
+
+    #[Optional]
+    public ?string $note;
 
     #[Optional('prefixed_id')]
     public ?string $prefixedID;
@@ -73,6 +77,7 @@ final class MediaUploadResponse implements BaseModel
         ?string $extra = null,
         ?string $fileName = null,
         ?string $host = null,
+        ?string $note = null,
         ?string $prefixedID = null,
         ?string $processID = null,
         ?string $sourceURL = null,
@@ -84,6 +89,7 @@ final class MediaUploadResponse implements BaseModel
         null !== $extra && $self['extra'] = $extra;
         null !== $fileName && $self['fileName'] = $fileName;
         null !== $host && $self['host'] = $host;
+        null !== $note && $self['note'] = $note;
         null !== $prefixedID && $self['prefixedID'] = $prefixedID;
         null !== $processID && $self['processID'] = $processID;
         null !== $sourceURL && $self['sourceURL'] = $sourceURL;
@@ -123,6 +129,14 @@ final class MediaUploadResponse implements BaseModel
     {
         $self = clone $this;
         $self['host'] = $host;
+
+        return $self;
+    }
+
+    public function withNote(string $note): self
+    {
+        $self = clone $this;
+        $self['note'] = $note;
 
         return $self;
     }

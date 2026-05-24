@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Onlyfansapi\ServiceContracts;
 
 use Onlyfansapi\Core\Exceptions\APIException;
+use Onlyfansapi\Core\FileParam;
+use Onlyfansapi\Media\MediaScrapeParams\FileType;
 use Onlyfansapi\Media\MediaScrapeResponse;
 use Onlyfansapi\Media\MediaUploadParams\Type;
 use Onlyfansapi\Media\MediaUploadResponse;
@@ -19,16 +21,22 @@ interface MediaContract
      * @api
      *
      * @param string $account The Account ID
-     * @param string $url The CDN URL to scrape. **Keep in mind that these URLs expire fast.**
-     * @param string|null $expirationDate The expiration date of our returned `temporary_url`. Default of 5 minutes.
+     * @param string|null $expirationDate The expiration date of our returned `temporary_url`. Default of 5 minutes. Must be null if `public` is true.
+     * @param FileType|value-of<FileType>|null $fileType The file type to scrape. Only allowed when using `media_id`.
+     * @param int|null $mediaID The OnlyFans Vault Media ID. **Can be used instead of the `url`.**
+     * @param bool|null $public Set to true if you want to have the file uploaded to our public CDN (no signed URL needed to access). Default is false. Must be null if `expiration_date` is set.
+     * @param string|null $url The CDN URL to scrape. **Keep in mind that these URLs expire fast.**
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
      */
     public function scrape(
         string $account,
-        string $url,
         ?string $expirationDate = null,
+        FileType|string|null $fileType = null,
+        ?int $mediaID = null,
+        ?bool $public = null,
+        ?string $url = null,
         RequestOptions|array|null $requestOptions = null,
     ): MediaScrapeResponse;
 
@@ -36,7 +44,9 @@ interface MediaContract
      * @api
      *
      * @param string $account The Account ID
-     * @param string $file the file to upload
+     * @param bool $async Set to `true` to process uploads in the background. Returns a `polling_url` to check status. Recommended for large files.
+     * @param string|FileParam $file The file to upload. Required if `file_url` is not provided. Maximum file size: 100 MB (limited by Cloudflare).
+     * @param string $fileURL A URL to download the file from. Required if `file` is not provided. Maximum file size depends on the subscription configuration.
      * @param Type|value-of<Type> $type set to `avatar` if this file will be used as a profile picture, `header` for a profile banner, or keep empty if this file will be for anything else
      * @param RequestOpts|null $requestOptions
      *
@@ -44,7 +54,9 @@ interface MediaContract
      */
     public function upload(
         string $account,
-        string $file,
+        ?bool $async = null,
+        string|FileParam|null $file = null,
+        ?string $fileURL = null,
         Type|string|null $type = null,
         RequestOptions|array|null $requestOptions = null,
     ): MediaUploadResponse;

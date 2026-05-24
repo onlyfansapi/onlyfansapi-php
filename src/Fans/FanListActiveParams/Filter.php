@@ -7,13 +7,14 @@ namespace Onlyfansapi\Fans\FanListActiveParams;
 use Onlyfansapi\Core\Attributes\Optional;
 use Onlyfansapi\Core\Concerns\SdkModel;
 use Onlyfansapi\Core\Contracts\BaseModel;
+use Onlyfansapi\Fans\FanListActiveParams\Filter\Online;
 
 /**
  * @phpstan-type FilterShape = array{
- *   duration?: string|null,
- *   online?: string|null,
- *   tips?: string|null,
- *   totalSpent?: string|null,
+ *   duration?: int|null,
+ *   online?: null|Online|value-of<Online>,
+ *   tips?: int|null,
+ *   totalSpent?: int|null,
  * }
  */
 final class Filter implements BaseModel
@@ -22,28 +23,30 @@ final class Filter implements BaseModel
     use SdkModel;
 
     /**
-     * Filter by minimum subscription duration (days).
+     * Filter by minimum subscription duration in months. Must be at least 0.
      */
-    #[Optional(nullable: true)]
-    public ?string $duration;
+    #[Optional]
+    public ?int $duration;
 
     /**
-     * Filter by online status (1 for online).
+     * Filter by online status (`1` for online fans).
+     *
+     * @var value-of<Online>|null $online
      */
-    #[Optional(nullable: true)]
-    public ?string $online;
+    #[Optional(enum: Online::class, nullable: true)]
+    public ?int $online;
 
     /**
-     * Filter by minimum tips.
+     * Filter by minimum tips. Must be at least 0.
      */
-    #[Optional(nullable: true)]
-    public ?string $tips;
+    #[Optional]
+    public ?int $tips;
 
     /**
-     * Filter by minimum total spent.
+     * Filter by minimum amount total spent by a fan. Must be at least 0.
      */
-    #[Optional('total_spent', nullable: true)]
-    public ?string $totalSpent;
+    #[Optional('total_spent')]
+    public ?int $totalSpent;
 
     public function __construct()
     {
@@ -54,12 +57,14 @@ final class Filter implements BaseModel
      * Construct an instance from the required parameters.
      *
      * You must use named parameters to construct any parameters with a default value.
+     *
+     * @param Online|value-of<Online>|null $online
      */
     public static function with(
-        ?string $duration = null,
-        ?string $online = null,
-        ?string $tips = null,
-        ?string $totalSpent = null,
+        ?int $duration = null,
+        Online|int|null $online = null,
+        ?int $tips = null,
+        ?int $totalSpent = null,
     ): self {
         $self = new self;
 
@@ -72,9 +77,9 @@ final class Filter implements BaseModel
     }
 
     /**
-     * Filter by minimum subscription duration (days).
+     * Filter by minimum subscription duration in months. Must be at least 0.
      */
-    public function withDuration(?string $duration): self
+    public function withDuration(int $duration): self
     {
         $self = clone $this;
         $self['duration'] = $duration;
@@ -83,9 +88,11 @@ final class Filter implements BaseModel
     }
 
     /**
-     * Filter by online status (1 for online).
+     * Filter by online status (`1` for online fans).
+     *
+     * @param Online|value-of<Online>|null $online
      */
-    public function withOnline(?string $online): self
+    public function withOnline(Online|int|null $online): self
     {
         $self = clone $this;
         $self['online'] = $online;
@@ -94,9 +101,9 @@ final class Filter implements BaseModel
     }
 
     /**
-     * Filter by minimum tips.
+     * Filter by minimum tips. Must be at least 0.
      */
-    public function withTips(?string $tips): self
+    public function withTips(int $tips): self
     {
         $self = clone $this;
         $self['tips'] = $tips;
@@ -105,9 +112,9 @@ final class Filter implements BaseModel
     }
 
     /**
-     * Filter by minimum total spent.
+     * Filter by minimum amount total spent by a fan. Must be at least 0.
      */
-    public function withTotalSpent(?string $totalSpent): self
+    public function withTotalSpent(int $totalSpent): self
     {
         $self = clone $this;
         $self['totalSpent'] = $totalSpent;

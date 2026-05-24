@@ -42,7 +42,7 @@ final class TrackingLinksRawService implements TrackingLinksRawContract
      * Create a new Tracking Link for the account
      *
      * @param string $account The Account ID
-     * @param array{name: string}|TrackingLinkCreateParams $params
+     * @param array{name: string, tags?: list<string>}|TrackingLinkCreateParams $params
      * @param RequestOpts|null $requestOptions
      *
      * @return BaseResponse<TrackingLinkNewResponse>
@@ -119,7 +119,7 @@ final class TrackingLinksRawService implements TrackingLinksRawContract
      *
      * Delete a Tracking Link
      *
-     * @param string $trackingLinkID The ID of the Tracking Link. Can be retrieved from the above store and list endpoints.
+     * @param string $trackingLinkID the ID of the tracking link
      * @param array{account: string}|TrackingLinkDeleteParams $params
      * @param RequestOpts|null $requestOptions
      *

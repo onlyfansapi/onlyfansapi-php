@@ -32,7 +32,7 @@ final class Full implements BaseModel
     #[Optional(list: 'mixed')]
     public ?array $sources;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $url;
 
     #[Optional]
@@ -95,7 +95,7 @@ final class Full implements BaseModel
         return $self;
     }
 
-    public function withURL(string $url): self
+    public function withURL(?string $url): self
     {
         $self = clone $this;
         $self['url'] = $url;

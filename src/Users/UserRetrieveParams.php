@@ -10,7 +10,7 @@ use Onlyfansapi\Core\Concerns\SdkParams;
 use Onlyfansapi\Core\Contracts\BaseModel;
 
 /**
- * Get OnlyFans Profile details for a given username. User details are retrieved using the current current `{account}` so fields like `subscribedOnData` which include potential subscription details will be included.
+ * Get OnlyFans Profile details for a given username. User details are retrieved using the current `{account}` so fields like `subscribedOnData` which include potential subscription details will be included.
  *
  * @see Onlyfansapi\Services\UsersService::retrieve()
  *

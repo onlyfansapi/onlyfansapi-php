@@ -8,7 +8,6 @@ use Onlyfansapi\Payouts\PayoutGetBalancesResponse;
 use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse;
 use Onlyfansapi\Payouts\PayoutGetEligibilityResponse;
 use Onlyfansapi\Payouts\PayoutListPayoutRequestsResponse;
-use Onlyfansapi\Payouts\PayoutListTransactionsResponse;
 use Onlyfansapi\Payouts\PayoutUpdatePayoutFrequencyResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
@@ -46,19 +45,6 @@ final class PayoutsTest extends TestCase
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(PayoutListPayoutRequestsResponse::class, $result);
-    }
-
-    #[Test]
-    public function testListTransactions(): void
-    {
-        if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Mock server tests are disabled');
-        }
-
-        $result = $this->client->payouts->listTransactions('acct_XXXXXXXXXXXXXXX');
-
-        // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(PayoutListTransactionsResponse::class, $result);
     }
 
     #[Test]

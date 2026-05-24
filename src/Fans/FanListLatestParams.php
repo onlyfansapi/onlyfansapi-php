@@ -35,7 +35,7 @@ final class FanListLatestParams implements BaseModel
     public ?string $endDate;
 
     /**
-     * Number of fans to return (1-100).
+     * Number of fans to return (1-50).
      */
     #[Optional(nullable: true)]
     public ?string $limit;
@@ -98,7 +98,7 @@ final class FanListLatestParams implements BaseModel
     }
 
     /**
-     * Number of fans to return (1-100).
+     * Number of fans to return (1-50).
      */
     public function withLimit(?string $limit): self
     {

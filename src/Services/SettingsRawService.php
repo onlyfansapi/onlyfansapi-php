@@ -16,8 +16,6 @@ use Onlyfansapi\Settings\SettingUpdateProfileParams;
 use Onlyfansapi\Settings\SettingUpdateProfileResponse;
 
 /**
- * Operations related to user account settings.
- *
  * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
  */
 final class SettingsRawService implements SettingsRawContract

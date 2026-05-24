@@ -7,8 +7,11 @@ namespace Onlyfansapi\ServiceContracts;
 use Onlyfansapi\Core\Contracts\BaseResponse;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Following\FollowingListActiveParams;
+use Onlyfansapi\Following\FollowingListActiveResponse;
 use Onlyfansapi\Following\FollowingListAllParams;
+use Onlyfansapi\Following\FollowingListAllResponse;
 use Onlyfansapi\Following\FollowingListExpiredParams;
+use Onlyfansapi\Following\FollowingListExpiredResponse;
 use Onlyfansapi\RequestOptions;
 
 /**
@@ -23,7 +26,7 @@ interface FollowingRawContract
      * @param array<string,mixed>|FollowingListActiveParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<mixed>
+     * @return BaseResponse<FollowingListActiveResponse>
      *
      * @throws APIException
      */
@@ -40,7 +43,7 @@ interface FollowingRawContract
      * @param array<string,mixed>|FollowingListAllParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<mixed>
+     * @return BaseResponse<FollowingListAllResponse>
      *
      * @throws APIException
      */
@@ -57,7 +60,7 @@ interface FollowingRawContract
      * @param array<string,mixed>|FollowingListExpiredParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<mixed>
+     * @return BaseResponse<FollowingListExpiredResponse>
      *
      * @throws APIException
      */

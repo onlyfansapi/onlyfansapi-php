@@ -8,6 +8,7 @@ use Onlyfansapi\Client;
 use Onlyfansapi\Core\Contracts\BaseResponse;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Profiles\ProfileGetResponse;
+use Onlyfansapi\Profiles\ProfileRetrieveParams;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\ProfilesRawContract;
 
@@ -28,6 +29,7 @@ final class ProfilesRawService implements ProfilesRawContract
      * Get profile details by username.
      *
      * @param string $username The username of the profile to get
+     * @param array{fresh?: bool|null}|ProfileRetrieveParams $params
      * @param RequestOpts|null $requestOptions
      *
      * @return BaseResponse<ProfileGetResponse>
@@ -36,13 +38,20 @@ final class ProfilesRawService implements ProfilesRawContract
      */
     public function retrieve(
         string $username,
-        RequestOptions|array|null $requestOptions = null
+        array|ProfileRetrieveParams $params,
+        RequestOptions|array|null $requestOptions = null,
     ): BaseResponse {
+        [$parsed, $options] = ProfileRetrieveParams::parseRequest(
+            $params,
+            $requestOptions,
+        );
+
         // @phpstan-ignore-next-line return.type
         return $this->client->request(
             method: 'get',
             path: ['api/profiles/%1$s', $username],
-            options: $requestOptions,
+            query: $parsed,
+            options: $options,
             convert: ProfileGetResponse::class,
         );
     }

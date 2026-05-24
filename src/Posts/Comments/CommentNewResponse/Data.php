@@ -43,7 +43,7 @@ final class Data implements BaseModel
     #[Optional]
     public ?string $changedAt;
 
-    #[Optional('giphyId')]
+    #[Optional('giphyId', nullable: true)]
     public ?string $giphyID;
 
     #[Optional]
@@ -141,7 +141,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withGiphyID(string $giphyID): self
+    public function withGiphyID(?string $giphyID): self
     {
         $self = clone $this;
         $self['giphyID'] = $giphyID;

@@ -7,4 +7,9 @@ namespace Onlyfansapi\Following\FollowingListAllParams\Filter;
 /**
  * Filter by online status (1 for online, 0 for offline, null for all).
  */
-enum Online: int {}
+enum Online: int
+{
+    case _1 = 1;
+
+    case _0 = 0;
+}

@@ -40,7 +40,7 @@ final class Subscribe implements BaseModel
     #[Optional]
     public ?string $action;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $cancelDate;
 
     #[Optional]
@@ -153,7 +153,7 @@ final class Subscribe implements BaseModel
         return $self;
     }
 
-    public function withCancelDate(string $cancelDate): self
+    public function withCancelDate(?string $cancelDate): self
     {
         $self = clone $this;
         $self['cancelDate'] = $cancelDate;

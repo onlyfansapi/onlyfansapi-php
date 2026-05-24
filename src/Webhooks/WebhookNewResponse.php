@@ -7,14 +7,15 @@ namespace Onlyfansapi\Webhooks;
 use Onlyfansapi\Core\Attributes\Optional;
 use Onlyfansapi\Core\Concerns\SdkModel;
 use Onlyfansapi\Core\Contracts\BaseModel;
+use Onlyfansapi\Webhooks\WebhookNewResponse\_Meta;
+use Onlyfansapi\Webhooks\WebhookNewResponse\Data;
 
 /**
+ * @phpstan-import-type _MetaShape from \Onlyfansapi\Webhooks\WebhookNewResponse\_Meta
+ * @phpstan-import-type DataShape from \Onlyfansapi\Webhooks\WebhookNewResponse\Data
+ *
  * @phpstan-type WebhookNewResponseShape = array{
- *   id?: string|null,
- *   createdAt?: string|null,
- *   events?: list<string>|null,
- *   hasSigningSecret?: bool|null,
- *   url?: string|null,
+ *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape
  * }
  */
 final class WebhookNewResponse implements BaseModel
@@ -23,20 +24,10 @@ final class WebhookNewResponse implements BaseModel
     use SdkModel;
 
     #[Optional]
-    public ?string $id;
-
-    #[Optional('created_at')]
-    public ?string $createdAt;
-
-    /** @var list<string>|null $events */
-    #[Optional(list: 'string')]
-    public ?array $events;
-
-    #[Optional('has_signing_secret')]
-    public ?bool $hasSigningSecret;
+    public ?_Meta $_meta;
 
     #[Optional]
-    public ?string $url;
+    public ?Data $data;
 
     public function __construct()
     {
@@ -48,65 +39,39 @@ final class WebhookNewResponse implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
-     * @param list<string>|null $events
+     * @param _Meta|_MetaShape|null $_meta
+     * @param Data|DataShape|null $data
      */
     public static function with(
-        ?string $id = null,
-        ?string $createdAt = null,
-        ?array $events = null,
-        ?bool $hasSigningSecret = null,
-        ?string $url = null,
+        _Meta|array|null $_meta = null,
+        Data|array|null $data = null
     ): self {
         $self = new self;
 
-        null !== $id && $self['id'] = $id;
-        null !== $createdAt && $self['createdAt'] = $createdAt;
-        null !== $events && $self['events'] = $events;
-        null !== $hasSigningSecret && $self['hasSigningSecret'] = $hasSigningSecret;
-        null !== $url && $self['url'] = $url;
-
-        return $self;
-    }
-
-    public function withID(string $id): self
-    {
-        $self = clone $this;
-        $self['id'] = $id;
-
-        return $self;
-    }
-
-    public function withCreatedAt(string $createdAt): self
-    {
-        $self = clone $this;
-        $self['createdAt'] = $createdAt;
+        null !== $_meta && $self['_meta'] = $_meta;
+        null !== $data && $self['data'] = $data;
 
         return $self;
     }
 
     /**
-     * @param list<string> $events
+     * @param _Meta|_MetaShape $_meta
      */
-    public function withEvents(array $events): self
+    public function withMeta(_Meta|array $_meta): self
     {
         $self = clone $this;
-        $self['events'] = $events;
+        $self['_meta'] = $_meta;
 
         return $self;
     }
 
-    public function withHasSigningSecret(bool $hasSigningSecret): self
+    /**
+     * @param Data|DataShape $data
+     */
+    public function withData(Data|array $data): self
     {
         $self = clone $this;
-        $self['hasSigningSecret'] = $hasSigningSecret;
-
-        return $self;
-    }
-
-    public function withURL(string $url): self
-    {
-        $self = clone $this;
-        $self['url'] = $url;
+        $self['data'] = $data;
 
         return $self;
     }

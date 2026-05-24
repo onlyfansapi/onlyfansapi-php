@@ -36,7 +36,7 @@ final class UsersTest extends TestCase
         }
 
         $result = $this->client->users->retrieve(
-            'consequuntur',
+            'exampleuser',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -52,7 +52,7 @@ final class UsersTest extends TestCase
         }
 
         $result = $this->client->users->retrieve(
-            'consequuntur',
+            'exampleuser',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 

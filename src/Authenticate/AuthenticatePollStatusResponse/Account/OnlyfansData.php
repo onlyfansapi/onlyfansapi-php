@@ -138,7 +138,7 @@ final class OnlyfansData implements BaseModel
     #[Optional]
     public ?int $id;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $about;
 
     /** @var list<string>|null $advBlock */
@@ -157,13 +157,13 @@ final class OnlyfansData implements BaseModel
     #[Optional]
     public ?int $audiosCount;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $avatar;
 
     #[Optional]
     public ?bool $avatarHeaderConverterUpload;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $avatarThumbs;
 
     #[Optional]
@@ -282,13 +282,13 @@ final class OnlyfansData implements BaseModel
     #[Optional]
     public ?bool $hasWatermarkVideo;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $header;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $headerSize;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $headerThumbs;
 
     #[Optional]
@@ -363,7 +363,7 @@ final class OnlyfansData implements BaseModel
     #[Optional]
     public ?bool $isWantComments;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $ivCountry;
 
     #[Optional]
@@ -372,7 +372,7 @@ final class OnlyfansData implements BaseModel
     #[Optional]
     public ?string $ivFlow;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $ivStatus;
 
     #[Optional]
@@ -381,7 +381,7 @@ final class OnlyfansData implements BaseModel
     #[Optional]
     public ?string $lastSeen;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $location;
 
     #[Optional]
@@ -429,7 +429,7 @@ final class OnlyfansData implements BaseModel
     #[Optional]
     public ?int $subscribesCount;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $twitterUsername;
 
     #[Optional]
@@ -459,10 +459,10 @@ final class OnlyfansData implements BaseModel
     #[Optional]
     public ?string $watermarkText;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $website;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $wishlist;
 
     #[Optional]
@@ -726,7 +726,7 @@ final class OnlyfansData implements BaseModel
         return $self;
     }
 
-    public function withAbout(string $about): self
+    public function withAbout(?string $about): self
     {
         $self = clone $this;
         $self['about'] = $about;
@@ -782,7 +782,7 @@ final class OnlyfansData implements BaseModel
         return $self;
     }
 
-    public function withAvatar(string $avatar): self
+    public function withAvatar(?string $avatar): self
     {
         $self = clone $this;
         $self['avatar'] = $avatar;
@@ -799,7 +799,7 @@ final class OnlyfansData implements BaseModel
         return $self;
     }
 
-    public function withAvatarThumbs(string $avatarThumbs): self
+    public function withAvatarThumbs(?string $avatarThumbs): self
     {
         $self = clone $this;
         $self['avatarThumbs'] = $avatarThumbs;
@@ -1125,7 +1125,7 @@ final class OnlyfansData implements BaseModel
         return $self;
     }
 
-    public function withHeader(string $header): self
+    public function withHeader(?string $header): self
     {
         $self = clone $this;
         $self['header'] = $header;
@@ -1133,7 +1133,7 @@ final class OnlyfansData implements BaseModel
         return $self;
     }
 
-    public function withHeaderSize(string $headerSize): self
+    public function withHeaderSize(?string $headerSize): self
     {
         $self = clone $this;
         $self['headerSize'] = $headerSize;
@@ -1141,7 +1141,7 @@ final class OnlyfansData implements BaseModel
         return $self;
     }
 
-    public function withHeaderThumbs(string $headerThumbs): self
+    public function withHeaderThumbs(?string $headerThumbs): self
     {
         $self = clone $this;
         $self['headerThumbs'] = $headerThumbs;
@@ -1344,7 +1344,7 @@ final class OnlyfansData implements BaseModel
         return $self;
     }
 
-    public function withIvCountry(string $ivCountry): self
+    public function withIvCountry(?string $ivCountry): self
     {
         $self = clone $this;
         $self['ivCountry'] = $ivCountry;
@@ -1368,7 +1368,7 @@ final class OnlyfansData implements BaseModel
         return $self;
     }
 
-    public function withIvStatus(string $ivStatus): self
+    public function withIvStatus(?string $ivStatus): self
     {
         $self = clone $this;
         $self['ivStatus'] = $ivStatus;
@@ -1392,7 +1392,7 @@ final class OnlyfansData implements BaseModel
         return $self;
     }
 
-    public function withLocation(string $location): self
+    public function withLocation(?string $location): self
     {
         $self = clone $this;
         $self['location'] = $location;
@@ -1522,7 +1522,7 @@ final class OnlyfansData implements BaseModel
         return $self;
     }
 
-    public function withTwitterUsername(string $twitterUsername): self
+    public function withTwitterUsername(?string $twitterUsername): self
     {
         $self = clone $this;
         $self['twitterUsername'] = $twitterUsername;
@@ -1606,7 +1606,7 @@ final class OnlyfansData implements BaseModel
         return $self;
     }
 
-    public function withWebsite(string $website): self
+    public function withWebsite(?string $website): self
     {
         $self = clone $this;
         $self['website'] = $website;
@@ -1614,7 +1614,7 @@ final class OnlyfansData implements BaseModel
         return $self;
     }
 
-    public function withWishlist(string $wishlist): self
+    public function withWishlist(?string $wishlist): self
     {
         $self = clone $this;
         $self['wishlist'] = $wishlist;

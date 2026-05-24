@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Onlyfansapi\Services;
 
 use Onlyfansapi\Chats\ChatListParams;
+use Onlyfansapi\Chats\ChatListParams\Filter;
+use Onlyfansapi\Chats\ChatListParams\Order;
+use Onlyfansapi\Chats\ChatListParams\SkipUsers;
 use Onlyfansapi\Chats\ChatListResponse;
 use Onlyfansapi\Chats\ChatStartTypingIndicatorParams;
 use Onlyfansapi\Chats\ChatStartTypingIndicatorResponse;
@@ -16,8 +19,6 @@ use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\ChatsRawContract;
 
 /**
- * APIs for managing OnlyFans chats.
- *
  * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
  */
 final class ChatsRawService implements ChatsRawContract
@@ -35,11 +36,12 @@ final class ChatsRawService implements ChatsRawContract
      *
      * @param string $account The Account ID
      * @param array{
+     *   filter?: Filter|value-of<Filter>,
      *   limit?: string,
      *   offset?: string,
-     *   order?: string,
+     *   order?: Order|value-of<Order>,
      *   query?: string,
-     *   skipUsers?: string,
+     *   skipUsers?: SkipUsers|value-of<SkipUsers>,
      * }|ChatListParams $params
      * @param RequestOpts|null $requestOptions
      *

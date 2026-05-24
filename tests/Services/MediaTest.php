@@ -36,27 +36,7 @@ final class MediaTest extends TestCase
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->media->scrape(
-            'acct_XXXXXXXXXXXXXXX',
-            url: 'https://cdn2.onlyfans.com/files/e/e5/123/600x400_123.jpg?Tag=2&u=123&Policy=123&Signature=signature&Key-Pair-Id=123',
-        );
-
-        // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(MediaScrapeResponse::class, $result);
-    }
-
-    #[Test]
-    public function testScrapeWithOptionalParams(): void
-    {
-        if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Mock server tests are disabled');
-        }
-
-        $result = $this->client->media->scrape(
-            'acct_XXXXXXXXXXXXXXX',
-            url: 'https://cdn2.onlyfans.com/files/e/e5/123/600x400_123.jpg?Tag=2&u=123&Policy=123&Signature=signature&Key-Pair-Id=123',
-            expirationDate: '2025-01-01 00:00:00',
-        );
+        $result = $this->client->media->scrape('acct_XXXXXXXXXXXXXXX');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(MediaScrapeResponse::class, $result);
@@ -69,27 +49,7 @@ final class MediaTest extends TestCase
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->media->upload(
-            'acct_XXXXXXXXXXXXXXX',
-            file: 'file.jpg'
-        );
-
-        // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(MediaUploadResponse::class, $result);
-    }
-
-    #[Test]
-    public function testUploadWithOptionalParams(): void
-    {
-        if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Mock server tests are disabled');
-        }
-
-        $result = $this->client->media->upload(
-            'acct_XXXXXXXXXXXXXXX',
-            file: 'file.jpg',
-            type: 'avatar'
-        );
+        $result = $this->client->media->upload('acct_XXXXXXXXXXXXXXX');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(MediaUploadResponse::class, $result);

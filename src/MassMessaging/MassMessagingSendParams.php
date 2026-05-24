@@ -17,10 +17,15 @@ use Onlyfansapi\Core\Contracts\BaseModel;
  *
  * @phpstan-type MassMessagingSendParamsShape = array{
  *   text: string,
+ *   excludedLists?: list<string>|null,
+ *   giphyID?: string|null,
  *   lockedText?: bool|null,
- *   mediaFiles?: list<string>|null,
- *   previews?: list<string>|null,
+ *   mediaFiles?: list<mixed>|null,
+ *   previews?: list<mixed>|null,
  *   price?: int|null,
+ *   rfGuest?: string|null,
+ *   rfPartner?: string|null,
+ *   rfTag?: string|null,
  *   saveForLater?: bool|null,
  *   scheduledDate?: string|null,
  *   userIDs?: list<string>|null,
@@ -40,25 +45,39 @@ final class MassMessagingSendParams implements BaseModel
     public string $text;
 
     /**
+     * Array of user list IDs that the mass message will NOT be sent to.
+     *
+     * @var list<string>|null $excludedLists
+     */
+    #[Optional(list: 'string')]
+    public ?array $excludedLists;
+
+    /**
+     * The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
+     */
+    #[Optional('giphyId')]
+    public ?string $giphyID;
+
+    /**
      * Whether the text should be shown or hidden.
      */
     #[Optional]
     public ?bool $lockedText;
 
     /**
-     * Array of media file upload prefixed_ids, or OF media IDs (required if price is not 0). Will be hidden if `price` is provided.
+     * Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs. Will be hidden if `price` is provided.
      *
-     * @var list<string>|null $mediaFiles
+     * @var list<mixed>|null $mediaFiles
      */
-    #[Optional(list: 'string')]
+    #[Optional(list: 'mixed')]
     public ?array $mediaFiles;
 
     /**
-     * Array of media file upload prefixed_ids, or OF media IDs (required if price is not 0). Will be shown if `price` is provided. All `previews` values must also exist in the `mediaFiles` array.
+     * Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices referencing uploaded files in `mediaFiles`. Will be shown if `price` is provided.
      *
-     * @var list<string>|null $previews
+     * @var list<mixed>|null $previews
      */
-    #[Optional(list: 'string')]
+    #[Optional(list: 'mixed')]
     public ?array $previews;
 
     /**
@@ -66,6 +85,24 @@ final class MassMessagingSendParams implements BaseModel
      */
     #[Optional]
     public ?int $price;
+
+    /**
+     * Array of OnlyFans Release Form Guest IDs to tag in your mass message.
+     */
+    #[Optional]
+    public ?string $rfGuest;
+
+    /**
+     * Array of OnlyFans Release Form Partners IDs to tag in your mass message.
+     */
+    #[Optional]
+    public ?string $rfPartner;
+
+    /**
+     * Array of OnlyFans Creator User IDs to tag in your mass message.
+     */
+    #[Optional]
+    public ?string $rfTag;
 
     /**
      * Add your message to the "Saved for later" queue.
@@ -119,17 +156,23 @@ final class MassMessagingSendParams implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
-     * @param list<string>|null $mediaFiles
-     * @param list<string>|null $previews
+     * @param list<string>|null $excludedLists
+     * @param list<mixed>|null $mediaFiles
+     * @param list<mixed>|null $previews
      * @param list<string>|null $userIDs
      * @param list<string>|null $userLists
      */
     public static function with(
         string $text,
+        ?array $excludedLists = null,
+        ?string $giphyID = null,
         ?bool $lockedText = null,
         ?array $mediaFiles = null,
         ?array $previews = null,
         ?int $price = null,
+        ?string $rfGuest = null,
+        ?string $rfPartner = null,
+        ?string $rfTag = null,
         ?bool $saveForLater = null,
         ?string $scheduledDate = null,
         ?array $userIDs = null,
@@ -139,10 +182,15 @@ final class MassMessagingSendParams implements BaseModel
 
         $self['text'] = $text;
 
+        null !== $excludedLists && $self['excludedLists'] = $excludedLists;
+        null !== $giphyID && $self['giphyID'] = $giphyID;
         null !== $lockedText && $self['lockedText'] = $lockedText;
         null !== $mediaFiles && $self['mediaFiles'] = $mediaFiles;
         null !== $previews && $self['previews'] = $previews;
         null !== $price && $self['price'] = $price;
+        null !== $rfGuest && $self['rfGuest'] = $rfGuest;
+        null !== $rfPartner && $self['rfPartner'] = $rfPartner;
+        null !== $rfTag && $self['rfTag'] = $rfTag;
         null !== $saveForLater && $self['saveForLater'] = $saveForLater;
         null !== $scheduledDate && $self['scheduledDate'] = $scheduledDate;
         null !== $userIDs && $self['userIDs'] = $userIDs;
@@ -163,6 +211,30 @@ final class MassMessagingSendParams implements BaseModel
     }
 
     /**
+     * Array of user list IDs that the mass message will NOT be sent to.
+     *
+     * @param list<string> $excludedLists
+     */
+    public function withExcludedLists(array $excludedLists): self
+    {
+        $self = clone $this;
+        $self['excludedLists'] = $excludedLists;
+
+        return $self;
+    }
+
+    /**
+     * The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
+     */
+    public function withGiphyID(string $giphyID): self
+    {
+        $self = clone $this;
+        $self['giphyID'] = $giphyID;
+
+        return $self;
+    }
+
+    /**
      * Whether the text should be shown or hidden.
      */
     public function withLockedText(bool $lockedText): self
@@ -174,9 +246,9 @@ final class MassMessagingSendParams implements BaseModel
     }
 
     /**
-     * Array of media file upload prefixed_ids, or OF media IDs (required if price is not 0). Will be hidden if `price` is provided.
+     * Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs. Will be hidden if `price` is provided.
      *
-     * @param list<string> $mediaFiles
+     * @param list<mixed> $mediaFiles
      */
     public function withMediaFiles(array $mediaFiles): self
     {
@@ -187,9 +259,9 @@ final class MassMessagingSendParams implements BaseModel
     }
 
     /**
-     * Array of media file upload prefixed_ids, or OF media IDs (required if price is not 0). Will be shown if `price` is provided. All `previews` values must also exist in the `mediaFiles` array.
+     * Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices referencing uploaded files in `mediaFiles`. Will be shown if `price` is provided.
      *
-     * @param list<string> $previews
+     * @param list<mixed> $previews
      */
     public function withPreviews(array $previews): self
     {
@@ -206,6 +278,39 @@ final class MassMessagingSendParams implements BaseModel
     {
         $self = clone $this;
         $self['price'] = $price;
+
+        return $self;
+    }
+
+    /**
+     * Array of OnlyFans Release Form Guest IDs to tag in your mass message.
+     */
+    public function withRfGuest(string $rfGuest): self
+    {
+        $self = clone $this;
+        $self['rfGuest'] = $rfGuest;
+
+        return $self;
+    }
+
+    /**
+     * Array of OnlyFans Release Form Partners IDs to tag in your mass message.
+     */
+    public function withRfPartner(string $rfPartner): self
+    {
+        $self = clone $this;
+        $self['rfPartner'] = $rfPartner;
+
+        return $self;
+    }
+
+    /**
+     * Array of OnlyFans Creator User IDs to tag in your mass message.
+     */
+    public function withRfTag(string $rfTag): self
+    {
+        $self = clone $this;
+        $self['rfTag'] = $rfTag;
 
         return $self;
     }

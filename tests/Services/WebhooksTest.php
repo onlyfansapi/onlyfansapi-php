@@ -36,6 +36,7 @@ final class WebhooksTest extends TestCase
         }
 
         $result = $this->client->webhooks->create(
+            accountScope: 'global',
             endpointURL: 'https://example.com',
             events: ['accounts.connected', 'subscriptions.new'],
         );
@@ -52,8 +53,10 @@ final class WebhooksTest extends TestCase
         }
 
         $result = $this->client->webhooks->create(
+            accountScope: 'global',
             endpointURL: 'https://example.com',
             events: ['accounts.connected', 'subscriptions.new'],
+            accountIDs: ['ac_abc123'],
             signingSecret: 'signing_secret',
         );
 

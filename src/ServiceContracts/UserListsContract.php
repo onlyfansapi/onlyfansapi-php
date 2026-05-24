@@ -34,17 +34,19 @@ interface UserListsContract
     /**
      * @api
      *
-     * @param int $userListID Path param: OnlyFans User List ID
+     * @param string $userListID Path param: OnlyFans User List ID, or a default list name like `tagged`
      * @param string $account Path param: The Account ID
-     * @param string $name body param: Must not be greater than 64 characters
+     * @param string $name body param: The new name for the User List
+     * @param bool|null $isPinnedToFeed body param: Whether to pin the User List to feed to the OnlyFans homepage or not
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
      */
     public function update(
-        int $userListID,
+        string $userListID,
         string $account,
         string $name,
+        ?bool $isPinnedToFeed = null,
         RequestOptions|array|null $requestOptions = null,
     ): UserListUpdateResponse;
 
@@ -68,14 +70,14 @@ interface UserListsContract
     /**
      * @api
      *
-     * @param int $userListID OnlyFans User List ID
+     * @param string $userListID OnlyFans User List ID, or a default list name like `tagged`
      * @param string $account The Account ID
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
      */
     public function delete(
-        int $userListID,
+        string $userListID,
         string $account,
         RequestOptions|array|null $requestOptions = null,
     ): UserListDeleteResponse;

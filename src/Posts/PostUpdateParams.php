@@ -50,7 +50,7 @@ final class PostUpdateParams implements BaseModel
     public string $text;
 
     /**
-     * Number of days after which the post will expire. Can be 1, 3, 7 or 30 days. Keep empty for no expiration.
+     * Number of days after which the post will expire. Between 1 and 30 days. Keep empty for no expiration.
      */
     #[Optional]
     public ?int $expireDays;
@@ -220,7 +220,7 @@ final class PostUpdateParams implements BaseModel
     }
 
     /**
-     * Number of days after which the post will expire. Can be 1, 3, 7 or 30 days. Keep empty for no expiration.
+     * Number of days after which the post will expire. Between 1 and 30 days. Keep empty for no expiration.
      */
     public function withExpireDays(int $expireDays): self
     {

@@ -4,74 +4,30 @@ declare(strict_types=1);
 
 namespace Onlyfansapi\Authenticate;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use Onlyfansapi\Authenticate\AuthenticateStartResponse\UnionMember0;
+use Onlyfansapi\Authenticate\AuthenticateStartResponse\UnionMember1;
+use Onlyfansapi\Core\Concerns\SdkUnion;
+use Onlyfansapi\Core\Conversion\Contracts\Converter;
+use Onlyfansapi\Core\Conversion\Contracts\ConverterSource;
 
 /**
- * @phpstan-type AuthenticateStartResponseShape = array{
- *   attemptID?: string|null, message?: string|null, pollingURL?: string|null
- * }
+ * For email_password or raw_data auth types.
+ *
+ * @phpstan-import-type UnionMember0Shape from \Onlyfansapi\Authenticate\AuthenticateStartResponse\UnionMember0
+ * @phpstan-import-type UnionMember1Shape from \Onlyfansapi\Authenticate\AuthenticateStartResponse\UnionMember1
+ *
+ * @phpstan-type AuthenticateStartResponseVariants = UnionMember0|UnionMember1
+ * @phpstan-type AuthenticateStartResponseShape = AuthenticateStartResponseVariants|UnionMember0Shape|UnionMember1Shape
  */
-final class AuthenticateStartResponse implements BaseModel
+final class AuthenticateStartResponse implements ConverterSource
 {
-    /** @use SdkModel<AuthenticateStartResponseShape> */
-    use SdkModel;
-
-    #[Optional('attempt_id')]
-    public ?string $attemptID;
-
-    #[Optional]
-    public ?string $message;
-
-    #[Optional('polling_url')]
-    public ?string $pollingURL;
-
-    public function __construct()
-    {
-        $this->initialize();
-    }
+    use SdkUnion;
 
     /**
-     * Construct an instance from the required parameters.
-     *
-     * You must use named parameters to construct any parameters with a default value.
+     * @return list<string|Converter|ConverterSource>|array<string,string|Converter|ConverterSource>
      */
-    public static function with(
-        ?string $attemptID = null,
-        ?string $message = null,
-        ?string $pollingURL = null
-    ): self {
-        $self = new self;
-
-        null !== $attemptID && $self['attemptID'] = $attemptID;
-        null !== $message && $self['message'] = $message;
-        null !== $pollingURL && $self['pollingURL'] = $pollingURL;
-
-        return $self;
-    }
-
-    public function withAttemptID(string $attemptID): self
+    public static function variants(): array
     {
-        $self = clone $this;
-        $self['attemptID'] = $attemptID;
-
-        return $self;
-    }
-
-    public function withMessage(string $message): self
-    {
-        $self = clone $this;
-        $self['message'] = $message;
-
-        return $self;
-    }
-
-    public function withPollingURL(string $pollingURL): self
-    {
-        $self = clone $this;
-        $self['pollingURL'] = $pollingURL;
-
-        return $self;
+        return [UnionMember0::class, UnionMember1::class];
     }
 }

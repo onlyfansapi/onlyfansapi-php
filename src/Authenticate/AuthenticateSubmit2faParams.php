@@ -4,17 +4,19 @@ declare(strict_types=1);
 
 namespace Onlyfansapi\Authenticate;
 
-use Onlyfansapi\Core\Attributes\Required;
+use Onlyfansapi\Core\Attributes\Optional;
 use Onlyfansapi\Core\Concerns\SdkModel;
 use Onlyfansapi\Core\Concerns\SdkParams;
 use Onlyfansapi\Core\Contracts\BaseModel;
 
 /**
- * Submit the 2FA code for the authentication process.
+ * Submit the 2FA code, or Selfie Verification status, for the authentication process.
  *
  * @see Onlyfansapi\Services\AuthenticateService::submit2fa()
  *
- * @phpstan-type AuthenticateSubmit2faParamsShape = array{code: string}
+ * @phpstan-type AuthenticateSubmit2faParamsShape = array{
+ *   code?: string|null, selfieVerificationCompleted?: bool|null
+ * }
  */
 final class AuthenticateSubmit2faParams implements BaseModel
 {
@@ -23,25 +25,17 @@ final class AuthenticateSubmit2faParams implements BaseModel
     use SdkParams;
 
     /**
-     * The 2FA code you received on your phone.
+     * The 2FA code you received on your phone. Must be empty if `selfie_verification_completed` is `true`.
      */
-    #[Required]
-    public string $code;
+    #[Optional]
+    public ?string $code;
 
     /**
-     * `new AuthenticateSubmit2faParams()` is missing required properties by the API.
-     *
-     * To enforce required parameters use
-     * ```
-     * AuthenticateSubmit2faParams::with(code: ...)
-     * ```
-     *
-     * Otherwise ensure the following setters are called
-     *
-     * ```
-     * (new AuthenticateSubmit2faParams)->withCode(...)
-     * ```
+     * This field is required when <code>code</code> is not present.
      */
+    #[Optional('selfie_verification_completed')]
+    public ?bool $selfieVerificationCompleted;
+
     public function __construct()
     {
         $this->initialize();
@@ -52,22 +46,37 @@ final class AuthenticateSubmit2faParams implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      */
-    public static function with(string $code): self
-    {
+    public static function with(
+        ?string $code = null,
+        ?bool $selfieVerificationCompleted = null
+    ): self {
         $self = new self;
 
+        null !== $code && $self['code'] = $code;
+        null !== $selfieVerificationCompleted && $self['selfieVerificationCompleted'] = $selfieVerificationCompleted;
+
+        return $self;
+    }
+
+    /**
+     * The 2FA code you received on your phone. Must be empty if `selfie_verification_completed` is `true`.
+     */
+    public function withCode(string $code): self
+    {
+        $self = clone $this;
         $self['code'] = $code;
 
         return $self;
     }
 
     /**
-     * The 2FA code you received on your phone.
+     * This field is required when <code>code</code> is not present.
      */
-    public function withCode(string $code): self
-    {
+    public function withSelfieVerificationCompleted(
+        bool $selfieVerificationCompleted
+    ): self {
         $self = clone $this;
-        $self['code'] = $code;
+        $self['selfieVerificationCompleted'] = $selfieVerificationCompleted;
 
         return $self;
     }

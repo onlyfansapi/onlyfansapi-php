@@ -30,7 +30,7 @@ final class PromoOffer implements BaseModel
     #[Optional]
     public ?string $createdAt;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $expiredAt;
 
     #[Optional]
@@ -93,7 +93,7 @@ final class PromoOffer implements BaseModel
         return $self;
     }
 
-    public function withExpiredAt(string $expiredAt): self
+    public function withExpiredAt(?string $expiredAt): self
     {
         $self = clone $this;
         $self['expiredAt'] = $expiredAt;

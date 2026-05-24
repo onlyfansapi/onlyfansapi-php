@@ -10,10 +10,14 @@ use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Core\Util;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\Search\SearchProfilesParams;
+use Onlyfansapi\Search\SearchProfilesParams\Filter;
+use Onlyfansapi\Search\SearchProfilesParams\Sort;
+use Onlyfansapi\Search\SearchProfilesParams\SortDirection;
 use Onlyfansapi\Search\SearchProfilesResponse;
 use Onlyfansapi\ServiceContracts\SearchRawContract;
 
 /**
+ * @phpstan-import-type FilterShape from \Onlyfansapi\Search\SearchProfilesParams\Filter
  * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
  */
 final class SearchRawService implements SearchRawContract
@@ -30,11 +34,18 @@ final class SearchRawService implements SearchRawContract
      * Full-text search for profiles with filters for pricing, free trials, location, media count and more.
      *
      * @param array{
-     *   query: string,
-     *   limit?: string,
+     *   cursor?: string|null,
+     *   filter?: Filter|FilterShape,
+     *   instagram?: string,
+     *   limit?: int,
      *   location?: string,
-     *   maxSubscribePrice?: string,
-     *   minSubscribePrice?: string,
+     *   maxSubscribePrice?: float,
+     *   minSubscribePrice?: float,
+     *   query?: string,
+     *   sort?: value-of<Sort>,
+     *   sortDirection?: SortDirection|value-of<SortDirection>,
+     *   tiktok?: string,
+     *   website?: string,
      * }|SearchProfilesParams $params
      * @param RequestOpts|null $requestOptions
      *

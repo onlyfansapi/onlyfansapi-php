@@ -39,7 +39,7 @@ final class VaultRawService implements VaultRawContract
      *   limit?: int,
      *   list?: int,
      *   offset?: int,
-     *   query?: string,
+     *   query?: string|null,
      *   sort?: Sort|value-of<Sort>,
      *   type?: Type|value-of<Type>,
      * }|VaultListParams $params

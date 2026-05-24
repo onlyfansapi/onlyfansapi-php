@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Onlyfansapi\TrackingLinks;
 
+use Onlyfansapi\Core\Attributes\Optional;
 use Onlyfansapi\Core\Attributes\Required;
 use Onlyfansapi\Core\Concerns\SdkModel;
 use Onlyfansapi\Core\Concerns\SdkParams;
@@ -14,7 +15,9 @@ use Onlyfansapi\Core\Contracts\BaseModel;
  *
  * @see Onlyfansapi\Services\TrackingLinksService::create()
  *
- * @phpstan-type TrackingLinkCreateParamsShape = array{name: string}
+ * @phpstan-type TrackingLinkCreateParamsShape = array{
+ *   name: string, tags?: list<string>|null
+ * }
  */
 final class TrackingLinkCreateParams implements BaseModel
 {
@@ -27,6 +30,14 @@ final class TrackingLinkCreateParams implements BaseModel
      */
     #[Required]
     public string $name;
+
+    /**
+     * Array of tag names to add to the tracking link.
+     *
+     * @var list<string>|null $tags
+     */
+    #[Optional(list: 'string')]
+    public ?array $tags;
 
     /**
      * `new TrackingLinkCreateParams()` is missing required properties by the API.
@@ -51,12 +62,16 @@ final class TrackingLinkCreateParams implements BaseModel
      * Construct an instance from the required parameters.
      *
      * You must use named parameters to construct any parameters with a default value.
+     *
+     * @param list<string>|null $tags
      */
-    public static function with(string $name): self
+    public static function with(string $name, ?array $tags = null): self
     {
         $self = new self;
 
         $self['name'] = $name;
+
+        null !== $tags && $self['tags'] = $tags;
 
         return $self;
     }
@@ -68,6 +83,19 @@ final class TrackingLinkCreateParams implements BaseModel
     {
         $self = clone $this;
         $self['name'] = $name;
+
+        return $self;
+    }
+
+    /**
+     * Array of tag names to add to the tracking link.
+     *
+     * @param list<string> $tags
+     */
+    public function withTags(array $tags): self
+    {
+        $self = clone $this;
+        $self['tags'] = $tags;
 
         return $self;
     }

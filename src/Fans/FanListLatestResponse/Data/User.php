@@ -114,7 +114,7 @@ final class User implements BaseModel
     #[Optional]
     public ?bool $canTrialSend;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $currentSubscribePrice;
 
     #[Optional]
@@ -132,13 +132,13 @@ final class User implements BaseModel
     #[Optional]
     public ?bool $hasStream;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $header;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $headerSize;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $headerThumbs;
 
     #[Optional]
@@ -182,19 +182,19 @@ final class User implements BaseModel
     #[Optional]
     public ?bool $subscribedBy;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribedByAutoprolong;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribedByData;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribedByExpire;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribedByExpireDate;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribedIsExpiredNow;
 
     #[Optional]
@@ -465,7 +465,7 @@ final class User implements BaseModel
     }
 
     public function withCurrentSubscribePrice(
-        string $currentSubscribePrice
+        ?string $currentSubscribePrice
     ): self {
         $self = clone $this;
         $self['currentSubscribePrice'] = $currentSubscribePrice;
@@ -513,7 +513,7 @@ final class User implements BaseModel
         return $self;
     }
 
-    public function withHeader(string $header): self
+    public function withHeader(?string $header): self
     {
         $self = clone $this;
         $self['header'] = $header;
@@ -521,7 +521,7 @@ final class User implements BaseModel
         return $self;
     }
 
-    public function withHeaderSize(string $headerSize): self
+    public function withHeaderSize(?string $headerSize): self
     {
         $self = clone $this;
         $self['headerSize'] = $headerSize;
@@ -529,7 +529,7 @@ final class User implements BaseModel
         return $self;
     }
 
-    public function withHeaderThumbs(string $headerThumbs): self
+    public function withHeaderThumbs(?string $headerThumbs): self
     {
         $self = clone $this;
         $self['headerThumbs'] = $headerThumbs;
@@ -648,7 +648,7 @@ final class User implements BaseModel
     }
 
     public function withSubscribedByAutoprolong(
-        string $subscribedByAutoprolong
+        ?string $subscribedByAutoprolong
     ): self {
         $self = clone $this;
         $self['subscribedByAutoprolong'] = $subscribedByAutoprolong;
@@ -656,7 +656,7 @@ final class User implements BaseModel
         return $self;
     }
 
-    public function withSubscribedByData(string $subscribedByData): self
+    public function withSubscribedByData(?string $subscribedByData): self
     {
         $self = clone $this;
         $self['subscribedByData'] = $subscribedByData;
@@ -664,7 +664,7 @@ final class User implements BaseModel
         return $self;
     }
 
-    public function withSubscribedByExpire(string $subscribedByExpire): self
+    public function withSubscribedByExpire(?string $subscribedByExpire): self
     {
         $self = clone $this;
         $self['subscribedByExpire'] = $subscribedByExpire;
@@ -673,7 +673,7 @@ final class User implements BaseModel
     }
 
     public function withSubscribedByExpireDate(
-        string $subscribedByExpireDate
+        ?string $subscribedByExpireDate
     ): self {
         $self = clone $this;
         $self['subscribedByExpireDate'] = $subscribedByExpireDate;
@@ -682,7 +682,7 @@ final class User implements BaseModel
     }
 
     public function withSubscribedIsExpiredNow(
-        string $subscribedIsExpiredNow
+        ?string $subscribedIsExpiredNow
     ): self {
         $self = clone $this;
         $self['subscribedIsExpiredNow'] = $subscribedIsExpiredNow;

@@ -338,7 +338,7 @@ final class Data implements BaseModel
     #[Optional]
     public ?bool $subscribedIsExpiredNow;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribedOn;
 
     #[Optional]
@@ -353,7 +353,7 @@ final class Data implements BaseModel
     #[Optional]
     public ?float $subscribePrice;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribersCount;
 
     /** @var list<SubscriptionBundle>|null $subscriptionBundles */
@@ -384,10 +384,10 @@ final class Data implements BaseModel
     #[Optional]
     public ?string $view;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $website;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $wishlist;
 
     public function __construct()
@@ -1194,7 +1194,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withSubscribedOn(string $subscribedOn): self
+    public function withSubscribedOn(?string $subscribedOn): self
     {
         $self = clone $this;
         $self['subscribedOn'] = $subscribedOn;
@@ -1239,7 +1239,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withSubscribersCount(string $subscribersCount): self
+    public function withSubscribersCount(?string $subscribersCount): self
     {
         $self = clone $this;
         $self['subscribersCount'] = $subscribersCount;
@@ -1322,7 +1322,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withWebsite(string $website): self
+    public function withWebsite(?string $website): self
     {
         $self = clone $this;
         $self['website'] = $website;
@@ -1330,7 +1330,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withWishlist(string $wishlist): self
+    public function withWishlist(?string $wishlist): self
     {
         $self = clone $this;
         $self['wishlist'] = $wishlist;

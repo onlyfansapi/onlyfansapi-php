@@ -18,6 +18,7 @@ interface UsersRawContract
     /**
      * @api
      *
+     * @param string $username the OnlyFans username of the user to retrieve details for
      * @param array<string,mixed>|UserRetrieveParams $params
      * @param RequestOpts|null $requestOptions
      *

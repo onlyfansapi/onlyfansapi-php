@@ -28,11 +28,15 @@ final class TransactionsRawService implements TransactionsRawContract
     /**
      * @api
      *
-     * Get a paginated list of transactions for an Account. Newest transactions are first.
+     * Get a paginated list of transactions for an Account. Newest transactions are first. You can filter by transaction type and tips source.
      *
      * @param string $account The Account ID
      * @param array{
-     *   limit?: string, marker?: string, startDate?: string
+     *   limit?: string,
+     *   marker?: string,
+     *   startDate?: string,
+     *   tipsSource?: string,
+     *   type?: string,
      * }|TransactionListParams $params
      * @param RequestOpts|null $requestOptions
      *

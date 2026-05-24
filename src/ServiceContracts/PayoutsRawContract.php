@@ -11,8 +11,6 @@ use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse;
 use Onlyfansapi\Payouts\PayoutGetEligibilityResponse;
 use Onlyfansapi\Payouts\PayoutListPayoutRequestsParams;
 use Onlyfansapi\Payouts\PayoutListPayoutRequestsResponse;
-use Onlyfansapi\Payouts\PayoutListTransactionsParams;
-use Onlyfansapi\Payouts\PayoutListTransactionsResponse;
 use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalParams;
 use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember0;
 use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1;
@@ -40,23 +38,6 @@ interface PayoutsRawContract
     public function listPayoutRequests(
         string $account,
         array|PayoutListPayoutRequestsParams $params,
-        RequestOptions|array|null $requestOptions = null,
-    ): BaseResponse;
-
-    /**
-     * @api
-     *
-     * @param string $account The Account ID
-     * @param array<string,mixed>|PayoutListTransactionsParams $params
-     * @param RequestOpts|null $requestOptions
-     *
-     * @return BaseResponse<PayoutListTransactionsResponse>
-     *
-     * @throws APIException
-     */
-    public function listTransactions(
-        string $account,
-        array|PayoutListTransactionsParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse;
 

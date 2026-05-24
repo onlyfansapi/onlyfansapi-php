@@ -18,7 +18,10 @@ use Onlyfansapi\Following\FollowingListExpiredParams\Filter;
  * @phpstan-import-type FilterShape from \Onlyfansapi\Following\FollowingListExpiredParams\Filter
  *
  * @phpstan-type FollowingListExpiredParamsShape = array{
- *   filter?: null|Filter|FilterShape, limit?: int|null, offset?: int|null
+ *   filter?: null|Filter|FilterShape,
+ *   limit?: int|null,
+ *   offset?: int|null,
+ *   query?: string|null,
  * }
  */
 final class FollowingListExpiredParams implements BaseModel
@@ -42,6 +45,12 @@ final class FollowingListExpiredParams implements BaseModel
     #[Optional]
     public ?int $offset;
 
+    /**
+     * Search within following name/username.
+     */
+    #[Optional(nullable: true)]
+    public ?string $query;
+
     public function __construct()
     {
         $this->initialize();
@@ -57,13 +66,15 @@ final class FollowingListExpiredParams implements BaseModel
     public static function with(
         Filter|array|null $filter = null,
         ?int $limit = null,
-        ?int $offset = null
+        ?int $offset = null,
+        ?string $query = null,
     ): self {
         $self = new self;
 
         null !== $filter && $self['filter'] = $filter;
         null !== $limit && $self['limit'] = $limit;
         null !== $offset && $self['offset'] = $offset;
+        null !== $query && $self['query'] = $query;
 
         return $self;
     }
@@ -97,6 +108,17 @@ final class FollowingListExpiredParams implements BaseModel
     {
         $self = clone $this;
         $self['offset'] = $offset;
+
+        return $self;
+    }
+
+    /**
+     * Search within following name/username.
+     */
+    public function withQuery(?string $query): self
+    {
+        $self = clone $this;
+        $self['query'] = $query;
 
         return $self;
     }

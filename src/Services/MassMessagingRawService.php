@@ -11,9 +11,6 @@ use Onlyfansapi\MassMessaging\MassMessagingDeleteParams;
 use Onlyfansapi\MassMessaging\MassMessagingDeleteResponse;
 use Onlyfansapi\MassMessaging\MassMessagingGetResponse;
 use Onlyfansapi\MassMessaging\MassMessagingListQueueResponse;
-use Onlyfansapi\MassMessaging\MassMessagingListStatisticsParams;
-use Onlyfansapi\MassMessaging\MassMessagingListStatisticsParams\Type;
-use Onlyfansapi\MassMessaging\MassMessagingListStatisticsResponse;
 use Onlyfansapi\MassMessaging\MassMessagingRetrieveParams;
 use Onlyfansapi\MassMessaging\MassMessagingSendParams;
 use Onlyfansapi\MassMessaging\MassMessagingSendResponse;
@@ -76,6 +73,7 @@ final class MassMessagingRawService implements MassMessagingRawContract
      * @param array{
      *   account: string,
      *   text: string,
+     *   giphyID?: string,
      *   lockedText?: bool,
      *   mediaFiles?: list<string>,
      *   previews?: list<string>,
@@ -174,50 +172,20 @@ final class MassMessagingRawService implements MassMessagingRawContract
     /**
      * @api
      *
-     * List mass messaging statistics, showing the send count and view count.
-     *
-     * @param string $account The Account ID
-     * @param array{
-     *   limit?: int, offset?: int, query?: string, type?: Type|value-of<Type>
-     * }|MassMessagingListStatisticsParams $params
-     * @param RequestOpts|null $requestOptions
-     *
-     * @return BaseResponse<MassMessagingListStatisticsResponse>
-     *
-     * @throws APIException
-     */
-    public function listStatistics(
-        string $account,
-        array|MassMessagingListStatisticsParams $params,
-        RequestOptions|array|null $requestOptions = null,
-    ): BaseResponse {
-        [$parsed, $options] = MassMessagingListStatisticsParams::parseRequest(
-            $params,
-            $requestOptions,
-        );
-
-        // @phpstan-ignore-next-line return.type
-        return $this->client->request(
-            method: 'get',
-            path: ['api/%1$s/mass-messaging/statistics', $account],
-            query: $parsed,
-            options: $options,
-            convert: MassMessagingListStatisticsResponse::class,
-        );
-    }
-
-    /**
-     * @api
-     *
      * Send a mass message to lists and/or users. You may use both the `userLists` and `userIds` parameters to send the same message to both lists and individual users.
      *
      * @param string $account The Account ID
      * @param array{
      *   text: string,
+     *   excludedLists?: list<string>,
+     *   giphyID?: string,
      *   lockedText?: bool,
-     *   mediaFiles?: list<string>,
-     *   previews?: list<string>,
+     *   mediaFiles?: list<mixed>,
+     *   previews?: list<mixed>,
      *   price?: int,
+     *   rfGuest?: string,
+     *   rfPartner?: string,
+     *   rfTag?: string,
      *   saveForLater?: bool,
      *   scheduledDate?: string,
      *   userIDs?: list<string>,

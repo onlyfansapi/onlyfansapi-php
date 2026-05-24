@@ -22,10 +22,10 @@ interface VaultContract
      *
      * @param string $account The Account ID
      * @param Field|value-of<Field> $field Sort the results by a field. Default `recent`
-     * @param int $limit Number of media to return per page. Default: `24`
+     * @param int $limit Number of media to return per page (10 - 100). Default: `24`
      * @param int $list Only show media items from a specific list (category). **Refer to our Media Vault Lists endpoints.**
      * @param int $offset The offset used for pagination. Default `0`
-     * @param string $query optionally, search for a text query
+     * @param string|null $query optionally, search for a text query
      * @param Sort|value-of<Sort> $sort Sort the results. Default `desc`
      * @param Type|value-of<Type> $type Filter the results by a media type. Keep empty to show all media.
      * @param RequestOpts|null $requestOptions

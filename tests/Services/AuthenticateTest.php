@@ -3,7 +3,7 @@
 namespace Tests\Services;
 
 use Onlyfansapi\Authenticate\AuthenticatePollStatusResponse;
-use Onlyfansapi\Authenticate\AuthenticateStartResponse;
+use Onlyfansapi\Authenticate\AuthenticateReauthenticateResponse;
 use Onlyfansapi\Authenticate\AuthenticateSubmit2faResponse;
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Util;
@@ -53,7 +53,7 @@ final class AuthenticateTest extends TestCase
         $result = $this->client->authenticate->reauthenticate('acct_XXXXXXXXXX');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertNull($result);
+        $this->assertInstanceOf(AuthenticateReauthenticateResponse::class, $result);
     }
 
     #[Test]
@@ -63,31 +63,10 @@ final class AuthenticateTest extends TestCase
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->authenticate->start(
-            email: 'jalyn75@example.net',
-            password: 'vXIA}fx5Ek:',
-            proxyCountry: 'pl'
-        );
+        $result = $this->client->authenticate->start();
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(AuthenticateStartResponse::class, $result);
-    }
-
-    #[Test]
-    public function testStartWithOptionalParams(): void
-    {
-        if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Mock server tests are disabled');
-        }
-
-        $result = $this->client->authenticate->start(
-            email: 'jalyn75@example.net',
-            password: 'vXIA}fx5Ek:',
-            proxyCountry: 'pl'
-        );
-
-        // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(AuthenticateStartResponse::class, $result);
+        $this->assertNotNull($result);
     }
 
     #[Test]
@@ -97,26 +76,7 @@ final class AuthenticateTest extends TestCase
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->authenticate->submit2fa(
-            'auth_XXXXXXX',
-            code: '12345'
-        );
-
-        // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(AuthenticateSubmit2faResponse::class, $result);
-    }
-
-    #[Test]
-    public function testSubmit2faWithOptionalParams(): void
-    {
-        if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Mock server tests are disabled');
-        }
-
-        $result = $this->client->authenticate->submit2fa(
-            'auth_XXXXXXX',
-            code: '12345'
-        );
+        $result = $this->client->authenticate->submit2fa('auth_XXXXXXX');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(AuthenticateSubmit2faResponse::class, $result);

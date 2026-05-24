@@ -44,6 +44,7 @@ final class TrackingLinksService implements TrackingLinksContract
      *
      * @param string $account The Account ID
      * @param string $name The name of the Tracking Link
+     * @param list<string> $tags array of tag names to add to the tracking link
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -51,9 +52,10 @@ final class TrackingLinksService implements TrackingLinksContract
     public function create(
         string $account,
         string $name,
+        ?array $tags = null,
         RequestOptions|array|null $requestOptions = null,
     ): TrackingLinkNewResponse {
-        $params = Util::removeNulls(['name' => $name]);
+        $params = Util::removeNulls(['name' => $name, 'tags' => $tags]);
 
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->create($account, params: $params, requestOptions: $requestOptions);
@@ -115,7 +117,7 @@ final class TrackingLinksService implements TrackingLinksContract
      *
      * Delete a Tracking Link
      *
-     * @param string $trackingLinkID The ID of the Tracking Link. Can be retrieved from the above store and list endpoints.
+     * @param string $trackingLinkID the ID of the tracking link
      * @param string $account The Account ID
      * @param RequestOpts|null $requestOptions
      *

@@ -6,6 +6,9 @@ namespace Onlyfansapi\ServiceContracts;
 
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Following\FollowingListActiveParams\Filter;
+use Onlyfansapi\Following\FollowingListActiveResponse;
+use Onlyfansapi\Following\FollowingListAllResponse;
+use Onlyfansapi\Following\FollowingListExpiredResponse;
 use Onlyfansapi\RequestOptions;
 
 /**
@@ -23,6 +26,7 @@ interface FollowingContract
      * @param Filter|FilterShape $filter
      * @param int $limit Number of followings to return (1-50). Must be at least 1. Must not be greater than 50.
      * @param int $offset Pagination offset. Must be at least 0.
+     * @param string|null $query search within following name/username
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -32,8 +36,9 @@ interface FollowingContract
         Filter|array|null $filter = null,
         ?int $limit = null,
         ?int $offset = null,
+        ?string $query = null,
         RequestOptions|array|null $requestOptions = null,
-    ): mixed;
+    ): FollowingListActiveResponse;
 
     /**
      * @api
@@ -42,6 +47,7 @@ interface FollowingContract
      * @param \Onlyfansapi\Following\FollowingListAllParams\Filter|FilterShape1 $filter
      * @param int $limit Number of followings to return (1-50). Must be at least 1. Must not be greater than 50.
      * @param int $offset Pagination offset. Must be at least 0.
+     * @param string|null $query search within following name/username
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -51,8 +57,9 @@ interface FollowingContract
         \Onlyfansapi\Following\FollowingListAllParams\Filter|array|null $filter = null,
         ?int $limit = null,
         ?int $offset = null,
+        ?string $query = null,
         RequestOptions|array|null $requestOptions = null,
-    ): mixed;
+    ): FollowingListAllResponse;
 
     /**
      * @api
@@ -61,6 +68,7 @@ interface FollowingContract
      * @param \Onlyfansapi\Following\FollowingListExpiredParams\Filter|FilterShape2 $filter
      * @param int $limit Number of followings to return (1-50). Must be at least 1. Must not be greater than 50.
      * @param int $offset Pagination offset. Must be at least 0.
+     * @param string|null $query search within following name/username
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -70,6 +78,7 @@ interface FollowingContract
         \Onlyfansapi\Following\FollowingListExpiredParams\Filter|array|null $filter = null,
         ?int $limit = null,
         ?int $offset = null,
+        ?string $query = null,
         RequestOptions|array|null $requestOptions = null,
-    ): mixed;
+    ): FollowingListExpiredResponse;
 }

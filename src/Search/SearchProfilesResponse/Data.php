@@ -10,18 +10,14 @@ use Onlyfansapi\Core\Contracts\BaseModel;
 
 /**
  * @phpstan-type DataShape = array{
- *   id?: int|null,
  *   about?: string|null,
  *   audiosCount?: int|null,
  *   avatarURL?: string|null,
- *   browsable?: bool|null,
  *   bundles?: string|null,
- *   createdAt?: string|null,
  *   facebook?: string|null,
  *   fansly?: string|null,
  *   favoritedCount?: int|null,
  *   favoritesCount?: int|null,
- *   gender?: string|null,
  *   headerURL?: string|null,
  *   instagram?: string|null,
  *   isAdultContent?: bool|null,
@@ -34,7 +30,9 @@ use Onlyfansapi\Core\Contracts\BaseModel;
  *   manyvids?: string|null,
  *   minSubscribePrice?: int|null,
  *   name?: string|null,
- *   onlyfansID?: string|null,
+ *   ofapiGender?: string|null,
+ *   ofapiGenderConfidence?: float|null,
+ *   onlyfansID?: int|null,
  *   photosCount?: int|null,
  *   pornhub?: string|null,
  *   postsCount?: int|null,
@@ -44,7 +42,6 @@ use Onlyfansapi\Core\Contracts\BaseModel;
  *   subscribersCount?: string|null,
  *   tiktok?: string|null,
  *   twitter?: string|null,
- *   updatedAt?: string|null,
  *   username?: string|null,
  *   videosCount?: int|null,
  *   website?: string|null,
@@ -57,9 +54,6 @@ final class Data implements BaseModel
     use SdkModel;
 
     #[Optional]
-    public ?int $id;
-
-    #[Optional]
     public ?string $about;
 
     #[Optional('audios_count')]
@@ -68,19 +62,13 @@ final class Data implements BaseModel
     #[Optional('avatar_url')]
     public ?string $avatarURL;
 
-    #[Optional]
-    public ?bool $browsable;
-
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $bundles;
 
-    #[Optional('created_at')]
-    public ?string $createdAt;
-
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $facebook;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $fansly;
 
     #[Optional('favorited_count')]
@@ -89,13 +77,10 @@ final class Data implements BaseModel
     #[Optional('favorites_count')]
     public ?int $favoritesCount;
 
-    #[Optional]
-    public ?string $gender;
-
     #[Optional('header_url')]
     public ?string $headerURL;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $instagram;
 
     #[Optional('is_adult_content')]
@@ -113,13 +98,13 @@ final class Data implements BaseModel
     #[Optional('join_date')]
     public ?string $joinDate;
 
-    #[Optional('last_seen_at')]
+    #[Optional('last_seen_at', nullable: true)]
     public ?string $lastSeenAt;
 
     #[Optional]
     public ?string $location;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $manyvids;
 
     #[Optional('min_subscribe_price')]
@@ -128,19 +113,25 @@ final class Data implements BaseModel
     #[Optional]
     public ?string $name;
 
+    #[Optional('ofapi_gender')]
+    public ?string $ofapiGender;
+
+    #[Optional('ofapi_gender_confidence')]
+    public ?float $ofapiGenderConfidence;
+
     #[Optional('onlyfans_id')]
-    public ?string $onlyfansID;
+    public ?int $onlyfansID;
 
     #[Optional('photos_count')]
     public ?int $photosCount;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $pornhub;
 
     #[Optional('posts_count')]
     public ?int $postsCount;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $promotions;
 
     #[Optional('stats_updated_at')]
@@ -149,17 +140,14 @@ final class Data implements BaseModel
     #[Optional('subscribe_price')]
     public ?int $subscribePrice;
 
-    #[Optional('subscribers_count')]
+    #[Optional('subscribers_count', nullable: true)]
     public ?string $subscribersCount;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $tiktok;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $twitter;
-
-    #[Optional('updated_at')]
-    public ?string $updatedAt;
 
     #[Optional]
     public ?string $username;
@@ -170,7 +158,7 @@ final class Data implements BaseModel
     #[Optional]
     public ?string $website;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $wishlist;
 
     public function __construct()
@@ -184,18 +172,14 @@ final class Data implements BaseModel
      * You must use named parameters to construct any parameters with a default value.
      */
     public static function with(
-        ?int $id = null,
         ?string $about = null,
         ?int $audiosCount = null,
         ?string $avatarURL = null,
-        ?bool $browsable = null,
         ?string $bundles = null,
-        ?string $createdAt = null,
         ?string $facebook = null,
         ?string $fansly = null,
         ?int $favoritedCount = null,
         ?int $favoritesCount = null,
-        ?string $gender = null,
         ?string $headerURL = null,
         ?string $instagram = null,
         ?bool $isAdultContent = null,
@@ -208,7 +192,9 @@ final class Data implements BaseModel
         ?string $manyvids = null,
         ?int $minSubscribePrice = null,
         ?string $name = null,
-        ?string $onlyfansID = null,
+        ?string $ofapiGender = null,
+        ?float $ofapiGenderConfidence = null,
+        ?int $onlyfansID = null,
         ?int $photosCount = null,
         ?string $pornhub = null,
         ?int $postsCount = null,
@@ -218,7 +204,6 @@ final class Data implements BaseModel
         ?string $subscribersCount = null,
         ?string $tiktok = null,
         ?string $twitter = null,
-        ?string $updatedAt = null,
         ?string $username = null,
         ?int $videosCount = null,
         ?string $website = null,
@@ -226,18 +211,14 @@ final class Data implements BaseModel
     ): self {
         $self = new self;
 
-        null !== $id && $self['id'] = $id;
         null !== $about && $self['about'] = $about;
         null !== $audiosCount && $self['audiosCount'] = $audiosCount;
         null !== $avatarURL && $self['avatarURL'] = $avatarURL;
-        null !== $browsable && $self['browsable'] = $browsable;
         null !== $bundles && $self['bundles'] = $bundles;
-        null !== $createdAt && $self['createdAt'] = $createdAt;
         null !== $facebook && $self['facebook'] = $facebook;
         null !== $fansly && $self['fansly'] = $fansly;
         null !== $favoritedCount && $self['favoritedCount'] = $favoritedCount;
         null !== $favoritesCount && $self['favoritesCount'] = $favoritesCount;
-        null !== $gender && $self['gender'] = $gender;
         null !== $headerURL && $self['headerURL'] = $headerURL;
         null !== $instagram && $self['instagram'] = $instagram;
         null !== $isAdultContent && $self['isAdultContent'] = $isAdultContent;
@@ -250,6 +231,8 @@ final class Data implements BaseModel
         null !== $manyvids && $self['manyvids'] = $manyvids;
         null !== $minSubscribePrice && $self['minSubscribePrice'] = $minSubscribePrice;
         null !== $name && $self['name'] = $name;
+        null !== $ofapiGender && $self['ofapiGender'] = $ofapiGender;
+        null !== $ofapiGenderConfidence && $self['ofapiGenderConfidence'] = $ofapiGenderConfidence;
         null !== $onlyfansID && $self['onlyfansID'] = $onlyfansID;
         null !== $photosCount && $self['photosCount'] = $photosCount;
         null !== $pornhub && $self['pornhub'] = $pornhub;
@@ -260,19 +243,10 @@ final class Data implements BaseModel
         null !== $subscribersCount && $self['subscribersCount'] = $subscribersCount;
         null !== $tiktok && $self['tiktok'] = $tiktok;
         null !== $twitter && $self['twitter'] = $twitter;
-        null !== $updatedAt && $self['updatedAt'] = $updatedAt;
         null !== $username && $self['username'] = $username;
         null !== $videosCount && $self['videosCount'] = $videosCount;
         null !== $website && $self['website'] = $website;
         null !== $wishlist && $self['wishlist'] = $wishlist;
-
-        return $self;
-    }
-
-    public function withID(int $id): self
-    {
-        $self = clone $this;
-        $self['id'] = $id;
 
         return $self;
     }
@@ -301,15 +275,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withBrowsable(bool $browsable): self
-    {
-        $self = clone $this;
-        $self['browsable'] = $browsable;
-
-        return $self;
-    }
-
-    public function withBundles(string $bundles): self
+    public function withBundles(?string $bundles): self
     {
         $self = clone $this;
         $self['bundles'] = $bundles;
@@ -317,15 +283,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withCreatedAt(string $createdAt): self
-    {
-        $self = clone $this;
-        $self['createdAt'] = $createdAt;
-
-        return $self;
-    }
-
-    public function withFacebook(string $facebook): self
+    public function withFacebook(?string $facebook): self
     {
         $self = clone $this;
         $self['facebook'] = $facebook;
@@ -333,7 +291,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withFansly(string $fansly): self
+    public function withFansly(?string $fansly): self
     {
         $self = clone $this;
         $self['fansly'] = $fansly;
@@ -357,14 +315,6 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withGender(string $gender): self
-    {
-        $self = clone $this;
-        $self['gender'] = $gender;
-
-        return $self;
-    }
-
     public function withHeaderURL(string $headerURL): self
     {
         $self = clone $this;
@@ -373,7 +323,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withInstagram(string $instagram): self
+    public function withInstagram(?string $instagram): self
     {
         $self = clone $this;
         $self['instagram'] = $instagram;
@@ -421,7 +371,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withLastSeenAt(string $lastSeenAt): self
+    public function withLastSeenAt(?string $lastSeenAt): self
     {
         $self = clone $this;
         $self['lastSeenAt'] = $lastSeenAt;
@@ -437,7 +387,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withManyvids(string $manyvids): self
+    public function withManyvids(?string $manyvids): self
     {
         $self = clone $this;
         $self['manyvids'] = $manyvids;
@@ -461,7 +411,24 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withOnlyfansID(string $onlyfansID): self
+    public function withOfapiGender(string $ofapiGender): self
+    {
+        $self = clone $this;
+        $self['ofapiGender'] = $ofapiGender;
+
+        return $self;
+    }
+
+    public function withOfapiGenderConfidence(
+        float $ofapiGenderConfidence
+    ): self {
+        $self = clone $this;
+        $self['ofapiGenderConfidence'] = $ofapiGenderConfidence;
+
+        return $self;
+    }
+
+    public function withOnlyfansID(int $onlyfansID): self
     {
         $self = clone $this;
         $self['onlyfansID'] = $onlyfansID;
@@ -477,7 +444,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withPornhub(string $pornhub): self
+    public function withPornhub(?string $pornhub): self
     {
         $self = clone $this;
         $self['pornhub'] = $pornhub;
@@ -493,7 +460,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withPromotions(string $promotions): self
+    public function withPromotions(?string $promotions): self
     {
         $self = clone $this;
         $self['promotions'] = $promotions;
@@ -517,7 +484,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withSubscribersCount(string $subscribersCount): self
+    public function withSubscribersCount(?string $subscribersCount): self
     {
         $self = clone $this;
         $self['subscribersCount'] = $subscribersCount;
@@ -525,7 +492,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withTiktok(string $tiktok): self
+    public function withTiktok(?string $tiktok): self
     {
         $self = clone $this;
         $self['tiktok'] = $tiktok;
@@ -533,18 +500,10 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withTwitter(string $twitter): self
+    public function withTwitter(?string $twitter): self
     {
         $self = clone $this;
         $self['twitter'] = $twitter;
-
-        return $self;
-    }
-
-    public function withUpdatedAt(string $updatedAt): self
-    {
-        $self = clone $this;
-        $self['updatedAt'] = $updatedAt;
 
         return $self;
     }
@@ -573,7 +532,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withWishlist(string $wishlist): self
+    public function withWishlist(?string $wishlist): self
     {
         $self = clone $this;
         $self['wishlist'] = $wishlist;

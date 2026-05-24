@@ -16,7 +16,11 @@ use Onlyfansapi\Core\Contracts\BaseModel;
  * @see Onlyfansapi\Services\WebhooksService::create()
  *
  * @phpstan-type WebhookCreateParamsShape = array{
- *   endpointURL: string, events: list<string>, signingSecret?: string|null
+ *   accountScope: string,
+ *   endpointURL: string,
+ *   events: list<string>,
+ *   accountIDs?: list<string>|null,
+ *   signingSecret?: string|null,
  * }
  */
 final class WebhookCreateParams implements BaseModel
@@ -26,18 +30,32 @@ final class WebhookCreateParams implements BaseModel
     use SdkParams;
 
     /**
+     * The account scope for the webhook. Use "global" for all accounts, "inclusive" for only selected accounts, or "exclusive" for all except selected accounts.
+     */
+    #[Required('account_scope')]
+    public string $accountScope;
+
+    /**
      * The URL of your webhook endpoint.
      */
     #[Required('endpoint_url')]
     public string $endpointURL;
 
     /**
-     * An array of webhook events to subscribe to. Options: `messages.received`, `messages.sent`, `messages.ppv.unlocked`, `subscriptions.new`, `users.typing`, `posts.liked`, `accounts.connected`, `accounts.reconnected`, `accounts.session_expired`, `accounts.authentication_failed`, `accounts.otp_code_required`, `accounts.face_otp_required`.
+     * An array of webhook events to subscribe to. For all options, refer to our **List Available Events** endpoint.
      *
      * @var list<string> $events
      */
     #[Required(list: 'string')]
     public array $events;
+
+    /**
+     * An array of account IDs to apply the scope to. Required unless account_scope is "global".
+     *
+     * @var list<string>|null $accountIDs
+     */
+    #[Optional('account_ids', list: 'string')]
+    public ?array $accountIDs;
 
     /**
      * Optionally, add a signing secret to protect your webhook.
@@ -50,13 +68,16 @@ final class WebhookCreateParams implements BaseModel
      *
      * To enforce required parameters use
      * ```
-     * WebhookCreateParams::with(endpointURL: ..., events: ...)
+     * WebhookCreateParams::with(accountScope: ..., endpointURL: ..., events: ...)
      * ```
      *
      * Otherwise ensure the following setters are called
      *
      * ```
-     * (new WebhookCreateParams)->withEndpointURL(...)->withEvents(...)
+     * (new WebhookCreateParams)
+     *   ->withAccountScope(...)
+     *   ->withEndpointURL(...)
+     *   ->withEvents(...)
      * ```
      */
     public function __construct()
@@ -70,18 +91,34 @@ final class WebhookCreateParams implements BaseModel
      * You must use named parameters to construct any parameters with a default value.
      *
      * @param list<string> $events
+     * @param list<string>|null $accountIDs
      */
     public static function with(
+        string $accountScope,
         string $endpointURL,
         array $events,
-        ?string $signingSecret = null
+        ?array $accountIDs = null,
+        ?string $signingSecret = null,
     ): self {
         $self = new self;
 
+        $self['accountScope'] = $accountScope;
         $self['endpointURL'] = $endpointURL;
         $self['events'] = $events;
 
+        null !== $accountIDs && $self['accountIDs'] = $accountIDs;
         null !== $signingSecret && $self['signingSecret'] = $signingSecret;
+
+        return $self;
+    }
+
+    /**
+     * The account scope for the webhook. Use "global" for all accounts, "inclusive" for only selected accounts, or "exclusive" for all except selected accounts.
+     */
+    public function withAccountScope(string $accountScope): self
+    {
+        $self = clone $this;
+        $self['accountScope'] = $accountScope;
 
         return $self;
     }
@@ -98,7 +135,7 @@ final class WebhookCreateParams implements BaseModel
     }
 
     /**
-     * An array of webhook events to subscribe to. Options: `messages.received`, `messages.sent`, `messages.ppv.unlocked`, `subscriptions.new`, `users.typing`, `posts.liked`, `accounts.connected`, `accounts.reconnected`, `accounts.session_expired`, `accounts.authentication_failed`, `accounts.otp_code_required`, `accounts.face_otp_required`.
+     * An array of webhook events to subscribe to. For all options, refer to our **List Available Events** endpoint.
      *
      * @param list<string> $events
      */
@@ -106,6 +143,19 @@ final class WebhookCreateParams implements BaseModel
     {
         $self = clone $this;
         $self['events'] = $events;
+
+        return $self;
+    }
+
+    /**
+     * An array of account IDs to apply the scope to. Required unless account_scope is "global".
+     *
+     * @param list<string> $accountIDs
+     */
+    public function withAccountIDs(array $accountIDs): self
+    {
+        $self = clone $this;
+        $self['accountIDs'] = $accountIDs;
 
         return $self;
     }

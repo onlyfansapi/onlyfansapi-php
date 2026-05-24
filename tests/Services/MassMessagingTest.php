@@ -7,7 +7,6 @@ use Onlyfansapi\Core\Util;
 use Onlyfansapi\MassMessaging\MassMessagingDeleteResponse;
 use Onlyfansapi\MassMessaging\MassMessagingGetResponse;
 use Onlyfansapi\MassMessaging\MassMessagingListQueueResponse;
-use Onlyfansapi\MassMessaging\MassMessagingListStatisticsResponse;
 use Onlyfansapi\MassMessaging\MassMessagingSendResponse;
 use Onlyfansapi\MassMessaging\MassMessagingUpdateResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
@@ -93,6 +92,7 @@ final class MassMessagingTest extends TestCase
             'id',
             account: 'acct_XXXXXXXXXXXXXXX',
             text: 'Hello!',
+            giphyID: 'WAGC3LeqJvXglm5H7a',
             lockedText: true,
             mediaFiles: ['ofapi_media_abc123', 'string'],
             previews: ['ofapi_media_abc123', 'string'],
@@ -154,24 +154,6 @@ final class MassMessagingTest extends TestCase
     }
 
     #[Test]
-    public function testListStatistics(): void
-    {
-        if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Mock server tests are disabled');
-        }
-
-        $result = $this->client->massMessaging->listStatistics(
-            'acct_XXXXXXXXXXXXXXX'
-        );
-
-        // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(
-            MassMessagingListStatisticsResponse::class,
-            $result
-        );
-    }
-
-    #[Test]
     public function testSend(): void
     {
         if (UnsupportedMockTests::$skip) {
@@ -197,10 +179,17 @@ final class MassMessagingTest extends TestCase
         $result = $this->client->massMessaging->send(
             'acct_XXXXXXXXXXXXXXX',
             text: 'Hello!',
+            excludedLists: [
+                'fans', 'recent', 'following', 'rebill_off', 'tagged', 'string',
+            ],
+            giphyID: 'WAGC3LeqJvXglm5H7a',
             lockedText: true,
-            mediaFiles: ['ofapi_media_abc123', 'string'],
-            previews: ['ofapi_media_abc123', 'string'],
+            mediaFiles: ['ofapi_media_abc123', 1234567890],
+            previews: ['ofapi_media_abc123', 1234567890],
             price: 100,
+            rfGuest: 'rfGuest',
+            rfPartner: 'rfPartner',
+            rfTag: 'rfTag',
             saveForLater: true,
             scheduledDate: '2025-01-01T00:00:00.000Z',
             userIDs: ['string'],

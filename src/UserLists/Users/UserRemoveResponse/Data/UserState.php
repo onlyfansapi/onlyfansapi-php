@@ -29,7 +29,7 @@ final class UserState implements BaseModel
     #[Optional]
     public ?bool $canAddUser;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $cannotAddUserReason;
 
     #[Optional]
@@ -87,7 +87,7 @@ final class UserState implements BaseModel
         return $self;
     }
 
-    public function withCannotAddUserReason(string $cannotAddUserReason): self
+    public function withCannotAddUserReason(?string $cannotAddUserReason): self
     {
         $self = clone $this;
         $self['cannotAddUserReason'] = $cannotAddUserReason;

@@ -65,7 +65,7 @@ final class Entity implements BaseModel
     #[Optional]
     public ?string $createdAt;
 
-    #[Optional('giphyId')]
+    #[Optional('giphyId', nullable: true)]
     public ?string $giphyID;
 
     #[Optional]
@@ -272,7 +272,7 @@ final class Entity implements BaseModel
         return $self;
     }
 
-    public function withGiphyID(string $giphyID): self
+    public function withGiphyID(?string $giphyID): self
     {
         $self = clone $this;
         $self['giphyID'] = $giphyID;

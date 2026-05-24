@@ -60,7 +60,7 @@ final class Data implements BaseModel
     #[Optional('isXXX')]
     public ?bool $isXxx;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $ivFailReason;
 
     #[Optional]
@@ -69,7 +69,7 @@ final class Data implements BaseModel
     #[Optional]
     public ?bool $needShowEditW9;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $payoutLegalApproveRejectReason;
 
     #[Optional]
@@ -194,7 +194,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withIvFailReason(string $ivFailReason): self
+    public function withIvFailReason(?string $ivFailReason): self
     {
         $self = clone $this;
         $self['ivFailReason'] = $ivFailReason;
@@ -219,7 +219,7 @@ final class Data implements BaseModel
     }
 
     public function withPayoutLegalApproveRejectReason(
-        string $payoutLegalApproveRejectReason
+        ?string $payoutLegalApproveRejectReason
     ): self {
         $self = clone $this;
         $self['payoutLegalApproveRejectReason'] = $payoutLegalApproveRejectReason;

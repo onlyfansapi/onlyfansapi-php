@@ -14,4 +14,6 @@ enum Type: string
     case VISITORS = 'visitors';
 
     case POSTS = 'posts';
+
+    case MESSAGES = 'messages';
 }

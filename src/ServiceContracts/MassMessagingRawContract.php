@@ -10,8 +10,6 @@ use Onlyfansapi\MassMessaging\MassMessagingDeleteParams;
 use Onlyfansapi\MassMessaging\MassMessagingDeleteResponse;
 use Onlyfansapi\MassMessaging\MassMessagingGetResponse;
 use Onlyfansapi\MassMessaging\MassMessagingListQueueResponse;
-use Onlyfansapi\MassMessaging\MassMessagingListStatisticsParams;
-use Onlyfansapi\MassMessaging\MassMessagingListStatisticsResponse;
 use Onlyfansapi\MassMessaging\MassMessagingRetrieveParams;
 use Onlyfansapi\MassMessaging\MassMessagingSendParams;
 use Onlyfansapi\MassMessaging\MassMessagingSendResponse;
@@ -88,23 +86,6 @@ interface MassMessagingRawContract
     public function listQueue(
         string $account,
         RequestOptions|array|null $requestOptions = null
-    ): BaseResponse;
-
-    /**
-     * @api
-     *
-     * @param string $account The Account ID
-     * @param array<string,mixed>|MassMessagingListStatisticsParams $params
-     * @param RequestOpts|null $requestOptions
-     *
-     * @return BaseResponse<MassMessagingListStatisticsResponse>
-     *
-     * @throws APIException
-     */
-    public function listStatistics(
-        string $account,
-        array|MassMessagingListStatisticsParams $params,
-        RequestOptions|array|null $requestOptions = null,
     ): BaseResponse;
 
     /**

@@ -67,6 +67,8 @@ use Onlyfansapi\Profiles\ProfileGetResponse\Data\HeaderThumbs;
  *   location?: string|null,
  *   mediasCount?: int|null,
  *   name?: string|null,
+ *   ofapiGender?: string|null,
+ *   ofapiGenderConfidence?: float|null,
  *   photosCount?: int|null,
  *   postsCount?: int|null,
  *   privateArchivedPostsCount?: int|null,
@@ -160,7 +162,7 @@ final class Data implements BaseModel
     #[Optional]
     public ?bool $canTrialSend;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $currentSubscribePrice;
 
     #[Optional]
@@ -244,7 +246,7 @@ final class Data implements BaseModel
     #[Optional]
     public ?string $lastSeen;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $location;
 
     #[Optional]
@@ -252,6 +254,12 @@ final class Data implements BaseModel
 
     #[Optional]
     public ?string $name;
+
+    #[Optional('ofapi_gender')]
+    public ?string $ofapiGender;
+
+    #[Optional('ofapi_gender_confidence')]
+    public ?float $ofapiGenderConfidence;
 
     #[Optional]
     public ?int $photosCount;
@@ -277,37 +285,37 @@ final class Data implements BaseModel
     #[Optional]
     public ?bool $subscribedBy;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribedByAutoprolong;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribedByData;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribedByExpire;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribedByExpireDate;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribedIsExpiredNow;
 
     #[Optional]
     public ?bool $subscribedOn;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribedOnData;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribedOnDuration;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribedOnExpiredNow;
 
     #[Optional]
     public ?int $subscribePrice;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribersCount;
 
     #[Optional]
@@ -337,7 +345,7 @@ final class Data implements BaseModel
     #[Optional]
     public ?string $website;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $wishlist;
 
     public function __construct()
@@ -405,6 +413,8 @@ final class Data implements BaseModel
         ?string $location = null,
         ?int $mediasCount = null,
         ?string $name = null,
+        ?string $ofapiGender = null,
+        ?float $ofapiGenderConfidence = null,
         ?int $photosCount = null,
         ?int $postsCount = null,
         ?int $privateArchivedPostsCount = null,
@@ -487,6 +497,8 @@ final class Data implements BaseModel
         null !== $location && $self['location'] = $location;
         null !== $mediasCount && $self['mediasCount'] = $mediasCount;
         null !== $name && $self['name'] = $name;
+        null !== $ofapiGender && $self['ofapiGender'] = $ofapiGender;
+        null !== $ofapiGenderConfidence && $self['ofapiGenderConfidence'] = $ofapiGenderConfidence;
         null !== $photosCount && $self['photosCount'] = $photosCount;
         null !== $postsCount && $self['postsCount'] = $postsCount;
         null !== $privateArchivedPostsCount && $self['privateArchivedPostsCount'] = $privateArchivedPostsCount;
@@ -677,7 +689,7 @@ final class Data implements BaseModel
     }
 
     public function withCurrentSubscribePrice(
-        string $currentSubscribePrice
+        ?string $currentSubscribePrice
     ): self {
         $self = clone $this;
         $self['currentSubscribePrice'] = $currentSubscribePrice;
@@ -909,7 +921,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withLocation(string $location): self
+    public function withLocation(?string $location): self
     {
         $self = clone $this;
         $self['location'] = $location;
@@ -929,6 +941,23 @@ final class Data implements BaseModel
     {
         $self = clone $this;
         $self['name'] = $name;
+
+        return $self;
+    }
+
+    public function withOfapiGender(string $ofapiGender): self
+    {
+        $self = clone $this;
+        $self['ofapiGender'] = $ofapiGender;
+
+        return $self;
+    }
+
+    public function withOfapiGenderConfidence(
+        float $ofapiGenderConfidence
+    ): self {
+        $self = clone $this;
+        $self['ofapiGenderConfidence'] = $ofapiGenderConfidence;
 
         return $self;
     }
@@ -1000,7 +1029,7 @@ final class Data implements BaseModel
     }
 
     public function withSubscribedByAutoprolong(
-        string $subscribedByAutoprolong
+        ?string $subscribedByAutoprolong
     ): self {
         $self = clone $this;
         $self['subscribedByAutoprolong'] = $subscribedByAutoprolong;
@@ -1008,7 +1037,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withSubscribedByData(string $subscribedByData): self
+    public function withSubscribedByData(?string $subscribedByData): self
     {
         $self = clone $this;
         $self['subscribedByData'] = $subscribedByData;
@@ -1016,7 +1045,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withSubscribedByExpire(string $subscribedByExpire): self
+    public function withSubscribedByExpire(?string $subscribedByExpire): self
     {
         $self = clone $this;
         $self['subscribedByExpire'] = $subscribedByExpire;
@@ -1025,7 +1054,7 @@ final class Data implements BaseModel
     }
 
     public function withSubscribedByExpireDate(
-        string $subscribedByExpireDate
+        ?string $subscribedByExpireDate
     ): self {
         $self = clone $this;
         $self['subscribedByExpireDate'] = $subscribedByExpireDate;
@@ -1034,7 +1063,7 @@ final class Data implements BaseModel
     }
 
     public function withSubscribedIsExpiredNow(
-        string $subscribedIsExpiredNow
+        ?string $subscribedIsExpiredNow
     ): self {
         $self = clone $this;
         $self['subscribedIsExpiredNow'] = $subscribedIsExpiredNow;
@@ -1050,7 +1079,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withSubscribedOnData(string $subscribedOnData): self
+    public function withSubscribedOnData(?string $subscribedOnData): self
     {
         $self = clone $this;
         $self['subscribedOnData'] = $subscribedOnData;
@@ -1058,8 +1087,9 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withSubscribedOnDuration(string $subscribedOnDuration): self
-    {
+    public function withSubscribedOnDuration(
+        ?string $subscribedOnDuration
+    ): self {
         $self = clone $this;
         $self['subscribedOnDuration'] = $subscribedOnDuration;
 
@@ -1067,7 +1097,7 @@ final class Data implements BaseModel
     }
 
     public function withSubscribedOnExpiredNow(
-        string $subscribedOnExpiredNow
+        ?string $subscribedOnExpiredNow
     ): self {
         $self = clone $this;
         $self['subscribedOnExpiredNow'] = $subscribedOnExpiredNow;
@@ -1083,7 +1113,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withSubscribersCount(string $subscribersCount): self
+    public function withSubscribersCount(?string $subscribersCount): self
     {
         $self = clone $this;
         $self['subscribersCount'] = $subscribersCount;
@@ -1163,7 +1193,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withWishlist(string $wishlist): self
+    public function withWishlist(?string $wishlist): self
     {
         $self = clone $this;
         $self['wishlist'] = $wishlist;

@@ -49,6 +49,7 @@ final class TrialLinksService implements TrialLinksContract
      * @param int $offerExpiration The trial link expiration **in days (from now)**. Must either be **0** (to never expire), or a number between **1** and **30**.
      * @param OfferLimit|value-of<OfferLimit> $offerLimit How many people can use this offer. Must either be **0** (for no limit), or a number between **1**-**10**, **50**, or **100**.
      * @param string|null $name The name of the trail link (optional). Cannot be longer than 64 characters.
+     * @param list<string> $tags array of tag names to add to the trial link
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -59,6 +60,7 @@ final class TrialLinksService implements TrialLinksContract
         int $offerExpiration,
         OfferLimit|int $offerLimit,
         ?string $name = null,
+        ?array $tags = null,
         RequestOptions|array|null $requestOptions = null,
     ): TrialLinkNewResponse {
         $params = Util::removeNulls(
@@ -67,6 +69,7 @@ final class TrialLinksService implements TrialLinksContract
                 'offerExpiration' => $offerExpiration,
                 'offerLimit' => $offerLimit,
                 'name' => $name,
+                'tags' => $tags,
             ],
         );
 
@@ -121,14 +124,14 @@ final class TrialLinksService implements TrialLinksContract
      *
      * Delete a free trial link by its ID
      *
-     * @param int $trialLinkID The ID of the trial link to delete
+     * @param string $trialLinkID the ID of the trial link
      * @param string $account The Account ID
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
      */
     public function delete(
-        int $trialLinkID,
+        string $trialLinkID,
         string $account,
         RequestOptions|array|null $requestOptions = null,
     ): TrialLinkDeleteResponse {

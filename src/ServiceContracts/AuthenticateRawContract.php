@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace Onlyfansapi\ServiceContracts;
 
 use Onlyfansapi\Authenticate\AuthenticatePollStatusResponse;
+use Onlyfansapi\Authenticate\AuthenticateReauthenticateResponse;
 use Onlyfansapi\Authenticate\AuthenticateStartParams;
-use Onlyfansapi\Authenticate\AuthenticateStartResponse;
+use Onlyfansapi\Authenticate\AuthenticateStartResponse\UnionMember0;
+use Onlyfansapi\Authenticate\AuthenticateStartResponse\UnionMember1;
 use Onlyfansapi\Authenticate\AuthenticateSubmit2faParams;
 use Onlyfansapi\Authenticate\AuthenticateSubmit2faResponse;
 use Onlyfansapi\Core\Contracts\BaseResponse;
@@ -39,7 +41,7 @@ interface AuthenticateRawContract
      * @param string $accountID The Account ID of the authentication process
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<mixed>
+     * @return BaseResponse<AuthenticateReauthenticateResponse>
      *
      * @throws APIException
      */
@@ -54,7 +56,7 @@ interface AuthenticateRawContract
      * @param array<string,mixed>|AuthenticateStartParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<AuthenticateStartResponse>
+     * @return BaseResponse<UnionMember0|UnionMember1>
      *
      * @throws APIException
      */
