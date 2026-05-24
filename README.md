@@ -12,19 +12,23 @@ The REST API documentation can be found on [docs.onlyfansapi.com](https://docs.o
 
 To use this package, install via Composer by adding the following to your application's `composer.json`:
 
+<!-- x-release-please-start-version -->
+
 ```json
 {
   "repositories": [
     {
       "type": "vcs",
-      "url": "git@github.com:stainless-sdks/onlyfansapi-php.git"
+      "url": "git@github.com:onlyfansapi/onlyfansapi-php.git"
     }
   ],
   "require": {
-    "org-placeholder/onlyfansapi": "dev-main"
+    "onlyfansapi/onlyfansapi-php": "dev-main"
   }
 }
 ```
+
+<!-- x-release-please-end -->
 
 ## Usage
 
@@ -196,4 +200,4 @@ PHP 8.1.0 or higher.
 
 ## Contributing
 
-See [the contributing documentation](https://github.com/stainless-sdks/onlyfansapi-php/tree/main/CONTRIBUTING.md).
+See [the contributing documentation](https://github.com/onlyfansapi/onlyfansapi-php/tree/main/CONTRIBUTING.md).
