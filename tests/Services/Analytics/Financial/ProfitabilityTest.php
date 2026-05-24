@@ -35,7 +35,25 @@ final class ProfitabilityTest extends TestCase
         }
 
         $result = $this->client->analytics->financial->profitability->getHistory(
-            'acct_XXXXXXXXXXXXXXX'
+            'acct_XXXXXXXXXXXXXXX',
+            accountPrefixedID: 'acct_abc123'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertIsList($result);
+    }
+
+    #[Test]
+    public function testGetHistoryWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->analytics->financial->profitability->getHistory(
+            'acct_XXXXXXXXXXXXXXX',
+            accountPrefixedID: 'acct_abc123',
+            months: 12
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType

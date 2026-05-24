@@ -8,18 +8,17 @@ use Onlyfansapi\Core\Attributes\Optional;
 use Onlyfansapi\Core\Concerns\SdkModel;
 use Onlyfansapi\Core\Concerns\SdkParams;
 use Onlyfansapi\Core\Contracts\BaseModel;
+use Onlyfansapi\Stored\StoredListTrialLinksParams\Filter;
 
 /**
  * List all stored free trial links from the OnlyFansAPI Cache. This is a free endpoint that does not call the OnlyFans API.
  *
  * @see Onlyfansapi\Services\StoredService::listTrialLinks()
  *
+ * @phpstan-import-type FilterShape from \Onlyfansapi\Stored\StoredListTrialLinksParams\Filter
+ *
  * @phpstan-type StoredListTrialLinksParamsShape = array{
- *   filterIncludeSmartLinks?: bool|null,
- *   filterSearch?: string|null,
- *   filterTags?: string|null,
- *   limit?: int|null,
- *   offset?: int|null,
+ *   filter?: null|Filter|FilterShape, limit?: int|null, offset?: int|null
  * }
  */
 final class StoredListTrialLinksParams implements BaseModel
@@ -28,32 +27,17 @@ final class StoredListTrialLinksParams implements BaseModel
     use SdkModel;
     use SdkParams;
 
-    /**
-     * Include trial links created by Smart Links. Default `false`.
-     */
     #[Optional]
-    public ?bool $filterIncludeSmartLinks;
+    public ?Filter $filter;
 
     /**
-     * Search trial link name or URL.
-     */
-    #[Optional]
-    public ?string $filterSearch;
-
-    /**
-     * Filter by one or more tag names or slugs. Accepts CSV or repeated array values (`filter[tags][]=...`) and matches any tag.
-     */
-    #[Optional]
-    public ?string $filterTags;
-
-    /**
-     * The number of trial links to return. Default `10`.
+     * The number of trial links to return. Default `10`. Must be at least 1. Must not be greater than 1000.
      */
     #[Optional]
     public ?int $limit;
 
     /**
-     * The offset used for pagination. Default `0`.
+     * The offset used for pagination. Default `0`. Must be at least 0.
      */
     #[Optional]
     public ?int $offset;
@@ -67,19 +51,17 @@ final class StoredListTrialLinksParams implements BaseModel
      * Construct an instance from the required parameters.
      *
      * You must use named parameters to construct any parameters with a default value.
+     *
+     * @param Filter|FilterShape|null $filter
      */
     public static function with(
-        ?bool $filterIncludeSmartLinks = null,
-        ?string $filterSearch = null,
-        ?string $filterTags = null,
+        Filter|array|null $filter = null,
         ?int $limit = null,
-        ?int $offset = null,
+        ?int $offset = null
     ): self {
         $self = new self;
 
-        null !== $filterIncludeSmartLinks && $self['filterIncludeSmartLinks'] = $filterIncludeSmartLinks;
-        null !== $filterSearch && $self['filterSearch'] = $filterSearch;
-        null !== $filterTags && $self['filterTags'] = $filterTags;
+        null !== $filter && $self['filter'] = $filter;
         null !== $limit && $self['limit'] = $limit;
         null !== $offset && $self['offset'] = $offset;
 
@@ -87,41 +69,18 @@ final class StoredListTrialLinksParams implements BaseModel
     }
 
     /**
-     * Include trial links created by Smart Links. Default `false`.
+     * @param Filter|FilterShape $filter
      */
-    public function withFilterIncludeSmartLinks(
-        bool $filterIncludeSmartLinks
-    ): self {
-        $self = clone $this;
-        $self['filterIncludeSmartLinks'] = $filterIncludeSmartLinks;
-
-        return $self;
-    }
-
-    /**
-     * Search trial link name or URL.
-     */
-    public function withFilterSearch(string $filterSearch): self
+    public function withFilter(Filter|array $filter): self
     {
         $self = clone $this;
-        $self['filterSearch'] = $filterSearch;
+        $self['filter'] = $filter;
 
         return $self;
     }
 
     /**
-     * Filter by one or more tag names or slugs. Accepts CSV or repeated array values (`filter[tags][]=...`) and matches any tag.
-     */
-    public function withFilterTags(string $filterTags): self
-    {
-        $self = clone $this;
-        $self['filterTags'] = $filterTags;
-
-        return $self;
-    }
-
-    /**
-     * The number of trial links to return. Default `10`.
+     * The number of trial links to return. Default `10`. Must be at least 1. Must not be greater than 1000.
      */
     public function withLimit(int $limit): self
     {
@@ -132,7 +91,7 @@ final class StoredListTrialLinksParams implements BaseModel
     }
 
     /**
-     * The offset used for pagination. Default `0`.
+     * The offset used for pagination. Default `0`. Must be at least 0.
      */
     public function withOffset(int $offset): self
     {

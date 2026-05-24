@@ -203,10 +203,10 @@ final class FansRawService implements FansRawContract
      * @param string $account The Account ID
      * @param array{
      *   endDate?: string|null,
-     *   limit?: string|null,
-     *   offset?: string|null,
+     *   limit?: int,
+     *   offset?: int,
      *   startDate?: string|null,
-     *   type?: string|null,
+     *   type?: FanListLatestParams\Type|value-of<FanListLatestParams\Type>|null,
      * }|FanListLatestParams $params
      * @param RequestOpts|null $requestOptions
      *

@@ -31,11 +31,11 @@ final class SmartLinkListParams implements BaseModel
     /**
      * Comma-separated account prefixed IDs to include.
      */
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $accountIDs;
 
     /**
-     * The number of Smart Links to return. Default `50`.
+     * The number of Smart Links to return. Default `50`. Must be at least 1. Must not be greater than 1000.
      */
     #[Optional]
     public ?int $limit;
@@ -43,17 +43,17 @@ final class SmartLinkListParams implements BaseModel
     /**
      * Comma-separated Meta Pixel IDs to include.
      */
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $metaPixelIDs;
 
     /**
-     * Filter Smart Links by name.
+     * Filter Smart Links by name. Must not be greater than 255 characters.
      */
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $name;
 
     /**
-     * The offset used for pagination. Default `0`.
+     * The offset used for pagination. Default `0`. Must be at least 0.
      */
     #[Optional]
     public ?int $offset;
@@ -89,7 +89,7 @@ final class SmartLinkListParams implements BaseModel
     /**
      * Comma-separated account prefixed IDs to include.
      */
-    public function withAccountIDs(string $accountIDs): self
+    public function withAccountIDs(?string $accountIDs): self
     {
         $self = clone $this;
         $self['accountIDs'] = $accountIDs;
@@ -98,7 +98,7 @@ final class SmartLinkListParams implements BaseModel
     }
 
     /**
-     * The number of Smart Links to return. Default `50`.
+     * The number of Smart Links to return. Default `50`. Must be at least 1. Must not be greater than 1000.
      */
     public function withLimit(int $limit): self
     {
@@ -111,7 +111,7 @@ final class SmartLinkListParams implements BaseModel
     /**
      * Comma-separated Meta Pixel IDs to include.
      */
-    public function withMetaPixelIDs(string $metaPixelIDs): self
+    public function withMetaPixelIDs(?string $metaPixelIDs): self
     {
         $self = clone $this;
         $self['metaPixelIDs'] = $metaPixelIDs;
@@ -120,9 +120,9 @@ final class SmartLinkListParams implements BaseModel
     }
 
     /**
-     * Filter Smart Links by name.
+     * Filter Smart Links by name. Must not be greater than 255 characters.
      */
-    public function withName(string $name): self
+    public function withName(?string $name): self
     {
         $self = clone $this;
         $self['name'] = $name;
@@ -131,7 +131,7 @@ final class SmartLinkListParams implements BaseModel
     }
 
     /**
-     * The offset used for pagination. Default `0`.
+     * The offset used for pagination. Default `0`. Must be at least 0.
      */
     public function withOffset(int $offset): self
     {

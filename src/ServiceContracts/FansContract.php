@@ -113,11 +113,11 @@ interface FansContract
      * @api
      *
      * @param string $account The Account ID
-     * @param string|null $endDate End date for filtering (required with start_date)
-     * @param string|null $limit Number of fans to return (1-50)
-     * @param string|null $offset Number of fans to skip
-     * @param string|null $startDate Start date for filtering (required with end_date)
-     * @param string|null $type Filter by type: total, renew, or new
+     * @param string|null $endDate End date for filtering (required with start_date). This field is required when <code>start_date</code> is present.
+     * @param int $limit Number of fans to return (1-50). Must be at least 1. Must not be greater than 100.
+     * @param int $offset Number of fans to skip. Must be at least 0.
+     * @param string|null $startDate Start date for filtering (required with end_date). This field is required when <code>end_date</code> is present.
+     * @param \Onlyfansapi\Fans\FanListLatestParams\Type|value-of<\Onlyfansapi\Fans\FanListLatestParams\Type>|null $type filter by type: total, renew, or new
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -125,10 +125,10 @@ interface FansContract
     public function listLatest(
         string $account,
         ?string $endDate = null,
-        ?string $limit = null,
-        ?string $offset = null,
+        ?int $limit = null,
+        ?int $offset = null,
         ?string $startDate = null,
-        ?string $type = null,
+        \Onlyfansapi\Fans\FanListLatestParams\Type|string|null $type = null,
         RequestOptions|array|null $requestOptions = null,
     ): FanListLatestResponse;
 
