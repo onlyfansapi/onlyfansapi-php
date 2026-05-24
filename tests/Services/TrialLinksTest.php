@@ -1,0 +1,211 @@
+<?php
+
+namespace Tests\Services;
+
+use Onlyfansapi\Client;
+use Onlyfansapi\Core\Util;
+use Onlyfansapi\TrialLinks\TrialLinkDeleteResponse;
+use Onlyfansapi\TrialLinks\TrialLinkListResponse;
+use Onlyfansapi\TrialLinks\TrialLinkListSpendersResponse;
+use Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse;
+use Onlyfansapi\TrialLinks\TrialLinkNewResponse;
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
+use Tests\UnsupportedMockTests;
+
+/**
+ * @internal
+ */
+#[CoversNothing]
+final class TrialLinksTest extends TestCase
+{
+    protected Client $client;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $testUrl = Util::getenv('TEST_API_BASE_URL') ?: 'http://127.0.0.1:4010';
+        $client = new Client(apiKey: 'My API Key', baseUrl: $testUrl);
+
+        $this->client = $client;
+    }
+
+    #[Test]
+    public function testCreate(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->trialLinks->create(
+            'acct_XXXXXXXXXXXXXXX',
+            duration: 7,
+            offerExpiration: 7,
+            offerLimit: 7
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(TrialLinkNewResponse::class, $result);
+    }
+
+    #[Test]
+    public function testCreateWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->trialLinks->create(
+            'acct_XXXXXXXXXXXXXXX',
+            duration: 7,
+            offerExpiration: 7,
+            offerLimit: 7,
+            name: 'name',
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(TrialLinkNewResponse::class, $result);
+    }
+
+    #[Test]
+    public function testList(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->trialLinks->list(
+            'acct_XXXXXXXXXXXXXXX',
+            limit: 10,
+            offset: 0
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(TrialLinkListResponse::class, $result);
+    }
+
+    #[Test]
+    public function testListWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->trialLinks->list(
+            'acct_XXXXXXXXXXXXXXX',
+            limit: 10,
+            offset: 0,
+            field: 'create_date',
+            sort: 'desc',
+            synchronous: false,
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(TrialLinkListResponse::class, $result);
+    }
+
+    #[Test]
+    public function testDelete(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->trialLinks->delete(
+            123456789,
+            account: 'acct_XXXXXXXXXXXXXXX'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(TrialLinkDeleteResponse::class, $result);
+    }
+
+    #[Test]
+    public function testDeleteWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->trialLinks->delete(
+            123456789,
+            account: 'acct_XXXXXXXXXXXXXXX'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(TrialLinkDeleteResponse::class, $result);
+    }
+
+    #[Test]
+    public function testListSpenders(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->trialLinks->listSpenders(
+            'trial_link_id',
+            account: 'acct_XXXXXXXXXXXXXXX'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(TrialLinkListSpendersResponse::class, $result);
+    }
+
+    #[Test]
+    public function testListSpendersWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->trialLinks->listSpenders(
+            'trial_link_id',
+            account: 'acct_XXXXXXXXXXXXXXX',
+            limit: 50,
+            minSpend: 1,
+            offset: 0,
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(TrialLinkListSpendersResponse::class, $result);
+    }
+
+    #[Test]
+    public function testListSubscribers(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->trialLinks->listSubscribers(
+            'excepturi',
+            account: 'acct_XXXXXXXXXXXXXXX',
+            limit: 10,
+            offset: 0
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(TrialLinkListSubscribersResponse::class, $result);
+    }
+
+    #[Test]
+    public function testListSubscribersWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->trialLinks->listSubscribers(
+            'excepturi',
+            account: 'acct_XXXXXXXXXXXXXXX',
+            limit: 10,
+            offset: 0
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(TrialLinkListSubscribersResponse::class, $result);
+    }
+}
