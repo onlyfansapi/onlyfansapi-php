@@ -5,12 +5,16 @@ declare(strict_types=1);
 namespace Onlyfansapi\ServiceContracts;
 
 use Onlyfansapi\Core\Exceptions\APIException;
+use Onlyfansapi\Fans\FanGetSubscriptionHistoryResponse;
 use Onlyfansapi\Fans\FanListActiveParams\Filter;
 use Onlyfansapi\Fans\FanListActiveParams\Type;
 use Onlyfansapi\Fans\FanListActiveResponse;
 use Onlyfansapi\Fans\FanListAllResponse;
 use Onlyfansapi\Fans\FanListExpiredResponse;
 use Onlyfansapi\Fans\FanListLatestResponse;
+use Onlyfansapi\Fans\FanListTopParams\By;
+use Onlyfansapi\Fans\FanListTopResponse;
+use Onlyfansapi\Fans\FanSetCustomNameResponse;
 use Onlyfansapi\RequestOptions;
 
 /**
@@ -21,6 +25,21 @@ use Onlyfansapi\RequestOptions;
  */
 interface FansContract
 {
+    /**
+     * @api
+     *
+     * @param string $userID the OnlyFans ID of the User
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function getSubscriptionHistory(
+        string $userID,
+        string $account,
+        RequestOptions|array|null $requestOptions = null,
+    ): FanGetSubscriptionHistoryResponse;
+
     /**
      * @api
      *
@@ -112,4 +131,40 @@ interface FansContract
         ?string $type = null,
         RequestOptions|array|null $requestOptions = null,
     ): FanListLatestResponse;
+
+    /**
+     * @api
+     *
+     * @param string $account The Account ID
+     * @param By|value-of<By>|null $by sort by: total (default), subscribes, tips, messages, post, streams
+     * @param string|null $endDate End date for filtering (required with start_date). This field is required when <code>start_date</code> is present.
+     * @param string|null $startDate Start date for filtering (required with end_date). This field is required when <code>end_date</code> is present.
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function listTop(
+        string $account,
+        By|string|null $by = null,
+        ?string $endDate = null,
+        ?string $startDate = null,
+        RequestOptions|array|null $requestOptions = null,
+    ): FanListTopResponse;
+
+    /**
+     * @api
+     *
+     * @param string $fanID Path param: Fan's OnlyFans ID
+     * @param string $account Path param: The Account ID
+     * @param string $customName Body param: New Custom Name for a Fan. Send empty string (`""`) or `null` to clear out the custom name.
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function setCustomName(
+        string $fanID,
+        string $account,
+        string $customName,
+        RequestOptions|array|null $requestOptions = null,
+    ): FanSetCustomNameResponse;
 }

@@ -11,6 +11,7 @@ use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\UserListsContract;
 use Onlyfansapi\Services\UserLists\UsersService;
 use Onlyfansapi\UserLists\UserListDeleteResponse;
+use Onlyfansapi\UserLists\UserListGetResponse;
 use Onlyfansapi\UserLists\UserListListResponse;
 use Onlyfansapi\UserLists\UserListNewResponse;
 use Onlyfansapi\UserLists\UserListUpdateResponse;
@@ -59,6 +60,30 @@ final class UserListsService implements UserListsContract
 
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->create($account, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Get a user list
+     *
+     * @param string $userListID OnlyFans User List ID, or a default list name like `tagged`
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function retrieve(
+        string $userListID,
+        string $account,
+        RequestOptions|array|null $requestOptions = null,
+    ): UserListGetResponse {
+        $params = Util::removeNulls(['account' => $account]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->retrieve($userListID, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }

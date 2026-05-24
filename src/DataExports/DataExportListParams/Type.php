@@ -1,0 +1,27 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Onlyfansapi\DataExports\DataExportListParams;
+
+/**
+ * Filter by export type.
+ */
+enum Type: string
+{
+    case TRANSACTIONS = 'transactions';
+
+    case CHAT_MESSAGES = 'chat_messages';
+
+    case MEDIA_VAULT = 'media_vault';
+
+    case TRIAL_LINKS = 'trial_links';
+
+    case TRACKING_LINKS = 'tracking_links';
+
+    case PAYOUTS = 'payouts';
+
+    case CHARGEBACKS = 'chargebacks';
+
+    case PUBLIC_PROFILES = 'public_profiles';
+}

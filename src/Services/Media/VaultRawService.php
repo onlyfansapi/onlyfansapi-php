@@ -7,13 +7,18 @@ namespace Onlyfansapi\Services\Media;
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Contracts\BaseResponse;
 use Onlyfansapi\Core\Exceptions\APIException;
+use Onlyfansapi\Core\FileParam;
 use Onlyfansapi\Media\Vault\VaultDeleteParams;
 use Onlyfansapi\Media\Vault\VaultDeleteResponse;
+use Onlyfansapi\Media\Vault\VaultGetResponse;
 use Onlyfansapi\Media\Vault\VaultListParams;
 use Onlyfansapi\Media\Vault\VaultListParams\Field;
 use Onlyfansapi\Media\Vault\VaultListParams\Sort;
 use Onlyfansapi\Media\Vault\VaultListParams\Type;
 use Onlyfansapi\Media\Vault\VaultListResponse;
+use Onlyfansapi\Media\Vault\VaultRetrieveParams;
+use Onlyfansapi\Media\Vault\VaultUploadParams;
+use Onlyfansapi\Media\Vault\VaultUploadResponse;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\Media\VaultRawContract;
 
@@ -27,6 +32,40 @@ final class VaultRawService implements VaultRawContract
      * @internal
      */
     public function __construct(private Client $client) {}
+
+    /**
+     * @api
+     *
+     * Retrieve details about a specific media item in your vault.
+     *
+     * @param int $mediaID the ID of the media item to retrieve
+     * @param array{account: string}|VaultRetrieveParams $params
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<VaultGetResponse>
+     *
+     * @throws APIException
+     */
+    public function retrieve(
+        int $mediaID,
+        array|VaultRetrieveParams $params,
+        RequestOptions|array|null $requestOptions = null,
+    ): BaseResponse {
+        [$parsed, $options] = VaultRetrieveParams::parseRequest(
+            $params,
+            $requestOptions,
+        );
+        $account = $parsed['account'];
+        unset($parsed['account']);
+
+        // @phpstan-ignore-next-line return.type
+        return $this->client->request(
+            method: 'get',
+            path: ['api/%1$s/media/vault/%2$s', $account, $mediaID],
+            options: $options,
+            convert: VaultGetResponse::class,
+        );
+    }
 
     /**
      * @api
@@ -99,6 +138,42 @@ final class VaultRawService implements VaultRawContract
             body: (object) $parsed,
             options: $options,
             convert: VaultDeleteResponse::class,
+        );
+    }
+
+    /**
+     * @api
+     *
+     * Upload a media file directly to your vault.
+     *
+     * @param string $account The Account ID
+     * @param array{
+     *   async?: bool, file?: string|FileParam, fileURL?: string
+     * }|VaultUploadParams $params
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<VaultUploadResponse>
+     *
+     * @throws APIException
+     */
+    public function upload(
+        string $account,
+        array|VaultUploadParams $params,
+        RequestOptions|array|null $requestOptions = null,
+    ): BaseResponse {
+        [$parsed, $options] = VaultUploadParams::parseRequest(
+            $params,
+            $requestOptions,
+        );
+
+        // @phpstan-ignore-next-line return.type
+        return $this->client->request(
+            method: 'post',
+            path: ['api/%1$s/media/vault', $account],
+            headers: ['Content-Type' => 'multipart/form-data'],
+            body: (object) $parsed,
+            options: $options,
+            convert: VaultUploadResponse::class,
         );
     }
 }

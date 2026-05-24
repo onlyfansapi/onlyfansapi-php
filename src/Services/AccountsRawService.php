@@ -9,6 +9,7 @@ use Onlyfansapi\Accounts\AccountListResponseItem;
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Contracts\BaseResponse;
 use Onlyfansapi\Core\Conversion\ListOf;
+use Onlyfansapi\Core\Conversion\MapOf;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Core\Util;
 use Onlyfansapi\RequestOptions;
@@ -77,7 +78,7 @@ final class AccountsRawService implements AccountsRawContract
      * @param string $id the ID of the account
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<mixed>
+     * @return BaseResponse<array<string,mixed>>
      *
      * @throws APIException
      */
@@ -90,7 +91,7 @@ final class AccountsRawService implements AccountsRawContract
             method: 'delete',
             path: ['api/accounts/%1$s', $id],
             options: $requestOptions,
-            convert: 'mixed',
+            convert: new MapOf('mixed'),
         );
     }
 }

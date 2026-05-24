@@ -14,6 +14,7 @@ use Onlyfansapi\Media\MediaUploadParams\Type;
 use Onlyfansapi\Media\MediaUploadResponse;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\MediaContract;
+use Onlyfansapi\Services\Media\UploadsService;
 use Onlyfansapi\Services\Media\VaultService;
 
 /**
@@ -29,6 +30,11 @@ final class MediaService implements MediaContract
     /**
      * @api
      */
+    public UploadsService $uploads;
+
+    /**
+     * @api
+     */
     public VaultService $vault;
 
     /**
@@ -37,7 +43,32 @@ final class MediaService implements MediaContract
     public function __construct(private Client $client)
     {
         $this->raw = new MediaRawService($client);
+        $this->uploads = new UploadsService($client);
         $this->vault = new VaultService($client);
+    }
+
+    /**
+     * @api
+     *
+     * Downloads a file directly from a `https://cdn*.onlyfans.com/*` URL. When the file is already cached on our CDN, this endpoint returns a `302` redirect to a `https://cdn.fansapi.com/*` URL. Most HTTP clients follow redirects automatically (`curl` requires `-L`). Otherwise, the file is streamed through our proxies and queued for caching.
+     *
+     * @param string $cdnURL Optional parameter. The CDN URL to scrape. **Keep in mind that these URLs expire in approx. 20 minutes.** So for example, if you fetched Media Vault Items at 01:00pm, the URLs will expire at around 01:20pm
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function download(
+        string $cdnURL,
+        string $account,
+        RequestOptions|array|null $requestOptions = null,
+    ): string {
+        $params = Util::removeNulls(['account' => $account]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->download($cdnURL, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
     }
 
     /**

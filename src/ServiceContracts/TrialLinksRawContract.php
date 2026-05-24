@@ -10,6 +10,8 @@ use Onlyfansapi\RequestOptions;
 use Onlyfansapi\TrialLinks\TrialLinkCreateParams;
 use Onlyfansapi\TrialLinks\TrialLinkDeleteParams;
 use Onlyfansapi\TrialLinks\TrialLinkDeleteResponse;
+use Onlyfansapi\TrialLinks\TrialLinkGetResponse;
+use Onlyfansapi\TrialLinks\TrialLinkGetStatsResponse;
 use Onlyfansapi\TrialLinks\TrialLinkListParams;
 use Onlyfansapi\TrialLinks\TrialLinkListResponse;
 use Onlyfansapi\TrialLinks\TrialLinkListSpendersParams;
@@ -17,6 +19,9 @@ use Onlyfansapi\TrialLinks\TrialLinkListSpendersResponse;
 use Onlyfansapi\TrialLinks\TrialLinkListSubscribersParams;
 use Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse;
 use Onlyfansapi\TrialLinks\TrialLinkNewResponse;
+use Onlyfansapi\TrialLinks\TrialLinkRetrieveCohortArpsParams;
+use Onlyfansapi\TrialLinks\TrialLinkRetrieveParams;
+use Onlyfansapi\TrialLinks\TrialLinkRetrieveStatsParams;
 
 /**
  * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
@@ -37,6 +42,23 @@ interface TrialLinksRawContract
     public function create(
         string $account,
         array|TrialLinkCreateParams $params,
+        RequestOptions|array|null $requestOptions = null,
+    ): BaseResponse;
+
+    /**
+     * @api
+     *
+     * @param string $trialLinkID the ID of the trial link
+     * @param array<string,mixed>|TrialLinkRetrieveParams $params
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<TrialLinkGetResponse>
+     *
+     * @throws APIException
+     */
+    public function retrieve(
+        string $trialLinkID,
+        array|TrialLinkRetrieveParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse;
 
@@ -105,6 +127,40 @@ interface TrialLinksRawContract
     public function listSubscribers(
         string $trialLinkID,
         array|TrialLinkListSubscribersParams $params,
+        RequestOptions|array|null $requestOptions = null,
+    ): BaseResponse;
+
+    /**
+     * @api
+     *
+     * @param string $trialLinkID path param: The ID of the trial link
+     * @param array<string,mixed>|TrialLinkRetrieveCohortArpsParams $params
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<mixed>
+     *
+     * @throws APIException
+     */
+    public function retrieveCohortArps(
+        string $trialLinkID,
+        array|TrialLinkRetrieveCohortArpsParams $params,
+        RequestOptions|array|null $requestOptions = null,
+    ): BaseResponse;
+
+    /**
+     * @api
+     *
+     * @param string $trialLinkID path param: The ID of the trial link
+     * @param array<string,mixed>|TrialLinkRetrieveStatsParams $params
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<TrialLinkGetStatsResponse>
+     *
+     * @throws APIException
+     */
+    public function retrieveStats(
+        string $trialLinkID,
+        array|TrialLinkRetrieveStatsParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse;
 }

@@ -5,6 +5,7 @@ namespace Tests\Services;
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Util;
 use Onlyfansapi\UserLists\UserListDeleteResponse;
+use Onlyfansapi\UserLists\UserListGetResponse;
 use Onlyfansapi\UserLists\UserListListResponse;
 use Onlyfansapi\UserLists\UserListNewResponse;
 use Onlyfansapi\UserLists\UserListUpdateResponse;
@@ -61,6 +62,38 @@ final class UserListsTest extends TestCase
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(UserListNewResponse::class, $result);
+    }
+
+    #[Test]
+    public function testRetrieve(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->userLists->retrieve(
+            'userListId',
+            account: 'acct_XXXXXXXXXXXXXXX'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(UserListGetResponse::class, $result);
+    }
+
+    #[Test]
+    public function testRetrieveWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->userLists->retrieve(
+            'userListId',
+            account: 'acct_XXXXXXXXXXXXXXX'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(UserListGetResponse::class, $result);
     }
 
     #[Test]

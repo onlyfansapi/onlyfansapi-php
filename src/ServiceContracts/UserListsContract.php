@@ -7,6 +7,7 @@ namespace Onlyfansapi\ServiceContracts;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\UserLists\UserListDeleteResponse;
+use Onlyfansapi\UserLists\UserListGetResponse;
 use Onlyfansapi\UserLists\UserListListResponse;
 use Onlyfansapi\UserLists\UserListNewResponse;
 use Onlyfansapi\UserLists\UserListUpdateResponse;
@@ -30,6 +31,21 @@ interface UserListsContract
         string $name,
         RequestOptions|array|null $requestOptions = null,
     ): UserListNewResponse;
+
+    /**
+     * @api
+     *
+     * @param string $userListID OnlyFans User List ID, or a default list name like `tagged`
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function retrieve(
+        string $userListID,
+        string $account,
+        RequestOptions|array|null $requestOptions = null,
+    ): UserListGetResponse;
 
     /**
      * @api

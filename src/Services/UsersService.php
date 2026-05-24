@@ -9,7 +9,11 @@ use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Core\Util;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\UsersContract;
+use Onlyfansapi\Services\Users\BlockService;
+use Onlyfansapi\Services\Users\RestrictService;
+use Onlyfansapi\Services\Users\SubscribeService;
 use Onlyfansapi\Users\UserGetResponse;
+use Onlyfansapi\Users\UserListResponse;
 
 /**
  * APIs for fetching OnlyFans users.
@@ -24,11 +28,29 @@ final class UsersService implements UsersContract
     public UsersRawService $raw;
 
     /**
+     * @api
+     */
+    public RestrictService $restrict;
+
+    /**
+     * @api
+     */
+    public BlockService $block;
+
+    /**
+     * @api
+     */
+    public SubscribeService $subscribe;
+
+    /**
      * @internal
      */
     public function __construct(private Client $client)
     {
         $this->raw = new UsersRawService($client);
+        $this->restrict = new RestrictService($client);
+        $this->block = new BlockService($client);
+        $this->subscribe = new SubscribeService($client);
     }
 
     /**
@@ -51,6 +73,30 @@ final class UsersService implements UsersContract
 
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->retrieve($username, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Save on credits by getting up to 10 user details with a single request. User details are retrieved using the current `{account}` so fields like `subscribedOnData` which include potential subscription details will be included.
+     *
+     * @param string $account The Account ID
+     * @param string $ids Comma-separated list of user IDs (max. 10 IDs). Must be at least 1 character.
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function list(
+        string $account,
+        string $ids,
+        RequestOptions|array|null $requestOptions = null,
+    ): UserListResponse {
+        $params = Util::removeNulls(['ids' => $ids]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->list($account, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }

@@ -6,12 +6,15 @@ namespace Onlyfansapi\Services\Media;
 
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Exceptions\APIException;
+use Onlyfansapi\Core\FileParam;
 use Onlyfansapi\Core\Util;
 use Onlyfansapi\Media\Vault\VaultDeleteResponse;
+use Onlyfansapi\Media\Vault\VaultGetResponse;
 use Onlyfansapi\Media\Vault\VaultListParams\Field;
 use Onlyfansapi\Media\Vault\VaultListParams\Sort;
 use Onlyfansapi\Media\Vault\VaultListParams\Type;
 use Onlyfansapi\Media\Vault\VaultListResponse;
+use Onlyfansapi\Media\Vault\VaultUploadResponse;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\Media\VaultContract;
 use Onlyfansapi\Services\Media\Vault\ListsService;
@@ -38,6 +41,30 @@ final class VaultService implements VaultContract
     {
         $this->raw = new VaultRawService($client);
         $this->lists = new ListsService($client);
+    }
+
+    /**
+     * @api
+     *
+     * Retrieve details about a specific media item in your vault.
+     *
+     * @param int $mediaID the ID of the media item to retrieve
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function retrieve(
+        int $mediaID,
+        string $account,
+        RequestOptions|array|null $requestOptions = null,
+    ): VaultGetResponse {
+        $params = Util::removeNulls(['account' => $account]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->retrieve($mediaID, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
     }
 
     /**
@@ -106,6 +133,36 @@ final class VaultService implements VaultContract
 
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->delete($account, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Upload a media file directly to your vault.
+     *
+     * @param string $account The Account ID
+     * @param bool $async Set to `true` to process uploads in the background. Returns a `polling_url` to check status. Recommended for large files.
+     * @param string|FileParam $file The file to upload. Required if `file_url` is not provided. Maximum file size: 100 MB (limited by Cloudflare).
+     * @param string $fileURL A URL to download the file from. Required if `file` is not provided. Maximum file size depends on the subscription configuration.
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function upload(
+        string $account,
+        ?bool $async = null,
+        string|FileParam|null $file = null,
+        ?string $fileURL = null,
+        RequestOptions|array|null $requestOptions = null,
+    ): VaultUploadResponse {
+        $params = Util::removeNulls(
+            ['async' => $async, 'file' => $file, 'fileURL' => $fileURL]
+        );
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->upload($account, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }

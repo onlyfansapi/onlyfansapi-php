@@ -9,12 +9,15 @@ use Onlyfansapi\RequestOptions;
 use Onlyfansapi\TrialLinks\TrialLinkCreateParams\Duration;
 use Onlyfansapi\TrialLinks\TrialLinkCreateParams\OfferLimit;
 use Onlyfansapi\TrialLinks\TrialLinkDeleteResponse;
+use Onlyfansapi\TrialLinks\TrialLinkGetResponse;
+use Onlyfansapi\TrialLinks\TrialLinkGetStatsResponse;
 use Onlyfansapi\TrialLinks\TrialLinkListParams\Field;
 use Onlyfansapi\TrialLinks\TrialLinkListParams\Sort;
 use Onlyfansapi\TrialLinks\TrialLinkListResponse;
 use Onlyfansapi\TrialLinks\TrialLinkListSpendersResponse;
 use Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse;
 use Onlyfansapi\TrialLinks\TrialLinkNewResponse;
+use Onlyfansapi\TrialLinks\TrialLinkRetrieveCohortArpsParams\RevenueBasis;
 
 /**
  * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
@@ -43,6 +46,21 @@ interface TrialLinksContract
         ?array $tags = null,
         RequestOptions|array|null $requestOptions = null,
     ): TrialLinkNewResponse;
+
+    /**
+     * @api
+     *
+     * @param string $trialLinkID the ID of the trial link
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function retrieve(
+        string $trialLinkID,
+        string $account,
+        RequestOptions|array|null $requestOptions = null,
+    ): TrialLinkGetResponse;
 
     /**
      * @api
@@ -121,4 +139,44 @@ interface TrialLinksContract
         int $offset,
         RequestOptions|array|null $requestOptions = null,
     ): TrialLinkListSubscribersResponse;
+
+    /**
+     * @api
+     *
+     * @param string $trialLinkID path param: The ID of the trial link
+     * @param string $account Path param: The Account ID
+     * @param string $acquisitionEnd Query param: Optional acquisition range end date
+     * @param string $acquisitionStart Query param: Optional acquisition range start date
+     * @param RevenueBasis|value-of<RevenueBasis> $revenueBasis Query param: Revenue basis. Defaults to `net`.
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function retrieveCohortArps(
+        string $trialLinkID,
+        string $account,
+        ?string $acquisitionEnd = null,
+        ?string $acquisitionStart = null,
+        RevenueBasis|string|null $revenueBasis = null,
+        RequestOptions|array|null $requestOptions = null,
+    ): mixed;
+
+    /**
+     * @api
+     *
+     * @param string $trialLinkID path param: The ID of the trial link
+     * @param string $account Path param: The Account ID
+     * @param string $dateEnd Query param: Optional stats range end date
+     * @param string $dateStart Query param: Optional stats range start date
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function retrieveStats(
+        string $trialLinkID,
+        string $account,
+        ?string $dateEnd = null,
+        ?string $dateStart = null,
+        RequestOptions|array|null $requestOptions = null,
+    ): TrialLinkGetStatsResponse;
 }

@@ -10,24 +10,40 @@ use Onlyfansapi\Core\BaseClient;
 use Onlyfansapi\Core\Implementation\StreamingHttpClient;
 use Onlyfansapi\Core\Util;
 use Onlyfansapi\Services\AccountsService;
+use Onlyfansapi\Services\AnalyticsService;
 use Onlyfansapi\Services\AuthenticateService;
 use Onlyfansapi\Services\BankingService;
+use Onlyfansapi\Services\BundlesService;
+use Onlyfansapi\Services\ChargebacksService;
 use Onlyfansapi\Services\ChatsService;
 use Onlyfansapi\Services\ClientSessionsService;
+use Onlyfansapi\Services\DataExportsService;
+use Onlyfansapi\Services\EngagementService;
 use Onlyfansapi\Services\FansService;
 use Onlyfansapi\Services\FollowingService;
+use Onlyfansapi\Services\GiphyService;
+use Onlyfansapi\Services\LinkTagsService;
 use Onlyfansapi\Services\MassMessagingService;
 use Onlyfansapi\Services\MediaService;
 use Onlyfansapi\Services\MeService;
+use Onlyfansapi\Services\MessagesService;
 use Onlyfansapi\Services\NotificationsService;
 use Onlyfansapi\Services\PayoutsService;
 use Onlyfansapi\Services\PostsService;
 use Onlyfansapi\Services\ProfilesService;
+use Onlyfansapi\Services\PromotionsService;
 use Onlyfansapi\Services\QueueService;
+use Onlyfansapi\Services\ReleaseFormsService;
 use Onlyfansapi\Services\SavedForLaterService;
 use Onlyfansapi\Services\SearchService;
 use Onlyfansapi\Services\SettingsService;
+use Onlyfansapi\Services\SharedTrackingLinksService;
+use Onlyfansapi\Services\SharedTrialLinksService;
+use Onlyfansapi\Services\SmartLinkPostbacksService;
+use Onlyfansapi\Services\SmartLinksService;
 use Onlyfansapi\Services\StatisticsService;
+use Onlyfansapi\Services\StoredService;
+use Onlyfansapi\Services\StoriesService;
 use Onlyfansapi\Services\SubscribersService;
 use Onlyfansapi\Services\TrackingLinksService;
 use Onlyfansapi\Services\TransactionsService;
@@ -36,7 +52,6 @@ use Onlyfansapi\Services\UserListsService;
 use Onlyfansapi\Services\UsersService;
 use Onlyfansapi\Services\WebhooksService;
 use Onlyfansapi\Services\WhoamiService;
-use Onlyfansapi\Services\WorkflowsService;
 
 /**
  * @phpstan-import-type NormalizedRequest from \Onlyfansapi\Core\BaseClient
@@ -64,7 +79,17 @@ class Client extends BaseClient
     /**
      * @api
      */
+    public AnalyticsService $analytics;
+
+    /**
+     * @api
+     */
     public BankingService $banking;
+
+    /**
+     * @api
+     */
+    public ChargebacksService $chargebacks;
 
     /**
      * @api
@@ -74,12 +99,12 @@ class Client extends BaseClient
     /**
      * @api
      */
-    public ClientSessionsService $clientSessions;
+    public MessagesService $messages;
 
     /**
      * @api
      */
-    public UserListsService $userLists;
+    public ClientSessionsService $clientSessions;
 
     /**
      * @api
@@ -89,7 +114,12 @@ class Client extends BaseClient
     /**
      * @api
      */
-    public WorkflowsService $workflows;
+    public DataExportsService $dataExports;
+
+    /**
+     * @api
+     */
+    public EngagementService $engagement;
 
     /**
      * @api
@@ -105,6 +135,16 @@ class Client extends BaseClient
      * @api
      */
     public TrialLinksService $trialLinks;
+
+    /**
+     * @api
+     */
+    public GiphyService $giphy;
+
+    /**
+     * @api
+     */
+    public LinkTagsService $linkTags;
 
     /**
      * @api
@@ -134,6 +174,11 @@ class Client extends BaseClient
     /**
      * @api
      */
+    public PromotionsService $promotions;
+
+    /**
+     * @api
+     */
     public ProfilesService $profiles;
 
     /**
@@ -149,12 +194,37 @@ class Client extends BaseClient
     /**
      * @api
      */
+    public ReleaseFormsService $releaseForms;
+
+    /**
+     * @api
+     */
     public SavedForLaterService $savedForLater;
 
     /**
      * @api
      */
     public SettingsService $settings;
+
+    /**
+     * @api
+     */
+    public SharedTrialLinksService $sharedTrialLinks;
+
+    /**
+     * @api
+     */
+    public SharedTrackingLinksService $sharedTrackingLinks;
+
+    /**
+     * @api
+     */
+    public SmartLinkPostbacksService $smartLinkPostbacks;
+
+    /**
+     * @api
+     */
+    public SmartLinksService $smartLinks;
 
     /**
      * @api
@@ -169,12 +239,32 @@ class Client extends BaseClient
     /**
      * @api
      */
+    public StoredService $stored;
+
+    /**
+     * @api
+     */
+    public StoriesService $stories;
+
+    /**
+     * @api
+     */
+    public BundlesService $bundles;
+
+    /**
+     * @api
+     */
     public TrackingLinksService $trackingLinks;
 
     /**
      * @api
      */
     public TransactionsService $transactions;
+
+    /**
+     * @api
+     */
+    public UserListsService $userLists;
 
     /**
      * @api
@@ -197,7 +287,7 @@ class Client extends BaseClient
         $this->apiKey = (string) ($apiKey ?? Util::getenv('ONLYFANSAPI_API_KEY'));
 
         $baseUrl ??= Util::getenv(
-            'ONLYFANSAPI_BASE_URL'
+            'ONLY_FANS_API_BASE_URL'
         ) ?: 'https://app.onlyfansapi.com';
 
         $options = RequestOptions::parse(
@@ -219,7 +309,7 @@ class Client extends BaseClient
         $headers = [
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
-            'User-Agent' => sprintf('onlyfansapi/PHP %s', VERSION),
+            'User-Agent' => sprintf('OnlyFansAPI/PHP %s', VERSION),
             'X-Stainless-Lang' => 'php',
             'X-Stainless-Package-Version' => '0.0.1',
             'X-Stainless-Arch' => Util::machtype(),
@@ -228,7 +318,7 @@ class Client extends BaseClient
             'X-Stainless-Runtime-Version' => phpversion(),
         ];
 
-        $customHeadersEnv = Util::getenv('ONLYFANSAPI_CUSTOM_HEADERS');
+        $customHeadersEnv = Util::getenv('ONLY_FANS_API_CUSTOM_HEADERS');
         if (null !== $customHeadersEnv) {
             foreach (explode("\n", $customHeadersEnv) as $line) {
                 $colon = strpos($line, ':');
@@ -247,29 +337,44 @@ class Client extends BaseClient
         $this->whoami = new WhoamiService($this);
         $this->accounts = new AccountsService($this);
         $this->me = new MeService($this);
+        $this->analytics = new AnalyticsService($this);
         $this->banking = new BankingService($this);
+        $this->chargebacks = new ChargebacksService($this);
         $this->chats = new ChatsService($this);
+        $this->messages = new MessagesService($this);
         $this->clientSessions = new ClientSessionsService($this);
-        $this->userLists = new UserListsService($this);
         $this->authenticate = new AuthenticateService($this);
-        $this->workflows = new WorkflowsService($this);
+        $this->dataExports = new DataExportsService($this);
+        $this->engagement = new EngagementService($this);
         $this->fans = new FansService($this);
         $this->following = new FollowingService($this);
         $this->trialLinks = new TrialLinksService($this);
+        $this->giphy = new GiphyService($this);
+        $this->linkTags = new LinkTagsService($this);
         $this->massMessaging = new MassMessagingService($this);
         $this->media = new MediaService($this);
         $this->notifications = new NotificationsService($this);
         $this->payouts = new PayoutsService($this);
         $this->posts = new PostsService($this);
+        $this->promotions = new PromotionsService($this);
         $this->profiles = new ProfilesService($this);
         $this->search = new SearchService($this);
         $this->queue = new QueueService($this);
+        $this->releaseForms = new ReleaseFormsService($this);
         $this->savedForLater = new SavedForLaterService($this);
         $this->settings = new SettingsService($this);
+        $this->sharedTrialLinks = new SharedTrialLinksService($this);
+        $this->sharedTrackingLinks = new SharedTrackingLinksService($this);
+        $this->smartLinkPostbacks = new SmartLinkPostbacksService($this);
+        $this->smartLinks = new SmartLinksService($this);
         $this->statistics = new StatisticsService($this);
         $this->subscribers = new SubscribersService($this);
+        $this->stored = new StoredService($this);
+        $this->stories = new StoriesService($this);
+        $this->bundles = new BundlesService($this);
         $this->trackingLinks = new TrackingLinksService($this);
         $this->transactions = new TransactionsService($this);
+        $this->userLists = new UserListsService($this);
         $this->users = new UsersService($this);
         $this->webhooks = new WebhooksService($this);
     }

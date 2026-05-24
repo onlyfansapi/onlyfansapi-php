@@ -6,6 +6,7 @@ namespace Onlyfansapi\ServiceContracts;
 
 use Onlyfansapi\Core\Contracts\BaseResponse;
 use Onlyfansapi\Core\Exceptions\APIException;
+use Onlyfansapi\Media\MediaDownloadParams;
 use Onlyfansapi\Media\MediaScrapeParams;
 use Onlyfansapi\Media\MediaScrapeResponse;
 use Onlyfansapi\Media\MediaUploadParams;
@@ -17,6 +18,23 @@ use Onlyfansapi\RequestOptions;
  */
 interface MediaRawContract
 {
+    /**
+     * @api
+     *
+     * @param string $cdnURL Optional parameter. The CDN URL to scrape. **Keep in mind that these URLs expire in approx. 20 minutes.** So for example, if you fetched Media Vault Items at 01:00pm, the URLs will expire at around 01:20pm
+     * @param array<string,mixed>|MediaDownloadParams $params
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<string>
+     *
+     * @throws APIException
+     */
+    public function download(
+        string $cdnURL,
+        array|MediaDownloadParams $params,
+        RequestOptions|array|null $requestOptions = null,
+    ): BaseResponse;
+
     /**
      * @api
      *

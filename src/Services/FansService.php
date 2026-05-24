@@ -7,14 +7,20 @@ namespace Onlyfansapi\Services;
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Core\Util;
+use Onlyfansapi\Fans\FanGetSubscriptionHistoryResponse;
 use Onlyfansapi\Fans\FanListActiveParams\Filter;
 use Onlyfansapi\Fans\FanListActiveParams\Type;
 use Onlyfansapi\Fans\FanListActiveResponse;
 use Onlyfansapi\Fans\FanListAllResponse;
 use Onlyfansapi\Fans\FanListExpiredResponse;
 use Onlyfansapi\Fans\FanListLatestResponse;
+use Onlyfansapi\Fans\FanListTopParams\By;
+use Onlyfansapi\Fans\FanListTopResponse;
+use Onlyfansapi\Fans\FanSetCustomNameResponse;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\FansContract;
+use Onlyfansapi\Services\Fans\NotesService;
+use Onlyfansapi\Services\Fans\SummaryService;
 
 /**
  * APIs for managing OnlyFans fans (subscribers).
@@ -32,11 +38,47 @@ final class FansService implements FansContract
     public FansRawService $raw;
 
     /**
+     * @api
+     */
+    public NotesService $notes;
+
+    /**
+     * @api
+     */
+    public SummaryService $summary;
+
+    /**
      * @internal
      */
     public function __construct(private Client $client)
     {
         $this->raw = new FansRawService($client);
+        $this->notes = new NotesService($client);
+        $this->summary = new SummaryService($client);
+    }
+
+    /**
+     * @api
+     *
+     * Get Subscription History for a given OnlyFans User ID. This can be useful, for example, when the user's subscribed to your account for the first time.
+     *
+     * @param string $userID the OnlyFans ID of the User
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function getSubscriptionHistory(
+        string $userID,
+        string $account,
+        RequestOptions|array|null $requestOptions = null,
+    ): FanGetSubscriptionHistoryResponse {
+        $params = Util::removeNulls(['account' => $account]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->getSubscriptionHistory($userID, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
     }
 
     /**
@@ -195,6 +237,64 @@ final class FansService implements FansContract
 
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->listLatest($account, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Get a list of top fans sorted by spending. Filterable by total, subscriptions, tips, messages, posts, or streams.
+     *
+     * @param string $account The Account ID
+     * @param By|value-of<By>|null $by sort by: total (default), subscribes, tips, messages, post, streams
+     * @param string|null $endDate End date for filtering (required with start_date). This field is required when <code>start_date</code> is present.
+     * @param string|null $startDate Start date for filtering (required with end_date). This field is required when <code>end_date</code> is present.
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function listTop(
+        string $account,
+        By|string|null $by = null,
+        ?string $endDate = null,
+        ?string $startDate = null,
+        RequestOptions|array|null $requestOptions = null,
+    ): FanListTopResponse {
+        $params = Util::removeNulls(
+            ['by' => $by, 'endDate' => $endDate, 'startDate' => $startDate]
+        );
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->listTop($account, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Change the Fan's Custom Name shown in OnlyFans
+     *
+     * @param string $fanID Path param: Fan's OnlyFans ID
+     * @param string $account Path param: The Account ID
+     * @param string $customName Body param: New Custom Name for a Fan. Send empty string (`""`) or `null` to clear out the custom name.
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function setCustomName(
+        string $fanID,
+        string $account,
+        string $customName,
+        RequestOptions|array|null $requestOptions = null,
+    ): FanSetCustomNameResponse {
+        $params = Util::removeNulls(
+            ['account' => $account, 'customName' => $customName]
+        );
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->setCustomName($fanID, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }

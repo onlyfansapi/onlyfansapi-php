@@ -12,13 +12,13 @@ use Onlyfansapi\Core\Contracts\BaseModel;
  * @phpstan-type PayoutShape = array{
  *   code?: string|null,
  *   description?: string|null,
- *   fields?: mixed,
+ *   fields?: array<string,mixed>|null,
  *   fieldsOrder?: list<mixed>|null,
  *   minPayoutSumm?: int|null,
  *   payoutTime?: string|null,
  *   subtitle?: string|null,
  *   title?: string|null,
- *   uiMapping?: mixed,
+ *   uiMapping?: array<string,mixed>|null,
  * }
  */
 final class Payout implements BaseModel
@@ -32,8 +32,9 @@ final class Payout implements BaseModel
     #[Optional]
     public ?string $description;
 
-    #[Optional]
-    public mixed $fields;
+    /** @var array<string,mixed>|null $fields */
+    #[Optional(map: 'mixed')]
+    public ?array $fields;
 
     /** @var list<mixed>|null $fieldsOrder */
     #[Optional(list: 'mixed')]
@@ -51,8 +52,9 @@ final class Payout implements BaseModel
     #[Optional]
     public ?string $title;
 
-    #[Optional]
-    public mixed $uiMapping;
+    /** @var array<string,mixed>|null $uiMapping */
+    #[Optional(map: 'mixed')]
+    public ?array $uiMapping;
 
     public function __construct()
     {
@@ -64,18 +66,20 @@ final class Payout implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
+     * @param array<string,mixed>|null $fields
      * @param list<mixed>|null $fieldsOrder
+     * @param array<string,mixed>|null $uiMapping
      */
     public static function with(
         ?string $code = null,
         ?string $description = null,
-        mixed $fields = null,
+        ?array $fields = null,
         ?array $fieldsOrder = null,
         ?int $minPayoutSumm = null,
         ?string $payoutTime = null,
         ?string $subtitle = null,
         ?string $title = null,
-        mixed $uiMapping = null,
+        ?array $uiMapping = null,
     ): self {
         $self = new self;
 
@@ -108,7 +112,10 @@ final class Payout implements BaseModel
         return $self;
     }
 
-    public function withFields(mixed $fields): self
+    /**
+     * @param array<string,mixed> $fields
+     */
+    public function withFields(array $fields): self
     {
         $self = clone $this;
         $self['fields'] = $fields;
@@ -159,7 +166,10 @@ final class Payout implements BaseModel
         return $self;
     }
 
-    public function withUiMapping(mixed $uiMapping): self
+    /**
+     * @param array<string,mixed> $uiMapping
+     */
+    public function withUiMapping(array $uiMapping): self
     {
         $self = clone $this;
         $self['uiMapping'] = $uiMapping;

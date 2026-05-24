@@ -4,10 +4,13 @@ namespace Tests\Services;
 
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Util;
+use Onlyfansapi\Fans\FanGetSubscriptionHistoryResponse;
 use Onlyfansapi\Fans\FanListActiveResponse;
 use Onlyfansapi\Fans\FanListAllResponse;
 use Onlyfansapi\Fans\FanListExpiredResponse;
 use Onlyfansapi\Fans\FanListLatestResponse;
+use Onlyfansapi\Fans\FanListTopResponse;
+use Onlyfansapi\Fans\FanSetCustomNameResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -29,6 +32,38 @@ final class FansTest extends TestCase
         $client = new Client(apiKey: 'My API Key', baseUrl: $testUrl);
 
         $this->client = $client;
+    }
+
+    #[Test]
+    public function testGetSubscriptionHistory(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->fans->getSubscriptionHistory(
+            'user_id',
+            account: 'acct_XXXXXXXXXXXXXXX'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(FanGetSubscriptionHistoryResponse::class, $result);
+    }
+
+    #[Test]
+    public function testGetSubscriptionHistoryWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->fans->getSubscriptionHistory(
+            'user_id',
+            account: 'acct_XXXXXXXXXXXXXXX'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(FanGetSubscriptionHistoryResponse::class, $result);
     }
 
     #[Test]
@@ -81,5 +116,52 @@ final class FansTest extends TestCase
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(FanListLatestResponse::class, $result);
+    }
+
+    #[Test]
+    public function testListTop(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->fans->listTop('acct_XXXXXXXXXXXXXXX');
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(FanListTopResponse::class, $result);
+    }
+
+    #[Test]
+    public function testSetCustomName(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->fans->setCustomName(
+            'fan_id',
+            account: 'acct_XXXXXXXXXXXXXXX',
+            customName: '🐳Whale ($100+)'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(FanSetCustomNameResponse::class, $result);
+    }
+
+    #[Test]
+    public function testSetCustomNameWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->fans->setCustomName(
+            'fan_id',
+            account: 'acct_XXXXXXXXXXXXXXX',
+            customName: '🐳Whale ($100+)'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(FanSetCustomNameResponse::class, $result);
     }
 }

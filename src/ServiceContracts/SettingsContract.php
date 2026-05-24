@@ -6,9 +6,10 @@ namespace Onlyfansapi\ServiceContracts;
 
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Settings\SettingCheckUsernameExistsResponse;
+use Onlyfansapi\Settings\SettingCheckUsernameAvailabilityResponse;
 use Onlyfansapi\Settings\SettingGetResponse;
 use Onlyfansapi\Settings\SettingUpdateProfileResponse;
+use Onlyfansapi\Settings\SettingUpdateSubscriptionPriceResponse;
 
 /**
  * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
@@ -37,11 +38,11 @@ interface SettingsContract
      *
      * @throws APIException
      */
-    public function checkUsernameExists(
+    public function checkUsernameAvailability(
         string $account,
         string $username,
         RequestOptions|array|null $requestOptions = null,
-    ): SettingCheckUsernameExistsResponse;
+    ): SettingCheckUsernameAvailabilityResponse;
 
     /**
      * @api
@@ -71,4 +72,19 @@ interface SettingsContract
         ?string $wishlist = null,
         RequestOptions|array|null $requestOptions = null,
     ): SettingUpdateProfileResponse;
+
+    /**
+     * @api
+     *
+     * @param string $account The Account ID
+     * @param string $price The new subscription price. Accepts `0`, `"free"`, or a number between 4.99 and 200.
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function updateSubscriptionPrice(
+        string $account,
+        string $price,
+        RequestOptions|array|null $requestOptions = null,
+    ): SettingUpdateSubscriptionPriceResponse;
 }

@@ -9,6 +9,7 @@ use Onlyfansapi\Core\Contracts\BaseResponse;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Me\MeGetModelStartDateResponse;
 use Onlyfansapi\Me\MeGetResponse;
+use Onlyfansapi\Me\MeGetTopPercentageResponse;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\MeRawContract;
 
@@ -72,6 +73,31 @@ final class MeRawService implements MeRawContract
             path: ['api/%1$s/me/model-start-date', $account],
             options: $requestOptions,
             convert: MeGetModelStartDateResponse::class,
+        );
+    }
+
+    /**
+     * @api
+     *
+     * Get the top percentage of the model (e.g., top 0.02% of all creators)
+     *
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<MeGetTopPercentageResponse>
+     *
+     * @throws APIException
+     */
+    public function getTopPercentage(
+        string $account,
+        RequestOptions|array|null $requestOptions = null
+    ): BaseResponse {
+        // @phpstan-ignore-next-line return.type
+        return $this->client->request(
+            method: 'get',
+            path: ['api/%1$s/me/top-percentage', $account],
+            options: $requestOptions,
+            convert: MeGetTopPercentageResponse::class,
         );
     }
 }

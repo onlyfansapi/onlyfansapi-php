@@ -4,6 +4,7 @@ namespace Tests\Services;
 
 use Onlyfansapi\Authenticate\AuthenticatePollStatusResponse;
 use Onlyfansapi\Authenticate\AuthenticateReauthenticateResponse;
+use Onlyfansapi\Authenticate\AuthenticateSend2faEmailResponse;
 use Onlyfansapi\Authenticate\AuthenticateSubmit2faResponse;
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Util;
@@ -54,6 +55,19 @@ final class AuthenticateTest extends TestCase
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(AuthenticateReauthenticateResponse::class, $result);
+    }
+
+    #[Test]
+    public function testSend2faEmail(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->authenticate->send2faEmail('auth_XXXXXXX');
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(AuthenticateSend2faEmailResponse::class, $result);
     }
 
     #[Test]

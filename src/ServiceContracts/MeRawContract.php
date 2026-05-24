@@ -8,6 +8,7 @@ use Onlyfansapi\Core\Contracts\BaseResponse;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Me\MeGetModelStartDateResponse;
 use Onlyfansapi\Me\MeGetResponse;
+use Onlyfansapi\Me\MeGetTopPercentageResponse;
 use Onlyfansapi\RequestOptions;
 
 /**
@@ -41,6 +42,21 @@ interface MeRawContract
      * @throws APIException
      */
     public function getModelStartDate(
+        string $account,
+        RequestOptions|array|null $requestOptions = null
+    ): BaseResponse;
+
+    /**
+     * @api
+     *
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<MeGetTopPercentageResponse>
+     *
+     * @throws APIException
+     */
+    public function getTopPercentage(
         string $account,
         RequestOptions|array|null $requestOptions = null
     ): BaseResponse;

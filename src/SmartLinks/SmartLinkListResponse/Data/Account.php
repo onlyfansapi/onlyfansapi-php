@@ -1,0 +1,77 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Onlyfansapi\SmartLinks\SmartLinkListResponse\Data;
+
+use Onlyfansapi\Core\Attributes\Optional;
+use Onlyfansapi\Core\Concerns\SdkModel;
+use Onlyfansapi\Core\Contracts\BaseModel;
+
+/**
+ * @phpstan-type AccountShape = array{
+ *   id?: string|null, displayName?: string|null, username?: string|null
+ * }
+ */
+final class Account implements BaseModel
+{
+    /** @use SdkModel<AccountShape> */
+    use SdkModel;
+
+    #[Optional]
+    public ?string $id;
+
+    #[Optional('display_name')]
+    public ?string $displayName;
+
+    #[Optional]
+    public ?string $username;
+
+    public function __construct()
+    {
+        $this->initialize();
+    }
+
+    /**
+     * Construct an instance from the required parameters.
+     *
+     * You must use named parameters to construct any parameters with a default value.
+     */
+    public static function with(
+        ?string $id = null,
+        ?string $displayName = null,
+        ?string $username = null
+    ): self {
+        $self = new self;
+
+        null !== $id && $self['id'] = $id;
+        null !== $displayName && $self['displayName'] = $displayName;
+        null !== $username && $self['username'] = $username;
+
+        return $self;
+    }
+
+    public function withID(string $id): self
+    {
+        $self = clone $this;
+        $self['id'] = $id;
+
+        return $self;
+    }
+
+    public function withDisplayName(string $displayName): self
+    {
+        $self = clone $this;
+        $self['displayName'] = $displayName;
+
+        return $self;
+    }
+
+    public function withUsername(string $username): self
+    {
+        $self = clone $this;
+        $self['username'] = $username;
+
+        return $self;
+    }
+}

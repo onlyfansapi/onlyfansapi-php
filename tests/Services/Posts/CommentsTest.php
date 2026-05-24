@@ -5,12 +5,12 @@ namespace Tests\Services\Posts;
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Util;
 use Onlyfansapi\Posts\Comments\CommentDeleteResponse;
-use Onlyfansapi\Posts\Comments\CommentLikeCommentResponse;
+use Onlyfansapi\Posts\Comments\CommentLikeResponse;
 use Onlyfansapi\Posts\Comments\CommentListResponse;
 use Onlyfansapi\Posts\Comments\CommentNewResponse;
-use Onlyfansapi\Posts\Comments\CommentPinCommentResponse;
-use Onlyfansapi\Posts\Comments\CommentUnlikeCommentResponse;
-use Onlyfansapi\Posts\Comments\CommentUnpinCommentResponse;
+use Onlyfansapi\Posts\Comments\CommentPinResponse;
+use Onlyfansapi\Posts\Comments\CommentUnlikeResponse;
+use Onlyfansapi\Posts\Comments\CommentUnpinResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -140,138 +140,138 @@ final class CommentsTest extends TestCase
     }
 
     #[Test]
-    public function testLikeComment(): void
+    public function testLike(): void
     {
         if (UnsupportedMockTests::$skip) {
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->posts->comments->likeComment(
+        $result = $this->client->posts->comments->like(
             123,
             account: 'acct_XXXXXXXXXXXXXXX',
             postID: 123
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(CommentLikeCommentResponse::class, $result);
+        $this->assertInstanceOf(CommentLikeResponse::class, $result);
     }
 
     #[Test]
-    public function testLikeCommentWithOptionalParams(): void
+    public function testLikeWithOptionalParams(): void
     {
         if (UnsupportedMockTests::$skip) {
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->posts->comments->likeComment(
+        $result = $this->client->posts->comments->like(
             123,
             account: 'acct_XXXXXXXXXXXXXXX',
             postID: 123
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(CommentLikeCommentResponse::class, $result);
+        $this->assertInstanceOf(CommentLikeResponse::class, $result);
     }
 
     #[Test]
-    public function testPinComment(): void
+    public function testPin(): void
     {
         if (UnsupportedMockTests::$skip) {
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->posts->comments->pinComment(
+        $result = $this->client->posts->comments->pin(
             123,
             account: 'acct_XXXXXXXXXXXXXXX',
             postID: 123
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(CommentPinCommentResponse::class, $result);
+        $this->assertInstanceOf(CommentPinResponse::class, $result);
     }
 
     #[Test]
-    public function testPinCommentWithOptionalParams(): void
+    public function testPinWithOptionalParams(): void
     {
         if (UnsupportedMockTests::$skip) {
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->posts->comments->pinComment(
+        $result = $this->client->posts->comments->pin(
             123,
             account: 'acct_XXXXXXXXXXXXXXX',
             postID: 123
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(CommentPinCommentResponse::class, $result);
+        $this->assertInstanceOf(CommentPinResponse::class, $result);
     }
 
     #[Test]
-    public function testUnlikeComment(): void
+    public function testUnlike(): void
     {
         if (UnsupportedMockTests::$skip) {
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->posts->comments->unlikeComment(
+        $result = $this->client->posts->comments->unlike(
             123,
             account: 'acct_XXXXXXXXXXXXXXX',
             postID: 123
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(CommentUnlikeCommentResponse::class, $result);
+        $this->assertInstanceOf(CommentUnlikeResponse::class, $result);
     }
 
     #[Test]
-    public function testUnlikeCommentWithOptionalParams(): void
+    public function testUnlikeWithOptionalParams(): void
     {
         if (UnsupportedMockTests::$skip) {
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->posts->comments->unlikeComment(
+        $result = $this->client->posts->comments->unlike(
             123,
             account: 'acct_XXXXXXXXXXXXXXX',
             postID: 123
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(CommentUnlikeCommentResponse::class, $result);
+        $this->assertInstanceOf(CommentUnlikeResponse::class, $result);
     }
 
     #[Test]
-    public function testUnpinComment(): void
+    public function testUnpin(): void
     {
         if (UnsupportedMockTests::$skip) {
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->posts->comments->unpinComment(
+        $result = $this->client->posts->comments->unpin(
             123,
             account: 'acct_XXXXXXXXXXXXXXX',
             postID: 123
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(CommentUnpinCommentResponse::class, $result);
+        $this->assertInstanceOf(CommentUnpinResponse::class, $result);
     }
 
     #[Test]
-    public function testUnpinCommentWithOptionalParams(): void
+    public function testUnpinWithOptionalParams(): void
     {
         if (UnsupportedMockTests::$skip) {
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->posts->comments->unpinComment(
+        $result = $this->client->posts->comments->unpin(
             123,
             account: 'acct_XXXXXXXXXXXXXXX',
             postID: 123
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(CommentUnpinCommentResponse::class, $result);
+        $this->assertInstanceOf(CommentUnpinResponse::class, $result);
     }
 }

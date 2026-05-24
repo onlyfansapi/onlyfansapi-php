@@ -12,9 +12,11 @@ use Onlyfansapi\ServiceContracts\UserListsRawContract;
 use Onlyfansapi\UserLists\UserListCreateParams;
 use Onlyfansapi\UserLists\UserListDeleteParams;
 use Onlyfansapi\UserLists\UserListDeleteResponse;
+use Onlyfansapi\UserLists\UserListGetResponse;
 use Onlyfansapi\UserLists\UserListListParams;
 use Onlyfansapi\UserLists\UserListListResponse;
 use Onlyfansapi\UserLists\UserListNewResponse;
+use Onlyfansapi\UserLists\UserListRetrieveParams;
 use Onlyfansapi\UserLists\UserListUpdateParams;
 use Onlyfansapi\UserLists\UserListUpdateResponse;
 
@@ -59,6 +61,40 @@ final class UserListsRawService implements UserListsRawContract
             body: (object) $parsed,
             options: $options,
             convert: UserListNewResponse::class,
+        );
+    }
+
+    /**
+     * @api
+     *
+     * Get a user list
+     *
+     * @param string $userListID OnlyFans User List ID, or a default list name like `tagged`
+     * @param array{account: string}|UserListRetrieveParams $params
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<UserListGetResponse>
+     *
+     * @throws APIException
+     */
+    public function retrieve(
+        string $userListID,
+        array|UserListRetrieveParams $params,
+        RequestOptions|array|null $requestOptions = null,
+    ): BaseResponse {
+        [$parsed, $options] = UserListRetrieveParams::parseRequest(
+            $params,
+            $requestOptions,
+        );
+        $account = $parsed['account'];
+        unset($parsed['account']);
+
+        // @phpstan-ignore-next-line return.type
+        return $this->client->request(
+            method: 'get',
+            path: ['api/%1$s/user-lists/%2$s', $account, $userListID],
+            options: $options,
+            convert: UserListGetResponse::class,
         );
     }
 

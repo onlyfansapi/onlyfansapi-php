@@ -9,7 +9,11 @@ use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Core\Util;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\TrackingLinksContract;
+use Onlyfansapi\Services\TrackingLinks\TagsService;
 use Onlyfansapi\TrackingLinks\TrackingLinkDeleteResponse;
+use Onlyfansapi\TrackingLinks\TrackingLinkGetCohortArpsParams\RevenueBasis;
+use Onlyfansapi\TrackingLinks\TrackingLinkGetResponse;
+use Onlyfansapi\TrackingLinks\TrackingLinkGetStatsResponse;
 use Onlyfansapi\TrackingLinks\TrackingLinkListParams\Sort;
 use Onlyfansapi\TrackingLinks\TrackingLinkListParams\Sortby;
 use Onlyfansapi\TrackingLinks\TrackingLinkListResponse;
@@ -30,11 +34,17 @@ final class TrackingLinksService implements TrackingLinksContract
     public TrackingLinksRawService $raw;
 
     /**
+     * @api
+     */
+    public TagsService $tags;
+
+    /**
      * @internal
      */
     public function __construct(private Client $client)
     {
         $this->raw = new TrackingLinksRawService($client);
+        $this->tags = new TagsService($client);
     }
 
     /**
@@ -59,6 +69,30 @@ final class TrackingLinksService implements TrackingLinksContract
 
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->create($account, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Get individual Tracking Link details and it's revenue data
+     *
+     * @param string $trackingLinkID the ID of the tracking link
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function retrieve(
+        string $trackingLinkID,
+        string $account,
+        RequestOptions|array|null $requestOptions = null,
+    ): TrackingLinkGetResponse {
+        $params = Util::removeNulls(['account' => $account]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->retrieve($trackingLinkID, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }
@@ -132,6 +166,71 @@ final class TrackingLinksService implements TrackingLinksContract
 
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->delete($trackingLinkID, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Get per-link time-to-profit cohort ARPS windows for a specific Tracking Link
+     *
+     * @param string $trackingLinkID path param: The ID of the tracking link
+     * @param string $account Path param: The Account ID
+     * @param string $acquisitionEnd Query param: Optional acquisition range end date
+     * @param string $acquisitionStart Query param: Optional acquisition range start date
+     * @param RevenueBasis|value-of<RevenueBasis> $revenueBasis Query param: Revenue basis. Defaults to `net`.
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function getCohortArps(
+        string $trackingLinkID,
+        string $account,
+        ?string $acquisitionEnd = null,
+        ?string $acquisitionStart = null,
+        RevenueBasis|string|null $revenueBasis = null,
+        RequestOptions|array|null $requestOptions = null,
+    ): mixed {
+        $params = Util::removeNulls(
+            [
+                'account' => $account,
+                'acquisitionEnd' => $acquisitionEnd,
+                'acquisitionStart' => $acquisitionStart,
+                'revenueBasis' => $revenueBasis,
+            ],
+        );
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->getCohortArps($trackingLinkID, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * @param string $trackingLinkID path param: The ID of the tracking link
+     * @param string $account Path param: The Account ID
+     * @param string $dateEnd Query param: Optional stats range end date
+     * @param string $dateStart Query param: Optional stats range start date
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function getStats(
+        string $trackingLinkID,
+        string $account,
+        ?string $dateEnd = null,
+        ?string $dateStart = null,
+        RequestOptions|array|null $requestOptions = null,
+    ): TrackingLinkGetStatsResponse {
+        $params = Util::removeNulls(
+            ['account' => $account, 'dateEnd' => $dateEnd, 'dateStart' => $dateStart]
+        );
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->getStats($trackingLinkID, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }

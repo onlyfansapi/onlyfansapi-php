@@ -5,9 +5,15 @@ declare(strict_types=1);
 namespace Onlyfansapi\Services\Chats;
 
 use Onlyfansapi\Chats\Messages\MessageDeleteResponse;
+use Onlyfansapi\Chats\Messages\MessageGetResponse;
+use Onlyfansapi\Chats\Messages\MessageLikeResponse;
 use Onlyfansapi\Chats\Messages\MessageListParams\Filter;
 use Onlyfansapi\Chats\Messages\MessageListResponse;
+use Onlyfansapi\Chats\Messages\MessagePinResponse;
+use Onlyfansapi\Chats\Messages\MessageSearchResponse;
 use Onlyfansapi\Chats\Messages\MessageSendResponse;
+use Onlyfansapi\Chats\Messages\MessageUnlikeResponse;
+use Onlyfansapi\Chats\Messages\MessageUnpinResponse;
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Core\Util;
@@ -30,6 +36,32 @@ final class MessagesService implements MessagesContract
     public function __construct(private Client $client)
     {
         $this->raw = new MessagesRawService($client);
+    }
+
+    /**
+     * @api
+     *
+     * Get a single chat message by its ID. Returns a 404 if the message does not exist in the chat.
+     *
+     * @param string $messageID The ID of the message to retrieve
+     * @param string $account The Account ID
+     * @param string $chatID The ID of the chat (usually a fan's OnlyFans User ID)
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function retrieve(
+        string $messageID,
+        string $account,
+        string $chatID,
+        RequestOptions|array|null $requestOptions = null,
+    ): MessageGetResponse {
+        $params = Util::removeNulls(['account' => $account, 'chatID' => $chatID]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->retrieve($messageID, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
     }
 
     /**
@@ -107,6 +139,84 @@ final class MessagesService implements MessagesContract
     /**
      * @api
      *
+     * Like a chat message.
+     *
+     * @param string $messageID The ID of the message to like
+     * @param string $account The Account ID
+     * @param string $chatID The ID of the chat, usually a fan's OnlyFans User ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function like(
+        string $messageID,
+        string $account,
+        string $chatID,
+        RequestOptions|array|null $requestOptions = null,
+    ): MessageLikeResponse {
+        $params = Util::removeNulls(['account' => $account, 'chatID' => $chatID]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->like($messageID, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Pin a message from a chat.
+     *
+     * @param string $messageID The ID of the message to pin
+     * @param string $account The Account ID
+     * @param string $chatID The ID of the chat, usually a fan's OnlyFans User ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function pin(
+        string $messageID,
+        string $account,
+        string $chatID,
+        RequestOptions|array|null $requestOptions = null,
+    ): MessagePinResponse {
+        $params = Util::removeNulls(['account' => $account, 'chatID' => $chatID]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->pin($messageID, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Search messages in a specific chat. Returns a list of message IDs matching the search query.
+     *
+     * @param string $chatID Path param: The ID of the chat (usually a fan's OnlyFans User ID)
+     * @param string $account Path param: The Account ID
+     * @param string $query Query param: The query search in messages
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function search(
+        string $chatID,
+        string $account,
+        string $query,
+        RequestOptions|array|null $requestOptions = null,
+    ): MessageSearchResponse {
+        $params = Util::removeNulls(['account' => $account, 'query' => $query]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->search($chatID, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
      * Send a new message to a chat.
      *
      * @param string $chatID Path param: The ID of the chat (usually a fan's OnlyFans User ID)
@@ -158,6 +268,58 @@ final class MessagesService implements MessagesContract
 
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->send($chatID, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Unlike a chat message.
+     *
+     * @param string $messageID The ID of the message to unlike
+     * @param string $account The Account ID
+     * @param string $chatID The ID of the chat, usually a fan's OnlyFans User ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function unlike(
+        string $messageID,
+        string $account,
+        string $chatID,
+        RequestOptions|array|null $requestOptions = null,
+    ): MessageUnlikeResponse {
+        $params = Util::removeNulls(['account' => $account, 'chatID' => $chatID]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->unlike($messageID, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Unpin a message from a chat.
+     *
+     * @param string $messageID The ID of the message to unpin
+     * @param string $account The Account ID
+     * @param string $chatID The ID of the chat, usually a fan's OnlyFans User ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function unpin(
+        string $messageID,
+        string $account,
+        string $chatID,
+        RequestOptions|array|null $requestOptions = null,
+    ): MessageUnpinResponse {
+        $params = Util::removeNulls(['account' => $account, 'chatID' => $chatID]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->unpin($messageID, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }

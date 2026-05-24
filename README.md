@@ -1,10 +1,12 @@
-# Onlyfansapi PHP API library
+# Only Fans API PHP API library
 
-The Onlyfansapi PHP library provides convenient access to the Onlyfansapi REST API from any PHP 8.1.0+ application.
+The Only Fans API PHP library provides convenient access to the Only Fans API REST API from any PHP 8.1.0+ application.
 
 It is generated with [Stainless](https://www.stainless.com/).
 
 ## Documentation
+
+The REST API documentation can be found on [docs.onlyfansapi.com](https://docs.onlyfansapi.com).
 
 ## Installation
 

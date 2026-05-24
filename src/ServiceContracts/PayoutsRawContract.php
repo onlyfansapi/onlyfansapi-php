@@ -9,14 +9,14 @@ use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Payouts\PayoutGetBalancesResponse;
 use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse;
 use Onlyfansapi\Payouts\PayoutGetEligibilityResponse;
-use Onlyfansapi\Payouts\PayoutListPayoutRequestsParams;
-use Onlyfansapi\Payouts\PayoutListPayoutRequestsResponse;
+use Onlyfansapi\Payouts\PayoutListRequestsParams;
+use Onlyfansapi\Payouts\PayoutListRequestsResponse;
 use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalParams;
 use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember0;
 use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1;
 use Onlyfansapi\Payouts\PayoutRetrieveEarningStatisticsParams;
-use Onlyfansapi\Payouts\PayoutUpdatePayoutFrequencyParams;
-use Onlyfansapi\Payouts\PayoutUpdatePayoutFrequencyResponse;
+use Onlyfansapi\Payouts\PayoutUpdateFrequencyParams;
+use Onlyfansapi\Payouts\PayoutUpdateFrequencyResponse;
 use Onlyfansapi\RequestOptions;
 
 /**
@@ -28,16 +28,16 @@ interface PayoutsRawContract
      * @api
      *
      * @param string $account The Account ID
-     * @param array<string,mixed>|PayoutListPayoutRequestsParams $params
+     * @param array<string,mixed>|PayoutListRequestsParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<PayoutListPayoutRequestsResponse>
+     * @return BaseResponse<PayoutListRequestsResponse>
      *
      * @throws APIException
      */
-    public function listPayoutRequests(
+    public function listRequests(
         string $account,
-        array|PayoutListPayoutRequestsParams $params,
+        array|PayoutListRequestsParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse;
 
@@ -109,16 +109,16 @@ interface PayoutsRawContract
      * @api
      *
      * @param string $account The Account ID
-     * @param array<string,mixed>|PayoutUpdatePayoutFrequencyParams $params
+     * @param array<string,mixed>|PayoutUpdateFrequencyParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<PayoutUpdatePayoutFrequencyResponse>
+     * @return BaseResponse<PayoutUpdateFrequencyResponse>
      *
      * @throws APIException
      */
-    public function updatePayoutFrequency(
+    public function updateFrequency(
         string $account,
-        array|PayoutUpdatePayoutFrequencyParams $params,
+        array|PayoutUpdateFrequencyParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse;
 }

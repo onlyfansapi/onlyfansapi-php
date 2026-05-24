@@ -8,8 +8,9 @@ use Onlyfansapi\Client;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Core\Util;
 use Onlyfansapi\MassMessaging\MassMessagingDeleteResponse;
+use Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse;
 use Onlyfansapi\MassMessaging\MassMessagingGetResponse;
-use Onlyfansapi\MassMessaging\MassMessagingListQueueResponse;
+use Onlyfansapi\MassMessaging\MassMessagingListResponse;
 use Onlyfansapi\MassMessaging\MassMessagingSendResponse;
 use Onlyfansapi\MassMessaging\MassMessagingUpdateResponse;
 use Onlyfansapi\RequestOptions;
@@ -115,6 +116,26 @@ final class MassMessagingService implements MassMessagingContract
     /**
      * @api
      *
+     * List the pending or recently sent mass messages in the message queue.
+     *
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function list(
+        string $account,
+        RequestOptions|array|null $requestOptions = null
+    ): MassMessagingListResponse {
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->list($account, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
      * Unsend a recently sent mass message, or delete a scheduled/saved message. When unsending, purchased content will continue to be able to viewable.
      *
      * @param string $id The ID of the message queue item. Can be retrieved from the above store and list endpoints.
@@ -139,19 +160,36 @@ final class MassMessagingService implements MassMessagingContract
     /**
      * @api
      *
-     * List the pending or recently sent mass messages in the message queue.
+     * Get an overview of mass messages, showing the send count and view count.
      *
      * @param string $account The Account ID
+     * @param string $endDate The latest mass message to retrieve. Keep empty to get all. MUST BE DATE AFTER `startDate`. This is also used for pagination.
+     * @param int $limit Number of mass messages to return (default = 10)
+     * @param string $query optionally, find a mass message by the message text
+     * @param string $startDate The earliest mass message to retrieve. Keep empty to get all.
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
      */
-    public function listQueue(
+    public function retrieveOverview(
         string $account,
-        RequestOptions|array|null $requestOptions = null
-    ): MassMessagingListQueueResponse {
+        ?string $endDate = null,
+        ?int $limit = null,
+        ?string $query = null,
+        ?string $startDate = null,
+        RequestOptions|array|null $requestOptions = null,
+    ): MassMessagingGetOverviewResponse {
+        $params = Util::removeNulls(
+            [
+                'endDate' => $endDate,
+                'limit' => $limit,
+                'query' => $query,
+                'startDate' => $startDate,
+            ],
+        );
+
         // @phpstan-ignore-next-line argument.type
-        $response = $this->raw->listQueue($account, requestOptions: $requestOptions);
+        $response = $this->raw->retrieveOverview($account, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }

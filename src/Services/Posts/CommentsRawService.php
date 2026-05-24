@@ -11,18 +11,18 @@ use Onlyfansapi\Core\Util;
 use Onlyfansapi\Posts\Comments\CommentCreateParams;
 use Onlyfansapi\Posts\Comments\CommentDeleteParams;
 use Onlyfansapi\Posts\Comments\CommentDeleteResponse;
-use Onlyfansapi\Posts\Comments\CommentLikeCommentParams;
-use Onlyfansapi\Posts\Comments\CommentLikeCommentResponse;
+use Onlyfansapi\Posts\Comments\CommentLikeParams;
+use Onlyfansapi\Posts\Comments\CommentLikeResponse;
 use Onlyfansapi\Posts\Comments\CommentListParams;
 use Onlyfansapi\Posts\Comments\CommentListParams\Sort;
 use Onlyfansapi\Posts\Comments\CommentListResponse;
 use Onlyfansapi\Posts\Comments\CommentNewResponse;
-use Onlyfansapi\Posts\Comments\CommentPinCommentParams;
-use Onlyfansapi\Posts\Comments\CommentPinCommentResponse;
-use Onlyfansapi\Posts\Comments\CommentUnlikeCommentParams;
-use Onlyfansapi\Posts\Comments\CommentUnlikeCommentResponse;
-use Onlyfansapi\Posts\Comments\CommentUnpinCommentParams;
-use Onlyfansapi\Posts\Comments\CommentUnpinCommentResponse;
+use Onlyfansapi\Posts\Comments\CommentPinParams;
+use Onlyfansapi\Posts\Comments\CommentPinResponse;
+use Onlyfansapi\Posts\Comments\CommentUnlikeParams;
+use Onlyfansapi\Posts\Comments\CommentUnlikeResponse;
+use Onlyfansapi\Posts\Comments\CommentUnpinParams;
+use Onlyfansapi\Posts\Comments\CommentUnpinResponse;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\Posts\CommentsRawContract;
 
@@ -155,19 +155,19 @@ final class CommentsRawService implements CommentsRawContract
      * Like a comment on one of your posts.
      *
      * @param int $commentID the ID of the comment to like
-     * @param array{account: string, postID: int}|CommentLikeCommentParams $params
+     * @param array{account: string, postID: int}|CommentLikeParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<CommentLikeCommentResponse>
+     * @return BaseResponse<CommentLikeResponse>
      *
      * @throws APIException
      */
-    public function likeComment(
+    public function like(
         int $commentID,
-        array|CommentLikeCommentParams $params,
+        array|CommentLikeParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse {
-        [$parsed, $options] = CommentLikeCommentParams::parseRequest(
+        [$parsed, $options] = CommentLikeParams::parseRequest(
             $params,
             $requestOptions,
         );
@@ -183,7 +183,7 @@ final class CommentsRawService implements CommentsRawContract
                 'api/%1$s/posts/%2$s/comments/%3$s/like', $account, $postID, $commentID,
             ],
             options: $options,
-            convert: CommentLikeCommentResponse::class,
+            convert: CommentLikeResponse::class,
         );
     }
 
@@ -193,19 +193,19 @@ final class CommentsRawService implements CommentsRawContract
      * Pin a comment on one of your posts.
      *
      * @param int $commentID the ID of the comment to pin
-     * @param array{account: string, postID: int}|CommentPinCommentParams $params
+     * @param array{account: string, postID: int}|CommentPinParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<CommentPinCommentResponse>
+     * @return BaseResponse<CommentPinResponse>
      *
      * @throws APIException
      */
-    public function pinComment(
+    public function pin(
         int $commentID,
-        array|CommentPinCommentParams $params,
+        array|CommentPinParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse {
-        [$parsed, $options] = CommentPinCommentParams::parseRequest(
+        [$parsed, $options] = CommentPinParams::parseRequest(
             $params,
             $requestOptions,
         );
@@ -221,7 +221,7 @@ final class CommentsRawService implements CommentsRawContract
                 'api/%1$s/posts/%2$s/comments/%3$s/pin', $account, $postID, $commentID,
             ],
             options: $options,
-            convert: CommentPinCommentResponse::class,
+            convert: CommentPinResponse::class,
         );
     }
 
@@ -231,19 +231,19 @@ final class CommentsRawService implements CommentsRawContract
      * Unlike a comment on one of your posts.
      *
      * @param int $commentID the ID of the comment to like
-     * @param array{account: string, postID: int}|CommentUnlikeCommentParams $params
+     * @param array{account: string, postID: int}|CommentUnlikeParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<CommentUnlikeCommentResponse>
+     * @return BaseResponse<CommentUnlikeResponse>
      *
      * @throws APIException
      */
-    public function unlikeComment(
+    public function unlike(
         int $commentID,
-        array|CommentUnlikeCommentParams $params,
+        array|CommentUnlikeParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse {
-        [$parsed, $options] = CommentUnlikeCommentParams::parseRequest(
+        [$parsed, $options] = CommentUnlikeParams::parseRequest(
             $params,
             $requestOptions,
         );
@@ -259,7 +259,7 @@ final class CommentsRawService implements CommentsRawContract
                 'api/%1$s/posts/%2$s/comments/%3$s/like', $account, $postID, $commentID,
             ],
             options: $options,
-            convert: CommentUnlikeCommentResponse::class,
+            convert: CommentUnlikeResponse::class,
         );
     }
 
@@ -269,19 +269,19 @@ final class CommentsRawService implements CommentsRawContract
      * Unpin a comment from one of your posts.
      *
      * @param int $commentID the ID of the comment to pin
-     * @param array{account: string, postID: int}|CommentUnpinCommentParams $params
+     * @param array{account: string, postID: int}|CommentUnpinParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<CommentUnpinCommentResponse>
+     * @return BaseResponse<CommentUnpinResponse>
      *
      * @throws APIException
      */
-    public function unpinComment(
+    public function unpin(
         int $commentID,
-        array|CommentUnpinCommentParams $params,
+        array|CommentUnpinParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse {
-        [$parsed, $options] = CommentUnpinCommentParams::parseRequest(
+        [$parsed, $options] = CommentUnpinParams::parseRequest(
             $params,
             $requestOptions,
         );
@@ -297,7 +297,7 @@ final class CommentsRawService implements CommentsRawContract
                 'api/%1$s/posts/%2$s/comments/%3$s/pin', $account, $postID, $commentID,
             ],
             options: $options,
-            convert: CommentUnpinCommentResponse::class,
+            convert: CommentUnpinResponse::class,
         );
     }
 }

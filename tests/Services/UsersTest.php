@@ -5,6 +5,7 @@ namespace Tests\Services;
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Util;
 use Onlyfansapi\Users\UserGetResponse;
+use Onlyfansapi\Users\UserListResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -58,5 +59,37 @@ final class UsersTest extends TestCase
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(UserGetResponse::class, $result);
+    }
+
+    #[Test]
+    public function testList(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->users->list(
+            'acct_XXXXXXXXXXXXXXX',
+            ids: '12412412,36139491,1858349'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(UserListResponse::class, $result);
+    }
+
+    #[Test]
+    public function testListWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->users->list(
+            'acct_XXXXXXXXXXXXXXX',
+            ids: '12412412,36139491,1858349'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(UserListResponse::class, $result);
     }
 }

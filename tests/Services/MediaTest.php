@@ -30,6 +30,38 @@ final class MediaTest extends TestCase
     }
 
     #[Test]
+    public function testDownload(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->media->download(
+            'cdnUrl',
+            account: 'acct_XXXXXXXXXXXXXXX'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertIsString($result);
+    }
+
+    #[Test]
+    public function testDownloadWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->media->download(
+            'cdnUrl',
+            account: 'acct_XXXXXXXXXXXXXXX'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertIsString($result);
+    }
+
+    #[Test]
     public function testScrape(): void
     {
         if (UnsupportedMockTests::$skip) {

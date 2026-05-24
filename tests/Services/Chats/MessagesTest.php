@@ -3,8 +3,14 @@
 namespace Tests\Services\Chats;
 
 use Onlyfansapi\Chats\Messages\MessageDeleteResponse;
+use Onlyfansapi\Chats\Messages\MessageGetResponse;
+use Onlyfansapi\Chats\Messages\MessageLikeResponse;
 use Onlyfansapi\Chats\Messages\MessageListResponse;
+use Onlyfansapi\Chats\Messages\MessagePinResponse;
+use Onlyfansapi\Chats\Messages\MessageSearchResponse;
 use Onlyfansapi\Chats\Messages\MessageSendResponse;
+use Onlyfansapi\Chats\Messages\MessageUnlikeResponse;
+use Onlyfansapi\Chats\Messages\MessageUnpinResponse;
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Util;
 use PHPUnit\Framework\Attributes\CoversNothing;
@@ -28,6 +34,40 @@ final class MessagesTest extends TestCase
         $client = new Client(apiKey: 'My API Key', baseUrl: $testUrl);
 
         $this->client = $client;
+    }
+
+    #[Test]
+    public function testRetrieve(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->chats->messages->retrieve(
+            '69696969',
+            account: 'acct_XXXXXXXXXXXXXXX',
+            chatID: '123'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(MessageGetResponse::class, $result);
+    }
+
+    #[Test]
+    public function testRetrieveWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->chats->messages->retrieve(
+            '69696969',
+            account: 'acct_XXXXXXXXXXXXXXX',
+            chatID: '123'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(MessageGetResponse::class, $result);
     }
 
     #[Test]
@@ -103,6 +143,108 @@ final class MessagesTest extends TestCase
     }
 
     #[Test]
+    public function testLike(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->chats->messages->like(
+            '123456789',
+            account: 'acct_XXXXXXXXXXXXXXX',
+            chatID: '123'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(MessageLikeResponse::class, $result);
+    }
+
+    #[Test]
+    public function testLikeWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->chats->messages->like(
+            '123456789',
+            account: 'acct_XXXXXXXXXXXXXXX',
+            chatID: '123'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(MessageLikeResponse::class, $result);
+    }
+
+    #[Test]
+    public function testPin(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->chats->messages->pin(
+            '123456789',
+            account: 'acct_XXXXXXXXXXXXXXX',
+            chatID: '123'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(MessagePinResponse::class, $result);
+    }
+
+    #[Test]
+    public function testPinWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->chats->messages->pin(
+            '123456789',
+            account: 'acct_XXXXXXXXXXXXXXX',
+            chatID: '123'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(MessagePinResponse::class, $result);
+    }
+
+    #[Test]
+    public function testSearch(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->chats->messages->search(
+            '123',
+            account: 'acct_XXXXXXXXXXXXXXX',
+            query: 'Hello'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(MessageSearchResponse::class, $result);
+    }
+
+    #[Test]
+    public function testSearchWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->chats->messages->search(
+            '123',
+            account: 'acct_XXXXXXXXXXXXXXX',
+            query: 'Hello'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(MessageSearchResponse::class, $result);
+    }
+
+    #[Test]
     public function testSend(): void
     {
         if (UnsupportedMockTests::$skip) {
@@ -142,5 +284,73 @@ final class MessagesTest extends TestCase
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(MessageSendResponse::class, $result);
+    }
+
+    #[Test]
+    public function testUnlike(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->chats->messages->unlike(
+            '123456789',
+            account: 'acct_XXXXXXXXXXXXXXX',
+            chatID: '123'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(MessageUnlikeResponse::class, $result);
+    }
+
+    #[Test]
+    public function testUnlikeWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->chats->messages->unlike(
+            '123456789',
+            account: 'acct_XXXXXXXXXXXXXXX',
+            chatID: '123'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(MessageUnlikeResponse::class, $result);
+    }
+
+    #[Test]
+    public function testUnpin(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->chats->messages->unpin(
+            '123456789',
+            account: 'acct_XXXXXXXXXXXXXXX',
+            chatID: '123'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(MessageUnpinResponse::class, $result);
+    }
+
+    #[Test]
+    public function testUnpinWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->chats->messages->unpin(
+            '123456789',
+            account: 'acct_XXXXXXXXXXXXXXX',
+            chatID: '123'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(MessageUnpinResponse::class, $result);
     }
 }

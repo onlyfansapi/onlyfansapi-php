@@ -10,16 +10,16 @@ use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Payouts\PayoutGetBalancesResponse;
 use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse;
 use Onlyfansapi\Payouts\PayoutGetEligibilityResponse;
-use Onlyfansapi\Payouts\PayoutListPayoutRequestsParams;
-use Onlyfansapi\Payouts\PayoutListPayoutRequestsResponse;
+use Onlyfansapi\Payouts\PayoutListRequestsParams;
+use Onlyfansapi\Payouts\PayoutListRequestsResponse;
 use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalParams;
 use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse;
 use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember0;
 use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1;
 use Onlyfansapi\Payouts\PayoutRetrieveEarningStatisticsParams;
-use Onlyfansapi\Payouts\PayoutUpdatePayoutFrequencyParams;
-use Onlyfansapi\Payouts\PayoutUpdatePayoutFrequencyParams\Frequency;
-use Onlyfansapi\Payouts\PayoutUpdatePayoutFrequencyResponse;
+use Onlyfansapi\Payouts\PayoutUpdateFrequencyParams;
+use Onlyfansapi\Payouts\PayoutUpdateFrequencyParams\Frequency;
+use Onlyfansapi\Payouts\PayoutUpdateFrequencyResponse;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\PayoutsRawContract;
 
@@ -40,21 +40,19 @@ final class PayoutsRawService implements PayoutsRawContract
      * List all payout requests for the account.
      *
      * @param string $account The Account ID
-     * @param array{
-     *   limit?: string, offset?: string
-     * }|PayoutListPayoutRequestsParams $params
+     * @param array{limit?: string, offset?: string}|PayoutListRequestsParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<PayoutListPayoutRequestsResponse>
+     * @return BaseResponse<PayoutListRequestsResponse>
      *
      * @throws APIException
      */
-    public function listPayoutRequests(
+    public function listRequests(
         string $account,
-        array|PayoutListPayoutRequestsParams $params,
+        array|PayoutListRequestsParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse {
-        [$parsed, $options] = PayoutListPayoutRequestsParams::parseRequest(
+        [$parsed, $options] = PayoutListRequestsParams::parseRequest(
             $params,
             $requestOptions,
         );
@@ -65,7 +63,7 @@ final class PayoutsRawService implements PayoutsRawContract
             path: ['api/%1$s/payouts/payout-requests', $account],
             query: $parsed,
             options: $options,
-            convert: PayoutListPayoutRequestsResponse::class,
+            convert: PayoutListRequestsResponse::class,
         );
     }
 
@@ -195,19 +193,19 @@ final class PayoutsRawService implements PayoutsRawContract
      * @param string $account The Account ID
      * @param array{
      *   frequency: Frequency|value-of<Frequency>
-     * }|PayoutUpdatePayoutFrequencyParams $params
+     * }|PayoutUpdateFrequencyParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<PayoutUpdatePayoutFrequencyResponse>
+     * @return BaseResponse<PayoutUpdateFrequencyResponse>
      *
      * @throws APIException
      */
-    public function updatePayoutFrequency(
+    public function updateFrequency(
         string $account,
-        array|PayoutUpdatePayoutFrequencyParams $params,
+        array|PayoutUpdateFrequencyParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse {
-        [$parsed, $options] = PayoutUpdatePayoutFrequencyParams::parseRequest(
+        [$parsed, $options] = PayoutUpdateFrequencyParams::parseRequest(
             $params,
             $requestOptions,
         );
@@ -218,7 +216,7 @@ final class PayoutsRawService implements PayoutsRawContract
             path: ['api/%1$s/payouts/payout-frequency', $account],
             body: (object) $parsed,
             options: $options,
-            convert: PayoutUpdatePayoutFrequencyResponse::class,
+            convert: PayoutUpdateFrequencyResponse::class,
         );
     }
 }

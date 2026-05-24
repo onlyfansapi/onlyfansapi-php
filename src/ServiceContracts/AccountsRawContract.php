@@ -36,7 +36,7 @@ interface AccountsRawContract
      * @param string $id the ID of the account
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<mixed>
+     * @return BaseResponse<array<string,mixed>>
      *
      * @throws APIException
      */

@@ -7,6 +7,9 @@ namespace Onlyfansapi\ServiceContracts;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\TrackingLinks\TrackingLinkDeleteResponse;
+use Onlyfansapi\TrackingLinks\TrackingLinkGetCohortArpsParams\RevenueBasis;
+use Onlyfansapi\TrackingLinks\TrackingLinkGetResponse;
+use Onlyfansapi\TrackingLinks\TrackingLinkGetStatsResponse;
 use Onlyfansapi\TrackingLinks\TrackingLinkListParams\Sort;
 use Onlyfansapi\TrackingLinks\TrackingLinkListParams\Sortby;
 use Onlyfansapi\TrackingLinks\TrackingLinkListResponse;
@@ -35,6 +38,21 @@ interface TrackingLinksContract
         ?array $tags = null,
         RequestOptions|array|null $requestOptions = null,
     ): TrackingLinkNewResponse;
+
+    /**
+     * @api
+     *
+     * @param string $trackingLinkID the ID of the tracking link
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function retrieve(
+        string $trackingLinkID,
+        string $account,
+        RequestOptions|array|null $requestOptions = null,
+    ): TrackingLinkGetResponse;
 
     /**
      * @api
@@ -79,6 +97,46 @@ interface TrackingLinksContract
         string $account,
         RequestOptions|array|null $requestOptions = null,
     ): TrackingLinkDeleteResponse;
+
+    /**
+     * @api
+     *
+     * @param string $trackingLinkID path param: The ID of the tracking link
+     * @param string $account Path param: The Account ID
+     * @param string $acquisitionEnd Query param: Optional acquisition range end date
+     * @param string $acquisitionStart Query param: Optional acquisition range start date
+     * @param RevenueBasis|value-of<RevenueBasis> $revenueBasis Query param: Revenue basis. Defaults to `net`.
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function getCohortArps(
+        string $trackingLinkID,
+        string $account,
+        ?string $acquisitionEnd = null,
+        ?string $acquisitionStart = null,
+        RevenueBasis|string|null $revenueBasis = null,
+        RequestOptions|array|null $requestOptions = null,
+    ): mixed;
+
+    /**
+     * @api
+     *
+     * @param string $trackingLinkID path param: The ID of the tracking link
+     * @param string $account Path param: The Account ID
+     * @param string $dateEnd Query param: Optional stats range end date
+     * @param string $dateStart Query param: Optional stats range start date
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function getStats(
+        string $trackingLinkID,
+        string $account,
+        ?string $dateEnd = null,
+        ?string $dateStart = null,
+        RequestOptions|array|null $requestOptions = null,
+    ): TrackingLinkGetStatsResponse;
 
     /**
      * @api

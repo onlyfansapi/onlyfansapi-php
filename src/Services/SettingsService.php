@@ -9,9 +9,13 @@ use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Core\Util;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\SettingsContract;
-use Onlyfansapi\Settings\SettingCheckUsernameExistsResponse;
+use Onlyfansapi\Services\Settings\BlockedCountriesService;
+use Onlyfansapi\Services\Settings\SocialMediaButtonsService;
+use Onlyfansapi\Services\Settings\WelcomeMessageService;
+use Onlyfansapi\Settings\SettingCheckUsernameAvailabilityResponse;
 use Onlyfansapi\Settings\SettingGetResponse;
 use Onlyfansapi\Settings\SettingUpdateProfileResponse;
+use Onlyfansapi\Settings\SettingUpdateSubscriptionPriceResponse;
 
 /**
  * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
@@ -24,11 +28,29 @@ final class SettingsService implements SettingsContract
     public SettingsRawService $raw;
 
     /**
+     * @api
+     */
+    public BlockedCountriesService $blockedCountries;
+
+    /**
+     * @api
+     */
+    public WelcomeMessageService $welcomeMessage;
+
+    /**
+     * @api
+     */
+    public SocialMediaButtonsService $socialMediaButtons;
+
+    /**
      * @internal
      */
     public function __construct(private Client $client)
     {
         $this->raw = new SettingsRawService($client);
+        $this->blockedCountries = new BlockedCountriesService($client);
+        $this->welcomeMessage = new WelcomeMessageService($client);
+        $this->socialMediaButtons = new SocialMediaButtonsService($client);
     }
 
     /**
@@ -62,15 +84,15 @@ final class SettingsService implements SettingsContract
      *
      * @throws APIException
      */
-    public function checkUsernameExists(
+    public function checkUsernameAvailability(
         string $account,
         string $username,
         RequestOptions|array|null $requestOptions = null,
-    ): SettingCheckUsernameExistsResponse {
+    ): SettingCheckUsernameAvailabilityResponse {
         $params = Util::removeNulls(['username' => $username]);
 
         // @phpstan-ignore-next-line argument.type
-        $response = $this->raw->checkUsernameExists($account, params: $params, requestOptions: $requestOptions);
+        $response = $this->raw->checkUsernameAvailability($account, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }
@@ -120,6 +142,30 @@ final class SettingsService implements SettingsContract
 
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->updateProfile($account, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Update the account subscription price. Send `0` or `"free"` to make the account free. ⚠️ WARNING! OnlyFans limits updating the subscription price to max. 3 times per day.
+     *
+     * @param string $account The Account ID
+     * @param string $price The new subscription price. Accepts `0`, `"free"`, or a number between 4.99 and 200.
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function updateSubscriptionPrice(
+        string $account,
+        string $price,
+        RequestOptions|array|null $requestOptions = null,
+    ): SettingUpdateSubscriptionPriceResponse {
+        $params = Util::removeNulls(['price' => $price]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->updateSubscriptionPrice($account, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }
