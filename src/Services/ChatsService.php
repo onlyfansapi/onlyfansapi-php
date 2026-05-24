@@ -12,6 +12,7 @@ use Onlyfansapi\Chats\ChatListParams\Filter;
 use Onlyfansapi\Chats\ChatListParams\Order;
 use Onlyfansapi\Chats\ChatListParams\SkipUsers;
 use Onlyfansapi\Chats\ChatListResponse;
+use Onlyfansapi\Chats\ChatMarkAsReadResponse;
 use Onlyfansapi\Chats\ChatMarkAsUnreadResponse;
 use Onlyfansapi\Chats\ChatMuteResponse;
 use Onlyfansapi\Chats\ChatStartTypingResponse;
@@ -21,7 +22,7 @@ use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Core\Util;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\ChatsContract;
-use Onlyfansapi\Services\Chats\MarkAsReadService;
+use Onlyfansapi\Services\Chats\MarkAllAsReadService;
 use Onlyfansapi\Services\Chats\MessagesService;
 
 /**
@@ -42,7 +43,7 @@ final class ChatsService implements ChatsContract
     /**
      * @api
      */
-    public MarkAsReadService $markAsRead;
+    public MarkAllAsReadService $markAllAsRead;
 
     /**
      * @internal
@@ -51,7 +52,7 @@ final class ChatsService implements ChatsContract
     {
         $this->raw = new ChatsRawService($client);
         $this->messages = new MessagesService($client);
-        $this->markAsRead = new MarkAsReadService($client);
+        $this->markAllAsRead = new MarkAllAsReadService($client);
     }
 
     /**
@@ -181,6 +182,30 @@ final class ChatsService implements ChatsContract
 
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->listMedia($chatID, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Mark a specific chat as read. Alternative to List Chat Messages endpoint, if you just want to mark the chat as read without fetching messages.
+     *
+     * @param string $chatID The ID of the chat to mark as read, usually a fan's OnlyFans User ID
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function markAsRead(
+        string $chatID,
+        string $account,
+        RequestOptions|array|null $requestOptions = null,
+    ): ChatMarkAsReadResponse {
+        $params = Util::removeNulls(['account' => $account]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->markAsRead($chatID, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }

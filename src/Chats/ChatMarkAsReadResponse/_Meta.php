@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\MarkAsRead\MarkAsReadAllResponse;
+namespace Onlyfansapi\Chats\ChatMarkAsReadResponse;
 
-use Onlyfansapi\Chats\MarkAsRead\MarkAsReadAllResponse\_Meta\_Cache;
-use Onlyfansapi\Chats\MarkAsRead\MarkAsReadAllResponse\_Meta\_Credits;
-use Onlyfansapi\Chats\MarkAsRead\MarkAsReadAllResponse\_Meta\_RateLimits;
+use Onlyfansapi\Chats\ChatMarkAsReadResponse\_Meta\_Cache;
+use Onlyfansapi\Chats\ChatMarkAsReadResponse\_Meta\_Credits;
+use Onlyfansapi\Chats\ChatMarkAsReadResponse\_Meta\_RateLimits;
 use Onlyfansapi\Core\Attributes\Optional;
 use Onlyfansapi\Core\Concerns\SdkModel;
 use Onlyfansapi\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type _CacheShape from \Onlyfansapi\Chats\MarkAsRead\MarkAsReadAllResponse\_Meta\_Cache
- * @phpstan-import-type _CreditsShape from \Onlyfansapi\Chats\MarkAsRead\MarkAsReadAllResponse\_Meta\_Credits
- * @phpstan-import-type _RateLimitsShape from \Onlyfansapi\Chats\MarkAsRead\MarkAsReadAllResponse\_Meta\_RateLimits
+ * @phpstan-import-type _CacheShape from \Onlyfansapi\Chats\ChatMarkAsReadResponse\_Meta\_Cache
+ * @phpstan-import-type _CreditsShape from \Onlyfansapi\Chats\ChatMarkAsReadResponse\_Meta\_Credits
+ * @phpstan-import-type _RateLimitsShape from \Onlyfansapi\Chats\ChatMarkAsReadResponse\_Meta\_RateLimits
  *
  * @phpstan-type _MetaShape = array{
  *   _cache?: null|_Cache|_CacheShape,

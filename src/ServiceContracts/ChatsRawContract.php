@@ -12,6 +12,8 @@ use Onlyfansapi\Chats\ChatListMediaParams;
 use Onlyfansapi\Chats\ChatListMediaResponse;
 use Onlyfansapi\Chats\ChatListParams;
 use Onlyfansapi\Chats\ChatListResponse;
+use Onlyfansapi\Chats\ChatMarkAsReadParams;
+use Onlyfansapi\Chats\ChatMarkAsReadResponse;
 use Onlyfansapi\Chats\ChatMarkAsUnreadParams;
 use Onlyfansapi\Chats\ChatMarkAsUnreadResponse;
 use Onlyfansapi\Chats\ChatMuteParams;
@@ -94,6 +96,23 @@ interface ChatsRawContract
     public function listMedia(
         string $chatID,
         array|ChatListMediaParams $params,
+        RequestOptions|array|null $requestOptions = null,
+    ): BaseResponse;
+
+    /**
+     * @api
+     *
+     * @param string $chatID The ID of the chat to mark as read, usually a fan's OnlyFans User ID
+     * @param array<string,mixed>|ChatMarkAsReadParams $params
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<ChatMarkAsReadResponse>
+     *
+     * @throws APIException
+     */
+    public function markAsRead(
+        string $chatID,
+        array|ChatMarkAsReadParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse;
 

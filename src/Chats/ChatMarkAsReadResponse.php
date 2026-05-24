@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\MarkAsRead;
+namespace Onlyfansapi\Chats;
 
-use Onlyfansapi\Chats\MarkAsRead\MarkAsReadAllResponse\_Meta;
-use Onlyfansapi\Chats\MarkAsRead\MarkAsReadAllResponse\Data;
+use Onlyfansapi\Chats\ChatMarkAsReadResponse\_Meta;
+use Onlyfansapi\Chats\ChatMarkAsReadResponse\Data;
 use Onlyfansapi\Core\Attributes\Optional;
 use Onlyfansapi\Core\Concerns\SdkModel;
 use Onlyfansapi\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Chats\MarkAsRead\MarkAsReadAllResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Chats\MarkAsRead\MarkAsReadAllResponse\Data
+ * @phpstan-import-type _MetaShape from \Onlyfansapi\Chats\ChatMarkAsReadResponse\_Meta
+ * @phpstan-import-type DataShape from \Onlyfansapi\Chats\ChatMarkAsReadResponse\Data
  *
- * @phpstan-type MarkAsReadAllResponseShape = array{
+ * @phpstan-type ChatMarkAsReadResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape
  * }
  */
-final class MarkAsReadAllResponse implements BaseModel
+final class ChatMarkAsReadResponse implements BaseModel
 {
-    /** @use SdkModel<MarkAsReadAllResponseShape> */
+    /** @use SdkModel<ChatMarkAsReadResponseShape> */
     use SdkModel;
 
     #[Optional]

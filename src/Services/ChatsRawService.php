@@ -16,6 +16,8 @@ use Onlyfansapi\Chats\ChatListParams\Filter;
 use Onlyfansapi\Chats\ChatListParams\Order;
 use Onlyfansapi\Chats\ChatListParams\SkipUsers;
 use Onlyfansapi\Chats\ChatListResponse;
+use Onlyfansapi\Chats\ChatMarkAsReadParams;
+use Onlyfansapi\Chats\ChatMarkAsReadResponse;
 use Onlyfansapi\Chats\ChatMarkAsUnreadParams;
 use Onlyfansapi\Chats\ChatMarkAsUnreadResponse;
 use Onlyfansapi\Chats\ChatMuteParams;
@@ -188,6 +190,40 @@ final class ChatsRawService implements ChatsRawContract
             query: Util::array_transform_keys($parsed, ['skipUsers' => 'skip_users']),
             options: $options,
             convert: ChatListMediaResponse::class,
+        );
+    }
+
+    /**
+     * @api
+     *
+     * Mark a specific chat as read. Alternative to List Chat Messages endpoint, if you just want to mark the chat as read without fetching messages.
+     *
+     * @param string $chatID The ID of the chat to mark as read, usually a fan's OnlyFans User ID
+     * @param array{account: string}|ChatMarkAsReadParams $params
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<ChatMarkAsReadResponse>
+     *
+     * @throws APIException
+     */
+    public function markAsRead(
+        string $chatID,
+        array|ChatMarkAsReadParams $params,
+        RequestOptions|array|null $requestOptions = null,
+    ): BaseResponse {
+        [$parsed, $options] = ChatMarkAsReadParams::parseRequest(
+            $params,
+            $requestOptions,
+        );
+        $account = $parsed['account'];
+        unset($parsed['account']);
+
+        // @phpstan-ignore-next-line return.type
+        return $this->client->request(
+            method: 'post',
+            path: ['api/%1$s/chats/%2$s/mark-as-read', $account, $chatID],
+            options: $options,
+            convert: ChatMarkAsReadResponse::class,
         );
     }
 

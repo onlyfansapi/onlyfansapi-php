@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\MarkAsRead\MarkAsReadAllResponse\_Meta;
+namespace Onlyfansapi\Chats\MarkAllAsRead\MarkAllAsReadAllResponse\_Meta;
 
 use Onlyfansapi\Core\Attributes\Optional;
 use Onlyfansapi\Core\Concerns\SdkModel;

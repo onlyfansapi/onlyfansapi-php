@@ -2,7 +2,7 @@
 
 namespace Tests\Services\Chats;
 
-use Onlyfansapi\Chats\MarkAsRead\MarkAsReadAllResponse;
+use Onlyfansapi\Chats\MarkAllAsRead\MarkAllAsReadAllResponse;
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Util;
 use PHPUnit\Framework\Attributes\CoversNothing;
@@ -14,7 +14,7 @@ use Tests\UnsupportedMockTests;
  * @internal
  */
 #[CoversNothing]
-final class MarkAsReadTest extends TestCase
+final class MarkAllAsReadTest extends TestCase
 {
     protected Client $client;
 
@@ -35,9 +35,9 @@ final class MarkAsReadTest extends TestCase
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->chats->markAsRead->all('acct_XXXXXXXXXXXXXXX');
+        $result = $this->client->chats->markAllAsRead->all('acct_XXXXXXXXXXXXXXX');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(MarkAsReadAllResponse::class, $result);
+        $this->assertInstanceOf(MarkAllAsReadAllResponse::class, $result);
     }
 }
