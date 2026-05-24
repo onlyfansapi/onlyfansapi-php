@@ -8,6 +8,7 @@ use Onlyfansapi\Core\Attributes\Optional;
 use Onlyfansapi\Core\Concerns\SdkModel;
 use Onlyfansapi\Core\Concerns\SdkParams;
 use Onlyfansapi\Core\Contracts\BaseModel;
+use Onlyfansapi\Fans\FanListLatestParams\Type;
 
 /**
  * Get a paginated list fans, filterable by total, only new subscribers, or only renewals. Newest fans are first.
@@ -16,10 +17,10 @@ use Onlyfansapi\Core\Contracts\BaseModel;
  *
  * @phpstan-type FanListLatestParamsShape = array{
  *   endDate?: string|null,
- *   limit?: string|null,
- *   offset?: string|null,
+ *   limit?: int|null,
+ *   offset?: int|null,
  *   startDate?: string|null,
- *   type?: string|null,
+ *   type?: null|Type|value-of<Type>,
  * }
  */
 final class FanListLatestParams implements BaseModel
@@ -29,33 +30,35 @@ final class FanListLatestParams implements BaseModel
     use SdkParams;
 
     /**
-     * End date for filtering (required with start_date).
+     * End date for filtering (required with start_date). This field is required when <code>start_date</code> is present.
      */
     #[Optional(nullable: true)]
     public ?string $endDate;
 
     /**
-     * Number of fans to return (1-50).
+     * Number of fans to return (1-50). Must be at least 1. Must not be greater than 100.
      */
-    #[Optional(nullable: true)]
-    public ?string $limit;
+    #[Optional]
+    public ?int $limit;
 
     /**
-     * Number of fans to skip.
+     * Number of fans to skip. Must be at least 0.
      */
-    #[Optional(nullable: true)]
-    public ?string $offset;
+    #[Optional]
+    public ?int $offset;
 
     /**
-     * Start date for filtering (required with end_date).
+     * Start date for filtering (required with end_date). This field is required when <code>end_date</code> is present.
      */
     #[Optional(nullable: true)]
     public ?string $startDate;
 
     /**
      * Filter by type: total, renew, or new.
+     *
+     * @var value-of<Type>|null $type
      */
-    #[Optional(nullable: true)]
+    #[Optional(enum: Type::class, nullable: true)]
     public ?string $type;
 
     public function __construct()
@@ -67,13 +70,15 @@ final class FanListLatestParams implements BaseModel
      * Construct an instance from the required parameters.
      *
      * You must use named parameters to construct any parameters with a default value.
+     *
+     * @param Type|value-of<Type>|null $type
      */
     public static function with(
         ?string $endDate = null,
-        ?string $limit = null,
-        ?string $offset = null,
+        ?int $limit = null,
+        ?int $offset = null,
         ?string $startDate = null,
-        ?string $type = null,
+        Type|string|null $type = null,
     ): self {
         $self = new self;
 
@@ -87,7 +92,7 @@ final class FanListLatestParams implements BaseModel
     }
 
     /**
-     * End date for filtering (required with start_date).
+     * End date for filtering (required with start_date). This field is required when <code>start_date</code> is present.
      */
     public function withEndDate(?string $endDate): self
     {
@@ -98,9 +103,9 @@ final class FanListLatestParams implements BaseModel
     }
 
     /**
-     * Number of fans to return (1-50).
+     * Number of fans to return (1-50). Must be at least 1. Must not be greater than 100.
      */
-    public function withLimit(?string $limit): self
+    public function withLimit(int $limit): self
     {
         $self = clone $this;
         $self['limit'] = $limit;
@@ -109,9 +114,9 @@ final class FanListLatestParams implements BaseModel
     }
 
     /**
-     * Number of fans to skip.
+     * Number of fans to skip. Must be at least 0.
      */
-    public function withOffset(?string $offset): self
+    public function withOffset(int $offset): self
     {
         $self = clone $this;
         $self['offset'] = $offset;
@@ -120,7 +125,7 @@ final class FanListLatestParams implements BaseModel
     }
 
     /**
-     * Start date for filtering (required with end_date).
+     * Start date for filtering (required with end_date). This field is required when <code>end_date</code> is present.
      */
     public function withStartDate(?string $startDate): self
     {
@@ -132,8 +137,10 @@ final class FanListLatestParams implements BaseModel
 
     /**
      * Filter by type: total, renew, or new.
+     *
+     * @param Type|value-of<Type>|null $type
      */
-    public function withType(?string $type): self
+    public function withType(Type|string|null $type): self
     {
         $self = clone $this;
         $self['type'] = $type;

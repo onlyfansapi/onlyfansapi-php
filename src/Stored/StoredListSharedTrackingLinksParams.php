@@ -8,17 +8,17 @@ use Onlyfansapi\Core\Attributes\Optional;
 use Onlyfansapi\Core\Concerns\SdkModel;
 use Onlyfansapi\Core\Concerns\SdkParams;
 use Onlyfansapi\Core\Contracts\BaseModel;
+use Onlyfansapi\Stored\StoredListSharedTrackingLinksParams\Filter;
 
 /**
  * List all shared Tracking Links from the OnlyFansAPI Cache. This is a free endpoint that does not call the OnlyFans API.
  *
  * @see Onlyfansapi\Services\StoredService::listSharedTrackingLinks()
  *
+ * @phpstan-import-type FilterShape from \Onlyfansapi\Stored\StoredListSharedTrackingLinksParams\Filter
+ *
  * @phpstan-type StoredListSharedTrackingLinksParamsShape = array{
- *   filterSearch?: string|null,
- *   filterTags?: string|null,
- *   limit?: int|null,
- *   offset?: int|null,
+ *   filter?: null|Filter|FilterShape, limit?: int|null, offset?: int|null
  * }
  */
 final class StoredListSharedTrackingLinksParams implements BaseModel
@@ -27,26 +27,17 @@ final class StoredListSharedTrackingLinksParams implements BaseModel
     use SdkModel;
     use SdkParams;
 
-    /**
-     * Search campaign name, owner username, or a pasted OnlyFans tracking link URL.
-     */
     #[Optional]
-    public ?string $filterSearch;
+    public ?Filter $filter;
 
     /**
-     * Filter by one or more tag names or slugs. Accepts CSV or repeated array values (`filter[tags][]=...`) and matches any tag. Tag namespace is shared with owned Tracking Links.
-     */
-    #[Optional]
-    public ?string $filterTags;
-
-    /**
-     * The number of shared tracking links to return. Default `10`.
+     * The number of shared tracking links to return. Default `10`. Must be at least 1. Must not be greater than 1000.
      */
     #[Optional]
     public ?int $limit;
 
     /**
-     * The offset used for pagination. Default `0`.
+     * The offset used for pagination. Default `0`. Must be at least 0.
      */
     #[Optional]
     public ?int $offset;
@@ -60,17 +51,17 @@ final class StoredListSharedTrackingLinksParams implements BaseModel
      * Construct an instance from the required parameters.
      *
      * You must use named parameters to construct any parameters with a default value.
+     *
+     * @param Filter|FilterShape|null $filter
      */
     public static function with(
-        ?string $filterSearch = null,
-        ?string $filterTags = null,
+        Filter|array|null $filter = null,
         ?int $limit = null,
-        ?int $offset = null,
+        ?int $offset = null
     ): self {
         $self = new self;
 
-        null !== $filterSearch && $self['filterSearch'] = $filterSearch;
-        null !== $filterTags && $self['filterTags'] = $filterTags;
+        null !== $filter && $self['filter'] = $filter;
         null !== $limit && $self['limit'] = $limit;
         null !== $offset && $self['offset'] = $offset;
 
@@ -78,29 +69,18 @@ final class StoredListSharedTrackingLinksParams implements BaseModel
     }
 
     /**
-     * Search campaign name, owner username, or a pasted OnlyFans tracking link URL.
+     * @param Filter|FilterShape $filter
      */
-    public function withFilterSearch(string $filterSearch): self
+    public function withFilter(Filter|array $filter): self
     {
         $self = clone $this;
-        $self['filterSearch'] = $filterSearch;
+        $self['filter'] = $filter;
 
         return $self;
     }
 
     /**
-     * Filter by one or more tag names or slugs. Accepts CSV or repeated array values (`filter[tags][]=...`) and matches any tag. Tag namespace is shared with owned Tracking Links.
-     */
-    public function withFilterTags(string $filterTags): self
-    {
-        $self = clone $this;
-        $self['filterTags'] = $filterTags;
-
-        return $self;
-    }
-
-    /**
-     * The number of shared tracking links to return. Default `10`.
+     * The number of shared tracking links to return. Default `10`. Must be at least 1. Must not be greater than 1000.
      */
     public function withLimit(int $limit): self
     {
@@ -111,7 +91,7 @@ final class StoredListSharedTrackingLinksParams implements BaseModel
     }
 
     /**
-     * The offset used for pagination. Default `0`.
+     * The offset used for pagination. Default `0`. Must be at least 0.
      */
     public function withOffset(int $offset): self
     {

@@ -112,10 +112,10 @@ final class SmartLinksRawService implements SmartLinksRawContract
      * List all Smart Links
      *
      * @param array{
-     *   accountIDs?: string,
+     *   accountIDs?: string|null,
      *   limit?: int,
-     *   metaPixelIDs?: string,
-     *   name?: string,
+     *   metaPixelIDs?: string|null,
+     *   name?: string|null,
      *   offset?: int,
      * }|SmartLinkListParams $params
      * @param RequestOpts|null $requestOptions

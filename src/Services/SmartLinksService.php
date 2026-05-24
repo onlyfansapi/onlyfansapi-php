@@ -103,11 +103,11 @@ final class SmartLinksService implements SmartLinksContract
      *
      * List all Smart Links
      *
-     * @param string $accountIDs comma-separated account prefixed IDs to include
-     * @param int $limit The number of Smart Links to return. Default `50`
-     * @param string $metaPixelIDs comma-separated Meta Pixel IDs to include
-     * @param string $name filter Smart Links by name
-     * @param int $offset The offset used for pagination. Default `0`
+     * @param string|null $accountIDs comma-separated account prefixed IDs to include
+     * @param int $limit The number of Smart Links to return. Default `50`. Must be at least 1. Must not be greater than 1000.
+     * @param string|null $metaPixelIDs comma-separated Meta Pixel IDs to include
+     * @param string|null $name Filter Smart Links by name. Must not be greater than 255 characters.
+     * @param int $offset The offset used for pagination. Default `0`. Must be at least 0.
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException

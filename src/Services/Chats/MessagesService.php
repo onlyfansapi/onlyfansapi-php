@@ -195,7 +195,7 @@ final class MessagesService implements MessagesContract
      *
      * @param string $chatID Path param: The ID of the chat (usually a fan's OnlyFans User ID)
      * @param string $account Path param: The Account ID
-     * @param string $query Query param: The query search in messages
+     * @param string $query query param: The query search in messages
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException

@@ -12,6 +12,7 @@ use Onlyfansapi\Client;
 use Onlyfansapi\Core\Contracts\BaseResponse;
 use Onlyfansapi\Core\Conversion\ListOf;
 use Onlyfansapi\Core\Exceptions\APIException;
+use Onlyfansapi\Core\Util;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\Analytics\Financial\ProfitabilityRawContract;
 
@@ -34,7 +35,9 @@ final class ProfitabilityRawService implements ProfitabilityRawContract
      * Get historical profitability data for a specific account over multiple months.
      *
      * @param string $account The Account ID
-     * @param array{months?: int}|ProfitabilityGetHistoryParams $params
+     * @param array{
+     *   accountPrefixedID: string, months?: int
+     * }|ProfitabilityGetHistoryParams $params
      * @param RequestOpts|null $requestOptions
      *
      * @return BaseResponse<list<ProfitabilityGetHistoryResponseItem>>
@@ -55,7 +58,10 @@ final class ProfitabilityRawService implements ProfitabilityRawContract
         return $this->client->request(
             method: 'get',
             path: ['api/analytics/financial/profitability/%1$s/history', $account],
-            query: $parsed,
+            query: Util::array_transform_keys(
+                $parsed,
+                ['accountPrefixedID' => 'account_prefixed_id']
+            ),
             options: $options,
             convert: new ListOf(ProfitabilityGetHistoryResponseItem::class),
         );

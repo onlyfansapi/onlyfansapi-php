@@ -7,10 +7,10 @@ namespace Onlyfansapi\Services;
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Contracts\BaseResponse;
 use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\StoredRawContract;
 use Onlyfansapi\Stored\StoredListSharedTrackingLinksParams;
+use Onlyfansapi\Stored\StoredListSharedTrackingLinksParams\Filter;
 use Onlyfansapi\Stored\StoredListSharedTrackingLinksResponse;
 use Onlyfansapi\Stored\StoredListSharedTrialLinksParams;
 use Onlyfansapi\Stored\StoredListSharedTrialLinksResponse;
@@ -20,6 +20,10 @@ use Onlyfansapi\Stored\StoredListTrialLinksParams;
 use Onlyfansapi\Stored\StoredListTrialLinksResponse;
 
 /**
+ * @phpstan-import-type FilterShape from \Onlyfansapi\Stored\StoredListSharedTrackingLinksParams\Filter
+ * @phpstan-import-type FilterShape from \Onlyfansapi\Stored\StoredListSharedTrialLinksParams\Filter as FilterShape1
+ * @phpstan-import-type FilterShape from \Onlyfansapi\Stored\StoredListTrackingLinksParams\Filter as FilterShape2
+ * @phpstan-import-type FilterShape from \Onlyfansapi\Stored\StoredListTrialLinksParams\Filter as FilterShape3
  * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
  */
 final class StoredRawService implements StoredRawContract
@@ -37,7 +41,7 @@ final class StoredRawService implements StoredRawContract
      *
      * @param string $account The Account ID
      * @param array{
-     *   filterSearch?: string, filterTags?: string, limit?: int, offset?: int
+     *   filter?: Filter|FilterShape, limit?: int, offset?: int
      * }|StoredListSharedTrackingLinksParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -59,10 +63,7 @@ final class StoredRawService implements StoredRawContract
         return $this->client->request(
             method: 'get',
             path: ['api/%1$s/stored/shared-tracking-links', $account],
-            query: Util::array_transform_keys(
-                $parsed,
-                ['filterSearch' => 'filter[search]', 'filterTags' => 'filter[tags]'],
-            ),
+            query: $parsed,
             options: $options,
             convert: StoredListSharedTrackingLinksResponse::class,
         );
@@ -75,7 +76,9 @@ final class StoredRawService implements StoredRawContract
      *
      * @param string $account The Account ID
      * @param array{
-     *   filterSearch?: string, filterTags?: string, limit?: int, offset?: int
+     *   filter?: StoredListSharedTrialLinksParams\Filter|FilterShape1,
+     *   limit?: int,
+     *   offset?: int,
      * }|StoredListSharedTrialLinksParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -97,10 +100,7 @@ final class StoredRawService implements StoredRawContract
         return $this->client->request(
             method: 'get',
             path: ['api/%1$s/stored/shared-trial-links', $account],
-            query: Util::array_transform_keys(
-                $parsed,
-                ['filterSearch' => 'filter[search]', 'filterTags' => 'filter[tags]'],
-            ),
+            query: $parsed,
             options: $options,
             convert: StoredListSharedTrialLinksResponse::class,
         );
@@ -113,9 +113,7 @@ final class StoredRawService implements StoredRawContract
      *
      * @param string $account The Account ID
      * @param array{
-     *   filterIncludeSmartLinks?: bool,
-     *   filterSearch?: string,
-     *   filterTags?: string,
+     *   filter?: StoredListTrackingLinksParams\Filter|FilterShape2,
      *   limit?: int,
      *   offset?: int,
      * }|StoredListTrackingLinksParams $params
@@ -139,14 +137,7 @@ final class StoredRawService implements StoredRawContract
         return $this->client->request(
             method: 'get',
             path: ['api/%1$s/stored/tracking-links', $account],
-            query: Util::array_transform_keys(
-                $parsed,
-                [
-                    'filterIncludeSmartLinks' => 'filter[include_smart_links]',
-                    'filterSearch' => 'filter[search]',
-                    'filterTags' => 'filter[tags]',
-                ],
-            ),
+            query: $parsed,
             options: $options,
             convert: StoredListTrackingLinksResponse::class,
         );
@@ -159,9 +150,7 @@ final class StoredRawService implements StoredRawContract
      *
      * @param string $account The Account ID
      * @param array{
-     *   filterIncludeSmartLinks?: bool,
-     *   filterSearch?: string,
-     *   filterTags?: string,
+     *   filter?: StoredListTrialLinksParams\Filter|FilterShape3,
      *   limit?: int,
      *   offset?: int,
      * }|StoredListTrialLinksParams $params
@@ -185,14 +174,7 @@ final class StoredRawService implements StoredRawContract
         return $this->client->request(
             method: 'get',
             path: ['api/%1$s/stored/trial-links', $account],
-            query: Util::array_transform_keys(
-                $parsed,
-                [
-                    'filterIncludeSmartLinks' => 'filter[include_smart_links]',
-                    'filterSearch' => 'filter[search]',
-                    'filterTags' => 'filter[tags]',
-                ],
-            ),
+            query: $parsed,
             options: $options,
             convert: StoredListTrialLinksResponse::class,
         );

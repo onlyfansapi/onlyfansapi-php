@@ -38,7 +38,8 @@ final class ProfitabilityService implements ProfitabilityContract
      * Get historical profitability data for a specific account over multiple months.
      *
      * @param string $account The Account ID
-     * @param int $months Number of months of history to retrieve (1-60, default 12)
+     * @param string $accountPrefixedID the account prefixed ID
+     * @param int $months Number of months of history to retrieve (1-60, default 12). Must be at least 1. Must not be greater than 60.
      * @param RequestOpts|null $requestOptions
      *
      * @return list<ProfitabilityGetHistoryResponseItem>
@@ -47,10 +48,13 @@ final class ProfitabilityService implements ProfitabilityContract
      */
     public function getHistory(
         string $account,
+        string $accountPrefixedID,
         ?int $months = null,
         RequestOptions|array|null $requestOptions = null,
     ): array {
-        $params = Util::removeNulls(['months' => $months]);
+        $params = Util::removeNulls(
+            ['accountPrefixedID' => $accountPrefixedID, 'months' => $months]
+        );
 
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->getHistory($account, params: $params, requestOptions: $requestOptions);
