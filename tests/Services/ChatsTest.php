@@ -6,6 +6,7 @@ use Onlyfansapi\Chats\ChatDeleteResponse;
 use Onlyfansapi\Chats\ChatHideResponse;
 use Onlyfansapi\Chats\ChatListMediaResponse;
 use Onlyfansapi\Chats\ChatListResponse;
+use Onlyfansapi\Chats\ChatMarkAsReadResponse;
 use Onlyfansapi\Chats\ChatMarkAsUnreadResponse;
 use Onlyfansapi\Chats\ChatMuteResponse;
 use Onlyfansapi\Chats\ChatStartTypingResponse;
@@ -146,6 +147,38 @@ final class ChatsTest extends TestCase
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(ChatListMediaResponse::class, $result);
+    }
+
+    #[Test]
+    public function testMarkAsRead(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->chats->markAsRead(
+            '123',
+            account: 'acct_XXXXXXXXXXXXXXX'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(ChatMarkAsReadResponse::class, $result);
+    }
+
+    #[Test]
+    public function testMarkAsReadWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->chats->markAsRead(
+            '123',
+            account: 'acct_XXXXXXXXXXXXXXX'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(ChatMarkAsReadResponse::class, $result);
     }
 
     #[Test]

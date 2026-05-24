@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace Onlyfansapi\ServiceContracts\Chats;
 
-use Onlyfansapi\Chats\MarkAsRead\MarkAsReadAllResponse;
-use Onlyfansapi\Core\Contracts\BaseResponse;
+use Onlyfansapi\Chats\MarkAllAsRead\MarkAllAsReadAllResponse;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\RequestOptions;
 
 /**
  * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
  */
-interface MarkAsReadRawContract
+interface MarkAllAsReadContract
 {
     /**
      * @api
@@ -20,12 +19,10 @@ interface MarkAsReadRawContract
      * @param string $account The Account ID
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<MarkAsReadAllResponse>
-     *
      * @throws APIException
      */
     public function all(
         string $account,
         RequestOptions|array|null $requestOptions = null
-    ): BaseResponse;
+    ): MarkAllAsReadAllResponse;
 }

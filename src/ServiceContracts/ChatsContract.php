@@ -12,6 +12,7 @@ use Onlyfansapi\Chats\ChatListParams\Filter;
 use Onlyfansapi\Chats\ChatListParams\Order;
 use Onlyfansapi\Chats\ChatListParams\SkipUsers;
 use Onlyfansapi\Chats\ChatListResponse;
+use Onlyfansapi\Chats\ChatMarkAsReadResponse;
 use Onlyfansapi\Chats\ChatMarkAsUnreadResponse;
 use Onlyfansapi\Chats\ChatMuteResponse;
 use Onlyfansapi\Chats\ChatStartTypingResponse;
@@ -101,6 +102,21 @@ interface ChatsContract
         Type|string|null $type = null,
         RequestOptions|array|null $requestOptions = null,
     ): ChatListMediaResponse;
+
+    /**
+     * @api
+     *
+     * @param string $chatID The ID of the chat to mark as read, usually a fan's OnlyFans User ID
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function markAsRead(
+        string $chatID,
+        string $account,
+        RequestOptions|array|null $requestOptions = null,
+    ): ChatMarkAsReadResponse;
 
     /**
      * @api

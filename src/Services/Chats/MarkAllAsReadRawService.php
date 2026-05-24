@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Onlyfansapi\Services\Chats;
 
-use Onlyfansapi\Chats\MarkAsRead\MarkAsReadAllResponse;
+use Onlyfansapi\Chats\MarkAllAsRead\MarkAllAsReadAllResponse;
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Contracts\BaseResponse;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Chats\MarkAsReadRawContract;
+use Onlyfansapi\ServiceContracts\Chats\MarkAllAsReadRawContract;
 
 /**
  * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
  */
-final class MarkAsReadRawService implements MarkAsReadRawContract
+final class MarkAllAsReadRawService implements MarkAllAsReadRawContract
 {
     // @phpstan-ignore-next-line
     /**
@@ -30,7 +30,7 @@ final class MarkAsReadRawService implements MarkAsReadRawContract
      * @param string $account The Account ID
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<MarkAsReadAllResponse>
+     * @return BaseResponse<MarkAllAsReadAllResponse>
      *
      * @throws APIException
      */
@@ -43,7 +43,7 @@ final class MarkAsReadRawService implements MarkAsReadRawContract
             method: 'post',
             path: ['api/%1$s/chats/mark-as-read', $account],
             options: $requestOptions,
-            convert: MarkAsReadAllResponse::class,
+            convert: MarkAllAsReadAllResponse::class,
         );
     }
 }
