@@ -22,8 +22,8 @@ use Onlyfansapi\Posts\PostCreateParams\VotingType;
  *   fundRaisingTargetAmount?: int|null,
  *   fundRaisingTipsPresets?: list<string>|null,
  *   labelIDs?: string|null,
- *   mediaFiles?: string|null,
- *   previews?: list<string>|null,
+ *   mediaFiles?: list<mixed>|null,
+ *   previews?: list<mixed>|null,
  *   rfTag?: string|null,
  *   saveForLater?: bool|null,
  *   scheduledDate?: string|null,
@@ -46,7 +46,7 @@ final class PostCreateParams implements BaseModel
     public string $text;
 
     /**
-     * Number of days after which the post will expire. Can be 1, 3, 7 or 30 days. Keep empty for no expiration.
+     * Number of days after which the post will expire. Between 1 and 30 days. Keep empty for no expiration.
      */
     #[Optional]
     public ?int $expireDays;
@@ -72,17 +72,19 @@ final class PostCreateParams implements BaseModel
     public ?string $labelIDs;
 
     /**
-     * Array of OFAPI `ofapi_media_` IDs, or OF media IDs.
+     * Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs.
+     *
+     * @var list<mixed>|null $mediaFiles
      */
-    #[Optional]
-    public ?string $mediaFiles;
+    #[Optional(list: 'mixed')]
+    public ?array $mediaFiles;
 
     /**
-     * Array of media file upload prefixed_ids, or OF media IDs (required if price is not 0). Will be shown if `price` is provided. All `previews` values must also exist in the `mediaFiles` array.
+     * Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices referencing uploaded files in `mediaFiles`. Will be shown if `price` is provided.
      *
-     * @var list<string>|null $previews
+     * @var list<mixed>|null $previews
      */
-    #[Optional(list: 'string')]
+    #[Optional(list: 'mixed')]
     public ?array $previews;
 
     /**
@@ -156,7 +158,8 @@ final class PostCreateParams implements BaseModel
      * You must use named parameters to construct any parameters with a default value.
      *
      * @param list<string>|null $fundRaisingTipsPresets
-     * @param list<string>|null $previews
+     * @param list<mixed>|null $mediaFiles
+     * @param list<mixed>|null $previews
      * @param list<string>|null $votingOptions
      * @param VotingType|value-of<VotingType>|null $votingType
      */
@@ -166,7 +169,7 @@ final class PostCreateParams implements BaseModel
         ?int $fundRaisingTargetAmount = null,
         ?array $fundRaisingTipsPresets = null,
         ?string $labelIDs = null,
-        ?string $mediaFiles = null,
+        ?array $mediaFiles = null,
         ?array $previews = null,
         ?string $rfTag = null,
         ?bool $saveForLater = null,
@@ -209,7 +212,7 @@ final class PostCreateParams implements BaseModel
     }
 
     /**
-     * Number of days after which the post will expire. Can be 1, 3, 7 or 30 days. Keep empty for no expiration.
+     * Number of days after which the post will expire. Between 1 and 30 days. Keep empty for no expiration.
      */
     public function withExpireDays(int $expireDays): self
     {
@@ -257,9 +260,11 @@ final class PostCreateParams implements BaseModel
     }
 
     /**
-     * Array of OFAPI `ofapi_media_` IDs, or OF media IDs.
+     * Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs.
+     *
+     * @param list<mixed> $mediaFiles
      */
-    public function withMediaFiles(string $mediaFiles): self
+    public function withMediaFiles(array $mediaFiles): self
     {
         $self = clone $this;
         $self['mediaFiles'] = $mediaFiles;
@@ -268,9 +273,9 @@ final class PostCreateParams implements BaseModel
     }
 
     /**
-     * Array of media file upload prefixed_ids, or OF media IDs (required if price is not 0). Will be shown if `price` is provided. All `previews` values must also exist in the `mediaFiles` array.
+     * Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices referencing uploaded files in `mediaFiles`. Will be shown if `price` is provided.
      *
-     * @param list<string> $previews
+     * @param list<mixed> $previews
      */
     public function withPreviews(array $previews): self
     {

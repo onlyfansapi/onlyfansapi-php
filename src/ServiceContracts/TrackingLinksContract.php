@@ -24,6 +24,7 @@ interface TrackingLinksContract
      *
      * @param string $account The Account ID
      * @param string $name The name of the Tracking Link
+     * @param list<string> $tags array of tag names to add to the tracking link
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -31,6 +32,7 @@ interface TrackingLinksContract
     public function create(
         string $account,
         string $name,
+        ?array $tags = null,
         RequestOptions|array|null $requestOptions = null,
     ): TrackingLinkNewResponse;
 
@@ -66,7 +68,7 @@ interface TrackingLinksContract
     /**
      * @api
      *
-     * @param string $trackingLinkID The ID of the Tracking Link. Can be retrieved from the above store and list endpoints.
+     * @param string $trackingLinkID the ID of the tracking link
      * @param string $account The Account ID
      * @param RequestOpts|null $requestOptions
      *

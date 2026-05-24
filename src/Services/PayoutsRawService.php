@@ -12,8 +12,6 @@ use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse;
 use Onlyfansapi\Payouts\PayoutGetEligibilityResponse;
 use Onlyfansapi\Payouts\PayoutListPayoutRequestsParams;
 use Onlyfansapi\Payouts\PayoutListPayoutRequestsResponse;
-use Onlyfansapi\Payouts\PayoutListTransactionsParams;
-use Onlyfansapi\Payouts\PayoutListTransactionsResponse;
 use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalParams;
 use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse;
 use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember0;
@@ -68,41 +66,6 @@ final class PayoutsRawService implements PayoutsRawContract
             query: $parsed,
             options: $options,
             convert: PayoutListPayoutRequestsResponse::class,
-        );
-    }
-
-    /**
-     * @api
-     *
-     * List all transactions for the account.
-     *
-     * @param string $account The Account ID
-     * @param array{
-     *   limit?: string, marker?: string
-     * }|PayoutListTransactionsParams $params
-     * @param RequestOpts|null $requestOptions
-     *
-     * @return BaseResponse<PayoutListTransactionsResponse>
-     *
-     * @throws APIException
-     */
-    public function listTransactions(
-        string $account,
-        array|PayoutListTransactionsParams $params,
-        RequestOptions|array|null $requestOptions = null,
-    ): BaseResponse {
-        [$parsed, $options] = PayoutListTransactionsParams::parseRequest(
-            $params,
-            $requestOptions,
-        );
-
-        // @phpstan-ignore-next-line return.type
-        return $this->client->request(
-            method: 'get',
-            path: ['api/%1$s/payouts/transactions', $account],
-            query: $parsed,
-            options: $options,
-            convert: PayoutListTransactionsResponse::class,
         );
     }
 

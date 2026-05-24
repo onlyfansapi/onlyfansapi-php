@@ -57,7 +57,8 @@ final class TrackingLinksTest extends TestCase
 
         $result = $this->client->trackingLinks->create(
             'acct_XXXXXXXXXXXXXXX',
-            name: 'Twitter bio'
+            name: 'Twitter bio',
+            tags: ['string']
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
@@ -85,7 +86,7 @@ final class TrackingLinksTest extends TestCase
         }
 
         $result = $this->client->trackingLinks->delete(
-            'tracking_link_id',
+            'incidunt',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -101,7 +102,7 @@ final class TrackingLinksTest extends TestCase
         }
 
         $result = $this->client->trackingLinks->delete(
-            'tracking_link_id',
+            'incidunt',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 

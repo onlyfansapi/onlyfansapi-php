@@ -23,6 +23,7 @@ use Onlyfansapi\Transactions\TransactionListResponse\Data\List_\User;
  *   payoutPendingDays?: int|null,
  *   status?: string|null,
  *   taxAmount?: int|null,
+ *   type?: string|null,
  *   user?: null|User|UserShape,
  *   vatAmount?: int|null,
  * }
@@ -63,6 +64,9 @@ final class List_ implements BaseModel
     public ?int $taxAmount;
 
     #[Optional]
+    public ?string $type;
+
+    #[Optional]
     public ?User $user;
 
     #[Optional]
@@ -91,6 +95,7 @@ final class List_ implements BaseModel
         ?int $payoutPendingDays = null,
         ?string $status = null,
         ?int $taxAmount = null,
+        ?string $type = null,
         User|array|null $user = null,
         ?int $vatAmount = null,
     ): self {
@@ -106,6 +111,7 @@ final class List_ implements BaseModel
         null !== $payoutPendingDays && $self['payoutPendingDays'] = $payoutPendingDays;
         null !== $status && $self['status'] = $status;
         null !== $taxAmount && $self['taxAmount'] = $taxAmount;
+        null !== $type && $self['type'] = $type;
         null !== $user && $self['user'] = $user;
         null !== $vatAmount && $self['vatAmount'] = $vatAmount;
 
@@ -188,6 +194,14 @@ final class List_ implements BaseModel
     {
         $self = clone $this;
         $self['taxAmount'] = $taxAmount;
+
+        return $self;
+    }
+
+    public function withType(string $type): self
+    {
+        $self = clone $this;
+        $self['type'] = $type;
 
         return $self;
     }

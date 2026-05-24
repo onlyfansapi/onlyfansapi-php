@@ -6,7 +6,9 @@ namespace Onlyfansapi\Services;
 
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Exceptions\APIException;
+use Onlyfansapi\Core\FileParam;
 use Onlyfansapi\Core\Util;
+use Onlyfansapi\Media\MediaScrapeParams\FileType;
 use Onlyfansapi\Media\MediaScrapeResponse;
 use Onlyfansapi\Media\MediaUploadParams\Type;
 use Onlyfansapi\Media\MediaUploadResponse;
@@ -41,23 +43,35 @@ final class MediaService implements MediaContract
     /**
      * @api
      *
-     * Scrapes a `https://cdn*.onlyfans.com/*` URL and uploads it to the OnlyFans API CDN, so that you can view or download the file. **Max file size is 500MB**
+     * **⚠️ This is a deprecated endpoint. Please use the new "Download media from the OnlyFans CDN" endpoint!** Scrapes a `https://cdn*.onlyfans.com/*` URL *or* Vault Media ID, and uploads it to the OnlyFans API CDN, where you can view or download the file. **Max file size is 500MB**
      *
      * @param string $account The Account ID
-     * @param string $url The CDN URL to scrape. **Keep in mind that these URLs expire fast.**
-     * @param string|null $expirationDate The expiration date of our returned `temporary_url`. Default of 5 minutes.
+     * @param string|null $expirationDate The expiration date of our returned `temporary_url`. Default of 5 minutes. Must be null if `public` is true.
+     * @param FileType|value-of<FileType>|null $fileType The file type to scrape. Only allowed when using `media_id`.
+     * @param int|null $mediaID The OnlyFans Vault Media ID. **Can be used instead of the `url`.**
+     * @param bool|null $public Set to true if you want to have the file uploaded to our public CDN (no signed URL needed to access). Default is false. Must be null if `expiration_date` is set.
+     * @param string|null $url The CDN URL to scrape. **Keep in mind that these URLs expire fast.**
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
      */
     public function scrape(
         string $account,
-        string $url,
         ?string $expirationDate = null,
+        FileType|string|null $fileType = null,
+        ?int $mediaID = null,
+        ?bool $public = null,
+        ?string $url = null,
         RequestOptions|array|null $requestOptions = null,
     ): MediaScrapeResponse {
         $params = Util::removeNulls(
-            ['url' => $url, 'expirationDate' => $expirationDate]
+            [
+                'expirationDate' => $expirationDate,
+                'fileType' => $fileType,
+                'mediaID' => $mediaID,
+                'public' => $public,
+                'url' => $url,
+            ],
         );
 
         // @phpstan-ignore-next-line argument.type
@@ -69,10 +83,12 @@ final class MediaService implements MediaContract
     /**
      * @api
      *
-     * The response can be used **only once** to manually include media in a post or message. This endpoint does not upload media to the Vault.
+     * The response can be used **only once** to manually include media in a post or message. This endpoint does not upload media to the Vault. You must provide either `file` or `file_url`.
      *
      * @param string $account The Account ID
-     * @param string $file the file to upload
+     * @param bool $async Set to `true` to process uploads in the background. Returns a `polling_url` to check status. Recommended for large files.
+     * @param string|FileParam $file The file to upload. Required if `file_url` is not provided. Maximum file size: 100 MB (limited by Cloudflare).
+     * @param string $fileURL A URL to download the file from. Required if `file` is not provided. Maximum file size depends on the subscription configuration.
      * @param Type|value-of<Type> $type set to `avatar` if this file will be used as a profile picture, `header` for a profile banner, or keep empty if this file will be for anything else
      * @param RequestOpts|null $requestOptions
      *
@@ -80,11 +96,20 @@ final class MediaService implements MediaContract
      */
     public function upload(
         string $account,
-        string $file,
+        ?bool $async = null,
+        string|FileParam|null $file = null,
+        ?string $fileURL = null,
         Type|string|null $type = null,
         RequestOptions|array|null $requestOptions = null,
     ): MediaUploadResponse {
-        $params = Util::removeNulls(['file' => $file, 'type' => $type]);
+        $params = Util::removeNulls(
+            [
+                'async' => $async,
+                'file' => $file,
+                'fileURL' => $fileURL,
+                'type' => $type,
+            ],
+        );
 
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->upload($account, params: $params, requestOptions: $requestOptions);

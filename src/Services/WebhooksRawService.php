@@ -29,7 +29,11 @@ final class WebhooksRawService implements WebhooksRawContract
      * Create a new webhook for your Team
      *
      * @param array{
-     *   endpointURL: string, events: list<string>, signingSecret?: string|null
+     *   accountScope: string,
+     *   endpointURL: string,
+     *   events: list<string>,
+     *   accountIDs?: list<string>,
+     *   signingSecret?: string|null,
      * }|WebhookCreateParams $params
      * @param RequestOpts|null $requestOptions
      *

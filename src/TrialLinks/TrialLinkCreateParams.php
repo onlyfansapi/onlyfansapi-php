@@ -22,6 +22,7 @@ use Onlyfansapi\TrialLinks\TrialLinkCreateParams\OfferLimit;
  *   offerExpiration: int,
  *   offerLimit: OfferLimit|value-of<OfferLimit>,
  *   name?: string|null,
+ *   tags?: list<string>|null,
  * }
  */
 final class TrialLinkCreateParams implements BaseModel
@@ -59,6 +60,14 @@ final class TrialLinkCreateParams implements BaseModel
     public ?string $name;
 
     /**
+     * Array of tag names to add to the trial link.
+     *
+     * @var list<string>|null $tags
+     */
+    #[Optional(list: 'string')]
+    public ?array $tags;
+
+    /**
      * `new TrialLinkCreateParams()` is missing required properties by the API.
      *
      * To enforce required parameters use
@@ -89,12 +98,14 @@ final class TrialLinkCreateParams implements BaseModel
      *
      * @param Duration|value-of<Duration> $duration
      * @param OfferLimit|value-of<OfferLimit> $offerLimit
+     * @param list<string>|null $tags
      */
     public static function with(
         Duration|int $duration,
         int $offerExpiration,
         OfferLimit|int $offerLimit,
         ?string $name = null,
+        ?array $tags = null,
     ): self {
         $self = new self;
 
@@ -103,6 +114,7 @@ final class TrialLinkCreateParams implements BaseModel
         $self['offerLimit'] = $offerLimit;
 
         null !== $name && $self['name'] = $name;
+        null !== $tags && $self['tags'] = $tags;
 
         return $self;
     }
@@ -151,6 +163,19 @@ final class TrialLinkCreateParams implements BaseModel
     {
         $self = clone $this;
         $self['name'] = $name;
+
+        return $self;
+    }
+
+    /**
+     * Array of tag names to add to the trial link.
+     *
+     * @param list<string> $tags
+     */
+    public function withTags(array $tags): self
+    {
+        $self = clone $this;
+        $self['tags'] = $tags;
 
         return $self;
     }

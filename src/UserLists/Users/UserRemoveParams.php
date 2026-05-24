@@ -14,7 +14,7 @@ use Onlyfansapi\Core\Contracts\BaseModel;
  *
  * @see Onlyfansapi\Services\UserLists\UsersService::remove()
  *
- * @phpstan-type UserRemoveParamsShape = array{account: string, userListID: int}
+ * @phpstan-type UserRemoveParamsShape = array{account: string, userListID: string}
  */
 final class UserRemoveParams implements BaseModel
 {
@@ -26,7 +26,7 @@ final class UserRemoveParams implements BaseModel
     public string $account;
 
     #[Required]
-    public int $userListID;
+    public string $userListID;
 
     /**
      * `new UserRemoveParams()` is missing required properties by the API.
@@ -52,7 +52,7 @@ final class UserRemoveParams implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      */
-    public static function with(string $account, int $userListID): self
+    public static function with(string $account, string $userListID): self
     {
         $self = new self;
 
@@ -70,7 +70,7 @@ final class UserRemoveParams implements BaseModel
         return $self;
     }
 
-    public function withUserListID(int $userListID): self
+    public function withUserListID(string $userListID): self
     {
         $self = clone $this;
         $self['userListID'] = $userListID;

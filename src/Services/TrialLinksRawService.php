@@ -48,6 +48,7 @@ final class TrialLinksRawService implements TrialLinksRawContract
      *   offerExpiration: int,
      *   offerLimit: OfferLimit|value-of<OfferLimit>,
      *   name?: string|null,
+     *   tags?: list<string>,
      * }|TrialLinkCreateParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -119,7 +120,7 @@ final class TrialLinksRawService implements TrialLinksRawContract
      *
      * Delete a free trial link by its ID
      *
-     * @param int $trialLinkID The ID of the trial link to delete
+     * @param string $trialLinkID the ID of the trial link
      * @param array{account: string}|TrialLinkDeleteParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -128,7 +129,7 @@ final class TrialLinksRawService implements TrialLinksRawContract
      * @throws APIException
      */
     public function delete(
-        int $trialLinkID,
+        string $trialLinkID,
         array|TrialLinkDeleteParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse {

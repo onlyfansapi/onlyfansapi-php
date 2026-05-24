@@ -8,6 +8,9 @@ use Onlyfansapi\Client;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Core\Util;
 use Onlyfansapi\Following\FollowingListActiveParams\Filter;
+use Onlyfansapi\Following\FollowingListActiveResponse;
+use Onlyfansapi\Following\FollowingListAllResponse;
+use Onlyfansapi\Following\FollowingListExpiredResponse;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\FollowingContract;
 
@@ -43,6 +46,7 @@ final class FollowingService implements FollowingContract
      * @param Filter|FilterShape $filter
      * @param int $limit Number of followings to return (1-50). Must be at least 1. Must not be greater than 50.
      * @param int $offset Pagination offset. Must be at least 0.
+     * @param string|null $query search within following name/username
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -52,10 +56,16 @@ final class FollowingService implements FollowingContract
         Filter|array|null $filter = null,
         ?int $limit = null,
         ?int $offset = null,
+        ?string $query = null,
         RequestOptions|array|null $requestOptions = null,
-    ): mixed {
+    ): FollowingListActiveResponse {
         $params = Util::removeNulls(
-            ['filter' => $filter, 'limit' => $limit, 'offset' => $offset]
+            [
+                'filter' => $filter,
+                'limit' => $limit,
+                'offset' => $offset,
+                'query' => $query,
+            ],
         );
 
         // @phpstan-ignore-next-line argument.type
@@ -73,6 +83,7 @@ final class FollowingService implements FollowingContract
      * @param \Onlyfansapi\Following\FollowingListAllParams\Filter|FilterShape1 $filter
      * @param int $limit Number of followings to return (1-50). Must be at least 1. Must not be greater than 50.
      * @param int $offset Pagination offset. Must be at least 0.
+     * @param string|null $query search within following name/username
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -82,10 +93,16 @@ final class FollowingService implements FollowingContract
         \Onlyfansapi\Following\FollowingListAllParams\Filter|array|null $filter = null,
         ?int $limit = null,
         ?int $offset = null,
+        ?string $query = null,
         RequestOptions|array|null $requestOptions = null,
-    ): mixed {
+    ): FollowingListAllResponse {
         $params = Util::removeNulls(
-            ['filter' => $filter, 'limit' => $limit, 'offset' => $offset]
+            [
+                'filter' => $filter,
+                'limit' => $limit,
+                'offset' => $offset,
+                'query' => $query,
+            ],
         );
 
         // @phpstan-ignore-next-line argument.type
@@ -103,6 +120,7 @@ final class FollowingService implements FollowingContract
      * @param \Onlyfansapi\Following\FollowingListExpiredParams\Filter|FilterShape2 $filter
      * @param int $limit Number of followings to return (1-50). Must be at least 1. Must not be greater than 50.
      * @param int $offset Pagination offset. Must be at least 0.
+     * @param string|null $query search within following name/username
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -112,10 +130,16 @@ final class FollowingService implements FollowingContract
         \Onlyfansapi\Following\FollowingListExpiredParams\Filter|array|null $filter = null,
         ?int $limit = null,
         ?int $offset = null,
+        ?string $query = null,
         RequestOptions|array|null $requestOptions = null,
-    ): mixed {
+    ): FollowingListExpiredResponse {
         $params = Util::removeNulls(
-            ['filter' => $filter, 'limit' => $limit, 'offset' => $offset]
+            [
+                'filter' => $filter,
+                'limit' => $limit,
+                'offset' => $offset,
+                'query' => $query,
+            ],
         );
 
         // @phpstan-ignore-next-line argument.type

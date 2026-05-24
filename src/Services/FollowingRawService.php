@@ -9,8 +9,11 @@ use Onlyfansapi\Core\Contracts\BaseResponse;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Following\FollowingListActiveParams;
 use Onlyfansapi\Following\FollowingListActiveParams\Filter;
+use Onlyfansapi\Following\FollowingListActiveResponse;
 use Onlyfansapi\Following\FollowingListAllParams;
+use Onlyfansapi\Following\FollowingListAllResponse;
 use Onlyfansapi\Following\FollowingListExpiredParams;
+use Onlyfansapi\Following\FollowingListExpiredResponse;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\FollowingRawContract;
 
@@ -37,11 +40,11 @@ final class FollowingRawService implements FollowingRawContract
      *
      * @param string $account The Account ID
      * @param array{
-     *   filter?: Filter|FilterShape, limit?: int, offset?: int
+     *   filter?: Filter|FilterShape, limit?: int, offset?: int, query?: string|null
      * }|FollowingListActiveParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<mixed>
+     * @return BaseResponse<FollowingListActiveResponse>
      *
      * @throws APIException
      */
@@ -61,7 +64,7 @@ final class FollowingRawService implements FollowingRawContract
             path: ['api/%1$s/following/active', $account],
             query: $parsed,
             options: $options,
-            convert: null,
+            convert: FollowingListActiveResponse::class,
         );
     }
 
@@ -75,10 +78,11 @@ final class FollowingRawService implements FollowingRawContract
      *   filter?: FollowingListAllParams\Filter|FilterShape1,
      *   limit?: int,
      *   offset?: int,
+     *   query?: string|null,
      * }|FollowingListAllParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<mixed>
+     * @return BaseResponse<FollowingListAllResponse>
      *
      * @throws APIException
      */
@@ -98,7 +102,7 @@ final class FollowingRawService implements FollowingRawContract
             path: ['api/%1$s/following/all', $account],
             query: $parsed,
             options: $options,
-            convert: null,
+            convert: FollowingListAllResponse::class,
         );
     }
 
@@ -112,10 +116,11 @@ final class FollowingRawService implements FollowingRawContract
      *   filter?: FollowingListExpiredParams\Filter|FilterShape2,
      *   limit?: int,
      *   offset?: int,
+     *   query?: string|null,
      * }|FollowingListExpiredParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<mixed>
+     * @return BaseResponse<FollowingListExpiredResponse>
      *
      * @throws APIException
      */
@@ -135,7 +140,7 @@ final class FollowingRawService implements FollowingRawContract
             path: ['api/%1$s/following/expired', $account],
             query: $parsed,
             options: $options,
-            convert: null,
+            convert: FollowingListExpiredResponse::class,
         );
     }
 }

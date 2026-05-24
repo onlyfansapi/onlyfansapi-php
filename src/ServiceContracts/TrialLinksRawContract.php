@@ -60,7 +60,7 @@ interface TrialLinksRawContract
     /**
      * @api
      *
-     * @param int $trialLinkID The ID of the trial link to delete
+     * @param string $trialLinkID the ID of the trial link
      * @param array<string,mixed>|TrialLinkDeleteParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -69,7 +69,7 @@ interface TrialLinksRawContract
      * @throws APIException
      */
     public function delete(
-        int $trialLinkID,
+        string $trialLinkID,
         array|TrialLinkDeleteParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse;

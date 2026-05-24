@@ -43,7 +43,7 @@ final class SubscribedOnData implements BaseModel
     /** @use SdkModel<SubscribedOnDataShape> */
     use SdkModel;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $discountFinishedAt;
 
     #[Optional]
@@ -52,7 +52,7 @@ final class SubscribedOnData implements BaseModel
     #[Optional]
     public ?int $discountPeriod;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $discountStartedAt;
 
     #[Optional]
@@ -85,7 +85,7 @@ final class SubscribedOnData implements BaseModel
     #[Optional]
     public ?string $renewedAt;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $status;
 
     #[Optional]
@@ -179,7 +179,7 @@ final class SubscribedOnData implements BaseModel
         return $self;
     }
 
-    public function withDiscountFinishedAt(string $discountFinishedAt): self
+    public function withDiscountFinishedAt(?string $discountFinishedAt): self
     {
         $self = clone $this;
         $self['discountFinishedAt'] = $discountFinishedAt;
@@ -203,7 +203,7 @@ final class SubscribedOnData implements BaseModel
         return $self;
     }
 
-    public function withDiscountStartedAt(string $discountStartedAt): self
+    public function withDiscountStartedAt(?string $discountStartedAt): self
     {
         $self = clone $this;
         $self['discountStartedAt'] = $discountStartedAt;
@@ -292,7 +292,7 @@ final class SubscribedOnData implements BaseModel
         return $self;
     }
 
-    public function withStatus(string $status): self
+    public function withStatus(?string $status): self
     {
         $self = clone $this;
         $self['status'] = $status;

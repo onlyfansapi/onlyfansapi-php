@@ -10,6 +10,7 @@ use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Core\Util;
 use Onlyfansapi\Fans\FanListActiveParams;
 use Onlyfansapi\Fans\FanListActiveParams\Filter;
+use Onlyfansapi\Fans\FanListActiveParams\Type;
 use Onlyfansapi\Fans\FanListActiveResponse;
 use Onlyfansapi\Fans\FanListAllParams;
 use Onlyfansapi\Fans\FanListAllResponse;
@@ -44,9 +45,10 @@ final class FansRawService implements FansRawContract
      * @param string $account The Account ID
      * @param array{
      *   filter?: Filter|FilterShape,
-     *   limit?: string|null,
-     *   offset?: string|null,
-     *   type?: string|null,
+     *   limit?: int,
+     *   offset?: int,
+     *   query?: string|null,
+     *   type?: Type|value-of<Type>,
      * }|FanListActiveParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -82,9 +84,10 @@ final class FansRawService implements FansRawContract
      * @param string $account The Account ID
      * @param array{
      *   filter?: FanListAllParams\Filter|FilterShape1,
-     *   limit?: string|null,
-     *   offset?: string|null,
-     *   type?: string|null,
+     *   limit?: int,
+     *   offset?: int,
+     *   query?: string|null,
+     *   type?: FanListAllParams\Type|value-of<FanListAllParams\Type>,
      * }|FanListAllParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -120,9 +123,10 @@ final class FansRawService implements FansRawContract
      * @param string $account The Account ID
      * @param array{
      *   filter?: FanListExpiredParams\Filter|FilterShape2,
-     *   limit?: string|null,
-     *   offset?: string|null,
-     *   type?: string|null,
+     *   limit?: int,
+     *   offset?: int,
+     *   query?: string|null,
+     *   type?: FanListExpiredParams\Type|value-of<FanListExpiredParams\Type>,
      * }|FanListExpiredParams $params
      * @param RequestOpts|null $requestOptions
      *

@@ -34,7 +34,7 @@ final class List_ implements BaseModel
     #[Optional]
     public ?Entity $entity;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $publishDateTime;
 
     #[Optional]
@@ -97,7 +97,7 @@ final class List_ implements BaseModel
         return $self;
     }
 
-    public function withPublishDateTime(string $publishDateTime): self
+    public function withPublishDateTime(?string $publishDateTime): self
     {
         $self = clone $this;
         $self['publishDateTime'] = $publishDateTime;

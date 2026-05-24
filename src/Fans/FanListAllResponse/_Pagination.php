@@ -16,7 +16,7 @@ final class _Pagination implements BaseModel
     /** @use SdkModel<_PaginationShape> */
     use SdkModel;
 
-    #[Optional('next_page')]
+    #[Optional('next_page', nullable: true)]
     public ?string $nextPage;
 
     public function __construct()
@@ -38,7 +38,7 @@ final class _Pagination implements BaseModel
         return $self;
     }
 
-    public function withNextPage(string $nextPage): self
+    public function withNextPage(?string $nextPage): self
     {
         $self = clone $this;
         $self['nextPage'] = $nextPage;

@@ -35,7 +35,7 @@ final class List_ implements BaseModel
     #[Optional('invoiceId')]
     public ?string $invoiceID;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $rejectReason;
 
     #[Optional]
@@ -103,7 +103,7 @@ final class List_ implements BaseModel
         return $self;
     }
 
-    public function withRejectReason(string $rejectReason): self
+    public function withRejectReason(?string $rejectReason): self
     {
         $self = clone $this;
         $self['rejectReason'] = $rejectReason;

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Onlyfansapi\Chats\Messages;
 
+use Onlyfansapi\Chats\Messages\MessageListParams\Filter;
 use Onlyfansapi\Core\Attributes\Optional;
 use Onlyfansapi\Core\Attributes\Required;
 use Onlyfansapi\Core\Concerns\SdkModel;
@@ -17,7 +18,10 @@ use Onlyfansapi\Core\Contracts\BaseModel;
  *
  * @phpstan-type MessageListParamsShape = array{
  *   account: string,
- *   id?: string|null,
+ *   filter?: null|Filter|value-of<Filter>,
+ *   firstID?: string|null,
+ *   lastID?: string|null,
+ *   limit?: string|null,
  *   order?: string|null,
  *   skipUsers?: string|null,
  * }
@@ -32,10 +36,30 @@ final class MessageListParams implements BaseModel
     public string $account;
 
     /**
-     * ID of the last message from previous page. Used for pagination.
+     * Filter by certain messages. Currently, only pins are filterable.
+     *
+     * @var value-of<Filter>|null $filter
+     */
+    #[Optional(enum: Filter::class)]
+    public ?string $filter;
+
+    /**
+     * Use for pagination when `order=desc` (newest to oldest). Include this message ID as the first message in the results. Used to retrieve messages from e.g. the Search Chat Messages endpoint IDs.
+     */
+    #[Optional(nullable: true)]
+    public ?string $firstID;
+
+    /**
+     * Use for pagination when `order=asc` (oldest to newest). Include this message ID as the first message in the results. WARNING! The response list of messages will also be inverted (oldest messages will be first, opposite to default where `order=desc`).
+     */
+    #[Optional(nullable: true)]
+    public ?string $lastID;
+
+    /**
+     * The number of messages to return (default = 10, max = 100).
      */
     #[Optional]
-    public ?string $id;
+    public ?string $limit;
 
     /**
      * Sort order for messages (desc or asc).
@@ -72,10 +96,15 @@ final class MessageListParams implements BaseModel
      * Construct an instance from the required parameters.
      *
      * You must use named parameters to construct any parameters with a default value.
+     *
+     * @param Filter|value-of<Filter>|null $filter
      */
     public static function with(
         string $account,
-        ?string $id = null,
+        Filter|string|null $filter = null,
+        ?string $firstID = null,
+        ?string $lastID = null,
+        ?string $limit = null,
         ?string $order = null,
         ?string $skipUsers = null,
     ): self {
@@ -83,7 +112,10 @@ final class MessageListParams implements BaseModel
 
         $self['account'] = $account;
 
-        null !== $id && $self['id'] = $id;
+        null !== $filter && $self['filter'] = $filter;
+        null !== $firstID && $self['firstID'] = $firstID;
+        null !== $lastID && $self['lastID'] = $lastID;
+        null !== $limit && $self['limit'] = $limit;
         null !== $order && $self['order'] = $order;
         null !== $skipUsers && $self['skipUsers'] = $skipUsers;
 
@@ -99,12 +131,47 @@ final class MessageListParams implements BaseModel
     }
 
     /**
-     * ID of the last message from previous page. Used for pagination.
+     * Filter by certain messages. Currently, only pins are filterable.
+     *
+     * @param Filter|value-of<Filter> $filter
      */
-    public function withID(string $id): self
+    public function withFilter(Filter|string $filter): self
     {
         $self = clone $this;
-        $self['id'] = $id;
+        $self['filter'] = $filter;
+
+        return $self;
+    }
+
+    /**
+     * Use for pagination when `order=desc` (newest to oldest). Include this message ID as the first message in the results. Used to retrieve messages from e.g. the Search Chat Messages endpoint IDs.
+     */
+    public function withFirstID(?string $firstID): self
+    {
+        $self = clone $this;
+        $self['firstID'] = $firstID;
+
+        return $self;
+    }
+
+    /**
+     * Use for pagination when `order=asc` (oldest to newest). Include this message ID as the first message in the results. WARNING! The response list of messages will also be inverted (oldest messages will be first, opposite to default where `order=desc`).
+     */
+    public function withLastID(?string $lastID): self
+    {
+        $self = clone $this;
+        $self['lastID'] = $lastID;
+
+        return $self;
+    }
+
+    /**
+     * The number of messages to return (default = 10, max = 100).
+     */
+    public function withLimit(string $limit): self
+    {
+        $self = clone $this;
+        $self['limit'] = $limit;
 
         return $self;
     }

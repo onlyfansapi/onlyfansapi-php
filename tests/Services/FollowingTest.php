@@ -4,6 +4,9 @@ namespace Tests\Services;
 
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Util;
+use Onlyfansapi\Following\FollowingListActiveResponse;
+use Onlyfansapi\Following\FollowingListAllResponse;
+use Onlyfansapi\Following\FollowingListExpiredResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -37,7 +40,7 @@ final class FollowingTest extends TestCase
         $result = $this->client->following->listActive('acct_XXXXXXXXXXXXXXX');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertNull($result);
+        $this->assertInstanceOf(FollowingListActiveResponse::class, $result);
     }
 
     #[Test]
@@ -50,7 +53,7 @@ final class FollowingTest extends TestCase
         $result = $this->client->following->listAll('acct_XXXXXXXXXXXXXXX');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertNull($result);
+        $this->assertInstanceOf(FollowingListAllResponse::class, $result);
     }
 
     #[Test]
@@ -63,6 +66,6 @@ final class FollowingTest extends TestCase
         $result = $this->client->following->listExpired('acct_XXXXXXXXXXXXXXX');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertNull($result);
+        $this->assertInstanceOf(FollowingListExpiredResponse::class, $result);
     }
 }

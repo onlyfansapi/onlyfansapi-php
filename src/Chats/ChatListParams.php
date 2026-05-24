@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Onlyfansapi\Chats;
 
+use Onlyfansapi\Chats\ChatListParams\Filter;
+use Onlyfansapi\Chats\ChatListParams\Order;
+use Onlyfansapi\Chats\ChatListParams\SkipUsers;
 use Onlyfansapi\Core\Attributes\Optional;
 use Onlyfansapi\Core\Concerns\SdkModel;
 use Onlyfansapi\Core\Concerns\SdkParams;
@@ -15,11 +18,12 @@ use Onlyfansapi\Core\Contracts\BaseModel;
  * @see Onlyfansapi\Services\ChatsService::list()
  *
  * @phpstan-type ChatListParamsShape = array{
+ *   filter?: null|Filter|value-of<Filter>,
  *   limit?: string|null,
  *   offset?: string|null,
- *   order?: string|null,
+ *   order?: null|Order|value-of<Order>,
  *   query?: string|null,
- *   skipUsers?: string|null,
+ *   skipUsers?: null|SkipUsers|value-of<SkipUsers>,
  * }
  */
 final class ChatListParams implements BaseModel
@@ -29,7 +33,15 @@ final class ChatListParams implements BaseModel
     use SdkParams;
 
     /**
-     * Number of chats to return (10, 20, or 30).
+     * Optionally, filter the chats by type.
+     *
+     * @var value-of<Filter>|null $filter
+     */
+    #[Optional(enum: Filter::class)]
+    public ?string $filter;
+
+    /**
+     * Number of chats to return (1 - 100). Default = 10.
      */
     #[Optional]
     public ?string $limit;
@@ -41,9 +53,11 @@ final class ChatListParams implements BaseModel
     public ?string $offset;
 
     /**
-     * Sort order for chats (recent or old).
+     * Sort order for chats (recent or old). Default = recent.
+     *
+     * @var value-of<Order>|null $order
      */
-    #[Optional]
+    #[Optional(enum: Order::class)]
     public ?string $order;
 
     /**
@@ -53,9 +67,11 @@ final class ChatListParams implements BaseModel
     public ?string $query;
 
     /**
-     * Whether to skip user details in response (all or none).
+     * Whether to skip user details in response (all or none). Default = all.
+     *
+     * @var value-of<SkipUsers>|null $skipUsers
      */
-    #[Optional]
+    #[Optional(enum: SkipUsers::class)]
     public ?string $skipUsers;
 
     public function __construct()
@@ -67,16 +83,22 @@ final class ChatListParams implements BaseModel
      * Construct an instance from the required parameters.
      *
      * You must use named parameters to construct any parameters with a default value.
+     *
+     * @param Filter|value-of<Filter>|null $filter
+     * @param Order|value-of<Order>|null $order
+     * @param SkipUsers|value-of<SkipUsers>|null $skipUsers
      */
     public static function with(
+        Filter|string|null $filter = null,
         ?string $limit = null,
         ?string $offset = null,
-        ?string $order = null,
+        Order|string|null $order = null,
         ?string $query = null,
-        ?string $skipUsers = null,
+        SkipUsers|string|null $skipUsers = null,
     ): self {
         $self = new self;
 
+        null !== $filter && $self['filter'] = $filter;
         null !== $limit && $self['limit'] = $limit;
         null !== $offset && $self['offset'] = $offset;
         null !== $order && $self['order'] = $order;
@@ -87,7 +109,20 @@ final class ChatListParams implements BaseModel
     }
 
     /**
-     * Number of chats to return (10, 20, or 30).
+     * Optionally, filter the chats by type.
+     *
+     * @param Filter|value-of<Filter> $filter
+     */
+    public function withFilter(Filter|string $filter): self
+    {
+        $self = clone $this;
+        $self['filter'] = $filter;
+
+        return $self;
+    }
+
+    /**
+     * Number of chats to return (1 - 100). Default = 10.
      */
     public function withLimit(string $limit): self
     {
@@ -109,9 +144,11 @@ final class ChatListParams implements BaseModel
     }
 
     /**
-     * Sort order for chats (recent or old).
+     * Sort order for chats (recent or old). Default = recent.
+     *
+     * @param Order|value-of<Order> $order
      */
-    public function withOrder(string $order): self
+    public function withOrder(Order|string $order): self
     {
         $self = clone $this;
         $self['order'] = $order;
@@ -131,9 +168,11 @@ final class ChatListParams implements BaseModel
     }
 
     /**
-     * Whether to skip user details in response (all or none).
+     * Whether to skip user details in response (all or none). Default = all.
+     *
+     * @param SkipUsers|value-of<SkipUsers> $skipUsers
      */
-    public function withSkipUsers(string $skipUsers): self
+    public function withSkipUsers(SkipUsers|string $skipUsers): self
     {
         $self = clone $this;
         $self['skipUsers'] = $skipUsers;

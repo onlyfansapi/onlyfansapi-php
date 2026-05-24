@@ -18,6 +18,7 @@ use Onlyfansapi\Core\Contracts\BaseModel;
  * @phpstan-type MassMessagingUpdateParamsShape = array{
  *   account: string,
  *   text: string,
+ *   giphyID?: string|null,
  *   lockedText?: bool|null,
  *   mediaFiles?: list<string>|null,
  *   previews?: list<string>|null,
@@ -41,6 +42,12 @@ final class MassMessagingUpdateParams implements BaseModel
      */
     #[Required]
     public string $text;
+
+    /**
+     * The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
+     */
+    #[Optional('giphyId')]
+    public ?string $giphyID;
 
     /**
      * Whether the text should be shown or hidden.
@@ -124,6 +131,7 @@ final class MassMessagingUpdateParams implements BaseModel
     public static function with(
         string $account,
         string $text,
+        ?string $giphyID = null,
         ?bool $lockedText = null,
         ?array $mediaFiles = null,
         ?array $previews = null,
@@ -137,6 +145,7 @@ final class MassMessagingUpdateParams implements BaseModel
         $self['account'] = $account;
         $self['text'] = $text;
 
+        null !== $giphyID && $self['giphyID'] = $giphyID;
         null !== $lockedText && $self['lockedText'] = $lockedText;
         null !== $mediaFiles && $self['mediaFiles'] = $mediaFiles;
         null !== $previews && $self['previews'] = $previews;
@@ -163,6 +172,17 @@ final class MassMessagingUpdateParams implements BaseModel
     {
         $self = clone $this;
         $self['text'] = $text;
+
+        return $self;
+    }
+
+    /**
+     * The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
+     */
+    public function withGiphyID(string $giphyID): self
+    {
+        $self = clone $this;
+        $self['giphyID'] = $giphyID;
 
         return $self;
     }

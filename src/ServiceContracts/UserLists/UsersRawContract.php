@@ -20,7 +20,7 @@ interface UsersRawContract
     /**
      * @api
      *
-     * @param int $userListID Path param: OnlyFans User List ID
+     * @param string $userListID Path param: OnlyFans User List ID, or a default list name like `tagged`
      * @param array<string,mixed>|UserAddParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -29,7 +29,7 @@ interface UsersRawContract
      * @throws APIException
      */
     public function add(
-        int $userListID,
+        string $userListID,
         array|UserAddParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse;

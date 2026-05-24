@@ -130,7 +130,7 @@ final class Data implements BaseModel
     #[Optional]
     public ?bool $canSocialsConnect;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $changeEmailStep;
 
     #[Optional]
@@ -205,10 +205,10 @@ final class Data implements BaseModel
     #[Optional]
     public ?bool $isTelegramConnected;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $lastSubscriptionExpiredAt;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $lifeTimeEmailCode;
 
     #[Optional]
@@ -223,19 +223,19 @@ final class Data implements BaseModel
     #[Optional]
     public ?bool $muteTagsInStreams;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $newEmail;
 
     #[Optional]
     public ?bool $notifyOnAllMentions;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $phoneLast4;
 
     #[Optional]
     public ?bool $phoneOtp;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $recommenderReward;
 
     #[Optional]
@@ -266,10 +266,10 @@ final class Data implements BaseModel
     #[Optional(list: 'mixed')]
     public ?array $socialsConnects;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $streamingMuxKey;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $streamingMuxKeyExpiredAt;
 
     #[Optional]
@@ -574,7 +574,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withChangeEmailStep(string $changeEmailStep): self
+    public function withChangeEmailStep(?string $changeEmailStep): self
     {
         $self = clone $this;
         $self['changeEmailStep'] = $changeEmailStep;
@@ -780,7 +780,7 @@ final class Data implements BaseModel
     }
 
     public function withLastSubscriptionExpiredAt(
-        string $lastSubscriptionExpiredAt
+        ?string $lastSubscriptionExpiredAt
     ): self {
         $self = clone $this;
         $self['lastSubscriptionExpiredAt'] = $lastSubscriptionExpiredAt;
@@ -788,7 +788,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withLifeTimeEmailCode(string $lifeTimeEmailCode): self
+    public function withLifeTimeEmailCode(?string $lifeTimeEmailCode): self
     {
         $self = clone $this;
         $self['lifeTimeEmailCode'] = $lifeTimeEmailCode;
@@ -828,7 +828,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withNewEmail(string $newEmail): self
+    public function withNewEmail(?string $newEmail): self
     {
         $self = clone $this;
         $self['newEmail'] = $newEmail;
@@ -844,7 +844,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withPhoneLast4(string $phoneLast4): self
+    public function withPhoneLast4(?string $phoneLast4): self
     {
         $self = clone $this;
         $self['phoneLast4'] = $phoneLast4;
@@ -860,7 +860,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withRecommenderReward(string $recommenderReward): self
+    public function withRecommenderReward(?string $recommenderReward): self
     {
         $self = clone $this;
         $self['recommenderReward'] = $recommenderReward;
@@ -946,7 +946,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withStreamingMuxKey(string $streamingMuxKey): self
+    public function withStreamingMuxKey(?string $streamingMuxKey): self
     {
         $self = clone $this;
         $self['streamingMuxKey'] = $streamingMuxKey;
@@ -955,7 +955,7 @@ final class Data implements BaseModel
     }
 
     public function withStreamingMuxKeyExpiredAt(
-        string $streamingMuxKeyExpiredAt
+        ?string $streamingMuxKeyExpiredAt
     ): self {
         $self = clone $this;
         $self['streamingMuxKeyExpiredAt'] = $streamingMuxKeyExpiredAt;

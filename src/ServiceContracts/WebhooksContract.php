@@ -16,16 +16,20 @@ interface WebhooksContract
     /**
      * @api
      *
+     * @param string $accountScope The account scope for the webhook. Use "global" for all accounts, "inclusive" for only selected accounts, or "exclusive" for all except selected accounts.
      * @param string $endpointURL the URL of your webhook endpoint
-     * @param list<string> $events An array of webhook events to subscribe to. Options: `messages.received`, `messages.sent`, `messages.ppv.unlocked`, `subscriptions.new`, `users.typing`, `posts.liked`, `accounts.connected`, `accounts.reconnected`, `accounts.session_expired`, `accounts.authentication_failed`, `accounts.otp_code_required`, `accounts.face_otp_required`
+     * @param list<string> $events An array of webhook events to subscribe to. For all options, refer to our **List Available Events** endpoint.
+     * @param list<string> $accountIDs An array of account IDs to apply the scope to. Required unless account_scope is "global".
      * @param string|null $signingSecret optionally, add a signing secret to protect your webhook
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
      */
     public function create(
+        string $accountScope,
         string $endpointURL,
         array $events,
+        ?array $accountIDs = null,
         ?string $signingSecret = null,
         RequestOptions|array|null $requestOptions = null,
     ): WebhookNewResponse;

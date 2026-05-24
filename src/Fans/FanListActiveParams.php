@@ -9,6 +9,7 @@ use Onlyfansapi\Core\Concerns\SdkModel;
 use Onlyfansapi\Core\Concerns\SdkParams;
 use Onlyfansapi\Core\Contracts\BaseModel;
 use Onlyfansapi\Fans\FanListActiveParams\Filter;
+use Onlyfansapi\Fans\FanListActiveParams\Type;
 
 /**
  * Get a paginated list of fans for an Account. Newest fans are first.
@@ -19,9 +20,10 @@ use Onlyfansapi\Fans\FanListActiveParams\Filter;
  *
  * @phpstan-type FanListActiveParamsShape = array{
  *   filter?: null|Filter|FilterShape,
- *   limit?: string|null,
- *   offset?: string|null,
- *   type?: string|null,
+ *   limit?: int|null,
+ *   offset?: int|null,
+ *   query?: string|null,
+ *   type?: null|Type|value-of<Type>,
  * }
  */
 final class FanListActiveParams implements BaseModel
@@ -34,21 +36,29 @@ final class FanListActiveParams implements BaseModel
     public ?Filter $filter;
 
     /**
-     * Number of fans to return (1-50).
+     * Number of fans to return (1-50). Must be at least 1. Must not be greater than 20.
      */
-    #[Optional(nullable: true)]
-    public ?string $limit;
+    #[Optional]
+    public ?int $limit;
 
     /**
-     * Number of fans to skip.
+     * Number of fans to skip. Must be at least 0.
+     */
+    #[Optional]
+    public ?int $offset;
+
+    /**
+     * Search within fan name/username.
      */
     #[Optional(nullable: true)]
-    public ?string $offset;
+    public ?string $query;
 
     /**
      * Filter by fan type.
+     *
+     * @var value-of<Type>|null $type
      */
-    #[Optional(nullable: true)]
+    #[Optional(enum: Type::class)]
     public ?string $type;
 
     public function __construct()
@@ -62,18 +72,21 @@ final class FanListActiveParams implements BaseModel
      * You must use named parameters to construct any parameters with a default value.
      *
      * @param Filter|FilterShape|null $filter
+     * @param Type|value-of<Type>|null $type
      */
     public static function with(
         Filter|array|null $filter = null,
-        ?string $limit = null,
-        ?string $offset = null,
-        ?string $type = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $query = null,
+        Type|string|null $type = null,
     ): self {
         $self = new self;
 
         null !== $filter && $self['filter'] = $filter;
         null !== $limit && $self['limit'] = $limit;
         null !== $offset && $self['offset'] = $offset;
+        null !== $query && $self['query'] = $query;
         null !== $type && $self['type'] = $type;
 
         return $self;
@@ -91,9 +104,9 @@ final class FanListActiveParams implements BaseModel
     }
 
     /**
-     * Number of fans to return (1-50).
+     * Number of fans to return (1-50). Must be at least 1. Must not be greater than 20.
      */
-    public function withLimit(?string $limit): self
+    public function withLimit(int $limit): self
     {
         $self = clone $this;
         $self['limit'] = $limit;
@@ -102,9 +115,9 @@ final class FanListActiveParams implements BaseModel
     }
 
     /**
-     * Number of fans to skip.
+     * Number of fans to skip. Must be at least 0.
      */
-    public function withOffset(?string $offset): self
+    public function withOffset(int $offset): self
     {
         $self = clone $this;
         $self['offset'] = $offset;
@@ -113,9 +126,22 @@ final class FanListActiveParams implements BaseModel
     }
 
     /**
-     * Filter by fan type.
+     * Search within fan name/username.
      */
-    public function withType(?string $type): self
+    public function withQuery(?string $query): self
+    {
+        $self = clone $this;
+        $self['query'] = $query;
+
+        return $self;
+    }
+
+    /**
+     * Filter by fan type.
+     *
+     * @param Type|value-of<Type> $type
+     */
+    public function withType(Type|string $type): self
     {
         $self = clone $this;
         $self['type'] = $type;

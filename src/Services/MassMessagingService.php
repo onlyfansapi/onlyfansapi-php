@@ -10,8 +10,6 @@ use Onlyfansapi\Core\Util;
 use Onlyfansapi\MassMessaging\MassMessagingDeleteResponse;
 use Onlyfansapi\MassMessaging\MassMessagingGetResponse;
 use Onlyfansapi\MassMessaging\MassMessagingListQueueResponse;
-use Onlyfansapi\MassMessaging\MassMessagingListStatisticsParams\Type;
-use Onlyfansapi\MassMessaging\MassMessagingListStatisticsResponse;
 use Onlyfansapi\MassMessaging\MassMessagingSendResponse;
 use Onlyfansapi\MassMessaging\MassMessagingUpdateResponse;
 use Onlyfansapi\RequestOptions;
@@ -67,6 +65,7 @@ final class MassMessagingService implements MassMessagingContract
      * @param string $id Path param: The ID of the message queue item. Can be retrieved from the above store and list endpoints.
      * @param string $account Path param: The Account ID
      * @param string $text Body param: The message text content
+     * @param string $giphyID Body param: The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
      * @param bool $lockedText Body param: Whether the text should be shown or hidden
      * @param list<string> $mediaFiles Body param: Array of media file upload prefixed_ids, or OF media IDs (required if price is not 0). Will be hidden if `price` is provided.
      * @param list<string> $previews Body param: Array of media file upload prefixed_ids, or OF media IDs (required if price is not 0). Will be shown if `price` is provided. All `previews` values must also exist in the `mediaFiles` array.
@@ -82,6 +81,7 @@ final class MassMessagingService implements MassMessagingContract
         string $id,
         string $account,
         string $text,
+        ?string $giphyID = null,
         ?bool $lockedText = null,
         ?array $mediaFiles = null,
         ?array $previews = null,
@@ -95,6 +95,7 @@ final class MassMessagingService implements MassMessagingContract
             [
                 'account' => $account,
                 'text' => $text,
+                'giphyID' => $giphyID,
                 'lockedText' => $lockedText,
                 'mediaFiles' => $mediaFiles,
                 'previews' => $previews,
@@ -158,51 +159,19 @@ final class MassMessagingService implements MassMessagingContract
     /**
      * @api
      *
-     * List mass messaging statistics, showing the send count and view count.
-     *
-     * @param string $account The Account ID
-     * @param int $limit Number of mass messages to return (default = 20)
-     * @param int $offset Number of mass messages to skip for pagination
-     * @param string $query optionally, find a mass message by the message text
-     * @param Type|value-of<Type> $type Filter by sent / scheduled / unsent (default = sent)
-     * @param RequestOpts|null $requestOptions
-     *
-     * @throws APIException
-     */
-    public function listStatistics(
-        string $account,
-        ?int $limit = null,
-        ?int $offset = null,
-        ?string $query = null,
-        Type|string|null $type = null,
-        RequestOptions|array|null $requestOptions = null,
-    ): MassMessagingListStatisticsResponse {
-        $params = Util::removeNulls(
-            [
-                'limit' => $limit,
-                'offset' => $offset,
-                'query' => $query,
-                'type' => $type,
-            ],
-        );
-
-        // @phpstan-ignore-next-line argument.type
-        $response = $this->raw->listStatistics($account, params: $params, requestOptions: $requestOptions);
-
-        return $response->parse();
-    }
-
-    /**
-     * @api
-     *
      * Send a mass message to lists and/or users. You may use both the `userLists` and `userIds` parameters to send the same message to both lists and individual users.
      *
      * @param string $account The Account ID
      * @param string $text The message text content
+     * @param list<string> $excludedLists array of user list IDs that the mass message will NOT be sent to
+     * @param string $giphyID The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
      * @param bool $lockedText Whether the text should be shown or hidden
-     * @param list<string> $mediaFiles Array of media file upload prefixed_ids, or OF media IDs (required if price is not 0). Will be hidden if `price` is provided.
-     * @param list<string> $previews Array of media file upload prefixed_ids, or OF media IDs (required if price is not 0). Will be shown if `price` is provided. All `previews` values must also exist in the `mediaFiles` array.
+     * @param list<mixed> $mediaFiles Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs. Will be hidden if `price` is provided.
+     * @param list<mixed> $previews Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices referencing uploaded files in `mediaFiles`. Will be shown if `price` is provided.
      * @param int $price Price for paid content (0 or between 3-200). In case this is not zero, **mediaFiles** is required
+     * @param string $rfGuest Array of OnlyFans Release Form Guest IDs to tag in your mass message
+     * @param string $rfPartner Array of OnlyFans Release Form Partners IDs to tag in your mass message
+     * @param string $rfTag Array of OnlyFans Creator User IDs to tag in your mass message
      * @param bool $saveForLater add your message to the "Saved for later" queue
      * @param string $scheduledDate schedule the chat message in the future (UTC timezone)
      * @param list<string> $userIDs array of user IDs that the mass message will be sent to
@@ -214,10 +183,15 @@ final class MassMessagingService implements MassMessagingContract
     public function send(
         string $account,
         string $text,
+        ?array $excludedLists = null,
+        ?string $giphyID = null,
         ?bool $lockedText = null,
         ?array $mediaFiles = null,
         ?array $previews = null,
         ?int $price = null,
+        ?string $rfGuest = null,
+        ?string $rfPartner = null,
+        ?string $rfTag = null,
         ?bool $saveForLater = null,
         ?string $scheduledDate = null,
         ?array $userIDs = null,
@@ -227,10 +201,15 @@ final class MassMessagingService implements MassMessagingContract
         $params = Util::removeNulls(
             [
                 'text' => $text,
+                'excludedLists' => $excludedLists,
+                'giphyID' => $giphyID,
                 'lockedText' => $lockedText,
                 'mediaFiles' => $mediaFiles,
                 'previews' => $previews,
                 'price' => $price,
+                'rfGuest' => $rfGuest,
+                'rfPartner' => $rfPartner,
+                'rfTag' => $rfTag,
                 'saveForLater' => $saveForLater,
                 'scheduledDate' => $scheduledDate,
                 'userIDs' => $userIDs,

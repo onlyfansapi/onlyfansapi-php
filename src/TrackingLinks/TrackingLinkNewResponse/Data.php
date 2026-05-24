@@ -42,7 +42,7 @@ final class Data implements BaseModel
     #[Optional]
     public ?string $createdAt;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $endDate;
 
     public function __construct()
@@ -125,7 +125,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withEndDate(string $endDate): self
+    public function withEndDate(?string $endDate): self
     {
         $self = clone $this;
         $self['endDate'] = $endDate;

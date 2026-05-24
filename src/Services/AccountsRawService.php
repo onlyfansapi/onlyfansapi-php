@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Onlyfansapi\Services;
 
 use Onlyfansapi\Accounts\AccountListParams;
+use Onlyfansapi\Accounts\AccountListResponseItem;
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Contracts\BaseResponse;
 use Onlyfansapi\Core\Conversion\ListOf;
@@ -38,7 +39,7 @@ final class AccountsRawService implements AccountsRawContract
      * }|AccountListParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<list<mixed>>
+     * @return BaseResponse<list<AccountListResponseItem>>
      *
      * @throws APIException
      */
@@ -64,7 +65,7 @@ final class AccountsRawService implements AccountsRawContract
                 ],
             ),
             options: $options,
-            convert: new ListOf('mixed'),
+            convert: new ListOf(AccountListResponseItem::class),
         );
     }
 

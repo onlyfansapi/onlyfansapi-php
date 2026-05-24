@@ -10,13 +10,16 @@ use Onlyfansapi\Core\Contracts\BaseModel;
 
 /**
  * @phpstan-type _PaginationShape = array{
- *   nextPageURL?: string|null, totalResults?: int|null
+ *   nextCursor?: string|null, nextPageURL?: string|null, totalResults?: int|null
  * }
  */
 final class _Pagination implements BaseModel
 {
     /** @use SdkModel<_PaginationShape> */
     use SdkModel;
+
+    #[Optional('next_cursor')]
+    public ?string $nextCursor;
 
     #[Optional('next_page_url')]
     public ?string $nextPageURL;
@@ -35,13 +38,23 @@ final class _Pagination implements BaseModel
      * You must use named parameters to construct any parameters with a default value.
      */
     public static function with(
+        ?string $nextCursor = null,
         ?string $nextPageURL = null,
-        ?int $totalResults = null
+        ?int $totalResults = null,
     ): self {
         $self = new self;
 
+        null !== $nextCursor && $self['nextCursor'] = $nextCursor;
         null !== $nextPageURL && $self['nextPageURL'] = $nextPageURL;
         null !== $totalResults && $self['totalResults'] = $totalResults;
+
+        return $self;
+    }
+
+    public function withNextCursor(string $nextCursor): self
+    {
+        $self = clone $this;
+        $self['nextCursor'] = $nextCursor;
 
         return $self;
     }

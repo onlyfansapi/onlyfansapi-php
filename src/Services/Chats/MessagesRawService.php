@@ -7,6 +7,7 @@ namespace Onlyfansapi\Services\Chats;
 use Onlyfansapi\Chats\Messages\MessageDeleteParams;
 use Onlyfansapi\Chats\Messages\MessageDeleteResponse;
 use Onlyfansapi\Chats\Messages\MessageListParams;
+use Onlyfansapi\Chats\Messages\MessageListParams\Filter;
 use Onlyfansapi\Chats\Messages\MessageListResponse;
 use Onlyfansapi\Chats\Messages\MessageSendParams;
 use Onlyfansapi\Chats\Messages\MessageSendResponse;
@@ -18,8 +19,6 @@ use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\Chats\MessagesRawContract;
 
 /**
- * APIs for managing OnlyFans chats.
- *
  * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
  */
 final class MessagesRawService implements MessagesRawContract
@@ -37,7 +36,13 @@ final class MessagesRawService implements MessagesRawContract
      *
      * @param string $chatID Path param: The ID of the chat (usually a fan's OnlyFans User ID)
      * @param array{
-     *   account: string, id?: string, order?: string, skipUsers?: string
+     *   account: string,
+     *   filter?: Filter|value-of<Filter>,
+     *   firstID?: string|null,
+     *   lastID?: string|null,
+     *   limit?: string,
+     *   order?: string,
+     *   skipUsers?: string,
      * }|MessageListParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -61,7 +66,14 @@ final class MessagesRawService implements MessagesRawContract
         return $this->client->request(
             method: 'get',
             path: ['api/%1$s/chats/%2$s/messages', $account, $chatID],
-            query: Util::array_transform_keys($parsed, ['skipUsers' => 'skip_users']),
+            query: Util::array_transform_keys(
+                $parsed,
+                [
+                    'firstID' => 'first_id',
+                    'lastID' => 'last_id',
+                    'skipUsers' => 'skip_users',
+                ],
+            ),
             options: $options,
             convert: MessageListResponse::class,
         );
@@ -72,7 +84,7 @@ final class MessagesRawService implements MessagesRawContract
      *
      * Delete a message from a chat. Please note that ONLY messages sent less than 24 hours ago can be deleted.
      *
-     * @param string $messageID The ID of the message to delete
+     * @param string $messageID The ID of the message to retrieve
      * @param array{account: string, chatID: string}|MessageDeleteParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -113,11 +125,16 @@ final class MessagesRawService implements MessagesRawContract
      * @param string $chatID Path param: The ID of the chat (usually a fan's OnlyFans User ID)
      * @param array{
      *   account: string,
-     *   text: string,
+     *   giphyID?: string,
      *   lockedText?: bool,
-     *   mediaFiles?: list<string>,
-     *   previews?: list<string>,
+     *   mediaFiles?: list<mixed>,
+     *   previews?: list<mixed>,
      *   price?: int,
+     *   replyToMessageID?: int,
+     *   rfGuest?: string,
+     *   rfPartner?: string,
+     *   rfTag?: string,
+     *   text?: string,
      * }|MessageSendParams $params
      * @param RequestOpts|null $requestOptions
      *

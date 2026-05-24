@@ -40,7 +40,7 @@ final class Subscribe implements BaseModel
     #[Optional]
     public ?string $action;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $cancelDate;
 
     #[Optional]
@@ -61,10 +61,10 @@ final class Subscribe implements BaseModel
     #[Optional]
     public ?bool $isCurrent;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $offerEnd;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $offerStart;
 
     #[Optional]
@@ -153,7 +153,7 @@ final class Subscribe implements BaseModel
         return $self;
     }
 
-    public function withCancelDate(string $cancelDate): self
+    public function withCancelDate(?string $cancelDate): self
     {
         $self = clone $this;
         $self['cancelDate'] = $cancelDate;
@@ -209,7 +209,7 @@ final class Subscribe implements BaseModel
         return $self;
     }
 
-    public function withOfferEnd(string $offerEnd): self
+    public function withOfferEnd(?string $offerEnd): self
     {
         $self = clone $this;
         $self['offerEnd'] = $offerEnd;
@@ -217,7 +217,7 @@ final class Subscribe implements BaseModel
         return $self;
     }
 
-    public function withOfferStart(string $offerStart): self
+    public function withOfferStart(?string $offerStart): self
     {
         $self = clone $this;
         $self['offerStart'] = $offerStart;

@@ -74,7 +74,7 @@ final class StatisticsRawService implements StatisticsRawContract
      *
      * @param string $account The Account ID
      * @param array{
-     *   endDate: string, startDate: string, type?: Type|value-of<Type>|null
+     *   endDate?: string, startDate?: string, type?: Type|value-of<Type>|null
      * }|StatisticGetOverviewParams $params
      * @param RequestOpts|null $requestOptions
      *

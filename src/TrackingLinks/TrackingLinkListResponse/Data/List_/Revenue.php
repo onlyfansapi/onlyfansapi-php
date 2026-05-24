@@ -12,7 +12,7 @@ use Onlyfansapi\Core\Contracts\BaseModel;
  * @phpstan-type RevenueShape = array{
  *   calculatedAt?: string|null,
  *   isLoading?: bool|null,
- *   revenuePerClick?: int|null,
+ *   revenuePerClick?: float|null,
  *   revenuePerSubscriber?: int|null,
  *   spendersCount?: int|null,
  *   total?: int|null,
@@ -30,7 +30,7 @@ final class Revenue implements BaseModel
     public ?bool $isLoading;
 
     #[Optional]
-    public ?int $revenuePerClick;
+    public ?float $revenuePerClick;
 
     #[Optional]
     public ?int $revenuePerSubscriber;
@@ -54,7 +54,7 @@ final class Revenue implements BaseModel
     public static function with(
         ?string $calculatedAt = null,
         ?bool $isLoading = null,
-        ?int $revenuePerClick = null,
+        ?float $revenuePerClick = null,
         ?int $revenuePerSubscriber = null,
         ?int $spendersCount = null,
         ?int $total = null,
@@ -87,7 +87,7 @@ final class Revenue implements BaseModel
         return $self;
     }
 
-    public function withRevenuePerClick(int $revenuePerClick): self
+    public function withRevenuePerClick(float $revenuePerClick): self
     {
         $self = clone $this;
         $self['revenuePerClick'] = $revenuePerClick;

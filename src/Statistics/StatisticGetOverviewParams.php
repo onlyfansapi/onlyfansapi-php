@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Onlyfansapi\Statistics;
 
 use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
 use Onlyfansapi\Core\Concerns\SdkModel;
 use Onlyfansapi\Core\Concerns\SdkParams;
 use Onlyfansapi\Core\Contracts\BaseModel;
@@ -17,7 +16,9 @@ use Onlyfansapi\Statistics\StatisticGetOverviewParams\Type;
  * @see Onlyfansapi\Services\StatisticsService::getOverview()
  *
  * @phpstan-type StatisticGetOverviewParamsShape = array{
- *   endDate: string, startDate: string, type?: null|Type|value-of<Type>
+ *   endDate?: string|null,
+ *   startDate?: string|null,
+ *   type?: null|Type|value-of<Type>,
  * }
  */
 final class StatisticGetOverviewParams implements BaseModel
@@ -27,16 +28,16 @@ final class StatisticGetOverviewParams implements BaseModel
     use SdkParams;
 
     /**
-     * The end date for the statistics.
+     * The end date for the statistics. Keep empty to retrieve until now.
      */
-    #[Required]
-    public string $endDate;
+    #[Optional]
+    public ?string $endDate;
 
     /**
-     * The start date for the statistics.
+     * The start date for the statistics. Keep empty to retrieve from the model's start date.
      */
-    #[Required]
-    public string $startDate;
+    #[Optional]
+    public ?string $startDate;
 
     /**
      * The type of statistics to retrieve (default = empty).
@@ -46,20 +47,6 @@ final class StatisticGetOverviewParams implements BaseModel
     #[Optional(enum: Type::class, nullable: true)]
     public ?string $type;
 
-    /**
-     * `new StatisticGetOverviewParams()` is missing required properties by the API.
-     *
-     * To enforce required parameters use
-     * ```
-     * StatisticGetOverviewParams::with(endDate: ..., startDate: ...)
-     * ```
-     *
-     * Otherwise ensure the following setters are called
-     *
-     * ```
-     * (new StatisticGetOverviewParams)->withEndDate(...)->withStartDate(...)
-     * ```
-     */
     public function __construct()
     {
         $this->initialize();
@@ -73,22 +60,21 @@ final class StatisticGetOverviewParams implements BaseModel
      * @param Type|value-of<Type>|null $type
      */
     public static function with(
-        string $endDate,
-        string $startDate,
-        Type|string|null $type = null
+        ?string $endDate = null,
+        ?string $startDate = null,
+        Type|string|null $type = null,
     ): self {
         $self = new self;
 
-        $self['endDate'] = $endDate;
-        $self['startDate'] = $startDate;
-
+        null !== $endDate && $self['endDate'] = $endDate;
+        null !== $startDate && $self['startDate'] = $startDate;
         null !== $type && $self['type'] = $type;
 
         return $self;
     }
 
     /**
-     * The end date for the statistics.
+     * The end date for the statistics. Keep empty to retrieve until now.
      */
     public function withEndDate(string $endDate): self
     {
@@ -99,7 +85,7 @@ final class StatisticGetOverviewParams implements BaseModel
     }
 
     /**
-     * The start date for the statistics.
+     * The start date for the statistics. Keep empty to retrieve from the model's start date.
      */
     public function withStartDate(string $startDate): self
     {

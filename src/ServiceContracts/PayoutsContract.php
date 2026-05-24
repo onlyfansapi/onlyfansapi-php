@@ -9,7 +9,6 @@ use Onlyfansapi\Payouts\PayoutGetBalancesResponse;
 use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse;
 use Onlyfansapi\Payouts\PayoutGetEligibilityResponse;
 use Onlyfansapi\Payouts\PayoutListPayoutRequestsResponse;
-use Onlyfansapi\Payouts\PayoutListTransactionsResponse;
 use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember0;
 use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1;
 use Onlyfansapi\Payouts\PayoutUpdatePayoutFrequencyParams\Frequency;
@@ -37,23 +36,6 @@ interface PayoutsContract
         ?string $offset = null,
         RequestOptions|array|null $requestOptions = null,
     ): PayoutListPayoutRequestsResponse;
-
-    /**
-     * @api
-     *
-     * @param string $account The Account ID
-     * @param string $limit Number of transactions to return
-     * @param string $marker The marker used for pagination. Default: `null`
-     * @param RequestOpts|null $requestOptions
-     *
-     * @throws APIException
-     */
-    public function listTransactions(
-        string $account,
-        ?string $limit = null,
-        ?string $marker = null,
-        RequestOptions|array|null $requestOptions = null,
-    ): PayoutListTransactionsResponse;
 
     /**
      * @api

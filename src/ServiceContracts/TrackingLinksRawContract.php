@@ -60,7 +60,7 @@ interface TrackingLinksRawContract
     /**
      * @api
      *
-     * @param string $trackingLinkID The ID of the Tracking Link. Can be retrieved from the above store and list endpoints.
+     * @param string $trackingLinkID the ID of the tracking link
      * @param array<string,mixed>|TrackingLinkDeleteParams $params
      * @param RequestOpts|null $requestOptions
      *

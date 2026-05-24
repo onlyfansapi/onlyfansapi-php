@@ -41,7 +41,7 @@ interface UserListsRawContract
     /**
      * @api
      *
-     * @param int $userListID Path param: OnlyFans User List ID
+     * @param string $userListID Path param: OnlyFans User List ID, or a default list name like `tagged`
      * @param array<string,mixed>|UserListUpdateParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -50,7 +50,7 @@ interface UserListsRawContract
      * @throws APIException
      */
     public function update(
-        int $userListID,
+        string $userListID,
         array|UserListUpdateParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse;
@@ -75,7 +75,7 @@ interface UserListsRawContract
     /**
      * @api
      *
-     * @param int $userListID OnlyFans User List ID
+     * @param string $userListID OnlyFans User List ID, or a default list name like `tagged`
      * @param array<string,mixed>|UserListDeleteParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -84,7 +84,7 @@ interface UserListsRawContract
      * @throws APIException
      */
     public function delete(
-        int $userListID,
+        string $userListID,
         array|UserListDeleteParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse;

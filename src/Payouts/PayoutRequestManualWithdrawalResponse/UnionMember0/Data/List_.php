@@ -16,7 +16,7 @@ final class List_ implements BaseModel
     /** @use SdkModel<ListShape> */
     use SdkModel;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $rejectReason;
 
     #[Optional]
@@ -44,7 +44,7 @@ final class List_ implements BaseModel
         return $self;
     }
 
-    public function withRejectReason(string $rejectReason): self
+    public function withRejectReason(?string $rejectReason): self
     {
         $self = clone $this;
         $self['rejectReason'] = $rejectReason;

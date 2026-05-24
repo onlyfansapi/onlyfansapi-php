@@ -17,11 +17,16 @@ use Onlyfansapi\Core\Contracts\BaseModel;
  *
  * @phpstan-type MessageSendParamsShape = array{
  *   account: string,
- *   text: string,
+ *   giphyID?: string|null,
  *   lockedText?: bool|null,
- *   mediaFiles?: list<string>|null,
- *   previews?: list<string>|null,
+ *   mediaFiles?: list<mixed>|null,
+ *   previews?: list<mixed>|null,
  *   price?: int|null,
+ *   replyToMessageID?: int|null,
+ *   rfGuest?: string|null,
+ *   rfPartner?: string|null,
+ *   rfTag?: string|null,
+ *   text?: string|null,
  * }
  */
 final class MessageSendParams implements BaseModel
@@ -34,10 +39,10 @@ final class MessageSendParams implements BaseModel
     public string $account;
 
     /**
-     * The message text content.
+     * The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
      */
-    #[Required]
-    public string $text;
+    #[Optional('giphyId')]
+    public ?string $giphyID;
 
     /**
      * Whether the text should be shown or hidden.
@@ -46,19 +51,19 @@ final class MessageSendParams implements BaseModel
     public ?bool $lockedText;
 
     /**
-     * Array of media file upload prefixed_ids, or OF media IDs (required if price is not 0). Will be hidden if `price` is provided.
+     * Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs. Will be hidden if `price` is provided.
      *
-     * @var list<string>|null $mediaFiles
+     * @var list<mixed>|null $mediaFiles
      */
-    #[Optional(list: 'string')]
+    #[Optional(list: 'mixed')]
     public ?array $mediaFiles;
 
     /**
-     * Array of media file upload prefixed_ids, or OF media IDs (required if price is not 0). Will be shown if `price` is provided. All `previews` values must also exist in the `mediaFiles` array.
+     * Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices referencing uploaded files in `mediaFiles`. Will be shown if `price` is provided.
      *
-     * @var list<string>|null $previews
+     * @var list<mixed>|null $previews
      */
-    #[Optional(list: 'string')]
+    #[Optional(list: 'mixed')]
     public ?array $previews;
 
     /**
@@ -68,17 +73,47 @@ final class MessageSendParams implements BaseModel
     public ?int $price;
 
     /**
+     * Mark this message as a reply to another (can be either your own, or the recipient's).
+     */
+    #[Optional('replyToMessageId')]
+    public ?int $replyToMessageID;
+
+    /**
+     * Array of OnlyFans Release Form Guest IDs to tag in your message.
+     */
+    #[Optional]
+    public ?string $rfGuest;
+
+    /**
+     * Array of OnlyFans Release Form Partners IDs to tag in your message.
+     */
+    #[Optional]
+    public ?string $rfPartner;
+
+    /**
+     * Array of OnlyFans Creator User IDs to tag in your message.
+     */
+    #[Optional]
+    public ?string $rfTag;
+
+    /**
+     * The message text content. Required unless a media file is present.
+     */
+    #[Optional]
+    public ?string $text;
+
+    /**
      * `new MessageSendParams()` is missing required properties by the API.
      *
      * To enforce required parameters use
      * ```
-     * MessageSendParams::with(account: ..., text: ...)
+     * MessageSendParams::with(account: ...)
      * ```
      *
      * Otherwise ensure the following setters are called
      *
      * ```
-     * (new MessageSendParams)->withAccount(...)->withText(...)
+     * (new MessageSendParams)->withAccount(...)
      * ```
      */
     public function __construct()
@@ -91,26 +126,36 @@ final class MessageSendParams implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
-     * @param list<string>|null $mediaFiles
-     * @param list<string>|null $previews
+     * @param list<mixed>|null $mediaFiles
+     * @param list<mixed>|null $previews
      */
     public static function with(
         string $account,
-        string $text,
+        ?string $giphyID = null,
         ?bool $lockedText = null,
         ?array $mediaFiles = null,
         ?array $previews = null,
         ?int $price = null,
+        ?int $replyToMessageID = null,
+        ?string $rfGuest = null,
+        ?string $rfPartner = null,
+        ?string $rfTag = null,
+        ?string $text = null,
     ): self {
         $self = new self;
 
         $self['account'] = $account;
-        $self['text'] = $text;
 
+        null !== $giphyID && $self['giphyID'] = $giphyID;
         null !== $lockedText && $self['lockedText'] = $lockedText;
         null !== $mediaFiles && $self['mediaFiles'] = $mediaFiles;
         null !== $previews && $self['previews'] = $previews;
         null !== $price && $self['price'] = $price;
+        null !== $replyToMessageID && $self['replyToMessageID'] = $replyToMessageID;
+        null !== $rfGuest && $self['rfGuest'] = $rfGuest;
+        null !== $rfPartner && $self['rfPartner'] = $rfPartner;
+        null !== $rfTag && $self['rfTag'] = $rfTag;
+        null !== $text && $self['text'] = $text;
 
         return $self;
     }
@@ -124,12 +169,12 @@ final class MessageSendParams implements BaseModel
     }
 
     /**
-     * The message text content.
+     * The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
      */
-    public function withText(string $text): self
+    public function withGiphyID(string $giphyID): self
     {
         $self = clone $this;
-        $self['text'] = $text;
+        $self['giphyID'] = $giphyID;
 
         return $self;
     }
@@ -146,9 +191,9 @@ final class MessageSendParams implements BaseModel
     }
 
     /**
-     * Array of media file upload prefixed_ids, or OF media IDs (required if price is not 0). Will be hidden if `price` is provided.
+     * Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs. Will be hidden if `price` is provided.
      *
-     * @param list<string> $mediaFiles
+     * @param list<mixed> $mediaFiles
      */
     public function withMediaFiles(array $mediaFiles): self
     {
@@ -159,9 +204,9 @@ final class MessageSendParams implements BaseModel
     }
 
     /**
-     * Array of media file upload prefixed_ids, or OF media IDs (required if price is not 0). Will be shown if `price` is provided. All `previews` values must also exist in the `mediaFiles` array.
+     * Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices referencing uploaded files in `mediaFiles`. Will be shown if `price` is provided.
      *
-     * @param list<string> $previews
+     * @param list<mixed> $previews
      */
     public function withPreviews(array $previews): self
     {
@@ -178,6 +223,61 @@ final class MessageSendParams implements BaseModel
     {
         $self = clone $this;
         $self['price'] = $price;
+
+        return $self;
+    }
+
+    /**
+     * Mark this message as a reply to another (can be either your own, or the recipient's).
+     */
+    public function withReplyToMessageID(int $replyToMessageID): self
+    {
+        $self = clone $this;
+        $self['replyToMessageID'] = $replyToMessageID;
+
+        return $self;
+    }
+
+    /**
+     * Array of OnlyFans Release Form Guest IDs to tag in your message.
+     */
+    public function withRfGuest(string $rfGuest): self
+    {
+        $self = clone $this;
+        $self['rfGuest'] = $rfGuest;
+
+        return $self;
+    }
+
+    /**
+     * Array of OnlyFans Release Form Partners IDs to tag in your message.
+     */
+    public function withRfPartner(string $rfPartner): self
+    {
+        $self = clone $this;
+        $self['rfPartner'] = $rfPartner;
+
+        return $self;
+    }
+
+    /**
+     * Array of OnlyFans Creator User IDs to tag in your message.
+     */
+    public function withRfTag(string $rfTag): self
+    {
+        $self = clone $this;
+        $self['rfTag'] = $rfTag;
+
+        return $self;
+    }
+
+    /**
+     * The message text content. Required unless a media file is present.
+     */
+    public function withText(string $text): self
+    {
+        $self = clone $this;
+        $self['text'] = $text;
 
         return $self;
     }

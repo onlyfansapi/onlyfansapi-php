@@ -7,7 +7,9 @@ namespace Onlyfansapi\Services;
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Contracts\BaseResponse;
 use Onlyfansapi\Core\Exceptions\APIException;
+use Onlyfansapi\Core\FileParam;
 use Onlyfansapi\Media\MediaScrapeParams;
+use Onlyfansapi\Media\MediaScrapeParams\FileType;
 use Onlyfansapi\Media\MediaScrapeResponse;
 use Onlyfansapi\Media\MediaUploadParams;
 use Onlyfansapi\Media\MediaUploadParams\Type;
@@ -29,11 +31,15 @@ final class MediaRawService implements MediaRawContract
     /**
      * @api
      *
-     * Scrapes a `https://cdn*.onlyfans.com/*` URL and uploads it to the OnlyFans API CDN, so that you can view or download the file. **Max file size is 500MB**
+     * **⚠️ This is a deprecated endpoint. Please use the new "Download media from the OnlyFans CDN" endpoint!** Scrapes a `https://cdn*.onlyfans.com/*` URL *or* Vault Media ID, and uploads it to the OnlyFans API CDN, where you can view or download the file. **Max file size is 500MB**
      *
      * @param string $account The Account ID
      * @param array{
-     *   url: string, expirationDate?: string|null
+     *   expirationDate?: string|null,
+     *   fileType?: FileType|value-of<FileType>|null,
+     *   mediaID?: int|null,
+     *   public?: bool|null,
+     *   url?: string|null,
      * }|MediaScrapeParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -64,10 +70,15 @@ final class MediaRawService implements MediaRawContract
     /**
      * @api
      *
-     * The response can be used **only once** to manually include media in a post or message. This endpoint does not upload media to the Vault.
+     * The response can be used **only once** to manually include media in a post or message. This endpoint does not upload media to the Vault. You must provide either `file` or `file_url`.
      *
      * @param string $account The Account ID
-     * @param array{file: string, type?: Type|value-of<Type>}|MediaUploadParams $params
+     * @param array{
+     *   async?: bool,
+     *   file?: string|FileParam,
+     *   fileURL?: string,
+     *   type?: Type|value-of<Type>,
+     * }|MediaUploadParams $params
      * @param RequestOpts|null $requestOptions
      *
      * @return BaseResponse<MediaUploadResponse>
@@ -88,6 +99,7 @@ final class MediaRawService implements MediaRawContract
         return $this->client->request(
             method: 'post',
             path: ['api/%1$s/media/upload', $account],
+            headers: ['Content-Type' => 'multipart/form-data'],
             body: (object) $parsed,
             options: $options,
             convert: MediaUploadResponse::class,

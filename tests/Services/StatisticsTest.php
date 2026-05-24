@@ -77,29 +77,7 @@ final class StatisticsTest extends TestCase
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->statistics->getOverview(
-            'acct_XXXXXXXXXXXXXXX',
-            endDate: '2025-03-31 23:59:59',
-            startDate: '2025-01-01 00:00:00',
-        );
-
-        // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(StatisticGetOverviewResponse::class, $result);
-    }
-
-    #[Test]
-    public function testGetOverviewWithOptionalParams(): void
-    {
-        if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Mock server tests are disabled');
-        }
-
-        $result = $this->client->statistics->getOverview(
-            'acct_XXXXXXXXXXXXXXX',
-            endDate: '2025-03-31 23:59:59',
-            startDate: '2025-01-01 00:00:00',
-            type: 'fans',
-        );
+        $result = $this->client->statistics->getOverview('acct_XXXXXXXXXXXXXXX');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(StatisticGetOverviewResponse::class, $result);

@@ -25,6 +25,7 @@ use Onlyfansapi\TrackingLinks\TrackingLinkListResponse\Data\List_\Revenue;
  *   links?: null|Links|LinksShape,
  *   revenue?: null|Revenue|RevenueShape,
  *   subscribersCount?: int|null,
+ *   tags?: list<string>|null,
  * }
  */
 final class List_ implements BaseModel
@@ -50,7 +51,7 @@ final class List_ implements BaseModel
     #[Optional]
     public ?string $createdAt;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $endDate;
 
     #[Optional]
@@ -61,6 +62,10 @@ final class List_ implements BaseModel
 
     #[Optional]
     public ?int $subscribersCount;
+
+    /** @var list<string>|null $tags */
+    #[Optional(list: 'string')]
+    public ?array $tags;
 
     public function __construct()
     {
@@ -74,6 +79,7 @@ final class List_ implements BaseModel
      *
      * @param Links|LinksShape|null $links
      * @param Revenue|RevenueShape|null $revenue
+     * @param list<string>|null $tags
      */
     public static function with(
         ?int $id = null,
@@ -86,6 +92,7 @@ final class List_ implements BaseModel
         Links|array|null $links = null,
         Revenue|array|null $revenue = null,
         ?int $subscribersCount = null,
+        ?array $tags = null,
     ): self {
         $self = new self;
 
@@ -99,6 +106,7 @@ final class List_ implements BaseModel
         null !== $links && $self['links'] = $links;
         null !== $revenue && $self['revenue'] = $revenue;
         null !== $subscribersCount && $self['subscribersCount'] = $subscribersCount;
+        null !== $tags && $self['tags'] = $tags;
 
         return $self;
     }
@@ -151,7 +159,7 @@ final class List_ implements BaseModel
         return $self;
     }
 
-    public function withEndDate(string $endDate): self
+    public function withEndDate(?string $endDate): self
     {
         $self = clone $this;
         $self['endDate'] = $endDate;
@@ -185,6 +193,17 @@ final class List_ implements BaseModel
     {
         $self = clone $this;
         $self['subscribersCount'] = $subscribersCount;
+
+        return $self;
+    }
+
+    /**
+     * @param list<string> $tags
+     */
+    public function withTags(array $tags): self
+    {
+        $self = clone $this;
+        $self['tags'] = $tags;
 
         return $self;
     }

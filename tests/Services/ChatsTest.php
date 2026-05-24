@@ -50,7 +50,7 @@ final class ChatsTest extends TestCase
         }
 
         $result = $this->client->chats->startTypingIndicator(
-            '458485726',
+            '123',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -66,7 +66,7 @@ final class ChatsTest extends TestCase
         }
 
         $result = $this->client->chats->startTypingIndicator(
-            '458485726',
+            '123',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 

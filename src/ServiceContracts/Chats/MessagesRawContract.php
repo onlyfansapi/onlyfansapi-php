@@ -39,7 +39,7 @@ interface MessagesRawContract
     /**
      * @api
      *
-     * @param string $messageID The ID of the message to delete
+     * @param string $messageID The ID of the message to retrieve
      * @param array<string,mixed>|MessageDeleteParams $params
      * @param RequestOpts|null $requestOptions
      *

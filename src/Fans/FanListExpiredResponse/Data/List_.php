@@ -211,7 +211,7 @@ final class List_ implements BaseModel
     #[Optional]
     public ?bool $subscribedIsExpiredNow;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribedOn;
 
     #[Optional]
@@ -736,7 +736,7 @@ final class List_ implements BaseModel
         return $self;
     }
 
-    public function withSubscribedOn(string $subscribedOn): self
+    public function withSubscribedOn(?string $subscribedOn): self
     {
         $self = clone $this;
         $self['subscribedOn'] = $subscribedOn;

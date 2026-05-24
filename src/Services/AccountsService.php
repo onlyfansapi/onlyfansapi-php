@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Onlyfansapi\Services;
 
+use Onlyfansapi\Accounts\AccountListResponseItem;
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Core\Util;
@@ -40,7 +41,7 @@ final class AccountsService implements AccountsContract
      * @param string|null $onlyfansUsername Optionally, filter by the OnlyFans username
      * @param RequestOpts|null $requestOptions
      *
-     * @return list<mixed>
+     * @return list<AccountListResponseItem>
      *
      * @throws APIException
      */

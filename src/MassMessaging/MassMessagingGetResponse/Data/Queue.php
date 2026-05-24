@@ -40,7 +40,7 @@ final class Queue implements BaseModel
     #[Optional]
     public ?string $date;
 
-    #[Optional('giphyId')]
+    #[Optional('giphyId', nullable: true)]
     public ?string $giphyID;
 
     #[Optional]
@@ -52,7 +52,7 @@ final class Queue implements BaseModel
     #[Optional]
     public ?bool $isFree;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $mediaTypes;
 
     /** @var list<mixed>|null $releaseForms */
@@ -146,7 +146,7 @@ final class Queue implements BaseModel
         return $self;
     }
 
-    public function withGiphyID(string $giphyID): self
+    public function withGiphyID(?string $giphyID): self
     {
         $self = clone $this;
         $self['giphyID'] = $giphyID;
@@ -178,7 +178,7 @@ final class Queue implements BaseModel
         return $self;
     }
 
-    public function withMediaTypes(string $mediaTypes): self
+    public function withMediaTypes(?string $mediaTypes): self
     {
         $self = clone $this;
         $self['mediaTypes'] = $mediaTypes;

@@ -35,26 +35,7 @@ final class SearchTest extends TestCase
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->search->profiles(query: 'milf');
-
-        // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(SearchProfilesResponse::class, $result);
-    }
-
-    #[Test]
-    public function testProfilesWithOptionalParams(): void
-    {
-        if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Mock server tests are disabled');
-        }
-
-        $result = $this->client->search->profiles(
-            query: 'milf',
-            limit: 'limit',
-            location: 'New York',
-            maxSubscribePrice: 'max_subscribe_price',
-            minSubscribePrice: 'min_subscribe_price',
-        );
+        $result = $this->client->search->profiles();
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(SearchProfilesResponse::class, $result);

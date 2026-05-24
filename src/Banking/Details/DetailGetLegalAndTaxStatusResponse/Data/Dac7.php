@@ -26,7 +26,7 @@ final class Dac7 implements BaseModel
     #[Optional('countryIds', list: 'int')]
     public ?array $countryIDs;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $error;
 
     #[Optional]
@@ -79,7 +79,7 @@ final class Dac7 implements BaseModel
         return $self;
     }
 
-    public function withError(string $error): self
+    public function withError(?string $error): self
     {
         $self = clone $this;
         $self['error'] = $error;

@@ -11,6 +11,7 @@ use Onlyfansapi\Core\Contracts\BaseModel;
 /**
  * @phpstan-type LastAttemptShape = array{
  *   completedAt?: string|null,
+ *   errorCode?: string|null,
  *   errorMessage?: string|null,
  *   needsOtp?: bool|null,
  *   otpPhoneEnding?: string|null,
@@ -26,13 +27,16 @@ final class LastAttempt implements BaseModel
     #[Optional('completed_at')]
     public ?string $completedAt;
 
-    #[Optional('error_message')]
+    #[Optional('error_code', nullable: true)]
+    public ?string $errorCode;
+
+    #[Optional('error_message', nullable: true)]
     public ?string $errorMessage;
 
     #[Optional('needs_otp')]
     public ?bool $needsOtp;
 
-    #[Optional('otp_phone_ending')]
+    #[Optional('otp_phone_ending', nullable: true)]
     public ?string $otpPhoneEnding;
 
     #[Optional('started_at')]
@@ -53,6 +57,7 @@ final class LastAttempt implements BaseModel
      */
     public static function with(
         ?string $completedAt = null,
+        ?string $errorCode = null,
         ?string $errorMessage = null,
         ?bool $needsOtp = null,
         ?string $otpPhoneEnding = null,
@@ -62,6 +67,7 @@ final class LastAttempt implements BaseModel
         $self = new self;
 
         null !== $completedAt && $self['completedAt'] = $completedAt;
+        null !== $errorCode && $self['errorCode'] = $errorCode;
         null !== $errorMessage && $self['errorMessage'] = $errorMessage;
         null !== $needsOtp && $self['needsOtp'] = $needsOtp;
         null !== $otpPhoneEnding && $self['otpPhoneEnding'] = $otpPhoneEnding;
@@ -79,7 +85,15 @@ final class LastAttempt implements BaseModel
         return $self;
     }
 
-    public function withErrorMessage(string $errorMessage): self
+    public function withErrorCode(?string $errorCode): self
+    {
+        $self = clone $this;
+        $self['errorCode'] = $errorCode;
+
+        return $self;
+    }
+
+    public function withErrorMessage(?string $errorMessage): self
     {
         $self = clone $this;
         $self['errorMessage'] = $errorMessage;
@@ -95,7 +109,7 @@ final class LastAttempt implements BaseModel
         return $self;
     }
 
-    public function withOtpPhoneEnding(string $otpPhoneEnding): self
+    public function withOtpPhoneEnding(?string $otpPhoneEnding): self
     {
         $self = clone $this;
         $self['otpPhoneEnding'] = $otpPhoneEnding;

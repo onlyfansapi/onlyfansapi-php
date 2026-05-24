@@ -34,12 +34,14 @@ final class TransactionsService implements TransactionsContract
     /**
      * @api
      *
-     * Get a paginated list of transactions for an Account. Newest transactions are first.
+     * Get a paginated list of transactions for an Account. Newest transactions are first. You can filter by transaction type and tips source.
      *
      * @param string $account The Account ID
      * @param string $limit The number of transactions to return. Recommended: `10`
      * @param string $marker The marker used for pagination. Default: `null`
      * @param string $startDate The start date for transactions list. Default: `-30days`
+     * @param string $tipsSource Filter tips by source. Only applies when `type=tips`. Options: `profile`, `post_all`, `chat`, `stream`, `story`
+     * @param string $type Filter by transaction type. Options: `subscribes`, `tips`, `post`, `chat_messages`, `stream`
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -49,10 +51,18 @@ final class TransactionsService implements TransactionsContract
         ?string $limit = null,
         ?string $marker = null,
         ?string $startDate = null,
+        ?string $tipsSource = null,
+        ?string $type = null,
         RequestOptions|array|null $requestOptions = null,
     ): TransactionListResponse {
         $params = Util::removeNulls(
-            ['limit' => $limit, 'marker' => $marker, 'startDate' => $startDate]
+            [
+                'limit' => $limit,
+                'marker' => $marker,
+                'startDate' => $startDate,
+                'tipsSource' => $tipsSource,
+                'type' => $type,
+            ],
         );
 
         // @phpstan-ignore-next-line argument.type

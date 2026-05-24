@@ -79,10 +79,10 @@ final class Data implements BaseModel
     #[Optional]
     public ?int $id;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $avatar;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $avatarThumbs;
 
     #[Optional]
@@ -133,13 +133,13 @@ final class Data implements BaseModel
     #[Optional]
     public ?bool $hasStream;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $header;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $headerSize;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $headerThumbs;
 
     #[Optional]
@@ -369,7 +369,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withAvatar(string $avatar): self
+    public function withAvatar(?string $avatar): self
     {
         $self = clone $this;
         $self['avatar'] = $avatar;
@@ -377,7 +377,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withAvatarThumbs(string $avatarThumbs): self
+    public function withAvatarThumbs(?string $avatarThumbs): self
     {
         $self = clone $this;
         $self['avatarThumbs'] = $avatarThumbs;
@@ -513,7 +513,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withHeader(string $header): self
+    public function withHeader(?string $header): self
     {
         $self = clone $this;
         $self['header'] = $header;
@@ -521,7 +521,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withHeaderSize(string $headerSize): self
+    public function withHeaderSize(?string $headerSize): self
     {
         $self = clone $this;
         $self['headerSize'] = $headerSize;
@@ -529,7 +529,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withHeaderThumbs(string $headerThumbs): self
+    public function withHeaderThumbs(?string $headerThumbs): self
     {
         $self = clone $this;
         $self['headerThumbs'] = $headerThumbs;

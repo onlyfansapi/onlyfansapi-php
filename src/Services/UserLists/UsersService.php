@@ -35,7 +35,7 @@ final class UsersService implements UsersContract
      *
      * Add multiple Users To OnlyFans User List
      *
-     * @param int $userListID Path param: OnlyFans User List ID
+     * @param string $userListID Path param: OnlyFans User List ID, or a default list name like `tagged`
      * @param string $account Path param: The Account ID
      * @param list<string> $ids Body param: Array of OnlyFans User IDs to be added into the list
      * @param RequestOpts|null $requestOptions
@@ -43,7 +43,7 @@ final class UsersService implements UsersContract
      * @throws APIException
      */
     public function add(
-        int $userListID,
+        string $userListID,
         string $account,
         array $ids,
         RequestOptions|array|null $requestOptions = null,
@@ -63,7 +63,7 @@ final class UsersService implements UsersContract
      *
      * @param int $userID OnlyFans User ID
      * @param string $account The Account ID
-     * @param int $userListID OnlyFans User List ID
+     * @param string $userListID OnlyFans User List ID
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -71,7 +71,7 @@ final class UsersService implements UsersContract
     public function remove(
         int $userID,
         string $account,
-        int $userListID,
+        string $userListID,
         RequestOptions|array|null $requestOptions = null,
     ): UserRemoveResponse {
         $params = Util::removeNulls(

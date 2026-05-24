@@ -37,7 +37,7 @@ final class UsersTest extends TestCase
         }
 
         $result = $this->client->userLists->users->add(
-            1224114714,
+            'userListId',
             account: 'acct_XXXXXXXXXXXXXXX',
             ids: ['string', 'string', 'string'],
         );
@@ -54,7 +54,7 @@ final class UsersTest extends TestCase
         }
 
         $result = $this->client->userLists->users->add(
-            1224114714,
+            'userListId',
             account: 'acct_XXXXXXXXXXXXXXX',
             ids: ['string', 'string', 'string'],
         );
@@ -73,7 +73,7 @@ final class UsersTest extends TestCase
         $result = $this->client->userLists->users->remove(
             123456,
             account: 'acct_XXXXXXXXXXXXXXX',
-            userListID: 1224114714
+            userListID: 'userListId'
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
@@ -90,7 +90,7 @@ final class UsersTest extends TestCase
         $result = $this->client->userLists->users->remove(
             123456,
             account: 'acct_XXXXXXXXXXXXXXX',
-            userListID: 1224114714
+            userListID: 'userListId'
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType

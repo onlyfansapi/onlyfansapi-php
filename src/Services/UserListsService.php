@@ -68,20 +68,28 @@ final class UserListsService implements UserListsContract
      *
      * Update a OnlyFans User List
      *
-     * @param int $userListID Path param: OnlyFans User List ID
+     * @param string $userListID Path param: OnlyFans User List ID, or a default list name like `tagged`
      * @param string $account Path param: The Account ID
-     * @param string $name body param: Must not be greater than 64 characters
+     * @param string $name body param: The new name for the User List
+     * @param bool|null $isPinnedToFeed body param: Whether to pin the User List to feed to the OnlyFans homepage or not
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
      */
     public function update(
-        int $userListID,
+        string $userListID,
         string $account,
         string $name,
+        ?bool $isPinnedToFeed = null,
         RequestOptions|array|null $requestOptions = null,
     ): UserListUpdateResponse {
-        $params = Util::removeNulls(['account' => $account, 'name' => $name]);
+        $params = Util::removeNulls(
+            [
+                'account' => $account,
+                'name' => $name,
+                'isPinnedToFeed' => $isPinnedToFeed,
+            ],
+        );
 
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->update($userListID, params: $params, requestOptions: $requestOptions);
@@ -120,14 +128,14 @@ final class UserListsService implements UserListsContract
      *
      * Delete a OnlyFans User List
      *
-     * @param int $userListID OnlyFans User List ID
+     * @param string $userListID OnlyFans User List ID, or a default list name like `tagged`
      * @param string $account The Account ID
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
      */
     public function delete(
-        int $userListID,
+        string $userListID,
         string $account,
         RequestOptions|array|null $requestOptions = null,
     ): UserListDeleteResponse {

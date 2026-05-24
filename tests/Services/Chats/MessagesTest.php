@@ -38,7 +38,7 @@ final class MessagesTest extends TestCase
         }
 
         $result = $this->client->chats->messages->list(
-            '458485726',
+            '123',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -54,9 +54,12 @@ final class MessagesTest extends TestCase
         }
 
         $result = $this->client->chats->messages->list(
-            '458485726',
+            '123',
             account: 'acct_XXXXXXXXXXXXXXX',
-            id: 'id',
+            filter: 'pinned',
+            firstID: 'first_id',
+            lastID: 'last_id',
+            limit: 'limit',
             order: 'desc',
             skipUsers: 'all',
         );
@@ -73,9 +76,9 @@ final class MessagesTest extends TestCase
         }
 
         $result = $this->client->chats->messages->delete(
-            '123456789',
+            '69696969',
             account: 'acct_XXXXXXXXXXXXXXX',
-            chatID: '458485726'
+            chatID: '123'
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
@@ -90,9 +93,9 @@ final class MessagesTest extends TestCase
         }
 
         $result = $this->client->chats->messages->delete(
-            '123456789',
+            '69696969',
             account: 'acct_XXXXXXXXXXXXXXX',
-            chatID: '458485726'
+            chatID: '123'
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
@@ -107,9 +110,8 @@ final class MessagesTest extends TestCase
         }
 
         $result = $this->client->chats->messages->send(
-            '458485726',
-            account: 'acct_XXXXXXXXXXXXXXX',
-            text: 'Hello!'
+            '123',
+            account: 'acct_XXXXXXXXXXXXXXX'
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
@@ -124,13 +126,18 @@ final class MessagesTest extends TestCase
         }
 
         $result = $this->client->chats->messages->send(
-            '458485726',
+            '123',
             account: 'acct_XXXXXXXXXXXXXXX',
-            text: 'Hello!',
+            giphyID: 'WAGC3LeqJvXglm5H7a',
             lockedText: true,
-            mediaFiles: ['ofapi_media_abc123', 'string'],
-            previews: ['ofapi_media_abc123', 'string'],
+            mediaFiles: ['ofapi_media_abc123', 1234567890],
+            previews: ['ofapi_media_abc123', 1234567890],
             price: 10,
+            replyToMessageID: 123456789,
+            rfGuest: 'rfGuest',
+            rfPartner: 'rfPartner',
+            rfTag: 'rfTag',
+            text: 'Hello!',
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType

@@ -37,8 +37,8 @@ interface StatisticsContract
      * @api
      *
      * @param string $account The Account ID
-     * @param string $endDate the end date for the statistics
-     * @param string $startDate the start date for the statistics
+     * @param string $endDate The end date for the statistics. Keep empty to retrieve until now.
+     * @param string $startDate The start date for the statistics. Keep empty to retrieve from the model's start date.
      * @param Type|value-of<Type>|null $type The type of statistics to retrieve (default = empty)
      * @param RequestOpts|null $requestOptions
      *
@@ -46,8 +46,8 @@ interface StatisticsContract
      */
     public function getOverview(
         string $account,
-        string $endDate,
-        string $startDate,
+        ?string $endDate = null,
+        ?string $startDate = null,
         Type|string|null $type = null,
         RequestOptions|array|null $requestOptions = null,
     ): StatisticGetOverviewResponse;

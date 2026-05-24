@@ -28,8 +28,9 @@ final class UsersRawService implements UsersRawContract
     /**
      * @api
      *
-     * Get OnlyFans Profile details for a given username. User details are retrieved using the current current `{account}` so fields like `subscribedOnData` which include potential subscription details will be included.
+     * Get OnlyFans Profile details for a given username. User details are retrieved using the current `{account}` so fields like `subscribedOnData` which include potential subscription details will be included.
      *
+     * @param string $username the OnlyFans username of the user to retrieve details for
      * @param array{account: string}|UserRetrieveParams $params
      * @param RequestOpts|null $requestOptions
      *

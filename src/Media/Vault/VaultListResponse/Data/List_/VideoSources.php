@@ -16,10 +16,10 @@ final class VideoSources implements BaseModel
     /** @use SdkModel<VideoSourcesShape> */
     use SdkModel;
 
-    #[Optional('240')]
+    #[Optional('240', nullable: true)]
     public ?string $_240;
 
-    #[Optional('720')]
+    #[Optional('720', nullable: true)]
     public ?string $_720;
 
     public function __construct()
@@ -32,8 +32,10 @@ final class VideoSources implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      */
-    public static function with(?string $_240 = null, ?string $_720 = null): self
-    {
+    public static function with(
+        ?string $_240 = null,
+        ?string $_720 = null
+    ): self {
         $self = new self;
 
         null !== $_240 && $self['_240'] = $_240;
@@ -42,7 +44,7 @@ final class VideoSources implements BaseModel
         return $self;
     }
 
-    public function with240(string $_240): self
+    public function with240(?string $_240): self
     {
         $self = clone $this;
         $self['_240'] = $_240;
@@ -50,7 +52,7 @@ final class VideoSources implements BaseModel
         return $self;
     }
 
-    public function with720(string $_720): self
+    public function with720(?string $_720): self
     {
         $self = clone $this;
         $self['_720'] = $_720;

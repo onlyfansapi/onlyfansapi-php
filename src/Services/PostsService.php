@@ -62,12 +62,12 @@ final class PostsService implements PostsContract
      *
      * @param string $account The Account ID
      * @param string $text The post text content
-     * @param int $expireDays Number of days after which the post will expire. Can be 1, 3, 7 or 30 days. Keep empty for no expiration.
+     * @param int $expireDays Number of days after which the post will expire. Between 1 and 30 days. Keep empty for no expiration.
      * @param int $fundRaisingTargetAmount Add a fundraising target to your post. If present, value must be at least 10.
      * @param list<string> $fundRaisingTipsPresets Specify which tip amounts will be listed under the fundraising card. Required with `fundRaisingTargetAmount`, and you must provide at least 1 option. Array items cannot be higher than the `fundRaisingTargetAmount`.
      * @param string $labelIDs Array of OF label IDs. Refer to our `/posts/labels` endpoint.
-     * @param string $mediaFiles Array of OFAPI `ofapi_media_` IDs, or OF media IDs
-     * @param list<string> $previews Array of media file upload prefixed_ids, or OF media IDs (required if price is not 0). Will be shown if `price` is provided. All `previews` values must also exist in the `mediaFiles` array.
+     * @param list<mixed> $mediaFiles direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs
+     * @param list<mixed> $previews Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices referencing uploaded files in `mediaFiles`. Will be shown if `price` is provided.
      * @param string $rfTag Array OnlyFans creator user IDs to tag in your post
      * @param bool $saveForLater add your post to the "Saved for later" queue
      * @param string $scheduledDate schedule your post in the future (UTC timezone)
@@ -86,7 +86,7 @@ final class PostsService implements PostsContract
         ?int $fundRaisingTargetAmount = null,
         ?array $fundRaisingTipsPresets = null,
         ?string $labelIDs = null,
-        ?string $mediaFiles = null,
+        ?array $mediaFiles = null,
         ?array $previews = null,
         ?string $rfTag = null,
         ?bool $saveForLater = null,
@@ -154,7 +154,7 @@ final class PostsService implements PostsContract
      * @param int $postID Path param: The ID of the post
      * @param string $account Path param: The Account ID
      * @param string $text Body param: The post text content
-     * @param int $expireDays Body param: Number of days after which the post will expire. Can be 1, 3, 7 or 30 days. Keep empty for no expiration.
+     * @param int $expireDays Body param: Number of days after which the post will expire. Between 1 and 30 days. Keep empty for no expiration.
      * @param int $fundRaisingTargetAmount Body param: Add a fundraising target to your post. If present, value must be at least 10.
      * @param list<string> $fundRaisingTipsPresets Body param: Specify which tip amounts will be listed under the fundraising card. Required with `fundRaisingTargetAmount`, and you must provide at least 1 option. Array items cannot be higher than the `fundRaisingTargetAmount`.
      * @param string $labelIDs Body param: Array of OF label IDs. Refer to our `/posts/labels` endpoint.

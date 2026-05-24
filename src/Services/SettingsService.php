@@ -14,8 +14,6 @@ use Onlyfansapi\Settings\SettingGetResponse;
 use Onlyfansapi\Settings\SettingUpdateProfileResponse;
 
 /**
- * Operations related to user account settings.
- *
  * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
  */
 final class SettingsService implements SettingsContract

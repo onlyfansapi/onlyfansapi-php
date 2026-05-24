@@ -511,7 +511,7 @@ final class Data implements BaseModel
     #[Optional]
     public ?string $ivCountry;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $ivFailReason;
 
     #[Optional]
@@ -529,7 +529,7 @@ final class Data implements BaseModel
     #[Optional]
     public ?string $lastSeen;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $location;
 
     #[Optional]
@@ -598,10 +598,10 @@ final class Data implements BaseModel
     #[Optional]
     public ?bool $showSubscribersCount;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribedByData;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $subscribedOnData;
 
     #[Optional]
@@ -683,7 +683,7 @@ final class Data implements BaseModel
     #[Optional]
     public ?string $website;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $wishlist;
 
     #[Optional]
@@ -1927,7 +1927,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withIvFailReason(string $ivFailReason): self
+    public function withIvFailReason(?string $ivFailReason): self
     {
         $self = clone $this;
         $self['ivFailReason'] = $ivFailReason;
@@ -1975,7 +1975,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withLocation(string $location): self
+    public function withLocation(?string $location): self
     {
         $self = clone $this;
         $self['location'] = $location;
@@ -2161,7 +2161,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withSubscribedByData(string $subscribedByData): self
+    public function withSubscribedByData(?string $subscribedByData): self
     {
         $self = clone $this;
         $self['subscribedByData'] = $subscribedByData;
@@ -2169,7 +2169,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withSubscribedOnData(string $subscribedOnData): self
+    public function withSubscribedOnData(?string $subscribedOnData): self
     {
         $self = clone $this;
         $self['subscribedOnData'] = $subscribedOnData;
@@ -2392,7 +2392,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withWishlist(string $wishlist): self
+    public function withWishlist(?string $wishlist): self
     {
         $self = clone $this;
         $self['wishlist'] = $wishlist;

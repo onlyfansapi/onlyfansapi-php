@@ -5,22 +5,33 @@ declare(strict_types=1);
 namespace Onlyfansapi\Search;
 
 use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
 use Onlyfansapi\Core\Concerns\SdkModel;
 use Onlyfansapi\Core\Concerns\SdkParams;
 use Onlyfansapi\Core\Contracts\BaseModel;
+use Onlyfansapi\Search\SearchProfilesParams\Filter;
+use Onlyfansapi\Search\SearchProfilesParams\Sort;
+use Onlyfansapi\Search\SearchProfilesParams\SortDirection;
 
 /**
  * Full-text search for profiles with filters for pricing, free trials, location, media count and more.
  *
  * @see Onlyfansapi\Services\SearchService::profiles()
  *
+ * @phpstan-import-type FilterShape from \Onlyfansapi\Search\SearchProfilesParams\Filter
+ *
  * @phpstan-type SearchProfilesParamsShape = array{
- *   query: string,
- *   limit?: string|null,
+ *   cursor?: string|null,
+ *   filter?: null|Filter|FilterShape,
+ *   instagram?: string|null,
+ *   limit?: int|null,
  *   location?: string|null,
- *   maxSubscribePrice?: string|null,
- *   minSubscribePrice?: string|null,
+ *   maxSubscribePrice?: float|null,
+ *   minSubscribePrice?: float|null,
+ *   query?: string|null,
+ *   sort?: null|Sort|value-of<Sort>,
+ *   sortDirection?: null|SortDirection|value-of<SortDirection>,
+ *   tiktok?: string|null,
+ *   website?: string|null,
  * }
  */
 final class SearchProfilesParams implements BaseModel
@@ -30,49 +41,78 @@ final class SearchProfilesParams implements BaseModel
     use SdkParams;
 
     /**
-     * Query for full text search in username, display name, bio.
+     * Cursor for pagination. Use the `next_cursor` from the previous response to get the next page of results.
      */
-    #[Required]
-    public string $query;
+    #[Optional(nullable: true)]
+    public ?string $cursor;
+
+    #[Optional]
+    public ?Filter $filter;
 
     /**
-     * The number of profiles to return. For each returned profile we charge your account 1 credit. Default: `10`.
+     * Filter by Instagram username.
      */
     #[Optional]
-    public ?string $limit;
+    public ?string $instagram;
 
     /**
-     * Location.
+     * The number of profiles to return. For each returned profile we charge your account 1 credit. Default: `10`. Must be at least 1. Must not be greater than 100.
+     */
+    #[Optional]
+    public ?int $limit;
+
+    /**
+     * Filter by location.
      */
     #[Optional]
     public ?string $location;
 
     /**
-     * Maximum subscribe price.
+     * Filter by maximum subscribe price. Must be at least 0.00.
      */
     #[Optional]
-    public ?string $maxSubscribePrice;
+    public ?float $maxSubscribePrice;
 
     /**
-     * Minimum subscribe price.
+     * Filter by minimum subscribe price. Must be at least 0.00.
      */
     #[Optional]
-    public ?string $minSubscribePrice;
+    public ?float $minSubscribePrice;
 
     /**
-     * `new SearchProfilesParams()` is missing required properties by the API.
-     *
-     * To enforce required parameters use
-     * ```
-     * SearchProfilesParams::with(query: ...)
-     * ```
-     *
-     * Otherwise ensure the following setters are called
-     *
-     * ```
-     * (new SearchProfilesParams)->withQuery(...)
-     * ```
+     * Query for full text search in username, display name, bio. Must be at least 3 characters.
      */
+    #[Optional]
+    public ?string $query;
+
+    /**
+     * Field to sort by. ⭐️ Only available on the Pro and Enterprise plan.
+     *
+     * @var value-of<Sort>|null $sort
+     */
+    #[Optional(enum: Sort::class)]
+    public ?string $sort;
+
+    /**
+     * Direction for sorting. `desc` - highest value first. `asc` - lowest value first.
+     *
+     * @var value-of<SortDirection>|null $sortDirection
+     */
+    #[Optional(enum: SortDirection::class)]
+    public ?string $sortDirection;
+
+    /**
+     * Filter by TikTok username.
+     */
+    #[Optional]
+    public ?string $tiktok;
+
+    /**
+     * Filter by website.
+     */
+    #[Optional]
+    public ?string $website;
+
     public function __construct()
     {
         $this->initialize();
@@ -82,41 +122,80 @@ final class SearchProfilesParams implements BaseModel
      * Construct an instance from the required parameters.
      *
      * You must use named parameters to construct any parameters with a default value.
+     *
+     * @param Filter|FilterShape|null $filter
+     * @param Sort|value-of<Sort>|null $sort
+     * @param SortDirection|value-of<SortDirection>|null $sortDirection
      */
     public static function with(
-        string $query,
-        ?string $limit = null,
+        ?string $cursor = null,
+        Filter|array|null $filter = null,
+        ?string $instagram = null,
+        ?int $limit = null,
         ?string $location = null,
-        ?string $maxSubscribePrice = null,
-        ?string $minSubscribePrice = null,
+        ?float $maxSubscribePrice = null,
+        ?float $minSubscribePrice = null,
+        ?string $query = null,
+        Sort|string|null $sort = null,
+        SortDirection|string|null $sortDirection = null,
+        ?string $tiktok = null,
+        ?string $website = null,
     ): self {
         $self = new self;
 
-        $self['query'] = $query;
-
+        null !== $cursor && $self['cursor'] = $cursor;
+        null !== $filter && $self['filter'] = $filter;
+        null !== $instagram && $self['instagram'] = $instagram;
         null !== $limit && $self['limit'] = $limit;
         null !== $location && $self['location'] = $location;
         null !== $maxSubscribePrice && $self['maxSubscribePrice'] = $maxSubscribePrice;
         null !== $minSubscribePrice && $self['minSubscribePrice'] = $minSubscribePrice;
+        null !== $query && $self['query'] = $query;
+        null !== $sort && $self['sort'] = $sort;
+        null !== $sortDirection && $self['sortDirection'] = $sortDirection;
+        null !== $tiktok && $self['tiktok'] = $tiktok;
+        null !== $website && $self['website'] = $website;
 
         return $self;
     }
 
     /**
-     * Query for full text search in username, display name, bio.
+     * Cursor for pagination. Use the `next_cursor` from the previous response to get the next page of results.
      */
-    public function withQuery(string $query): self
+    public function withCursor(?string $cursor): self
     {
         $self = clone $this;
-        $self['query'] = $query;
+        $self['cursor'] = $cursor;
 
         return $self;
     }
 
     /**
-     * The number of profiles to return. For each returned profile we charge your account 1 credit. Default: `10`.
+     * @param Filter|FilterShape $filter
      */
-    public function withLimit(string $limit): self
+    public function withFilter(Filter|array $filter): self
+    {
+        $self = clone $this;
+        $self['filter'] = $filter;
+
+        return $self;
+    }
+
+    /**
+     * Filter by Instagram username.
+     */
+    public function withInstagram(string $instagram): self
+    {
+        $self = clone $this;
+        $self['instagram'] = $instagram;
+
+        return $self;
+    }
+
+    /**
+     * The number of profiles to return. For each returned profile we charge your account 1 credit. Default: `10`. Must be at least 1. Must not be greater than 100.
+     */
+    public function withLimit(int $limit): self
     {
         $self = clone $this;
         $self['limit'] = $limit;
@@ -125,7 +204,7 @@ final class SearchProfilesParams implements BaseModel
     }
 
     /**
-     * Location.
+     * Filter by location.
      */
     public function withLocation(string $location): self
     {
@@ -136,9 +215,9 @@ final class SearchProfilesParams implements BaseModel
     }
 
     /**
-     * Maximum subscribe price.
+     * Filter by maximum subscribe price. Must be at least 0.00.
      */
-    public function withMaxSubscribePrice(string $maxSubscribePrice): self
+    public function withMaxSubscribePrice(float $maxSubscribePrice): self
     {
         $self = clone $this;
         $self['maxSubscribePrice'] = $maxSubscribePrice;
@@ -147,12 +226,71 @@ final class SearchProfilesParams implements BaseModel
     }
 
     /**
-     * Minimum subscribe price.
+     * Filter by minimum subscribe price. Must be at least 0.00.
      */
-    public function withMinSubscribePrice(string $minSubscribePrice): self
+    public function withMinSubscribePrice(float $minSubscribePrice): self
     {
         $self = clone $this;
         $self['minSubscribePrice'] = $minSubscribePrice;
+
+        return $self;
+    }
+
+    /**
+     * Query for full text search in username, display name, bio. Must be at least 3 characters.
+     */
+    public function withQuery(string $query): self
+    {
+        $self = clone $this;
+        $self['query'] = $query;
+
+        return $self;
+    }
+
+    /**
+     * Field to sort by. ⭐️ Only available on the Pro and Enterprise plan.
+     *
+     * @param Sort|value-of<Sort> $sort
+     */
+    public function withSort(Sort|string $sort): self
+    {
+        $self = clone $this;
+        $self['sort'] = $sort;
+
+        return $self;
+    }
+
+    /**
+     * Direction for sorting. `desc` - highest value first. `asc` - lowest value first.
+     *
+     * @param SortDirection|value-of<SortDirection> $sortDirection
+     */
+    public function withSortDirection(SortDirection|string $sortDirection): self
+    {
+        $self = clone $this;
+        $self['sortDirection'] = $sortDirection;
+
+        return $self;
+    }
+
+    /**
+     * Filter by TikTok username.
+     */
+    public function withTiktok(string $tiktok): self
+    {
+        $self = clone $this;
+        $self['tiktok'] = $tiktok;
+
+        return $self;
+    }
+
+    /**
+     * Filter by website.
+     */
+    public function withWebsite(string $website): self
+    {
+        $self = clone $this;
+        $self['website'] = $website;
 
         return $self;
     }

@@ -63,6 +63,7 @@ final class TrialLinksTest extends TestCase
             offerExpiration: 7,
             offerLimit: 7,
             name: 'name',
+            tags: ['string'],
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
@@ -114,7 +115,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->delete(
-            123456789,
+            'explicabo',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -130,7 +131,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->delete(
-            123456789,
+            'explicabo',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -181,7 +182,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->listSubscribers(
-            'excepturi',
+            'est',
             account: 'acct_XXXXXXXXXXXXXXX',
             limit: 10,
             offset: 0
@@ -199,7 +200,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->listSubscribers(
-            'excepturi',
+            'est',
             account: 'acct_XXXXXXXXXXXXXXX',
             limit: 10,
             offset: 0

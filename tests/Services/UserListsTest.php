@@ -40,7 +40,7 @@ final class UserListsTest extends TestCase
 
         $result = $this->client->userLists->create(
             'acct_XXXXXXXXXXXXXXX',
-            name: 'scyfotubmi'
+            name: 'iaxxxx'
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
@@ -56,7 +56,7 @@ final class UserListsTest extends TestCase
 
         $result = $this->client->userLists->create(
             'acct_XXXXXXXXXXXXXXX',
-            name: 'scyfotubmi'
+            name: 'iaxxxx'
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
@@ -71,9 +71,9 @@ final class UserListsTest extends TestCase
         }
 
         $result = $this->client->userLists->update(
-            1224114714,
+            'userListId',
             account: 'acct_XXXXXXXXXXXXXXX',
-            name: 'jqnoventcce'
+            name: 'My Updated List Name',
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
@@ -88,9 +88,10 @@ final class UserListsTest extends TestCase
         }
 
         $result = $this->client->userLists->update(
-            1224114714,
+            'userListId',
             account: 'acct_XXXXXXXXXXXXXXX',
-            name: 'jqnoventcce'
+            name: 'My Updated List Name',
+            isPinnedToFeed: true,
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
@@ -118,7 +119,7 @@ final class UserListsTest extends TestCase
         }
 
         $result = $this->client->userLists->delete(
-            1224114714,
+            'userListId',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -134,7 +135,7 @@ final class UserListsTest extends TestCase
         }
 
         $result = $this->client->userLists->delete(
-            1224114714,
+            'userListId',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 

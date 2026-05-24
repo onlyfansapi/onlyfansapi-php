@@ -27,13 +27,13 @@ final class Files implements BaseModel
     #[Optional]
     public ?Full $full;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $preview;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $squarePreview;
 
-    #[Optional]
+    #[Optional(nullable: true)]
     public ?string $thumb;
 
     public function __construct()
@@ -75,7 +75,7 @@ final class Files implements BaseModel
         return $self;
     }
 
-    public function withPreview(string $preview): self
+    public function withPreview(?string $preview): self
     {
         $self = clone $this;
         $self['preview'] = $preview;
@@ -83,7 +83,7 @@ final class Files implements BaseModel
         return $self;
     }
 
-    public function withSquarePreview(string $squarePreview): self
+    public function withSquarePreview(?string $squarePreview): self
     {
         $self = clone $this;
         $self['squarePreview'] = $squarePreview;
@@ -91,7 +91,7 @@ final class Files implements BaseModel
         return $self;
     }
 
-    public function withThumb(string $thumb): self
+    public function withThumb(?string $thumb): self
     {
         $self = clone $this;
         $self['thumb'] = $thumb;
