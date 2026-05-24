@@ -6,13 +6,13 @@ namespace Onlyfansapi\ServiceContracts\Posts;
 
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Posts\Comments\CommentDeleteResponse;
-use Onlyfansapi\Posts\Comments\CommentLikeCommentResponse;
+use Onlyfansapi\Posts\Comments\CommentLikeResponse;
 use Onlyfansapi\Posts\Comments\CommentListParams\Sort;
 use Onlyfansapi\Posts\Comments\CommentListResponse;
 use Onlyfansapi\Posts\Comments\CommentNewResponse;
-use Onlyfansapi\Posts\Comments\CommentPinCommentResponse;
-use Onlyfansapi\Posts\Comments\CommentUnlikeCommentResponse;
-use Onlyfansapi\Posts\Comments\CommentUnpinCommentResponse;
+use Onlyfansapi\Posts\Comments\CommentPinResponse;
+use Onlyfansapi\Posts\Comments\CommentUnlikeResponse;
+use Onlyfansapi\Posts\Comments\CommentUnpinResponse;
 use Onlyfansapi\RequestOptions;
 
 /**
@@ -89,12 +89,12 @@ interface CommentsContract
      *
      * @throws APIException
      */
-    public function likeComment(
+    public function like(
         int $commentID,
         string $account,
         int $postID,
         RequestOptions|array|null $requestOptions = null,
-    ): CommentLikeCommentResponse;
+    ): CommentLikeResponse;
 
     /**
      * @api
@@ -106,12 +106,12 @@ interface CommentsContract
      *
      * @throws APIException
      */
-    public function pinComment(
+    public function pin(
         int $commentID,
         string $account,
         int $postID,
         RequestOptions|array|null $requestOptions = null,
-    ): CommentPinCommentResponse;
+    ): CommentPinResponse;
 
     /**
      * @api
@@ -123,12 +123,12 @@ interface CommentsContract
      *
      * @throws APIException
      */
-    public function unlikeComment(
+    public function unlike(
         int $commentID,
         string $account,
         int $postID,
         RequestOptions|array|null $requestOptions = null,
-    ): CommentUnlikeCommentResponse;
+    ): CommentUnlikeResponse;
 
     /**
      * @api
@@ -140,10 +140,10 @@ interface CommentsContract
      *
      * @throws APIException
      */
-    public function unpinComment(
+    public function unpin(
         int $commentID,
         string $account,
         int $postID,
         RequestOptions|array|null $requestOptions = null,
-    ): CommentUnpinCommentResponse;
+    ): CommentUnpinResponse;
 }

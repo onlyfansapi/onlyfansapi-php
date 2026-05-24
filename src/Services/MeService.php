@@ -8,6 +8,7 @@ use Onlyfansapi\Client;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Me\MeGetModelStartDateResponse;
 use Onlyfansapi\Me\MeGetResponse;
+use Onlyfansapi\Me\MeGetTopPercentageResponse;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\MeContract;
 
@@ -67,6 +68,26 @@ final class MeService implements MeContract
     ): MeGetModelStartDateResponse {
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->getModelStartDate($account, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Get the top percentage of the model (e.g., top 0.02% of all creators)
+     *
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function getTopPercentage(
+        string $account,
+        RequestOptions|array|null $requestOptions = null
+    ): MeGetTopPercentageResponse {
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->getTopPercentage($account, requestOptions: $requestOptions);
 
         return $response->parse();
     }

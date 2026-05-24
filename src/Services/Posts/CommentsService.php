@@ -8,13 +8,13 @@ use Onlyfansapi\Client;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Core\Util;
 use Onlyfansapi\Posts\Comments\CommentDeleteResponse;
-use Onlyfansapi\Posts\Comments\CommentLikeCommentResponse;
+use Onlyfansapi\Posts\Comments\CommentLikeResponse;
 use Onlyfansapi\Posts\Comments\CommentListParams\Sort;
 use Onlyfansapi\Posts\Comments\CommentListResponse;
 use Onlyfansapi\Posts\Comments\CommentNewResponse;
-use Onlyfansapi\Posts\Comments\CommentPinCommentResponse;
-use Onlyfansapi\Posts\Comments\CommentUnlikeCommentResponse;
-use Onlyfansapi\Posts\Comments\CommentUnpinCommentResponse;
+use Onlyfansapi\Posts\Comments\CommentPinResponse;
+use Onlyfansapi\Posts\Comments\CommentUnlikeResponse;
+use Onlyfansapi\Posts\Comments\CommentUnpinResponse;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\Posts\CommentsContract;
 
@@ -148,16 +148,16 @@ final class CommentsService implements CommentsContract
      *
      * @throws APIException
      */
-    public function likeComment(
+    public function like(
         int $commentID,
         string $account,
         int $postID,
         RequestOptions|array|null $requestOptions = null,
-    ): CommentLikeCommentResponse {
+    ): CommentLikeResponse {
         $params = Util::removeNulls(['account' => $account, 'postID' => $postID]);
 
         // @phpstan-ignore-next-line argument.type
-        $response = $this->raw->likeComment($commentID, params: $params, requestOptions: $requestOptions);
+        $response = $this->raw->like($commentID, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }
@@ -174,16 +174,16 @@ final class CommentsService implements CommentsContract
      *
      * @throws APIException
      */
-    public function pinComment(
+    public function pin(
         int $commentID,
         string $account,
         int $postID,
         RequestOptions|array|null $requestOptions = null,
-    ): CommentPinCommentResponse {
+    ): CommentPinResponse {
         $params = Util::removeNulls(['account' => $account, 'postID' => $postID]);
 
         // @phpstan-ignore-next-line argument.type
-        $response = $this->raw->pinComment($commentID, params: $params, requestOptions: $requestOptions);
+        $response = $this->raw->pin($commentID, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }
@@ -200,16 +200,16 @@ final class CommentsService implements CommentsContract
      *
      * @throws APIException
      */
-    public function unlikeComment(
+    public function unlike(
         int $commentID,
         string $account,
         int $postID,
         RequestOptions|array|null $requestOptions = null,
-    ): CommentUnlikeCommentResponse {
+    ): CommentUnlikeResponse {
         $params = Util::removeNulls(['account' => $account, 'postID' => $postID]);
 
         // @phpstan-ignore-next-line argument.type
-        $response = $this->raw->unlikeComment($commentID, params: $params, requestOptions: $requestOptions);
+        $response = $this->raw->unlike($commentID, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }
@@ -226,16 +226,16 @@ final class CommentsService implements CommentsContract
      *
      * @throws APIException
      */
-    public function unpinComment(
+    public function unpin(
         int $commentID,
         string $account,
         int $postID,
         RequestOptions|array|null $requestOptions = null,
-    ): CommentUnpinCommentResponse {
+    ): CommentUnpinResponse {
         $params = Util::removeNulls(['account' => $account, 'postID' => $postID]);
 
         // @phpstan-ignore-next-line argument.type
-        $response = $this->raw->unpinComment($commentID, params: $params, requestOptions: $requestOptions);
+        $response = $this->raw->unpin($commentID, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }

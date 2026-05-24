@@ -7,8 +7,8 @@ use Onlyfansapi\Core\Util;
 use Onlyfansapi\Payouts\PayoutGetBalancesResponse;
 use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse;
 use Onlyfansapi\Payouts\PayoutGetEligibilityResponse;
-use Onlyfansapi\Payouts\PayoutListPayoutRequestsResponse;
-use Onlyfansapi\Payouts\PayoutUpdatePayoutFrequencyResponse;
+use Onlyfansapi\Payouts\PayoutListRequestsResponse;
+use Onlyfansapi\Payouts\PayoutUpdateFrequencyResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -33,18 +33,16 @@ final class PayoutsTest extends TestCase
     }
 
     #[Test]
-    public function testListPayoutRequests(): void
+    public function testListRequests(): void
     {
         if (UnsupportedMockTests::$skip) {
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->payouts->listPayoutRequests(
-            'acct_XXXXXXXXXXXXXXX'
-        );
+        $result = $this->client->payouts->listRequests('acct_XXXXXXXXXXXXXXX');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(PayoutListPayoutRequestsResponse::class, $result);
+        $this->assertInstanceOf(PayoutListRequestsResponse::class, $result);
     }
 
     #[Test]
@@ -123,40 +121,34 @@ final class PayoutsTest extends TestCase
     }
 
     #[Test]
-    public function testUpdatePayoutFrequency(): void
+    public function testUpdateFrequency(): void
     {
         if (UnsupportedMockTests::$skip) {
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->payouts->updatePayoutFrequency(
+        $result = $this->client->payouts->updateFrequency(
             'acct_XXXXXXXXXXXXXXX',
             frequency: 'manual'
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(
-            PayoutUpdatePayoutFrequencyResponse::class,
-            $result
-        );
+        $this->assertInstanceOf(PayoutUpdateFrequencyResponse::class, $result);
     }
 
     #[Test]
-    public function testUpdatePayoutFrequencyWithOptionalParams(): void
+    public function testUpdateFrequencyWithOptionalParams(): void
     {
         if (UnsupportedMockTests::$skip) {
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->payouts->updatePayoutFrequency(
+        $result = $this->client->payouts->updateFrequency(
             'acct_XXXXXXXXXXXXXXX',
             frequency: 'manual'
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(
-            PayoutUpdatePayoutFrequencyResponse::class,
-            $result
-        );
+        $this->assertInstanceOf(PayoutUpdateFrequencyResponse::class, $result);
     }
 }

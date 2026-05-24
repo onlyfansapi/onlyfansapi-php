@@ -15,7 +15,7 @@ use Onlyfansapi\Core\Contracts\BaseModel;
  * @see Onlyfansapi\Services\AuthenticateService::submit2fa()
  *
  * @phpstan-type AuthenticateSubmit2faParamsShape = array{
- *   code?: string|null, selfieVerificationCompleted?: bool|null
+ *   code?: string|null, selfieVerificationCompleted?: mixed
  * }
  */
 final class AuthenticateSubmit2faParams implements BaseModel
@@ -34,7 +34,7 @@ final class AuthenticateSubmit2faParams implements BaseModel
      * This field is required when <code>code</code> is not present.
      */
     #[Optional('selfie_verification_completed')]
-    public ?bool $selfieVerificationCompleted;
+    public mixed $selfieVerificationCompleted;
 
     public function __construct()
     {
@@ -48,7 +48,7 @@ final class AuthenticateSubmit2faParams implements BaseModel
      */
     public static function with(
         ?string $code = null,
-        ?bool $selfieVerificationCompleted = null
+        mixed $selfieVerificationCompleted = null
     ): self {
         $self = new self;
 
@@ -73,7 +73,7 @@ final class AuthenticateSubmit2faParams implements BaseModel
      * This field is required when <code>code</code> is not present.
      */
     public function withSelfieVerificationCompleted(
-        bool $selfieVerificationCompleted
+        mixed $selfieVerificationCompleted
     ): self {
         $self = clone $this;
         $self['selfieVerificationCompleted'] = $selfieVerificationCompleted;

@@ -13,6 +13,11 @@ use Onlyfansapi\ServiceContracts\TrackingLinksRawContract;
 use Onlyfansapi\TrackingLinks\TrackingLinkCreateParams;
 use Onlyfansapi\TrackingLinks\TrackingLinkDeleteParams;
 use Onlyfansapi\TrackingLinks\TrackingLinkDeleteResponse;
+use Onlyfansapi\TrackingLinks\TrackingLinkGetCohortArpsParams;
+use Onlyfansapi\TrackingLinks\TrackingLinkGetCohortArpsParams\RevenueBasis;
+use Onlyfansapi\TrackingLinks\TrackingLinkGetResponse;
+use Onlyfansapi\TrackingLinks\TrackingLinkGetStatsParams;
+use Onlyfansapi\TrackingLinks\TrackingLinkGetStatsResponse;
 use Onlyfansapi\TrackingLinks\TrackingLinkListParams;
 use Onlyfansapi\TrackingLinks\TrackingLinkListParams\Sort;
 use Onlyfansapi\TrackingLinks\TrackingLinkListParams\Sortby;
@@ -22,6 +27,7 @@ use Onlyfansapi\TrackingLinks\TrackingLinkListSpendersResponse;
 use Onlyfansapi\TrackingLinks\TrackingLinkListSubscribersParams;
 use Onlyfansapi\TrackingLinks\TrackingLinkListSubscribersResponse;
 use Onlyfansapi\TrackingLinks\TrackingLinkNewResponse;
+use Onlyfansapi\TrackingLinks\TrackingLinkRetrieveParams;
 
 /**
  * APIs for managing tracking links.
@@ -66,6 +72,40 @@ final class TrackingLinksRawService implements TrackingLinksRawContract
             body: (object) $parsed,
             options: $options,
             convert: TrackingLinkNewResponse::class,
+        );
+    }
+
+    /**
+     * @api
+     *
+     * Get individual Tracking Link details and it's revenue data
+     *
+     * @param string $trackingLinkID the ID of the tracking link
+     * @param array{account: string}|TrackingLinkRetrieveParams $params
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<TrackingLinkGetResponse>
+     *
+     * @throws APIException
+     */
+    public function retrieve(
+        string $trackingLinkID,
+        array|TrackingLinkRetrieveParams $params,
+        RequestOptions|array|null $requestOptions = null,
+    ): BaseResponse {
+        [$parsed, $options] = TrackingLinkRetrieveParams::parseRequest(
+            $params,
+            $requestOptions,
+        );
+        $account = $parsed['account'];
+        unset($parsed['account']);
+
+        // @phpstan-ignore-next-line return.type
+        return $this->client->request(
+            method: 'get',
+            path: ['api/%1$s/tracking-links/%2$s', $account, $trackingLinkID],
+            options: $options,
+            convert: TrackingLinkGetResponse::class,
         );
     }
 
@@ -145,6 +185,93 @@ final class TrackingLinksRawService implements TrackingLinksRawContract
             path: ['api/%1$s/tracking-links/%2$s', $account, $trackingLinkID],
             options: $options,
             convert: TrackingLinkDeleteResponse::class,
+        );
+    }
+
+    /**
+     * @api
+     *
+     * Get per-link time-to-profit cohort ARPS windows for a specific Tracking Link
+     *
+     * @param string $trackingLinkID path param: The ID of the tracking link
+     * @param array{
+     *   account: string,
+     *   acquisitionEnd?: string,
+     *   acquisitionStart?: string,
+     *   revenueBasis?: RevenueBasis|value-of<RevenueBasis>,
+     * }|TrackingLinkGetCohortArpsParams $params
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<mixed>
+     *
+     * @throws APIException
+     */
+    public function getCohortArps(
+        string $trackingLinkID,
+        array|TrackingLinkGetCohortArpsParams $params,
+        RequestOptions|array|null $requestOptions = null,
+    ): BaseResponse {
+        [$parsed, $options] = TrackingLinkGetCohortArpsParams::parseRequest(
+            $params,
+            $requestOptions,
+        );
+        $account = $parsed['account'];
+        unset($parsed['account']);
+
+        // @phpstan-ignore-next-line return.type
+        return $this->client->request(
+            method: 'get',
+            path: [
+                'api/%1$s/tracking-links/%2$s/cohort-arps', $account, $trackingLinkID,
+            ],
+            query: Util::array_transform_keys(
+                $parsed,
+                [
+                    'acquisitionEnd' => 'acquisition_end',
+                    'acquisitionStart' => 'acquisition_start',
+                    'revenueBasis' => 'revenue_basis',
+                ],
+            ),
+            options: $options,
+            convert: null,
+        );
+    }
+
+    /**
+     * @api
+     *
+     * @param string $trackingLinkID path param: The ID of the tracking link
+     * @param array{
+     *   account: string, dateEnd?: string, dateStart?: string
+     * }|TrackingLinkGetStatsParams $params
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<TrackingLinkGetStatsResponse>
+     *
+     * @throws APIException
+     */
+    public function getStats(
+        string $trackingLinkID,
+        array|TrackingLinkGetStatsParams $params,
+        RequestOptions|array|null $requestOptions = null,
+    ): BaseResponse {
+        [$parsed, $options] = TrackingLinkGetStatsParams::parseRequest(
+            $params,
+            $requestOptions,
+        );
+        $account = $parsed['account'];
+        unset($parsed['account']);
+
+        // @phpstan-ignore-next-line return.type
+        return $this->client->request(
+            method: 'get',
+            path: ['api/%1$s/tracking-links/%2$s/stats', $account, $trackingLinkID],
+            query: Util::array_transform_keys(
+                $parsed,
+                ['dateEnd' => 'date_end', 'dateStart' => 'date_start']
+            ),
+            options: $options,
+            convert: TrackingLinkGetStatsResponse::class,
         );
     }
 

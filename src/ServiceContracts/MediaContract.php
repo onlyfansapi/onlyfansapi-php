@@ -20,6 +20,21 @@ interface MediaContract
     /**
      * @api
      *
+     * @param string $cdnURL Optional parameter. The CDN URL to scrape. **Keep in mind that these URLs expire in approx. 20 minutes.** So for example, if you fetched Media Vault Items at 01:00pm, the URLs will expire at around 01:20pm
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function download(
+        string $cdnURL,
+        string $account,
+        RequestOptions|array|null $requestOptions = null,
+    ): string;
+
+    /**
+     * @api
+     *
      * @param string $account The Account ID
      * @param string|null $expirationDate The expiration date of our returned `temporary_url`. Default of 5 minutes. Must be null if `public` is true.
      * @param FileType|value-of<FileType>|null $fileType The file type to scrape. Only allowed when using `media_id`.

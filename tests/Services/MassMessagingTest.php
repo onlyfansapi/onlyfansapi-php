@@ -5,8 +5,9 @@ namespace Tests\Services;
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Util;
 use Onlyfansapi\MassMessaging\MassMessagingDeleteResponse;
+use Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse;
 use Onlyfansapi\MassMessaging\MassMessagingGetResponse;
-use Onlyfansapi\MassMessaging\MassMessagingListQueueResponse;
+use Onlyfansapi\MassMessaging\MassMessagingListResponse;
 use Onlyfansapi\MassMessaging\MassMessagingSendResponse;
 use Onlyfansapi\MassMessaging\MassMessagingUpdateResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
@@ -109,6 +110,19 @@ final class MassMessagingTest extends TestCase
     }
 
     #[Test]
+    public function testList(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->massMessaging->list('acct_XXXXXXXXXXXXXXX');
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(MassMessagingListResponse::class, $result);
+    }
+
+    #[Test]
     public function testDelete(): void
     {
         if (UnsupportedMockTests::$skip) {
@@ -141,16 +155,18 @@ final class MassMessagingTest extends TestCase
     }
 
     #[Test]
-    public function testListQueue(): void
+    public function testRetrieveOverview(): void
     {
         if (UnsupportedMockTests::$skip) {
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->massMessaging->listQueue('acct_XXXXXXXXXXXXXXX');
+        $result = $this->client->massMessaging->retrieveOverview(
+            'acct_XXXXXXXXXXXXXXX'
+        );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(MassMessagingListQueueResponse::class, $result);
+        $this->assertInstanceOf(MassMessagingGetOverviewResponse::class, $result);
     }
 
     #[Test]

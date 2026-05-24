@@ -6,6 +6,7 @@ namespace Onlyfansapi\ServiceContracts;
 
 use Onlyfansapi\Authenticate\AuthenticatePollStatusResponse;
 use Onlyfansapi\Authenticate\AuthenticateReauthenticateResponse;
+use Onlyfansapi\Authenticate\AuthenticateSend2faEmailResponse;
 use Onlyfansapi\Authenticate\AuthenticateStartParams;
 use Onlyfansapi\Authenticate\AuthenticateStartResponse\UnionMember0;
 use Onlyfansapi\Authenticate\AuthenticateStartResponse\UnionMember1;
@@ -47,6 +48,21 @@ interface AuthenticateRawContract
      */
     public function reauthenticate(
         string $accountID,
+        RequestOptions|array|null $requestOptions = null
+    ): BaseResponse;
+
+    /**
+     * @api
+     *
+     * @param string $attemptID The attempt ID of the authentication process
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<AuthenticateSend2faEmailResponse>
+     *
+     * @throws APIException
+     */
+    public function send2faEmail(
+        string $attemptID,
         RequestOptions|array|null $requestOptions = null
     ): BaseResponse;
 

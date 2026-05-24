@@ -10,11 +10,11 @@ use Onlyfansapi\Core\Util;
 use Onlyfansapi\Payouts\PayoutGetBalancesResponse;
 use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse;
 use Onlyfansapi\Payouts\PayoutGetEligibilityResponse;
-use Onlyfansapi\Payouts\PayoutListPayoutRequestsResponse;
+use Onlyfansapi\Payouts\PayoutListRequestsResponse;
 use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember0;
 use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1;
-use Onlyfansapi\Payouts\PayoutUpdatePayoutFrequencyParams\Frequency;
-use Onlyfansapi\Payouts\PayoutUpdatePayoutFrequencyResponse;
+use Onlyfansapi\Payouts\PayoutUpdateFrequencyParams\Frequency;
+use Onlyfansapi\Payouts\PayoutUpdateFrequencyResponse;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\PayoutsContract;
 
@@ -48,16 +48,16 @@ final class PayoutsService implements PayoutsContract
      *
      * @throws APIException
      */
-    public function listPayoutRequests(
+    public function listRequests(
         string $account,
         ?string $limit = null,
         ?string $offset = null,
         RequestOptions|array|null $requestOptions = null,
-    ): PayoutListPayoutRequestsResponse {
+    ): PayoutListRequestsResponse {
         $params = Util::removeNulls(['limit' => $limit, 'offset' => $offset]);
 
         // @phpstan-ignore-next-line argument.type
-        $response = $this->raw->listPayoutRequests($account, params: $params, requestOptions: $requestOptions);
+        $response = $this->raw->listRequests($account, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }
@@ -165,15 +165,15 @@ final class PayoutsService implements PayoutsContract
      *
      * @throws APIException
      */
-    public function updatePayoutFrequency(
+    public function updateFrequency(
         string $account,
         Frequency|string $frequency,
         RequestOptions|array|null $requestOptions = null,
-    ): PayoutUpdatePayoutFrequencyResponse {
+    ): PayoutUpdateFrequencyResponse {
         $params = Util::removeNulls(['frequency' => $frequency]);
 
         // @phpstan-ignore-next-line argument.type
-        $response = $this->raw->updatePayoutFrequency($account, params: $params, requestOptions: $requestOptions);
+        $response = $this->raw->updateFrequency($account, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }

@@ -10,6 +10,10 @@ use Onlyfansapi\RequestOptions;
 use Onlyfansapi\TrackingLinks\TrackingLinkCreateParams;
 use Onlyfansapi\TrackingLinks\TrackingLinkDeleteParams;
 use Onlyfansapi\TrackingLinks\TrackingLinkDeleteResponse;
+use Onlyfansapi\TrackingLinks\TrackingLinkGetCohortArpsParams;
+use Onlyfansapi\TrackingLinks\TrackingLinkGetResponse;
+use Onlyfansapi\TrackingLinks\TrackingLinkGetStatsParams;
+use Onlyfansapi\TrackingLinks\TrackingLinkGetStatsResponse;
 use Onlyfansapi\TrackingLinks\TrackingLinkListParams;
 use Onlyfansapi\TrackingLinks\TrackingLinkListResponse;
 use Onlyfansapi\TrackingLinks\TrackingLinkListSpendersParams;
@@ -17,6 +21,7 @@ use Onlyfansapi\TrackingLinks\TrackingLinkListSpendersResponse;
 use Onlyfansapi\TrackingLinks\TrackingLinkListSubscribersParams;
 use Onlyfansapi\TrackingLinks\TrackingLinkListSubscribersResponse;
 use Onlyfansapi\TrackingLinks\TrackingLinkNewResponse;
+use Onlyfansapi\TrackingLinks\TrackingLinkRetrieveParams;
 
 /**
  * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
@@ -37,6 +42,23 @@ interface TrackingLinksRawContract
     public function create(
         string $account,
         array|TrackingLinkCreateParams $params,
+        RequestOptions|array|null $requestOptions = null,
+    ): BaseResponse;
+
+    /**
+     * @api
+     *
+     * @param string $trackingLinkID the ID of the tracking link
+     * @param array<string,mixed>|TrackingLinkRetrieveParams $params
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<TrackingLinkGetResponse>
+     *
+     * @throws APIException
+     */
+    public function retrieve(
+        string $trackingLinkID,
+        array|TrackingLinkRetrieveParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse;
 
@@ -71,6 +93,40 @@ interface TrackingLinksRawContract
     public function delete(
         string $trackingLinkID,
         array|TrackingLinkDeleteParams $params,
+        RequestOptions|array|null $requestOptions = null,
+    ): BaseResponse;
+
+    /**
+     * @api
+     *
+     * @param string $trackingLinkID path param: The ID of the tracking link
+     * @param array<string,mixed>|TrackingLinkGetCohortArpsParams $params
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<mixed>
+     *
+     * @throws APIException
+     */
+    public function getCohortArps(
+        string $trackingLinkID,
+        array|TrackingLinkGetCohortArpsParams $params,
+        RequestOptions|array|null $requestOptions = null,
+    ): BaseResponse;
+
+    /**
+     * @api
+     *
+     * @param string $trackingLinkID path param: The ID of the tracking link
+     * @param array<string,mixed>|TrackingLinkGetStatsParams $params
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<TrackingLinkGetStatsResponse>
+     *
+     * @throws APIException
+     */
+    public function getStats(
+        string $trackingLinkID,
+        array|TrackingLinkGetStatsParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse;
 

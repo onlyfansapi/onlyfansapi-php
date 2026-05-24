@@ -6,7 +6,11 @@ namespace Onlyfansapi\ServiceContracts;
 
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\RequestOptions;
+use Onlyfansapi\Webhooks\WebhookGetResponse;
+use Onlyfansapi\Webhooks\WebhookListEventsResponse;
+use Onlyfansapi\Webhooks\WebhookListResponse;
 use Onlyfansapi\Webhooks\WebhookNewResponse;
+use Onlyfansapi\Webhooks\WebhookUpdateResponse;
 
 /**
  * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
@@ -42,8 +46,68 @@ interface WebhooksContract
      *
      * @throws APIException
      */
+    public function retrieve(
+        string $webhookID,
+        RequestOptions|array|null $requestOptions = null
+    ): WebhookGetResponse;
+
+    /**
+     * @api
+     *
+     * @param string $webhookID The ID of the webhook
+     * @param string $accountScope The account scope for the webhook. Use "global" for all accounts, "inclusive" for only selected accounts, or "exclusive" for all except selected accounts.
+     * @param string $endpointURL the URL of your webhook endpoint
+     * @param list<string> $events An array of webhook events to subscribe to. For all options, refer to our **List Available Events** endpoint.
+     * @param list<string> $accountIDs An array of account IDs to apply the scope to. Required unless account_scope is "global".
+     * @param bool|null $enabled Optionally, enabled/disable the webhook. This will stop/resume the sending of events, without having to delete the webhook.
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function update(
+        string $webhookID,
+        string $accountScope,
+        string $endpointURL,
+        array $events,
+        ?array $accountIDs = null,
+        ?bool $enabled = null,
+        RequestOptions|array|null $requestOptions = null,
+    ): WebhookUpdateResponse;
+
+    /**
+     * @api
+     *
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function list(
+        RequestOptions|array|null $requestOptions = null
+    ): WebhookListResponse;
+
+    /**
+     * @api
+     *
+     * @param string $webhookID The ID of the webhook
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return array<string,mixed>
+     *
+     * @throws APIException
+     */
     public function delete(
         string $webhookID,
         RequestOptions|array|null $requestOptions = null
-    ): mixed;
+    ): array;
+
+    /**
+     * @api
+     *
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function listEvents(
+        RequestOptions|array|null $requestOptions = null
+    ): WebhookListEventsResponse;
 }

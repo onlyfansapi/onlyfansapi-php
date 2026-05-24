@@ -38,10 +38,12 @@ interface AccountsContract
      * @param string $id the ID of the account
      * @param RequestOpts|null $requestOptions
      *
+     * @return array<string,mixed>
+     *
      * @throws APIException
      */
     public function disconnect(
         string $id,
         RequestOptions|array|null $requestOptions = null
-    ): mixed;
+    ): array;
 }

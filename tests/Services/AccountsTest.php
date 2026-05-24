@@ -50,6 +50,6 @@ final class AccountsTest extends TestCase
         $result = $this->client->accounts->disconnect('minima');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertIsNotResource($result);
+        $this->assertIsArray($result);
     }
 }

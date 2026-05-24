@@ -5,6 +5,8 @@ namespace Tests\Services;
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Util;
 use Onlyfansapi\TrialLinks\TrialLinkDeleteResponse;
+use Onlyfansapi\TrialLinks\TrialLinkGetResponse;
+use Onlyfansapi\TrialLinks\TrialLinkGetStatsResponse;
 use Onlyfansapi\TrialLinks\TrialLinkListResponse;
 use Onlyfansapi\TrialLinks\TrialLinkListSpendersResponse;
 use Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse;
@@ -68,6 +70,38 @@ final class TrialLinksTest extends TestCase
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(TrialLinkNewResponse::class, $result);
+    }
+
+    #[Test]
+    public function testRetrieve(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->trialLinks->retrieve(
+            'explicabo',
+            account: 'acct_XXXXXXXXXXXXXXX'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(TrialLinkGetResponse::class, $result);
+    }
+
+    #[Test]
+    public function testRetrieveWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->trialLinks->retrieve(
+            'explicabo',
+            account: 'acct_XXXXXXXXXXXXXXX'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(TrialLinkGetResponse::class, $result);
     }
 
     #[Test]
@@ -208,5 +242,74 @@ final class TrialLinksTest extends TestCase
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(TrialLinkListSubscribersResponse::class, $result);
+    }
+
+    #[Test]
+    public function testRetrieveCohortArps(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->trialLinks->retrieveCohortArps(
+            'aut',
+            account: 'acct_XXXXXXXXXXXXXXX'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertNull($result);
+    }
+
+    #[Test]
+    public function testRetrieveCohortArpsWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->trialLinks->retrieveCohortArps(
+            'aut',
+            account: 'acct_XXXXXXXXXXXXXXX',
+            acquisitionEnd: '2026-01-31T23:59:59Z',
+            acquisitionStart: '2026-01-01T00:00:00Z',
+            revenueBasis: 'net',
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertNull($result);
+    }
+
+    #[Test]
+    public function testRetrieveStats(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->trialLinks->retrieveStats(
+            'necessitatibus',
+            account: 'acct_XXXXXXXXXXXXXXX'
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(TrialLinkGetStatsResponse::class, $result);
+    }
+
+    #[Test]
+    public function testRetrieveStatsWithOptionalParams(): void
+    {
+        if (UnsupportedMockTests::$skip) {
+            $this->markTestSkipped('Mock server tests are disabled');
+        }
+
+        $result = $this->client->trialLinks->retrieveStats(
+            'necessitatibus',
+            account: 'acct_XXXXXXXXXXXXXXX',
+            dateEnd: '2026-01-31T23:59:59Z',
+            dateStart: '2026-01-01T00:00:00Z',
+        );
+
+        // @phpstan-ignore-next-line method.alreadyNarrowedType
+        $this->assertInstanceOf(TrialLinkGetStatsResponse::class, $result);
     }
 }

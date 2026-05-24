@@ -7,6 +7,10 @@ namespace Onlyfansapi\ServiceContracts\UserLists;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\UserLists\Users\UserAddResponse;
+use Onlyfansapi\UserLists\Users\UserClearResponse;
+use Onlyfansapi\UserLists\Users\UserListPinnedResponse;
+use Onlyfansapi\UserLists\Users\UserListResponse;
+use Onlyfansapi\UserLists\Users\UserPinResponse;
 use Onlyfansapi\UserLists\Users\UserRemoveResponse;
 
 /**
@@ -14,6 +18,25 @@ use Onlyfansapi\UserLists\Users\UserRemoveResponse;
  */
 interface UsersContract
 {
+    /**
+     * @api
+     *
+     * @param string $userListID Path param: OnlyFans User List ID, or a default list name like `tagged`
+     * @param string $account Path param: The Account ID
+     * @param string $limit Query param: Number of users to return (1 - 100). Default = 10
+     * @param string $offset Query param: Number of users to skip for pagination
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function list(
+        string $userListID,
+        string $account,
+        ?string $limit = null,
+        ?string $offset = null,
+        RequestOptions|array|null $requestOptions = null,
+    ): UserListResponse;
+
     /**
      * @api
      *
@@ -30,6 +53,57 @@ interface UsersContract
         array $ids,
         RequestOptions|array|null $requestOptions = null,
     ): UserAddResponse;
+
+    /**
+     * @api
+     *
+     * @param string $userListID OnlyFans User List ID, or a default list name like `tagged`
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function clear(
+        string $userListID,
+        string $account,
+        RequestOptions|array|null $requestOptions = null,
+    ): UserClearResponse;
+
+    /**
+     * @api
+     *
+     * @param string $userListID Path param: OnlyFans User List ID, or a default list name like `friends`
+     * @param string $account Path param: The Account ID
+     * @param string $limit Query param: Number of users to return (1 - 100). Default = 10
+     * @param string $offset Query param: Number of users to skip for pagination
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function listPinned(
+        string $userListID,
+        string $account,
+        ?string $limit = null,
+        ?string $offset = null,
+        RequestOptions|array|null $requestOptions = null,
+    ): UserListPinnedResponse;
+
+    /**
+     * @api
+     *
+     * @param int $userID OnlyFans User ID to pin or unpin
+     * @param string $account The Account ID
+     * @param string $userListID OnlyFans User List ID, or a default list name like `friends`
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function pin(
+        int $userID,
+        string $account,
+        string $userListID,
+        RequestOptions|array|null $requestOptions = null,
+    ): UserPinResponse;
 
     /**
      * @api

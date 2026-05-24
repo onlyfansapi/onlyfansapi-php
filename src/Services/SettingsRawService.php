@@ -9,11 +9,13 @@ use Onlyfansapi\Core\Contracts\BaseResponse;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\SettingsRawContract;
-use Onlyfansapi\Settings\SettingCheckUsernameExistsParams;
-use Onlyfansapi\Settings\SettingCheckUsernameExistsResponse;
+use Onlyfansapi\Settings\SettingCheckUsernameAvailabilityParams;
+use Onlyfansapi\Settings\SettingCheckUsernameAvailabilityResponse;
 use Onlyfansapi\Settings\SettingGetResponse;
 use Onlyfansapi\Settings\SettingUpdateProfileParams;
 use Onlyfansapi\Settings\SettingUpdateProfileResponse;
+use Onlyfansapi\Settings\SettingUpdateSubscriptionPriceParams;
+use Onlyfansapi\Settings\SettingUpdateSubscriptionPriceResponse;
 
 /**
  * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
@@ -57,19 +59,19 @@ final class SettingsRawService implements SettingsRawContract
      * Check if a username is taken. Returns `false` if the username is available, `true` if it is already taken.
      *
      * @param string $account The Account ID
-     * @param array{username: string}|SettingCheckUsernameExistsParams $params
+     * @param array{username: string}|SettingCheckUsernameAvailabilityParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<SettingCheckUsernameExistsResponse>
+     * @return BaseResponse<SettingCheckUsernameAvailabilityResponse>
      *
      * @throws APIException
      */
-    public function checkUsernameExists(
+    public function checkUsernameAvailability(
         string $account,
-        array|SettingCheckUsernameExistsParams $params,
+        array|SettingCheckUsernameAvailabilityParams $params,
         RequestOptions|array|null $requestOptions = null,
     ): BaseResponse {
-        [$parsed, $options] = SettingCheckUsernameExistsParams::parseRequest(
+        [$parsed, $options] = SettingCheckUsernameAvailabilityParams::parseRequest(
             $params,
             $requestOptions,
         );
@@ -80,7 +82,7 @@ final class SettingsRawService implements SettingsRawContract
             path: ['api/%1$s/settings/username-exists', $account],
             body: (object) $parsed,
             options: $options,
-            convert: SettingCheckUsernameExistsResponse::class,
+            convert: SettingCheckUsernameAvailabilityResponse::class,
         );
     }
 
@@ -123,6 +125,39 @@ final class SettingsRawService implements SettingsRawContract
             body: (object) $parsed,
             options: $options,
             convert: SettingUpdateProfileResponse::class,
+        );
+    }
+
+    /**
+     * @api
+     *
+     * Update the account subscription price. Send `0` or `"free"` to make the account free. ⚠️ WARNING! OnlyFans limits updating the subscription price to max. 3 times per day.
+     *
+     * @param string $account The Account ID
+     * @param array{price: string}|SettingUpdateSubscriptionPriceParams $params
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<SettingUpdateSubscriptionPriceResponse>
+     *
+     * @throws APIException
+     */
+    public function updateSubscriptionPrice(
+        string $account,
+        array|SettingUpdateSubscriptionPriceParams $params,
+        RequestOptions|array|null $requestOptions = null,
+    ): BaseResponse {
+        [$parsed, $options] = SettingUpdateSubscriptionPriceParams::parseRequest(
+            $params,
+            $requestOptions,
+        );
+
+        // @phpstan-ignore-next-line return.type
+        return $this->client->request(
+            method: 'patch',
+            path: ['api/%1$s/settings/subscription-price', $account],
+            body: (object) $parsed,
+            options: $options,
+            convert: SettingUpdateSubscriptionPriceResponse::class,
         );
     }
 }

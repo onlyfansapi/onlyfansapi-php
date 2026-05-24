@@ -9,8 +9,10 @@ use Onlyfansapi\Core\Contracts\BaseResponse;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\MassMessaging\MassMessagingDeleteParams;
 use Onlyfansapi\MassMessaging\MassMessagingDeleteResponse;
+use Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse;
 use Onlyfansapi\MassMessaging\MassMessagingGetResponse;
-use Onlyfansapi\MassMessaging\MassMessagingListQueueResponse;
+use Onlyfansapi\MassMessaging\MassMessagingListResponse;
+use Onlyfansapi\MassMessaging\MassMessagingRetrieveOverviewParams;
 use Onlyfansapi\MassMessaging\MassMessagingRetrieveParams;
 use Onlyfansapi\MassMessaging\MassMessagingSendParams;
 use Onlyfansapi\MassMessaging\MassMessagingSendResponse;
@@ -113,6 +115,31 @@ final class MassMessagingRawService implements MassMessagingRawContract
     /**
      * @api
      *
+     * List the pending or recently sent mass messages in the message queue.
+     *
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<MassMessagingListResponse>
+     *
+     * @throws APIException
+     */
+    public function list(
+        string $account,
+        RequestOptions|array|null $requestOptions = null
+    ): BaseResponse {
+        // @phpstan-ignore-next-line return.type
+        return $this->client->request(
+            method: 'get',
+            path: ['api/%1$s/mass-messaging', $account],
+            options: $requestOptions,
+            convert: MassMessagingListResponse::class,
+        );
+    }
+
+    /**
+     * @api
+     *
      * Unsend a recently sent mass message, or delete a scheduled/saved message. When unsending, purchased content will continue to be able to viewable.
      *
      * @param string $id The ID of the message queue item. Can be retrieved from the above store and list endpoints.
@@ -147,25 +174,35 @@ final class MassMessagingRawService implements MassMessagingRawContract
     /**
      * @api
      *
-     * List the pending or recently sent mass messages in the message queue.
+     * Get an overview of mass messages, showing the send count and view count.
      *
      * @param string $account The Account ID
+     * @param array{
+     *   endDate?: string, limit?: int, query?: string, startDate?: string
+     * }|MassMessagingRetrieveOverviewParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<MassMessagingListQueueResponse>
+     * @return BaseResponse<MassMessagingGetOverviewResponse>
      *
      * @throws APIException
      */
-    public function listQueue(
+    public function retrieveOverview(
         string $account,
-        RequestOptions|array|null $requestOptions = null
+        array|MassMessagingRetrieveOverviewParams $params,
+        RequestOptions|array|null $requestOptions = null,
     ): BaseResponse {
+        [$parsed, $options] = MassMessagingRetrieveOverviewParams::parseRequest(
+            $params,
+            $requestOptions,
+        );
+
         // @phpstan-ignore-next-line return.type
         return $this->client->request(
             method: 'get',
-            path: ['api/%1$s/mass-messaging', $account],
-            options: $requestOptions,
-            convert: MassMessagingListQueueResponse::class,
+            path: ['api/%1$s/mass-messaging/overview', $account],
+            query: $parsed,
+            options: $options,
+            convert: MassMessagingGetOverviewResponse::class,
         );
     }
 

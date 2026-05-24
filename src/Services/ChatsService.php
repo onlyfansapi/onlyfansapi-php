@@ -4,16 +4,24 @@ declare(strict_types=1);
 
 namespace Onlyfansapi\Services;
 
+use Onlyfansapi\Chats\ChatDeleteResponse;
+use Onlyfansapi\Chats\ChatHideResponse;
+use Onlyfansapi\Chats\ChatListMediaParams\Type;
+use Onlyfansapi\Chats\ChatListMediaResponse;
 use Onlyfansapi\Chats\ChatListParams\Filter;
 use Onlyfansapi\Chats\ChatListParams\Order;
 use Onlyfansapi\Chats\ChatListParams\SkipUsers;
 use Onlyfansapi\Chats\ChatListResponse;
-use Onlyfansapi\Chats\ChatStartTypingIndicatorResponse;
+use Onlyfansapi\Chats\ChatMarkAsUnreadResponse;
+use Onlyfansapi\Chats\ChatMuteResponse;
+use Onlyfansapi\Chats\ChatStartTypingResponse;
+use Onlyfansapi\Chats\ChatUnmuteResponse;
 use Onlyfansapi\Client;
 use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Core\Util;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\ChatsContract;
+use Onlyfansapi\Services\Chats\MarkAsReadService;
 use Onlyfansapi\Services\Chats\MessagesService;
 
 /**
@@ -32,12 +40,18 @@ final class ChatsService implements ChatsContract
     public MessagesService $messages;
 
     /**
+     * @api
+     */
+    public MarkAsReadService $markAsRead;
+
+    /**
      * @internal
      */
     public function __construct(private Client $client)
     {
         $this->raw = new ChatsRawService($client);
         $this->messages = new MessagesService($client);
+        $this->markAsRead = new MarkAsReadService($client);
     }
 
     /**
@@ -86,6 +100,142 @@ final class ChatsService implements ChatsContract
     /**
      * @api
      *
+     * Delete a specific chat.
+     *
+     * @param string $chatID The ID of the chat to delete, usually a fan's OnlyFans User ID
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function delete(
+        string $chatID,
+        string $account,
+        RequestOptions|array|null $requestOptions = null,
+    ): ChatDeleteResponse {
+        $params = Util::removeNulls(['account' => $account]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->delete($chatID, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Hide a specific chat from the chat list. To unhide this chat, send a new message to the user.
+     *
+     * @param string $chatID The ID of the chat to hide, usually a fan's OnlyFans User ID
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function hide(
+        string $chatID,
+        string $account,
+        RequestOptions|array|null $requestOptions = null,
+    ): ChatHideResponse {
+        $params = Util::removeNulls(['account' => $account]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->hide($chatID, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * List media files shared in a specific chat.
+     *
+     * @param string $chatID Path param: The ID of the chat to get media from, usually a fan's OnlyFans User ID
+     * @param string $account Path param: The Account ID
+     * @param string $limit Query param: Number of medias to return. Default = 20
+     * @param string $offset Query param: Number of medias to skip for pagination
+     * @param string $skipUsers Query param: Whether to skip user details in response (all or none). Default = all
+     * @param Type|value-of<Type>|null $type Query param: Filter by specific media types. Keep empty to return all.
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function listMedia(
+        string $chatID,
+        string $account,
+        ?string $limit = null,
+        ?string $offset = null,
+        ?string $skipUsers = null,
+        Type|string|null $type = null,
+        RequestOptions|array|null $requestOptions = null,
+    ): ChatListMediaResponse {
+        $params = Util::removeNulls(
+            [
+                'account' => $account,
+                'limit' => $limit,
+                'offset' => $offset,
+                'skipUsers' => $skipUsers,
+                'type' => $type,
+            ],
+        );
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->listMedia($chatID, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Mark a specific chat as unread.
+     *
+     * @param string $chatID The ID of the chat to mark as read, usually a fan's OnlyFans User ID
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function markAsUnread(
+        string $chatID,
+        string $account,
+        RequestOptions|array|null $requestOptions = null,
+    ): ChatMarkAsUnreadResponse {
+        $params = Util::removeNulls(['account' => $account]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->markAsUnread($chatID, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Mute notifications for a specific chat.
+     *
+     * @param string $chatID The ID of the chat to mute, usually a fan's OnlyFans User ID
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function mute(
+        string $chatID,
+        string $account,
+        RequestOptions|array|null $requestOptions = null,
+    ): ChatMuteResponse {
+        $params = Util::removeNulls(['account' => $account]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->mute($chatID, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
      * Calling this endpoint will show the target fan a "Model is typing..." note in the chat for ~4 seconds. If you want to continue showing the indicator call this endpoint multiple times. Free - no credits charged.
      *
      * @param string $chatID The ID of the chat (usually a fan's OnlyFans User ID)
@@ -94,15 +244,39 @@ final class ChatsService implements ChatsContract
      *
      * @throws APIException
      */
-    public function startTypingIndicator(
+    public function startTyping(
         string $chatID,
         string $account,
         RequestOptions|array|null $requestOptions = null,
-    ): ChatStartTypingIndicatorResponse {
+    ): ChatStartTypingResponse {
         $params = Util::removeNulls(['account' => $account]);
 
         // @phpstan-ignore-next-line argument.type
-        $response = $this->raw->startTypingIndicator($chatID, params: $params, requestOptions: $requestOptions);
+        $response = $this->raw->startTyping($chatID, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Unmute notifications for a specific chat.
+     *
+     * @param string $chatID The ID of the chat to unmute, usually a fan's OnlyFans User ID
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function unmute(
+        string $chatID,
+        string $account,
+        RequestOptions|array|null $requestOptions = null,
+    ): ChatUnmuteResponse {
+        $params = Util::removeNulls(['account' => $account]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->unmute($chatID, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }

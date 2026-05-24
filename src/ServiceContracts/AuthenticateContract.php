@@ -6,6 +6,7 @@ namespace Onlyfansapi\ServiceContracts;
 
 use Onlyfansapi\Authenticate\AuthenticatePollStatusResponse;
 use Onlyfansapi\Authenticate\AuthenticateReauthenticateResponse;
+use Onlyfansapi\Authenticate\AuthenticateSend2faEmailResponse;
 use Onlyfansapi\Authenticate\AuthenticateStartParams\AuthType;
 use Onlyfansapi\Authenticate\AuthenticateStartParams\CustomProxy;
 use Onlyfansapi\Authenticate\AuthenticateStartParams\ProxyCountry;
@@ -50,6 +51,19 @@ interface AuthenticateContract
     /**
      * @api
      *
+     * @param string $attemptID The attempt ID of the authentication process
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function send2faEmail(
+        string $attemptID,
+        RequestOptions|array|null $requestOptions = null
+    ): AuthenticateSend2faEmailResponse;
+
+    /**
+     * @api
+     *
      * @param string $authID The auth_id from OnlyFans session cookies. Required when auth_type is `raw_data`.
      * @param AuthType|value-of<AuthType> $authType The authentication method to use. Defaults to `email_password` if omitted. Use `mobile_app` to authenticate via the FansAPI Auth+ mobile app (no credential fields required).
      * @param string $cookies The full cookie string (semicolon-separated). Required when auth_type is `raw_data`.
@@ -85,7 +99,7 @@ interface AuthenticateContract
      *
      * @param string $attemptID The attempt ID of the authentication process
      * @param string $code The 2FA code you received on your phone. Must be empty if `selfie_verification_completed` is `true`.
-     * @param bool $selfieVerificationCompleted this field is required when <code>code</code> is not present
+     * @param mixed $selfieVerificationCompleted this field is required when <code>code</code> is not present
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -93,7 +107,7 @@ interface AuthenticateContract
     public function submit2fa(
         string $attemptID,
         ?string $code = null,
-        ?bool $selfieVerificationCompleted = null,
+        mixed $selfieVerificationCompleted = null,
         RequestOptions|array|null $requestOptions = null,
     ): AuthenticateSubmit2faResponse;
 }

@@ -9,15 +9,19 @@ use Onlyfansapi\Core\Exceptions\APIException;
 use Onlyfansapi\Core\Util;
 use Onlyfansapi\RequestOptions;
 use Onlyfansapi\ServiceContracts\TrialLinksContract;
+use Onlyfansapi\Services\TrialLinks\TagsService;
 use Onlyfansapi\TrialLinks\TrialLinkCreateParams\Duration;
 use Onlyfansapi\TrialLinks\TrialLinkCreateParams\OfferLimit;
 use Onlyfansapi\TrialLinks\TrialLinkDeleteResponse;
+use Onlyfansapi\TrialLinks\TrialLinkGetResponse;
+use Onlyfansapi\TrialLinks\TrialLinkGetStatsResponse;
 use Onlyfansapi\TrialLinks\TrialLinkListParams\Field;
 use Onlyfansapi\TrialLinks\TrialLinkListParams\Sort;
 use Onlyfansapi\TrialLinks\TrialLinkListResponse;
 use Onlyfansapi\TrialLinks\TrialLinkListSpendersResponse;
 use Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse;
 use Onlyfansapi\TrialLinks\TrialLinkNewResponse;
+use Onlyfansapi\TrialLinks\TrialLinkRetrieveCohortArpsParams\RevenueBasis;
 
 /**
  * APIs for managing Free Trial Links.
@@ -32,11 +36,17 @@ final class TrialLinksService implements TrialLinksContract
     public TrialLinksRawService $raw;
 
     /**
+     * @api
+     */
+    public TagsService $tags;
+
+    /**
      * @internal
      */
     public function __construct(private Client $client)
     {
         $this->raw = new TrialLinksRawService($client);
+        $this->tags = new TagsService($client);
     }
 
     /**
@@ -75,6 +85,30 @@ final class TrialLinksService implements TrialLinksContract
 
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->create($account, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Get individual Free Trial Link details and it's revenue data
+     *
+     * @param string $trialLinkID the ID of the trial link
+     * @param string $account The Account ID
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function retrieve(
+        string $trialLinkID,
+        string $account,
+        RequestOptions|array|null $requestOptions = null,
+    ): TrialLinkGetResponse {
+        $params = Util::removeNulls(['account' => $account]);
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->retrieve($trialLinkID, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }
@@ -206,6 +240,73 @@ final class TrialLinksService implements TrialLinksContract
 
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->listSubscribers($trialLinkID, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Get per-link time-to-profit cohort ARPS windows for a specific Free Trial Link
+     *
+     * @param string $trialLinkID path param: The ID of the trial link
+     * @param string $account Path param: The Account ID
+     * @param string $acquisitionEnd Query param: Optional acquisition range end date
+     * @param string $acquisitionStart Query param: Optional acquisition range start date
+     * @param RevenueBasis|value-of<RevenueBasis> $revenueBasis Query param: Revenue basis. Defaults to `net`.
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function retrieveCohortArps(
+        string $trialLinkID,
+        string $account,
+        ?string $acquisitionEnd = null,
+        ?string $acquisitionStart = null,
+        RevenueBasis|string|null $revenueBasis = null,
+        RequestOptions|array|null $requestOptions = null,
+    ): mixed {
+        $params = Util::removeNulls(
+            [
+                'account' => $account,
+                'acquisitionEnd' => $acquisitionEnd,
+                'acquisitionStart' => $acquisitionStart,
+                'revenueBasis' => $revenueBasis,
+            ],
+        );
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->retrieveCohortArps($trialLinkID, params: $params, requestOptions: $requestOptions);
+
+        return $response->parse();
+    }
+
+    /**
+     * @api
+     *
+     * Get dashboard-style summary plus daily and monthly metrics for a specific Free Trial Link
+     *
+     * @param string $trialLinkID path param: The ID of the trial link
+     * @param string $account Path param: The Account ID
+     * @param string $dateEnd Query param: Optional stats range end date
+     * @param string $dateStart Query param: Optional stats range start date
+     * @param RequestOpts|null $requestOptions
+     *
+     * @throws APIException
+     */
+    public function retrieveStats(
+        string $trialLinkID,
+        string $account,
+        ?string $dateEnd = null,
+        ?string $dateStart = null,
+        RequestOptions|array|null $requestOptions = null,
+    ): TrialLinkGetStatsResponse {
+        $params = Util::removeNulls(
+            ['account' => $account, 'dateEnd' => $dateEnd, 'dateStart' => $dateStart]
+        );
+
+        // @phpstan-ignore-next-line argument.type
+        $response = $this->raw->retrieveStats($trialLinkID, params: $params, requestOptions: $requestOptions);
 
         return $response->parse();
     }
