@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Payouts;
+namespace OnlyFansAPI\Payouts;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Payouts\PayoutUpdateFrequencyParams\Frequency;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Payouts\PayoutUpdateFrequencyParams\Frequency;
 
 /**
  * Update the payout frequency for the account (Manual, Weekly or Monthly).
  *
- * @see Onlyfansapi\Services\PayoutsService::updateFrequency()
+ * @see OnlyFansAPI\Services\PayoutsService::updateFrequency()
  *
  * @phpstan-type PayoutUpdateFrequencyParamsShape = array{
  *   frequency: Frequency|value-of<Frequency>

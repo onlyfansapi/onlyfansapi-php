@@ -2,11 +2,11 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Me\MeGetModelStartDateResponse;
-use Onlyfansapi\Me\MeGetResponse;
-use Onlyfansapi\Me\MeGetTopPercentageResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Me\MeGetModelStartDateResponse;
+use OnlyFansAPI\Me\MeGetResponse;
+use OnlyFansAPI\Me\MeGetTopPercentageResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

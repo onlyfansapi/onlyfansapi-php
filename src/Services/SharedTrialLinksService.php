@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\SharedTrialLinksContract;
-use Onlyfansapi\Services\SharedTrialLinks\TagsService;
-use Onlyfansapi\SharedTrialLinks\SharedTrialLinkListResponse;
-use Onlyfansapi\SharedTrialLinks\SharedTrialLinkRevokeAccessResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\SharedTrialLinksContract;
+use OnlyFansAPI\Services\SharedTrialLinks\TagsService;
+use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkListResponse;
+use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkRevokeAccessResponse;
 
 /**
  * APIs for Free Trial Links that other OF creators have shared with this account. Revenue, cost, and spender data are not available for shared links.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class SharedTrialLinksService implements SharedTrialLinksContract
 {

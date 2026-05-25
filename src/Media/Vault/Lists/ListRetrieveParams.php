@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\Vault\Lists;
+namespace OnlyFansAPI\Media\Vault\Lists;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Show a Vault list.
  *
- * @see Onlyfansapi\Services\Media\Vault\ListsService::retrieve()
+ * @see OnlyFansAPI\Services\Media\Vault\ListsService::retrieve()
  *
  * @phpstan-type ListRetrieveParamsShape = array{account: string}
  */

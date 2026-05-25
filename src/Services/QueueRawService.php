@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Queue\QueueCountParams;
-use Onlyfansapi\Queue\QueueCountResponse;
-use Onlyfansapi\Queue\QueueListParams;
-use Onlyfansapi\Queue\QueueListResponse;
-use Onlyfansapi\Queue\QueuePublishParams;
-use Onlyfansapi\Queue\QueuePublishResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\QueueRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Queue\QueueCountParams;
+use OnlyFansAPI\Queue\QueueCountResponse;
+use OnlyFansAPI\Queue\QueueListParams;
+use OnlyFansAPI\Queue\QueueListResponse;
+use OnlyFansAPI\Queue\QueuePublishParams;
+use OnlyFansAPI\Queue\QueuePublishResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\QueueRawContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class QueueRawService implements QueueRawContract
 {

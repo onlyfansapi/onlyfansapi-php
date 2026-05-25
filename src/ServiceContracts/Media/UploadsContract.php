@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Media;
+namespace OnlyFansAPI\ServiceContracts\Media;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember0;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember1;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember2;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember3;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember0;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember1;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember2;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface UploadsContract
 {

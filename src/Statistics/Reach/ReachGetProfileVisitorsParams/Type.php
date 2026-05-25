@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsParams;
+namespace OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsParams;
 
 /**
  * Filter all / users / guests.

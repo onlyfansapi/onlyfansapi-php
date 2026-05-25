@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans\FanListAllParams;
+namespace OnlyFansAPI\Fans\FanListAllParams;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Fans\FanListAllParams\Filter\Online;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Fans\FanListAllParams\Filter\Online;
 
 /**
  * @phpstan-type FilterShape = array{

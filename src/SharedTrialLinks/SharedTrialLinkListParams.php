@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SharedTrialLinks;
+namespace OnlyFansAPI\SharedTrialLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * List all Free Trial Links shared with the account by other OF creators. Calls OnlyFans live and syncs to our cache.
  *
- * @see Onlyfansapi\Services\SharedTrialLinksService::list()
+ * @see OnlyFansAPI\Services\SharedTrialLinksService::list()
  *
  * @phpstan-type SharedTrialLinkListParamsShape = array{
  *   limit?: int|null, offset?: int|null, synchronous?: bool|null

@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Engagement\Messages;
+namespace OnlyFansAPI\Services\Engagement\Messages;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageChartResponse;
-use Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageListResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Engagement\Messages\DirectMessagesContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageChartResponse;
+use OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageListResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Engagement\Messages\DirectMessagesContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class DirectMessagesService implements DirectMessagesContract
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\DataExports\DataExportListParams;
+namespace OnlyFansAPI\DataExports\DataExportListParams;
 
 /**
  * Filter by status.

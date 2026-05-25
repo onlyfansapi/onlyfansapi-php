@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember2;
+namespace OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember2;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember2\Media\Files;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember2\Media\Files;
 
 /**
- * @phpstan-import-type FilesShape from \Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember2\Media\Files
+ * @phpstan-import-type FilesShape from \OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember2\Media\Files
  *
  * @phpstan-type MediaShape = array{
  *   id?: int|null,

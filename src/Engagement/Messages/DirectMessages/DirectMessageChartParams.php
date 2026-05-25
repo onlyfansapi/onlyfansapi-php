@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Engagement\Messages\DirectMessages;
+namespace OnlyFansAPI\Engagement\Messages\DirectMessages;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get engagement chart metrics for direct messages: sent count and purchase amount over time.
  *
- * @see Onlyfansapi\Services\Engagement\Messages\DirectMessagesService::chart()
+ * @see OnlyFansAPI\Services\Engagement\Messages\DirectMessagesService::chart()
  *
  * @phpstan-type DirectMessageChartParamsShape = array{
  *   endDate?: string|null, startDate?: string|null, withTotal?: bool|null

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\Vault;
+namespace OnlyFansAPI\Media\Vault;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Retrieve details about a specific media item in your vault.
  *
- * @see Onlyfansapi\Services\Media\VaultService::retrieve()
+ * @see OnlyFansAPI\Services\Media\VaultService::retrieve()
  *
  * @phpstan-type VaultRetrieveParamsShape = array{account: string}
  */

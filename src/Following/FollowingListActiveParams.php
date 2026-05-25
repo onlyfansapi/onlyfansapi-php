@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Following;
+namespace OnlyFansAPI\Following;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Following\FollowingListActiveParams\Filter;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Following\FollowingListActiveParams\Filter;
 
 /**
  * Get a paginated list of followings for an Account. Newest followings are first.
  *
- * @see Onlyfansapi\Services\FollowingService::listActive()
+ * @see OnlyFansAPI\Services\FollowingService::listActive()
  *
- * @phpstan-import-type FilterShape from \Onlyfansapi\Following\FollowingListActiveParams\Filter
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Following\FollowingListActiveParams\Filter
  *
  * @phpstan-type FollowingListActiveParamsShape = array{
  *   filter?: null|Filter|FilterShape,

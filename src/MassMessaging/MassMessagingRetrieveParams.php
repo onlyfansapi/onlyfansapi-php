@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\MassMessaging;
+namespace OnlyFansAPI\MassMessaging;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get the content of a mass message.
  *
- * @see Onlyfansapi\Services\MassMessagingService::retrieve()
+ * @see OnlyFansAPI\Services\MassMessagingService::retrieve()
  *
  * @phpstan-type MassMessagingRetrieveParamsShape = array{account: string}
  */

@@ -1,9 +1,9 @@
 <?php
 
-namespace Onlyfansapi\Core\Exceptions;
+namespace OnlyFansAPI\Core\Exceptions;
 
 class BadRequestException extends APIStatusException
 {
     /** @var string */
-    protected const DESC = 'Onlyfansapi Bad Request Exception';
+    protected const DESC = 'OnlyFansAPI Bad Request Exception';
 }

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SharedTrackingLinks;
+namespace OnlyFansAPI\SharedTrackingLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * List all Tracking Links (campaigns) shared with the account by other OF creators. Calls OnlyFans live and syncs to our cache.
  *
- * @see Onlyfansapi\Services\SharedTrackingLinksService::list()
+ * @see OnlyFansAPI\Services\SharedTrackingLinksService::list()
  *
  * @phpstan-type SharedTrackingLinkListParamsShape = array{
  *   limit?: int|null, offset?: int|null, synchronous?: bool|null

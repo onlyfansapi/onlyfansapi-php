@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Posts\PostArchiveResponse;
-use Onlyfansapi\Posts\PostCreateParams\VotingType;
-use Onlyfansapi\Posts\PostDeleteResponse;
-use Onlyfansapi\Posts\PostGetResponse;
-use Onlyfansapi\Posts\PostListParams\Order;
-use Onlyfansapi\Posts\PostListParams\Sort;
-use Onlyfansapi\Posts\PostListResponse;
-use Onlyfansapi\Posts\PostNewResponse;
-use Onlyfansapi\Posts\PostPinResponse;
-use Onlyfansapi\Posts\PostStatsResponse;
-use Onlyfansapi\Posts\PostUnarchiveResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Posts\PostArchiveResponse;
+use OnlyFansAPI\Posts\PostCreateParams\VotingType;
+use OnlyFansAPI\Posts\PostDeleteResponse;
+use OnlyFansAPI\Posts\PostGetResponse;
+use OnlyFansAPI\Posts\PostListParams\Order;
+use OnlyFansAPI\Posts\PostListParams\Sort;
+use OnlyFansAPI\Posts\PostListResponse;
+use OnlyFansAPI\Posts\PostNewResponse;
+use OnlyFansAPI\Posts\PostPinResponse;
+use OnlyFansAPI\Posts\PostStatsResponse;
+use OnlyFansAPI\Posts\PostUnarchiveResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface PostsContract
 {
@@ -97,7 +97,7 @@ interface PostsContract
      * @param int $votingCorrectIndex Body param: The array key of your quiz' correct answer. Required when `votingType` is "quiz". Keep in mind that arrays start at `0`
      * @param int $votingDue Body param: The due date (in days) of your poll/quiz. Can be 1, 3, 7 or 30 days. Can only be filled with `votingType`.
      * @param list<string> $votingOptions Body param: The options of your poll/quiz. Required with `votingType`.
-     * @param \Onlyfansapi\Posts\PostUpdateParams\VotingType|value-of<\Onlyfansapi\Posts\PostUpdateParams\VotingType> $votingType body param: Include a poll or quiz within your post
+     * @param \OnlyFansAPI\Posts\PostUpdateParams\VotingType|value-of<\OnlyFansAPI\Posts\PostUpdateParams\VotingType> $votingType body param: Include a poll or quiz within your post
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -118,7 +118,7 @@ interface PostsContract
         ?int $votingCorrectIndex = null,
         ?int $votingDue = null,
         ?array $votingOptions = null,
-        \Onlyfansapi\Posts\PostUpdateParams\VotingType|string|null $votingType = null,
+        \OnlyFansAPI\Posts\PostUpdateParams\VotingType|string|null $votingType = null,
         RequestOptions|array|null $requestOptions = null,
     ): string;
 

@@ -2,27 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse;
+namespace OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse\Data\AvatarThumbs;
-use Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse\Data\HeaderSize;
-use Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse\Data\HeaderThumbs;
-use Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse\Data\ListsState;
-use Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse\Data\SubscribedByData;
-use Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse\Data\SubscribedOnData;
-use Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse\Data\SubscriptionBundle;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse\Data\AvatarThumbs;
+use OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse\Data\HeaderSize;
+use OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse\Data\HeaderThumbs;
+use OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse\Data\ListsState;
+use OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse\Data\SubscribedByData;
+use OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse\Data\SubscribedOnData;
+use OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse\Data\SubscriptionBundle;
 
 /**
- * @phpstan-import-type AvatarThumbsShape from \Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse\Data\AvatarThumbs
- * @phpstan-import-type HeaderSizeShape from \Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse\Data\HeaderSize
- * @phpstan-import-type HeaderThumbsShape from \Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse\Data\HeaderThumbs
- * @phpstan-import-type ListsStateShape from \Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse\Data\ListsState
- * @phpstan-import-type SubscribedByDataShape from \Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse\Data\SubscribedByData
- * @phpstan-import-type SubscribedOnDataShape from \Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse\Data\SubscribedOnData
- * @phpstan-import-type SubscriptionBundleShape from \Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse\Data\SubscriptionBundle
+ * @phpstan-import-type AvatarThumbsShape from \OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse\Data\AvatarThumbs
+ * @phpstan-import-type HeaderSizeShape from \OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse\Data\HeaderSize
+ * @phpstan-import-type HeaderThumbsShape from \OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse\Data\HeaderThumbs
+ * @phpstan-import-type ListsStateShape from \OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse\Data\ListsState
+ * @phpstan-import-type SubscribedByDataShape from \OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse\Data\SubscribedByData
+ * @phpstan-import-type SubscribedOnDataShape from \OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse\Data\SubscribedOnData
+ * @phpstan-import-type SubscriptionBundleShape from \OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse\Data\SubscriptionBundle
  *
  * @phpstan-type DataShape = array{
  *   id?: int|null,

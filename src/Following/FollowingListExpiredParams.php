@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Following;
+namespace OnlyFansAPI\Following;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Following\FollowingListExpiredParams\Filter;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Following\FollowingListExpiredParams\Filter;
 
 /**
  * Get a paginated list of expired followings for an Account. Newest followings are first.
  *
- * @see Onlyfansapi\Services\FollowingService::listExpired()
+ * @see OnlyFansAPI\Services\FollowingService::listExpired()
  *
- * @phpstan-import-type FilterShape from \Onlyfansapi\Following\FollowingListExpiredParams\Filter
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Following\FollowingListExpiredParams\Filter
  *
  * @phpstan-type FollowingListExpiredParamsShape = array{
  *   filter?: null|Filter|FilterShape,

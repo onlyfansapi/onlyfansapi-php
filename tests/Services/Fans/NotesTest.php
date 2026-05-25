@@ -2,11 +2,11 @@
 
 namespace Tests\Services\Fans;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Fans\Notes\NoteClearNotesResponse;
-use Onlyfansapi\Fans\Notes\NoteGetNotesResponse;
-use Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Fans\Notes\NoteClearNotesResponse;
+use OnlyFansAPI\Fans\Notes\NoteGetNotesResponse;
+use OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

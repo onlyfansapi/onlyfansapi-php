@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Authenticate\AuthenticatePollStatusResponse\Account;
+namespace OnlyFansAPI\Authenticate\AuthenticatePollStatusResponse\Account;
 
-use Onlyfansapi\Authenticate\AuthenticatePollStatusResponse\Account\OnlyfansData\AgeVerificationSession;
-use Onlyfansapi\Authenticate\AuthenticatePollStatusResponse\Account\OnlyfansData\HasNewTicketReplies;
-use Onlyfansapi\Authenticate\AuthenticatePollStatusResponse\Account\OnlyfansData\Upload;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Authenticate\AuthenticatePollStatusResponse\Account\OnlyfansData\AgeVerificationSession;
+use OnlyFansAPI\Authenticate\AuthenticatePollStatusResponse\Account\OnlyfansData\HasNewTicketReplies;
+use OnlyFansAPI\Authenticate\AuthenticatePollStatusResponse\Account\OnlyfansData\Upload;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type AgeVerificationSessionShape from \Onlyfansapi\Authenticate\AuthenticatePollStatusResponse\Account\OnlyfansData\AgeVerificationSession
- * @phpstan-import-type HasNewTicketRepliesShape from \Onlyfansapi\Authenticate\AuthenticatePollStatusResponse\Account\OnlyfansData\HasNewTicketReplies
- * @phpstan-import-type UploadShape from \Onlyfansapi\Authenticate\AuthenticatePollStatusResponse\Account\OnlyfansData\Upload
+ * @phpstan-import-type AgeVerificationSessionShape from \OnlyFansAPI\Authenticate\AuthenticatePollStatusResponse\Account\OnlyfansData\AgeVerificationSession
+ * @phpstan-import-type HasNewTicketRepliesShape from \OnlyFansAPI\Authenticate\AuthenticatePollStatusResponse\Account\OnlyfansData\HasNewTicketReplies
+ * @phpstan-import-type UploadShape from \OnlyFansAPI\Authenticate\AuthenticatePollStatusResponse\Account\OnlyfansData\Upload
  *
  * @phpstan-type OnlyfansDataShape = array{
  *   id?: int|null,

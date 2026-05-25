@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Core\Concerns;
+namespace OnlyFansAPI\Core\Concerns;
 
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Core\Conversion;
-use Onlyfansapi\Core\Conversion\CoerceState;
-use Onlyfansapi\Core\Conversion\Contracts\Converter;
-use Onlyfansapi\Core\Conversion\ModelOf;
-use Onlyfansapi\Core\Util;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Conversion;
+use OnlyFansAPI\Core\Conversion\CoerceState;
+use OnlyFansAPI\Core\Conversion\Contracts\Converter;
+use OnlyFansAPI\Core\Conversion\ModelOf;
+use OnlyFansAPI\Core\Util;
 
 /**
  * @internal

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Statistics\StatisticCalculateTotalTransactionsResponse;
-use Onlyfansapi\Statistics\StatisticGetOverviewParams\Type;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse;
-use Onlyfansapi\Statistics\StatisticGetSubscriberMetricsResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Statistics\StatisticCalculateTotalTransactionsResponse;
+use OnlyFansAPI\Statistics\StatisticGetOverviewParams\Type;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse;
+use OnlyFansAPI\Statistics\StatisticGetSubscriberMetricsResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface StatisticsContract
 {

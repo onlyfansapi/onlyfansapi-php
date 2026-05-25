@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stories;
+namespace OnlyFansAPI\Stories;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Mark a specific story as watched by its ID.
  *
- * @see Onlyfansapi\Services\StoriesService::markAsWatched()
+ * @see OnlyFansAPI\Services\StoriesService::markAsWatched()
  *
  * @phpstan-type StoryMarkAsWatchedParamsShape = array{account: string}
  */

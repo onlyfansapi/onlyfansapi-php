@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrackingLinks\TrackingLinkListParams;
+namespace OnlyFansAPI\TrackingLinks\TrackingLinkListParams;
 
 /**
  * Sort the results. Default `desc`.

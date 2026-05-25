@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Stories\StoryDeleteResponse;
-use Onlyfansapi\Stories\StoryGetResponse;
-use Onlyfansapi\Stories\StoryGetStatsResponse;
-use Onlyfansapi\Stories\StoryListActiveResponse;
-use Onlyfansapi\Stories\StoryListArchiveResponse;
-use Onlyfansapi\Stories\StoryListViewersResponse;
-use Onlyfansapi\Stories\StoryMarkAsWatchedResponse;
-use Onlyfansapi\Stories\StoryNewResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Stories\StoryDeleteResponse;
+use OnlyFansAPI\Stories\StoryGetResponse;
+use OnlyFansAPI\Stories\StoryGetStatsResponse;
+use OnlyFansAPI\Stories\StoryListActiveResponse;
+use OnlyFansAPI\Stories\StoryListArchiveResponse;
+use OnlyFansAPI\Stories\StoryListViewersResponse;
+use OnlyFansAPI\Stories\StoryMarkAsWatchedResponse;
+use OnlyFansAPI\Stories\StoryNewResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface StoriesContract
 {

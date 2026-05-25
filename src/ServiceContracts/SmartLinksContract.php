@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\SmartLinks\SmartLinkCreateParams\LinkType;
-use Onlyfansapi\SmartLinks\SmartLinkDeleteResponse;
-use Onlyfansapi\SmartLinks\SmartLinkGetResponse;
-use Onlyfansapi\SmartLinks\SmartLinkGetStatsResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListClicksResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListConversionsParams\ConversionType;
-use Onlyfansapi\SmartLinks\SmartLinkListConversionsResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListFansParams\Sort;
-use Onlyfansapi\SmartLinks\SmartLinkListFansResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListSpendersResponse;
-use Onlyfansapi\SmartLinks\SmartLinkNewResponse;
-use Onlyfansapi\SmartLinks\SmartLinkRetrieveCohortArpsParams\RevenueBasis;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\SmartLinks\SmartLinkCreateParams\LinkType;
+use OnlyFansAPI\SmartLinks\SmartLinkDeleteResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkGetResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkGetStatsResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListClicksResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListConversionsParams\ConversionType;
+use OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListFansParams\Sort;
+use OnlyFansAPI\SmartLinks\SmartLinkListFansResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListSpendersResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkNewResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkRetrieveCohortArpsParams\RevenueBasis;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface SmartLinksContract
 {

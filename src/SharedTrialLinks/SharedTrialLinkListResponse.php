@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SharedTrialLinks;
+namespace OnlyFansAPI\SharedTrialLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SharedTrialLinks\SharedTrialLinkListResponse\_Meta;
-use Onlyfansapi\SharedTrialLinks\SharedTrialLinkListResponse\_Pagination;
-use Onlyfansapi\SharedTrialLinks\SharedTrialLinkListResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkListResponse\_Meta;
+use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkListResponse\_Pagination;
+use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkListResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\SharedTrialLinks\SharedTrialLinkListResponse\_Meta
- * @phpstan-import-type _PaginationShape from \Onlyfansapi\SharedTrialLinks\SharedTrialLinkListResponse\_Pagination
- * @phpstan-import-type DataShape from \Onlyfansapi\SharedTrialLinks\SharedTrialLinkListResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\SharedTrialLinks\SharedTrialLinkListResponse\_Meta
+ * @phpstan-import-type _PaginationShape from \OnlyFansAPI\SharedTrialLinks\SharedTrialLinkListResponse\_Pagination
+ * @phpstan-import-type DataShape from \OnlyFansAPI\SharedTrialLinks\SharedTrialLinkListResponse\Data
  *
  * @phpstan-type SharedTrialLinkListResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape,

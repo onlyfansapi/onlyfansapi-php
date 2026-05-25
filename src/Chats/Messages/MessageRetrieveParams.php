@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\Messages;
+namespace OnlyFansAPI\Chats\Messages;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get a single chat message by its ID. Returns a 404 if the message does not exist in the chat.
  *
- * @see Onlyfansapi\Services\Chats\MessagesService::retrieve()
+ * @see OnlyFansAPI\Services\Chats\MessagesService::retrieve()
  *
  * @phpstan-type MessageRetrieveParamsShape = array{
  *   account: string, chatID: string

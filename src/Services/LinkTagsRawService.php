@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\LinkTags\LinkTagListParams;
-use Onlyfansapi\LinkTags\LinkTagListParams\Type;
-use Onlyfansapi\LinkTags\LinkTagListResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\LinkTagsRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\LinkTags\LinkTagListParams;
+use OnlyFansAPI\LinkTags\LinkTagListParams\Type;
+use OnlyFansAPI\LinkTags\LinkTagListResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\LinkTagsRawContract;
 
 /**
  * APIs for managing tags on free trial links and tracking links.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class LinkTagsRawService implements LinkTagsRawContract
 {

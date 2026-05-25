@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts\PostNewResponse\Data;
+namespace OnlyFansAPI\Posts\PostNewResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Posts\PostNewResponse\Data\Author\AvatarThumbs;
-use Onlyfansapi\Posts\PostNewResponse\Data\Author\HeaderSize;
-use Onlyfansapi\Posts\PostNewResponse\Data\Author\HeaderThumbs;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Posts\PostNewResponse\Data\Author\AvatarThumbs;
+use OnlyFansAPI\Posts\PostNewResponse\Data\Author\HeaderSize;
+use OnlyFansAPI\Posts\PostNewResponse\Data\Author\HeaderThumbs;
 
 /**
- * @phpstan-import-type AvatarThumbsShape from \Onlyfansapi\Posts\PostNewResponse\Data\Author\AvatarThumbs
- * @phpstan-import-type HeaderSizeShape from \Onlyfansapi\Posts\PostNewResponse\Data\Author\HeaderSize
- * @phpstan-import-type HeaderThumbsShape from \Onlyfansapi\Posts\PostNewResponse\Data\Author\HeaderThumbs
+ * @phpstan-import-type AvatarThumbsShape from \OnlyFansAPI\Posts\PostNewResponse\Data\Author\AvatarThumbs
+ * @phpstan-import-type HeaderSizeShape from \OnlyFansAPI\Posts\PostNewResponse\Data\Author\HeaderSize
+ * @phpstan-import-type HeaderThumbsShape from \OnlyFansAPI\Posts\PostNewResponse\Data\Author\HeaderThumbs
  *
  * @phpstan-type AuthorShape = array{
  *   id?: int|null,

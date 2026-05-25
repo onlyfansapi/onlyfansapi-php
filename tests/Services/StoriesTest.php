@@ -2,16 +2,16 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Stories\StoryDeleteResponse;
-use Onlyfansapi\Stories\StoryGetResponse;
-use Onlyfansapi\Stories\StoryGetStatsResponse;
-use Onlyfansapi\Stories\StoryListActiveResponse;
-use Onlyfansapi\Stories\StoryListArchiveResponse;
-use Onlyfansapi\Stories\StoryListViewersResponse;
-use Onlyfansapi\Stories\StoryMarkAsWatchedResponse;
-use Onlyfansapi\Stories\StoryNewResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Stories\StoryDeleteResponse;
+use OnlyFansAPI\Stories\StoryGetResponse;
+use OnlyFansAPI\Stories\StoryGetStatsResponse;
+use OnlyFansAPI\Stories\StoryListActiveResponse;
+use OnlyFansAPI\Stories\StoryListArchiveResponse;
+use OnlyFansAPI\Stories\StoryListViewersResponse;
+use OnlyFansAPI\Stories\StoryMarkAsWatchedResponse;
+use OnlyFansAPI\Stories\StoryNewResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

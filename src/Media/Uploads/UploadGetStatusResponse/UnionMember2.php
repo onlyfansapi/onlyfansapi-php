@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\Uploads\UploadGetStatusResponse;
+namespace OnlyFansAPI\Media\Uploads\UploadGetStatusResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember2\Media;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember2\Media;
 
 /**
  * Completed POST /media/vault upload.
  *
- * @phpstan-import-type MediaShape from \Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember2\Media
+ * @phpstan-import-type MediaShape from \OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember2\Media
  *
  * @phpstan-type UnionMember2Shape = array{
  *   creditsUsed?: int|null,

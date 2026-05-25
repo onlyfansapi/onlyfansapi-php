@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\StatisticsContract;
-use Onlyfansapi\Services\Statistics\ReachService;
-use Onlyfansapi\Services\Statistics\StatementsService;
-use Onlyfansapi\Statistics\StatisticCalculateTotalTransactionsResponse;
-use Onlyfansapi\Statistics\StatisticGetOverviewParams\Type;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse;
-use Onlyfansapi\Statistics\StatisticGetSubscriberMetricsResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\StatisticsContract;
+use OnlyFansAPI\Services\Statistics\ReachService;
+use OnlyFansAPI\Services\Statistics\StatementsService;
+use OnlyFansAPI\Statistics\StatisticCalculateTotalTransactionsResponse;
+use OnlyFansAPI\Statistics\StatisticGetOverviewParams\Type;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse;
+use OnlyFansAPI\Statistics\StatisticGetSubscriberMetricsResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class StatisticsService implements StatisticsContract
 {

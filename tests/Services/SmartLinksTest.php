@@ -2,17 +2,17 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\SmartLinks\SmartLinkDeleteResponse;
-use Onlyfansapi\SmartLinks\SmartLinkGetResponse;
-use Onlyfansapi\SmartLinks\SmartLinkGetStatsResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListClicksResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListConversionsResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListFansResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListSpendersResponse;
-use Onlyfansapi\SmartLinks\SmartLinkNewResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\SmartLinks\SmartLinkDeleteResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkGetResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkGetStatsResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListClicksResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListFansResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListSpendersResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkNewResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

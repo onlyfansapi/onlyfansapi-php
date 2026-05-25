@@ -2,12 +2,12 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackGetResponse;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackListResponse;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackNewResponse;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackUpdateResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackGetResponse;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackListResponse;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackNewResponse;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackUpdateResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

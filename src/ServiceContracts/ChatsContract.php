@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Chats\ChatDeleteResponse;
-use Onlyfansapi\Chats\ChatHideResponse;
-use Onlyfansapi\Chats\ChatListMediaParams\Type;
-use Onlyfansapi\Chats\ChatListMediaResponse;
-use Onlyfansapi\Chats\ChatListParams\Filter;
-use Onlyfansapi\Chats\ChatListParams\Order;
-use Onlyfansapi\Chats\ChatListParams\SkipUsers;
-use Onlyfansapi\Chats\ChatListResponse;
-use Onlyfansapi\Chats\ChatMarkAsReadResponse;
-use Onlyfansapi\Chats\ChatMarkAsUnreadResponse;
-use Onlyfansapi\Chats\ChatMuteResponse;
-use Onlyfansapi\Chats\ChatStartTypingResponse;
-use Onlyfansapi\Chats\ChatUnmuteResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Chats\ChatDeleteResponse;
+use OnlyFansAPI\Chats\ChatHideResponse;
+use OnlyFansAPI\Chats\ChatListMediaParams\Type;
+use OnlyFansAPI\Chats\ChatListMediaResponse;
+use OnlyFansAPI\Chats\ChatListParams\Filter;
+use OnlyFansAPI\Chats\ChatListParams\Order;
+use OnlyFansAPI\Chats\ChatListParams\SkipUsers;
+use OnlyFansAPI\Chats\ChatListResponse;
+use OnlyFansAPI\Chats\ChatMarkAsReadResponse;
+use OnlyFansAPI\Chats\ChatMarkAsUnreadResponse;
+use OnlyFansAPI\Chats\ChatMuteResponse;
+use OnlyFansAPI\Chats\ChatStartTypingResponse;
+use OnlyFansAPI\Chats\ChatUnmuteResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface ChatsContract
 {

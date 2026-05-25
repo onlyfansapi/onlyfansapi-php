@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\SharedTrackingLinksRawContract;
-use Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkListParams;
-use Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkListResponse;
-use Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkRevokeAccessParams;
-use Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkRevokeAccessResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\SharedTrackingLinksRawContract;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListParams;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListResponse;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkRevokeAccessParams;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkRevokeAccessResponse;
 
 /**
  * APIs for Tracking Links (campaigns) that other OF creators have shared with this account. Revenue, cost, and spender data are not available for shared campaigns.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class SharedTrackingLinksRawService implements SharedTrackingLinksRawContract
 {

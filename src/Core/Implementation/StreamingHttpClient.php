@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Core\Implementation;
+namespace OnlyFansAPI\Core\Implementation;
 
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestInterface;

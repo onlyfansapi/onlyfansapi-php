@@ -2,11 +2,11 @@
 
 namespace Tests\Services\SavedForLater\Posts;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\SavedForLater\Posts\Settings\SettingDisableAutomaticPostingResponse;
-use Onlyfansapi\SavedForLater\Posts\Settings\SettingEnableOrUpdateAutomaticPostingResponse;
-use Onlyfansapi\SavedForLater\Posts\Settings\SettingGetResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\SavedForLater\Posts\Settings\SettingDisableAutomaticPostingResponse;
+use OnlyFansAPI\SavedForLater\Posts\Settings\SettingEnableOrUpdateAutomaticPostingResponse;
+use OnlyFansAPI\SavedForLater\Posts\Settings\SettingGetResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

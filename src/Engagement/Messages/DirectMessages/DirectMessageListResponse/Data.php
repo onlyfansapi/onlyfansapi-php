@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageListResponse;
+namespace OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageListResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageListResponse\Data\Item;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageListResponse\Data\Item;
 
 /**
- * @phpstan-import-type ItemShape from \Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageListResponse\Data\Item
+ * @phpstan-import-type ItemShape from \OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageListResponse\Data\Item
  *
  * @phpstan-type DataShape = array{
  *   hasMore?: bool|null, items?: list<Item|ItemShape>|null

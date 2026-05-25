@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Queue;
+namespace OnlyFansAPI\Queue;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * List posts and messages in the queue.
  *
- * @see Onlyfansapi\Services\QueueService::list()
+ * @see OnlyFansAPI\Services\QueueService::list()
  *
  * @phpstan-type QueueListParamsShape = array{
  *   limit: int, publishDateEnd: string, publishDateStart: string, timezone: string

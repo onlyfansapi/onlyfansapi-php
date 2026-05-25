@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\Uploads;
+namespace OnlyFansAPI\Media\Uploads;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Check the status of a media upload. Poll this endpoint until status is `completed` or `failed`. This endpoint is free and does not cost any credits.
@@ -18,7 +18,7 @@ use Onlyfansapi\Core\Contracts\BaseModel;
  * - `completed` — Upload finished, `media` and `credits_used` are included
  * - `failed` — Upload failed, `error` is included
  *
- * @see Onlyfansapi\Services\Media\UploadsService::getStatus()
+ * @see OnlyFansAPI\Services\Media\UploadsService::getStatus()
  *
  * @phpstan-type UploadGetStatusParamsShape = array{account: string}
  */

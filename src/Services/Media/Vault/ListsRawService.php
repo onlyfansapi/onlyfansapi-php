@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Media\Vault;
+namespace OnlyFansAPI\Services\Media\Vault;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Media\Vault\Lists\ListCreateParams;
-use Onlyfansapi\Media\Vault\Lists\ListDeleteParams;
-use Onlyfansapi\Media\Vault\Lists\ListDeleteResponse;
-use Onlyfansapi\Media\Vault\Lists\ListGetResponse;
-use Onlyfansapi\Media\Vault\Lists\ListListParams;
-use Onlyfansapi\Media\Vault\Lists\ListListResponse;
-use Onlyfansapi\Media\Vault\Lists\ListNewResponse;
-use Onlyfansapi\Media\Vault\Lists\ListRetrieveParams;
-use Onlyfansapi\Media\Vault\Lists\ListUpdateParams;
-use Onlyfansapi\Media\Vault\Lists\ListUpdateResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Media\Vault\ListsRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Media\Vault\Lists\ListCreateParams;
+use OnlyFansAPI\Media\Vault\Lists\ListDeleteParams;
+use OnlyFansAPI\Media\Vault\Lists\ListDeleteResponse;
+use OnlyFansAPI\Media\Vault\Lists\ListGetResponse;
+use OnlyFansAPI\Media\Vault\Lists\ListListParams;
+use OnlyFansAPI\Media\Vault\Lists\ListListResponse;
+use OnlyFansAPI\Media\Vault\Lists\ListNewResponse;
+use OnlyFansAPI\Media\Vault\Lists\ListRetrieveParams;
+use OnlyFansAPI\Media\Vault\Lists\ListUpdateParams;
+use OnlyFansAPI\Media\Vault\Lists\ListUpdateResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Media\Vault\ListsRawContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class ListsRawService implements ListsRawContract
 {

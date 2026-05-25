@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\UserLists\UserListDeleteResponse;
-use Onlyfansapi\UserLists\UserListGetResponse;
-use Onlyfansapi\UserLists\UserListListResponse;
-use Onlyfansapi\UserLists\UserListNewResponse;
-use Onlyfansapi\UserLists\UserListUpdateResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\UserLists\UserListDeleteResponse;
+use OnlyFansAPI\UserLists\UserListGetResponse;
+use OnlyFansAPI\UserLists\UserListListResponse;
+use OnlyFansAPI\UserLists\UserListNewResponse;
+use OnlyFansAPI\UserLists\UserListUpdateResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface UserListsContract
 {

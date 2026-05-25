@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Statistics;
+namespace OnlyFansAPI\ServiceContracts\Statistics;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsParams\Filter;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsParams\Type;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember0;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsParams\Filter;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsParams\Type;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember0;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface ReachContract
 {

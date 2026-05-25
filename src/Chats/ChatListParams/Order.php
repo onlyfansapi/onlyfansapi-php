@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\ChatListParams;
+namespace OnlyFansAPI\Chats\ChatListParams;
 
 /**
  * Sort order for chats (recent or old). Default = recent.

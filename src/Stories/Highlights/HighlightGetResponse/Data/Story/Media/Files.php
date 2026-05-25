@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stories\Highlights\HighlightGetResponse\Data\Story\Media;
+namespace OnlyFansAPI\Stories\Highlights\HighlightGetResponse\Data\Story\Media;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files\Full;
-use Onlyfansapi\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files\Preview;
-use Onlyfansapi\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files\SquarePreview;
-use Onlyfansapi\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files\Thumb;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files\Full;
+use OnlyFansAPI\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files\Preview;
+use OnlyFansAPI\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files\SquarePreview;
+use OnlyFansAPI\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files\Thumb;
 
 /**
- * @phpstan-import-type FullShape from \Onlyfansapi\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files\Full
- * @phpstan-import-type PreviewShape from \Onlyfansapi\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files\Preview
- * @phpstan-import-type SquarePreviewShape from \Onlyfansapi\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files\SquarePreview
- * @phpstan-import-type ThumbShape from \Onlyfansapi\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files\Thumb
+ * @phpstan-import-type FullShape from \OnlyFansAPI\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files\Full
+ * @phpstan-import-type PreviewShape from \OnlyFansAPI\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files\Preview
+ * @phpstan-import-type SquarePreviewShape from \OnlyFansAPI\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files\SquarePreview
+ * @phpstan-import-type ThumbShape from \OnlyFansAPI\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files\Thumb
  *
  * @phpstan-type FilesShape = array{
  *   full?: null|Full|FullShape,

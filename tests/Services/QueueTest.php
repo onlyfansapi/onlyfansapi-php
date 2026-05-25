@@ -2,11 +2,11 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Queue\QueueCountResponse;
-use Onlyfansapi\Queue\QueueListResponse;
-use Onlyfansapi\Queue\QueuePublishResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Queue\QueueCountResponse;
+use OnlyFansAPI\Queue\QueueListResponse;
+use OnlyFansAPI\Queue\QueuePublishResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

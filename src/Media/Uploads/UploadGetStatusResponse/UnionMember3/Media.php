@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember3;
+namespace OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember3\Media\Additional;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember3\Media\Thumb;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3\Media\Additional;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3\Media\Thumb;
 
 /**
- * @phpstan-import-type AdditionalShape from \Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember3\Media\Additional
- * @phpstan-import-type ThumbShape from \Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember3\Media\Thumb
+ * @phpstan-import-type AdditionalShape from \OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3\Media\Additional
+ * @phpstan-import-type ThumbShape from \OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3\Media\Thumb
  *
  * @phpstan-type MediaShape = array{
  *   additional?: null|Additional|AdditionalShape,

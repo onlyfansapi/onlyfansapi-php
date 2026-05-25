@@ -2,9 +2,9 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\ClientSessions\ClientSessionNewResponse;
-use Onlyfansapi\Core\Util;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\ClientSessions\ClientSessionNewResponse;
+use OnlyFansAPI\Core\Util;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

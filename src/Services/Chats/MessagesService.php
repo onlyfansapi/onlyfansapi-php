@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Chats;
+namespace OnlyFansAPI\Services\Chats;
 
-use Onlyfansapi\Chats\Messages\MessageDeleteResponse;
-use Onlyfansapi\Chats\Messages\MessageGetResponse;
-use Onlyfansapi\Chats\Messages\MessageLikeResponse;
-use Onlyfansapi\Chats\Messages\MessageListParams\Filter;
-use Onlyfansapi\Chats\Messages\MessageListResponse;
-use Onlyfansapi\Chats\Messages\MessagePinResponse;
-use Onlyfansapi\Chats\Messages\MessageSearchResponse;
-use Onlyfansapi\Chats\Messages\MessageSendResponse;
-use Onlyfansapi\Chats\Messages\MessageUnlikeResponse;
-use Onlyfansapi\Chats\Messages\MessageUnpinResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Chats\MessagesContract;
+use OnlyFansAPI\Chats\Messages\MessageDeleteResponse;
+use OnlyFansAPI\Chats\Messages\MessageGetResponse;
+use OnlyFansAPI\Chats\Messages\MessageLikeResponse;
+use OnlyFansAPI\Chats\Messages\MessageListParams\Filter;
+use OnlyFansAPI\Chats\Messages\MessageListResponse;
+use OnlyFansAPI\Chats\Messages\MessagePinResponse;
+use OnlyFansAPI\Chats\Messages\MessageSearchResponse;
+use OnlyFansAPI\Chats\Messages\MessageSendResponse;
+use OnlyFansAPI\Chats\Messages\MessageUnlikeResponse;
+use OnlyFansAPI\Chats\Messages\MessageUnpinResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Chats\MessagesContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class MessagesService implements MessagesContract
 {

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\DataExports;
+namespace OnlyFansAPI\DataExports;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get the current status and progress of a data export.
  *
- * @see Onlyfansapi\Services\DataExportsService::retrieve()
+ * @see OnlyFansAPI\Services\DataExportsService::retrieve()
  *
  * @phpstan-type DataExportRetrieveParamsShape = array{
  *   downloadURLExpiresIn?: int|null

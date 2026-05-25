@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Notifications\NotificationGetCountsResponse;
-use Onlyfansapi\Notifications\NotificationListParams\SkipUsers;
-use Onlyfansapi\Notifications\NotificationListParams\Type;
-use Onlyfansapi\Notifications\NotificationListResponse;
-use Onlyfansapi\Notifications\NotificationMarkAllAsReadResponse;
-use Onlyfansapi\Notifications\NotificationSearchUsersResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\NotificationsContract;
-use Onlyfansapi\Services\Notifications\TabsOrderService;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Notifications\NotificationGetCountsResponse;
+use OnlyFansAPI\Notifications\NotificationListParams\SkipUsers;
+use OnlyFansAPI\Notifications\NotificationListParams\Type;
+use OnlyFansAPI\Notifications\NotificationListResponse;
+use OnlyFansAPI\Notifications\NotificationMarkAllAsReadResponse;
+use OnlyFansAPI\Notifications\NotificationSearchUsersResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\NotificationsContract;
+use OnlyFansAPI\Services\Notifications\TabsOrderService;
 
 /**
  * Endpoints for managingr account notifications.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class NotificationsService implements NotificationsContract
 {

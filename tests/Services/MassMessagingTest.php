@@ -2,14 +2,14 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\MassMessaging\MassMessagingDeleteResponse;
-use Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse;
-use Onlyfansapi\MassMessaging\MassMessagingGetResponse;
-use Onlyfansapi\MassMessaging\MassMessagingListResponse;
-use Onlyfansapi\MassMessaging\MassMessagingSendResponse;
-use Onlyfansapi\MassMessaging\MassMessagingUpdateResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\MassMessaging\MassMessagingDeleteResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingGetResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingListResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingSendResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingUpdateResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

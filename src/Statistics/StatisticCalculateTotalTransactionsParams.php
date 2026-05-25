@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics;
+namespace OnlyFansAPI\Statistics;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Calculate the total transactions and amounts.
  *
- * @see Onlyfansapi\Services\StatisticsService::calculateTotalTransactions()
+ * @see OnlyFansAPI\Services\StatisticsService::calculateTotalTransactions()
  *
  * @phpstan-type StatisticCalculateTotalTransactionsParamsShape = array{
  *   endDate: string, startDate: string

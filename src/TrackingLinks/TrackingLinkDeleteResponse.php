@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrackingLinks;
+namespace OnlyFansAPI\TrackingLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrackingLinks\TrackingLinkDeleteResponse\_Meta;
-use Onlyfansapi\TrackingLinks\TrackingLinkDeleteResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\TrackingLinks\TrackingLinkDeleteResponse\_Meta;
+use OnlyFansAPI\TrackingLinks\TrackingLinkDeleteResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\TrackingLinks\TrackingLinkDeleteResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\TrackingLinks\TrackingLinkDeleteResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\TrackingLinks\TrackingLinkDeleteResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\TrackingLinks\TrackingLinkDeleteResponse\Data
  *
  * @phpstan-type TrackingLinkDeleteResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

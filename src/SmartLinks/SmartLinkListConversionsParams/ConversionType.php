@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinks\SmartLinkListConversionsParams;
+namespace OnlyFansAPI\SmartLinks\SmartLinkListConversionsParams;
 
 /**
  * Optional conversion type filter.

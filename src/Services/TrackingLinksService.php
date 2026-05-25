@@ -2,29 +2,29 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\TrackingLinksContract;
-use Onlyfansapi\Services\TrackingLinks\TagsService;
-use Onlyfansapi\TrackingLinks\TrackingLinkDeleteResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetCohortArpsParams\RevenueBasis;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetStatsResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkListParams\Sort;
-use Onlyfansapi\TrackingLinks\TrackingLinkListParams\Sortby;
-use Onlyfansapi\TrackingLinks\TrackingLinkListResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkListSpendersResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkListSubscribersResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkNewResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\TrackingLinksContract;
+use OnlyFansAPI\Services\TrackingLinks\TagsService;
+use OnlyFansAPI\TrackingLinks\TrackingLinkDeleteResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetCohortArpsParams\RevenueBasis;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetStatsResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\Sort;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\Sortby;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListSpendersResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListSubscribersResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkNewResponse;
 
 /**
  * APIs for managing tracking links.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class TrackingLinksService implements TrackingLinksContract
 {

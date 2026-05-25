@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Messages;
+namespace OnlyFansAPI\Messages;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Attach Tags (Release Forms) to a message that has already been sent. Please note, that this is a "sync" operation - for example, if you provide empty `rfTag` it will remove all existing tags already attached to the message.
  *
- * @see Onlyfansapi\Services\MessagesService::attachTags()
+ * @see OnlyFansAPI\Services\MessagesService::attachTags()
  *
  * @phpstan-type MessageAttachTagsParamsShape = array{
  *   account: string,

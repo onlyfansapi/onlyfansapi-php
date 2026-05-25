@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\Vault\Lists\ListListResponse\Data;
+namespace OnlyFansAPI\Media\Vault\Lists\ListListResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Media\Vault\Lists\ListListResponse\Data\All\Media;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Media\Vault\Lists\ListListResponse\Data\All\Media;
 
 /**
- * @phpstan-import-type MediaShape from \Onlyfansapi\Media\Vault\Lists\ListListResponse\Data\All\Media
+ * @phpstan-import-type MediaShape from \OnlyFansAPI\Media\Vault\Lists\ListListResponse\Data\All\Media
  *
  * @phpstan-type AllShape = array{
  *   audiosCount?: int|null,

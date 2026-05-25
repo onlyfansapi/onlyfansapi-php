@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Engagement\Messages;
+namespace OnlyFansAPI\ServiceContracts\Engagement\Messages;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageChartResponse;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageListResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageChartResponse;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageListResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface MassMessagesContract
 {

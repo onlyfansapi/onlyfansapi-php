@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Analytics\Financial\Profitability;
+namespace OnlyFansAPI\Analytics\Financial\Profitability;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get historical profitability data for a specific account over multiple months.
  *
- * @see Onlyfansapi\Services\Analytics\Financial\ProfitabilityService::getHistory()
+ * @see OnlyFansAPI\Services\Analytics\Financial\ProfitabilityService::getHistory()
  *
  * @phpstan-type ProfitabilityGetHistoryParamsShape = array{
  *   accountPrefixedID: string, months?: int|null

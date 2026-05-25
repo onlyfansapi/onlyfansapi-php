@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts\Labels;
+namespace OnlyFansAPI\Posts\Labels;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Create a new post label.
  *
- * @see Onlyfansapi\Services\Posts\LabelsService::create()
+ * @see OnlyFansAPI\Services\Posts\LabelsService::create()
  *
  * @phpstan-type LabelCreateParamsShape = array{name: string}
  */

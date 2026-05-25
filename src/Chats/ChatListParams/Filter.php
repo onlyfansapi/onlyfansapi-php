@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\ChatListParams;
+namespace OnlyFansAPI\Chats\ChatListParams;
 
 /**
  * Optionally, filter the chats by type.

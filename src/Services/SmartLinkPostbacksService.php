@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\SmartLinkPostbacksContract;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackCreateParams\SmartLinkScope;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackGetResponse;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackListResponse;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackNewResponse;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackUpdateResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\SmartLinkPostbacksContract;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackCreateParams\SmartLinkScope;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackGetResponse;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackListResponse;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackNewResponse;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackUpdateResponse;
 
 /**
  * APIs for managing Smart Link postback destinations.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class SmartLinkPostbacksService implements SmartLinkPostbacksContract
 {
@@ -97,7 +97,7 @@ final class SmartLinkPostbacksService implements SmartLinkPostbacksContract
      *
      * @param int $postbackID The postback ID
      * @param list<string> $conversionTypes one or more Smart Link conversion types that should trigger this postback
-     * @param \Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackUpdateParams\SmartLinkScope|value-of<\Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackUpdateParams\SmartLinkScope> $smartLinkScope `global` or `campaign_specific`
+     * @param \OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackUpdateParams\SmartLinkScope|value-of<\OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackUpdateParams\SmartLinkScope> $smartLinkScope `global` or `campaign_specific`
      * @param string $url the destination URL
      * @param list<string> $smartLinkIDs Smart Link ULIDs. Required when `smart_link_scope` is `campaign_specific`.
      * @param RequestOpts|null $requestOptions
@@ -107,7 +107,7 @@ final class SmartLinkPostbacksService implements SmartLinkPostbacksContract
     public function update(
         int $postbackID,
         array $conversionTypes,
-        \Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackUpdateParams\SmartLinkScope|string $smartLinkScope,
+        \OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackUpdateParams\SmartLinkScope|string $smartLinkScope,
         string $url,
         ?array $smartLinkIDs = null,
         RequestOptions|array|null $requestOptions = null,

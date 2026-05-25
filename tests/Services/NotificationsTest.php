@@ -2,12 +2,12 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Notifications\NotificationGetCountsResponse;
-use Onlyfansapi\Notifications\NotificationListResponse;
-use Onlyfansapi\Notifications\NotificationMarkAllAsReadResponse;
-use Onlyfansapi\Notifications\NotificationSearchUsersResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Notifications\NotificationGetCountsResponse;
+use OnlyFansAPI\Notifications\NotificationListResponse;
+use OnlyFansAPI\Notifications\NotificationMarkAllAsReadResponse;
+use OnlyFansAPI\Notifications\NotificationSearchUsersResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

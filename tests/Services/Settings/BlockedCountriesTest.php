@@ -2,10 +2,10 @@
 
 namespace Tests\Services\Settings;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Settings\BlockedCountries\BlockedCountryGetResponse;
-use Onlyfansapi\Settings\BlockedCountries\BlockedCountryUpdateResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Settings\BlockedCountries\BlockedCountryGetResponse;
+use OnlyFansAPI\Settings\BlockedCountries\BlockedCountryUpdateResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

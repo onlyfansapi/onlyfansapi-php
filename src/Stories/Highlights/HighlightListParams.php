@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stories\Highlights;
+namespace OnlyFansAPI\Stories\Highlights;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Retrieve a list of your story highlights.
  *
- * @see Onlyfansapi\Services\Stories\HighlightsService::list()
+ * @see OnlyFansAPI\Services\Stories\HighlightsService::list()
  *
  * @phpstan-type HighlightListParamsShape = array{
  *   limit?: int|null, offset?: int|null

@@ -2,28 +2,28 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Fans\FanGetSubscriptionHistoryParams;
-use Onlyfansapi\Fans\FanGetSubscriptionHistoryResponse;
-use Onlyfansapi\Fans\FanListActiveParams;
-use Onlyfansapi\Fans\FanListActiveResponse;
-use Onlyfansapi\Fans\FanListAllParams;
-use Onlyfansapi\Fans\FanListAllResponse;
-use Onlyfansapi\Fans\FanListExpiredParams;
-use Onlyfansapi\Fans\FanListExpiredResponse;
-use Onlyfansapi\Fans\FanListLatestParams;
-use Onlyfansapi\Fans\FanListLatestResponse;
-use Onlyfansapi\Fans\FanListTopParams;
-use Onlyfansapi\Fans\FanListTopResponse;
-use Onlyfansapi\Fans\FanSetCustomNameParams;
-use Onlyfansapi\Fans\FanSetCustomNameResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Fans\FanGetSubscriptionHistoryParams;
+use OnlyFansAPI\Fans\FanGetSubscriptionHistoryResponse;
+use OnlyFansAPI\Fans\FanListActiveParams;
+use OnlyFansAPI\Fans\FanListActiveResponse;
+use OnlyFansAPI\Fans\FanListAllParams;
+use OnlyFansAPI\Fans\FanListAllResponse;
+use OnlyFansAPI\Fans\FanListExpiredParams;
+use OnlyFansAPI\Fans\FanListExpiredResponse;
+use OnlyFansAPI\Fans\FanListLatestParams;
+use OnlyFansAPI\Fans\FanListLatestResponse;
+use OnlyFansAPI\Fans\FanListTopParams;
+use OnlyFansAPI\Fans\FanListTopResponse;
+use OnlyFansAPI\Fans\FanSetCustomNameParams;
+use OnlyFansAPI\Fans\FanSetCustomNameResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface FansRawContract
 {

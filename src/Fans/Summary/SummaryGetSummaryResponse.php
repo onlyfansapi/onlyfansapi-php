@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans\Summary;
+namespace OnlyFansAPI\Fans\Summary;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Fans\Summary\SummaryGetSummaryResponse\SummaryData;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Fans\Summary\SummaryGetSummaryResponse\SummaryData;
 
 /**
- * @phpstan-import-type SummaryDataShape from \Onlyfansapi\Fans\Summary\SummaryGetSummaryResponse\SummaryData
+ * @phpstan-import-type SummaryDataShape from \OnlyFansAPI\Fans\Summary\SummaryGetSummaryResponse\SummaryData
  *
  * @phpstan-type SummaryGetSummaryResponseShape = array{
  *   analyzedMessageCount?: int|null,

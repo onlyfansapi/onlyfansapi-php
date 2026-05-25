@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats;
+namespace OnlyFansAPI\Chats;
 
-use Onlyfansapi\Chats\ChatListMediaParams\Type;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chats\ChatListMediaParams\Type;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * List media files shared in a specific chat.
  *
- * @see Onlyfansapi\Services\ChatsService::listMedia()
+ * @see OnlyFansAPI\Services\ChatsService::listMedia()
  *
  * @phpstan-type ChatListMediaParamsShape = array{
  *   account: string,

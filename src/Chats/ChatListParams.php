@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats;
+namespace OnlyFansAPI\Chats;
 
-use Onlyfansapi\Chats\ChatListParams\Filter;
-use Onlyfansapi\Chats\ChatListParams\Order;
-use Onlyfansapi\Chats\ChatListParams\SkipUsers;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chats\ChatListParams\Filter;
+use OnlyFansAPI\Chats\ChatListParams\Order;
+use OnlyFansAPI\Chats\ChatListParams\SkipUsers;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get the list of chats for an Account.
  *
- * @see Onlyfansapi\Services\ChatsService::list()
+ * @see OnlyFansAPI\Services\ChatsService::list()
  *
  * @phpstan-type ChatListParamsShape = array{
  *   filter?: null|Filter|value-of<Filter>,

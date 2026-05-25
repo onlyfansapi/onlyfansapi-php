@@ -2,27 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans\FanListExpiredResponse\Data;
+namespace OnlyFansAPI\Fans\FanListExpiredResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Fans\FanListExpiredResponse\Data\List_\AvatarThumbs;
-use Onlyfansapi\Fans\FanListExpiredResponse\Data\List_\HeaderSize;
-use Onlyfansapi\Fans\FanListExpiredResponse\Data\List_\HeaderThumbs;
-use Onlyfansapi\Fans\FanListExpiredResponse\Data\List_\ListsState;
-use Onlyfansapi\Fans\FanListExpiredResponse\Data\List_\SubscribedByData;
-use Onlyfansapi\Fans\FanListExpiredResponse\Data\List_\SubscribedOnData;
-use Onlyfansapi\Fans\FanListExpiredResponse\Data\List_\SubscriptionBundle;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Fans\FanListExpiredResponse\Data\List_\AvatarThumbs;
+use OnlyFansAPI\Fans\FanListExpiredResponse\Data\List_\HeaderSize;
+use OnlyFansAPI\Fans\FanListExpiredResponse\Data\List_\HeaderThumbs;
+use OnlyFansAPI\Fans\FanListExpiredResponse\Data\List_\ListsState;
+use OnlyFansAPI\Fans\FanListExpiredResponse\Data\List_\SubscribedByData;
+use OnlyFansAPI\Fans\FanListExpiredResponse\Data\List_\SubscribedOnData;
+use OnlyFansAPI\Fans\FanListExpiredResponse\Data\List_\SubscriptionBundle;
 
 /**
- * @phpstan-import-type AvatarThumbsShape from \Onlyfansapi\Fans\FanListExpiredResponse\Data\List_\AvatarThumbs
- * @phpstan-import-type HeaderSizeShape from \Onlyfansapi\Fans\FanListExpiredResponse\Data\List_\HeaderSize
- * @phpstan-import-type HeaderThumbsShape from \Onlyfansapi\Fans\FanListExpiredResponse\Data\List_\HeaderThumbs
- * @phpstan-import-type ListsStateShape from \Onlyfansapi\Fans\FanListExpiredResponse\Data\List_\ListsState
- * @phpstan-import-type SubscribedByDataShape from \Onlyfansapi\Fans\FanListExpiredResponse\Data\List_\SubscribedByData
- * @phpstan-import-type SubscribedOnDataShape from \Onlyfansapi\Fans\FanListExpiredResponse\Data\List_\SubscribedOnData
- * @phpstan-import-type SubscriptionBundleShape from \Onlyfansapi\Fans\FanListExpiredResponse\Data\List_\SubscriptionBundle
+ * @phpstan-import-type AvatarThumbsShape from \OnlyFansAPI\Fans\FanListExpiredResponse\Data\List_\AvatarThumbs
+ * @phpstan-import-type HeaderSizeShape from \OnlyFansAPI\Fans\FanListExpiredResponse\Data\List_\HeaderSize
+ * @phpstan-import-type HeaderThumbsShape from \OnlyFansAPI\Fans\FanListExpiredResponse\Data\List_\HeaderThumbs
+ * @phpstan-import-type ListsStateShape from \OnlyFansAPI\Fans\FanListExpiredResponse\Data\List_\ListsState
+ * @phpstan-import-type SubscribedByDataShape from \OnlyFansAPI\Fans\FanListExpiredResponse\Data\List_\SubscribedByData
+ * @phpstan-import-type SubscribedOnDataShape from \OnlyFansAPI\Fans\FanListExpiredResponse\Data\List_\SubscribedOnData
+ * @phpstan-import-type SubscriptionBundleShape from \OnlyFansAPI\Fans\FanListExpiredResponse\Data\List_\SubscriptionBundle
  *
  * @phpstan-type ListShape = array{
  *   id?: int|null,

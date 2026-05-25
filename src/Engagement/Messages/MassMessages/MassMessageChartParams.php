@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Engagement\Messages\MassMessages;
+namespace OnlyFansAPI\Engagement\Messages\MassMessages;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get engagement chart metrics for mass messages: sent count and purchase amount over time.
  *
- * @see Onlyfansapi\Services\Engagement\Messages\MassMessagesService::chart()
+ * @see OnlyFansAPI\Services\Engagement\Messages\MassMessagesService::chart()
  *
  * @phpstan-type MassMessageChartParamsShape = array{
  *   endDate?: string|null, startDate?: string|null, withTotal?: bool|null

@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\MassMessaging\MassMessagingDeleteResponse;
-use Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse;
-use Onlyfansapi\MassMessaging\MassMessagingGetResponse;
-use Onlyfansapi\MassMessaging\MassMessagingListResponse;
-use Onlyfansapi\MassMessaging\MassMessagingSendResponse;
-use Onlyfansapi\MassMessaging\MassMessagingUpdateResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\MassMessaging\MassMessagingDeleteResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingGetResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingListResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingSendResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingUpdateResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface MassMessagingContract
 {

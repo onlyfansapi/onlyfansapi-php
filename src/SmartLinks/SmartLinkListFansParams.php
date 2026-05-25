@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinks;
+namespace OnlyFansAPI\SmartLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SmartLinks\SmartLinkListFansParams\Sort;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SmartLinks\SmartLinkListFansParams\Sort;
 
 /**
  * Query attributed Smart Link fans with aggregate fan metrics and subscriber attribution metadata.
  *
- * @see Onlyfansapi\Services\SmartLinksService::listFans()
+ * @see OnlyFansAPI\Services\SmartLinksService::listFans()
  *
  * @phpstan-type SmartLinkListFansParamsShape = array{
  *   hasMessages?: bool|null,

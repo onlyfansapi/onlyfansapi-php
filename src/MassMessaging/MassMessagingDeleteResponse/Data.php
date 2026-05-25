@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\MassMessaging\MassMessagingDeleteResponse;
+namespace OnlyFansAPI\MassMessaging\MassMessagingDeleteResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\MassMessaging\MassMessagingDeleteResponse\Data\Queue;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\MassMessaging\MassMessagingDeleteResponse\Data\Queue;
 
 /**
- * @phpstan-import-type QueueShape from \Onlyfansapi\MassMessaging\MassMessagingDeleteResponse\Data\Queue
+ * @phpstan-import-type QueueShape from \OnlyFansAPI\MassMessaging\MassMessagingDeleteResponse\Data\Queue
  *
  * @phpstan-type DataShape = array{
  *   queue?: null|Queue|QueueShape, success?: bool|null

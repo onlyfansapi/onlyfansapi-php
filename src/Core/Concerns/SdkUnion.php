@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Core\Concerns;
+namespace OnlyFansAPI\Core\Concerns;
 
-use Onlyfansapi\Core\Conversion\Contracts\Converter;
-use Onlyfansapi\Core\Conversion\Contracts\ConverterSource;
-use Onlyfansapi\Core\Conversion\UnionOf;
+use OnlyFansAPI\Core\Conversion\Contracts\Converter;
+use OnlyFansAPI\Core\Conversion\Contracts\ConverterSource;
+use OnlyFansAPI\Core\Conversion\UnionOf;
 
 /**
  * @internal

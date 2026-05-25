@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\LinkTags\LinkTagListParams;
+namespace OnlyFansAPI\LinkTags\LinkTagListParams;
 
 /**
  * Filter by link type. If not provided, returns tags for both types.

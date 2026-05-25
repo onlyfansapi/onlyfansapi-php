@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Giphy\GiphySearchResponse;
+namespace OnlyFansAPI\Giphy\GiphySearchResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Giphy\GiphySearchResponse\Data\Images;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Giphy\GiphySearchResponse\Data\Images;
 
 /**
- * @phpstan-import-type ImagesShape from \Onlyfansapi\Giphy\GiphySearchResponse\Data\Images
+ * @phpstan-import-type ImagesShape from \OnlyFansAPI\Giphy\GiphySearchResponse\Data\Images
  *
  * @phpstan-type DataShape = array{
  *   id?: string|null,

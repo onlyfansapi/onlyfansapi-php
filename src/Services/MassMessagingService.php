@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\MassMessaging\MassMessagingDeleteResponse;
-use Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse;
-use Onlyfansapi\MassMessaging\MassMessagingGetResponse;
-use Onlyfansapi\MassMessaging\MassMessagingListResponse;
-use Onlyfansapi\MassMessaging\MassMessagingSendResponse;
-use Onlyfansapi\MassMessaging\MassMessagingUpdateResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\MassMessagingContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\MassMessaging\MassMessagingDeleteResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingGetResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingListResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingSendResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingUpdateResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\MassMessagingContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class MassMessagingService implements MassMessagingContract
 {
