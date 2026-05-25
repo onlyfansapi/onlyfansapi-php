@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans\FanListTopParams;
+namespace OnlyFansAPI\Fans\FanListTopParams;
 
 /**
  * Sort by: total (default), subscribes, tips, messages, post, streams.

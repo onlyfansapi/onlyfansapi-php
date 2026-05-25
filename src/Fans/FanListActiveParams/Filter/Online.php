@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans\FanListActiveParams\Filter;
+namespace OnlyFansAPI\Fans\FanListActiveParams\Filter;
 
 /**
  * Filter by online status (`1` for online fans).

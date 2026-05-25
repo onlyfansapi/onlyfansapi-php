@@ -2,11 +2,11 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Chargebacks\ChargebackCalculateRatioResponse;
-use Onlyfansapi\Chargebacks\ChargebackListResponse;
-use Onlyfansapi\Chargebacks\ChargebackListStatisticsResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
+use OnlyFansAPI\Chargebacks\ChargebackCalculateRatioResponse;
+use OnlyFansAPI\Chargebacks\ChargebackListResponse;
+use OnlyFansAPI\Chargebacks\ChargebackListStatisticsResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

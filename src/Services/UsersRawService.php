@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\UsersRawContract;
-use Onlyfansapi\Users\UserGetResponse;
-use Onlyfansapi\Users\UserListParams;
-use Onlyfansapi\Users\UserListResponse;
-use Onlyfansapi\Users\UserRetrieveParams;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\UsersRawContract;
+use OnlyFansAPI\Users\UserGetResponse;
+use OnlyFansAPI\Users\UserListParams;
+use OnlyFansAPI\Users\UserListResponse;
+use OnlyFansAPI\Users\UserRetrieveParams;
 
 /**
  * APIs for fetching OnlyFans users.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class UsersRawService implements UsersRawContract
 {

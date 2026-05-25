@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\DataExports\DataExportCancelResponse;
-use Onlyfansapi\DataExports\DataExportCreateParams;
-use Onlyfansapi\DataExports\DataExportGetResponse;
-use Onlyfansapi\DataExports\DataExportListParams;
-use Onlyfansapi\DataExports\DataExportListResponse;
-use Onlyfansapi\DataExports\DataExportNewResponse;
-use Onlyfansapi\DataExports\DataExportRetrieveParams;
-use Onlyfansapi\DataExports\DataExportRetryResponse;
-use Onlyfansapi\DataExports\DataExportStartResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\DataExports\DataExportCancelResponse;
+use OnlyFansAPI\DataExports\DataExportCreateParams;
+use OnlyFansAPI\DataExports\DataExportGetResponse;
+use OnlyFansAPI\DataExports\DataExportListParams;
+use OnlyFansAPI\DataExports\DataExportListResponse;
+use OnlyFansAPI\DataExports\DataExportNewResponse;
+use OnlyFansAPI\DataExports\DataExportRetrieveParams;
+use OnlyFansAPI\DataExports\DataExportRetryResponse;
+use OnlyFansAPI\DataExports\DataExportStartResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface DataExportsRawContract
 {

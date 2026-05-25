@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stories;
+namespace OnlyFansAPI\Stories;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Post a new media or vault file to your story.
  *
- * @see Onlyfansapi\Services\StoriesService::create()
+ * @see OnlyFansAPI\Services\StoriesService::create()
  *
  * @phpstan-type StoryCreateParamsShape = array{mediaFiles: list<string>}
  */

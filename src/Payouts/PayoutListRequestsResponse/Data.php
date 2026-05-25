@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Payouts\PayoutListRequestsResponse;
+namespace OnlyFansAPI\Payouts\PayoutListRequestsResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Payouts\PayoutListRequestsResponse\Data\List_;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Payouts\PayoutListRequestsResponse\Data\List_;
 
 /**
- * @phpstan-import-type ListShape from \Onlyfansapi\Payouts\PayoutListRequestsResponse\Data\List_
+ * @phpstan-import-type ListShape from \OnlyFansAPI\Payouts\PayoutListRequestsResponse\Data\List_
  *
  * @phpstan-type DataShape = array{
  *   list?: list<List_|ListShape>|null, marker?: int|null

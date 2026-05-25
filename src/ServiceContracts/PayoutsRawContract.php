@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Payouts\PayoutGetBalancesResponse;
-use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse;
-use Onlyfansapi\Payouts\PayoutGetEligibilityResponse;
-use Onlyfansapi\Payouts\PayoutListRequestsParams;
-use Onlyfansapi\Payouts\PayoutListRequestsResponse;
-use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalParams;
-use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember0;
-use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1;
-use Onlyfansapi\Payouts\PayoutRetrieveEarningStatisticsParams;
-use Onlyfansapi\Payouts\PayoutUpdateFrequencyParams;
-use Onlyfansapi\Payouts\PayoutUpdateFrequencyResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Payouts\PayoutGetBalancesResponse;
+use OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse;
+use OnlyFansAPI\Payouts\PayoutGetEligibilityResponse;
+use OnlyFansAPI\Payouts\PayoutListRequestsParams;
+use OnlyFansAPI\Payouts\PayoutListRequestsResponse;
+use OnlyFansAPI\Payouts\PayoutRequestManualWithdrawalParams;
+use OnlyFansAPI\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember0;
+use OnlyFansAPI\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1;
+use OnlyFansAPI\Payouts\PayoutRetrieveEarningStatisticsParams;
+use OnlyFansAPI\Payouts\PayoutUpdateFrequencyParams;
+use OnlyFansAPI\Payouts\PayoutUpdateFrequencyResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface PayoutsRawContract
 {

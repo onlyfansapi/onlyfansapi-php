@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Settings;
+namespace OnlyFansAPI\Settings;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Updates the account profile. **Only include the fields you want to update.** To make a field empty, set it to `null`.
  *
- * @see Onlyfansapi\Services\SettingsService::updateProfile()
+ * @see OnlyFansAPI\Services\SettingsService::updateProfile()
  *
  * @phpstan-type SettingUpdateProfileParamsShape = array{
  *   about?: string|null,

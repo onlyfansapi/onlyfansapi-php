@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stories;
+namespace OnlyFansAPI\Stories;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Stories\StoryMarkAsWatchedResponse\_Meta;
-use Onlyfansapi\Stories\StoryMarkAsWatchedResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Stories\StoryMarkAsWatchedResponse\_Meta;
+use OnlyFansAPI\Stories\StoryMarkAsWatchedResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Stories\StoryMarkAsWatchedResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Stories\StoryMarkAsWatchedResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Stories\StoryMarkAsWatchedResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Stories\StoryMarkAsWatchedResponse\Data
  *
  * @phpstan-type StoryMarkAsWatchedResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Notifications;
+namespace OnlyFansAPI\Services\Notifications;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Notifications\TabsOrder\TabsOrderGetResponse;
-use Onlyfansapi\Notifications\TabsOrder\TabsOrderUpdateResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Notifications\TabsOrderContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Notifications\TabsOrder\TabsOrderGetResponse;
+use OnlyFansAPI\Notifications\TabsOrder\TabsOrderUpdateResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Notifications\TabsOrderContract;
 
 /**
  * Endpoints for managingr account notifications.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class TabsOrderService implements TabsOrderContract
 {

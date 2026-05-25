@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageGetResponse\Data;
+namespace OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageGetResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageGetResponse\Data\Media\Files;
-use Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageGetResponse\Data\Media\VideoSources;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageGetResponse\Data\Media\Files;
+use OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageGetResponse\Data\Media\VideoSources;
 
 /**
- * @phpstan-import-type FilesShape from \Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageGetResponse\Data\Media\Files
- * @phpstan-import-type VideoSourcesShape from \Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageGetResponse\Data\Media\VideoSources
+ * @phpstan-import-type FilesShape from \OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageGetResponse\Data\Media\Files
+ * @phpstan-import-type VideoSourcesShape from \OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageGetResponse\Data\Media\VideoSources
  *
  * @phpstan-type MediaShape = array{
  *   id?: int|null,

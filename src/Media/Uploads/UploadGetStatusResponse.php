@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\Uploads;
+namespace OnlyFansAPI\Media\Uploads;
 
-use Onlyfansapi\Core\Concerns\SdkUnion;
-use Onlyfansapi\Core\Conversion\Contracts\Converter;
-use Onlyfansapi\Core\Conversion\Contracts\ConverterSource;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember0;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember1;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember2;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember3;
+use OnlyFansAPI\Core\Concerns\SdkUnion;
+use OnlyFansAPI\Core\Conversion\Contracts\Converter;
+use OnlyFansAPI\Core\Conversion\Contracts\ConverterSource;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember0;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember1;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember2;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3;
 
 /**
  * Upload still processing.
  *
- * @phpstan-import-type UnionMember0Shape from \Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember0
- * @phpstan-import-type UnionMember1Shape from \Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember1
- * @phpstan-import-type UnionMember2Shape from \Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember2
- * @phpstan-import-type UnionMember3Shape from \Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember3
+ * @phpstan-import-type UnionMember0Shape from \OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember0
+ * @phpstan-import-type UnionMember1Shape from \OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember1
+ * @phpstan-import-type UnionMember2Shape from \OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember2
+ * @phpstan-import-type UnionMember3Shape from \OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3
  *
  * @phpstan-type UploadGetStatusResponseVariants = UnionMember0|UnionMember1|UnionMember2|UnionMember3
  * @phpstan-type UploadGetStatusResponseShape = UploadGetStatusResponseVariants|UnionMember0Shape|UnionMember1Shape|UnionMember2Shape|UnionMember3Shape

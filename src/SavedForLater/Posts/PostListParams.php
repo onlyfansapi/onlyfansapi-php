@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SavedForLater\Posts;
+namespace OnlyFansAPI\SavedForLater\Posts;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * List all posts that are marked as "Save For Later".
  *
- * @see Onlyfansapi\Services\SavedForLater\PostsService::list()
+ * @see OnlyFansAPI\Services\SavedForLater\PostsService::list()
  *
  * @phpstan-type PostListParamsShape = array{limit: int, offset: int}
  */

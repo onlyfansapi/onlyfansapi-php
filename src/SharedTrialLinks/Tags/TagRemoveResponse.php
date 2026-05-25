@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SharedTrialLinks\Tags;
+namespace OnlyFansAPI\SharedTrialLinks\Tags;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SharedTrialLinks\Tags\TagRemoveResponse\_Meta;
-use Onlyfansapi\SharedTrialLinks\Tags\TagRemoveResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SharedTrialLinks\Tags\TagRemoveResponse\_Meta;
+use OnlyFansAPI\SharedTrialLinks\Tags\TagRemoveResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\SharedTrialLinks\Tags\TagRemoveResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\SharedTrialLinks\Tags\TagRemoveResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\SharedTrialLinks\Tags\TagRemoveResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\SharedTrialLinks\Tags\TagRemoveResponse\Data
  *
  * @phpstan-type TagRemoveResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Queue;
+namespace OnlyFansAPI\Queue;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Queue\QueuePublishResponse\_Meta;
-use Onlyfansapi\Queue\QueuePublishResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Queue\QueuePublishResponse\_Meta;
+use OnlyFansAPI\Queue\QueuePublishResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Queue\QueuePublishResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Queue\QueuePublishResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Queue\QueuePublishResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Queue\QueuePublishResponse\Data
  *
  * @phpstan-type QueuePublishResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

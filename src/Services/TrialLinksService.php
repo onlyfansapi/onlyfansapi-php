@@ -2,31 +2,31 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\TrialLinksContract;
-use Onlyfansapi\Services\TrialLinks\TagsService;
-use Onlyfansapi\TrialLinks\TrialLinkCreateParams\Duration;
-use Onlyfansapi\TrialLinks\TrialLinkCreateParams\OfferLimit;
-use Onlyfansapi\TrialLinks\TrialLinkDeleteResponse;
-use Onlyfansapi\TrialLinks\TrialLinkGetResponse;
-use Onlyfansapi\TrialLinks\TrialLinkGetStatsResponse;
-use Onlyfansapi\TrialLinks\TrialLinkListParams\Field;
-use Onlyfansapi\TrialLinks\TrialLinkListParams\Sort;
-use Onlyfansapi\TrialLinks\TrialLinkListResponse;
-use Onlyfansapi\TrialLinks\TrialLinkListSpendersResponse;
-use Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse;
-use Onlyfansapi\TrialLinks\TrialLinkNewResponse;
-use Onlyfansapi\TrialLinks\TrialLinkRetrieveCohortArpsParams\RevenueBasis;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\TrialLinksContract;
+use OnlyFansAPI\Services\TrialLinks\TagsService;
+use OnlyFansAPI\TrialLinks\TrialLinkCreateParams\Duration;
+use OnlyFansAPI\TrialLinks\TrialLinkCreateParams\OfferLimit;
+use OnlyFansAPI\TrialLinks\TrialLinkDeleteResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkGetResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkGetStatsResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkListParams\Field;
+use OnlyFansAPI\TrialLinks\TrialLinkListParams\Sort;
+use OnlyFansAPI\TrialLinks\TrialLinkListResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkListSpendersResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkNewResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkRetrieveCohortArpsParams\RevenueBasis;
 
 /**
  * APIs for managing Free Trial Links.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class TrialLinksService implements TrialLinksContract
 {

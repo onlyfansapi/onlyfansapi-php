@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Relationships;
+namespace OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Relationships;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * @phpstan-type BuyersShape = array{href?: string|null, method?: string|null}

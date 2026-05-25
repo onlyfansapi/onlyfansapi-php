@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans;
+namespace OnlyFansAPI\Fans;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Fans\FanListLatestParams\Type;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Fans\FanListLatestParams\Type;
 
 /**
  * Get a paginated list fans, filterable by total, only new subscribers, or only renewals. Newest fans are first.
  *
- * @see Onlyfansapi\Services\FansService::listLatest()
+ * @see OnlyFansAPI\Services\FansService::listLatest()
  *
  * @phpstan-type FanListLatestParamsShape = array{
  *   endDate?: string|null,

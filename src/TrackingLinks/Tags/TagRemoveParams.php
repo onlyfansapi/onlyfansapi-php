@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrackingLinks\Tags;
+namespace OnlyFansAPI\TrackingLinks\Tags;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Remove tags from a specific tracking link. This is a free endpoint.
  *
- * @see Onlyfansapi\Services\TrackingLinks\TagsService::remove()
+ * @see OnlyFansAPI\Services\TrackingLinks\TagsService::remove()
  *
  * @phpstan-type TagRemoveParamsShape = array{account: string, tags: list<string>}
  */

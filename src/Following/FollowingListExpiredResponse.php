@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Following;
+namespace OnlyFansAPI\Following;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Following\FollowingListExpiredResponse\_Meta;
-use Onlyfansapi\Following\FollowingListExpiredResponse\_Pagination;
-use Onlyfansapi\Following\FollowingListExpiredResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Following\FollowingListExpiredResponse\_Meta;
+use OnlyFansAPI\Following\FollowingListExpiredResponse\_Pagination;
+use OnlyFansAPI\Following\FollowingListExpiredResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Following\FollowingListExpiredResponse\_Meta
- * @phpstan-import-type _PaginationShape from \Onlyfansapi\Following\FollowingListExpiredResponse\_Pagination
- * @phpstan-import-type DataShape from \Onlyfansapi\Following\FollowingListExpiredResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Following\FollowingListExpiredResponse\_Meta
+ * @phpstan-import-type _PaginationShape from \OnlyFansAPI\Following\FollowingListExpiredResponse\_Pagination
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Following\FollowingListExpiredResponse\Data
  *
  * @phpstan-type FollowingListExpiredResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape,

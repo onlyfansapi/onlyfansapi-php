@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\FileParam;
-use Onlyfansapi\Media\MediaDownloadParams;
-use Onlyfansapi\Media\MediaScrapeParams;
-use Onlyfansapi\Media\MediaScrapeParams\FileType;
-use Onlyfansapi\Media\MediaScrapeResponse;
-use Onlyfansapi\Media\MediaUploadParams;
-use Onlyfansapi\Media\MediaUploadParams\Type;
-use Onlyfansapi\Media\MediaUploadResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\MediaRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\FileParam;
+use OnlyFansAPI\Media\MediaDownloadParams;
+use OnlyFansAPI\Media\MediaScrapeParams;
+use OnlyFansAPI\Media\MediaScrapeParams\FileType;
+use OnlyFansAPI\Media\MediaScrapeResponse;
+use OnlyFansAPI\Media\MediaUploadParams;
+use OnlyFansAPI\Media\MediaUploadParams\Type;
+use OnlyFansAPI\Media\MediaUploadResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\MediaRawContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class MediaRawService implements MediaRawContract
 {

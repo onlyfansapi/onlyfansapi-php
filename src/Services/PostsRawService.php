@@ -2,39 +2,39 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Posts\PostArchiveParams;
-use Onlyfansapi\Posts\PostArchiveResponse;
-use Onlyfansapi\Posts\PostCreateParams;
-use Onlyfansapi\Posts\PostCreateParams\VotingType;
-use Onlyfansapi\Posts\PostDeleteParams;
-use Onlyfansapi\Posts\PostDeleteResponse;
-use Onlyfansapi\Posts\PostGetResponse;
-use Onlyfansapi\Posts\PostListParams;
-use Onlyfansapi\Posts\PostListParams\Order;
-use Onlyfansapi\Posts\PostListParams\Sort;
-use Onlyfansapi\Posts\PostListResponse;
-use Onlyfansapi\Posts\PostNewResponse;
-use Onlyfansapi\Posts\PostPinParams;
-use Onlyfansapi\Posts\PostPinResponse;
-use Onlyfansapi\Posts\PostRetrieveParams;
-use Onlyfansapi\Posts\PostStatsParams;
-use Onlyfansapi\Posts\PostStatsResponse;
-use Onlyfansapi\Posts\PostUnarchiveParams;
-use Onlyfansapi\Posts\PostUnarchiveResponse;
-use Onlyfansapi\Posts\PostUpdateParams;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\PostsRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Posts\PostArchiveParams;
+use OnlyFansAPI\Posts\PostArchiveResponse;
+use OnlyFansAPI\Posts\PostCreateParams;
+use OnlyFansAPI\Posts\PostCreateParams\VotingType;
+use OnlyFansAPI\Posts\PostDeleteParams;
+use OnlyFansAPI\Posts\PostDeleteResponse;
+use OnlyFansAPI\Posts\PostGetResponse;
+use OnlyFansAPI\Posts\PostListParams;
+use OnlyFansAPI\Posts\PostListParams\Order;
+use OnlyFansAPI\Posts\PostListParams\Sort;
+use OnlyFansAPI\Posts\PostListResponse;
+use OnlyFansAPI\Posts\PostNewResponse;
+use OnlyFansAPI\Posts\PostPinParams;
+use OnlyFansAPI\Posts\PostPinResponse;
+use OnlyFansAPI\Posts\PostRetrieveParams;
+use OnlyFansAPI\Posts\PostStatsParams;
+use OnlyFansAPI\Posts\PostStatsResponse;
+use OnlyFansAPI\Posts\PostUnarchiveParams;
+use OnlyFansAPI\Posts\PostUnarchiveResponse;
+use OnlyFansAPI\Posts\PostUpdateParams;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\PostsRawContract;
 
 /**
  * APIs for managing OnlyFans posts.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class PostsRawService implements PostsRawContract
 {

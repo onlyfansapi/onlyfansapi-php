@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\MassMessaging;
+namespace OnlyFansAPI\MassMessaging;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get an overview of mass messages, showing the send count and view count.
  *
- * @see Onlyfansapi\Services\MassMessagingService::retrieveOverview()
+ * @see OnlyFansAPI\Services\MassMessagingService::retrieveOverview()
  *
  * @phpstan-type MassMessagingRetrieveOverviewParamsShape = array{
  *   endDate?: string|null,

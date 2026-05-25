@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Media;
+namespace OnlyFansAPI\Services\Media;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\FileParam;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Media\Vault\VaultDeleteResponse;
-use Onlyfansapi\Media\Vault\VaultGetResponse;
-use Onlyfansapi\Media\Vault\VaultListParams\Field;
-use Onlyfansapi\Media\Vault\VaultListParams\Sort;
-use Onlyfansapi\Media\Vault\VaultListParams\Type;
-use Onlyfansapi\Media\Vault\VaultListResponse;
-use Onlyfansapi\Media\Vault\VaultUploadResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Media\VaultContract;
-use Onlyfansapi\Services\Media\Vault\ListsService;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\FileParam;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Media\Vault\VaultDeleteResponse;
+use OnlyFansAPI\Media\Vault\VaultGetResponse;
+use OnlyFansAPI\Media\Vault\VaultListParams\Field;
+use OnlyFansAPI\Media\Vault\VaultListParams\Sort;
+use OnlyFansAPI\Media\Vault\VaultListParams\Type;
+use OnlyFansAPI\Media\Vault\VaultListResponse;
+use OnlyFansAPI\Media\Vault\VaultUploadResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Media\VaultContract;
+use OnlyFansAPI\Services\Media\Vault\ListsService;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class VaultService implements VaultContract
 {

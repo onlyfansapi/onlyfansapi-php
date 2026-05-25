@@ -2,9 +2,9 @@
 
 namespace Tests\Services\Chats;
 
-use Onlyfansapi\Chats\MarkAllAsRead\MarkAllAsReadAllResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
+use OnlyFansAPI\Chats\MarkAllAsRead\MarkAllAsReadAllResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

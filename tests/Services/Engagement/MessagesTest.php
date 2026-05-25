@@ -2,10 +2,10 @@
 
 namespace Tests\Services\Engagement;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Engagement\Messages\MessageGetMessageBuyersResponse;
-use Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Engagement\Messages\MessageGetMessageBuyersResponse;
+use OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

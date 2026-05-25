@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\DataExports;
+namespace OnlyFansAPI\DataExports;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\DataExports\DataExportCreateParams\FileType;
-use Onlyfansapi\DataExports\DataExportCreateParams\Type;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\DataExports\DataExportCreateParams\FileType;
+use OnlyFansAPI\DataExports\DataExportCreateParams\Type;
 
 /**
  * Create a new data export request. This will calculate the required credits and prepare the export for starting.
  *
- * @see Onlyfansapi\Services\DataExportsService::create()
+ * @see OnlyFansAPI\Services\DataExportsService::create()
  *
  * @phpstan-type DataExportCreateParamsShape = array{
  *   endDate: string,

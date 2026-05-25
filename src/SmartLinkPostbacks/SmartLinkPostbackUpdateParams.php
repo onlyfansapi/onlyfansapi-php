@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinkPostbacks;
+namespace OnlyFansAPI\SmartLinkPostbacks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackUpdateParams\SmartLinkScope;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackUpdateParams\SmartLinkScope;
 
 /**
  * Update a Smart Link postback configuration.
  *
- * @see Onlyfansapi\Services\SmartLinkPostbacksService::update()
+ * @see OnlyFansAPI\Services\SmartLinkPostbacksService::update()
  *
  * @phpstan-type SmartLinkPostbackUpdateParamsShape = array{
  *   conversionTypes: list<string>,

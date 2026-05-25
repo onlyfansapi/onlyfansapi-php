@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Media\Vault;
+namespace OnlyFansAPI\Services\Media\Vault;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Media\Vault\Lists\ListDeleteResponse;
-use Onlyfansapi\Media\Vault\Lists\ListGetResponse;
-use Onlyfansapi\Media\Vault\Lists\ListListResponse;
-use Onlyfansapi\Media\Vault\Lists\ListNewResponse;
-use Onlyfansapi\Media\Vault\Lists\ListUpdateResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Media\Vault\ListsContract;
-use Onlyfansapi\Services\Media\Vault\Lists\MediaService;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Media\Vault\Lists\ListDeleteResponse;
+use OnlyFansAPI\Media\Vault\Lists\ListGetResponse;
+use OnlyFansAPI\Media\Vault\Lists\ListListResponse;
+use OnlyFansAPI\Media\Vault\Lists\ListNewResponse;
+use OnlyFansAPI\Media\Vault\Lists\ListUpdateResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Media\Vault\ListsContract;
+use OnlyFansAPI\Services\Media\Vault\Lists\MediaService;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class ListsService implements ListsContract
 {

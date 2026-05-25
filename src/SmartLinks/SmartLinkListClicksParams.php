@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinks;
+namespace OnlyFansAPI\SmartLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Query smart link clicks in a date range with optional bot/duplicate filtering.
  *
- * @see Onlyfansapi\Services\SmartLinksService::listClicks()
+ * @see OnlyFansAPI\Services\SmartLinksService::listClicks()
  *
  * @phpstan-type SmartLinkListClicksParamsShape = array{
  *   dateEnd?: string|null,

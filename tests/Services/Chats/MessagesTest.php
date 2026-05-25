@@ -2,17 +2,17 @@
 
 namespace Tests\Services\Chats;
 
-use Onlyfansapi\Chats\Messages\MessageDeleteResponse;
-use Onlyfansapi\Chats\Messages\MessageGetResponse;
-use Onlyfansapi\Chats\Messages\MessageLikeResponse;
-use Onlyfansapi\Chats\Messages\MessageListResponse;
-use Onlyfansapi\Chats\Messages\MessagePinResponse;
-use Onlyfansapi\Chats\Messages\MessageSearchResponse;
-use Onlyfansapi\Chats\Messages\MessageSendResponse;
-use Onlyfansapi\Chats\Messages\MessageUnlikeResponse;
-use Onlyfansapi\Chats\Messages\MessageUnpinResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
+use OnlyFansAPI\Chats\Messages\MessageDeleteResponse;
+use OnlyFansAPI\Chats\Messages\MessageGetResponse;
+use OnlyFansAPI\Chats\Messages\MessageLikeResponse;
+use OnlyFansAPI\Chats\Messages\MessageListResponse;
+use OnlyFansAPI\Chats\Messages\MessagePinResponse;
+use OnlyFansAPI\Chats\Messages\MessageSearchResponse;
+use OnlyFansAPI\Chats\Messages\MessageSendResponse;
+use OnlyFansAPI\Chats\Messages\MessageUnlikeResponse;
+use OnlyFansAPI\Chats\Messages\MessageUnpinResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

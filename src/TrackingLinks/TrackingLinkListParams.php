@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrackingLinks;
+namespace OnlyFansAPI\TrackingLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrackingLinks\TrackingLinkListParams\Sort;
-use Onlyfansapi\TrackingLinks\TrackingLinkListParams\Sortby;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\Sort;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\Sortby;
 
 /**
  * List all tracking links for the account and revenue data.
  *
- * @see Onlyfansapi\Services\TrackingLinksService::list()
+ * @see OnlyFansAPI\Services\TrackingLinksService::list()
  *
  * @phpstan-type TrackingLinkListParamsShape = array{
  *   endDate?: string|null,

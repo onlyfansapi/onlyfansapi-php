@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersResponse;
+namespace OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersResponse\Data\Item;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersResponse\Data\Item;
 
 /**
- * @phpstan-import-type ItemShape from \Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersResponse\Data\Item
+ * @phpstan-import-type ItemShape from \OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersResponse\Data\Item
  *
  * @phpstan-type DataShape = array{
  *   hasMore?: bool|null, items?: list<Item|ItemShape>|null

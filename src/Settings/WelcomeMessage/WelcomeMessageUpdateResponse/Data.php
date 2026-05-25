@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageUpdateResponse;
+namespace OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageUpdateResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media;
 
 /**
- * @phpstan-import-type MediaShape from \Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media
+ * @phpstan-import-type MediaShape from \OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media
  *
  * @phpstan-type DataShape = array{
  *   id?: string|null,

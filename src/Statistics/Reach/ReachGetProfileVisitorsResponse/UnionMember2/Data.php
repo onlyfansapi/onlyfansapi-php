@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2;
+namespace OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data\TopCountries;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data\TopCountries;
 
 /**
- * @phpstan-import-type TopCountriesShape from \Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data\TopCountries
+ * @phpstan-import-type TopCountriesShape from \OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data\TopCountries
  *
  * @phpstan-type DataShape = array{
  *   hasStats?: bool|null,

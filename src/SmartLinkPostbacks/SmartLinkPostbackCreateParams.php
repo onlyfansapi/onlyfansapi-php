@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinkPostbacks;
+namespace OnlyFansAPI\SmartLinkPostbacks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackCreateParams\SmartLinkScope;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackCreateParams\SmartLinkScope;
 
 /**
  * Create a postback that fires for selected Smart Link conversion types.
  *
- * @see Onlyfansapi\Services\SmartLinkPostbacksService::create()
+ * @see OnlyFansAPI\Services\SmartLinkPostbacksService::create()
  *
  * @phpstan-type SmartLinkPostbackCreateParamsShape = array{
  *   conversionTypes: list<string>,

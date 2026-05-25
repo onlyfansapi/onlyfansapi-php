@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Statistics;
+namespace OnlyFansAPI\Services\Statistics;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Statistics\StatementsContract;
-use Onlyfansapi\Statistics\Statements\StatementGetEarningsParams\Type;
-use Onlyfansapi\Statistics\Statements\StatementGetEarningsResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Statistics\StatementsContract;
+use OnlyFansAPI\Statistics\Statements\StatementGetEarningsParams\Type;
+use OnlyFansAPI\Statistics\Statements\StatementGetEarningsResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class StatementsService implements StatementsContract
 {

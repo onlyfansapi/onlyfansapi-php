@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\UsersContract;
-use Onlyfansapi\Services\Users\BlockService;
-use Onlyfansapi\Services\Users\RestrictService;
-use Onlyfansapi\Services\Users\SubscribeService;
-use Onlyfansapi\Users\UserGetResponse;
-use Onlyfansapi\Users\UserListResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\UsersContract;
+use OnlyFansAPI\Services\Users\BlockService;
+use OnlyFansAPI\Services\Users\RestrictService;
+use OnlyFansAPI\Services\Users\SubscribeService;
+use OnlyFansAPI\Users\UserGetResponse;
+use OnlyFansAPI\Users\UserListResponse;
 
 /**
  * APIs for fetching OnlyFans users.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class UsersService implements UsersContract
 {

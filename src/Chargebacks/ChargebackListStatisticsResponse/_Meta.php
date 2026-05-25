@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chargebacks\ChargebackListStatisticsResponse;
+namespace OnlyFansAPI\Chargebacks\ChargebackListStatisticsResponse;
 
-use Onlyfansapi\Chargebacks\ChargebackListStatisticsResponse\_Meta\_Cache;
-use Onlyfansapi\Chargebacks\ChargebackListStatisticsResponse\_Meta\_Credits;
-use Onlyfansapi\Chargebacks\ChargebackListStatisticsResponse\_Meta\_RateLimits;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chargebacks\ChargebackListStatisticsResponse\_Meta\_Cache;
+use OnlyFansAPI\Chargebacks\ChargebackListStatisticsResponse\_Meta\_Credits;
+use OnlyFansAPI\Chargebacks\ChargebackListStatisticsResponse\_Meta\_RateLimits;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type _CacheShape from \Onlyfansapi\Chargebacks\ChargebackListStatisticsResponse\_Meta\_Cache
- * @phpstan-import-type _CreditsShape from \Onlyfansapi\Chargebacks\ChargebackListStatisticsResponse\_Meta\_Credits
- * @phpstan-import-type _RateLimitsShape from \Onlyfansapi\Chargebacks\ChargebackListStatisticsResponse\_Meta\_RateLimits
+ * @phpstan-import-type _CacheShape from \OnlyFansAPI\Chargebacks\ChargebackListStatisticsResponse\_Meta\_Cache
+ * @phpstan-import-type _CreditsShape from \OnlyFansAPI\Chargebacks\ChargebackListStatisticsResponse\_Meta\_Credits
+ * @phpstan-import-type _RateLimitsShape from \OnlyFansAPI\Chargebacks\ChargebackListStatisticsResponse\_Meta\_RateLimits
  *
  * @phpstan-type _MetaShape = array{
  *   _cache?: null|_Cache|_CacheShape,

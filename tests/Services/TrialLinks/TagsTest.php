@@ -2,11 +2,11 @@
 
 namespace Tests\Services\TrialLinks;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\TrialLinks\Tags\TagAddResponse;
-use Onlyfansapi\TrialLinks\Tags\TagListResponse;
-use Onlyfansapi\TrialLinks\Tags\TagRemoveResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\TrialLinks\Tags\TagAddResponse;
+use OnlyFansAPI\TrialLinks\Tags\TagListResponse;
+use OnlyFansAPI\TrialLinks\Tags\TagRemoveResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

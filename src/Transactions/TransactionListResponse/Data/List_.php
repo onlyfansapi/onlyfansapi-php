@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Transactions\TransactionListResponse\Data;
+namespace OnlyFansAPI\Transactions\TransactionListResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Transactions\TransactionListResponse\Data\List_\User;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Transactions\TransactionListResponse\Data\List_\User;
 
 /**
- * @phpstan-import-type UserShape from \Onlyfansapi\Transactions\TransactionListResponse\Data\List_\User
+ * @phpstan-import-type UserShape from \OnlyFansAPI\Transactions\TransactionListResponse\Data\List_\User
  *
  * @phpstan-type ListShape = array{
  *   id?: string|null,

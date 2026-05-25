@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\SavedForLater;
+namespace OnlyFansAPI\Services\SavedForLater;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\SavedForLater\Posts\PostListResponse;
-use Onlyfansapi\ServiceContracts\SavedForLater\PostsContract;
-use Onlyfansapi\Services\SavedForLater\Posts\SettingsService;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\SavedForLater\Posts\PostListResponse;
+use OnlyFansAPI\ServiceContracts\SavedForLater\PostsContract;
+use OnlyFansAPI\Services\SavedForLater\Posts\SettingsService;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class PostsService implements PostsContract
 {

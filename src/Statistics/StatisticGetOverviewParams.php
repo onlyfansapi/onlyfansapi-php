@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics;
+namespace OnlyFansAPI\Statistics;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Statistics\StatisticGetOverviewParams\Type;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Statistics\StatisticGetOverviewParams\Type;
 
 /**
  * Get an overview of statistics for fans, visitors, posts, or general.
  *
- * @see Onlyfansapi\Services\StatisticsService::getOverview()
+ * @see OnlyFansAPI\Services\StatisticsService::getOverview()
  *
  * @phpstan-type StatisticGetOverviewParamsShape = array{
  *   endDate?: string|null,

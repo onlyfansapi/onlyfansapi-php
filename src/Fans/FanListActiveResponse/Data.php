@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans\FanListActiveResponse;
+namespace OnlyFansAPI\Fans\FanListActiveResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Fans\FanListActiveResponse\Data\List_;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Fans\FanListActiveResponse\Data\List_;
 
 /**
- * @phpstan-import-type ListShape from \Onlyfansapi\Fans\FanListActiveResponse\Data\List_
+ * @phpstan-import-type ListShape from \OnlyFansAPI\Fans\FanListActiveResponse\Data\List_
  *
  * @phpstan-type DataShape = array{
  *   hasMore?: bool|null, list?: list<List_|ListShape>|null

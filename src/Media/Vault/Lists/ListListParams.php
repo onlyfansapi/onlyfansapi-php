@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\Vault\Lists;
+namespace OnlyFansAPI\Media\Vault\Lists;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * List your Vault lists (categories).
  *
- * @see Onlyfansapi\Services\Media\Vault\ListsService::list()
+ * @see OnlyFansAPI\Services\Media\Vault\ListsService::list()
  *
  * @phpstan-type ListListParamsShape = array{
  *   limit?: int|null, offset?: int|null, query?: string|null

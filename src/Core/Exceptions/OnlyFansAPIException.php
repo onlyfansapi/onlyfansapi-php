@@ -1,11 +1,11 @@
 <?php
 
-namespace Onlyfansapi\Core\Exceptions;
+namespace OnlyFansAPI\Core\Exceptions;
 
-class OnlyfansapiException extends \Exception
+class OnlyFansAPIException extends \Exception
 {
     /** @var string */
-    protected const DESC = 'Onlyfansapi Error';
+    protected const DESC = 'OnlyFansAPI Error';
 
     public function __construct(string $message, int $code = 0, ?\Throwable $previous = null)
     {

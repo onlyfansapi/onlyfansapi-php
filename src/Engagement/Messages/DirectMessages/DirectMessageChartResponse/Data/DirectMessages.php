@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageChartResponse\Data;
+namespace OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageChartResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageChartResponse\Data\DirectMessages\Chart;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageChartResponse\Data\DirectMessages\Chart;
 
 /**
- * @phpstan-import-type ChartShape from \Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageChartResponse\Data\DirectMessages\Chart
+ * @phpstan-import-type ChartShape from \OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageChartResponse\Data\DirectMessages\Chart
  *
  * @phpstan-type DirectMessagesShape = array{
  *   chart?: list<Chart|ChartShape>|null, delta?: int|null, total?: int|null

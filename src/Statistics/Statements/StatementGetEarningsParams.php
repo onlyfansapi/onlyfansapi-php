@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics\Statements;
+namespace OnlyFansAPI\Statistics\Statements;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Statistics\Statements\StatementGetEarningsParams\Type;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Statistics\Statements\StatementGetEarningsParams\Type;
 
 /**
  * Get the earnings for a given period.
  *
- * @see Onlyfansapi\Services\Statistics\StatementsService::getEarnings()
+ * @see OnlyFansAPI\Services\Statistics\StatementsService::getEarnings()
  *
  * @phpstan-type StatementGetEarningsParamsShape = array{
  *   startDate: string, endDate?: string|null, type?: null|Type|value-of<Type>

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Core\Conversion;
+namespace OnlyFansAPI\Core\Conversion;
 
-use Onlyfansapi\Core\Conversion\Concerns\ArrayOf;
-use Onlyfansapi\Core\Conversion\Contracts\Converter;
+use OnlyFansAPI\Core\Conversion\Concerns\ArrayOf;
+use OnlyFansAPI\Core\Conversion\Contracts\Converter;
 
 /**
  * @internal

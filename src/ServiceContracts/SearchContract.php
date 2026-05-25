@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Search\SearchProfilesParams\Filter;
-use Onlyfansapi\Search\SearchProfilesParams\Sort;
-use Onlyfansapi\Search\SearchProfilesParams\SortDirection;
-use Onlyfansapi\Search\SearchProfilesResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Search\SearchProfilesParams\Filter;
+use OnlyFansAPI\Search\SearchProfilesParams\Sort;
+use OnlyFansAPI\Search\SearchProfilesParams\SortDirection;
+use OnlyFansAPI\Search\SearchProfilesResponse;
 
 /**
- * @phpstan-import-type FilterShape from \Onlyfansapi\Search\SearchProfilesParams\Filter
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Search\SearchProfilesParams\Filter
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface SearchContract
 {

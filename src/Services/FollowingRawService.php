@@ -2,28 +2,28 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Following\FollowingListActiveParams;
-use Onlyfansapi\Following\FollowingListActiveParams\Filter;
-use Onlyfansapi\Following\FollowingListActiveResponse;
-use Onlyfansapi\Following\FollowingListAllParams;
-use Onlyfansapi\Following\FollowingListAllResponse;
-use Onlyfansapi\Following\FollowingListExpiredParams;
-use Onlyfansapi\Following\FollowingListExpiredResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\FollowingRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Following\FollowingListActiveParams;
+use OnlyFansAPI\Following\FollowingListActiveParams\Filter;
+use OnlyFansAPI\Following\FollowingListActiveResponse;
+use OnlyFansAPI\Following\FollowingListAllParams;
+use OnlyFansAPI\Following\FollowingListAllResponse;
+use OnlyFansAPI\Following\FollowingListExpiredParams;
+use OnlyFansAPI\Following\FollowingListExpiredResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\FollowingRawContract;
 
 /**
  * APIs for managing OnlyFans followings (people you're subscribed to).
  *
- * @phpstan-import-type FilterShape from \Onlyfansapi\Following\FollowingListActiveParams\Filter
- * @phpstan-import-type FilterShape from \Onlyfansapi\Following\FollowingListAllParams\Filter as FilterShape1
- * @phpstan-import-type FilterShape from \Onlyfansapi\Following\FollowingListExpiredParams\Filter as FilterShape2
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Following\FollowingListActiveParams\Filter
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Following\FollowingListAllParams\Filter as FilterShape1
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Following\FollowingListExpiredParams\Filter as FilterShape2
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class FollowingRawService implements FollowingRawContract
 {

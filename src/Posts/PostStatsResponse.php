@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts;
+namespace OnlyFansAPI\Posts;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Posts\PostStatsResponse\_Meta;
-use Onlyfansapi\Posts\PostStatsResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Posts\PostStatsResponse\_Meta;
+use OnlyFansAPI\Posts\PostStatsResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Posts\PostStatsResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Posts\PostStatsResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Posts\PostStatsResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Posts\PostStatsResponse\Data
  *
  * @phpstan-type PostStatsResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

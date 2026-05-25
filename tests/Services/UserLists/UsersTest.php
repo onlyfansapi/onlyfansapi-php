@@ -2,14 +2,14 @@
 
 namespace Tests\Services\UserLists;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\UserLists\Users\UserAddResponse;
-use Onlyfansapi\UserLists\Users\UserClearResponse;
-use Onlyfansapi\UserLists\Users\UserListPinnedResponse;
-use Onlyfansapi\UserLists\Users\UserListResponse;
-use Onlyfansapi\UserLists\Users\UserPinResponse;
-use Onlyfansapi\UserLists\Users\UserRemoveResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\UserLists\Users\UserAddResponse;
+use OnlyFansAPI\UserLists\Users\UserClearResponse;
+use OnlyFansAPI\UserLists\Users\UserListPinnedResponse;
+use OnlyFansAPI\UserLists\Users\UserListResponse;
+use OnlyFansAPI\UserLists\Users\UserPinResponse;
+use OnlyFansAPI\UserLists\Users\UserRemoveResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

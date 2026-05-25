@@ -2,13 +2,13 @@
 
 namespace Tests\Services\Settings;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonAddResponse;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonListResponse;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonReorderResponse;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonUpdateResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonAddResponse;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonListResponse;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonReorderResponse;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonUpdateResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

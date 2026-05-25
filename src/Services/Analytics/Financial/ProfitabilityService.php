@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Analytics\Financial;
+namespace OnlyFansAPI\Services\Analytics\Financial;
 
-use Onlyfansapi\Analytics\Financial\Profitability\ProfitabilityGetHistoryResponseItem;
-use Onlyfansapi\Analytics\Financial\Profitability\ProfitabilityGetProfitabilityResponseItem;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Analytics\Financial\ProfitabilityContract;
+use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetHistoryResponseItem;
+use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetProfitabilityResponseItem;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Analytics\Financial\ProfitabilityContract;
 
 /**
  * APIs for retrieving financial analytics data.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class ProfitabilityService implements ProfitabilityContract
 {

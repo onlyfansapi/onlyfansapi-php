@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Users\Restrict;
+namespace OnlyFansAPI\Users\Restrict;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Restrict a user. You will not see messages or comments from this them.
  *
- * @see Onlyfansapi\Services\Users\RestrictService::create()
+ * @see OnlyFansAPI\Services\Users\RestrictService::create()
  *
  * @phpstan-type RestrictCreateParamsShape = array{account: string}
  */

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Engagement;
+namespace OnlyFansAPI\ServiceContracts\Engagement;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Engagement\Messages\MessageGetMessageBuyersResponse;
-use Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Engagement\Messages\MessageGetMessageBuyersResponse;
+use OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface MessagesContract
 {

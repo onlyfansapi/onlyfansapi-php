@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Media;
+namespace OnlyFansAPI\Services\Media;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Media\Uploads\UploadGetStatusParams;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember0;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember1;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember2;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember3;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Media\UploadsRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusParams;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember0;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember1;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember2;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Media\UploadsRawContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class UploadsRawService implements UploadsRawContract
 {

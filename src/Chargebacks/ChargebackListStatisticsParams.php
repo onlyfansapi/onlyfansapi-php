@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chargebacks;
+namespace OnlyFansAPI\Chargebacks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * List chargeback counts & amounts per hour, day or month.
  *
- * @see Onlyfansapi\Services\ChargebacksService::listStatistics()
+ * @see OnlyFansAPI\Services\ChargebacksService::listStatistics()
  *
  * @phpstan-type ChargebackListStatisticsParamsShape = array{
  *   endDate?: string|null, startDate?: string|null

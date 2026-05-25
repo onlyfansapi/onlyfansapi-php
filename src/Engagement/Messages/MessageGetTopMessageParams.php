@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Engagement\Messages;
+namespace OnlyFansAPI\Engagement\Messages;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get the top performing message by purchases in the selected timeframe.
  *
- * @see Onlyfansapi\Services\Engagement\MessagesService::getTopMessage()
+ * @see OnlyFansAPI\Services\Engagement\MessagesService::getTopMessage()
  *
  * @phpstan-type MessageGetTopMessageParamsShape = array{
  *   endDate?: string|null, startDate?: string|null

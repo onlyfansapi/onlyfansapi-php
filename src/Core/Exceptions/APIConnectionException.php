@@ -1,9 +1,9 @@
 <?php
 
-namespace Onlyfansapi\Core\Exceptions;
+namespace OnlyFansAPI\Core\Exceptions;
 
 class APIConnectionException extends APIException
 {
     /** @var string */
-    protected const DESC = 'Onlyfansapi API Connection Error';
+    protected const DESC = 'OnlyFansAPI API Connection Error';
 }

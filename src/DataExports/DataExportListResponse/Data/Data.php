@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\DataExports\DataExportListResponse\Data;
+namespace OnlyFansAPI\DataExports\DataExportListResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\DataExports\DataExportListResponse\Data\Data\Account;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\DataExports\DataExportListResponse\Data\Data\Account;
 
 /**
- * @phpstan-import-type AccountShape from \Onlyfansapi\DataExports\DataExportListResponse\Data\Data\Account
+ * @phpstan-import-type AccountShape from \OnlyFansAPI\DataExports\DataExportListResponse\Data\Data\Account
  *
  * @phpstan-type DataShape = array{
  *   id?: string|null,

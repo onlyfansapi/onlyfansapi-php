@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Queue\QueueCountResponse;
-use Onlyfansapi\Queue\QueueListResponse;
-use Onlyfansapi\Queue\QueuePublishResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\QueueContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Queue\QueueCountResponse;
+use OnlyFansAPI\Queue\QueueListResponse;
+use OnlyFansAPI\Queue\QueuePublishResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\QueueContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class QueueService implements QueueContract
 {

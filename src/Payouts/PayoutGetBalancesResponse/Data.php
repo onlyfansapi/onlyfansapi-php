@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Payouts\PayoutGetBalancesResponse;
+namespace OnlyFansAPI\Payouts\PayoutGetBalancesResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Payouts\PayoutGetBalancesResponse\Data\WithdrawalPeriodOption;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Payouts\PayoutGetBalancesResponse\Data\WithdrawalPeriodOption;
 
 /**
- * @phpstan-import-type WithdrawalPeriodOptionShape from \Onlyfansapi\Payouts\PayoutGetBalancesResponse\Data\WithdrawalPeriodOption
+ * @phpstan-import-type WithdrawalPeriodOptionShape from \OnlyFansAPI\Payouts\PayoutGetBalancesResponse\Data\WithdrawalPeriodOption
  *
  * @phpstan-type DataShape = array{
  *   currency?: string|null,

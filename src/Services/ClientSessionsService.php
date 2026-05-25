@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\ClientSessions\ClientSessionCreateParams\ProxyCountry;
-use Onlyfansapi\ClientSessions\ClientSessionNewResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\ClientSessionsContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\ClientSessions\ClientSessionCreateParams\ProxyCountry;
+use OnlyFansAPI\ClientSessions\ClientSessionNewResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\ClientSessionsContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class ClientSessionsService implements ClientSessionsContract
 {

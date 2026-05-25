@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans;
+namespace OnlyFansAPI\Fans;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Fans\FanListTopParams\By;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Fans\FanListTopParams\By;
 
 /**
  * Get a list of top fans sorted by spending. Filterable by total, subscriptions, tips, messages, posts, or streams.
  *
- * @see Onlyfansapi\Services\FansService::listTop()
+ * @see OnlyFansAPI\Services\FansService::listTop()
  *
  * @phpstan-type FanListTopParamsShape = array{
  *   by?: null|By|value-of<By>, endDate?: string|null, startDate?: string|null

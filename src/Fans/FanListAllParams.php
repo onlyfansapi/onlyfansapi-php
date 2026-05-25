@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans;
+namespace OnlyFansAPI\Fans;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Fans\FanListAllParams\Filter;
-use Onlyfansapi\Fans\FanListAllParams\Type;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Fans\FanListAllParams\Filter;
+use OnlyFansAPI\Fans\FanListAllParams\Type;
 
 /**
  * Get a paginated list of fans for an Account. Newest fans are first.
  *
- * @see Onlyfansapi\Services\FansService::listAll()
+ * @see OnlyFansAPI\Services\FansService::listAll()
  *
- * @phpstan-import-type FilterShape from \Onlyfansapi\Fans\FanListAllParams\Filter
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Fans\FanListAllParams\Filter
  *
  * @phpstan-type FanListAllParamsShape = array{
  *   filter?: null|Filter|FilterShape,

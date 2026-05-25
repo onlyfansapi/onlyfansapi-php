@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\DataExports\DataExportCreateParams;
+namespace OnlyFansAPI\DataExports\DataExportCreateParams;
 
 /**
  * The type of data to export.

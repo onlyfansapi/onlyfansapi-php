@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\FileParam;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Media\MediaScrapeParams\FileType;
-use Onlyfansapi\Media\MediaScrapeResponse;
-use Onlyfansapi\Media\MediaUploadParams\Type;
-use Onlyfansapi\Media\MediaUploadResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\MediaContract;
-use Onlyfansapi\Services\Media\UploadsService;
-use Onlyfansapi\Services\Media\VaultService;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\FileParam;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Media\MediaScrapeParams\FileType;
+use OnlyFansAPI\Media\MediaScrapeResponse;
+use OnlyFansAPI\Media\MediaUploadParams\Type;
+use OnlyFansAPI\Media\MediaUploadResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\MediaContract;
+use OnlyFansAPI\Services\Media\UploadsService;
+use OnlyFansAPI\Services\Media\VaultService;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class MediaService implements MediaContract
 {

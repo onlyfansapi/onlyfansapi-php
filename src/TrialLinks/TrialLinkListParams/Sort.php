@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrialLinks\TrialLinkListParams;
+namespace OnlyFansAPI\TrialLinks\TrialLinkListParams;
 
 /**
  * Sort the results. Default `desc`.

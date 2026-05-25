@@ -2,11 +2,11 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Statistics\StatisticCalculateTotalTransactionsResponse;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse;
-use Onlyfansapi\Statistics\StatisticGetSubscriberMetricsResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Statistics\StatisticCalculateTotalTransactionsResponse;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse;
+use OnlyFansAPI\Statistics\StatisticGetSubscriberMetricsResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

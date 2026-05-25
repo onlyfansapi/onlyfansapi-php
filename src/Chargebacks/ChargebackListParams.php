@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chargebacks;
+namespace OnlyFansAPI\Chargebacks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Retrieve a list of chargebacks within a specified date range. Possible statuses are `loading`, `done`, `undo`.
  *
- * @see Onlyfansapi\Services\ChargebacksService::list()
+ * @see OnlyFansAPI\Services\ChargebacksService::list()
  *
  * @phpstan-type ChargebackListParamsShape = array{
  *   endDate?: string|null,

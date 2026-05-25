@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\TrialLinks\TrialLinkCreateParams\Duration;
-use Onlyfansapi\TrialLinks\TrialLinkCreateParams\OfferLimit;
-use Onlyfansapi\TrialLinks\TrialLinkDeleteResponse;
-use Onlyfansapi\TrialLinks\TrialLinkGetResponse;
-use Onlyfansapi\TrialLinks\TrialLinkGetStatsResponse;
-use Onlyfansapi\TrialLinks\TrialLinkListParams\Field;
-use Onlyfansapi\TrialLinks\TrialLinkListParams\Sort;
-use Onlyfansapi\TrialLinks\TrialLinkListResponse;
-use Onlyfansapi\TrialLinks\TrialLinkListSpendersResponse;
-use Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse;
-use Onlyfansapi\TrialLinks\TrialLinkNewResponse;
-use Onlyfansapi\TrialLinks\TrialLinkRetrieveCohortArpsParams\RevenueBasis;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\TrialLinks\TrialLinkCreateParams\Duration;
+use OnlyFansAPI\TrialLinks\TrialLinkCreateParams\OfferLimit;
+use OnlyFansAPI\TrialLinks\TrialLinkDeleteResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkGetResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkGetStatsResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkListParams\Field;
+use OnlyFansAPI\TrialLinks\TrialLinkListParams\Sort;
+use OnlyFansAPI\TrialLinks\TrialLinkListResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkListSpendersResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkNewResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkRetrieveCohortArpsParams\RevenueBasis;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface TrialLinksContract
 {

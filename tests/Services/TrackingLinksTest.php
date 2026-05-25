@@ -2,15 +2,15 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\TrackingLinks\TrackingLinkDeleteResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetStatsResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkListResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkListSpendersResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkListSubscribersResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkNewResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\TrackingLinks\TrackingLinkDeleteResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetStatsResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListSpendersResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListSubscribersResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkNewResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

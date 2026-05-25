@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stored;
+namespace OnlyFansAPI\Stored;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Stored\StoredListSharedTrialLinksResponse\_Meta;
-use Onlyfansapi\Stored\StoredListSharedTrialLinksResponse\_Pagination;
-use Onlyfansapi\Stored\StoredListSharedTrialLinksResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Stored\StoredListSharedTrialLinksResponse\_Meta;
+use OnlyFansAPI\Stored\StoredListSharedTrialLinksResponse\_Pagination;
+use OnlyFansAPI\Stored\StoredListSharedTrialLinksResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Stored\StoredListSharedTrialLinksResponse\_Meta
- * @phpstan-import-type _PaginationShape from \Onlyfansapi\Stored\StoredListSharedTrialLinksResponse\_Pagination
- * @phpstan-import-type DataShape from \Onlyfansapi\Stored\StoredListSharedTrialLinksResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Stored\StoredListSharedTrialLinksResponse\_Meta
+ * @phpstan-import-type _PaginationShape from \OnlyFansAPI\Stored\StoredListSharedTrialLinksResponse\_Pagination
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Stored\StoredListSharedTrialLinksResponse\Data
  *
  * @phpstan-type StoredListSharedTrialLinksResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape,

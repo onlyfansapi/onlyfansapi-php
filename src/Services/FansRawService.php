@@ -2,39 +2,39 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Fans\FanGetSubscriptionHistoryParams;
-use Onlyfansapi\Fans\FanGetSubscriptionHistoryResponse;
-use Onlyfansapi\Fans\FanListActiveParams;
-use Onlyfansapi\Fans\FanListActiveParams\Filter;
-use Onlyfansapi\Fans\FanListActiveParams\Type;
-use Onlyfansapi\Fans\FanListActiveResponse;
-use Onlyfansapi\Fans\FanListAllParams;
-use Onlyfansapi\Fans\FanListAllResponse;
-use Onlyfansapi\Fans\FanListExpiredParams;
-use Onlyfansapi\Fans\FanListExpiredResponse;
-use Onlyfansapi\Fans\FanListLatestParams;
-use Onlyfansapi\Fans\FanListLatestResponse;
-use Onlyfansapi\Fans\FanListTopParams;
-use Onlyfansapi\Fans\FanListTopParams\By;
-use Onlyfansapi\Fans\FanListTopResponse;
-use Onlyfansapi\Fans\FanSetCustomNameParams;
-use Onlyfansapi\Fans\FanSetCustomNameResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\FansRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Fans\FanGetSubscriptionHistoryParams;
+use OnlyFansAPI\Fans\FanGetSubscriptionHistoryResponse;
+use OnlyFansAPI\Fans\FanListActiveParams;
+use OnlyFansAPI\Fans\FanListActiveParams\Filter;
+use OnlyFansAPI\Fans\FanListActiveParams\Type;
+use OnlyFansAPI\Fans\FanListActiveResponse;
+use OnlyFansAPI\Fans\FanListAllParams;
+use OnlyFansAPI\Fans\FanListAllResponse;
+use OnlyFansAPI\Fans\FanListExpiredParams;
+use OnlyFansAPI\Fans\FanListExpiredResponse;
+use OnlyFansAPI\Fans\FanListLatestParams;
+use OnlyFansAPI\Fans\FanListLatestResponse;
+use OnlyFansAPI\Fans\FanListTopParams;
+use OnlyFansAPI\Fans\FanListTopParams\By;
+use OnlyFansAPI\Fans\FanListTopResponse;
+use OnlyFansAPI\Fans\FanSetCustomNameParams;
+use OnlyFansAPI\Fans\FanSetCustomNameResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\FansRawContract;
 
 /**
  * APIs for managing OnlyFans fans (subscribers).
  *
- * @phpstan-import-type FilterShape from \Onlyfansapi\Fans\FanListActiveParams\Filter
- * @phpstan-import-type FilterShape from \Onlyfansapi\Fans\FanListAllParams\Filter as FilterShape1
- * @phpstan-import-type FilterShape from \Onlyfansapi\Fans\FanListExpiredParams\Filter as FilterShape2
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Fans\FanListActiveParams\Filter
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Fans\FanListAllParams\Filter as FilterShape1
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Fans\FanListExpiredParams\Filter as FilterShape2
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class FansRawService implements FansRawContract
 {

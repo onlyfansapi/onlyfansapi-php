@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Users;
+namespace OnlyFansAPI\Services\Users;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Users\BlockContract;
-use Onlyfansapi\Users\Block\BlockDeleteResponse;
-use Onlyfansapi\Users\Block\BlockNewResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Users\BlockContract;
+use OnlyFansAPI\Users\Block\BlockDeleteResponse;
+use OnlyFansAPI\Users\Block\BlockNewResponse;
 
 /**
  * APIs for fetching OnlyFans users.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class BlockService implements BlockContract
 {

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\Vault\VaultUploadResponse;
+namespace OnlyFansAPI\Media\Vault\VaultUploadResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Media\Vault\VaultUploadResponse\Data\Files;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Media\Vault\VaultUploadResponse\Data\Files;
 
 /**
- * @phpstan-import-type FilesShape from \Onlyfansapi\Media\Vault\VaultUploadResponse\Data\Files
+ * @phpstan-import-type FilesShape from \OnlyFansAPI\Media\Vault\VaultUploadResponse\Data\Files
  *
  * @phpstan-type DataShape = array{
  *   id?: int|null,

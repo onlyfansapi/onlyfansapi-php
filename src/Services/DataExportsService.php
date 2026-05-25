@@ -2,27 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\DataExports\DataExportCancelResponse;
-use Onlyfansapi\DataExports\DataExportCreateParams\FileType;
-use Onlyfansapi\DataExports\DataExportCreateParams\Type;
-use Onlyfansapi\DataExports\DataExportGetResponse;
-use Onlyfansapi\DataExports\DataExportListParams\Status;
-use Onlyfansapi\DataExports\DataExportListResponse;
-use Onlyfansapi\DataExports\DataExportNewResponse;
-use Onlyfansapi\DataExports\DataExportRetryResponse;
-use Onlyfansapi\DataExports\DataExportStartResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\DataExportsContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\DataExports\DataExportCancelResponse;
+use OnlyFansAPI\DataExports\DataExportCreateParams\FileType;
+use OnlyFansAPI\DataExports\DataExportCreateParams\Type;
+use OnlyFansAPI\DataExports\DataExportGetResponse;
+use OnlyFansAPI\DataExports\DataExportListParams\Status;
+use OnlyFansAPI\DataExports\DataExportListResponse;
+use OnlyFansAPI\DataExports\DataExportNewResponse;
+use OnlyFansAPI\DataExports\DataExportRetryResponse;
+use OnlyFansAPI\DataExports\DataExportStartResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\DataExportsContract;
 
 /**
  * APIs for managing data exports.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class DataExportsService implements DataExportsContract
 {
@@ -121,7 +121,7 @@ final class DataExportsService implements DataExportsContract
      * @param int $page Page number for pagination. Default `1`
      * @param int $perPage Number of results per page. Default `15`, max `100`
      * @param Status|value-of<Status> $status Filter by status
-     * @param \Onlyfansapi\DataExports\DataExportListParams\Type|value-of<\Onlyfansapi\DataExports\DataExportListParams\Type> $type Filter by export type
+     * @param \OnlyFansAPI\DataExports\DataExportListParams\Type|value-of<\OnlyFansAPI\DataExports\DataExportListParams\Type> $type Filter by export type
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -131,7 +131,7 @@ final class DataExportsService implements DataExportsContract
         ?int $page = null,
         ?int $perPage = null,
         Status|string|null $status = null,
-        \Onlyfansapi\DataExports\DataExportListParams\Type|string|null $type = null,
+        \OnlyFansAPI\DataExports\DataExportListParams\Type|string|null $type = null,
         RequestOptions|array|null $requestOptions = null,
     ): DataExportListResponse {
         $params = Util::removeNulls(

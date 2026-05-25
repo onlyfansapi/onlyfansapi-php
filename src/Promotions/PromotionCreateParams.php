@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Promotions;
+namespace OnlyFansAPI\Promotions;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Promotions\PromotionCreateParams\Type;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Promotions\PromotionCreateParams\Type;
 
 /**
  * Create a new promotion for the account.
  *
- * @see Onlyfansapi\Services\PromotionsService::create()
+ * @see OnlyFansAPI\Services\PromotionsService::create()
  *
  * @phpstan-type PromotionCreateParamsShape = array{
  *   discount: int,

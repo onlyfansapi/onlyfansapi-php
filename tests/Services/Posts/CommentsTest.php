@@ -2,15 +2,15 @@
 
 namespace Tests\Services\Posts;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Posts\Comments\CommentDeleteResponse;
-use Onlyfansapi\Posts\Comments\CommentLikeResponse;
-use Onlyfansapi\Posts\Comments\CommentListResponse;
-use Onlyfansapi\Posts\Comments\CommentNewResponse;
-use Onlyfansapi\Posts\Comments\CommentPinResponse;
-use Onlyfansapi\Posts\Comments\CommentUnlikeResponse;
-use Onlyfansapi\Posts\Comments\CommentUnpinResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Posts\Comments\CommentDeleteResponse;
+use OnlyFansAPI\Posts\Comments\CommentLikeResponse;
+use OnlyFansAPI\Posts\Comments\CommentListResponse;
+use OnlyFansAPI\Posts\Comments\CommentNewResponse;
+use OnlyFansAPI\Posts\Comments\CommentPinResponse;
+use OnlyFansAPI\Posts\Comments\CommentUnlikeResponse;
+use OnlyFansAPI\Posts\Comments\CommentUnpinResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

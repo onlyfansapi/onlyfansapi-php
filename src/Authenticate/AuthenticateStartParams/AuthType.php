@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Authenticate\AuthenticateStartParams;
+namespace OnlyFansAPI\Authenticate\AuthenticateStartParams;
 
 /**
  * The authentication method to use. Defaults to `email_password` if omitted. Use `mobile_app` to authenticate via the FansAPI Auth+ mobile app (no credential fields required).

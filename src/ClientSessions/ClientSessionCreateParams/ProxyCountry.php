@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ClientSessions\ClientSessionCreateParams;
+namespace OnlyFansAPI\ClientSessions\ClientSessionCreateParams;
 
 enum ProxyCountry: string
 {

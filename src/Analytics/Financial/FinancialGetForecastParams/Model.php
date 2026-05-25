@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Analytics\Financial\FinancialGetForecastParams;
+namespace OnlyFansAPI\Analytics\Financial\FinancialGetForecastParams;
 
 /**
  * The forecasting model to use.

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stories\StoryNewResponse;
+namespace OnlyFansAPI\Stories\StoryNewResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Stories\StoryNewResponse\Data\Media;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Stories\StoryNewResponse\Data\Media;
 
 /**
- * @phpstan-import-type MediaShape from \Onlyfansapi\Stories\StoryNewResponse\Data\Media
+ * @phpstan-import-type MediaShape from \OnlyFansAPI\Stories\StoryNewResponse\Data\Media
  *
  * @phpstan-type DataShape = array{
  *   id?: int|null,
