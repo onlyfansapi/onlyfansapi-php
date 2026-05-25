@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.0 (2026-05-25)
+
+Full Changelog: [v0.1.0...v0.2.0](https://github.com/onlyfansapi/onlyfansapi-php/compare/v0.1.0...v0.2.0)
+
+### Features
+
+* **api:** api update ([ef7dfdd](https://github.com/onlyfansapi/onlyfansapi-php/commit/ef7dfdde650314dd902cea24c28877ca53fbbce3))
+* **api:** api update ([36e8f69](https://github.com/onlyfansapi/onlyfansapi-php/commit/36e8f69ac58e6736345f371bd511328b127fabb1))
+
 ## 0.1.0 (2026-05-24)
 
 Full Changelog: [v0.0.1...v0.1.0](https://github.com/onlyfansapi/onlyfansapi-php/compare/v0.0.1...v0.1.0)
