@@ -30,7 +30,7 @@ interface MediaContract
         string $cdnURL,
         string $account,
         RequestOptions|array|null $requestOptions = null,
-    ): string;
+    ): mixed;
 
     /**
      * @api
