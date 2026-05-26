@@ -10,7 +10,7 @@ use OnlyFansAPI\Core\Concerns\SdkParams;
 use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * Downloads a file directly from a `https://cdn*.onlyfans.com/*` URL. When the file is already cached on our CDN, this endpoint returns a `302` redirect to a `https://cdn.fansapi.com/*` URL. Most HTTP clients follow redirects automatically (`curl` requires `-L`). Otherwise, the file is streamed through our proxies and queued for caching.
+ * Downloads a file directly from a `https://cdn*.onlyfans.com/*` URL. When the file is already cached on our CDN, this endpoint returns a `302` redirect to a `https://cdn.fansapi.com/*` URL. Most HTTP clients follow redirects automatically (`curl` requires `-L`). Otherwise, the file is redirected to `dl.fansapi.com`, which streams it through the account proxy and reports billing back to the API.
  *
  * @see OnlyFansAPI\Services\MediaService::download()
  *
