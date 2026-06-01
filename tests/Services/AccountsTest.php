@@ -47,7 +47,7 @@ final class AccountsTest extends TestCase
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->accounts->disconnect('quas');
+        $result = $this->client->accounts->disconnect('voluptatem');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertIsArray($result);
