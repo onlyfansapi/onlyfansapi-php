@@ -41,7 +41,7 @@ final class SmartLinkPostbacksTest extends TestCase
         $result = $this->client->smartLinkPostbacks->create(
             conversionTypes: ['new_subscriber', 'new_transaction'],
             smartLinkScope: 'campaign_specific',
-            url: 'https://example.com/postback?click={click_id}&type={conversion_type}&gclid={gclid}',
+            url: 'https://example.com/postback?click={external_click_id}&type={conversion_type}&gclid={gclid}',
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
@@ -58,7 +58,7 @@ final class SmartLinkPostbacksTest extends TestCase
         $result = $this->client->smartLinkPostbacks->create(
             conversionTypes: ['new_subscriber', 'new_transaction'],
             smartLinkScope: 'campaign_specific',
-            url: 'https://example.com/postback?click={click_id}&type={conversion_type}&gclid={gclid}',
+            url: 'https://example.com/postback?click={external_click_id}&type={conversion_type}&gclid={gclid}',
             smartLinkIDs: ['01JTESTLINK000000000000001'],
         );
 
@@ -90,7 +90,7 @@ final class SmartLinkPostbacksTest extends TestCase
             123,
             conversionTypes: ['new_subscriber'],
             smartLinkScope: 'global',
-            url: 'https://example.com/postback?click={click_id}&type={conversion_type}',
+            url: 'https://example.com/postback?click={external_click_id}&type={conversion_type}',
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
@@ -108,7 +108,7 @@ final class SmartLinkPostbacksTest extends TestCase
             123,
             conversionTypes: ['new_subscriber'],
             smartLinkScope: 'global',
-            url: 'https://example.com/postback?click={click_id}&type={conversion_type}',
+            url: 'https://example.com/postback?click={external_click_id}&type={conversion_type}',
             smartLinkIDs: ['01JTESTLINK000000000000001'],
         );
 

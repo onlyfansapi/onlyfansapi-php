@@ -46,7 +46,7 @@ final class SmartLinkPostbackCreateParams implements BaseModel
     public string $smartLinkScope;
 
     /**
-     * The destination URL. Variables such as `{click_id}`, `{fbclid}`, `{gclid}`, and `{ttclid}` are replaced when the postback is dispatched.
+     * The destination URL. Variables such as `{external_click_id}`, `{fbclid}`, `{gclid}`, and `{ttclid}` are replaced when the postback is dispatched.
      */
     #[Required]
     public string $url;
@@ -137,7 +137,7 @@ final class SmartLinkPostbackCreateParams implements BaseModel
     }
 
     /**
-     * The destination URL. Variables such as `{click_id}`, `{fbclid}`, `{gclid}`, and `{ttclid}` are replaced when the postback is dispatched.
+     * The destination URL. Variables such as `{external_click_id}`, `{fbclid}`, `{gclid}`, and `{ttclid}` are replaced when the postback is dispatched.
      */
     public function withURL(string $url): self
     {

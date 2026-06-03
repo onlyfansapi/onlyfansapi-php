@@ -22,7 +22,7 @@ interface SmartLinkPostbacksContract
      *
      * @param list<string> $conversionTypes one or more Smart Link conversion types that should trigger this postback
      * @param SmartLinkScope|value-of<SmartLinkScope> $smartLinkScope `global` fires for all Smart Links. `campaign_specific` fires only for selected Smart Links.
-     * @param string $url The destination URL. Variables such as `{click_id}`, `{fbclid}`, `{gclid}`, and `{ttclid}` are replaced when the postback is dispatched.
+     * @param string $url The destination URL. Variables such as `{external_click_id}`, `{fbclid}`, `{gclid}`, and `{ttclid}` are replaced when the postback is dispatched.
      * @param list<string> $smartLinkIDs Smart Link ULIDs. Required when `smart_link_scope` is `campaign_specific`.
      * @param RequestOpts|null $requestOptions
      *
