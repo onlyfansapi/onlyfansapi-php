@@ -103,8 +103,8 @@ final class ListsRawService implements ListsRawContract
      *
      * Rename a Vault list.
      *
-     * @param string $listID The ID of the list
-     * @param array{account: string}|ListUpdateParams $params
+     * @param string $listID Path param: The ID of the list
+     * @param array{account: string, name: string}|ListUpdateParams $params
      * @param RequestOpts|null $requestOptions
      *
      * @return BaseResponse<ListUpdateResponse>
@@ -127,6 +127,7 @@ final class ListsRawService implements ListsRawContract
         return $this->client->request(
             method: 'put',
             path: ['api/%1$s/media/vault/lists/%2$s', $account, $listID],
+            body: (object) array_diff_key($parsed, array_flip(['account'])),
             options: $options,
             convert: ListUpdateResponse::class,
         );
