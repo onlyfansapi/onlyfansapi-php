@@ -50,8 +50,9 @@ interface ListsContract
     /**
      * @api
      *
-     * @param string $listID The ID of the list
-     * @param string $account The Account ID
+     * @param string $listID Path param: The ID of the list
+     * @param string $account Path param: The Account ID
+     * @param string $name Body param: The new name for the vault list. Must not be greater than 255 characters.
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -59,6 +60,7 @@ interface ListsContract
     public function update(
         string $listID,
         string $account,
+        string $name,
         RequestOptions|array|null $requestOptions = null,
     ): ListUpdateResponse;
 

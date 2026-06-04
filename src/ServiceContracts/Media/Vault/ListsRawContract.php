@@ -60,7 +60,7 @@ interface ListsRawContract
     /**
      * @api
      *
-     * @param string $listID The ID of the list
+     * @param string $listID Path param: The ID of the list
      * @param array<string,mixed>|ListUpdateParams $params
      * @param RequestOpts|null $requestOptions
      *

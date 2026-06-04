@@ -93,8 +93,9 @@ final class ListsService implements ListsContract
      *
      * Rename a Vault list.
      *
-     * @param string $listID The ID of the list
-     * @param string $account The Account ID
+     * @param string $listID Path param: The ID of the list
+     * @param string $account Path param: The Account ID
+     * @param string $name Body param: The new name for the vault list. Must not be greater than 255 characters.
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -102,9 +103,10 @@ final class ListsService implements ListsContract
     public function update(
         string $listID,
         string $account,
+        string $name,
         RequestOptions|array|null $requestOptions = null,
     ): ListUpdateResponse {
-        $params = Util::removeNulls(['account' => $account]);
+        $params = Util::removeNulls(['account' => $account, 'name' => $name]);
 
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->update($listID, params: $params, requestOptions: $requestOptions);

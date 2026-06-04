@@ -105,7 +105,8 @@ final class ListsTest extends TestCase
 
         $result = $this->client->media->vault->lists->update(
             '123',
-            account: 'acct_XXXXXXXXXXXXXXX'
+            account: 'acct_XXXXXXXXXXXXXXX',
+            name: 'My renamed list'
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
@@ -121,7 +122,8 @@ final class ListsTest extends TestCase
 
         $result = $this->client->media->vault->lists->update(
             '123',
-            account: 'acct_XXXXXXXXXXXXXXX'
+            account: 'acct_XXXXXXXXXXXXXXX',
+            name: 'My renamed list'
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
