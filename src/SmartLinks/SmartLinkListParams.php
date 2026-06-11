@@ -20,6 +20,7 @@ use OnlyFansAPI\Core\Contracts\BaseModel;
  *   metaPixelIDs?: string|null,
  *   name?: string|null,
  *   offset?: int|null,
+ *   pixelIDs?: string|null,
  * }
  */
 final class SmartLinkListParams implements BaseModel
@@ -41,7 +42,7 @@ final class SmartLinkListParams implements BaseModel
     public ?int $limit;
 
     /**
-     * Comma-separated Meta Pixel IDs to include.
+     * Deprecated alias for `pixel_ids`. Comma-separated Pixel IDs to include.
      */
     #[Optional(nullable: true)]
     public ?string $metaPixelIDs;
@@ -57,6 +58,12 @@ final class SmartLinkListParams implements BaseModel
      */
     #[Optional]
     public ?int $offset;
+
+    /**
+     * Comma-separated ad platform Pixel IDs to include.
+     */
+    #[Optional(nullable: true)]
+    public ?string $pixelIDs;
 
     public function __construct()
     {
@@ -74,6 +81,7 @@ final class SmartLinkListParams implements BaseModel
         ?string $metaPixelIDs = null,
         ?string $name = null,
         ?int $offset = null,
+        ?string $pixelIDs = null,
     ): self {
         $self = new self;
 
@@ -82,6 +90,7 @@ final class SmartLinkListParams implements BaseModel
         null !== $metaPixelIDs && $self['metaPixelIDs'] = $metaPixelIDs;
         null !== $name && $self['name'] = $name;
         null !== $offset && $self['offset'] = $offset;
+        null !== $pixelIDs && $self['pixelIDs'] = $pixelIDs;
 
         return $self;
     }
@@ -109,7 +118,7 @@ final class SmartLinkListParams implements BaseModel
     }
 
     /**
-     * Comma-separated Meta Pixel IDs to include.
+     * Deprecated alias for `pixel_ids`. Comma-separated Pixel IDs to include.
      */
     public function withMetaPixelIDs(?string $metaPixelIDs): self
     {
@@ -137,6 +146,17 @@ final class SmartLinkListParams implements BaseModel
     {
         $self = clone $this;
         $self['offset'] = $offset;
+
+        return $self;
+    }
+
+    /**
+     * Comma-separated ad platform Pixel IDs to include.
+     */
+    public function withPixelIDs(?string $pixelIDs): self
+    {
+        $self = clone $this;
+        $self['pixelIDs'] = $pixelIDs;
 
         return $self;
     }
