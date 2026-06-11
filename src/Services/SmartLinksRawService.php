@@ -117,6 +117,7 @@ final class SmartLinksRawService implements SmartLinksRawContract
      *   metaPixelIDs?: string|null,
      *   name?: string|null,
      *   offset?: int,
+     *   pixelIDs?: string|null,
      * }|SmartLinkListParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -139,7 +140,11 @@ final class SmartLinksRawService implements SmartLinksRawContract
             path: 'api/smart-links',
             query: Util::array_transform_keys(
                 $parsed,
-                ['accountIDs' => 'account_ids', 'metaPixelIDs' => 'meta_pixel_ids'],
+                [
+                    'accountIDs' => 'account_ids',
+                    'metaPixelIDs' => 'meta_pixel_ids',
+                    'pixelIDs' => 'pixel_ids',
+                ],
             ),
             options: $options,
             convert: SmartLinkListResponse::class,
