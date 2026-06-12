@@ -24,6 +24,7 @@ use OnlyFansAPI\SmartLinks\SmartLinkListFansParams;
 use OnlyFansAPI\SmartLinks\SmartLinkListFansParams\Sort;
 use OnlyFansAPI\SmartLinks\SmartLinkListFansResponse;
 use OnlyFansAPI\SmartLinks\SmartLinkListParams;
+use OnlyFansAPI\SmartLinks\SmartLinkListParams\Filter;
 use OnlyFansAPI\SmartLinks\SmartLinkListResponse;
 use OnlyFansAPI\SmartLinks\SmartLinkListSpendersParams;
 use OnlyFansAPI\SmartLinks\SmartLinkListSpendersResponse;
@@ -35,6 +36,7 @@ use OnlyFansAPI\SmartLinks\SmartLinkRetrieveStatsParams;
 /**
  * APIs for managing Smart Links (Free Trial Links and Tracking Links with pooled inventory).
  *
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\SmartLinks\SmartLinkListParams\Filter
  * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class SmartLinksRawService implements SmartLinksRawContract
@@ -113,6 +115,7 @@ final class SmartLinksRawService implements SmartLinksRawContract
      *
      * @param array{
      *   accountIDs?: string|null,
+     *   filter?: Filter|FilterShape,
      *   limit?: int,
      *   metaPixelIDs?: string|null,
      *   name?: string|null,

@@ -18,6 +18,7 @@ use OnlyFansAPI\SmartLinks\SmartLinkListConversionsParams\ConversionType;
 use OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse;
 use OnlyFansAPI\SmartLinks\SmartLinkListFansParams\Sort;
 use OnlyFansAPI\SmartLinks\SmartLinkListFansResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListParams\Filter;
 use OnlyFansAPI\SmartLinks\SmartLinkListResponse;
 use OnlyFansAPI\SmartLinks\SmartLinkListSpendersResponse;
 use OnlyFansAPI\SmartLinks\SmartLinkNewResponse;
@@ -26,6 +27,7 @@ use OnlyFansAPI\SmartLinks\SmartLinkRetrieveCohortArpsParams\RevenueBasis;
 /**
  * APIs for managing Smart Links (Free Trial Links and Tracking Links with pooled inventory).
  *
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\SmartLinks\SmartLinkListParams\Filter
  * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class SmartLinksService implements SmartLinksContract
@@ -104,6 +106,7 @@ final class SmartLinksService implements SmartLinksContract
      * List all Smart Links
      *
      * @param string|null $accountIDs comma-separated account prefixed IDs to include
+     * @param Filter|FilterShape $filter
      * @param int $limit The number of Smart Links to return. Default `50`. Must be at least 1. Must not be greater than 1000.
      * @param string|null $metaPixelIDs Deprecated alias for `pixel_ids`. Comma-separated Pixel IDs to include.
      * @param string|null $name Filter Smart Links by name. Must not be greater than 255 characters.
@@ -115,6 +118,7 @@ final class SmartLinksService implements SmartLinksContract
      */
     public function list(
         ?string $accountIDs = null,
+        Filter|array|null $filter = null,
         ?int $limit = null,
         ?string $metaPixelIDs = null,
         ?string $name = null,
@@ -125,6 +129,7 @@ final class SmartLinksService implements SmartLinksContract
         $params = Util::removeNulls(
             [
                 'accountIDs' => $accountIDs,
+                'filter' => $filter,
                 'limit' => $limit,
                 'metaPixelIDs' => $metaPixelIDs,
                 'name' => $name,

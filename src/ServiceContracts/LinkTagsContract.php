@@ -17,7 +17,7 @@ interface LinkTagsContract
     /**
      * @api
      *
-     * @param Type|value-of<Type> $type Filter by link type. If not provided, returns tags for both types.
+     * @param Type|value-of<Type> $type Filter by link type. If not provided, returns tags for all types.
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
