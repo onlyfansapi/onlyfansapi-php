@@ -59,6 +59,9 @@ final class SmartLinkPostbacksTest extends TestCase
             conversionTypes: ['new_subscriber', 'new_transaction'],
             smartLinkScope: 'campaign_specific',
             url: 'https://example.com/postback?click={external_click_id}&type={conversion_type}&gclid={gclid}',
+            body: '{"click_id":"{click_id}","value":"{amount_gross}"}',
+            headers: [['name' => 'Authorization', 'value' => 'Bearer token']],
+            httpMethod: 'POST',
             smartLinkIDs: ['01JTESTLINK000000000000001'],
         );
 
@@ -109,6 +112,9 @@ final class SmartLinkPostbacksTest extends TestCase
             conversionTypes: ['new_subscriber'],
             smartLinkScope: 'global',
             url: 'https://example.com/postback?click={external_click_id}&type={conversion_type}',
+            body: '{"click_id":"{click_id}","value":"{amount_gross}"}',
+            headers: [['name' => 'Authorization', 'value' => 'Bearer token']],
+            httpMethod: 'POST',
             smartLinkIDs: ['01JTESTLINK000000000000001'],
         );
 
