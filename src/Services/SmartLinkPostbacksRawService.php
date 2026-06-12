@@ -11,6 +11,8 @@ use OnlyFansAPI\Core\Exceptions\APIException;
 use OnlyFansAPI\RequestOptions;
 use OnlyFansAPI\ServiceContracts\SmartLinkPostbacksRawContract;
 use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackCreateParams;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackCreateParams\Header;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackCreateParams\HTTPMethod;
 use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackCreateParams\SmartLinkScope;
 use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackGetResponse;
 use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackListResponse;
@@ -21,6 +23,8 @@ use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackUpdateResponse;
 /**
  * APIs for managing Smart Link postback destinations.
  *
+ * @phpstan-import-type HeaderShape from \OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackCreateParams\Header
+ * @phpstan-import-type HeaderShape from \OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackUpdateParams\Header as HeaderShape1
  * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class SmartLinkPostbacksRawService implements SmartLinkPostbacksRawContract
@@ -40,6 +44,9 @@ final class SmartLinkPostbacksRawService implements SmartLinkPostbacksRawContrac
      *   conversionTypes: list<string>,
      *   smartLinkScope: SmartLinkScope|value-of<SmartLinkScope>,
      *   url: string,
+     *   body?: string,
+     *   headers?: list<Header|HeaderShape>,
+     *   httpMethod?: HTTPMethod|value-of<HTTPMethod>,
      *   smartLinkIDs?: list<string>,
      * }|SmartLinkPostbackCreateParams $params
      * @param RequestOpts|null $requestOptions
@@ -102,6 +109,9 @@ final class SmartLinkPostbacksRawService implements SmartLinkPostbacksRawContrac
      *   conversionTypes: list<string>,
      *   smartLinkScope: SmartLinkPostbackUpdateParams\SmartLinkScope|value-of<SmartLinkPostbackUpdateParams\SmartLinkScope>,
      *   url: string,
+     *   body?: string,
+     *   headers?: list<SmartLinkPostbackUpdateParams\Header|HeaderShape1>,
+     *   httpMethod?: SmartLinkPostbackUpdateParams\HTTPMethod|value-of<SmartLinkPostbackUpdateParams\HTTPMethod>,
      *   smartLinkIDs?: list<string>,
      * }|SmartLinkPostbackUpdateParams $params
      * @param RequestOpts|null $requestOptions

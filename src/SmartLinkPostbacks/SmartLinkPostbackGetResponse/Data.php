@@ -7,15 +7,20 @@ namespace OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackGetResponse;
 use OnlyFansAPI\Core\Attributes\Optional;
 use OnlyFansAPI\Core\Concerns\SdkModel;
 use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackGetResponse\Data\Header;
 use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackGetResponse\Data\SmartLink;
 
 /**
+ * @phpstan-import-type HeaderShape from \OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackGetResponse\Data\Header
  * @phpstan-import-type SmartLinkShape from \OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackGetResponse\Data\SmartLink
  *
  * @phpstan-type DataShape = array{
  *   id?: int|null,
+ *   body?: string|null,
  *   conversionTypes?: list<string>|null,
  *   createdAt?: string|null,
+ *   headers?: list<Header|HeaderShape>|null,
+ *   httpMethod?: string|null,
  *   latestResponse?: string|null,
  *   smartLinkIDs?: list<string>|null,
  *   smartLinkScope?: string|null,
@@ -32,12 +37,22 @@ final class Data implements BaseModel
     #[Optional]
     public ?int $id;
 
+    #[Optional]
+    public ?string $body;
+
     /** @var list<string>|null $conversionTypes */
     #[Optional('conversion_types', list: 'string')]
     public ?array $conversionTypes;
 
     #[Optional('created_at')]
     public ?string $createdAt;
+
+    /** @var list<Header>|null $headers */
+    #[Optional(list: Header::class)]
+    public ?array $headers;
+
+    #[Optional('http_method')]
+    public ?string $httpMethod;
 
     #[Optional('latest_response', nullable: true)]
     public ?string $latestResponse;
@@ -70,13 +85,17 @@ final class Data implements BaseModel
      * You must use named parameters to construct any parameters with a default value.
      *
      * @param list<string>|null $conversionTypes
+     * @param list<Header|HeaderShape>|null $headers
      * @param list<string>|null $smartLinkIDs
      * @param list<SmartLink|SmartLinkShape>|null $smartLinks
      */
     public static function with(
         ?int $id = null,
+        ?string $body = null,
         ?array $conversionTypes = null,
         ?string $createdAt = null,
+        ?array $headers = null,
+        ?string $httpMethod = null,
         ?string $latestResponse = null,
         ?array $smartLinkIDs = null,
         ?string $smartLinkScope = null,
@@ -87,8 +106,11 @@ final class Data implements BaseModel
         $self = new self;
 
         null !== $id && $self['id'] = $id;
+        null !== $body && $self['body'] = $body;
         null !== $conversionTypes && $self['conversionTypes'] = $conversionTypes;
         null !== $createdAt && $self['createdAt'] = $createdAt;
+        null !== $headers && $self['headers'] = $headers;
+        null !== $httpMethod && $self['httpMethod'] = $httpMethod;
         null !== $latestResponse && $self['latestResponse'] = $latestResponse;
         null !== $smartLinkIDs && $self['smartLinkIDs'] = $smartLinkIDs;
         null !== $smartLinkScope && $self['smartLinkScope'] = $smartLinkScope;
@@ -103,6 +125,14 @@ final class Data implements BaseModel
     {
         $self = clone $this;
         $self['id'] = $id;
+
+        return $self;
+    }
+
+    public function withBody(string $body): self
+    {
+        $self = clone $this;
+        $self['body'] = $body;
 
         return $self;
     }
@@ -122,6 +152,25 @@ final class Data implements BaseModel
     {
         $self = clone $this;
         $self['createdAt'] = $createdAt;
+
+        return $self;
+    }
+
+    /**
+     * @param list<Header|HeaderShape> $headers
+     */
+    public function withHeaders(array $headers): self
+    {
+        $self = clone $this;
+        $self['headers'] = $headers;
+
+        return $self;
+    }
+
+    public function withHTTPMethod(string $httpMethod): self
+    {
+        $self = clone $this;
+        $self['httpMethod'] = $httpMethod;
 
         return $self;
     }
