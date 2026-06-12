@@ -8,14 +8,18 @@ use OnlyFansAPI\Core\Attributes\Optional;
 use OnlyFansAPI\Core\Concerns\SdkModel;
 use OnlyFansAPI\Core\Concerns\SdkParams;
 use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SmartLinks\SmartLinkListParams\Filter;
 
 /**
  * List all Smart Links.
  *
  * @see OnlyFansAPI\Services\SmartLinksService::list()
  *
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\SmartLinks\SmartLinkListParams\Filter
+ *
  * @phpstan-type SmartLinkListParamsShape = array{
  *   accountIDs?: string|null,
+ *   filter?: null|Filter|FilterShape,
  *   limit?: int|null,
  *   metaPixelIDs?: string|null,
  *   name?: string|null,
@@ -34,6 +38,9 @@ final class SmartLinkListParams implements BaseModel
      */
     #[Optional(nullable: true)]
     public ?string $accountIDs;
+
+    #[Optional]
+    public ?Filter $filter;
 
     /**
      * The number of Smart Links to return. Default `50`. Must be at least 1. Must not be greater than 1000.
@@ -74,9 +81,12 @@ final class SmartLinkListParams implements BaseModel
      * Construct an instance from the required parameters.
      *
      * You must use named parameters to construct any parameters with a default value.
+     *
+     * @param Filter|FilterShape|null $filter
      */
     public static function with(
         ?string $accountIDs = null,
+        Filter|array|null $filter = null,
         ?int $limit = null,
         ?string $metaPixelIDs = null,
         ?string $name = null,
@@ -86,6 +96,7 @@ final class SmartLinkListParams implements BaseModel
         $self = new self;
 
         null !== $accountIDs && $self['accountIDs'] = $accountIDs;
+        null !== $filter && $self['filter'] = $filter;
         null !== $limit && $self['limit'] = $limit;
         null !== $metaPixelIDs && $self['metaPixelIDs'] = $metaPixelIDs;
         null !== $name && $self['name'] = $name;
@@ -102,6 +113,17 @@ final class SmartLinkListParams implements BaseModel
     {
         $self = clone $this;
         $self['accountIDs'] = $accountIDs;
+
+        return $self;
+    }
+
+    /**
+     * @param Filter|FilterShape $filter
+     */
+    public function withFilter(Filter|array $filter): self
+    {
+        $self = clone $this;
+        $self['filter'] = $filter;
 
         return $self;
     }

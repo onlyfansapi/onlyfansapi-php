@@ -11,7 +11,7 @@ use OnlyFansAPI\Core\Contracts\BaseModel;
 use OnlyFansAPI\LinkTags\LinkTagListParams\Type;
 
 /**
- * Get all existing tags that have been used on free trial links and/or tracking links for this account. This is a free endpoint.
+ * Get all existing tags that have been used on free trial links, tracking links, and/or Smart Links for this account. This is a free endpoint.
  *
  * @see OnlyFansAPI\Services\LinkTagsService::list()
  *
@@ -24,7 +24,7 @@ final class LinkTagListParams implements BaseModel
     use SdkParams;
 
     /**
-     * Filter by link type. If not provided, returns tags for both types.
+     * Filter by link type. If not provided, returns tags for all types.
      *
      * @var value-of<Type>|null $type
      */
@@ -53,7 +53,7 @@ final class LinkTagListParams implements BaseModel
     }
 
     /**
-     * Filter by link type. If not provided, returns tags for both types.
+     * Filter by link type. If not provided, returns tags for all types.
      *
      * @param Type|value-of<Type> $type
      */

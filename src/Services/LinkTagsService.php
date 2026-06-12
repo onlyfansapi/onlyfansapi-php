@@ -13,7 +13,7 @@ use OnlyFansAPI\RequestOptions;
 use OnlyFansAPI\ServiceContracts\LinkTagsContract;
 
 /**
- * APIs for managing tags on free trial links and tracking links.
+ * APIs for managing tags on free trial links, tracking links, and Smart Links.
  *
  * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
@@ -35,9 +35,9 @@ final class LinkTagsService implements LinkTagsContract
     /**
      * @api
      *
-     * Get all existing tags that have been used on free trial links and/or tracking links for this account. This is a free endpoint.
+     * Get all existing tags that have been used on free trial links, tracking links, and/or Smart Links for this account. This is a free endpoint.
      *
-     * @param Type|value-of<Type> $type Filter by link type. If not provided, returns tags for both types.
+     * @param Type|value-of<Type> $type Filter by link type. If not provided, returns tags for all types.
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
