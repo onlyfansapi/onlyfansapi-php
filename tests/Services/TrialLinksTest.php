@@ -216,7 +216,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->listSubscribers(
-            'esse',
+            'est',
             account: 'acct_XXXXXXXXXXXXXXX',
             limit: 10,
             offset: 0
@@ -234,7 +234,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->listSubscribers(
-            'esse',
+            'est',
             account: 'acct_XXXXXXXXXXXXXXX',
             limit: 10,
             offset: 0
@@ -252,7 +252,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->retrieveCohortArps(
-            'quae',
+            'quam',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -268,7 +268,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->retrieveCohortArps(
-            'quae',
+            'quam',
             account: 'acct_XXXXXXXXXXXXXXX',
             acquisitionEnd: '2026-01-31T23:59:59Z',
             acquisitionStart: '2026-01-01T00:00:00Z',
@@ -287,7 +287,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->retrieveStats(
-            'similique',
+            'non',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -303,7 +303,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->retrieveStats(
-            'similique',
+            'non',
             account: 'acct_XXXXXXXXXXXXXXX',
             dateEnd: '2026-01-31T23:59:59Z',
             dateStart: '2026-01-01T00:00:00Z',
