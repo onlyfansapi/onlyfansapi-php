@@ -41,7 +41,7 @@ final class UserListsTest extends TestCase
 
         $result = $this->client->userLists->create(
             'acct_XXXXXXXXXXXXXXX',
-            name: 'iilvllxz'
+            name: 'sjectxxfaiwh'
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
@@ -57,7 +57,7 @@ final class UserListsTest extends TestCase
 
         $result = $this->client->userLists->create(
             'acct_XXXXXXXXXXXXXXX',
-            name: 'iilvllxz'
+            name: 'sjectxxfaiwh'
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
