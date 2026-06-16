@@ -193,7 +193,7 @@ final class HighlightsTest extends TestCase
         }
 
         $result = $this->client->stories->highlights->addStory(
-            'aut',
+            'omnis',
             account: 'acct_XXXXXXXXXXXXXXX',
             highlightID: 1234567890,
             storyID: 2345678901,
@@ -211,7 +211,7 @@ final class HighlightsTest extends TestCase
         }
 
         $result = $this->client->stories->highlights->addStory(
-            'aut',
+            'omnis',
             account: 'acct_XXXXXXXXXXXXXXX',
             highlightID: 1234567890,
             storyID: 2345678901,
@@ -229,7 +229,7 @@ final class HighlightsTest extends TestCase
         }
 
         $result = $this->client->stories->highlights->removeStory(
-            'aut',
+            'omnis',
             account: 'acct_XXXXXXXXXXXXXXX',
             highlightID: 1234567890
         );
@@ -246,7 +246,7 @@ final class HighlightsTest extends TestCase
         }
 
         $result = $this->client->stories->highlights->removeStory(
-            'aut',
+            'omnis',
             account: 'acct_XXXXXXXXXXXXXXX',
             highlightID: 1234567890
         );
