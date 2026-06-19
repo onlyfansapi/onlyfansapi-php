@@ -13,7 +13,7 @@ use OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersParams\Sort;
 use OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersParams\SortDirection;
 
 /**
- * Get a paginated list of users that can be tagged in release forms. These are verified creators who have signed release forms to appear in your content. Use `offset` and `limit` for pagination.
+ * Get a paginated list of users that can be tagged in release forms. These are verified creators who have signed release forms to appear in your content. Use `offset` and `limit` for pagination, following `_pagination.next_page` until it is `null`.
  *
  * @see OnlyFansAPI\Services\ReleaseFormsService::listTaggableUsers()
  *

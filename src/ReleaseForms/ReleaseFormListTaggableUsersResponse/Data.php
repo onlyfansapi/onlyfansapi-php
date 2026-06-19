@@ -12,17 +12,12 @@ use OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersResponse\Data\Item;
 /**
  * @phpstan-import-type ItemShape from \OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersResponse\Data\Item
  *
- * @phpstan-type DataShape = array{
- *   hasMore?: bool|null, items?: list<Item|ItemShape>|null
- * }
+ * @phpstan-type DataShape = array{items?: list<Item|ItemShape>|null}
  */
 final class Data implements BaseModel
 {
     /** @use SdkModel<DataShape> */
     use SdkModel;
-
-    #[Optional]
-    public ?bool $hasMore;
 
     /** @var list<Item>|null $items */
     #[Optional(list: Item::class)]
@@ -40,20 +35,11 @@ final class Data implements BaseModel
      *
      * @param list<Item|ItemShape>|null $items
      */
-    public static function with(?bool $hasMore = null, ?array $items = null): self
+    public static function with(?array $items = null): self
     {
         $self = new self;
 
-        null !== $hasMore && $self['hasMore'] = $hasMore;
         null !== $items && $self['items'] = $items;
-
-        return $self;
-    }
-
-    public function withHasMore(bool $hasMore): self
-    {
-        $self = clone $this;
-        $self['hasMore'] = $hasMore;
 
         return $self;
     }
