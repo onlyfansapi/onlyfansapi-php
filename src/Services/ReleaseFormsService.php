@@ -87,7 +87,7 @@ final class ReleaseFormsService implements ReleaseFormsContract
     /**
      * @api
      *
-     * Get a paginated list of users that can be tagged in release forms. These are verified creators who have signed release forms to appear in your content. Use `offset` and `limit` for pagination.
+     * Get a paginated list of users that can be tagged in release forms. These are verified creators who have signed release forms to appear in your content. Use `offset` and `limit` for pagination, following `_pagination.next_page` until it is `null`.
      *
      * @param string $account The Account ID
      * @param Filter|value-of<Filter>|null $filter filter users by type: `all` or `pending`
