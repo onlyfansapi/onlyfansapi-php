@@ -75,7 +75,7 @@ final class TrackingLinksTest extends TestCase
         }
 
         $result = $this->client->trackingLinks->retrieve(
-            'et',
+            'nihil',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -91,7 +91,7 @@ final class TrackingLinksTest extends TestCase
         }
 
         $result = $this->client->trackingLinks->retrieve(
-            'et',
+            'nihil',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -120,7 +120,7 @@ final class TrackingLinksTest extends TestCase
         }
 
         $result = $this->client->trackingLinks->delete(
-            'et',
+            'nihil',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -136,7 +136,7 @@ final class TrackingLinksTest extends TestCase
         }
 
         $result = $this->client->trackingLinks->delete(
-            'et',
+            'nihil',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -152,7 +152,7 @@ final class TrackingLinksTest extends TestCase
         }
 
         $result = $this->client->trackingLinks->getCohortArps(
-            'modi',
+            'rem',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -168,7 +168,7 @@ final class TrackingLinksTest extends TestCase
         }
 
         $result = $this->client->trackingLinks->getCohortArps(
-            'modi',
+            'rem',
             account: 'acct_XXXXXXXXXXXXXXX',
             acquisitionEnd: '2026-01-31T23:59:59Z',
             acquisitionStart: '2026-01-01T00:00:00Z',
@@ -187,7 +187,7 @@ final class TrackingLinksTest extends TestCase
         }
 
         $result = $this->client->trackingLinks->getStats(
-            'animi',
+            'rem',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -203,7 +203,7 @@ final class TrackingLinksTest extends TestCase
         }
 
         $result = $this->client->trackingLinks->getStats(
-            'animi',
+            'rem',
             account: 'acct_XXXXXXXXXXXXXXX',
             dateEnd: '2026-01-31T23:59:59Z',
             dateStart: '2026-01-01T00:00:00Z',
