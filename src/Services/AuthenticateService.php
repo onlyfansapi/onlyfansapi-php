@@ -119,6 +119,7 @@ final class AuthenticateService implements AuthenticateContract
      * @throws APIException
      */
     public function start(
+        ?bool $_internalAutomaticSyncsDisabled = null,
         ?string $authID = null,
         AuthType|string|null $authType = null,
         ?string $cookies = null,
@@ -134,6 +135,7 @@ final class AuthenticateService implements AuthenticateContract
     ): UnionMember0|UnionMember1 {
         $params = Util::removeNulls(
             [
+                '_internalAutomaticSyncsDisabled' => $_internalAutomaticSyncsDisabled,
                 'authID' => $authID,
                 'authType' => $authType,
                 'cookies' => $cookies,

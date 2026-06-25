@@ -80,6 +80,7 @@ interface AuthenticateContract
      * @throws APIException
      */
     public function start(
+        ?bool $_internalAutomaticSyncsDisabled = null,
         ?string $authID = null,
         AuthType|string|null $authType = null,
         ?string $cookies = null,

@@ -20,6 +20,7 @@ use OnlyFansAPI\Core\Contracts\BaseModel;
  * @phpstan-import-type CustomProxyShape from \OnlyFansAPI\Authenticate\AuthenticateStartParams\CustomProxy
  *
  * @phpstan-type AuthenticateStartParamsShape = array{
+ *   _internalAutomaticSyncsDisabled?: bool|null,
  *   authID?: string|null,
  *   authType?: null|AuthType|value-of<AuthType>,
  *   cookies?: string|null,
@@ -38,6 +39,9 @@ final class AuthenticateStartParams implements BaseModel
     /** @use SdkModel<AuthenticateStartParamsShape> */
     use SdkModel;
     use SdkParams;
+
+    #[Optional('_internal_automatic_syncs_disabled')]
+    public ?bool $_internalAutomaticSyncsDisabled;
 
     /**
      * The auth_id from OnlyFans session cookies. Required when auth_type is `raw_data`.
@@ -124,6 +128,7 @@ final class AuthenticateStartParams implements BaseModel
      * @param ProxyCountry|value-of<ProxyCountry>|null $proxyCountry
      */
     public static function with(
+        ?bool $_internalAutomaticSyncsDisabled = null,
         ?string $authID = null,
         AuthType|string|null $authType = null,
         ?string $cookies = null,
@@ -138,6 +143,7 @@ final class AuthenticateStartParams implements BaseModel
     ): self {
         $self = new self;
 
+        null !== $_internalAutomaticSyncsDisabled && $self['_internalAutomaticSyncsDisabled'] = $_internalAutomaticSyncsDisabled;
         null !== $authID && $self['authID'] = $authID;
         null !== $authType && $self['authType'] = $authType;
         null !== $cookies && $self['cookies'] = $cookies;
@@ -149,6 +155,15 @@ final class AuthenticateStartParams implements BaseModel
         null !== $proxyCountry && $self['proxyCountry'] = $proxyCountry;
         null !== $userAgent && $self['userAgent'] = $userAgent;
         null !== $xbc && $self['xbc'] = $xbc;
+
+        return $self;
+    }
+
+    public function withInternalAutomaticSyncsDisabled(
+        bool $_internalAutomaticSyncsDisabled
+    ): self {
+        $self = clone $this;
+        $self['_internalAutomaticSyncsDisabled'] = $_internalAutomaticSyncsDisabled;
 
         return $self;
     }
