@@ -115,7 +115,6 @@ final class AuthenticateRawService implements AuthenticateRawContract
      * Start the authentication process for a new account. Supports three methods: email/password (default), cookies & headers (raw_data), or FansAPI Auth+ mobile app (mobile_app). For email/password, our systems will bypass Captcha and ask you for 2FA if required. For raw_data, provide session cookies directly for instant authentication. For mobile_app, the response includes a `mobile_auth_session_deeplink` that the creator opens on their phone (or scans as a QR code) to complete authentication via the FansAPI Auth+ mobile app. All credentials are stored securely and encrypted at rest.
      *
      * @param array{
-     *   _internalAutomaticSyncsDisabled?: bool,
      *   authID?: string,
      *   authType?: AuthType|value-of<AuthType>,
      *   cookies?: string,
