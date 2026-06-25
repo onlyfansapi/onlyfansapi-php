@@ -75,7 +75,7 @@ final class TrackingLinksTest extends TestCase
         }
 
         $result = $this->client->trackingLinks->retrieve(
-            'sint',
+            'nobis',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -91,7 +91,7 @@ final class TrackingLinksTest extends TestCase
         }
 
         $result = $this->client->trackingLinks->retrieve(
-            'sint',
+            'nobis',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -120,7 +120,7 @@ final class TrackingLinksTest extends TestCase
         }
 
         $result = $this->client->trackingLinks->delete(
-            'sint',
+            'nobis',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -136,7 +136,7 @@ final class TrackingLinksTest extends TestCase
         }
 
         $result = $this->client->trackingLinks->delete(
-            'sint',
+            'nobis',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -187,7 +187,7 @@ final class TrackingLinksTest extends TestCase
         }
 
         $result = $this->client->trackingLinks->getStats(
-            'atque',
+            'doloribus',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -203,7 +203,7 @@ final class TrackingLinksTest extends TestCase
         }
 
         $result = $this->client->trackingLinks->getStats(
-            'atque',
+            'doloribus',
             account: 'acct_XXXXXXXXXXXXXXX',
             dateEnd: '2026-01-31T23:59:59Z',
             dateStart: '2026-01-01T00:00:00Z',
