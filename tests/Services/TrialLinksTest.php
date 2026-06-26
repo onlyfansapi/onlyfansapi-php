@@ -80,7 +80,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->retrieve(
-            'molestiae',
+            'neque',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -96,7 +96,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->retrieve(
-            'molestiae',
+            'neque',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -149,7 +149,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->delete(
-            'molestiae',
+            'neque',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -165,7 +165,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->delete(
-            'molestiae',
+            'neque',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -216,7 +216,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->listSubscribers(
-            'dolores',
+            'et',
             account: 'acct_XXXXXXXXXXXXXXX',
             limit: 10,
             offset: 0
@@ -234,7 +234,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->listSubscribers(
-            'dolores',
+            'et',
             account: 'acct_XXXXXXXXXXXXXXX',
             limit: 10,
             offset: 0
@@ -252,7 +252,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->retrieveCohortArps(
-            'quod',
+            'dolores',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -268,7 +268,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->retrieveCohortArps(
-            'quod',
+            'dolores',
             account: 'acct_XXXXXXXXXXXXXXX',
             acquisitionEnd: '2026-01-31T23:59:59Z',
             acquisitionStart: '2026-01-01T00:00:00Z',
@@ -287,7 +287,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->retrieveStats(
-            'debitis',
+            'deleniti',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -303,7 +303,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->retrieveStats(
-            'debitis',
+            'deleniti',
             account: 'acct_XXXXXXXXXXXXXXX',
             dateEnd: '2026-01-31T23:59:59Z',
             dateStart: '2026-01-01T00:00:00Z',
