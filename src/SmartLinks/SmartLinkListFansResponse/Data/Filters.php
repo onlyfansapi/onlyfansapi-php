@@ -16,7 +16,9 @@ use OnlyFansAPI\Core\Contracts\BaseModel;
  *   minRevenueNet?: string|null,
  *   minTipsNet?: string|null,
  *   offset?: int|null,
+ *   previouslySubscribed?: string|null,
  *   sort?: string|null,
+ *   subscribedUsingPromo?: string|null,
  * }
  */
 final class Filters implements BaseModel
@@ -42,8 +44,14 @@ final class Filters implements BaseModel
     #[Optional]
     public ?int $offset;
 
+    #[Optional('previously_subscribed', nullable: true)]
+    public ?string $previouslySubscribed;
+
     #[Optional]
     public ?string $sort;
+
+    #[Optional('subscribed_using_promo', nullable: true)]
+    public ?string $subscribedUsingPromo;
 
     public function __construct()
     {
@@ -62,7 +70,9 @@ final class Filters implements BaseModel
         ?string $minRevenueNet = null,
         ?string $minTipsNet = null,
         ?int $offset = null,
+        ?string $previouslySubscribed = null,
         ?string $sort = null,
+        ?string $subscribedUsingPromo = null,
     ): self {
         $self = new self;
 
@@ -72,7 +82,9 @@ final class Filters implements BaseModel
         null !== $minRevenueNet && $self['minRevenueNet'] = $minRevenueNet;
         null !== $minTipsNet && $self['minTipsNet'] = $minTipsNet;
         null !== $offset && $self['offset'] = $offset;
+        null !== $previouslySubscribed && $self['previouslySubscribed'] = $previouslySubscribed;
         null !== $sort && $self['sort'] = $sort;
+        null !== $subscribedUsingPromo && $self['subscribedUsingPromo'] = $subscribedUsingPromo;
 
         return $self;
     }
@@ -126,10 +138,28 @@ final class Filters implements BaseModel
         return $self;
     }
 
+    public function withPreviouslySubscribed(
+        ?string $previouslySubscribed
+    ): self {
+        $self = clone $this;
+        $self['previouslySubscribed'] = $previouslySubscribed;
+
+        return $self;
+    }
+
     public function withSort(string $sort): self
     {
         $self = clone $this;
         $self['sort'] = $sort;
+
+        return $self;
+    }
+
+    public function withSubscribedUsingPromo(
+        ?string $subscribedUsingPromo
+    ): self {
+        $self = clone $this;
+        $self['subscribedUsingPromo'] = $subscribedUsingPromo;
 
         return $self;
     }

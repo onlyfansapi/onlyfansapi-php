@@ -292,7 +292,9 @@ final class SmartLinksRawService implements SmartLinksRawContract
      *   minRevenueNet?: float,
      *   minTipsNet?: float,
      *   offset?: int,
+     *   previouslySubscribed?: bool,
      *   sort?: value-of<Sort>,
+     *   subscribedUsingPromo?: bool,
      * }|SmartLinkListFansParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -321,6 +323,8 @@ final class SmartLinksRawService implements SmartLinksRawContract
                     'minMessagesSentByFan' => 'min_messages_sent_by_fan',
                     'minRevenueNet' => 'min_revenue_net',
                     'minTipsNet' => 'min_tips_net',
+                    'previouslySubscribed' => 'previously_subscribed',
+                    'subscribedUsingPromo' => 'subscribed_using_promo',
                 ],
             ),
             options: $options,
