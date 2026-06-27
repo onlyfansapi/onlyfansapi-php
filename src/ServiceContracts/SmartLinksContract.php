@@ -161,7 +161,9 @@ interface SmartLinksContract
      * @param float $minRevenueNet Optional minimum net revenue
      * @param float $minTipsNet Optional minimum net tips
      * @param int $offset Offset for pagination. Default `0`
+     * @param bool $previouslySubscribed Optional - Filter to returning subscribers (fans previously subscribed before this subscription)
      * @param Sort|value-of<Sort> $sort Optional sort field. Default `-revenue_net`
+     * @param bool $subscribedUsingPromo Optional - Filter to fans who subscribed via a promotion/offer
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -174,7 +176,9 @@ interface SmartLinksContract
         ?float $minRevenueNet = null,
         ?float $minTipsNet = null,
         ?int $offset = null,
+        ?bool $previouslySubscribed = null,
         Sort|string|null $sort = null,
+        ?bool $subscribedUsingPromo = null,
         RequestOptions|array|null $requestOptions = null,
     ): SmartLinkListFansResponse;
 

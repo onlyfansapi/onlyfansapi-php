@@ -22,7 +22,9 @@ use OnlyFansAPI\SmartLinks\SmartLinkListFansParams\Sort;
  *   minRevenueNet?: float|null,
  *   minTipsNet?: float|null,
  *   offset?: int|null,
+ *   previouslySubscribed?: bool|null,
  *   sort?: null|Sort|value-of<Sort>,
+ *   subscribedUsingPromo?: bool|null,
  * }
  */
 final class SmartLinkListFansParams implements BaseModel
@@ -68,12 +70,24 @@ final class SmartLinkListFansParams implements BaseModel
     public ?int $offset;
 
     /**
+     * Optional - Filter to returning subscribers (fans previously subscribed before this subscription).
+     */
+    #[Optional]
+    public ?bool $previouslySubscribed;
+
+    /**
      * Optional sort field. Default `-revenue_net`.
      *
      * @var value-of<Sort>|null $sort
      */
     #[Optional(enum: Sort::class)]
     public ?string $sort;
+
+    /**
+     * Optional - Filter to fans who subscribed via a promotion/offer.
+     */
+    #[Optional]
+    public ?bool $subscribedUsingPromo;
 
     public function __construct()
     {
@@ -94,7 +108,9 @@ final class SmartLinkListFansParams implements BaseModel
         ?float $minRevenueNet = null,
         ?float $minTipsNet = null,
         ?int $offset = null,
+        ?bool $previouslySubscribed = null,
         Sort|string|null $sort = null,
+        ?bool $subscribedUsingPromo = null,
     ): self {
         $self = new self;
 
@@ -104,7 +120,9 @@ final class SmartLinkListFansParams implements BaseModel
         null !== $minRevenueNet && $self['minRevenueNet'] = $minRevenueNet;
         null !== $minTipsNet && $self['minTipsNet'] = $minTipsNet;
         null !== $offset && $self['offset'] = $offset;
+        null !== $previouslySubscribed && $self['previouslySubscribed'] = $previouslySubscribed;
         null !== $sort && $self['sort'] = $sort;
+        null !== $subscribedUsingPromo && $self['subscribedUsingPromo'] = $subscribedUsingPromo;
 
         return $self;
     }
@@ -176,6 +194,17 @@ final class SmartLinkListFansParams implements BaseModel
     }
 
     /**
+     * Optional - Filter to returning subscribers (fans previously subscribed before this subscription).
+     */
+    public function withPreviouslySubscribed(bool $previouslySubscribed): self
+    {
+        $self = clone $this;
+        $self['previouslySubscribed'] = $previouslySubscribed;
+
+        return $self;
+    }
+
+    /**
      * Optional sort field. Default `-revenue_net`.
      *
      * @param Sort|value-of<Sort> $sort
@@ -184,6 +213,17 @@ final class SmartLinkListFansParams implements BaseModel
     {
         $self = clone $this;
         $self['sort'] = $sort;
+
+        return $self;
+    }
+
+    /**
+     * Optional - Filter to fans who subscribed via a promotion/offer.
+     */
+    public function withSubscribedUsingPromo(bool $subscribedUsingPromo): self
+    {
+        $self = clone $this;
+        $self['subscribedUsingPromo'] = $subscribedUsingPromo;
 
         return $self;
     }
