@@ -298,7 +298,7 @@ final class ChatsRawService implements ChatsRawContract
     /**
      * @api
      *
-     * Calling this endpoint will show the target fan a "Model is typing..." note in the chat for ~4 seconds. If you want to continue showing the indicator call this endpoint multiple times. Free - no credits charged.
+     * Calling this endpoint will show the target fan a "Model is typing..." note in the chat for ~4 seconds. Duplicate calls for the same account and chat are coalesced during that window.
      *
      * @param string $chatID The ID of the chat (usually a fan's OnlyFans User ID)
      * @param array{account: string}|ChatStartTypingParams $params
