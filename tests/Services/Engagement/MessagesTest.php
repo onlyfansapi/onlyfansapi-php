@@ -37,7 +37,7 @@ final class MessagesTest extends TestCase
         }
 
         $result = $this->client->engagement->messages->getMessageBuyers(
-            'perspiciatis',
+            'praesentium',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -53,7 +53,7 @@ final class MessagesTest extends TestCase
         }
 
         $result = $this->client->engagement->messages->getMessageBuyers(
-            'perspiciatis',
+            'praesentium',
             account: 'acct_XXXXXXXXXXXXXXX',
             limit: 10,
             marker: 0,
