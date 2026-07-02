@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace OnlyFansAPI\Services\Analytics\Financial;
 
 use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetHistoryParams;
-use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetHistoryResponseItem;
+use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetHistoryResponse;
 use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetProfitabilityParams;
-use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetProfitabilityResponseItem;
+use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetProfitabilityResponse;
 use OnlyFansAPI\Client;
 use OnlyFansAPI\Core\Contracts\BaseResponse;
-use OnlyFansAPI\Core\Conversion\ListOf;
 use OnlyFansAPI\Core\Exceptions\APIException;
 use OnlyFansAPI\Core\Util;
 use OnlyFansAPI\RequestOptions;
@@ -40,7 +39,7 @@ final class ProfitabilityRawService implements ProfitabilityRawContract
      * }|ProfitabilityGetHistoryParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<list<ProfitabilityGetHistoryResponseItem>>
+     * @return BaseResponse<ProfitabilityGetHistoryResponse>
      *
      * @throws APIException
      */
@@ -63,7 +62,7 @@ final class ProfitabilityRawService implements ProfitabilityRawContract
                 ['accountPrefixedID' => 'account_prefixed_id']
             ),
             options: $options,
-            convert: new ListOf(ProfitabilityGetHistoryResponseItem::class),
+            convert: ProfitabilityGetHistoryResponse::class,
         );
     }
 
@@ -77,7 +76,7 @@ final class ProfitabilityRawService implements ProfitabilityRawContract
      * }|ProfitabilityGetProfitabilityParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<list<ProfitabilityGetProfitabilityResponseItem>>
+     * @return BaseResponse<ProfitabilityGetProfitabilityResponse>
      *
      * @throws APIException
      */
@@ -96,7 +95,7 @@ final class ProfitabilityRawService implements ProfitabilityRawContract
             path: 'api/analytics/financial/profitability',
             body: (object) $parsed,
             options: $options,
-            convert: new ListOf(ProfitabilityGetProfitabilityResponseItem::class),
+            convert: ProfitabilityGetProfitabilityResponse::class,
         );
     }
 }
