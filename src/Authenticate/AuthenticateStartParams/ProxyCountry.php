@@ -12,4 +12,6 @@ enum ProxyCountry: string
     case US = 'us';
 
     case UK = 'uk';
+
+    case GB = 'gb';
 }
