@@ -19,6 +19,7 @@ use OnlyFansAPI\Core\Contracts\BaseModel;
  *   otherNotes?: string|null,
  *   preferredName?: string|null,
  *   requests?: string|null,
+ *   spendCadence?: string|null,
  *   themes?: string|null,
  *   travelPlans?: string|null,
  * }
@@ -55,6 +56,9 @@ final class SummaryData implements BaseModel
     #[Optional]
     public ?string $requests;
 
+    #[Optional('spend_cadence')]
+    public ?string $spendCadence;
+
     #[Optional]
     public ?string $themes;
 
@@ -81,6 +85,7 @@ final class SummaryData implements BaseModel
         ?string $otherNotes = null,
         ?string $preferredName = null,
         ?string $requests = null,
+        ?string $spendCadence = null,
         ?string $themes = null,
         ?string $travelPlans = null,
     ): self {
@@ -95,6 +100,7 @@ final class SummaryData implements BaseModel
         null !== $otherNotes && $self['otherNotes'] = $otherNotes;
         null !== $preferredName && $self['preferredName'] = $preferredName;
         null !== $requests && $self['requests'] = $requests;
+        null !== $spendCadence && $self['spendCadence'] = $spendCadence;
         null !== $themes && $self['themes'] = $themes;
         null !== $travelPlans && $self['travelPlans'] = $travelPlans;
 
@@ -169,6 +175,14 @@ final class SummaryData implements BaseModel
     {
         $self = clone $this;
         $self['requests'] = $requests;
+
+        return $self;
+    }
+
+    public function withSpendCadence(string $spendCadence): self
+    {
+        $self = clone $this;
+        $self['spendCadence'] = $spendCadence;
 
         return $self;
     }

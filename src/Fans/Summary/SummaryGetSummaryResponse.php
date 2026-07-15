@@ -16,6 +16,7 @@ use OnlyFansAPI\Fans\Summary\SummaryGetSummaryResponse\SummaryData;
  *   analyzedMessageCount?: int|null,
  *   errorMessage?: string|null,
  *   lastAnalyzedAt?: string|null,
+ *   lastBuyDate?: string|null,
  *   status?: string|null,
  *   summaryData?: null|SummaryData|SummaryDataShape,
  * }
@@ -33,6 +34,9 @@ final class SummaryGetSummaryResponse implements BaseModel
 
     #[Optional('last_analyzed_at')]
     public ?string $lastAnalyzedAt;
+
+    #[Optional('last_buy_date')]
+    public ?string $lastBuyDate;
 
     #[Optional]
     public ?string $status;
@@ -56,6 +60,7 @@ final class SummaryGetSummaryResponse implements BaseModel
         ?int $analyzedMessageCount = null,
         ?string $errorMessage = null,
         ?string $lastAnalyzedAt = null,
+        ?string $lastBuyDate = null,
         ?string $status = null,
         SummaryData|array|null $summaryData = null,
     ): self {
@@ -64,6 +69,7 @@ final class SummaryGetSummaryResponse implements BaseModel
         null !== $analyzedMessageCount && $self['analyzedMessageCount'] = $analyzedMessageCount;
         null !== $errorMessage && $self['errorMessage'] = $errorMessage;
         null !== $lastAnalyzedAt && $self['lastAnalyzedAt'] = $lastAnalyzedAt;
+        null !== $lastBuyDate && $self['lastBuyDate'] = $lastBuyDate;
         null !== $status && $self['status'] = $status;
         null !== $summaryData && $self['summaryData'] = $summaryData;
 
@@ -90,6 +96,14 @@ final class SummaryGetSummaryResponse implements BaseModel
     {
         $self = clone $this;
         $self['lastAnalyzedAt'] = $lastAnalyzedAt;
+
+        return $self;
+    }
+
+    public function withLastBuyDate(string $lastBuyDate): self
+    {
+        $self = clone $this;
+        $self['lastBuyDate'] = $lastBuyDate;
 
         return $self;
     }
