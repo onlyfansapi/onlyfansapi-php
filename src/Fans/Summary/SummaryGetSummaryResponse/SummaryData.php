@@ -10,7 +10,9 @@ use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * @phpstan-type SummaryDataShape = array{
+ *   contentDislikes?: string|null,
  *   contentPreferences?: string|null,
+ *   dosAndDonts?: string|null,
  *   familyPets?: string|null,
  *   hobbies?: string|null,
  *   interests?: string|null,
@@ -29,8 +31,14 @@ final class SummaryData implements BaseModel
     /** @use SdkModel<SummaryDataShape> */
     use SdkModel;
 
+    #[Optional('content_dislikes')]
+    public ?string $contentDislikes;
+
     #[Optional('content_preferences')]
     public ?string $contentPreferences;
+
+    #[Optional('dos_and_donts')]
+    public ?string $dosAndDonts;
 
     #[Optional('family_pets')]
     public ?string $familyPets;
@@ -76,7 +84,9 @@ final class SummaryData implements BaseModel
      * You must use named parameters to construct any parameters with a default value.
      */
     public static function with(
+        ?string $contentDislikes = null,
         ?string $contentPreferences = null,
+        ?string $dosAndDonts = null,
         ?string $familyPets = null,
         ?string $hobbies = null,
         ?string $interests = null,
@@ -91,7 +101,9 @@ final class SummaryData implements BaseModel
     ): self {
         $self = new self;
 
+        null !== $contentDislikes && $self['contentDislikes'] = $contentDislikes;
         null !== $contentPreferences && $self['contentPreferences'] = $contentPreferences;
+        null !== $dosAndDonts && $self['dosAndDonts'] = $dosAndDonts;
         null !== $familyPets && $self['familyPets'] = $familyPets;
         null !== $hobbies && $self['hobbies'] = $hobbies;
         null !== $interests && $self['interests'] = $interests;
@@ -107,10 +119,26 @@ final class SummaryData implements BaseModel
         return $self;
     }
 
+    public function withContentDislikes(string $contentDislikes): self
+    {
+        $self = clone $this;
+        $self['contentDislikes'] = $contentDislikes;
+
+        return $self;
+    }
+
     public function withContentPreferences(string $contentPreferences): self
     {
         $self = clone $this;
         $self['contentPreferences'] = $contentPreferences;
+
+        return $self;
+    }
+
+    public function withDosAndDonts(string $dosAndDonts): self
+    {
+        $self = clone $this;
+        $self['dosAndDonts'] = $dosAndDonts;
 
         return $self;
     }
