@@ -7,13 +7,16 @@ namespace OnlyFansAPI\Fans\Summary;
 use OnlyFansAPI\Core\Attributes\Optional;
 use OnlyFansAPI\Core\Concerns\SdkModel;
 use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Fans\Summary\SummaryGetSummaryResponse\CustomField;
 use OnlyFansAPI\Fans\Summary\SummaryGetSummaryResponse\SummaryData;
 
 /**
+ * @phpstan-import-type CustomFieldShape from \OnlyFansAPI\Fans\Summary\SummaryGetSummaryResponse\CustomField
  * @phpstan-import-type SummaryDataShape from \OnlyFansAPI\Fans\Summary\SummaryGetSummaryResponse\SummaryData
  *
  * @phpstan-type SummaryGetSummaryResponseShape = array{
  *   analyzedMessageCount?: int|null,
+ *   customFields?: list<CustomField|CustomFieldShape>|null,
  *   errorMessage?: string|null,
  *   lastAnalyzedAt?: string|null,
  *   lastBuyDate?: string|null,
@@ -28,6 +31,10 @@ final class SummaryGetSummaryResponse implements BaseModel
 
     #[Optional('analyzed_message_count')]
     public ?int $analyzedMessageCount;
+
+    /** @var list<CustomField>|null $customFields */
+    #[Optional('custom_fields', list: CustomField::class)]
+    public ?array $customFields;
 
     #[Optional('error_message', nullable: true)]
     public ?string $errorMessage;
@@ -54,10 +61,12 @@ final class SummaryGetSummaryResponse implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
+     * @param list<CustomField|CustomFieldShape>|null $customFields
      * @param SummaryData|SummaryDataShape|null $summaryData
      */
     public static function with(
         ?int $analyzedMessageCount = null,
+        ?array $customFields = null,
         ?string $errorMessage = null,
         ?string $lastAnalyzedAt = null,
         ?string $lastBuyDate = null,
@@ -67,6 +76,7 @@ final class SummaryGetSummaryResponse implements BaseModel
         $self = new self;
 
         null !== $analyzedMessageCount && $self['analyzedMessageCount'] = $analyzedMessageCount;
+        null !== $customFields && $self['customFields'] = $customFields;
         null !== $errorMessage && $self['errorMessage'] = $errorMessage;
         null !== $lastAnalyzedAt && $self['lastAnalyzedAt'] = $lastAnalyzedAt;
         null !== $lastBuyDate && $self['lastBuyDate'] = $lastBuyDate;
@@ -80,6 +90,17 @@ final class SummaryGetSummaryResponse implements BaseModel
     {
         $self = clone $this;
         $self['analyzedMessageCount'] = $analyzedMessageCount;
+
+        return $self;
+    }
+
+    /**
+     * @param list<CustomField|CustomFieldShape> $customFields
+     */
+    public function withCustomFields(array $customFields): self
+    {
+        $self = clone $this;
+        $self['customFields'] = $customFields;
 
         return $self;
     }
