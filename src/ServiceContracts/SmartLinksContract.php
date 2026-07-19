@@ -65,7 +65,6 @@ interface SmartLinksContract
      * @param string|null $accountIDs comma-separated account prefixed IDs to include
      * @param Filter|FilterShape $filter
      * @param int $limit The number of Smart Links to return. Default `50`. Must be at least 1. Must not be greater than 1000.
-     * @param string|null $metaPixelIDs Deprecated alias for `pixel_ids`. Comma-separated Pixel IDs to include.
      * @param string|null $name Filter Smart Links by name. Must not be greater than 255 characters.
      * @param int $offset The offset used for pagination. Default `0`. Must be at least 0.
      * @param string|null $pixelIDs comma-separated ad platform Pixel IDs to include
@@ -77,7 +76,6 @@ interface SmartLinksContract
         ?string $accountIDs = null,
         Filter|array|null $filter = null,
         ?int $limit = null,
-        ?string $metaPixelIDs = null,
         ?string $name = null,
         ?int $offset = null,
         ?string $pixelIDs = null,

@@ -41,7 +41,7 @@ final class TransactionListParams implements BaseModel
     public ?string $marker;
 
     /**
-     * The start date for transactions list. Default: `-30days`.
+     * The start date for the transactions list. Defaults to 30 days ago.
      */
     #[Optional]
     public ?string $startDate;
@@ -109,7 +109,7 @@ final class TransactionListParams implements BaseModel
     }
 
     /**
-     * The start date for transactions list. Default: `-30days`.
+     * The start date for the transactions list. Defaults to 30 days ago.
      */
     public function withStartDate(string $startDate): self
     {

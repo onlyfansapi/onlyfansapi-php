@@ -67,7 +67,7 @@ final class ChatListParams implements BaseModel
     public ?string $query;
 
     /**
-     * Whether to skip user details in response (all or none). Default = all.
+     * Whether to skip user details in the response (`all` or `none`). Defaults to `all`.
      *
      * @var value-of<SkipUsers>|null $skipUsers
      */
@@ -168,7 +168,7 @@ final class ChatListParams implements BaseModel
     }
 
     /**
-     * Whether to skip user details in response (all or none). Default = all.
+     * Whether to skip user details in the response (`all` or `none`). Defaults to `all`.
      *
      * @param SkipUsers|value-of<SkipUsers> $skipUsers
      */

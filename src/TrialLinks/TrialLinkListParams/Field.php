@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace OnlyFansAPI\TrialLinks\TrialLinkListParams;
 
 /**
- * Sort the results by a field. Default `create_date`.
+ * Field to sort by. Default `create_date`.
  */
 enum Field: string
 {

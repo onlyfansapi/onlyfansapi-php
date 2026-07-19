@@ -98,7 +98,7 @@ interface MassMessagingContract
      * @api
      *
      * @param string $account The Account ID
-     * @param string $endDate The latest mass message to retrieve. Keep empty to get all. MUST BE DATE AFTER `startDate`. This is also used for pagination.
+     * @param string $endDate The latest mass message to retrieve. Keep empty to get all. It must be after `startDate` and is also used for pagination.
      * @param int $limit Number of mass messages to return (default = 10)
      * @param string $query optionally, find a mass message by the message text
      * @param string $startDate The earliest mass message to retrieve. Keep empty to get all.

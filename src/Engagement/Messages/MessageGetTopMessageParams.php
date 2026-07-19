@@ -25,7 +25,7 @@ final class MessageGetTopMessageParams implements BaseModel
     use SdkParams;
 
     /**
-     * The end date for the period. Keep empty to retrieve until now. MUST BE DATE AFTER `startDate`.
+     * The end date for the period. Keep empty to retrieve until now. It must be after `startDate`.
      */
     #[Optional]
     public ?string $endDate;
@@ -59,7 +59,7 @@ final class MessageGetTopMessageParams implements BaseModel
     }
 
     /**
-     * The end date for the period. Keep empty to retrieve until now. MUST BE DATE AFTER `startDate`.
+     * The end date for the period. Keep empty to retrieve until now. It must be after `startDate`.
      */
     public function withEndDate(string $endDate): self
     {

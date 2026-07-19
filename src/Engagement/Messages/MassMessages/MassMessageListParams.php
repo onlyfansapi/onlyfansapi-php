@@ -28,7 +28,7 @@ final class MassMessageListParams implements BaseModel
     use SdkParams;
 
     /**
-     * The latest message to retrieve. Keep empty to get all. MUST BE DATE AFTER `startDate`. This is also used for pagination.
+     * The latest message to retrieve. Keep empty to get all. It must be after `startDate` and is also used for pagination.
      */
     #[Optional]
     public ?string $endDate;
@@ -78,7 +78,7 @@ final class MassMessageListParams implements BaseModel
     }
 
     /**
-     * The latest message to retrieve. Keep empty to get all. MUST BE DATE AFTER `startDate`. This is also used for pagination.
+     * The latest message to retrieve. Keep empty to get all. It must be after `startDate` and is also used for pagination.
      */
     public function withEndDate(string $endDate): self
     {

@@ -25,7 +25,7 @@ final class MassMessageChartParams implements BaseModel
     use SdkParams;
 
     /**
-     * End of the chart window in `Y-m-d H:i:s` format. Must be after `startDate`.
+     * End of the chart window in `Y-m-d H:i:s` format. It must be after `startDate`.
      */
     #[Optional]
     public ?string $endDate;
@@ -67,7 +67,7 @@ final class MassMessageChartParams implements BaseModel
     }
 
     /**
-     * End of the chart window in `Y-m-d H:i:s` format. Must be after `startDate`.
+     * End of the chart window in `Y-m-d H:i:s` format. It must be after `startDate`.
      */
     public function withEndDate(string $endDate): self
     {

@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace OnlyFansAPI\TrialLinks\TrialLinkListParams;
 
 /**
- * Sort the results. Default `desc`.
+ * Sort direction. Default `desc`.
  */
 enum Sort: string
 {
-    case DESC = 'desc';
-
     case ASC = 'asc';
+
+    case DESC = 'desc';
 }

@@ -19,8 +19,10 @@ use OnlyFansAPI\TrackingLinks\TrackingLinkGetResponse;
 use OnlyFansAPI\TrackingLinks\TrackingLinkGetStatsParams;
 use OnlyFansAPI\TrackingLinks\TrackingLinkGetStatsResponse;
 use OnlyFansAPI\TrackingLinks\TrackingLinkListParams;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\Pagination;
 use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\Sort;
 use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\Sortby;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\WithDeleted;
 use OnlyFansAPI\TrackingLinks\TrackingLinkListResponse;
 use OnlyFansAPI\TrackingLinks\TrackingLinkListSpendersParams;
 use OnlyFansAPI\TrackingLinks\TrackingLinkListSpendersResponse;
@@ -117,13 +119,14 @@ final class TrackingLinksRawService implements TrackingLinksRawContract
      * @param string $account The Account ID
      * @param array{
      *   endDate?: string|null,
-     *   limit?: int|null,
-     *   offset?: int|null,
-     *   sort?: Sort|value-of<Sort>|null,
-     *   sortby?: Sortby|value-of<Sortby>|null,
+     *   limit?: int,
+     *   offset?: int,
+     *   pagination?: Pagination|value-of<Pagination>,
+     *   sort?: Sort|value-of<Sort>,
+     *   sortby?: Sortby|value-of<Sortby>,
      *   startDate?: string|null,
-     *   synchronous?: bool|null,
-     *   withDeleted?: bool|null,
+     *   synchronous?: bool,
+     *   withDeleted?: WithDeleted|value-of<WithDeleted>,
      * }|TrackingLinkListParams $params
      * @param RequestOpts|null $requestOptions
      *

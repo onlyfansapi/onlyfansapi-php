@@ -32,7 +32,7 @@ final class StatementsRawService implements StatementsRawContract
      *
      * @param string $account The Account ID
      * @param array{
-     *   startDate: string, endDate?: string, type?: Type|value-of<Type>
+     *   endDate: string, startDate: string, type?: Type|value-of<Type>
      * }|StatementGetEarningsParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -56,7 +56,7 @@ final class StatementsRawService implements StatementsRawContract
             path: ['api/%1$s/statistics/statements/earnings', $account],
             query: Util::array_transform_keys(
                 $parsed,
-                ['startDate' => 'start_date', 'endDate' => 'end_date']
+                ['endDate' => 'end_date', 'startDate' => 'start_date']
             ),
             options: $options,
             convert: StatementGetEarningsResponse::class,

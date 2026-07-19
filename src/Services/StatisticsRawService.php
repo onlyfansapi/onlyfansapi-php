@@ -36,7 +36,7 @@ final class StatisticsRawService implements StatisticsRawContract
      *
      * @param string $account The Account ID
      * @param array{
-     *   endDate: string, startDate: string
+     *   endDate?: string, startDate?: string
      * }|StatisticCalculateTotalTransactionsParams $params
      * @param RequestOpts|null $requestOptions
      *

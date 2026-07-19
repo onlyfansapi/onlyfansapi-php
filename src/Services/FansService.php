@@ -207,10 +207,10 @@ final class FansService implements FansContract
      * Get a paginated list fans, filterable by total, only new subscribers, or only renewals. Newest fans are first.
      *
      * @param string $account The Account ID
-     * @param string|null $endDate End date for filtering (required with start_date). This field is required when <code>start_date</code> is present.
+     * @param string|null $endDate End date for filtering (required with start_date). Must be a valid date. Must not be greater than 255 characters.
      * @param int $limit Number of fans to return (1-50). Must be at least 1. Must not be greater than 100.
      * @param int $offset Number of fans to skip. Must be at least 0.
-     * @param string|null $startDate Start date for filtering (required with end_date). This field is required when <code>end_date</code> is present.
+     * @param string|null $startDate Start date for filtering (required with end_date). Must be a valid date. Must not be greater than 255 characters.
      * @param \OnlyFansAPI\Fans\FanListLatestParams\Type|value-of<\OnlyFansAPI\Fans\FanListLatestParams\Type>|null $type filter by type: total, renew, or new
      * @param RequestOpts|null $requestOptions
      *
@@ -248,8 +248,8 @@ final class FansService implements FansContract
      *
      * @param string $account The Account ID
      * @param By|value-of<By>|null $by sort by: total (default), subscribes, tips, messages, post, streams
-     * @param string|null $endDate End date for filtering (required with start_date). This field is required when <code>start_date</code> is present.
-     * @param string|null $startDate Start date for filtering (required with end_date). This field is required when <code>end_date</code> is present.
+     * @param string|null $endDate End date for filtering (required with start_date). Must be a valid date. Must not be greater than 255 characters.
+     * @param string|null $startDate Start date for filtering (required with end_date). Must be a valid date. Must not be greater than 255 characters.
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException

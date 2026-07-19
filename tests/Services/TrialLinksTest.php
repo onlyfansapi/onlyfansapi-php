@@ -80,7 +80,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->retrieve(
-            'est',
+            'vel',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -96,7 +96,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->retrieve(
-            'est',
+            'vel',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -111,31 +111,7 @@ final class TrialLinksTest extends TestCase
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->trialLinks->list(
-            'acct_XXXXXXXXXXXXXXX',
-            limit: 10,
-            offset: 0
-        );
-
-        // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(TrialLinkListResponse::class, $result);
-    }
-
-    #[Test]
-    public function testListWithOptionalParams(): void
-    {
-        if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Mock server tests are disabled');
-        }
-
-        $result = $this->client->trialLinks->list(
-            'acct_XXXXXXXXXXXXXXX',
-            limit: 10,
-            offset: 0,
-            field: 'create_date',
-            sort: 'desc',
-            synchronous: false,
-        );
+        $result = $this->client->trialLinks->list('acct_XXXXXXXXXXXXXXX');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(TrialLinkListResponse::class, $result);
@@ -149,7 +125,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->delete(
-            'est',
+            'vel',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -165,7 +141,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->delete(
-            'est',
+            'vel',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -216,7 +192,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->listSubscribers(
-            'ut',
+            'modi',
             account: 'acct_XXXXXXXXXXXXXXX',
             limit: 10,
             offset: 0
@@ -234,7 +210,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->listSubscribers(
-            'ut',
+            'modi',
             account: 'acct_XXXXXXXXXXXXXXX',
             limit: 10,
             offset: 0
@@ -252,7 +228,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->retrieveCohortArps(
-            'aliquam',
+            'vel',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -268,7 +244,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->retrieveCohortArps(
-            'aliquam',
+            'vel',
             account: 'acct_XXXXXXXXXXXXXXX',
             acquisitionEnd: '2026-01-31T23:59:59Z',
             acquisitionStart: '2026-01-01T00:00:00Z',
@@ -287,7 +263,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->retrieveStats(
-            'inventore',
+            'facilis',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -303,7 +279,7 @@ final class TrialLinksTest extends TestCase
         }
 
         $result = $this->client->trialLinks->retrieveStats(
-            'inventore',
+            'facilis',
             account: 'acct_XXXXXXXXXXXXXXX',
             dateEnd: '2026-01-31T23:59:59Z',
             dateStart: '2026-01-01T00:00:00Z',

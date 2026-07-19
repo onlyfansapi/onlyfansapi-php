@@ -68,7 +68,7 @@ final class MessageListParams implements BaseModel
     public ?string $order;
 
     /**
-     * Whether to skip user details (all or none).
+     * Whether to skip user details (`all` or `none`).
      */
     #[Optional]
     public ?string $skipUsers;
@@ -188,7 +188,7 @@ final class MessageListParams implements BaseModel
     }
 
     /**
-     * Whether to skip user details (all or none).
+     * Whether to skip user details (`all` or `none`).
      */
     public function withSkipUsers(string $skipUsers): self
     {

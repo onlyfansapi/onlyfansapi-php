@@ -28,8 +28,8 @@ interface StatisticsContract
      */
     public function calculateTotalTransactions(
         string $account,
-        string $endDate,
-        string $startDate,
+        ?string $endDate = null,
+        ?string $startDate = null,
         RequestOptions|array|null $requestOptions = null,
     ): StatisticCalculateTotalTransactionsResponse;
 
