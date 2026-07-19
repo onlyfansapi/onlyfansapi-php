@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace OnlyFansAPI\TrackingLinks\TrackingLinkListParams;
 
 /**
- * Sort by subscriber count (claims), or creation date.
+ * Sort by subscriber count (`claims`) or creation date (`created_date`).
  */
 enum Sortby: string
 {

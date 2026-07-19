@@ -36,8 +36,8 @@ final class StatementsService implements StatementsContract
      * Get the earnings for a given period.
      *
      * @param string $account The Account ID
-     * @param string $startDate The start date for the period
      * @param string $endDate the end date for the period
+     * @param string $startDate the start date for the period
      * @param Type|value-of<Type> $type Filter by All / Subscriptions / Tips / Posts / Messages / Streams
      * @param RequestOpts|null $requestOptions
      *
@@ -45,13 +45,13 @@ final class StatementsService implements StatementsContract
      */
     public function getEarnings(
         string $account,
+        string $endDate,
         string $startDate,
-        ?string $endDate = null,
         Type|string|null $type = null,
         RequestOptions|array|null $requestOptions = null,
     ): StatementGetEarningsResponse {
         $params = Util::removeNulls(
-            ['startDate' => $startDate, 'endDate' => $endDate, 'type' => $type]
+            ['endDate' => $endDate, 'startDate' => $startDate, 'type' => $type]
         );
 
         // @phpstan-ignore-next-line argument.type

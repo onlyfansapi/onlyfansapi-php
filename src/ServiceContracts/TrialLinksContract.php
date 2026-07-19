@@ -66,21 +66,25 @@ interface TrialLinksContract
      * @api
      *
      * @param string $account The Account ID
-     * @param int $limit The number of trial links to return. Default `10`
-     * @param int $offset The offset used for pagination. Default `0`
-     * @param Field|value-of<Field>|null $field Sort the results by a field. Default `create_date`
-     * @param Sort|value-of<Sort>|null $sort Sort the results. Default `desc`
-     * @param bool|null $synchronous Wait for the revenue data to finish processing, instead of processing in the background. **Will result in longer response times, use with caution**. Default `false`
+     * @param string|null $endDate The end date for trial links. Keep empty to get all. Must not be greater than 255 characters.
+     * @param Field|value-of<Field> $field Field to sort by. Default `create_date`.
+     * @param int $limit The number of trial links to return. Default `10`. Must be at least 1. Must not be greater than 100.
+     * @param int $offset The offset used for pagination. Default `0`. Must be at least 0.
+     * @param Sort|value-of<Sort> $sort Sort direction. Default `desc`.
+     * @param string|null $startDate The start date for trial links. Keep empty to get all. Must not be greater than 255 characters.
+     * @param bool $synchronous wait for revenue calculation instead of processing it in the background
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
      */
     public function list(
         string $account,
-        int $limit,
-        int $offset,
+        ?string $endDate = null,
         Field|string|null $field = null,
+        ?int $limit = null,
+        ?int $offset = null,
         Sort|string|null $sort = null,
+        ?string $startDate = null,
         ?bool $synchronous = null,
         RequestOptions|array|null $requestOptions = null,
     ): TrialLinkListResponse;

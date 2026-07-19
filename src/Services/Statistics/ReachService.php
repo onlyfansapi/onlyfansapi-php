@@ -40,7 +40,7 @@ final class ReachService implements ReachContract
      *
      * @param string $account The Account ID
      * @param string $endDate the end date for the period
-     * @param string $startDate The start date for the period
+     * @param string $startDate the start date for the period
      * @param Filter|value-of<Filter>|null $filter Optionally, filter the results by `chart` or `topCountries`. See example responses.
      * @param int|null $limit Number of results to return
      * @param Type|value-of<Type>|null $type Filter all / users / guests

@@ -76,7 +76,7 @@ final class MessagesService implements MessagesContract
      * @param string|null $lastID Query param: Use for pagination when `order=asc` (oldest to newest). Include this message ID as the first message in the results. WARNING! The response list of messages will also be inverted (oldest messages will be first, opposite to default where `order=desc`).
      * @param string $limit Query param: The number of messages to return (default = 10, max = 100)
      * @param string $order Query param: Sort order for messages (desc or asc)
-     * @param string $skipUsers Query param: Whether to skip user details (all or none)
+     * @param string $skipUsers query param: Whether to skip user details (`all` or `none`)
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException

@@ -39,7 +39,7 @@ final class TransactionsService implements TransactionsContract
      * @param string $account The Account ID
      * @param string $limit The number of transactions to return. Recommended: `10`
      * @param string $marker The marker used for pagination. Default: `null`
-     * @param string $startDate The start date for transactions list. Default: `-30days`
+     * @param string $startDate The start date for the transactions list. Defaults to 30 days ago.
      * @param string $tipsSource Filter tips by source. Only applies when `type=tips`. Options: `profile`, `post_all`, `chat`, `stream`, `story`
      * @param string $type Filter by transaction type. Options: `subscribes`, `tips`, `post`, `chat_messages`, `stream`
      * @param RequestOpts|null $requestOptions

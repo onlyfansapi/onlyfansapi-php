@@ -30,7 +30,7 @@ final class FanListLatestParams implements BaseModel
     use SdkParams;
 
     /**
-     * End date for filtering (required with start_date). This field is required when <code>start_date</code> is present.
+     * End date for filtering (required with start_date). Must be a valid date. Must not be greater than 255 characters.
      */
     #[Optional(nullable: true)]
     public ?string $endDate;
@@ -48,7 +48,7 @@ final class FanListLatestParams implements BaseModel
     public ?int $offset;
 
     /**
-     * Start date for filtering (required with end_date). This field is required when <code>end_date</code> is present.
+     * Start date for filtering (required with end_date). Must be a valid date. Must not be greater than 255 characters.
      */
     #[Optional(nullable: true)]
     public ?string $startDate;
@@ -92,7 +92,7 @@ final class FanListLatestParams implements BaseModel
     }
 
     /**
-     * End date for filtering (required with start_date). This field is required when <code>start_date</code> is present.
+     * End date for filtering (required with start_date). Must be a valid date. Must not be greater than 255 characters.
      */
     public function withEndDate(?string $endDate): self
     {
@@ -125,7 +125,7 @@ final class FanListLatestParams implements BaseModel
     }
 
     /**
-     * Start date for filtering (required with end_date). This field is required when <code>end_date</code> is present.
+     * Start date for filtering (required with end_date). Must be a valid date. Must not be greater than 255 characters.
      */
     public function withStartDate(?string $startDate): self
     {

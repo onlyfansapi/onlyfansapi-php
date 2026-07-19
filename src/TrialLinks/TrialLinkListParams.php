@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace OnlyFansAPI\TrialLinks;
 
 use OnlyFansAPI\Core\Attributes\Optional;
-use OnlyFansAPI\Core\Attributes\Required;
 use OnlyFansAPI\Core\Concerns\SdkModel;
 use OnlyFansAPI\Core\Concerns\SdkParams;
 use OnlyFansAPI\Core\Contracts\BaseModel;
@@ -18,10 +17,12 @@ use OnlyFansAPI\TrialLinks\TrialLinkListParams\Sort;
  * @see OnlyFansAPI\Services\TrialLinksService::list()
  *
  * @phpstan-type TrialLinkListParamsShape = array{
- *   limit: int,
- *   offset: int,
+ *   endDate?: string|null,
  *   field?: null|Field|value-of<Field>,
+ *   limit?: int|null,
+ *   offset?: int|null,
  *   sort?: null|Sort|value-of<Sort>,
+ *   startDate?: string|null,
  *   synchronous?: bool|null,
  * }
  */
@@ -32,53 +33,51 @@ final class TrialLinkListParams implements BaseModel
     use SdkParams;
 
     /**
-     * The number of trial links to return. Default `10`.
+     * The end date for trial links. Keep empty to get all. Must not be greater than 255 characters.
      */
-    #[Required]
-    public int $limit;
+    #[Optional(nullable: true)]
+    public ?string $endDate;
 
     /**
-     * The offset used for pagination. Default `0`.
-     */
-    #[Required]
-    public int $offset;
-
-    /**
-     * Sort the results by a field. Default `create_date`.
+     * Field to sort by. Default `create_date`.
      *
      * @var value-of<Field>|null $field
      */
-    #[Optional(enum: Field::class, nullable: true)]
+    #[Optional(enum: Field::class)]
     public ?string $field;
 
     /**
-     * Sort the results. Default `desc`.
+     * The number of trial links to return. Default `10`. Must be at least 1. Must not be greater than 100.
+     */
+    #[Optional]
+    public ?int $limit;
+
+    /**
+     * The offset used for pagination. Default `0`. Must be at least 0.
+     */
+    #[Optional]
+    public ?int $offset;
+
+    /**
+     * Sort direction. Default `desc`.
      *
      * @var value-of<Sort>|null $sort
      */
-    #[Optional(enum: Sort::class, nullable: true)]
+    #[Optional(enum: Sort::class)]
     public ?string $sort;
 
     /**
-     * Wait for the revenue data to finish processing, instead of processing in the background. **Will result in longer response times, use with caution**. Default `false`.
+     * The start date for trial links. Keep empty to get all. Must not be greater than 255 characters.
      */
     #[Optional(nullable: true)]
-    public ?bool $synchronous;
+    public ?string $startDate;
 
     /**
-     * `new TrialLinkListParams()` is missing required properties by the API.
-     *
-     * To enforce required parameters use
-     * ```
-     * TrialLinkListParams::with(limit: ..., offset: ...)
-     * ```
-     *
-     * Otherwise ensure the following setters are called
-     *
-     * ```
-     * (new TrialLinkListParams)->withLimit(...)->withOffset(...)
-     * ```
+     * Wait for revenue calculation instead of processing it in the background.
      */
+    #[Optional]
+    public ?bool $synchronous;
+
     public function __construct()
     {
         $this->initialize();
@@ -93,26 +92,53 @@ final class TrialLinkListParams implements BaseModel
      * @param Sort|value-of<Sort>|null $sort
      */
     public static function with(
-        int $limit,
-        int $offset,
+        ?string $endDate = null,
         Field|string|null $field = null,
+        ?int $limit = null,
+        ?int $offset = null,
         Sort|string|null $sort = null,
+        ?string $startDate = null,
         ?bool $synchronous = null,
     ): self {
         $self = new self;
 
-        $self['limit'] = $limit;
-        $self['offset'] = $offset;
-
+        null !== $endDate && $self['endDate'] = $endDate;
         null !== $field && $self['field'] = $field;
+        null !== $limit && $self['limit'] = $limit;
+        null !== $offset && $self['offset'] = $offset;
         null !== $sort && $self['sort'] = $sort;
+        null !== $startDate && $self['startDate'] = $startDate;
         null !== $synchronous && $self['synchronous'] = $synchronous;
 
         return $self;
     }
 
     /**
-     * The number of trial links to return. Default `10`.
+     * The end date for trial links. Keep empty to get all. Must not be greater than 255 characters.
+     */
+    public function withEndDate(?string $endDate): self
+    {
+        $self = clone $this;
+        $self['endDate'] = $endDate;
+
+        return $self;
+    }
+
+    /**
+     * Field to sort by. Default `create_date`.
+     *
+     * @param Field|value-of<Field> $field
+     */
+    public function withField(Field|string $field): self
+    {
+        $self = clone $this;
+        $self['field'] = $field;
+
+        return $self;
+    }
+
+    /**
+     * The number of trial links to return. Default `10`. Must be at least 1. Must not be greater than 100.
      */
     public function withLimit(int $limit): self
     {
@@ -123,7 +149,7 @@ final class TrialLinkListParams implements BaseModel
     }
 
     /**
-     * The offset used for pagination. Default `0`.
+     * The offset used for pagination. Default `0`. Must be at least 0.
      */
     public function withOffset(int $offset): self
     {
@@ -134,24 +160,11 @@ final class TrialLinkListParams implements BaseModel
     }
 
     /**
-     * Sort the results by a field. Default `create_date`.
+     * Sort direction. Default `desc`.
      *
-     * @param Field|value-of<Field>|null $field
+     * @param Sort|value-of<Sort> $sort
      */
-    public function withField(Field|string|null $field): self
-    {
-        $self = clone $this;
-        $self['field'] = $field;
-
-        return $self;
-    }
-
-    /**
-     * Sort the results. Default `desc`.
-     *
-     * @param Sort|value-of<Sort>|null $sort
-     */
-    public function withSort(Sort|string|null $sort): self
+    public function withSort(Sort|string $sort): self
     {
         $self = clone $this;
         $self['sort'] = $sort;
@@ -160,9 +173,20 @@ final class TrialLinkListParams implements BaseModel
     }
 
     /**
-     * Wait for the revenue data to finish processing, instead of processing in the background. **Will result in longer response times, use with caution**. Default `false`.
+     * The start date for trial links. Keep empty to get all. Must not be greater than 255 characters.
      */
-    public function withSynchronous(?bool $synchronous): self
+    public function withStartDate(?string $startDate): self
+    {
+        $self = clone $this;
+        $self['startDate'] = $startDate;
+
+        return $self;
+    }
+
+    /**
+     * Wait for revenue calculation instead of processing it in the background.
+     */
+    public function withSynchronous(bool $synchronous): self
     {
         $self = clone $this;
         $self['synchronous'] = $synchronous;

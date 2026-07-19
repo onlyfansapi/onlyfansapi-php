@@ -7,9 +7,13 @@ namespace OnlyFansAPI\Services;
 use OnlyFansAPI\Client;
 use OnlyFansAPI\Core\Contracts\BaseResponse;
 use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
 use OnlyFansAPI\RequestOptions;
 use OnlyFansAPI\ServiceContracts\SharedTrackingLinksRawContract;
 use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListParams;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListParams\Pagination;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListParams\SortingDeleted;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListParams\WithDeleted;
 use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListResponse;
 use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkRevokeAccessParams;
 use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkRevokeAccessResponse;
@@ -34,7 +38,13 @@ final class SharedTrackingLinksRawService implements SharedTrackingLinksRawContr
      *
      * @param string $account The Account ID
      * @param array{
-     *   limit?: int, offset?: int, synchronous?: bool|null
+     *   limit?: int,
+     *   offset?: int,
+     *   pagination?: Pagination|value-of<Pagination>,
+     *   sortingDeleted?: SortingDeleted|value-of<SortingDeleted>,
+     *   stats?: string,
+     *   synchronous?: bool,
+     *   withDeleted?: WithDeleted|value-of<WithDeleted>,
      * }|SharedTrackingLinkListParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -56,7 +66,12 @@ final class SharedTrackingLinksRawService implements SharedTrackingLinksRawContr
         return $this->client->request(
             method: 'get',
             path: ['api/%1$s/shared-tracking-links', $account],
-            query: $parsed,
+            query: Util::array_transform_keys(
+                $parsed,
+                [
+                    'sortingDeleted' => 'sorting_deleted', 'withDeleted' => 'with_deleted',
+                ],
+            ),
             options: $options,
             convert: SharedTrackingLinkListResponse::class,
         );

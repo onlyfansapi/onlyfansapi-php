@@ -66,7 +66,7 @@ final class ChatsService implements ChatsContract
      * @param string $offset Number of chats to skip for pagination
      * @param Order|value-of<Order> $order Sort order for chats (recent or old). Default = recent
      * @param string $query Search query to filter chats
-     * @param SkipUsers|value-of<SkipUsers> $skipUsers Whether to skip user details in response (all or none). Default = all
+     * @param SkipUsers|value-of<SkipUsers> $skipUsers Whether to skip user details in the response (`all` or `none`). Defaults to `all`.
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -155,7 +155,7 @@ final class ChatsService implements ChatsContract
      * @param string $account Path param: The Account ID
      * @param string $limit Query param: Number of medias to return. Default = 20
      * @param string $offset Query param: Number of medias to skip for pagination
-     * @param string $skipUsers Query param: Whether to skip user details in response (all or none). Default = all
+     * @param string $skipUsers Query param: Whether to skip user details in the response (`all` or `none`). Defaults to `all`.
      * @param Type|value-of<Type>|null $type Query param: Filter by specific media types. Keep empty to return all.
      * @param RequestOpts|null $requestOptions
      *

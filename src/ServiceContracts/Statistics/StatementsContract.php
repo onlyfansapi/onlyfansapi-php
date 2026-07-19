@@ -18,8 +18,8 @@ interface StatementsContract
      * @api
      *
      * @param string $account The Account ID
-     * @param string $startDate The start date for the period
      * @param string $endDate the end date for the period
+     * @param string $startDate the start date for the period
      * @param Type|value-of<Type> $type Filter by All / Subscriptions / Tips / Posts / Messages / Streams
      * @param RequestOpts|null $requestOptions
      *
@@ -27,8 +27,8 @@ interface StatementsContract
      */
     public function getEarnings(
         string $account,
+        string $endDate,
         string $startDate,
-        ?string $endDate = null,
         Type|string|null $type = null,
         RequestOptions|array|null $requestOptions = null,
     ): StatementGetEarningsResponse;

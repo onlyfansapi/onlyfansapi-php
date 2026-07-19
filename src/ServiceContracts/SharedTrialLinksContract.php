@@ -6,6 +6,7 @@ namespace OnlyFansAPI\ServiceContracts;
 
 use OnlyFansAPI\Core\Exceptions\APIException;
 use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkListParams\Pagination;
 use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkListResponse;
 use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkRevokeAccessResponse;
 
@@ -18,9 +19,10 @@ interface SharedTrialLinksContract
      * @api
      *
      * @param string $account The Account ID
-     * @param int $limit The number of shared trial links to return. Default `10`
-     * @param int $offset The offset used for pagination. Default `0`
-     * @param bool|null $synchronous Wait for the database sync to finish, instead of running it in the background. **Will result in longer response times, use with caution**. Default `false`
+     * @param int $limit The number of shared trial links to return. Default `10`. Must be at least 1. Must not be greater than 100.
+     * @param int $offset The offset used for pagination. Default `0`. Must be at least 0.
+     * @param Pagination|value-of<Pagination> $pagination
+     * @param bool $synchronous wait for the database sync instead of processing it in the background
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -29,6 +31,7 @@ interface SharedTrialLinksContract
         string $account,
         ?int $limit = null,
         ?int $offset = null,
+        Pagination|int|null $pagination = null,
         ?bool $synchronous = null,
         RequestOptions|array|null $requestOptions = null,
     ): SharedTrialLinkListResponse;

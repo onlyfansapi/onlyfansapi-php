@@ -10,6 +10,7 @@ use OnlyFansAPI\Core\Util;
 use OnlyFansAPI\RequestOptions;
 use OnlyFansAPI\ServiceContracts\SharedTrialLinksContract;
 use OnlyFansAPI\Services\SharedTrialLinks\TagsService;
+use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkListParams\Pagination;
 use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkListResponse;
 use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkRevokeAccessResponse;
 
@@ -45,9 +46,10 @@ final class SharedTrialLinksService implements SharedTrialLinksContract
      * List all Free Trial Links shared with the account by other OF creators. Calls OnlyFans live and syncs to our cache.
      *
      * @param string $account The Account ID
-     * @param int $limit The number of shared trial links to return. Default `10`
-     * @param int $offset The offset used for pagination. Default `0`
-     * @param bool|null $synchronous Wait for the database sync to finish, instead of running it in the background. **Will result in longer response times, use with caution**. Default `false`
+     * @param int $limit The number of shared trial links to return. Default `10`. Must be at least 1. Must not be greater than 100.
+     * @param int $offset The offset used for pagination. Default `0`. Must be at least 0.
+     * @param Pagination|value-of<Pagination> $pagination
+     * @param bool $synchronous wait for the database sync instead of processing it in the background
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -56,11 +58,17 @@ final class SharedTrialLinksService implements SharedTrialLinksContract
         string $account,
         ?int $limit = null,
         ?int $offset = null,
+        Pagination|int|null $pagination = null,
         ?bool $synchronous = null,
         RequestOptions|array|null $requestOptions = null,
     ): SharedTrialLinkListResponse {
         $params = Util::removeNulls(
-            ['limit' => $limit, 'offset' => $offset, 'synchronous' => $synchronous]
+            [
+                'limit' => $limit,
+                'offset' => $offset,
+                'pagination' => $pagination,
+                'synchronous' => $synchronous,
+            ],
         );
 
         // @phpstan-ignore-next-line argument.type

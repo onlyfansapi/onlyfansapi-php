@@ -42,7 +42,7 @@ final class NotificationListParams implements BaseModel
     public ?int $limit;
 
     /**
-     * Whether to skip user details. Default `all`.
+     * Whether to skip user details. Defaults to `all`.
      *
      * @var value-of<SkipUsers>|null $skipUsers
      */
@@ -109,7 +109,7 @@ final class NotificationListParams implements BaseModel
     }
 
     /**
-     * Whether to skip user details. Default `all`.
+     * Whether to skip user details. Defaults to `all`.
      *
      * @param SkipUsers|value-of<SkipUsers> $skipUsers
      */

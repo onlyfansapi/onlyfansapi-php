@@ -124,11 +124,13 @@ final class TrialLinksRawService implements TrialLinksRawContract
      *
      * @param string $account The Account ID
      * @param array{
-     *   limit: int,
-     *   offset: int,
-     *   field?: Field|value-of<Field>|null,
-     *   sort?: Sort|value-of<Sort>|null,
-     *   synchronous?: bool|null,
+     *   endDate?: string|null,
+     *   field?: Field|value-of<Field>,
+     *   limit?: int,
+     *   offset?: int,
+     *   sort?: Sort|value-of<Sort>,
+     *   startDate?: string|null,
+     *   synchronous?: bool,
      * }|TrialLinkListParams $params
      * @param RequestOpts|null $requestOptions
      *

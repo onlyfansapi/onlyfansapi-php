@@ -46,7 +46,7 @@ final class ChatListMediaParams implements BaseModel
     public ?string $offset;
 
     /**
-     * Whether to skip user details in response (all or none). Default = all.
+     * Whether to skip user details in the response (`all` or `none`). Defaults to `all`.
      */
     #[Optional]
     public ?string $skipUsers;
@@ -135,7 +135,7 @@ final class ChatListMediaParams implements BaseModel
     }
 
     /**
-     * Whether to skip user details in response (all or none). Default = all.
+     * Whether to skip user details in the response (`all` or `none`). Defaults to `all`.
      */
     public function withSkipUsers(string $skipUsers): self
     {

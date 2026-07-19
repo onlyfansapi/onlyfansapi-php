@@ -21,7 +21,6 @@ use OnlyFansAPI\SmartLinks\SmartLinkListParams\Filter;
  *   accountIDs?: string|null,
  *   filter?: null|Filter|FilterShape,
  *   limit?: int|null,
- *   metaPixelIDs?: string|null,
  *   name?: string|null,
  *   offset?: int|null,
  *   pixelIDs?: string|null,
@@ -47,12 +46,6 @@ final class SmartLinkListParams implements BaseModel
      */
     #[Optional]
     public ?int $limit;
-
-    /**
-     * Deprecated alias for `pixel_ids`. Comma-separated Pixel IDs to include.
-     */
-    #[Optional(nullable: true)]
-    public ?string $metaPixelIDs;
 
     /**
      * Filter Smart Links by name. Must not be greater than 255 characters.
@@ -88,7 +81,6 @@ final class SmartLinkListParams implements BaseModel
         ?string $accountIDs = null,
         Filter|array|null $filter = null,
         ?int $limit = null,
-        ?string $metaPixelIDs = null,
         ?string $name = null,
         ?int $offset = null,
         ?string $pixelIDs = null,
@@ -98,7 +90,6 @@ final class SmartLinkListParams implements BaseModel
         null !== $accountIDs && $self['accountIDs'] = $accountIDs;
         null !== $filter && $self['filter'] = $filter;
         null !== $limit && $self['limit'] = $limit;
-        null !== $metaPixelIDs && $self['metaPixelIDs'] = $metaPixelIDs;
         null !== $name && $self['name'] = $name;
         null !== $offset && $self['offset'] = $offset;
         null !== $pixelIDs && $self['pixelIDs'] = $pixelIDs;
@@ -135,17 +126,6 @@ final class SmartLinkListParams implements BaseModel
     {
         $self = clone $this;
         $self['limit'] = $limit;
-
-        return $self;
-    }
-
-    /**
-     * Deprecated alias for `pixel_ids`. Comma-separated Pixel IDs to include.
-     */
-    public function withMetaPixelIDs(?string $metaPixelIDs): self
-    {
-        $self = clone $this;
-        $self['metaPixelIDs'] = $metaPixelIDs;
 
         return $self;
     }

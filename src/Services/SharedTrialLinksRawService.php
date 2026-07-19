@@ -10,6 +10,7 @@ use OnlyFansAPI\Core\Exceptions\APIException;
 use OnlyFansAPI\RequestOptions;
 use OnlyFansAPI\ServiceContracts\SharedTrialLinksRawContract;
 use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkListParams;
+use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkListParams\Pagination;
 use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkListResponse;
 use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkRevokeAccessParams;
 use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkRevokeAccessResponse;
@@ -34,7 +35,10 @@ final class SharedTrialLinksRawService implements SharedTrialLinksRawContract
      *
      * @param string $account The Account ID
      * @param array{
-     *   limit?: int, offset?: int, synchronous?: bool|null
+     *   limit?: int,
+     *   offset?: int,
+     *   pagination?: Pagination|value-of<Pagination>,
+     *   synchronous?: bool,
      * }|SharedTrialLinkListParams $params
      * @param RequestOpts|null $requestOptions
      *
