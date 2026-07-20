@@ -11,6 +11,7 @@ use OnlyFansAPI\Chats\Messages\MessageListParams\Filter;
 use OnlyFansAPI\Chats\Messages\MessageListResponse;
 use OnlyFansAPI\Chats\Messages\MessagePinResponse;
 use OnlyFansAPI\Chats\Messages\MessageSearchResponse;
+use OnlyFansAPI\Chats\Messages\MessageSendParams\BlockBannedWords;
 use OnlyFansAPI\Chats\Messages\MessageSendResponse;
 use OnlyFansAPI\Chats\Messages\MessageUnlikeResponse;
 use OnlyFansAPI\Chats\Messages\MessageUnpinResponse;
@@ -139,6 +140,7 @@ interface MessagesContract
      *
      * @param string $chatID Path param: The ID of the chat (usually a fan's OnlyFans User ID)
      * @param string $account Path param: The Account ID
+     * @param BlockBannedWords|value-of<BlockBannedWords> $blockBannedWords Body param: Screen `text` for OnlyFans banned words and block the send if any are found (returns a 422 listing the offending words). `strict_ban` blocks all tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften only. Omit to disable screening.
      * @param string $giphyID Body param: The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
      * @param bool $lockedText Body param: Whether the text should be shown or hidden
      * @param list<mixed> $mediaFiles Body param: Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs. Will be hidden if `price` is provided.
@@ -156,6 +158,7 @@ interface MessagesContract
     public function send(
         string $chatID,
         string $account,
+        BlockBannedWords|string|null $blockBannedWords = null,
         ?string $giphyID = null,
         ?bool $lockedText = null,
         ?array $mediaFiles = null,

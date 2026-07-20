@@ -61,6 +61,7 @@ final class PostsTest extends TestCase
         $result = $this->client->posts->create(
             'acct_XXXXXXXXXXXXXXX',
             text: 'Hello!',
+            blockBannedWords: 'strict_ban',
             expireDays: 3,
             fundRaisingTargetAmount: 30,
             fundRaisingTipsPresets: ['string', 'string', 'string'],
@@ -140,6 +141,7 @@ final class PostsTest extends TestCase
             1234567890,
             account: 'acct_XXXXXXXXXXXXXXX',
             text: 'Hello!',
+            blockBannedWords: 'strict_ban',
             expireDays: 3,
             fundRaisingTargetAmount: 30,
             fundRaisingTipsPresets: ['string', 'string', 'string'],

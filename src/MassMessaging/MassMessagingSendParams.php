@@ -9,6 +9,7 @@ use OnlyFansAPI\Core\Attributes\Required;
 use OnlyFansAPI\Core\Concerns\SdkModel;
 use OnlyFansAPI\Core\Concerns\SdkParams;
 use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\MassMessaging\MassMessagingSendParams\BlockBannedWords;
 
 /**
  * Send a mass message to lists and/or users. You may use both the `userLists` and `userIds` parameters to send the same message to both lists and individual users.
@@ -17,6 +18,7 @@ use OnlyFansAPI\Core\Contracts\BaseModel;
  *
  * @phpstan-type MassMessagingSendParamsShape = array{
  *   text: string,
+ *   blockBannedWords?: null|BlockBannedWords|value-of<BlockBannedWords>,
  *   excludedLists?: list<string>|null,
  *   giphyID?: string|null,
  *   lockedText?: bool|null,
@@ -43,6 +45,14 @@ final class MassMessagingSendParams implements BaseModel
      */
     #[Required]
     public string $text;
+
+    /**
+     * Screen `text` for OnlyFans banned words and block the send if any are found (returns a 422 listing the offending words). `strict_ban` blocks all tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften only. Omit to disable screening.
+     *
+     * @var value-of<BlockBannedWords>|null $blockBannedWords
+     */
+    #[Optional(enum: BlockBannedWords::class)]
+    public ?string $blockBannedWords;
 
     /**
      * Array of user list IDs that the mass message will NOT be sent to.
@@ -156,6 +166,7 @@ final class MassMessagingSendParams implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
+     * @param BlockBannedWords|value-of<BlockBannedWords>|null $blockBannedWords
      * @param list<string>|null $excludedLists
      * @param list<mixed>|null $mediaFiles
      * @param list<mixed>|null $previews
@@ -164,6 +175,7 @@ final class MassMessagingSendParams implements BaseModel
      */
     public static function with(
         string $text,
+        BlockBannedWords|string|null $blockBannedWords = null,
         ?array $excludedLists = null,
         ?string $giphyID = null,
         ?bool $lockedText = null,
@@ -182,6 +194,7 @@ final class MassMessagingSendParams implements BaseModel
 
         $self['text'] = $text;
 
+        null !== $blockBannedWords && $self['blockBannedWords'] = $blockBannedWords;
         null !== $excludedLists && $self['excludedLists'] = $excludedLists;
         null !== $giphyID && $self['giphyID'] = $giphyID;
         null !== $lockedText && $self['lockedText'] = $lockedText;
@@ -206,6 +219,20 @@ final class MassMessagingSendParams implements BaseModel
     {
         $self = clone $this;
         $self['text'] = $text;
+
+        return $self;
+    }
+
+    /**
+     * Screen `text` for OnlyFans banned words and block the send if any are found (returns a 422 listing the offending words). `strict_ban` blocks all tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften only. Omit to disable screening.
+     *
+     * @param BlockBannedWords|value-of<BlockBannedWords> $blockBannedWords
+     */
+    public function withBlockBannedWords(
+        BlockBannedWords|string $blockBannedWords
+    ): self {
+        $self = clone $this;
+        $self['blockBannedWords'] = $blockBannedWords;
 
         return $self;
     }

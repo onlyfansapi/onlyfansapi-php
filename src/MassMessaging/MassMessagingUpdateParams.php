@@ -9,6 +9,7 @@ use OnlyFansAPI\Core\Attributes\Required;
 use OnlyFansAPI\Core\Concerns\SdkModel;
 use OnlyFansAPI\Core\Concerns\SdkParams;
 use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\MassMessaging\MassMessagingUpdateParams\BlockBannedWords;
 
 /**
  * Update a mass message.
@@ -18,6 +19,7 @@ use OnlyFansAPI\Core\Contracts\BaseModel;
  * @phpstan-type MassMessagingUpdateParamsShape = array{
  *   account: string,
  *   text: string,
+ *   blockBannedWords?: null|BlockBannedWords|value-of<BlockBannedWords>,
  *   giphyID?: string|null,
  *   lockedText?: bool|null,
  *   mediaFiles?: list<string>|null,
@@ -42,6 +44,14 @@ final class MassMessagingUpdateParams implements BaseModel
      */
     #[Required]
     public string $text;
+
+    /**
+     * Screen `text` for OnlyFans banned words and block the update if any are found (returns a 422 listing the offending words). `strict_ban` blocks all tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften only. Omit to disable screening.
+     *
+     * @var value-of<BlockBannedWords>|null $blockBannedWords
+     */
+    #[Optional(enum: BlockBannedWords::class)]
+    public ?string $blockBannedWords;
 
     /**
      * The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
@@ -123,6 +133,7 @@ final class MassMessagingUpdateParams implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
+     * @param BlockBannedWords|value-of<BlockBannedWords>|null $blockBannedWords
      * @param list<string>|null $mediaFiles
      * @param list<string>|null $previews
      * @param list<string>|null $userIDs
@@ -131,6 +142,7 @@ final class MassMessagingUpdateParams implements BaseModel
     public static function with(
         string $account,
         string $text,
+        BlockBannedWords|string|null $blockBannedWords = null,
         ?string $giphyID = null,
         ?bool $lockedText = null,
         ?array $mediaFiles = null,
@@ -145,6 +157,7 @@ final class MassMessagingUpdateParams implements BaseModel
         $self['account'] = $account;
         $self['text'] = $text;
 
+        null !== $blockBannedWords && $self['blockBannedWords'] = $blockBannedWords;
         null !== $giphyID && $self['giphyID'] = $giphyID;
         null !== $lockedText && $self['lockedText'] = $lockedText;
         null !== $mediaFiles && $self['mediaFiles'] = $mediaFiles;
@@ -172,6 +185,20 @@ final class MassMessagingUpdateParams implements BaseModel
     {
         $self = clone $this;
         $self['text'] = $text;
+
+        return $self;
+    }
+
+    /**
+     * Screen `text` for OnlyFans banned words and block the update if any are found (returns a 422 listing the offending words). `strict_ban` blocks all tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften only. Omit to disable screening.
+     *
+     * @param BlockBannedWords|value-of<BlockBannedWords> $blockBannedWords
+     */
+    public function withBlockBannedWords(
+        BlockBannedWords|string $blockBannedWords
+    ): self {
+        $self = clone $this;
+        $self['blockBannedWords'] = $blockBannedWords;
 
         return $self;
     }

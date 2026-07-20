@@ -11,6 +11,7 @@ use OnlyFansAPI\Core\Util;
 use OnlyFansAPI\Posts\PostArchiveParams;
 use OnlyFansAPI\Posts\PostArchiveResponse;
 use OnlyFansAPI\Posts\PostCreateParams;
+use OnlyFansAPI\Posts\PostCreateParams\BlockBannedWords;
 use OnlyFansAPI\Posts\PostCreateParams\VotingType;
 use OnlyFansAPI\Posts\PostDeleteParams;
 use OnlyFansAPI\Posts\PostDeleteResponse;
@@ -52,6 +53,7 @@ final class PostsRawService implements PostsRawContract
      * @param string $account The Account ID
      * @param array{
      *   text: string,
+     *   blockBannedWords?: BlockBannedWords|value-of<BlockBannedWords>,
      *   expireDays?: int,
      *   fundRaisingTargetAmount?: int,
      *   fundRaisingTipsPresets?: list<string>,
@@ -135,6 +137,7 @@ final class PostsRawService implements PostsRawContract
      * @param array{
      *   account: string,
      *   text: string,
+     *   blockBannedWords?: PostUpdateParams\BlockBannedWords|value-of<PostUpdateParams\BlockBannedWords>,
      *   expireDays?: int,
      *   fundRaisingTargetAmount?: int,
      *   fundRaisingTipsPresets?: list<string>,
