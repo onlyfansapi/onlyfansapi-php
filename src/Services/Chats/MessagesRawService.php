@@ -18,6 +18,7 @@ use OnlyFansAPI\Chats\Messages\MessageRetrieveParams;
 use OnlyFansAPI\Chats\Messages\MessageSearchParams;
 use OnlyFansAPI\Chats\Messages\MessageSearchResponse;
 use OnlyFansAPI\Chats\Messages\MessageSendParams;
+use OnlyFansAPI\Chats\Messages\MessageSendParams\BlockBannedWords;
 use OnlyFansAPI\Chats\Messages\MessageSendResponse;
 use OnlyFansAPI\Chats\Messages\MessageUnlikeParams;
 use OnlyFansAPI\Chats\Messages\MessageUnlikeResponse;
@@ -286,6 +287,7 @@ final class MessagesRawService implements MessagesRawContract
      * @param string $chatID Path param: The ID of the chat (usually a fan's OnlyFans User ID)
      * @param array{
      *   account: string,
+     *   blockBannedWords?: BlockBannedWords|value-of<BlockBannedWords>,
      *   giphyID?: string,
      *   lockedText?: bool,
      *   mediaFiles?: list<mixed>,

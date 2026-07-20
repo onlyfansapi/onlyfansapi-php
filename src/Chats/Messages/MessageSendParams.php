@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace OnlyFansAPI\Chats\Messages;
 
+use OnlyFansAPI\Chats\Messages\MessageSendParams\BlockBannedWords;
 use OnlyFansAPI\Core\Attributes\Optional;
 use OnlyFansAPI\Core\Attributes\Required;
 use OnlyFansAPI\Core\Concerns\SdkModel;
@@ -17,6 +18,7 @@ use OnlyFansAPI\Core\Contracts\BaseModel;
  *
  * @phpstan-type MessageSendParamsShape = array{
  *   account: string,
+ *   blockBannedWords?: null|BlockBannedWords|value-of<BlockBannedWords>,
  *   giphyID?: string|null,
  *   lockedText?: bool|null,
  *   mediaFiles?: list<mixed>|null,
@@ -37,6 +39,14 @@ final class MessageSendParams implements BaseModel
 
     #[Required]
     public string $account;
+
+    /**
+     * Screen `text` for OnlyFans banned words and block the send if any are found (returns a 422 listing the offending words). `strict_ban` blocks all tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften only. Omit to disable screening.
+     *
+     * @var value-of<BlockBannedWords>|null $blockBannedWords
+     */
+    #[Optional(enum: BlockBannedWords::class)]
+    public ?string $blockBannedWords;
 
     /**
      * The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
@@ -126,11 +136,13 @@ final class MessageSendParams implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
+     * @param BlockBannedWords|value-of<BlockBannedWords>|null $blockBannedWords
      * @param list<mixed>|null $mediaFiles
      * @param list<mixed>|null $previews
      */
     public static function with(
         string $account,
+        BlockBannedWords|string|null $blockBannedWords = null,
         ?string $giphyID = null,
         ?bool $lockedText = null,
         ?array $mediaFiles = null,
@@ -146,6 +158,7 @@ final class MessageSendParams implements BaseModel
 
         $self['account'] = $account;
 
+        null !== $blockBannedWords && $self['blockBannedWords'] = $blockBannedWords;
         null !== $giphyID && $self['giphyID'] = $giphyID;
         null !== $lockedText && $self['lockedText'] = $lockedText;
         null !== $mediaFiles && $self['mediaFiles'] = $mediaFiles;
@@ -164,6 +177,20 @@ final class MessageSendParams implements BaseModel
     {
         $self = clone $this;
         $self['account'] = $account;
+
+        return $self;
+    }
+
+    /**
+     * Screen `text` for OnlyFans banned words and block the send if any are found (returns a 422 listing the offending words). `strict_ban` blocks all tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften only. Omit to disable screening.
+     *
+     * @param BlockBannedWords|value-of<BlockBannedWords> $blockBannedWords
+     */
+    public function withBlockBannedWords(
+        BlockBannedWords|string $blockBannedWords
+    ): self {
+        $self = clone $this;
+        $self['blockBannedWords'] = $blockBannedWords;
 
         return $self;
     }

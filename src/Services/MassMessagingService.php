@@ -12,6 +12,7 @@ use OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse;
 use OnlyFansAPI\MassMessaging\MassMessagingGetResponse;
 use OnlyFansAPI\MassMessaging\MassMessagingListResponse;
 use OnlyFansAPI\MassMessaging\MassMessagingSendResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingUpdateParams\BlockBannedWords;
 use OnlyFansAPI\MassMessaging\MassMessagingUpdateResponse;
 use OnlyFansAPI\RequestOptions;
 use OnlyFansAPI\ServiceContracts\MassMessagingContract;
@@ -66,6 +67,7 @@ final class MassMessagingService implements MassMessagingContract
      * @param string $id Path param: The ID of the message queue item. Can be retrieved from the above store and list endpoints.
      * @param string $account Path param: The Account ID
      * @param string $text Body param: The message text content
+     * @param BlockBannedWords|value-of<BlockBannedWords> $blockBannedWords Body param: Screen `text` for OnlyFans banned words and block the update if any are found (returns a 422 listing the offending words). `strict_ban` blocks all tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften only. Omit to disable screening.
      * @param string $giphyID Body param: The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
      * @param bool $lockedText Body param: Whether the text should be shown or hidden
      * @param list<string> $mediaFiles Body param: Array of media file upload prefixed_ids, or OF media IDs (required if price is not 0). Will be hidden if `price` is provided.
@@ -82,6 +84,7 @@ final class MassMessagingService implements MassMessagingContract
         string $id,
         string $account,
         string $text,
+        BlockBannedWords|string|null $blockBannedWords = null,
         ?string $giphyID = null,
         ?bool $lockedText = null,
         ?array $mediaFiles = null,
@@ -96,6 +99,7 @@ final class MassMessagingService implements MassMessagingContract
             [
                 'account' => $account,
                 'text' => $text,
+                'blockBannedWords' => $blockBannedWords,
                 'giphyID' => $giphyID,
                 'lockedText' => $lockedText,
                 'mediaFiles' => $mediaFiles,
@@ -201,6 +205,7 @@ final class MassMessagingService implements MassMessagingContract
      *
      * @param string $account The Account ID
      * @param string $text The message text content
+     * @param \OnlyFansAPI\MassMessaging\MassMessagingSendParams\BlockBannedWords|value-of<\OnlyFansAPI\MassMessaging\MassMessagingSendParams\BlockBannedWords> $blockBannedWords Screen `text` for OnlyFans banned words and block the send if any are found (returns a 422 listing the offending words). `strict_ban` blocks all tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften only. Omit to disable screening.
      * @param list<string> $excludedLists array of user list IDs that the mass message will NOT be sent to
      * @param string $giphyID The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
      * @param bool $lockedText Whether the text should be shown or hidden
@@ -221,6 +226,7 @@ final class MassMessagingService implements MassMessagingContract
     public function send(
         string $account,
         string $text,
+        \OnlyFansAPI\MassMessaging\MassMessagingSendParams\BlockBannedWords|string|null $blockBannedWords = null,
         ?array $excludedLists = null,
         ?string $giphyID = null,
         ?bool $lockedText = null,
@@ -239,6 +245,7 @@ final class MassMessagingService implements MassMessagingContract
         $params = Util::removeNulls(
             [
                 'text' => $text,
+                'blockBannedWords' => $blockBannedWords,
                 'excludedLists' => $excludedLists,
                 'giphyID' => $giphyID,
                 'lockedText' => $lockedText,

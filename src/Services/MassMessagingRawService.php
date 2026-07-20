@@ -17,6 +17,7 @@ use OnlyFansAPI\MassMessaging\MassMessagingRetrieveParams;
 use OnlyFansAPI\MassMessaging\MassMessagingSendParams;
 use OnlyFansAPI\MassMessaging\MassMessagingSendResponse;
 use OnlyFansAPI\MassMessaging\MassMessagingUpdateParams;
+use OnlyFansAPI\MassMessaging\MassMessagingUpdateParams\BlockBannedWords;
 use OnlyFansAPI\MassMessaging\MassMessagingUpdateResponse;
 use OnlyFansAPI\RequestOptions;
 use OnlyFansAPI\ServiceContracts\MassMessagingRawContract;
@@ -75,6 +76,7 @@ final class MassMessagingRawService implements MassMessagingRawContract
      * @param array{
      *   account: string,
      *   text: string,
+     *   blockBannedWords?: BlockBannedWords|value-of<BlockBannedWords>,
      *   giphyID?: string,
      *   lockedText?: bool,
      *   mediaFiles?: list<string>,
@@ -214,6 +216,7 @@ final class MassMessagingRawService implements MassMessagingRawContract
      * @param string $account The Account ID
      * @param array{
      *   text: string,
+     *   blockBannedWords?: MassMessagingSendParams\BlockBannedWords|value-of<MassMessagingSendParams\BlockBannedWords>,
      *   excludedLists?: list<string>,
      *   giphyID?: string,
      *   lockedText?: bool,

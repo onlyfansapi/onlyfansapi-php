@@ -270,6 +270,7 @@ final class MessagesTest extends TestCase
         $result = $this->client->chats->messages->send(
             '123',
             account: 'acct_XXXXXXXXXXXXXXX',
+            blockBannedWords: 'strict_ban',
             giphyID: 'WAGC3LeqJvXglm5H7a',
             lockedText: true,
             mediaFiles: ['ofapi_media_abc123', 1234567890],

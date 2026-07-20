@@ -93,6 +93,7 @@ final class MassMessagingTest extends TestCase
             'id',
             account: 'acct_XXXXXXXXXXXXXXX',
             text: 'Hello!',
+            blockBannedWords: 'strict_ban',
             giphyID: 'WAGC3LeqJvXglm5H7a',
             lockedText: true,
             mediaFiles: ['ofapi_media_abc123', 'string'],
@@ -195,6 +196,7 @@ final class MassMessagingTest extends TestCase
         $result = $this->client->massMessaging->send(
             'acct_XXXXXXXXXXXXXXX',
             text: 'Hello!',
+            blockBannedWords: 'strict_ban',
             excludedLists: [
                 'fans', 'recent', 'following', 'rebill_off', 'tagged', 'string',
             ],

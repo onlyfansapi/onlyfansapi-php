@@ -6,6 +6,7 @@ namespace OnlyFansAPI\ServiceContracts;
 
 use OnlyFansAPI\Core\Exceptions\APIException;
 use OnlyFansAPI\Posts\PostArchiveResponse;
+use OnlyFansAPI\Posts\PostCreateParams\BlockBannedWords;
 use OnlyFansAPI\Posts\PostCreateParams\VotingType;
 use OnlyFansAPI\Posts\PostDeleteResponse;
 use OnlyFansAPI\Posts\PostGetResponse;
@@ -28,6 +29,7 @@ interface PostsContract
      *
      * @param string $account The Account ID
      * @param string $text The post text content
+     * @param BlockBannedWords|value-of<BlockBannedWords> $blockBannedWords Screen `text` for OnlyFans banned words and block the post if any are found (returns a 422 listing the offending words). `strict_ban` blocks all tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften only. Omit to disable screening.
      * @param int $expireDays Number of days after which the post will expire. Between 1 and 30 days. Keep empty for no expiration.
      * @param int $fundRaisingTargetAmount Add a fundraising target to your post. If present, value must be at least 10.
      * @param list<string> $fundRaisingTipsPresets Specify which tip amounts will be listed under the fundraising card. Required with `fundRaisingTargetAmount`, and you must provide at least 1 option. Array items cannot be higher than the `fundRaisingTargetAmount`.
@@ -48,6 +50,7 @@ interface PostsContract
     public function create(
         string $account,
         string $text,
+        BlockBannedWords|string|null $blockBannedWords = null,
         ?int $expireDays = null,
         ?int $fundRaisingTargetAmount = null,
         ?array $fundRaisingTipsPresets = null,
@@ -85,6 +88,7 @@ interface PostsContract
      * @param int $postID Path param: The ID of the post
      * @param string $account Path param: The Account ID
      * @param string $text Body param: The post text content
+     * @param \OnlyFansAPI\Posts\PostUpdateParams\BlockBannedWords|value-of<\OnlyFansAPI\Posts\PostUpdateParams\BlockBannedWords> $blockBannedWords Body param: Screen `text` for OnlyFans banned words and block the update if any are found (returns a 422 listing the offending words). `strict_ban` blocks all tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften only. Omit to disable screening.
      * @param int $expireDays Body param: Number of days after which the post will expire. Between 1 and 30 days. Keep empty for no expiration.
      * @param int $fundRaisingTargetAmount Body param: Add a fundraising target to your post. If present, value must be at least 10.
      * @param list<string> $fundRaisingTipsPresets Body param: Specify which tip amounts will be listed under the fundraising card. Required with `fundRaisingTargetAmount`, and you must provide at least 1 option. Array items cannot be higher than the `fundRaisingTargetAmount`.
@@ -106,6 +110,7 @@ interface PostsContract
         int $postID,
         string $account,
         string $text,
+        \OnlyFansAPI\Posts\PostUpdateParams\BlockBannedWords|string|null $blockBannedWords = null,
         ?int $expireDays = null,
         ?int $fundRaisingTargetAmount = null,
         ?array $fundRaisingTipsPresets = null,
