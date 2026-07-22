@@ -229,7 +229,7 @@ final class SmartLinksRawService implements SmartLinksRawContract
      *
      * @param string $smartLinkID the ID of the smart link
      * @param array{
-     *   conversionType?: ConversionType|value-of<ConversionType>,
+     *   conversionType?: value-of<ConversionType>,
      *   dateEnd?: string,
      *   dateStart?: string,
      *   includeBots?: bool,
