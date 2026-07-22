@@ -15,5 +15,7 @@ enum ConversionType: string
 
     case MESSAGE_RECEIVED = 'message_received';
 
+    case FAN_SENT_1_MESSAGE = 'fan_sent_1_message';
+
     case FAN_SENT_3_MESSAGES = 'fan_sent_3_messages';
 }
