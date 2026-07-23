@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace OnlyFansAPI\Fans\FanListAllParams\Filter;
 
 /**
- * Filter by online status (`1` for online fans).
+ * Filter by online status (`1` for online fans). Must use bracket syntax: filter[online]=1 — the dot form (filter.online=1) is NOT supported and will be ignored.
  */
 enum Online: int
 {

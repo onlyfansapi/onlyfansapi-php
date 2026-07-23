@@ -12,7 +12,7 @@ use OnlyFansAPI\Fans\FanListExpiredParams\Filter;
 use OnlyFansAPI\Fans\FanListExpiredParams\Type;
 
 /**
- * Get a paginated list of expired fans for an Account. Newest fans are first.
+ * Get a paginated list of expired fans for an Account. Newest fans are first. Paginate by following `_pagination.next_page` until it is null (`data.hasMore` is the authoritative flag). Do NOT use the page's item count to detect the last page — OnlyFans occasionally returns fewer than `limit` items (e.g. 19 for limit=20) on a non-final page because it filters entries server-side; no fans are skipped.
  *
  * @see OnlyFansAPI\Services\FansService::listExpired()
  *
@@ -36,7 +36,7 @@ final class FanListExpiredParams implements BaseModel
     public ?Filter $filter;
 
     /**
-     * Number of fans to return (1-50). Must be at least 1. Must not be greater than 20.
+     * Number of fans to return (1-20). OnlyFans does not allow more than 20 per page. Must be at least 1. Must not be greater than 20.
      */
     #[Optional]
     public ?int $limit;
@@ -104,7 +104,7 @@ final class FanListExpiredParams implements BaseModel
     }
 
     /**
-     * Number of fans to return (1-50). Must be at least 1. Must not be greater than 20.
+     * Number of fans to return (1-20). OnlyFans does not allow more than 20 per page. Must be at least 1. Must not be greater than 20.
      */
     public function withLimit(int $limit): self
     {
