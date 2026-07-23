@@ -45,7 +45,7 @@ interface FansContract
      *
      * @param string $account The Account ID
      * @param Filter|FilterShape $filter
-     * @param int $limit Number of fans to return (1-50). Must be at least 1. Must not be greater than 20.
+     * @param int $limit Number of fans to return (1-20). OnlyFans does not allow more than 20 per page. Must be at least 1. Must not be greater than 20.
      * @param int $offset Number of fans to skip. Must be at least 0.
      * @param string|null $query search within fan name/username
      * @param Type|value-of<Type> $type filter by fan type
@@ -68,7 +68,7 @@ interface FansContract
      *
      * @param string $account The Account ID
      * @param \OnlyFansAPI\Fans\FanListAllParams\Filter|FilterShape1 $filter
-     * @param int $limit Number of fans to return (1-50). Must be at least 1. Must not be greater than 20.
+     * @param int $limit Number of fans to return (1-20). OnlyFans does not allow more than 20 per page. Must be at least 1. Must not be greater than 20.
      * @param int $offset Number of fans to skip. Must be at least 0.
      * @param string|null $query search within fan name/username
      * @param \OnlyFansAPI\Fans\FanListAllParams\Type|value-of<\OnlyFansAPI\Fans\FanListAllParams\Type> $type filter by fan type
@@ -91,7 +91,7 @@ interface FansContract
      *
      * @param string $account The Account ID
      * @param \OnlyFansAPI\Fans\FanListExpiredParams\Filter|FilterShape2 $filter
-     * @param int $limit Number of fans to return (1-50). Must be at least 1. Must not be greater than 20.
+     * @param int $limit Number of fans to return (1-20). OnlyFans does not allow more than 20 per page. Must be at least 1. Must not be greater than 20.
      * @param int $offset Number of fans to skip. Must be at least 0.
      * @param string|null $query search within fan name/username
      * @param \OnlyFansAPI\Fans\FanListExpiredParams\Type|value-of<\OnlyFansAPI\Fans\FanListExpiredParams\Type> $type filter by fan type
@@ -114,7 +114,7 @@ interface FansContract
      *
      * @param string $account The Account ID
      * @param string|null $endDate End date for filtering (required with start_date). Must be a valid date. Must not be greater than 255 characters.
-     * @param int $limit Number of fans to return (1-50). Must be at least 1. Must not be greater than 100.
+     * @param int $limit Number of fans to return (1-50). Must be at least 1. Must not be greater than 50.
      * @param int $offset Number of fans to skip. Must be at least 0.
      * @param string|null $startDate Start date for filtering (required with end_date). Must be a valid date. Must not be greater than 255 characters.
      * @param \OnlyFansAPI\Fans\FanListLatestParams\Type|value-of<\OnlyFansAPI\Fans\FanListLatestParams\Type>|null $type filter by type: total, renew, or new

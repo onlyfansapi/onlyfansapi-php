@@ -23,13 +23,13 @@ final class Filter implements BaseModel
     use SdkModel;
 
     /**
-     * Filter by minimum subscription duration in months. Must be at least 0.
+     * Filter by minimum subscription duration in months. Must use bracket syntax: filter[duration]=1 — the dot form (filter.duration=1) is NOT supported and will be ignored. Must be at least 0.
      */
     #[Optional]
     public ?int $duration;
 
     /**
-     * Filter by online status (`1` for online fans).
+     * Filter by online status (`1` for online fans). Must use bracket syntax: filter[online]=1 — the dot form (filter.online=1) is NOT supported and will be ignored.
      *
      * @var value-of<Online>|null $online
      */
@@ -37,13 +37,13 @@ final class Filter implements BaseModel
     public ?int $online;
 
     /**
-     * Filter by minimum tips. Must be at least 0.
+     * Filter by minimum tips. Must use bracket syntax: filter[tips]=100 — the dot form (filter.tips=100) is NOT supported and will be ignored. Must be at least 0.
      */
     #[Optional]
     public ?int $tips;
 
     /**
-     * Filter by minimum amount total spent by a fan. Must be at least 0.
+     * Filter by minimum amount total spent by a fan. Must use bracket syntax: filter[total_spent]=100 — the dot form (filter.total_spent=100) is NOT supported and will be ignored. Must be at least 0.
      */
     #[Optional('total_spent')]
     public ?int $totalSpent;
@@ -77,7 +77,7 @@ final class Filter implements BaseModel
     }
 
     /**
-     * Filter by minimum subscription duration in months. Must be at least 0.
+     * Filter by minimum subscription duration in months. Must use bracket syntax: filter[duration]=1 — the dot form (filter.duration=1) is NOT supported and will be ignored. Must be at least 0.
      */
     public function withDuration(int $duration): self
     {
@@ -88,7 +88,7 @@ final class Filter implements BaseModel
     }
 
     /**
-     * Filter by online status (`1` for online fans).
+     * Filter by online status (`1` for online fans). Must use bracket syntax: filter[online]=1 — the dot form (filter.online=1) is NOT supported and will be ignored.
      *
      * @param Online|value-of<Online>|null $online
      */
@@ -101,7 +101,7 @@ final class Filter implements BaseModel
     }
 
     /**
-     * Filter by minimum tips. Must be at least 0.
+     * Filter by minimum tips. Must use bracket syntax: filter[tips]=100 — the dot form (filter.tips=100) is NOT supported and will be ignored. Must be at least 0.
      */
     public function withTips(int $tips): self
     {
@@ -112,7 +112,7 @@ final class Filter implements BaseModel
     }
 
     /**
-     * Filter by minimum amount total spent by a fan. Must be at least 0.
+     * Filter by minimum amount total spent by a fan. Must use bracket syntax: filter[total_spent]=100 — the dot form (filter.total_spent=100) is NOT supported and will be ignored. Must be at least 0.
      */
     public function withTotalSpent(int $totalSpent): self
     {
