@@ -81,7 +81,7 @@ final class FansRawService implements FansRawContract
     /**
      * @api
      *
-     * Get a paginated list of fans for an Account. Newest fans are first. Paginate by following `_pagination.next_page` until it is null (`data.hasMore` is the authoritative flag). Do NOT use the page's item count to detect the last page — OnlyFans occasionally returns fewer than `limit` items (e.g. 19 for limit=20) on a non-final page because it filters entries server-side; no fans are skipped. To track progress, GET /{account}/me returns data.subscribersCount (the current active-subscriber count) as a total.
+     * Get a paginated list of fans for an Account. Newest fans are first. Paginate by following `_pagination.next_page` until it is null (`data.hasMore` is the authoritative flag). Do NOT use the page's item count to detect the last page — OnlyFans occasionally returns fewer than `limit` items (e.g. 19 for limit=20) on a non-final page because it filters entries server-side; no fans are skipped. To track progress, GET `/{account}/me` returns data.subscribersCount (the current active-subscriber count) as a total.
      *
      * @param string $account The Account ID
      * @param array{
