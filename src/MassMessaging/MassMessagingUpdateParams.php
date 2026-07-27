@@ -24,7 +24,7 @@ use OnlyFansAPI\MassMessaging\MassMessagingUpdateParams\BlockBannedWords;
  *   lockedText?: bool|null,
  *   mediaFiles?: list<string>|null,
  *   previews?: list<string>|null,
- *   price?: int|null,
+ *   price?: float|null,
  *   scheduledDate?: string|null,
  *   userIDs?: list<string>|null,
  *   userLists?: list<string>|null,
@@ -82,10 +82,10 @@ final class MassMessagingUpdateParams implements BaseModel
     public ?array $previews;
 
     /**
-     * Price for paid content (0 or between 3-200). In case this is not zero, **mediaFiles** is required.
+     * Price for paid content in USD (0 or between 3-200). In case this is not zero, **mediaFiles** is required.
      */
     #[Optional]
-    public ?int $price;
+    public ?float $price;
 
     /**
      * Schedule the chat message in the future (UTC timezone).
@@ -147,7 +147,7 @@ final class MassMessagingUpdateParams implements BaseModel
         ?bool $lockedText = null,
         ?array $mediaFiles = null,
         ?array $previews = null,
-        ?int $price = null,
+        ?float $price = null,
         ?string $scheduledDate = null,
         ?array $userIDs = null,
         ?array $userLists = null,
@@ -252,9 +252,9 @@ final class MassMessagingUpdateParams implements BaseModel
     }
 
     /**
-     * Price for paid content (0 or between 3-200). In case this is not zero, **mediaFiles** is required.
+     * Price for paid content in USD (0 or between 3-200). In case this is not zero, **mediaFiles** is required.
      */
-    public function withPrice(int $price): self
+    public function withPrice(float $price): self
     {
         $self = clone $this;
         $self['price'] = $price;

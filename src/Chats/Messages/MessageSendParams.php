@@ -23,7 +23,7 @@ use OnlyFansAPI\Core\Contracts\BaseModel;
  *   lockedText?: bool|null,
  *   mediaFiles?: list<mixed>|null,
  *   previews?: list<mixed>|null,
- *   price?: int|null,
+ *   price?: float|null,
  *   replyToMessageID?: int|null,
  *   rfGuest?: string|null,
  *   rfPartner?: string|null,
@@ -77,10 +77,10 @@ final class MessageSendParams implements BaseModel
     public ?array $previews;
 
     /**
-     * Price for paid content (0 or between 3-200). In case this is not zero, **mediaFiles** is required.
+     * Price for paid content in USD (0 or between 3-200). In case this is not zero, **mediaFiles** is required.
      */
     #[Optional]
-    public ?int $price;
+    public ?float $price;
 
     /**
      * Mark this message as a reply to another (can be either your own, or the recipient's).
@@ -147,7 +147,7 @@ final class MessageSendParams implements BaseModel
         ?bool $lockedText = null,
         ?array $mediaFiles = null,
         ?array $previews = null,
-        ?int $price = null,
+        ?float $price = null,
         ?int $replyToMessageID = null,
         ?string $rfGuest = null,
         ?string $rfPartner = null,
@@ -244,9 +244,9 @@ final class MessageSendParams implements BaseModel
     }
 
     /**
-     * Price for paid content (0 or between 3-200). In case this is not zero, **mediaFiles** is required.
+     * Price for paid content in USD (0 or between 3-200). In case this is not zero, **mediaFiles** is required.
      */
-    public function withPrice(int $price): self
+    public function withPrice(float $price): self
     {
         $self = clone $this;
         $self['price'] = $price;

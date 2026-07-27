@@ -292,7 +292,7 @@ final class MessagesRawService implements MessagesRawContract
      *   lockedText?: bool,
      *   mediaFiles?: list<mixed>,
      *   previews?: list<mixed>,
-     *   price?: int,
+     *   price?: float,
      *   replyToMessageID?: int,
      *   rfGuest?: string,
      *   rfPartner?: string,

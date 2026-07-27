@@ -24,7 +24,7 @@ use OnlyFansAPI\MassMessaging\MassMessagingSendParams\BlockBannedWords;
  *   lockedText?: bool|null,
  *   mediaFiles?: list<mixed>|null,
  *   previews?: list<mixed>|null,
- *   price?: int|null,
+ *   price?: float|null,
  *   rfGuest?: string|null,
  *   rfPartner?: string|null,
  *   rfTag?: string|null,
@@ -91,10 +91,10 @@ final class MassMessagingSendParams implements BaseModel
     public ?array $previews;
 
     /**
-     * Price for paid content (0 or between 3-200). In case this is not zero, **mediaFiles** is required.
+     * Price for paid content in USD (0 or between 3-200). In case this is not zero, **mediaFiles** is required.
      */
     #[Optional]
-    public ?int $price;
+    public ?float $price;
 
     /**
      * Array of OnlyFans Release Form Guest IDs to tag in your mass message.
@@ -181,7 +181,7 @@ final class MassMessagingSendParams implements BaseModel
         ?bool $lockedText = null,
         ?array $mediaFiles = null,
         ?array $previews = null,
-        ?int $price = null,
+        ?float $price = null,
         ?string $rfGuest = null,
         ?string $rfPartner = null,
         ?string $rfTag = null,
@@ -299,9 +299,9 @@ final class MassMessagingSendParams implements BaseModel
     }
 
     /**
-     * Price for paid content (0 or between 3-200). In case this is not zero, **mediaFiles** is required.
+     * Price for paid content in USD (0 or between 3-200). In case this is not zero, **mediaFiles** is required.
      */
-    public function withPrice(int $price): self
+    public function withPrice(float $price): self
     {
         $self = clone $this;
         $self['price'] = $price;

@@ -227,7 +227,7 @@ final class MessagesService implements MessagesContract
      * @param bool $lockedText Body param: Whether the text should be shown or hidden
      * @param list<mixed> $mediaFiles Body param: Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs. Will be hidden if `price` is provided.
      * @param list<mixed> $previews Body param: Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices referencing uploaded files in `mediaFiles`. Will be shown if `price` is provided.
-     * @param int $price Body param: Price for paid content (0 or between 3-200). In case this is not zero, **mediaFiles** is required
+     * @param float $price Body param: Price for paid content in USD (0 or between 3-200). In case this is not zero, **mediaFiles** is required
      * @param int $replyToMessageID Body param: Mark this message as a reply to another (can be either your own, or the recipient's)
      * @param string $rfGuest Body param: Array of OnlyFans Release Form Guest IDs to tag in your message
      * @param string $rfPartner Body param: Array of OnlyFans Release Form Partners IDs to tag in your message
@@ -245,7 +245,7 @@ final class MessagesService implements MessagesContract
         ?bool $lockedText = null,
         ?array $mediaFiles = null,
         ?array $previews = null,
-        ?int $price = null,
+        ?float $price = null,
         ?int $replyToMessageID = null,
         ?string $rfGuest = null,
         ?string $rfPartner = null,

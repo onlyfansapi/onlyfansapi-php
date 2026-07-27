@@ -45,7 +45,7 @@ interface MassMessagingContract
      * @param bool $lockedText Body param: Whether the text should be shown or hidden
      * @param list<string> $mediaFiles Body param: Array of media file upload prefixed_ids, or OF media IDs (required if price is not 0). Will be hidden if `price` is provided.
      * @param list<string> $previews Body param: Array of media file upload prefixed_ids, or OF media IDs (required if price is not 0). Will be shown if `price` is provided. All `previews` values must also exist in the `mediaFiles` array.
-     * @param int $price Body param: Price for paid content (0 or between 3-200). In case this is not zero, **mediaFiles** is required
+     * @param float $price Body param: Price for paid content in USD (0 or between 3-200). In case this is not zero, **mediaFiles** is required
      * @param string $scheduledDate body param: Schedule the chat message in the future (UTC timezone)
      * @param list<string> $userIDs body param: Array of user IDs that the mass message will be sent to
      * @param list<string> $userLists body param: Array of user list IDs that the mass message will be sent to
@@ -62,7 +62,7 @@ interface MassMessagingContract
         ?bool $lockedText = null,
         ?array $mediaFiles = null,
         ?array $previews = null,
-        ?int $price = null,
+        ?float $price = null,
         ?string $scheduledDate = null,
         ?array $userIDs = null,
         ?array $userLists = null,
@@ -129,7 +129,7 @@ interface MassMessagingContract
      * @param bool $lockedText Whether the text should be shown or hidden
      * @param list<mixed> $mediaFiles Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs. Will be hidden if `price` is provided.
      * @param list<mixed> $previews Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices referencing uploaded files in `mediaFiles`. Will be shown if `price` is provided.
-     * @param int $price Price for paid content (0 or between 3-200). In case this is not zero, **mediaFiles** is required
+     * @param float $price Price for paid content in USD (0 or between 3-200). In case this is not zero, **mediaFiles** is required
      * @param string $rfGuest Array of OnlyFans Release Form Guest IDs to tag in your mass message
      * @param string $rfPartner Array of OnlyFans Release Form Partners IDs to tag in your mass message
      * @param string $rfTag Array of OnlyFans Creator User IDs to tag in your mass message
@@ -150,7 +150,7 @@ interface MassMessagingContract
         ?bool $lockedText = null,
         ?array $mediaFiles = null,
         ?array $previews = null,
-        ?int $price = null,
+        ?float $price = null,
         ?string $rfGuest = null,
         ?string $rfPartner = null,
         ?string $rfTag = null,
