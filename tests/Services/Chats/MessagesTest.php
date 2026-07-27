@@ -275,7 +275,7 @@ final class MessagesTest extends TestCase
             lockedText: true,
             mediaFiles: ['ofapi_media_abc123', 1234567890],
             previews: ['ofapi_media_abc123', 1234567890],
-            price: 10,
+            price: 6.97,
             replyToMessageID: 123456789,
             rfGuest: 'rfGuest',
             rfPartner: 'rfPartner',

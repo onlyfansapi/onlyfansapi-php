@@ -98,7 +98,7 @@ final class MassMessagingTest extends TestCase
             lockedText: true,
             mediaFiles: ['ofapi_media_abc123', 'string'],
             previews: ['ofapi_media_abc123', 'string'],
-            price: 100,
+            price: 6.97,
             scheduledDate: '2025-01-01T00:00:00.000Z',
             userIDs: ['string'],
             userLists: [
@@ -204,7 +204,7 @@ final class MassMessagingTest extends TestCase
             lockedText: true,
             mediaFiles: ['ofapi_media_abc123', 1234567890],
             previews: ['ofapi_media_abc123', 1234567890],
-            price: 100,
+            price: 6.97,
             rfGuest: 'rfGuest',
             rfPartner: 'rfPartner',
             rfTag: 'rfTag',
