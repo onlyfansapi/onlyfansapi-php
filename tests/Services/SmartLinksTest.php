@@ -117,7 +117,7 @@ final class SmartLinksTest extends TestCase
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->smartLinks->listClicks('rerum');
+        $result = $this->client->smartLinks->listClicks('libero');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(SmartLinkListClicksResponse::class, $result);
@@ -130,7 +130,7 @@ final class SmartLinksTest extends TestCase
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->smartLinks->listConversions('sed');
+        $result = $this->client->smartLinks->listConversions('quia');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(SmartLinkListConversionsResponse::class, $result);
@@ -143,7 +143,7 @@ final class SmartLinksTest extends TestCase
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->smartLinks->listFans('vel');
+        $result = $this->client->smartLinks->listFans('quo');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(SmartLinkListFansResponse::class, $result);
@@ -156,7 +156,7 @@ final class SmartLinksTest extends TestCase
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->smartLinks->listSpenders('ut');
+        $result = $this->client->smartLinks->listSpenders('accusamus');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(SmartLinkListSpendersResponse::class, $result);
@@ -169,7 +169,7 @@ final class SmartLinksTest extends TestCase
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->smartLinks->retrieveCohortArps('doloribus');
+        $result = $this->client->smartLinks->retrieveCohortArps('aperiam');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertNull($result);
@@ -182,7 +182,7 @@ final class SmartLinksTest extends TestCase
             $this->markTestSkipped('Mock server tests are disabled');
         }
 
-        $result = $this->client->smartLinks->retrieveStats('sed');
+        $result = $this->client->smartLinks->retrieveStats('excepturi');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
         $this->assertInstanceOf(SmartLinkGetStatsResponse::class, $result);
