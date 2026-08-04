@@ -62,7 +62,7 @@ final class Data implements BaseModel
     #[Optional]
     public ?string $name;
 
-    #[Optional(nullable: true)]
+    #[Optional]
     public ?string $revenue;
 
     #[Optional('subscribers_count')]
@@ -199,7 +199,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withRevenue(?string $revenue): self
+    public function withRevenue(string $revenue): self
     {
         $self = clone $this;
         $self['revenue'] = $revenue;
