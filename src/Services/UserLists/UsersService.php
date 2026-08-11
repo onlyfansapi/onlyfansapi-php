@@ -9,7 +9,8 @@ use OnlyFansAPI\Core\Exceptions\APIException;
 use OnlyFansAPI\Core\Util;
 use OnlyFansAPI\RequestOptions;
 use OnlyFansAPI\ServiceContracts\UserLists\UsersContract;
-use OnlyFansAPI\UserLists\Users\UserAddResponse;
+use OnlyFansAPI\UserLists\Users\UserAddResponse\UnionMember0;
+use OnlyFansAPI\UserLists\Users\UserAddResponse\UnionMember1;
 use OnlyFansAPI\UserLists\Users\UserClearResponse;
 use OnlyFansAPI\UserLists\Users\UserListPinnedResponse;
 use OnlyFansAPI\UserLists\Users\UserListResponse;
@@ -72,6 +73,7 @@ final class UsersService implements UsersContract
      * @param string $userListID Path param: OnlyFans User List ID, or a default list name like `tagged`
      * @param string $account Path param: The Account ID
      * @param list<string> $ids Body param: Array of OnlyFans User IDs to be added into the list
+     * @param bool $skipInvalid Body param: Set to `true` to skip the User IDs OnlyFans refuses instead of failing the whole batch. We drop the rejected IDs and retry the remainder for you (up to 5 OnlyFans attempts, each costing 1 credit), then respond `200` with `data.added` (the IDs that made it in) and `data.failed` (an object mapping each rejected User ID to the reason OnlyFans gave). Note this changes the shape of `data` — see the example responses. Failures that are not about individual users (e.g. an invalid or inaccessible list ID) still return the regular `400`.
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -80,9 +82,12 @@ final class UsersService implements UsersContract
         string $userListID,
         string $account,
         array $ids,
+        ?bool $skipInvalid = null,
         RequestOptions|array|null $requestOptions = null,
-    ): UserAddResponse {
-        $params = Util::removeNulls(['account' => $account, 'ids' => $ids]);
+    ): UnionMember0|UnionMember1 {
+        $params = Util::removeNulls(
+            ['account' => $account, 'ids' => $ids, 'skipInvalid' => $skipInvalid]
+        );
 
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->add($userListID, params: $params, requestOptions: $requestOptions);

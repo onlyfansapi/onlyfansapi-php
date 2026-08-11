@@ -151,6 +151,7 @@ interface MessagesContract
      * @param string $rfPartner Body param: Array of OnlyFans Release Form Partners IDs to tag in your message
      * @param string $rfTag Body param: Array of OnlyFans Creator User IDs to tag in your message
      * @param string $text Body param: The message text content. Required unless a media file is present.
+     * @param string $idempotencyKey Header param
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -169,6 +170,7 @@ interface MessagesContract
         ?string $rfPartner = null,
         ?string $rfTag = null,
         ?string $text = null,
+        ?string $idempotencyKey = null,
         RequestOptions|array|null $requestOptions = null,
     ): MessageSendResponse;
 

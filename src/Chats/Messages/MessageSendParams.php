@@ -14,6 +14,23 @@ use OnlyFansAPI\Core\Contracts\BaseModel;
 /**
  * Send a new message to a chat.
  *
+ * **Idempotency.** Pass an `Idempotency-Key` header to make retries safe. The first request with a
+ * given key is executed normally and its response is stored for **24 hours**; any later request with
+ * the same key returns that stored response, plus an `Idempotent-Replayed: true` header, without
+ * contacting OnlyFans and without consuming credits. The replayed body is the original response with
+ * its `_meta._credits` block rewritten to show `used: 0` and your current balance.
+ *
+ * Keys are scoped to your team, this endpoint and the account in the URL, so the same value can be
+ * reused safely against a different account. Use a fresh, unique value (a UUID works well) for each
+ * message you send; it must be 1-255 printable ASCII characters.
+ *
+ * - `400 IDEMPOTENCY_KEY_INVALID` — the header value is empty, too long, or contains non-ASCII characters.
+ * - `409 IDEMPOTENCY_CONFLICT` — an earlier request with this key is still running. Retry once it finishes.
+ * - `422 IDEMPOTENCY_KEY_MISMATCH` — this key was already used with a different request body or chat.
+ *
+ * Responses with a `5xx` status (and `408`/`429`) are never stored, so a failed send can be retried
+ * with the same key. The header is optional: omit it and the endpoint behaves exactly as before.
+ *
  * @see OnlyFansAPI\Services\Chats\MessagesService::send()
  *
  * @phpstan-type MessageSendParamsShape = array{
@@ -29,6 +46,7 @@ use OnlyFansAPI\Core\Contracts\BaseModel;
  *   rfPartner?: string|null,
  *   rfTag?: string|null,
  *   text?: string|null,
+ *   idempotencyKey?: string|null,
  * }
  */
 final class MessageSendParams implements BaseModel
@@ -112,6 +130,9 @@ final class MessageSendParams implements BaseModel
     #[Optional]
     public ?string $text;
 
+    #[Optional]
+    public ?string $idempotencyKey;
+
     /**
      * `new MessageSendParams()` is missing required properties by the API.
      *
@@ -153,6 +174,7 @@ final class MessageSendParams implements BaseModel
         ?string $rfPartner = null,
         ?string $rfTag = null,
         ?string $text = null,
+        ?string $idempotencyKey = null,
     ): self {
         $self = new self;
 
@@ -169,6 +191,7 @@ final class MessageSendParams implements BaseModel
         null !== $rfPartner && $self['rfPartner'] = $rfPartner;
         null !== $rfTag && $self['rfTag'] = $rfTag;
         null !== $text && $self['text'] = $text;
+        null !== $idempotencyKey && $self['idempotencyKey'] = $idempotencyKey;
 
         return $self;
     }
@@ -305,6 +328,14 @@ final class MessageSendParams implements BaseModel
     {
         $self = clone $this;
         $self['text'] = $text;
+
+        return $self;
+    }
+
+    public function withIdempotencyKey(string $idempotencyKey): self
+    {
+        $self = clone $this;
+        $self['idempotencyKey'] = $idempotencyKey;
 
         return $self;
     }

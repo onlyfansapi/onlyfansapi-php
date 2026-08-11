@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace OnlyFansAPI\UserLists\Users\UserAddResponse;
+namespace OnlyFansAPI\UserLists\Users\UserAddResponse\UnionMember0;
 
 use OnlyFansAPI\Core\Attributes\Optional;
 use OnlyFansAPI\Core\Concerns\SdkModel;
 use OnlyFansAPI\Core\Contracts\BaseModel;
-use OnlyFansAPI\UserLists\Users\UserAddResponse\_Meta\_Cache;
-use OnlyFansAPI\UserLists\Users\UserAddResponse\_Meta\_Credits;
-use OnlyFansAPI\UserLists\Users\UserAddResponse\_Meta\_RateLimits;
+use OnlyFansAPI\UserLists\Users\UserAddResponse\UnionMember0\_Meta\_Cache;
+use OnlyFansAPI\UserLists\Users\UserAddResponse\UnionMember0\_Meta\_Credits;
+use OnlyFansAPI\UserLists\Users\UserAddResponse\UnionMember0\_Meta\_RateLimits;
 
 /**
- * @phpstan-import-type _CacheShape from \OnlyFansAPI\UserLists\Users\UserAddResponse\_Meta\_Cache
- * @phpstan-import-type _CreditsShape from \OnlyFansAPI\UserLists\Users\UserAddResponse\_Meta\_Credits
- * @phpstan-import-type _RateLimitsShape from \OnlyFansAPI\UserLists\Users\UserAddResponse\_Meta\_RateLimits
+ * @phpstan-import-type _CacheShape from \OnlyFansAPI\UserLists\Users\UserAddResponse\UnionMember0\_Meta\_Cache
+ * @phpstan-import-type _CreditsShape from \OnlyFansAPI\UserLists\Users\UserAddResponse\UnionMember0\_Meta\_Credits
+ * @phpstan-import-type _RateLimitsShape from \OnlyFansAPI\UserLists\Users\UserAddResponse\UnionMember0\_Meta\_RateLimits
  *
  * @phpstan-type _MetaShape = array{
  *   _cache?: null|_Cache|_CacheShape,

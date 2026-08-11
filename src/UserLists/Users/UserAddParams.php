@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace OnlyFansAPI\UserLists\Users;
 
+use OnlyFansAPI\Core\Attributes\Optional;
 use OnlyFansAPI\Core\Attributes\Required;
 use OnlyFansAPI\Core\Concerns\SdkModel;
 use OnlyFansAPI\Core\Concerns\SdkParams;
@@ -14,7 +15,9 @@ use OnlyFansAPI\Core\Contracts\BaseModel;
  *
  * @see OnlyFansAPI\Services\UserLists\UsersService::add()
  *
- * @phpstan-type UserAddParamsShape = array{account: string, ids: list<string>}
+ * @phpstan-type UserAddParamsShape = array{
+ *   account: string, ids: list<string>, skipInvalid?: bool|null
+ * }
  */
 final class UserAddParams implements BaseModel
 {
@@ -32,6 +35,12 @@ final class UserAddParams implements BaseModel
      */
     #[Required(list: 'string')]
     public array $ids;
+
+    /**
+     * Set to `true` to skip the User IDs OnlyFans refuses instead of failing the whole batch. We drop the rejected IDs and retry the remainder for you (up to 5 OnlyFans attempts, each costing 1 credit), then respond `200` with `data.added` (the IDs that made it in) and `data.failed` (an object mapping each rejected User ID to the reason OnlyFans gave). Note this changes the shape of `data` — see the example responses. Failures that are not about individual users (e.g. an invalid or inaccessible list ID) still return the regular `400`.
+     */
+    #[Optional('skip_invalid')]
+    public ?bool $skipInvalid;
 
     /**
      * `new UserAddParams()` is missing required properties by the API.
@@ -59,12 +68,17 @@ final class UserAddParams implements BaseModel
      *
      * @param list<string> $ids
      */
-    public static function with(string $account, array $ids): self
-    {
+    public static function with(
+        string $account,
+        array $ids,
+        ?bool $skipInvalid = null
+    ): self {
         $self = new self;
 
         $self['account'] = $account;
         $self['ids'] = $ids;
+
+        null !== $skipInvalid && $self['skipInvalid'] = $skipInvalid;
 
         return $self;
     }
@@ -86,6 +100,17 @@ final class UserAddParams implements BaseModel
     {
         $self = clone $this;
         $self['ids'] = $ids;
+
+        return $self;
+    }
+
+    /**
+     * Set to `true` to skip the User IDs OnlyFans refuses instead of failing the whole batch. We drop the rejected IDs and retry the remainder for you (up to 5 OnlyFans attempts, each costing 1 credit), then respond `200` with `data.added` (the IDs that made it in) and `data.failed` (an object mapping each rejected User ID to the reason OnlyFans gave). Note this changes the shape of `data` — see the example responses. Failures that are not about individual users (e.g. an invalid or inaccessible list ID) still return the regular `400`.
+     */
+    public function withSkipInvalid(bool $skipInvalid): self
+    {
+        $self = clone $this;
+        $self['skipInvalid'] = $skipInvalid;
 
         return $self;
     }

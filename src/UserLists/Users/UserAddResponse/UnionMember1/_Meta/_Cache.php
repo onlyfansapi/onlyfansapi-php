@@ -2,30 +2,25 @@
 
 declare(strict_types=1);
 
-namespace OnlyFansAPI\UserLists\Users\UserAddResponse\_Meta;
+namespace OnlyFansAPI\UserLists\Users\UserAddResponse\UnionMember1\_Meta;
 
 use OnlyFansAPI\Core\Attributes\Optional;
 use OnlyFansAPI\Core\Concerns\SdkModel;
 use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-type _CreditsShape = array{
- *   balance?: int|null, note?: string|null, used?: int|null
- * }
+ * @phpstan-type _CacheShape = array{isCached?: bool|null, note?: string|null}
  */
-final class _Credits implements BaseModel
+final class _Cache implements BaseModel
 {
-    /** @use SdkModel<_CreditsShape> */
+    /** @use SdkModel<_CacheShape> */
     use SdkModel;
 
-    #[Optional]
-    public ?int $balance;
+    #[Optional('is_cached')]
+    public ?bool $isCached;
 
     #[Optional]
     public ?string $note;
-
-    #[Optional]
-    public ?int $used;
 
     public function __construct()
     {
@@ -38,23 +33,21 @@ final class _Credits implements BaseModel
      * You must use named parameters to construct any parameters with a default value.
      */
     public static function with(
-        ?int $balance = null,
-        ?string $note = null,
-        ?int $used = null
+        ?bool $isCached = null,
+        ?string $note = null
     ): self {
         $self = new self;
 
-        null !== $balance && $self['balance'] = $balance;
+        null !== $isCached && $self['isCached'] = $isCached;
         null !== $note && $self['note'] = $note;
-        null !== $used && $self['used'] = $used;
 
         return $self;
     }
 
-    public function withBalance(int $balance): self
+    public function withIsCached(bool $isCached): self
     {
         $self = clone $this;
-        $self['balance'] = $balance;
+        $self['isCached'] = $isCached;
 
         return $self;
     }
@@ -63,14 +56,6 @@ final class _Credits implements BaseModel
     {
         $self = clone $this;
         $self['note'] = $note;
-
-        return $self;
-    }
-
-    public function withUsed(int $used): self
-    {
-        $self = clone $this;
-        $self['used'] = $used;
 
         return $self;
     }

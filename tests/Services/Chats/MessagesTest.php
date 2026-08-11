@@ -281,6 +281,7 @@ final class MessagesTest extends TestCase
             rfPartner: 'rfPartner',
             rfTag: 'rfTag',
             text: 'Hello!',
+            idempotencyKey: 'a1b2c3d4-5e6f-4789-a0b1-c2d3e4f5a6b7',
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
