@@ -26,7 +26,7 @@ final class VaultUploadParams implements BaseModel
     use SdkParams;
 
     /**
-     * Set to `true` to process uploads in the background. Returns a `polling_url` to check status. Recommended for large files.
+     * Set to `true` to process uploads in the background. Returns a `polling_url` to check status. Recommended for large files. Instead of polling, you can subscribe to the `media_uploads.completed` and `media_uploads.failed` webhook events — they only fire for async uploads.
      */
     #[Optional]
     public ?bool $async;
@@ -68,7 +68,7 @@ final class VaultUploadParams implements BaseModel
     }
 
     /**
-     * Set to `true` to process uploads in the background. Returns a `polling_url` to check status. Recommended for large files.
+     * Set to `true` to process uploads in the background. Returns a `polling_url` to check status. Recommended for large files. Instead of polling, you can subscribe to the `media_uploads.completed` and `media_uploads.failed` webhook events — they only fire for async uploads.
      */
     public function withAsync(bool $async): self
     {

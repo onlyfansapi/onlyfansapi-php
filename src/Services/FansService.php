@@ -86,6 +86,8 @@ final class FansService implements FansContract
      *
      * Get a paginated list of fans for an Account. Newest fans are first. Paginate by following `_pagination.next_page` until it is null (`data.hasMore` is the authoritative flag). Do NOT use the page's item count to detect the last page — OnlyFans occasionally returns fewer than `limit` items (e.g. 19 for limit=20) on a non-final page because it filters entries server-side; no fans are skipped. To track progress, GET `/{account}/me` returns data.subscribersCount (the current active-subscriber count) as a total.
      *
+     * Supports `filter[max_total_spent]` (e.g. `filter[max_total_spent]=0` for fans who have never spent), which OnlyFans itself cannot do. Those requests are answered from OnlyFansAPI's own fan index rather than proxied, so the page is limited to fans we have already indexed for this account — see `data._source` in the response.
+     *
      * @param string $account The Account ID
      * @param Filter|FilterShape $filter
      * @param int $limit Number of fans to return (1-20). OnlyFans does not allow more than 20 per page. Must be at least 1. Must not be greater than 20.
@@ -126,6 +128,8 @@ final class FansService implements FansContract
      *
      * Get a paginated list of fans for an Account. Newest fans are first. Paginate by following `_pagination.next_page` until it is null (`data.hasMore` is the authoritative flag). Do NOT use the page's item count to detect the last page — OnlyFans occasionally returns fewer than `limit` items (e.g. 19 for limit=20) on a non-final page because it filters entries server-side; no fans are skipped.
      *
+     * Supports `filter[max_total_spent]` (e.g. `filter[max_total_spent]=0` for fans who have never spent), which OnlyFans itself cannot do. Those requests are answered from OnlyFansAPI's own fan index rather than proxied, so the page is limited to fans we have already indexed for this account — see `data._source` in the response.
+     *
      * @param string $account The Account ID
      * @param \OnlyFansAPI\Fans\FanListAllParams\Filter|FilterShape1 $filter
      * @param int $limit Number of fans to return (1-20). OnlyFans does not allow more than 20 per page. Must be at least 1. Must not be greater than 20.
@@ -165,6 +169,8 @@ final class FansService implements FansContract
      * @api
      *
      * Get a paginated list of expired fans for an Account. Newest fans are first. Paginate by following `_pagination.next_page` until it is null (`data.hasMore` is the authoritative flag). Do NOT use the page's item count to detect the last page — OnlyFans occasionally returns fewer than `limit` items (e.g. 19 for limit=20) on a non-final page because it filters entries server-side; no fans are skipped.
+     *
+     * Supports `filter[max_total_spent]` (e.g. `filter[max_total_spent]=0` for fans who have never spent), which OnlyFans itself cannot do. Those requests are answered from OnlyFansAPI's own fan index rather than proxied, so the page is limited to fans we have already indexed for this account — see `data._source` in the response.
      *
      * @param string $account The Account ID
      * @param \OnlyFansAPI\Fans\FanListExpiredParams\Filter|FilterShape2 $filter

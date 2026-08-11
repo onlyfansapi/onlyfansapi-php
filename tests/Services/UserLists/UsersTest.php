@@ -4,7 +4,6 @@ namespace Tests\Services\UserLists;
 
 use OnlyFansAPI\Client;
 use OnlyFansAPI\Core\Util;
-use OnlyFansAPI\UserLists\Users\UserAddResponse;
 use OnlyFansAPI\UserLists\Users\UserClearResponse;
 use OnlyFansAPI\UserLists\Users\UserListPinnedResponse;
 use OnlyFansAPI\UserLists\Users\UserListResponse;
@@ -81,7 +80,7 @@ final class UsersTest extends TestCase
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(UserAddResponse::class, $result);
+        $this->assertNotNull($result);
     }
 
     #[Test]
@@ -95,10 +94,11 @@ final class UsersTest extends TestCase
             'userListId',
             account: 'acct_XXXXXXXXXXXXXXX',
             ids: ['string', 'string', 'string'],
+            skipInvalid: true,
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(UserAddResponse::class, $result);
+        $this->assertNotNull($result);
     }
 
     #[Test]

@@ -8,7 +8,8 @@ use OnlyFansAPI\Core\Contracts\BaseResponse;
 use OnlyFansAPI\Core\Exceptions\APIException;
 use OnlyFansAPI\RequestOptions;
 use OnlyFansAPI\UserLists\Users\UserAddParams;
-use OnlyFansAPI\UserLists\Users\UserAddResponse;
+use OnlyFansAPI\UserLists\Users\UserAddResponse\UnionMember0;
+use OnlyFansAPI\UserLists\Users\UserAddResponse\UnionMember1;
 use OnlyFansAPI\UserLists\Users\UserClearParams;
 use OnlyFansAPI\UserLists\Users\UserClearResponse;
 use OnlyFansAPI\UserLists\Users\UserListParams;
@@ -49,7 +50,7 @@ interface UsersRawContract
      * @param array<string,mixed>|UserAddParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<UserAddResponse>
+     * @return BaseResponse<UnionMember0|UnionMember1>
      *
      * @throws APIException
      */

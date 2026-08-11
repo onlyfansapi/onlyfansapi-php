@@ -284,6 +284,23 @@ final class MessagesRawService implements MessagesRawContract
      *
      * Send a new message to a chat.
      *
+     * **Idempotency.** Pass an `Idempotency-Key` header to make retries safe. The first request with a
+     * given key is executed normally and its response is stored for **24 hours**; any later request with
+     * the same key returns that stored response, plus an `Idempotent-Replayed: true` header, without
+     * contacting OnlyFans and without consuming credits. The replayed body is the original response with
+     * its `_meta._credits` block rewritten to show `used: 0` and your current balance.
+     *
+     * Keys are scoped to your team, this endpoint and the account in the URL, so the same value can be
+     * reused safely against a different account. Use a fresh, unique value (a UUID works well) for each
+     * message you send; it must be 1-255 printable ASCII characters.
+     *
+     * - `400 IDEMPOTENCY_KEY_INVALID` — the header value is empty, too long, or contains non-ASCII characters.
+     * - `409 IDEMPOTENCY_CONFLICT` — an earlier request with this key is still running. Retry once it finishes.
+     * - `422 IDEMPOTENCY_KEY_MISMATCH` — this key was already used with a different request body or chat.
+     *
+     * Responses with a `5xx` status (and `408`/`429`) are never stored, so a failed send can be retried
+     * with the same key. The header is optional: omit it and the endpoint behaves exactly as before.
+     *
      * @param string $chatID Path param: The ID of the chat (usually a fan's OnlyFans User ID)
      * @param array{
      *   account: string,
@@ -298,6 +315,7 @@ final class MessagesRawService implements MessagesRawContract
      *   rfPartner?: string,
      *   rfTag?: string,
      *   text?: string,
+     *   idempotencyKey?: string,
      * }|MessageSendParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -316,12 +334,20 @@ final class MessagesRawService implements MessagesRawContract
         );
         $account = $parsed['account'];
         unset($parsed['account']);
+        $header_params = ['idempotencyKey' => 'Idempotency-Key'];
 
         // @phpstan-ignore-next-line return.type
         return $this->client->request(
             method: 'post',
             path: ['api/%1$s/chats/%2$s/messages', $account, $chatID],
-            body: (object) array_diff_key($parsed, array_flip(['account'])),
+            headers: Util::array_transform_keys(
+                array_intersect_key($parsed, array_flip(array_keys($header_params))),
+                $header_params,
+            ),
+            body: (object) array_diff_key(
+                array_diff_key($parsed, array_flip(array_keys($header_params))),
+                array_flip(['account']),
+            ),
             options: $options,
             convert: MessageSendResponse::class,
         );

@@ -11,6 +11,8 @@ use OnlyFansAPI\RequestOptions;
 use OnlyFansAPI\ServiceContracts\UserLists\UsersRawContract;
 use OnlyFansAPI\UserLists\Users\UserAddParams;
 use OnlyFansAPI\UserLists\Users\UserAddResponse;
+use OnlyFansAPI\UserLists\Users\UserAddResponse\UnionMember0;
+use OnlyFansAPI\UserLists\Users\UserAddResponse\UnionMember1;
 use OnlyFansAPI\UserLists\Users\UserClearParams;
 use OnlyFansAPI\UserLists\Users\UserClearResponse;
 use OnlyFansAPI\UserLists\Users\UserListParams;
@@ -76,10 +78,12 @@ final class UsersRawService implements UsersRawContract
      * Add multiple Users To OnlyFans User List
      *
      * @param string $userListID Path param: OnlyFans User List ID, or a default list name like `tagged`
-     * @param array{account: string, ids: list<string>}|UserAddParams $params
+     * @param array{
+     *   account: string, ids: list<string>, skipInvalid?: bool
+     * }|UserAddParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<UserAddResponse>
+     * @return BaseResponse<UnionMember0|UnionMember1>
      *
      * @throws APIException
      */
