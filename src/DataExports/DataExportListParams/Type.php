@@ -19,9 +19,17 @@ enum Type: string
 
     case TRACKING_LINKS = 'tracking_links';
 
+    case SMART_LINKS = 'smart_links';
+
     case PAYOUTS = 'payouts';
 
     case CHARGEBACKS = 'chargebacks';
 
     case PUBLIC_PROFILES = 'public_profiles';
+
+    case FANS = 'fans';
+
+    case FOLLOWINGS = 'followings';
+
+    case PROFILE_VISITORS = 'profile_visitors';
 }

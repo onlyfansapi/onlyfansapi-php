@@ -25,9 +25,9 @@ interface DataExportsContract
      * @api
      *
      * @param string $endDate the end date for the export (ISO 8601 format)
-     * @param FileType|value-of<FileType> $fileType The output file format. Supported formats vary by export type: `csv` or `xlsx` for transactions, chat_messages, trial_links, tracking_links, smart_links, payouts, chargebacks, public_profiles, fans, followings; `zip` for media_vault.
+     * @param FileType|value-of<FileType> $fileType The output file format. Supported formats vary by export type: `csv` or `xlsx` for transactions, chat_messages, trial_links, tracking_links, smart_links, payouts, chargebacks, public_profiles, fans, followings, profile_visitors; `zip` for media_vault.
      * @param string $startDate the start date for the export (ISO 8601 format)
-     * @param Type|value-of<Type> $type The type of data to export
+     * @param Type|value-of<Type> $type The type of data to export. `profile_visitors` returns one row per account per day, scraped one day at a time so the daily numbers are not aggregated away by OnlyFans.
      * @param list<string> $accountIDs Array of account prefixed IDs to export data from. Not required for `public_profiles` type.
      * @param bool $autoStart when true, automatically starts the export after creation
      * @param list<string> $exportColumns Array of column names to include in the export (optional, defaults to all columns for the export type)
