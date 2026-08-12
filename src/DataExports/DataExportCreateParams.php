@@ -41,7 +41,7 @@ final class DataExportCreateParams implements BaseModel
     public string $endDate;
 
     /**
-     * The output file format. Supported formats vary by export type: `csv` or `xlsx` for transactions, chat_messages, trial_links, tracking_links, smart_links, payouts, chargebacks, public_profiles, fans, followings; `zip` for media_vault.
+     * The output file format. Supported formats vary by export type: `csv` or `xlsx` for transactions, chat_messages, trial_links, tracking_links, smart_links, payouts, chargebacks, public_profiles, fans, followings, profile_visitors; `zip` for media_vault.
      *
      * @var value-of<FileType> $fileType
      */
@@ -55,7 +55,7 @@ final class DataExportCreateParams implements BaseModel
     public string $startDate;
 
     /**
-     * The type of data to export.
+     * The type of data to export. `profile_visitors` returns one row per account per day, scraped one day at a time so the daily numbers are not aggregated away by OnlyFans.
      *
      * @var value-of<Type> $type
      */
@@ -165,7 +165,7 @@ final class DataExportCreateParams implements BaseModel
     }
 
     /**
-     * The output file format. Supported formats vary by export type: `csv` or `xlsx` for transactions, chat_messages, trial_links, tracking_links, smart_links, payouts, chargebacks, public_profiles, fans, followings; `zip` for media_vault.
+     * The output file format. Supported formats vary by export type: `csv` or `xlsx` for transactions, chat_messages, trial_links, tracking_links, smart_links, payouts, chargebacks, public_profiles, fans, followings, profile_visitors; `zip` for media_vault.
      *
      * @param FileType|value-of<FileType> $fileType
      */
@@ -189,7 +189,7 @@ final class DataExportCreateParams implements BaseModel
     }
 
     /**
-     * The type of data to export.
+     * The type of data to export. `profile_visitors` returns one row per account per day, scraped one day at a time so the daily numbers are not aggregated away by OnlyFans.
      *
      * @param Type|value-of<Type> $type
      */
