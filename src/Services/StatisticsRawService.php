@@ -16,6 +16,7 @@ use OnlyFansAPI\Statistics\StatisticGetOverviewParams;
 use OnlyFansAPI\Statistics\StatisticGetOverviewParams\Type;
 use OnlyFansAPI\Statistics\StatisticGetOverviewResponse;
 use OnlyFansAPI\Statistics\StatisticGetSubscriberMetricsParams;
+use OnlyFansAPI\Statistics\StatisticGetSubscriberMetricsParams\DetailedType;
 use OnlyFansAPI\Statistics\StatisticGetSubscriberMetricsResponse;
 
 /**
@@ -112,7 +113,10 @@ final class StatisticsRawService implements StatisticsRawContract
      *
      * @param string $account The Account ID
      * @param array{
-     *   endDate: string, startDate: string, detailed?: bool|null
+     *   endDate: string,
+     *   startDate: string,
+     *   detailed?: bool|null,
+     *   detailedType?: DetailedType|value-of<DetailedType>|null,
      * }|StatisticGetSubscriberMetricsParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -136,7 +140,11 @@ final class StatisticsRawService implements StatisticsRawContract
             path: ['api/%1$s/statistics/subscriber-metrics', $account],
             query: Util::array_transform_keys(
                 $parsed,
-                ['endDate' => 'end_date', 'startDate' => 'start_date']
+                [
+                    'endDate' => 'end_date',
+                    'startDate' => 'start_date',
+                    'detailedType' => 'detailed_type',
+                ],
             ),
             options: $options,
             convert: StatisticGetSubscriberMetricsResponse::class,

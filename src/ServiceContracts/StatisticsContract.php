@@ -9,6 +9,7 @@ use OnlyFansAPI\RequestOptions;
 use OnlyFansAPI\Statistics\StatisticCalculateTotalTransactionsResponse;
 use OnlyFansAPI\Statistics\StatisticGetOverviewParams\Type;
 use OnlyFansAPI\Statistics\StatisticGetOverviewResponse;
+use OnlyFansAPI\Statistics\StatisticGetSubscriberMetricsParams\DetailedType;
 use OnlyFansAPI\Statistics\StatisticGetSubscriberMetricsResponse;
 
 /**
@@ -59,6 +60,7 @@ interface StatisticsContract
      * @param string $endDate the end date for the metrics
      * @param string $startDate the start date for the metrics
      * @param bool|null $detailed Include paid and free fan metrics. Will slow down the response time, and might time out if timeframe is too large. Default = `false`
+     * @param DetailedType|value-of<DetailedType>|null $detailedType Use only with `detailed=true` - otherwise, it has no effect. Filter the subscriber statistics (default = total)
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -68,6 +70,7 @@ interface StatisticsContract
         string $endDate,
         string $startDate,
         ?bool $detailed = null,
+        DetailedType|string|null $detailedType = null,
         RequestOptions|array|null $requestOptions = null,
     ): StatisticGetSubscriberMetricsResponse;
 }
