@@ -37,7 +37,7 @@ final class MediaTest extends TestCase
         }
 
         $result = $this->client->media->vault->lists->media->add(
-            'omnis',
+            'quae',
             account: 'acct_XXXXXXXXXXXXXXX',
             mediaIDs: ['string']
         );
@@ -54,7 +54,7 @@ final class MediaTest extends TestCase
         }
 
         $result = $this->client->media->vault->lists->media->add(
-            'omnis',
+            'quae',
             account: 'acct_XXXXXXXXXXXXXXX',
             mediaIDs: ['string']
         );
@@ -71,7 +71,7 @@ final class MediaTest extends TestCase
         }
 
         $result = $this->client->media->vault->lists->media->remove(
-            'omnis',
+            'quae',
             account: 'acct_XXXXXXXXXXXXXXX',
             mediaIDs: ['string']
         );
@@ -88,7 +88,7 @@ final class MediaTest extends TestCase
         }
 
         $result = $this->client->media->vault->lists->media->remove(
-            'omnis',
+            'quae',
             account: 'acct_XXXXXXXXXXXXXXX',
             mediaIDs: ['string']
         );
