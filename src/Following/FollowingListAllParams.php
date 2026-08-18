@@ -11,7 +11,7 @@ use OnlyFansAPI\Core\Contracts\BaseModel;
 use OnlyFansAPI\Following\FollowingListAllParams\Filter;
 
 /**
- * Get a paginated list of followings for an Account. Newest followings are first.
+ * Get a paginated list of followings for an Account. OnlyFans returns this list newest-first, sorted by `subscribedByData.subscribeAt` descending. The expired list does not share this order, so do not assume it applies there.
  *
  * @see OnlyFansAPI\Services\FollowingService::listAll()
  *
