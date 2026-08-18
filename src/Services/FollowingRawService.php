@@ -36,7 +36,7 @@ final class FollowingRawService implements FollowingRawContract
     /**
      * @api
      *
-     * Get a paginated list of followings for an Account. Newest followings are first.
+     * Get a paginated list of followings for an Account. OnlyFans returns this list newest-first, sorted by `subscribedByData.subscribeAt` descending. The expired list does not share this order, so do not assume it applies there.
      *
      * @param string $account The Account ID
      * @param array{
@@ -71,7 +71,7 @@ final class FollowingRawService implements FollowingRawContract
     /**
      * @api
      *
-     * Get a paginated list of followings for an Account. Newest followings are first.
+     * Get a paginated list of followings for an Account. OnlyFans returns this list newest-first, sorted by `subscribedByData.subscribeAt` descending. The expired list does not share this order, so do not assume it applies there.
      *
      * @param string $account The Account ID
      * @param array{
@@ -109,7 +109,7 @@ final class FollowingRawService implements FollowingRawContract
     /**
      * @api
      *
-     * Get a paginated list of expired followings for an Account. Newest followings are first.
+     * Get a paginated list of expired followings for an Account. This list has no order guarantee. Unlike the all and active lists, it is sorted by neither `subscribedByData.subscribeAt` nor `subscribedByData.expiredAt`. To poll for new expirations, page through the full list each cycle (`limit=50`, follow `_pagination.next_page` until it is null) and diff it against your own store using `subscribedByData.expiredAt`. Do NOT stop early at the first entry you have already seen, as that can silently skip real expirations.
      *
      * @param string $account The Account ID
      * @param array{
