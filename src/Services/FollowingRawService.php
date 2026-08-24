@@ -9,6 +9,8 @@ use OnlyFansAPI\Core\Contracts\BaseResponse;
 use OnlyFansAPI\Core\Exceptions\APIException;
 use OnlyFansAPI\Following\FollowingListActiveParams;
 use OnlyFansAPI\Following\FollowingListActiveParams\Filter;
+use OnlyFansAPI\Following\FollowingListActiveParams\Sort;
+use OnlyFansAPI\Following\FollowingListActiveParams\SortDirection;
 use OnlyFansAPI\Following\FollowingListActiveResponse;
 use OnlyFansAPI\Following\FollowingListAllParams;
 use OnlyFansAPI\Following\FollowingListAllResponse;
@@ -36,11 +38,16 @@ final class FollowingRawService implements FollowingRawContract
     /**
      * @api
      *
-     * Get a paginated list of followings for an Account. OnlyFans returns this list newest-first, sorted by `subscribedByData.subscribeAt` descending. The expired list does not share this order, so do not assume it applies there.
+     * Get a paginated list of followings for an Account. By default OnlyFans returns this list newest-first, sorted by `subscribedByData.subscribeAt` descending. The expired list does not share this order, so do not assume it applies there. Pass `sort` (optionally with `sortDirection`) to reorder the list — see the parameter description for the caveat that OnlyFans persists the chosen order account-wide.
      *
      * @param string $account The Account ID
      * @param array{
-     *   filter?: Filter|FilterShape, limit?: int, offset?: int, query?: string|null
+     *   filter?: Filter|FilterShape,
+     *   limit?: int,
+     *   offset?: int,
+     *   query?: string|null,
+     *   sort?: Sort|value-of<Sort>|null,
+     *   sortDirection?: SortDirection|value-of<SortDirection>|null,
      * }|FollowingListActiveParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -71,7 +78,7 @@ final class FollowingRawService implements FollowingRawContract
     /**
      * @api
      *
-     * Get a paginated list of followings for an Account. OnlyFans returns this list newest-first, sorted by `subscribedByData.subscribeAt` descending. The expired list does not share this order, so do not assume it applies there.
+     * Get a paginated list of followings for an Account. By default OnlyFans returns this list newest-first, sorted by `subscribedByData.subscribeAt` descending. The expired list does not share this order, so do not assume it applies there. Pass `sort` (optionally with `sortDirection`) to reorder the list — see the parameter description for the caveat that OnlyFans persists the chosen order account-wide.
      *
      * @param string $account The Account ID
      * @param array{
@@ -79,6 +86,8 @@ final class FollowingRawService implements FollowingRawContract
      *   limit?: int,
      *   offset?: int,
      *   query?: string|null,
+     *   sort?: FollowingListAllParams\Sort|value-of<FollowingListAllParams\Sort>|null,
+     *   sortDirection?: FollowingListAllParams\SortDirection|value-of<FollowingListAllParams\SortDirection>|null,
      * }|FollowingListAllParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -109,7 +118,7 @@ final class FollowingRawService implements FollowingRawContract
     /**
      * @api
      *
-     * Get a paginated list of expired followings for an Account. This list has no order guarantee. Unlike the all and active lists, it is sorted by neither `subscribedByData.subscribeAt` nor `subscribedByData.expiredAt`. To poll for new expirations, page through the full list each cycle (`limit=50`, follow `_pagination.next_page` until it is null) and diff it against your own store using `subscribedByData.expiredAt`. Do NOT stop early at the first entry you have already seen, as that can silently skip real expirations.
+     * Get a paginated list of expired followings for an Account. This list has no order guarantee. Unlike the all and active lists, it is sorted by neither `subscribedByData.subscribeAt` nor `subscribedByData.expiredAt`. To poll for new expirations, page through the full list each cycle (`limit=50`, follow `_pagination.next_page` until it is null) and diff it against your own store using `subscribedByData.expiredAt`. Do NOT stop early at the first entry you have already seen, as that can silently skip real expirations. Pass `sort=expire_date` (optionally with `sortDirection`) to get a deterministic order instead — see the parameter description for the caveat that OnlyFans persists the chosen order account-wide.
      *
      * @param string $account The Account ID
      * @param array{
@@ -117,6 +126,8 @@ final class FollowingRawService implements FollowingRawContract
      *   limit?: int,
      *   offset?: int,
      *   query?: string|null,
+     *   sort?: FollowingListExpiredParams\Sort|value-of<FollowingListExpiredParams\Sort>|null,
+     *   sortDirection?: FollowingListExpiredParams\SortDirection|value-of<FollowingListExpiredParams\SortDirection>|null,
      * }|FollowingListExpiredParams $params
      * @param RequestOpts|null $requestOptions
      *
