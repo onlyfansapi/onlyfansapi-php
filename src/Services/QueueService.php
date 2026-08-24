@@ -8,6 +8,7 @@ use OnlyFansAPI\Client;
 use OnlyFansAPI\Core\Exceptions\APIException;
 use OnlyFansAPI\Core\Util;
 use OnlyFansAPI\Queue\QueueCountResponse;
+use OnlyFansAPI\Queue\QueueListParams\Type;
 use OnlyFansAPI\Queue\QueueListResponse;
 use OnlyFansAPI\Queue\QueuePublishResponse;
 use OnlyFansAPI\RequestOptions;
@@ -34,31 +35,34 @@ final class QueueService implements QueueContract
     /**
      * @api
      *
-     * List posts and messages in the queue.
+     * List scheduled posts and mass messages for a date range. Use the type filter to return only posts, messages, or both.
      *
      * @param string $account The Account ID
-     * @param int $limit Maximum number of queue items to return (default = 20)
-     * @param string $publishDateEnd Latest publish date to return
-     * @param string $publishDateStart Earliest publish date to return (must be at least today)
-     * @param string $timezone Time timezone of the provided dates. [View available timezone values](https://www.php.net/manual/en/timezones.php)
+     * @param string $publishDateEnd Latest publish date to return. Must be a valid date. Must be a valid date. Must be a date after or equal to <code>publishDateStart</code>.
+     * @param string $publishDateStart Earliest publish date to return (must be at least today). Must be a valid date. Must be a valid date. Must be a date after or equal to <code>today</code>.
+     * @param string $timezone Timezone of the provided dates. [View available timezone values](https://www.php.net/manual/en/timezones.php). Must be a valid time zone, such as <code>Africa/Accra</code>.
+     * @param int $limit Maximum number of queue items to return (default 20). Must be at least 1. Must not be greater than 100.
+     * @param list<Type|value-of<Type>> $type
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
      */
     public function list(
         string $account,
-        int $limit,
         string $publishDateEnd,
         string $publishDateStart,
         string $timezone,
+        ?int $limit = null,
+        ?array $type = null,
         RequestOptions|array|null $requestOptions = null,
     ): QueueListResponse {
         $params = Util::removeNulls(
             [
-                'limit' => $limit,
                 'publishDateEnd' => $publishDateEnd,
                 'publishDateStart' => $publishDateStart,
                 'timezone' => $timezone,
+                'limit' => $limit,
+                'type' => $type,
             ],
         );
 

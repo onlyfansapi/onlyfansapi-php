@@ -10,7 +10,7 @@ use OnlyFansAPI\Core\Concerns\SdkParams;
 use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * Get the content of a mass message.
+ * Get the content and settings of a mass message, including a message scheduled for later.
  *
  * @see OnlyFansAPI\Services\MassMessagingService::retrieve()
  *
