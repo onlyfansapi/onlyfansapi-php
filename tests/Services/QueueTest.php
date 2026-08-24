@@ -39,7 +39,6 @@ final class QueueTest extends TestCase
 
         $result = $this->client->queue->list(
             'acct_XXXXXXXXXXXXXXX',
-            limit: 20,
             publishDateEnd: '2025-01-01',
             publishDateStart: '2025-01-01',
             timezone: 'Europe/Prague',
@@ -58,10 +57,11 @@ final class QueueTest extends TestCase
 
         $result = $this->client->queue->list(
             'acct_XXXXXXXXXXXXXXX',
-            limit: 20,
             publishDateEnd: '2025-01-01',
             publishDateStart: '2025-01-01',
             timezone: 'Europe/Prague',
+            limit: 20,
+            type: ['post'],
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType

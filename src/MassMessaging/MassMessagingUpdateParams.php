@@ -12,7 +12,7 @@ use OnlyFansAPI\Core\Contracts\BaseModel;
 use OnlyFansAPI\MassMessaging\MassMessagingUpdateParams\BlockBannedWords;
 
 /**
- * Update a mass message.
+ * Update the content, recipients, media, price, or scheduled send time of an existing mass message.
  *
  * @see OnlyFansAPI\Services\MassMessagingService::update()
  *
