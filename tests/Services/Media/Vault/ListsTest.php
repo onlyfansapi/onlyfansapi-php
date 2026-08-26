@@ -6,7 +6,6 @@ use OnlyFansAPI\Client;
 use OnlyFansAPI\Core\Util;
 use OnlyFansAPI\Media\Vault\Lists\ListDeleteResponse;
 use OnlyFansAPI\Media\Vault\Lists\ListGetResponse;
-use OnlyFansAPI\Media\Vault\Lists\ListListResponse;
 use OnlyFansAPI\Media\Vault\Lists\ListNewResponse;
 use OnlyFansAPI\Media\Vault\Lists\ListUpdateResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
@@ -140,7 +139,7 @@ final class ListsTest extends TestCase
         $result = $this->client->media->vault->lists->list('acct_XXXXXXXXXXXXXXX');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(ListListResponse::class, $result);
+        $this->assertNotNull($result);
     }
 
     #[Test]

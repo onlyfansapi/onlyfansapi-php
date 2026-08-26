@@ -7,7 +7,8 @@ namespace OnlyFansAPI\ServiceContracts\Media\Vault;
 use OnlyFansAPI\Core\Exceptions\APIException;
 use OnlyFansAPI\Media\Vault\Lists\ListDeleteResponse;
 use OnlyFansAPI\Media\Vault\Lists\ListGetResponse;
-use OnlyFansAPI\Media\Vault\Lists\ListListResponse;
+use OnlyFansAPI\Media\Vault\Lists\ListListResponse\UnionMember0;
+use OnlyFansAPI\Media\Vault\Lists\ListListResponse\UnionMember1;
 use OnlyFansAPI\Media\Vault\Lists\ListNewResponse;
 use OnlyFansAPI\Media\Vault\Lists\ListUpdateResponse;
 use OnlyFansAPI\RequestOptions;
@@ -68,6 +69,7 @@ interface ListsContract
      * @api
      *
      * @param string $account The Account ID
+     * @param bool $lightweight Set to `true` to return only `id`, `name`, `type`, `canUpdate` and a rolled-up `mediaCount` per list, dropping the `medias` previews. Much smaller payload — ideal for rendering a folder picker. Default: `false`
      * @param int $limit Number of media to return per page. Default: `24`
      * @param int $offset The offset used for pagination. Default `0`
      * @param string $query optionally, find a list by its name
@@ -77,11 +79,12 @@ interface ListsContract
      */
     public function list(
         string $account,
+        ?bool $lightweight = null,
         ?int $limit = null,
         ?int $offset = null,
         ?string $query = null,
         RequestOptions|array|null $requestOptions = null,
-    ): ListListResponse;
+    ): UnionMember0|UnionMember1;
 
     /**
      * @api

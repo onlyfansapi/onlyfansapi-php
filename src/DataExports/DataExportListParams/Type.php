@@ -32,4 +32,6 @@ enum Type: string
     case FOLLOWINGS = 'followings';
 
     case PROFILE_VISITORS = 'profile_visitors';
+
+    case FANSLY_CHAT_MESSAGES = 'fansly_chat_messages';
 }
