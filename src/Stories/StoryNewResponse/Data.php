@@ -8,13 +8,21 @@ use OnlyFansAPI\Core\Attributes\Optional;
 use OnlyFansAPI\Core\Concerns\SdkModel;
 use OnlyFansAPI\Core\Contracts\BaseModel;
 use OnlyFansAPI\Stories\StoryNewResponse\Data\Media;
+use OnlyFansAPI\Stories\StoryNewResponse\Data\Question;
+use OnlyFansAPI\Stories\StoryNewResponse\Data\ReleaseForm;
+use OnlyFansAPI\Stories\StoryNewResponse\Data\Text;
 
 /**
  * @phpstan-import-type MediaShape from \OnlyFansAPI\Stories\StoryNewResponse\Data\Media
+ * @phpstan-import-type QuestionShape from \OnlyFansAPI\Stories\StoryNewResponse\Data\Question
+ * @phpstan-import-type ReleaseFormShape from \OnlyFansAPI\Stories\StoryNewResponse\Data\ReleaseForm
+ * @phpstan-import-type TextShape from \OnlyFansAPI\Stories\StoryNewResponse\Data\Text
  *
  * @phpstan-type DataShape = array{
  *   id?: int|null,
  *   canDelete?: bool|null,
+ *   canvasHeight?: int|null,
+ *   canvasWidth?: int|null,
  *   commentsCount?: int|null,
  *   createdAt?: string|null,
  *   hasPost?: bool|null,
@@ -24,8 +32,9 @@ use OnlyFansAPI\Stories\StoryNewResponse\Data\Media;
  *   isWatched?: bool|null,
  *   likesCount?: int|null,
  *   media?: list<Media|MediaShape>|null,
- *   question?: string|null,
- *   releaseForms?: list<mixed>|null,
+ *   question?: null|Question|QuestionShape,
+ *   releaseForms?: list<ReleaseForm|ReleaseFormShape>|null,
+ *   texts?: list<Text|TextShape>|null,
  *   tipsAmount?: string|null,
  *   tipsAmountRaw?: int|null,
  *   tipsCount?: int|null,
@@ -44,6 +53,12 @@ final class Data implements BaseModel
 
     #[Optional]
     public ?bool $canDelete;
+
+    #[Optional]
+    public ?int $canvasHeight;
+
+    #[Optional]
+    public ?int $canvasWidth;
 
     #[Optional]
     public ?int $commentsCount;
@@ -73,12 +88,16 @@ final class Data implements BaseModel
     #[Optional(list: Media::class)]
     public ?array $media;
 
-    #[Optional(nullable: true)]
-    public ?string $question;
+    #[Optional]
+    public ?Question $question;
 
-    /** @var list<mixed>|null $releaseForms */
-    #[Optional(list: 'mixed')]
+    /** @var list<ReleaseForm>|null $releaseForms */
+    #[Optional(list: ReleaseForm::class)]
     public ?array $releaseForms;
+
+    /** @var list<Text>|null $texts */
+    #[Optional(list: Text::class)]
+    public ?array $texts;
 
     #[Optional]
     public ?string $tipsAmount;
@@ -110,12 +129,16 @@ final class Data implements BaseModel
      * You must use named parameters to construct any parameters with a default value.
      *
      * @param list<Media|MediaShape>|null $media
-     * @param list<mixed>|null $releaseForms
+     * @param Question|QuestionShape|null $question
+     * @param list<ReleaseForm|ReleaseFormShape>|null $releaseForms
+     * @param list<Text|TextShape>|null $texts
      * @param list<mixed>|null $viewers
      */
     public static function with(
         ?int $id = null,
         ?bool $canDelete = null,
+        ?int $canvasHeight = null,
+        ?int $canvasWidth = null,
         ?int $commentsCount = null,
         ?string $createdAt = null,
         ?bool $hasPost = null,
@@ -125,8 +148,9 @@ final class Data implements BaseModel
         ?bool $isWatched = null,
         ?int $likesCount = null,
         ?array $media = null,
-        ?string $question = null,
+        Question|array|null $question = null,
         ?array $releaseForms = null,
+        ?array $texts = null,
         ?string $tipsAmount = null,
         ?int $tipsAmountRaw = null,
         ?int $tipsCount = null,
@@ -138,6 +162,8 @@ final class Data implements BaseModel
 
         null !== $id && $self['id'] = $id;
         null !== $canDelete && $self['canDelete'] = $canDelete;
+        null !== $canvasHeight && $self['canvasHeight'] = $canvasHeight;
+        null !== $canvasWidth && $self['canvasWidth'] = $canvasWidth;
         null !== $commentsCount && $self['commentsCount'] = $commentsCount;
         null !== $createdAt && $self['createdAt'] = $createdAt;
         null !== $hasPost && $self['hasPost'] = $hasPost;
@@ -149,6 +175,7 @@ final class Data implements BaseModel
         null !== $media && $self['media'] = $media;
         null !== $question && $self['question'] = $question;
         null !== $releaseForms && $self['releaseForms'] = $releaseForms;
+        null !== $texts && $self['texts'] = $texts;
         null !== $tipsAmount && $self['tipsAmount'] = $tipsAmount;
         null !== $tipsAmountRaw && $self['tipsAmountRaw'] = $tipsAmountRaw;
         null !== $tipsCount && $self['tipsCount'] = $tipsCount;
@@ -171,6 +198,22 @@ final class Data implements BaseModel
     {
         $self = clone $this;
         $self['canDelete'] = $canDelete;
+
+        return $self;
+    }
+
+    public function withCanvasHeight(int $canvasHeight): self
+    {
+        $self = clone $this;
+        $self['canvasHeight'] = $canvasHeight;
+
+        return $self;
+    }
+
+    public function withCanvasWidth(int $canvasWidth): self
+    {
+        $self = clone $this;
+        $self['canvasWidth'] = $canvasWidth;
 
         return $self;
     }
@@ -250,7 +293,10 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withQuestion(?string $question): self
+    /**
+     * @param Question|QuestionShape $question
+     */
+    public function withQuestion(Question|array $question): self
     {
         $self = clone $this;
         $self['question'] = $question;
@@ -259,12 +305,23 @@ final class Data implements BaseModel
     }
 
     /**
-     * @param list<mixed> $releaseForms
+     * @param list<ReleaseForm|ReleaseFormShape> $releaseForms
      */
     public function withReleaseForms(array $releaseForms): self
     {
         $self = clone $this;
         $self['releaseForms'] = $releaseForms;
+
+        return $self;
+    }
+
+    /**
+     * @param list<Text|TextShape> $texts
+     */
+    public function withTexts(array $texts): self
+    {
+        $self = clone $this;
+        $self['texts'] = $texts;
 
         return $self;
     }

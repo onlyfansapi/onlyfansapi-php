@@ -60,7 +60,36 @@ final class StoriesTest extends TestCase
 
         $result = $this->client->stories->create(
             'acct_XXXXXXXXXXXXXXX',
-            mediaFiles: ['ofapi_media_abc123', 'string']
+            mediaFiles: ['ofapi_media_abc123', 'string'],
+            canvasHeight: 1920,
+            canvasWidth: 1080,
+            question: [
+                'color' => '#FF51DC',
+                'height' => 160,
+                'left' => 25,
+                'text' => 'Ask me anything!',
+                'top' => 30,
+                'width' => 257,
+            ],
+            texts: [
+                [
+                    'text' => 'New drop today!',
+                    'angle' => 0,
+                    'bgColor' => '#FF51DC',
+                    'color' => '#FFFFFF',
+                    'fontFamily' => 'ShantellSans',
+                    'fontSize' => 24,
+                    'fontWeight' => 400,
+                    'left' => 30.5,
+                    'scale' => 1,
+                    'textAlign' => 'center',
+                    'textHeight' => 36,
+                    'textWidth' => 140,
+                    'top' => 60,
+                    'type' => 'text',
+                    'zIndex' => 8,
+                ],
+            ],
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType

@@ -10,6 +10,8 @@ use OnlyFansAPI\Core\Exceptions\APIException;
 use OnlyFansAPI\RequestOptions;
 use OnlyFansAPI\ServiceContracts\StoriesRawContract;
 use OnlyFansAPI\Stories\StoryCreateParams;
+use OnlyFansAPI\Stories\StoryCreateParams\Question;
+use OnlyFansAPI\Stories\StoryCreateParams\Text;
 use OnlyFansAPI\Stories\StoryDeleteParams;
 use OnlyFansAPI\Stories\StoryDeleteResponse;
 use OnlyFansAPI\Stories\StoryGetResponse;
@@ -28,6 +30,8 @@ use OnlyFansAPI\Stories\StoryRetrieveStatsParams;
 /**
  * APIs for managing OnlyFans stories.
  *
+ * @phpstan-import-type QuestionShape from \OnlyFansAPI\Stories\StoryCreateParams\Question
+ * @phpstan-import-type TextShape from \OnlyFansAPI\Stories\StoryCreateParams\Text
  * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class StoriesRawService implements StoriesRawContract
@@ -41,10 +45,16 @@ final class StoriesRawService implements StoriesRawContract
     /**
      * @api
      *
-     * Post a new media or vault file to your story.
+     * Post a new media or vault file to your story, optionally with text overlays, @mentions, and a question sticker. Overlay elements are rendered by OnlyFans on top of your story media at view time.
      *
      * @param string $account The Account ID
-     * @param array{mediaFiles: list<string>}|StoryCreateParams $params
+     * @param array{
+     *   mediaFiles: list<string>,
+     *   canvasHeight?: int,
+     *   canvasWidth?: int,
+     *   question?: Question|QuestionShape,
+     *   texts?: list<Text|TextShape>,
+     * }|StoryCreateParams $params
      * @param RequestOpts|null $requestOptions
      *
      * @return BaseResponse<StoryNewResponse>
