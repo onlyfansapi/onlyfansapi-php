@@ -11,7 +11,8 @@ use OnlyFansAPI\Media\Vault\Lists\ListDeleteParams;
 use OnlyFansAPI\Media\Vault\Lists\ListDeleteResponse;
 use OnlyFansAPI\Media\Vault\Lists\ListGetResponse;
 use OnlyFansAPI\Media\Vault\Lists\ListListParams;
-use OnlyFansAPI\Media\Vault\Lists\ListListResponse;
+use OnlyFansAPI\Media\Vault\Lists\ListListResponse\UnionMember0;
+use OnlyFansAPI\Media\Vault\Lists\ListListResponse\UnionMember1;
 use OnlyFansAPI\Media\Vault\Lists\ListNewResponse;
 use OnlyFansAPI\Media\Vault\Lists\ListRetrieveParams;
 use OnlyFansAPI\Media\Vault\Lists\ListUpdateParams;
@@ -81,7 +82,7 @@ interface ListsRawContract
      * @param array<string,mixed>|ListListParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<ListListResponse>
+     * @return BaseResponse<UnionMember0|UnionMember1>
      *
      * @throws APIException
      */

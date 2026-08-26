@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace OnlyFansAPI\DataExports\DataExportCreateParams;
 
 /**
- * The type of data to export. `profile_visitors` returns one row per account per day, scraped one day at a time so the daily numbers are not aggregated away by OnlyFans.
+ * The type of data to export. Use `fansly_chat_messages` to export Fansly chat messages (all other types are OnlyFans). `profile_visitors` returns one row per account per day, scraped one day at a time so the daily numbers are not aggregated away by OnlyFans.
  */
 enum Type: string
 {
@@ -32,4 +32,6 @@ enum Type: string
     case FOLLOWINGS = 'followings';
 
     case PROFILE_VISITORS = 'profile_visitors';
+
+    case FANSLY_CHAT_MESSAGES = 'fansly_chat_messages';
 }

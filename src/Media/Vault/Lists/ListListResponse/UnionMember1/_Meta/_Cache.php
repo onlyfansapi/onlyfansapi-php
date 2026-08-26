@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace OnlyFansAPI\Media\Vault\Lists\ListListResponse\_Meta;
+namespace OnlyFansAPI\Media\Vault\Lists\ListListResponse\UnionMember1\_Meta;
 
 use OnlyFansAPI\Core\Attributes\Optional;
 use OnlyFansAPI\Core\Concerns\SdkModel;

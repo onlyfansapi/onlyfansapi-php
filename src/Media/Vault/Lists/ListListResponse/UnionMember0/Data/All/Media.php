@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace OnlyFansAPI\Media\Vault\Lists\ListListResponse\Data\All;
+namespace OnlyFansAPI\Media\Vault\Lists\ListListResponse\UnionMember0\Data\All;
 
 use OnlyFansAPI\Core\Attributes\Optional;
 use OnlyFansAPI\Core\Concerns\SdkModel;

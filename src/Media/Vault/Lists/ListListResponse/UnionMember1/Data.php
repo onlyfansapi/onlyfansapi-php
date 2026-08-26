@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace OnlyFansAPI\Media\Vault\Lists\ListListResponse;
+namespace OnlyFansAPI\Media\Vault\Lists\ListListResponse\UnionMember1;
 
 use OnlyFansAPI\Core\Attributes\Optional;
 use OnlyFansAPI\Core\Concerns\SdkModel;
 use OnlyFansAPI\Core\Contracts\BaseModel;
-use OnlyFansAPI\Media\Vault\Lists\ListListResponse\Data\All;
-use OnlyFansAPI\Media\Vault\Lists\ListListResponse\Data\List_;
+use OnlyFansAPI\Media\Vault\Lists\ListListResponse\UnionMember1\Data\All;
+use OnlyFansAPI\Media\Vault\Lists\ListListResponse\UnionMember1\Data\List_;
 
 /**
- * @phpstan-import-type AllShape from \OnlyFansAPI\Media\Vault\Lists\ListListResponse\Data\All
- * @phpstan-import-type ListShape from \OnlyFansAPI\Media\Vault\Lists\ListListResponse\Data\List_
+ * @phpstan-import-type AllShape from \OnlyFansAPI\Media\Vault\Lists\ListListResponse\UnionMember1\Data\All
+ * @phpstan-import-type ListShape from \OnlyFansAPI\Media\Vault\Lists\ListListResponse\UnionMember1\Data\List_
  *
  * @phpstan-type DataShape = array{
  *   all?: null|All|AllShape,

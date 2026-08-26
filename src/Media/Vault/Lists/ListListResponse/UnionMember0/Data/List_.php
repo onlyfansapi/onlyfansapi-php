@@ -2,41 +2,62 @@
 
 declare(strict_types=1);
 
-namespace OnlyFansAPI\Media\Vault\Lists\ListListResponse\Data;
+namespace OnlyFansAPI\Media\Vault\Lists\ListListResponse\UnionMember0\Data;
 
 use OnlyFansAPI\Core\Attributes\Optional;
 use OnlyFansAPI\Core\Concerns\SdkModel;
 use OnlyFansAPI\Core\Contracts\BaseModel;
-use OnlyFansAPI\Media\Vault\Lists\ListListResponse\Data\All\Media;
 
 /**
- * @phpstan-import-type MediaShape from \OnlyFansAPI\Media\Vault\Lists\ListListResponse\Data\All\Media
- *
- * @phpstan-type AllShape = array{
+ * @phpstan-type ListShape = array{
+ *   id?: int|null,
  *   audiosCount?: int|null,
+ *   canDelete?: bool|null,
+ *   canUpdate?: bool|null,
  *   gifsCount?: int|null,
- *   medias?: list<Media|MediaShape>|null,
+ *   hasMedia?: bool|null,
+ *   medias?: list<mixed>|null,
+ *   name?: string|null,
  *   photosCount?: int|null,
+ *   type?: string|null,
  *   videosCount?: int|null,
  * }
  */
-final class All implements BaseModel
+final class List_ implements BaseModel
 {
-    /** @use SdkModel<AllShape> */
+    /** @use SdkModel<ListShape> */
     use SdkModel;
+
+    #[Optional]
+    public ?int $id;
 
     #[Optional]
     public ?int $audiosCount;
 
     #[Optional]
+    public ?bool $canDelete;
+
+    #[Optional]
+    public ?bool $canUpdate;
+
+    #[Optional]
     public ?int $gifsCount;
 
-    /** @var list<Media>|null $medias */
-    #[Optional(list: Media::class)]
+    #[Optional]
+    public ?bool $hasMedia;
+
+    /** @var list<mixed>|null $medias */
+    #[Optional(list: 'mixed')]
     public ?array $medias;
 
     #[Optional]
+    public ?string $name;
+
+    #[Optional]
     public ?int $photosCount;
+
+    #[Optional]
+    public ?string $type;
 
     #[Optional]
     public ?int $videosCount;
@@ -51,22 +72,42 @@ final class All implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
-     * @param list<Media|MediaShape>|null $medias
+     * @param list<mixed>|null $medias
      */
     public static function with(
+        ?int $id = null,
         ?int $audiosCount = null,
+        ?bool $canDelete = null,
+        ?bool $canUpdate = null,
         ?int $gifsCount = null,
+        ?bool $hasMedia = null,
         ?array $medias = null,
+        ?string $name = null,
         ?int $photosCount = null,
+        ?string $type = null,
         ?int $videosCount = null,
     ): self {
         $self = new self;
 
+        null !== $id && $self['id'] = $id;
         null !== $audiosCount && $self['audiosCount'] = $audiosCount;
+        null !== $canDelete && $self['canDelete'] = $canDelete;
+        null !== $canUpdate && $self['canUpdate'] = $canUpdate;
         null !== $gifsCount && $self['gifsCount'] = $gifsCount;
+        null !== $hasMedia && $self['hasMedia'] = $hasMedia;
         null !== $medias && $self['medias'] = $medias;
+        null !== $name && $self['name'] = $name;
         null !== $photosCount && $self['photosCount'] = $photosCount;
+        null !== $type && $self['type'] = $type;
         null !== $videosCount && $self['videosCount'] = $videosCount;
+
+        return $self;
+    }
+
+    public function withID(int $id): self
+    {
+        $self = clone $this;
+        $self['id'] = $id;
 
         return $self;
     }
@@ -79,6 +120,22 @@ final class All implements BaseModel
         return $self;
     }
 
+    public function withCanDelete(bool $canDelete): self
+    {
+        $self = clone $this;
+        $self['canDelete'] = $canDelete;
+
+        return $self;
+    }
+
+    public function withCanUpdate(bool $canUpdate): self
+    {
+        $self = clone $this;
+        $self['canUpdate'] = $canUpdate;
+
+        return $self;
+    }
+
     public function withGifsCount(int $gifsCount): self
     {
         $self = clone $this;
@@ -87,8 +144,16 @@ final class All implements BaseModel
         return $self;
     }
 
+    public function withHasMedia(bool $hasMedia): self
+    {
+        $self = clone $this;
+        $self['hasMedia'] = $hasMedia;
+
+        return $self;
+    }
+
     /**
-     * @param list<Media|MediaShape> $medias
+     * @param list<mixed> $medias
      */
     public function withMedias(array $medias): self
     {
@@ -98,10 +163,26 @@ final class All implements BaseModel
         return $self;
     }
 
+    public function withName(string $name): self
+    {
+        $self = clone $this;
+        $self['name'] = $name;
+
+        return $self;
+    }
+
     public function withPhotosCount(int $photosCount): self
     {
         $self = clone $this;
         $self['photosCount'] = $photosCount;
+
+        return $self;
+    }
+
+    public function withType(string $type): self
+    {
+        $self = clone $this;
+        $self['type'] = $type;
 
         return $self;
     }
