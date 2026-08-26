@@ -14,6 +14,7 @@ use OnlyFansAPI\UserLists\UserListDeleteParams;
 use OnlyFansAPI\UserLists\UserListDeleteResponse;
 use OnlyFansAPI\UserLists\UserListGetResponse;
 use OnlyFansAPI\UserLists\UserListListParams;
+use OnlyFansAPI\UserLists\UserListListParams\View;
 use OnlyFansAPI\UserLists\UserListListResponse;
 use OnlyFansAPI\UserLists\UserListNewResponse;
 use OnlyFansAPI\UserLists\UserListRetrieveParams;
@@ -138,10 +139,12 @@ final class UserListsRawService implements UserListsRawContract
     /**
      * @api
      *
-     * Get a list of OnlyFans Collections - User Lists
+     * Get a list of OnlyFans Collections - User Lists. If you only want to get User Lists available for sending a Mass-Message, use `?view=queue`
      *
      * @param string $account The Account ID
-     * @param array{limit?: int|null, offset?: int|null}|UserListListParams $params
+     * @param array{
+     *   limit?: int|null, offset?: int|null, view?: View|value-of<View>
+     * }|UserListListParams $params
      * @param RequestOpts|null $requestOptions
      *
      * @return BaseResponse<UserListListResponse>
