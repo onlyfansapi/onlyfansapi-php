@@ -6,6 +6,8 @@ namespace OnlyFansAPI\ServiceContracts;
 
 use OnlyFansAPI\Core\Exceptions\APIException;
 use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Stories\StoryCreateParams\Question;
+use OnlyFansAPI\Stories\StoryCreateParams\Text;
 use OnlyFansAPI\Stories\StoryDeleteResponse;
 use OnlyFansAPI\Stories\StoryGetResponse;
 use OnlyFansAPI\Stories\StoryGetStatsResponse;
@@ -16,6 +18,8 @@ use OnlyFansAPI\Stories\StoryMarkAsWatchedResponse;
 use OnlyFansAPI\Stories\StoryNewResponse;
 
 /**
+ * @phpstan-import-type QuestionShape from \OnlyFansAPI\Stories\StoryCreateParams\Question
+ * @phpstan-import-type TextShape from \OnlyFansAPI\Stories\StoryCreateParams\Text
  * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface StoriesContract
@@ -24,7 +28,11 @@ interface StoriesContract
      * @api
      *
      * @param string $account The Account ID
-     * @param list<string> $mediaFiles array of media file upload prefixed_ids, or OF media IDs (required if price is not 0)
+     * @param list<string> $mediaFiles array of media file upload prefixed_ids, or OF vault media IDs
+     * @param int $canvasHeight Canvas height overlay positions are relative to. Default `1920`.
+     * @param int $canvasWidth Canvas width overlay positions are relative to. Default `1080`.
+     * @param Question|QuestionShape $question interactive question sticker viewers can answer
+     * @param list<Text|TextShape> $texts text and @mention overlays
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -32,6 +40,10 @@ interface StoriesContract
     public function create(
         string $account,
         array $mediaFiles,
+        ?int $canvasHeight = null,
+        ?int $canvasWidth = null,
+        Question|array|null $question = null,
+        ?array $texts = null,
         RequestOptions|array|null $requestOptions = null,
     ): StoryNewResponse;
 

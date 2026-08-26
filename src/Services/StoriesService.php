@@ -10,6 +10,8 @@ use OnlyFansAPI\Core\Util;
 use OnlyFansAPI\RequestOptions;
 use OnlyFansAPI\ServiceContracts\StoriesContract;
 use OnlyFansAPI\Services\Stories\HighlightsService;
+use OnlyFansAPI\Stories\StoryCreateParams\Question;
+use OnlyFansAPI\Stories\StoryCreateParams\Text;
 use OnlyFansAPI\Stories\StoryDeleteResponse;
 use OnlyFansAPI\Stories\StoryGetResponse;
 use OnlyFansAPI\Stories\StoryGetStatsResponse;
@@ -22,6 +24,8 @@ use OnlyFansAPI\Stories\StoryNewResponse;
 /**
  * APIs for managing OnlyFans stories.
  *
+ * @phpstan-import-type QuestionShape from \OnlyFansAPI\Stories\StoryCreateParams\Question
+ * @phpstan-import-type TextShape from \OnlyFansAPI\Stories\StoryCreateParams\Text
  * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class StoriesService implements StoriesContract
@@ -48,10 +52,14 @@ final class StoriesService implements StoriesContract
     /**
      * @api
      *
-     * Post a new media or vault file to your story.
+     * Post a new media or vault file to your story, optionally with text overlays, @mentions, and a question sticker. Overlay elements are rendered by OnlyFans on top of your story media at view time.
      *
      * @param string $account The Account ID
-     * @param list<string> $mediaFiles array of media file upload prefixed_ids, or OF media IDs (required if price is not 0)
+     * @param list<string> $mediaFiles array of media file upload prefixed_ids, or OF vault media IDs
+     * @param int $canvasHeight Canvas height overlay positions are relative to. Default `1920`.
+     * @param int $canvasWidth Canvas width overlay positions are relative to. Default `1080`.
+     * @param Question|QuestionShape $question interactive question sticker viewers can answer
+     * @param list<Text|TextShape> $texts text and @mention overlays
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -59,9 +67,21 @@ final class StoriesService implements StoriesContract
     public function create(
         string $account,
         array $mediaFiles,
+        ?int $canvasHeight = null,
+        ?int $canvasWidth = null,
+        Question|array|null $question = null,
+        ?array $texts = null,
         RequestOptions|array|null $requestOptions = null,
     ): StoryNewResponse {
-        $params = Util::removeNulls(['mediaFiles' => $mediaFiles]);
+        $params = Util::removeNulls(
+            [
+                'mediaFiles' => $mediaFiles,
+                'canvasHeight' => $canvasHeight,
+                'canvasWidth' => $canvasWidth,
+                'question' => $question,
+                'texts' => $texts,
+            ],
+        );
 
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->create($account, params: $params, requestOptions: $requestOptions);
