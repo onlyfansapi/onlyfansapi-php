@@ -217,6 +217,7 @@ final class MassMessagingService implements MassMessagingContract
      * @param string $rfTag Array of OnlyFans Creator User IDs to tag in your mass message
      * @param bool $saveForLater add your message to the "Saved for later" queue
      * @param string $scheduledDate schedule the chat message in the future (UTC timezone)
+     * @param int $subscribedWithinLastDays Only send to fans who subscribed within the last N calendar days (1-30, including today). Can be combined with `userLists` and `userIds`. Cannot be combined with `scheduledDate` or `saveForLater`.
      * @param list<string> $userIDs array of user IDs that the mass message will be sent to
      * @param list<string> $userLists array of user list IDs that the mass message will be sent to
      * @param RequestOpts|null $requestOptions
@@ -238,6 +239,7 @@ final class MassMessagingService implements MassMessagingContract
         ?string $rfTag = null,
         ?bool $saveForLater = null,
         ?string $scheduledDate = null,
+        ?int $subscribedWithinLastDays = null,
         ?array $userIDs = null,
         ?array $userLists = null,
         RequestOptions|array|null $requestOptions = null,
@@ -257,6 +259,7 @@ final class MassMessagingService implements MassMessagingContract
                 'rfTag' => $rfTag,
                 'saveForLater' => $saveForLater,
                 'scheduledDate' => $scheduledDate,
+                'subscribedWithinLastDays' => $subscribedWithinLastDays,
                 'userIDs' => $userIDs,
                 'userLists' => $userLists,
             ],
