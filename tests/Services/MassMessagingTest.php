@@ -210,6 +210,7 @@ final class MassMessagingTest extends TestCase
             rfTag: 'rfTag',
             saveForLater: true,
             scheduledDate: '2025-01-01T00:00:00.000Z',
+            subscribedWithinLastDays: 0,
             userIDs: ['string'],
             userLists: [
                 'fans', 'recent', 'following', 'rebill_off', 'tagged', 'string',

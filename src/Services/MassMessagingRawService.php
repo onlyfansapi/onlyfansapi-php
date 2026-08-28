@@ -228,6 +228,7 @@ final class MassMessagingRawService implements MassMessagingRawContract
      *   rfTag?: string,
      *   saveForLater?: bool,
      *   scheduledDate?: string,
+     *   subscribedWithinLastDays?: int,
      *   userIDs?: list<string>,
      *   userLists?: list<string>,
      * }|MassMessagingSendParams $params

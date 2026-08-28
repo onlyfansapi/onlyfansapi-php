@@ -30,6 +30,7 @@ use OnlyFansAPI\MassMessaging\MassMessagingSendParams\BlockBannedWords;
  *   rfTag?: string|null,
  *   saveForLater?: bool|null,
  *   scheduledDate?: string|null,
+ *   subscribedWithinLastDays?: int|null,
  *   userIDs?: list<string>|null,
  *   userLists?: list<string>|null,
  * }
@@ -127,6 +128,12 @@ final class MassMessagingSendParams implements BaseModel
     public ?string $scheduledDate;
 
     /**
+     * Only send to fans who subscribed within the last N calendar days (1-30, including today). Can be combined with `userLists` and `userIds`. Cannot be combined with `scheduledDate` or `saveForLater`.
+     */
+    #[Optional]
+    public ?int $subscribedWithinLastDays;
+
+    /**
      * Array of user IDs that the mass message will be sent to.
      *
      * @var list<string>|null $userIDs
@@ -187,6 +194,7 @@ final class MassMessagingSendParams implements BaseModel
         ?string $rfTag = null,
         ?bool $saveForLater = null,
         ?string $scheduledDate = null,
+        ?int $subscribedWithinLastDays = null,
         ?array $userIDs = null,
         ?array $userLists = null,
     ): self {
@@ -206,6 +214,7 @@ final class MassMessagingSendParams implements BaseModel
         null !== $rfTag && $self['rfTag'] = $rfTag;
         null !== $saveForLater && $self['saveForLater'] = $saveForLater;
         null !== $scheduledDate && $self['scheduledDate'] = $scheduledDate;
+        null !== $subscribedWithinLastDays && $self['subscribedWithinLastDays'] = $subscribedWithinLastDays;
         null !== $userIDs && $self['userIDs'] = $userIDs;
         null !== $userLists && $self['userLists'] = $userLists;
 
@@ -360,6 +369,18 @@ final class MassMessagingSendParams implements BaseModel
     {
         $self = clone $this;
         $self['scheduledDate'] = $scheduledDate;
+
+        return $self;
+    }
+
+    /**
+     * Only send to fans who subscribed within the last N calendar days (1-30, including today). Can be combined with `userLists` and `userIds`. Cannot be combined with `scheduledDate` or `saveForLater`.
+     */
+    public function withSubscribedWithinLastDays(
+        int $subscribedWithinLastDays
+    ): self {
+        $self = clone $this;
+        $self['subscribedWithinLastDays'] = $subscribedWithinLastDays;
 
         return $self;
     }
