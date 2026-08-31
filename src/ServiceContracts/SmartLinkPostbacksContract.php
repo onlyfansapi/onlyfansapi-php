@@ -26,7 +26,7 @@ interface SmartLinkPostbacksContract
      *
      * @param list<string> $conversionTypes one or more Smart Link conversion types that should trigger this postback
      * @param SmartLinkScope|value-of<SmartLinkScope> $smartLinkScope `global` fires for all Smart Links. `campaign_specific` fires only for selected Smart Links.
-     * @param string $url The destination URL. Variables such as `{external_click_id}`, `{fbclid}`, `{gclid}`, and `{ttclid}` are replaced when the postback is dispatched.
+     * @param string $url The destination URL. Variables such as `{external_click_id}`, `{fbclid}`, `{gclid}`, `{gbraid}`, `{wbraid}`, `{ttclid}`, and `{sccid}` are replaced when the postback is dispatched.
      * @param string $body Optional request body template for POST postbacks. Variables are replaced when the postback is dispatched.
      * @param list<Header|HeaderShape> $headers Optional request headers. Header values may include postback variables.
      * @param HTTPMethod|value-of<HTTPMethod> $httpMethod HTTP method used for the postback request. Defaults to `GET` when omitted.
