@@ -7,21 +7,30 @@ namespace OnlyFansAPI\Media\Uploads\UploadGetStatusResponse;
 use OnlyFansAPI\Core\Attributes\Optional;
 use OnlyFansAPI\Core\Concerns\SdkModel;
 use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember4\Media;
 
 /**
- * Upload rejected by OnlyFans — `error` carries the upstream reason verbatim.
+ * Completed POST /media/upload upload.
  *
- * @phpstan-type UnionMember2Shape = array{
- *   error?: string|null, prefixedID?: string|null, status?: string|null
+ * @phpstan-import-type MediaShape from \OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember4\Media
+ *
+ * @phpstan-type UnionMember4Shape = array{
+ *   creditsUsed?: int|null,
+ *   media?: null|Media|MediaShape,
+ *   prefixedID?: string|null,
+ *   status?: string|null,
  * }
  */
-final class UnionMember2 implements BaseModel
+final class UnionMember4 implements BaseModel
 {
-    /** @use SdkModel<UnionMember2Shape> */
+    /** @use SdkModel<UnionMember4Shape> */
     use SdkModel;
 
+    #[Optional('credits_used')]
+    public ?int $creditsUsed;
+
     #[Optional]
-    public ?string $error;
+    public ?Media $media;
 
     #[Optional('prefixed_id')]
     public ?string $prefixedID;
@@ -38,25 +47,40 @@ final class UnionMember2 implements BaseModel
      * Construct an instance from the required parameters.
      *
      * You must use named parameters to construct any parameters with a default value.
+     *
+     * @param Media|MediaShape|null $media
      */
     public static function with(
-        ?string $error = null,
+        ?int $creditsUsed = null,
+        Media|array|null $media = null,
         ?string $prefixedID = null,
-        ?string $status = null
+        ?string $status = null,
     ): self {
         $self = new self;
 
-        null !== $error && $self['error'] = $error;
+        null !== $creditsUsed && $self['creditsUsed'] = $creditsUsed;
+        null !== $media && $self['media'] = $media;
         null !== $prefixedID && $self['prefixedID'] = $prefixedID;
         null !== $status && $self['status'] = $status;
 
         return $self;
     }
 
-    public function withError(string $error): self
+    public function withCreditsUsed(int $creditsUsed): self
     {
         $self = clone $this;
-        $self['error'] = $error;
+        $self['creditsUsed'] = $creditsUsed;
+
+        return $self;
+    }
+
+    /**
+     * @param Media|MediaShape $media
+     */
+    public function withMedia(Media|array $media): self
+    {
+        $self = clone $this;
+        $self['media'] = $media;
 
         return $self;
     }

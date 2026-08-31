@@ -11,6 +11,7 @@ use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember0;
 use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember1;
 use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember2;
 use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember4;
 
 /**
  * Upload still processing.
@@ -19,9 +20,10 @@ use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3;
  * @phpstan-import-type UnionMember1Shape from \OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember1
  * @phpstan-import-type UnionMember2Shape from \OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember2
  * @phpstan-import-type UnionMember3Shape from \OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3
+ * @phpstan-import-type UnionMember4Shape from \OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember4
  *
- * @phpstan-type UploadGetStatusResponseVariants = UnionMember0|UnionMember1|UnionMember2|UnionMember3
- * @phpstan-type UploadGetStatusResponseShape = UploadGetStatusResponseVariants|UnionMember0Shape|UnionMember1Shape|UnionMember2Shape|UnionMember3Shape
+ * @phpstan-type UploadGetStatusResponseVariants = UnionMember0|UnionMember1|UnionMember2|UnionMember3|UnionMember4
+ * @phpstan-type UploadGetStatusResponseShape = UploadGetStatusResponseVariants|UnionMember0Shape|UnionMember1Shape|UnionMember2Shape|UnionMember3Shape|UnionMember4Shape
  */
 final class UploadGetStatusResponse implements ConverterSource
 {
@@ -37,6 +39,7 @@ final class UploadGetStatusResponse implements ConverterSource
             UnionMember1::class,
             UnionMember2::class,
             UnionMember3::class,
+            UnionMember4::class,
         ];
     }
 }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember2\Media\Files;
+namespace OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3\Media\Files;
 
 use OnlyFansAPI\Core\Attributes\Optional;
 use OnlyFansAPI\Core\Concerns\SdkModel;

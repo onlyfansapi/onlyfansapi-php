@@ -9,6 +9,7 @@ use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember0;
 use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember1;
 use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember2;
 use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember4;
 use OnlyFansAPI\RequestOptions;
 
 /**
@@ -29,5 +30,5 @@ interface UploadsContract
         string $upload,
         string $account,
         RequestOptions|array|null $requestOptions = null,
-    ): UnionMember0|UnionMember1|UnionMember2|UnionMember3;
+    ): UnionMember0|UnionMember1|UnionMember2|UnionMember3|UnionMember4;
 }
