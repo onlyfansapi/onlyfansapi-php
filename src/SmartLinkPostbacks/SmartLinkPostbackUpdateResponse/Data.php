@@ -25,6 +25,8 @@ use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackUpdateResponse\Data\SmartLin
  *   smartLinkIDs?: list<string>|null,
  *   smartLinkScope?: string|null,
  *   smartLinks?: list<SmartLink|SmartLinkShape>|null,
+ *   trafficSourceIDs?: list<mixed>|null,
+ *   trafficSources?: list<mixed>|null,
  *   updatedAt?: string|null,
  *   url?: string|null,
  * }
@@ -68,6 +70,14 @@ final class Data implements BaseModel
     #[Optional('smart_links', list: SmartLink::class)]
     public ?array $smartLinks;
 
+    /** @var list<mixed>|null $trafficSourceIDs */
+    #[Optional('traffic_source_ids', list: 'mixed')]
+    public ?array $trafficSourceIDs;
+
+    /** @var list<mixed>|null $trafficSources */
+    #[Optional('traffic_sources', list: 'mixed')]
+    public ?array $trafficSources;
+
     #[Optional('updated_at')]
     public ?string $updatedAt;
 
@@ -88,6 +98,8 @@ final class Data implements BaseModel
      * @param list<Header|HeaderShape>|null $headers
      * @param list<string>|null $smartLinkIDs
      * @param list<SmartLink|SmartLinkShape>|null $smartLinks
+     * @param list<mixed>|null $trafficSourceIDs
+     * @param list<mixed>|null $trafficSources
      */
     public static function with(
         ?int $id = null,
@@ -100,6 +112,8 @@ final class Data implements BaseModel
         ?array $smartLinkIDs = null,
         ?string $smartLinkScope = null,
         ?array $smartLinks = null,
+        ?array $trafficSourceIDs = null,
+        ?array $trafficSources = null,
         ?string $updatedAt = null,
         ?string $url = null,
     ): self {
@@ -115,6 +129,8 @@ final class Data implements BaseModel
         null !== $smartLinkIDs && $self['smartLinkIDs'] = $smartLinkIDs;
         null !== $smartLinkScope && $self['smartLinkScope'] = $smartLinkScope;
         null !== $smartLinks && $self['smartLinks'] = $smartLinks;
+        null !== $trafficSourceIDs && $self['trafficSourceIDs'] = $trafficSourceIDs;
+        null !== $trafficSources && $self['trafficSources'] = $trafficSources;
         null !== $updatedAt && $self['updatedAt'] = $updatedAt;
         null !== $url && $self['url'] = $url;
 
@@ -209,6 +225,28 @@ final class Data implements BaseModel
     {
         $self = clone $this;
         $self['smartLinks'] = $smartLinks;
+
+        return $self;
+    }
+
+    /**
+     * @param list<mixed> $trafficSourceIDs
+     */
+    public function withTrafficSourceIDs(array $trafficSourceIDs): self
+    {
+        $self = clone $this;
+        $self['trafficSourceIDs'] = $trafficSourceIDs;
+
+        return $self;
+    }
+
+    /**
+     * @param list<mixed> $trafficSources
+     */
+    public function withTrafficSources(array $trafficSources): self
+    {
+        $self = clone $this;
+        $self['trafficSources'] = $trafficSources;
 
         return $self;
     }
