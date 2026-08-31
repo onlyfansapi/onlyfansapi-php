@@ -7,22 +7,23 @@ namespace OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3;
 use OnlyFansAPI\Core\Attributes\Optional;
 use OnlyFansAPI\Core\Concerns\SdkModel;
 use OnlyFansAPI\Core\Contracts\BaseModel;
-use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3\Media\Additional;
-use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3\Media\Thumb;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3\Media\Files;
 
 /**
- * @phpstan-import-type AdditionalShape from \OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3\Media\Additional
- * @phpstan-import-type ThumbShape from \OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3\Media\Thumb
+ * @phpstan-import-type FilesShape from \OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3\Media\Files
  *
  * @phpstan-type MediaShape = array{
- *   additional?: null|Additional|AdditionalShape,
- *   extra?: string|null,
- *   fileName?: string|null,
- *   host?: string|null,
- *   prefixedID?: string|null,
- *   processID?: string|null,
- *   sourceURL?: string|null,
- *   thumbs?: list<Thumb|ThumbShape>|null,
+ *   id?: int|null,
+ *   canView?: bool|null,
+ *   convertedToVideo?: bool|null,
+ *   createdAt?: string|null,
+ *   duration?: int|null,
+ *   files?: null|Files|FilesShape,
+ *   hasCustomPreview?: bool|null,
+ *   hasError?: bool|null,
+ *   isReady?: bool|null,
+ *   releaseForms?: list<mixed>|null,
+ *   type?: string|null,
  * }
  */
 final class Media implements BaseModel
@@ -31,29 +32,38 @@ final class Media implements BaseModel
     use SdkModel;
 
     #[Optional]
-    public ?Additional $additional;
+    public ?int $id;
 
     #[Optional]
-    public ?string $extra;
-
-    #[Optional('file_name')]
-    public ?string $fileName;
+    public ?bool $canView;
 
     #[Optional]
-    public ?string $host;
+    public ?bool $convertedToVideo;
 
-    #[Optional('prefixed_id')]
-    public ?string $prefixedID;
+    #[Optional]
+    public ?string $createdAt;
 
-    #[Optional('processId')]
-    public ?string $processID;
+    #[Optional]
+    public ?int $duration;
 
-    #[Optional('sourceUrl')]
-    public ?string $sourceURL;
+    #[Optional]
+    public ?Files $files;
 
-    /** @var list<Thumb>|null $thumbs */
-    #[Optional(list: Thumb::class)]
-    public ?array $thumbs;
+    #[Optional]
+    public ?bool $hasCustomPreview;
+
+    #[Optional]
+    public ?bool $hasError;
+
+    #[Optional]
+    public ?bool $isReady;
+
+    /** @var list<mixed>|null $releaseForms */
+    #[Optional(list: 'mixed')]
+    public ?array $releaseForms;
+
+    #[Optional]
+    public ?string $type;
 
     public function __construct()
     {
@@ -65,99 +75,129 @@ final class Media implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
-     * @param Additional|AdditionalShape|null $additional
-     * @param list<Thumb|ThumbShape>|null $thumbs
+     * @param Files|FilesShape|null $files
+     * @param list<mixed>|null $releaseForms
      */
     public static function with(
-        Additional|array|null $additional = null,
-        ?string $extra = null,
-        ?string $fileName = null,
-        ?string $host = null,
-        ?string $prefixedID = null,
-        ?string $processID = null,
-        ?string $sourceURL = null,
-        ?array $thumbs = null,
+        ?int $id = null,
+        ?bool $canView = null,
+        ?bool $convertedToVideo = null,
+        ?string $createdAt = null,
+        ?int $duration = null,
+        Files|array|null $files = null,
+        ?bool $hasCustomPreview = null,
+        ?bool $hasError = null,
+        ?bool $isReady = null,
+        ?array $releaseForms = null,
+        ?string $type = null,
     ): self {
         $self = new self;
 
-        null !== $additional && $self['additional'] = $additional;
-        null !== $extra && $self['extra'] = $extra;
-        null !== $fileName && $self['fileName'] = $fileName;
-        null !== $host && $self['host'] = $host;
-        null !== $prefixedID && $self['prefixedID'] = $prefixedID;
-        null !== $processID && $self['processID'] = $processID;
-        null !== $sourceURL && $self['sourceURL'] = $sourceURL;
-        null !== $thumbs && $self['thumbs'] = $thumbs;
+        null !== $id && $self['id'] = $id;
+        null !== $canView && $self['canView'] = $canView;
+        null !== $convertedToVideo && $self['convertedToVideo'] = $convertedToVideo;
+        null !== $createdAt && $self['createdAt'] = $createdAt;
+        null !== $duration && $self['duration'] = $duration;
+        null !== $files && $self['files'] = $files;
+        null !== $hasCustomPreview && $self['hasCustomPreview'] = $hasCustomPreview;
+        null !== $hasError && $self['hasError'] = $hasError;
+        null !== $isReady && $self['isReady'] = $isReady;
+        null !== $releaseForms && $self['releaseForms'] = $releaseForms;
+        null !== $type && $self['type'] = $type;
+
+        return $self;
+    }
+
+    public function withID(int $id): self
+    {
+        $self = clone $this;
+        $self['id'] = $id;
+
+        return $self;
+    }
+
+    public function withCanView(bool $canView): self
+    {
+        $self = clone $this;
+        $self['canView'] = $canView;
+
+        return $self;
+    }
+
+    public function withConvertedToVideo(bool $convertedToVideo): self
+    {
+        $self = clone $this;
+        $self['convertedToVideo'] = $convertedToVideo;
+
+        return $self;
+    }
+
+    public function withCreatedAt(string $createdAt): self
+    {
+        $self = clone $this;
+        $self['createdAt'] = $createdAt;
+
+        return $self;
+    }
+
+    public function withDuration(int $duration): self
+    {
+        $self = clone $this;
+        $self['duration'] = $duration;
 
         return $self;
     }
 
     /**
-     * @param Additional|AdditionalShape $additional
+     * @param Files|FilesShape $files
      */
-    public function withAdditional(Additional|array $additional): self
+    public function withFiles(Files|array $files): self
     {
         $self = clone $this;
-        $self['additional'] = $additional;
+        $self['files'] = $files;
 
         return $self;
     }
 
-    public function withExtra(string $extra): self
+    public function withHasCustomPreview(bool $hasCustomPreview): self
     {
         $self = clone $this;
-        $self['extra'] = $extra;
+        $self['hasCustomPreview'] = $hasCustomPreview;
 
         return $self;
     }
 
-    public function withFileName(string $fileName): self
+    public function withHasError(bool $hasError): self
     {
         $self = clone $this;
-        $self['fileName'] = $fileName;
+        $self['hasError'] = $hasError;
 
         return $self;
     }
 
-    public function withHost(string $host): self
+    public function withIsReady(bool $isReady): self
     {
         $self = clone $this;
-        $self['host'] = $host;
-
-        return $self;
-    }
-
-    public function withPrefixedID(string $prefixedID): self
-    {
-        $self = clone $this;
-        $self['prefixedID'] = $prefixedID;
-
-        return $self;
-    }
-
-    public function withProcessID(string $processID): self
-    {
-        $self = clone $this;
-        $self['processID'] = $processID;
-
-        return $self;
-    }
-
-    public function withSourceURL(string $sourceURL): self
-    {
-        $self = clone $this;
-        $self['sourceURL'] = $sourceURL;
+        $self['isReady'] = $isReady;
 
         return $self;
     }
 
     /**
-     * @param list<Thumb|ThumbShape> $thumbs
+     * @param list<mixed> $releaseForms
      */
-    public function withThumbs(array $thumbs): self
+    public function withReleaseForms(array $releaseForms): self
     {
         $self = clone $this;
-        $self['thumbs'] = $thumbs;
+        $self['releaseForms'] = $releaseForms;
+
+        return $self;
+    }
+
+    public function withType(string $type): self
+    {
+        $self = clone $this;
+        $self['type'] = $type;
 
         return $self;
     }

@@ -10,7 +10,7 @@ use OnlyFansAPI\Core\Contracts\BaseModel;
 use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3\Media;
 
 /**
- * Completed POST /media/upload upload.
+ * Completed POST /media/vault upload.
  *
  * @phpstan-import-type MediaShape from \OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3\Media
  *
