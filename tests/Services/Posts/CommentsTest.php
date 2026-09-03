@@ -42,7 +42,7 @@ final class CommentsTest extends TestCase
         }
 
         $result = $this->client->posts->comments->create(
-            'eligendi',
+            'autem',
             account: 'acct_XXXXXXXXXXXXXXX',
             text: 'This is a comment.'
         );
@@ -59,7 +59,7 @@ final class CommentsTest extends TestCase
         }
 
         $result = $this->client->posts->comments->create(
-            'eligendi',
+            'autem',
             account: 'acct_XXXXXXXXXXXXXXX',
             text: 'This is a comment.',
             answerTo: 123,
@@ -78,7 +78,7 @@ final class CommentsTest extends TestCase
         }
 
         $result = $this->client->posts->comments->list(
-            'eligendi',
+            'autem',
             account: 'acct_XXXXXXXXXXXXXXX'
         );
 
@@ -94,7 +94,7 @@ final class CommentsTest extends TestCase
         }
 
         $result = $this->client->posts->comments->list(
-            'eligendi',
+            'autem',
             account: 'acct_XXXXXXXXXXXXXXX',
             limit: 10,
             offset: 0,
