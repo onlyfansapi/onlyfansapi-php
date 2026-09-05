@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Me;
+namespace OnlyFansAPI\Me;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Me\MeGetModelStartDateResponse\_Meta;
-use Onlyfansapi\Me\MeGetModelStartDateResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Me\MeGetModelStartDateResponse\_Meta;
+use OnlyFansAPI\Me\MeGetModelStartDateResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Me\MeGetModelStartDateResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Me\MeGetModelStartDateResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Me\MeGetModelStartDateResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Me\MeGetModelStartDateResponse\Data
  *
  * @phpstan-type MeGetModelStartDateResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

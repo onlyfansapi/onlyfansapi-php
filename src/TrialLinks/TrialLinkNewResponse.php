@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrialLinks;
+namespace OnlyFansAPI\TrialLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrialLinks\TrialLinkNewResponse\_Meta;
-use Onlyfansapi\TrialLinks\TrialLinkNewResponse\_Pagination;
-use Onlyfansapi\TrialLinks\TrialLinkNewResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\TrialLinks\TrialLinkNewResponse\_Meta;
+use OnlyFansAPI\TrialLinks\TrialLinkNewResponse\_Pagination;
+use OnlyFansAPI\TrialLinks\TrialLinkNewResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\TrialLinks\TrialLinkNewResponse\_Meta
- * @phpstan-import-type _PaginationShape from \Onlyfansapi\TrialLinks\TrialLinkNewResponse\_Pagination
- * @phpstan-import-type DataShape from \Onlyfansapi\TrialLinks\TrialLinkNewResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\TrialLinks\TrialLinkNewResponse\_Meta
+ * @phpstan-import-type _PaginationShape from \OnlyFansAPI\TrialLinks\TrialLinkNewResponse\_Pagination
+ * @phpstan-import-type DataShape from \OnlyFansAPI\TrialLinks\TrialLinkNewResponse\Data
  *
  * @phpstan-type TrialLinkNewResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape,

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrialLinks\TrialLinkCreateParams;
+namespace OnlyFansAPI\TrialLinks\TrialLinkCreateParams;
 
 /**
  * How many people can use this offer. Must either be **0** (for no limit), or a number between **1**-**10**, **50**, or **100**.

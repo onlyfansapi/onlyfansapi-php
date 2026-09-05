@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats;
+namespace OnlyFansAPI\Chats;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * Calling this endpoint will show the target fan a "Model is typing..." note in the chat for ~4 seconds. If you want to continue showing the indicator call this endpoint multiple times. Free - no credits charged.
+ * Calling this endpoint will show the target fan a "Model is typing..." note in the chat for ~4 seconds. Duplicate calls for the same account and chat are coalesced during that window.
  *
- * @see Onlyfansapi\Services\ChatsService::startTyping()
+ * @see OnlyFansAPI\Services\ChatsService::startTyping()
  *
  * @phpstan-type ChatStartTypingParamsShape = array{account: string}
  */

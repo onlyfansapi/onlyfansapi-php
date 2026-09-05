@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ReleaseForms;
+namespace OnlyFansAPI\ReleaseForms;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersParams\Filter;
-use Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersParams\Sort;
-use Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersParams\SortDirection;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersParams\Filter;
+use OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersParams\Sort;
+use OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersParams\SortDirection;
 
 /**
- * Get a paginated list of users that can be tagged in release forms. These are verified creators who have signed release forms to appear in your content. Use `offset` and `limit` for pagination.
+ * Get a paginated list of users that can be tagged in release forms. These are verified creators who have signed release forms to appear in your content. Use `offset` and `limit` for pagination, following `_pagination.next_page` until it is `null`.
  *
- * @see Onlyfansapi\Services\ReleaseFormsService::listTaggableUsers()
+ * @see OnlyFansAPI\Services\ReleaseFormsService::listTaggableUsers()
  *
  * @phpstan-type ReleaseFormListTaggableUsersParamsShape = array{
  *   filter?: null|Filter|value-of<Filter>,

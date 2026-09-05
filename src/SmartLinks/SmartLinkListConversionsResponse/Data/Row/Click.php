@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinks\SmartLinkListConversionsResponse\Data\Row;
+namespace OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse\Data\Row;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * @phpstan-type ClickShape = array{
@@ -24,12 +24,14 @@ use Onlyfansapi\Core\Contracts\BaseModel;
  *   createdAt?: string|null,
  *   externalClickID?: string|null,
  *   fbclid?: string|null,
+ *   gbraid?: string|null,
  *   gclid?: string|null,
  *   grossClicks?: int|null,
  *   ipAddress?: string|null,
  *   isBot?: bool|null,
  *   isDuplicate?: bool|null,
  *   referrer?: string|null,
+ *   sccid?: string|null,
  *   ttclid?: string|null,
  *   userAgent?: string|null,
  *   utmCampaign?: string|null,
@@ -37,6 +39,7 @@ use Onlyfansapi\Core\Contracts\BaseModel;
  *   utmMedium?: string|null,
  *   utmSource?: string|null,
  *   utmTerm?: string|null,
+ *   wbraid?: string|null,
  * }
  */
 final class Click implements BaseModel
@@ -86,6 +89,9 @@ final class Click implements BaseModel
     #[Optional(nullable: true)]
     public ?string $fbclid;
 
+    #[Optional(nullable: true)]
+    public ?string $gbraid;
+
     #[Optional]
     public ?string $gclid;
 
@@ -103,6 +109,9 @@ final class Click implements BaseModel
 
     #[Optional]
     public ?string $referrer;
+
+    #[Optional(nullable: true)]
+    public ?string $sccid;
 
     #[Optional]
     public ?string $ttclid;
@@ -124,6 +133,9 @@ final class Click implements BaseModel
 
     #[Optional('utm_term')]
     public ?string $utmTerm;
+
+    #[Optional(nullable: true)]
+    public ?string $wbraid;
 
     public function __construct()
     {
@@ -150,12 +162,14 @@ final class Click implements BaseModel
         ?string $createdAt = null,
         ?string $externalClickID = null,
         ?string $fbclid = null,
+        ?string $gbraid = null,
         ?string $gclid = null,
         ?int $grossClicks = null,
         ?string $ipAddress = null,
         ?bool $isBot = null,
         ?bool $isDuplicate = null,
         ?string $referrer = null,
+        ?string $sccid = null,
         ?string $ttclid = null,
         ?string $userAgent = null,
         ?string $utmCampaign = null,
@@ -163,6 +177,7 @@ final class Click implements BaseModel
         ?string $utmMedium = null,
         ?string $utmSource = null,
         ?string $utmTerm = null,
+        ?string $wbraid = null,
     ): self {
         $self = new self;
 
@@ -180,12 +195,14 @@ final class Click implements BaseModel
         null !== $createdAt && $self['createdAt'] = $createdAt;
         null !== $externalClickID && $self['externalClickID'] = $externalClickID;
         null !== $fbclid && $self['fbclid'] = $fbclid;
+        null !== $gbraid && $self['gbraid'] = $gbraid;
         null !== $gclid && $self['gclid'] = $gclid;
         null !== $grossClicks && $self['grossClicks'] = $grossClicks;
         null !== $ipAddress && $self['ipAddress'] = $ipAddress;
         null !== $isBot && $self['isBot'] = $isBot;
         null !== $isDuplicate && $self['isDuplicate'] = $isDuplicate;
         null !== $referrer && $self['referrer'] = $referrer;
+        null !== $sccid && $self['sccid'] = $sccid;
         null !== $ttclid && $self['ttclid'] = $ttclid;
         null !== $userAgent && $self['userAgent'] = $userAgent;
         null !== $utmCampaign && $self['utmCampaign'] = $utmCampaign;
@@ -193,6 +210,7 @@ final class Click implements BaseModel
         null !== $utmMedium && $self['utmMedium'] = $utmMedium;
         null !== $utmSource && $self['utmSource'] = $utmSource;
         null !== $utmTerm && $self['utmTerm'] = $utmTerm;
+        null !== $wbraid && $self['wbraid'] = $wbraid;
 
         return $self;
     }
@@ -309,6 +327,14 @@ final class Click implements BaseModel
         return $self;
     }
 
+    public function withGbraid(?string $gbraid): self
+    {
+        $self = clone $this;
+        $self['gbraid'] = $gbraid;
+
+        return $self;
+    }
+
     public function withGclid(string $gclid): self
     {
         $self = clone $this;
@@ -353,6 +379,14 @@ final class Click implements BaseModel
     {
         $self = clone $this;
         $self['referrer'] = $referrer;
+
+        return $self;
+    }
+
+    public function withSccid(?string $sccid): self
+    {
+        $self = clone $this;
+        $self['sccid'] = $sccid;
 
         return $self;
     }
@@ -409,6 +443,14 @@ final class Click implements BaseModel
     {
         $self = clone $this;
         $self['utmTerm'] = $utmTerm;
+
+        return $self;
+    }
+
+    public function withWbraid(?string $wbraid): self
+    {
+        $self = clone $this;
+        $self['wbraid'] = $wbraid;
 
         return $self;
     }

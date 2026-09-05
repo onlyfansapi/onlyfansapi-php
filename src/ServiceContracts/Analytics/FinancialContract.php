@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Analytics;
+namespace OnlyFansAPI\ServiceContracts\Analytics;
 
-use Onlyfansapi\Analytics\Financial\FinancialGetForecastParams\Metric;
-use Onlyfansapi\Analytics\Financial\FinancialGetForecastParams\Model;
-use Onlyfansapi\Analytics\Financial\FinancialGetForecastResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Analytics\Financial\FinancialGetForecastParams\Metric;
+use OnlyFansAPI\Analytics\Financial\FinancialGetForecastParams\Model;
+use OnlyFansAPI\Analytics\Financial\FinancialGetForecastResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface FinancialContract
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Notifications\NotificationListParams;
+namespace OnlyFansAPI\Notifications\NotificationListParams;
 
 /**
- * Whether to skip user details. Default `all`.
+ * Whether to skip user details. Defaults to `all`.
  */
 enum SkipUsers: string
 {

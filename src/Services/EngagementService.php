@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\ServiceContracts\EngagementContract;
-use Onlyfansapi\Services\Engagement\MessagesService;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\ServiceContracts\EngagementContract;
+use OnlyFansAPI\Services\Engagement\MessagesService;
 
 final class EngagementService implements EngagementContract
 {

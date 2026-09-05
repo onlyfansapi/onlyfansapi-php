@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Settings\SocialMediaButtons;
+namespace OnlyFansAPI\Settings\SocialMediaButtons;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Updates a social media button from the account.
  *
- * @see Onlyfansapi\Services\Settings\SocialMediaButtonsService::update()
+ * @see OnlyFansAPI\Services\Settings\SocialMediaButtonsService::update()
  *
  * @phpstan-type SocialMediaButtonUpdateParamsShape = array{
  *   account: string, label: string

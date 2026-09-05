@@ -2,21 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics;
+namespace OnlyFansAPI\Statistics;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Statistics\StatisticGetSubscriberMetricsParams\DetailedType;
 
 /**
  * Get subscriber metrics including total, new, renewed, paid, and free subscriptions for a specified timeframe. `unknown_subscriptions` indicates deleted fan accounts.
  *
- * @see Onlyfansapi\Services\StatisticsService::getSubscriberMetrics()
+ * @see OnlyFansAPI\Services\StatisticsService::getSubscriberMetrics()
  *
  * @phpstan-type StatisticGetSubscriberMetricsParamsShape = array{
- *   endDate: string, startDate: string, detailed?: bool|null
+ *   endDate: string,
+ *   startDate: string,
+ *   detailed?: bool|null,
+ *   detailedType?: null|DetailedType|value-of<DetailedType>,
  * }
  */
 final class StatisticGetSubscriberMetricsParams implements BaseModel
@@ -44,6 +48,14 @@ final class StatisticGetSubscriberMetricsParams implements BaseModel
     public ?bool $detailed;
 
     /**
+     * Use only with `detailed=true` - otherwise, it has no effect. Filter the subscriber statistics (default = total).
+     *
+     * @var value-of<DetailedType>|null $detailedType
+     */
+    #[Optional(enum: DetailedType::class, nullable: true)]
+    public ?string $detailedType;
+
+    /**
      * `new StatisticGetSubscriberMetricsParams()` is missing required properties by the API.
      *
      * To enforce required parameters use
@@ -66,11 +78,14 @@ final class StatisticGetSubscriberMetricsParams implements BaseModel
      * Construct an instance from the required parameters.
      *
      * You must use named parameters to construct any parameters with a default value.
+     *
+     * @param DetailedType|value-of<DetailedType>|null $detailedType
      */
     public static function with(
         string $endDate,
         string $startDate,
-        ?bool $detailed = null
+        ?bool $detailed = null,
+        DetailedType|string|null $detailedType = null,
     ): self {
         $self = new self;
 
@@ -78,6 +93,7 @@ final class StatisticGetSubscriberMetricsParams implements BaseModel
         $self['startDate'] = $startDate;
 
         null !== $detailed && $self['detailed'] = $detailed;
+        null !== $detailedType && $self['detailedType'] = $detailedType;
 
         return $self;
     }
@@ -111,6 +127,20 @@ final class StatisticGetSubscriberMetricsParams implements BaseModel
     {
         $self = clone $this;
         $self['detailed'] = $detailed;
+
+        return $self;
+    }
+
+    /**
+     * Use only with `detailed=true` - otherwise, it has no effect. Filter the subscriber statistics (default = total).
+     *
+     * @param DetailedType|value-of<DetailedType>|null $detailedType
+     */
+    public function withDetailedType(
+        DetailedType|string|null $detailedType
+    ): self {
+        $self = clone $this;
+        $self['detailedType'] = $detailedType;
 
         return $self;
     }

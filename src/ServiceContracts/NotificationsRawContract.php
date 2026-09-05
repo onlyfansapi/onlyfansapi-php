@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Notifications\NotificationGetCountsResponse;
-use Onlyfansapi\Notifications\NotificationListParams;
-use Onlyfansapi\Notifications\NotificationListResponse;
-use Onlyfansapi\Notifications\NotificationMarkAllAsReadResponse;
-use Onlyfansapi\Notifications\NotificationSearchUsersParams;
-use Onlyfansapi\Notifications\NotificationSearchUsersResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Notifications\NotificationGetCountsResponse;
+use OnlyFansAPI\Notifications\NotificationListParams;
+use OnlyFansAPI\Notifications\NotificationListResponse;
+use OnlyFansAPI\Notifications\NotificationMarkAllAsReadResponse;
+use OnlyFansAPI\Notifications\NotificationSearchUsersParams;
+use OnlyFansAPI\Notifications\NotificationSearchUsersResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface NotificationsRawContract
 {

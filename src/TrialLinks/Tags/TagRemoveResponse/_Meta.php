@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrialLinks\Tags\TagRemoveResponse;
+namespace OnlyFansAPI\TrialLinks\Tags\TagRemoveResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrialLinks\Tags\TagRemoveResponse\_Meta\_Cache;
-use Onlyfansapi\TrialLinks\Tags\TagRemoveResponse\_Meta\_Credits;
-use Onlyfansapi\TrialLinks\Tags\TagRemoveResponse\_Meta\_RateLimits;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\TrialLinks\Tags\TagRemoveResponse\_Meta\_Cache;
+use OnlyFansAPI\TrialLinks\Tags\TagRemoveResponse\_Meta\_Credits;
+use OnlyFansAPI\TrialLinks\Tags\TagRemoveResponse\_Meta\_RateLimits;
 
 /**
- * @phpstan-import-type _CacheShape from \Onlyfansapi\TrialLinks\Tags\TagRemoveResponse\_Meta\_Cache
- * @phpstan-import-type _CreditsShape from \Onlyfansapi\TrialLinks\Tags\TagRemoveResponse\_Meta\_Credits
- * @phpstan-import-type _RateLimitsShape from \Onlyfansapi\TrialLinks\Tags\TagRemoveResponse\_Meta\_RateLimits
+ * @phpstan-import-type _CacheShape from \OnlyFansAPI\TrialLinks\Tags\TagRemoveResponse\_Meta\_Cache
+ * @phpstan-import-type _CreditsShape from \OnlyFansAPI\TrialLinks\Tags\TagRemoveResponse\_Meta\_Credits
+ * @phpstan-import-type _RateLimitsShape from \OnlyFansAPI\TrialLinks\Tags\TagRemoveResponse\_Meta\_RateLimits
  *
  * @phpstan-type _MetaShape = array{
  *   _cache?: null|_Cache|_CacheShape,

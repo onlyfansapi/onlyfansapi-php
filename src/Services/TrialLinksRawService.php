@@ -2,39 +2,39 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\TrialLinksRawContract;
-use Onlyfansapi\TrialLinks\TrialLinkCreateParams;
-use Onlyfansapi\TrialLinks\TrialLinkCreateParams\Duration;
-use Onlyfansapi\TrialLinks\TrialLinkCreateParams\OfferLimit;
-use Onlyfansapi\TrialLinks\TrialLinkDeleteParams;
-use Onlyfansapi\TrialLinks\TrialLinkDeleteResponse;
-use Onlyfansapi\TrialLinks\TrialLinkGetResponse;
-use Onlyfansapi\TrialLinks\TrialLinkGetStatsResponse;
-use Onlyfansapi\TrialLinks\TrialLinkListParams;
-use Onlyfansapi\TrialLinks\TrialLinkListParams\Field;
-use Onlyfansapi\TrialLinks\TrialLinkListParams\Sort;
-use Onlyfansapi\TrialLinks\TrialLinkListResponse;
-use Onlyfansapi\TrialLinks\TrialLinkListSpendersParams;
-use Onlyfansapi\TrialLinks\TrialLinkListSpendersResponse;
-use Onlyfansapi\TrialLinks\TrialLinkListSubscribersParams;
-use Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse;
-use Onlyfansapi\TrialLinks\TrialLinkNewResponse;
-use Onlyfansapi\TrialLinks\TrialLinkRetrieveCohortArpsParams;
-use Onlyfansapi\TrialLinks\TrialLinkRetrieveCohortArpsParams\RevenueBasis;
-use Onlyfansapi\TrialLinks\TrialLinkRetrieveParams;
-use Onlyfansapi\TrialLinks\TrialLinkRetrieveStatsParams;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\TrialLinksRawContract;
+use OnlyFansAPI\TrialLinks\TrialLinkCreateParams;
+use OnlyFansAPI\TrialLinks\TrialLinkCreateParams\Duration;
+use OnlyFansAPI\TrialLinks\TrialLinkCreateParams\OfferLimit;
+use OnlyFansAPI\TrialLinks\TrialLinkDeleteParams;
+use OnlyFansAPI\TrialLinks\TrialLinkDeleteResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkGetResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkGetStatsResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkListParams;
+use OnlyFansAPI\TrialLinks\TrialLinkListParams\Field;
+use OnlyFansAPI\TrialLinks\TrialLinkListParams\Sort;
+use OnlyFansAPI\TrialLinks\TrialLinkListResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkListSpendersParams;
+use OnlyFansAPI\TrialLinks\TrialLinkListSpendersResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkListSubscribersParams;
+use OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkNewResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkRetrieveCohortArpsParams;
+use OnlyFansAPI\TrialLinks\TrialLinkRetrieveCohortArpsParams\RevenueBasis;
+use OnlyFansAPI\TrialLinks\TrialLinkRetrieveParams;
+use OnlyFansAPI\TrialLinks\TrialLinkRetrieveStatsParams;
 
 /**
  * APIs for managing Free Trial Links.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class TrialLinksRawService implements TrialLinksRawContract
 {
@@ -124,11 +124,13 @@ final class TrialLinksRawService implements TrialLinksRawContract
      *
      * @param string $account The Account ID
      * @param array{
-     *   limit: int,
-     *   offset: int,
-     *   field?: Field|value-of<Field>|null,
-     *   sort?: Sort|value-of<Sort>|null,
-     *   synchronous?: bool|null,
+     *   endDate?: string|null,
+     *   field?: Field|value-of<Field>,
+     *   limit?: int,
+     *   offset?: int,
+     *   sort?: Sort|value-of<Sort>,
+     *   startDate?: string|null,
+     *   synchronous?: bool,
      * }|TrialLinkListParams $params
      * @param RequestOpts|null $requestOptions
      *

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chargebacks\ChargebackListResponse;
+namespace OnlyFansAPI\Chargebacks\ChargebackListResponse;
 
-use Onlyfansapi\Chargebacks\ChargebackListResponse\Data\List_;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chargebacks\ChargebackListResponse\Data\List_;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type ListShape from \Onlyfansapi\Chargebacks\ChargebackListResponse\Data\List_
+ * @phpstan-import-type ListShape from \OnlyFansAPI\Chargebacks\ChargebackListResponse\Data\List_
  *
  * @phpstan-type DataShape = array{
  *   list?: list<List_|ListShape>|null, marker?: int|null

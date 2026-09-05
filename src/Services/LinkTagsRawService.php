@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\LinkTags\LinkTagListParams;
-use Onlyfansapi\LinkTags\LinkTagListParams\Type;
-use Onlyfansapi\LinkTags\LinkTagListResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\LinkTagsRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\LinkTags\LinkTagListParams;
+use OnlyFansAPI\LinkTags\LinkTagListParams\Type;
+use OnlyFansAPI\LinkTags\LinkTagListResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\LinkTagsRawContract;
 
 /**
- * APIs for managing tags on free trial links and tracking links.
+ * APIs for managing tags on free trial links, tracking links, and Smart Links.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class LinkTagsRawService implements LinkTagsRawContract
 {
@@ -29,7 +29,7 @@ final class LinkTagsRawService implements LinkTagsRawContract
     /**
      * @api
      *
-     * Get all existing tags that have been used on free trial links and/or tracking links for this account. This is a free endpoint.
+     * Get all existing tags that have been used on free trial links, tracking links, and/or Smart Links for this account. This is a free endpoint.
      *
      * @param array{type?: Type|value-of<Type>}|LinkTagListParams $params
      * @param RequestOpts|null $requestOptions

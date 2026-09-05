@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrackingLinks;
+namespace OnlyFansAPI\TrackingLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Create a new Tracking Link for the account.
  *
- * @see Onlyfansapi\Services\TrackingLinksService::create()
+ * @see OnlyFansAPI\Services\TrackingLinksService::create()
  *
  * @phpstan-type TrackingLinkCreateParamsShape = array{
  *   name: string, tags?: list<string>|null

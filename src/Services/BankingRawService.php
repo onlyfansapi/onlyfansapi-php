@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Banking\BankingListAvailablePayoutSystemsResponse;
-use Onlyfansapi\Banking\BankingListCountriesResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\BankingRawContract;
+use OnlyFansAPI\Banking\BankingListAvailablePayoutSystemsResponse;
+use OnlyFansAPI\Banking\BankingListCountriesResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\BankingRawContract;
 
 /**
  * Operations related to user banking details, payout methods, legal and tax information, and account country settings.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class BankingRawService implements BankingRawContract
 {

@@ -2,40 +2,42 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\SmartLinksRawContract;
-use Onlyfansapi\SmartLinks\SmartLinkCreateParams;
-use Onlyfansapi\SmartLinks\SmartLinkCreateParams\LinkType;
-use Onlyfansapi\SmartLinks\SmartLinkDeleteResponse;
-use Onlyfansapi\SmartLinks\SmartLinkGetResponse;
-use Onlyfansapi\SmartLinks\SmartLinkGetStatsResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListClicksParams;
-use Onlyfansapi\SmartLinks\SmartLinkListClicksResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListConversionsParams;
-use Onlyfansapi\SmartLinks\SmartLinkListConversionsParams\ConversionType;
-use Onlyfansapi\SmartLinks\SmartLinkListConversionsResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListFansParams;
-use Onlyfansapi\SmartLinks\SmartLinkListFansParams\Sort;
-use Onlyfansapi\SmartLinks\SmartLinkListFansResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListParams;
-use Onlyfansapi\SmartLinks\SmartLinkListResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListSpendersParams;
-use Onlyfansapi\SmartLinks\SmartLinkListSpendersResponse;
-use Onlyfansapi\SmartLinks\SmartLinkNewResponse;
-use Onlyfansapi\SmartLinks\SmartLinkRetrieveCohortArpsParams;
-use Onlyfansapi\SmartLinks\SmartLinkRetrieveCohortArpsParams\RevenueBasis;
-use Onlyfansapi\SmartLinks\SmartLinkRetrieveStatsParams;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\SmartLinksRawContract;
+use OnlyFansAPI\SmartLinks\SmartLinkCreateParams;
+use OnlyFansAPI\SmartLinks\SmartLinkCreateParams\LinkType;
+use OnlyFansAPI\SmartLinks\SmartLinkDeleteResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkGetResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkGetStatsResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListClicksParams;
+use OnlyFansAPI\SmartLinks\SmartLinkListClicksResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListConversionsParams;
+use OnlyFansAPI\SmartLinks\SmartLinkListConversionsParams\ConversionType;
+use OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListFansParams;
+use OnlyFansAPI\SmartLinks\SmartLinkListFansParams\Sort;
+use OnlyFansAPI\SmartLinks\SmartLinkListFansResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListParams;
+use OnlyFansAPI\SmartLinks\SmartLinkListParams\Filter;
+use OnlyFansAPI\SmartLinks\SmartLinkListResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListSpendersParams;
+use OnlyFansAPI\SmartLinks\SmartLinkListSpendersResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkNewResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkRetrieveCohortArpsParams;
+use OnlyFansAPI\SmartLinks\SmartLinkRetrieveCohortArpsParams\RevenueBasis;
+use OnlyFansAPI\SmartLinks\SmartLinkRetrieveStatsParams;
 
 /**
  * APIs for managing Smart Links (Free Trial Links and Tracking Links with pooled inventory).
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\SmartLinks\SmartLinkListParams\Filter
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class SmartLinksRawService implements SmartLinksRawContract
 {
@@ -113,10 +115,11 @@ final class SmartLinksRawService implements SmartLinksRawContract
      *
      * @param array{
      *   accountIDs?: string|null,
+     *   filter?: Filter|FilterShape,
      *   limit?: int,
-     *   metaPixelIDs?: string|null,
      *   name?: string|null,
      *   offset?: int,
+     *   pixelIDs?: string|null,
      * }|SmartLinkListParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -139,7 +142,7 @@ final class SmartLinksRawService implements SmartLinksRawContract
             path: 'api/smart-links',
             query: Util::array_transform_keys(
                 $parsed,
-                ['accountIDs' => 'account_ids', 'metaPixelIDs' => 'meta_pixel_ids'],
+                ['accountIDs' => 'account_ids', 'pixelIDs' => 'pixel_ids']
             ),
             options: $options,
             convert: SmartLinkListResponse::class,
@@ -226,7 +229,7 @@ final class SmartLinksRawService implements SmartLinksRawContract
      *
      * @param string $smartLinkID the ID of the smart link
      * @param array{
-     *   conversionType?: ConversionType|value-of<ConversionType>,
+     *   conversionType?: value-of<ConversionType>,
      *   dateEnd?: string,
      *   dateStart?: string,
      *   includeBots?: bool,
@@ -284,7 +287,9 @@ final class SmartLinksRawService implements SmartLinksRawContract
      *   minRevenueNet?: float,
      *   minTipsNet?: float,
      *   offset?: int,
+     *   previouslySubscribed?: bool,
      *   sort?: value-of<Sort>,
+     *   subscribedUsingPromo?: bool,
      * }|SmartLinkListFansParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -313,6 +318,8 @@ final class SmartLinksRawService implements SmartLinksRawContract
                     'minMessagesSentByFan' => 'min_messages_sent_by_fan',
                     'minRevenueNet' => 'min_revenue_net',
                     'minTipsNet' => 'min_tips_net',
+                    'previouslySubscribed' => 'previously_subscribed',
+                    'subscribedUsingPromo' => 'subscribed_using_promo',
                 ],
             ),
             options: $options,

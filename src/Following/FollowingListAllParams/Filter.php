@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Following\FollowingListAllParams;
+namespace OnlyFansAPI\Following\FollowingListAllParams;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Following\FollowingListAllParams\Filter\Online;
-use Onlyfansapi\Following\FollowingListAllParams\Filter\Paid;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Following\FollowingListAllParams\Filter\Online;
+use OnlyFansAPI\Following\FollowingListAllParams\Filter\Paid;
 
 /**
  * @phpstan-type FilterShape = array{

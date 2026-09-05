@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Core\Concerns;
+namespace OnlyFansAPI\Core\Concerns;
 
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Core\Conversion;
-use Onlyfansapi\Core\Conversion\CoerceState;
-use Onlyfansapi\Core\Conversion\Contracts\Converter;
-use Onlyfansapi\Core\Conversion\ModelOf;
-use Onlyfansapi\Core\Util;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Conversion;
+use OnlyFansAPI\Core\Conversion\CoerceState;
+use OnlyFansAPI\Core\Conversion\Contracts\Converter;
+use OnlyFansAPI\Core\Conversion\ModelOf;
+use OnlyFansAPI\Core\Util;
 
 /**
  * @internal
@@ -95,6 +95,26 @@ trait SdkModel
         // Return null to match user's expectations.
         // @phpstan-ignore-next-line return.type
         return null;
+    }
+
+    /**
+     * @internal
+     *
+     * Like {@link __unserialize()}, but for raw API payloads, whose keys are
+     * API property names rather than PHP property names
+     *
+     * @param array<string, mixed> $data
+     */
+    public function unserializeFromApiPayload(array $data): void
+    {
+        foreach (self::$converter->properties as $name => $info) {
+            if ($name !== $info->apiName && array_key_exists($info->apiName, array: $data)) {
+                $data[$name] = $data[$info->apiName];
+                unset($data[$info->apiName]);
+            }
+        }
+
+        $this->__unserialize($data);
     }
 
     /**

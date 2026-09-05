@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics;
+namespace OnlyFansAPI\Statistics;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Calculate the total transactions and amounts.
  *
- * @see Onlyfansapi\Services\StatisticsService::calculateTotalTransactions()
+ * @see OnlyFansAPI\Services\StatisticsService::calculateTotalTransactions()
  *
  * @phpstan-type StatisticCalculateTotalTransactionsParamsShape = array{
- *   endDate: string, startDate: string
+ *   endDate?: string|null, startDate?: string|null
  * }
  */
 final class StatisticCalculateTotalTransactionsParams implements BaseModel
@@ -27,31 +27,15 @@ final class StatisticCalculateTotalTransactionsParams implements BaseModel
     /**
      * The end date for the period. Keep empty to calculate everything.
      */
-    #[Required]
-    public string $endDate;
+    #[Optional]
+    public ?string $endDate;
 
     /**
      * The start date for the period. Keep empty to calculate everything.
      */
-    #[Required]
-    public string $startDate;
+    #[Optional]
+    public ?string $startDate;
 
-    /**
-     * `new StatisticCalculateTotalTransactionsParams()` is missing required properties by the API.
-     *
-     * To enforce required parameters use
-     * ```
-     * StatisticCalculateTotalTransactionsParams::with(endDate: ..., startDate: ...)
-     * ```
-     *
-     * Otherwise ensure the following setters are called
-     *
-     * ```
-     * (new StatisticCalculateTotalTransactionsParams)
-     *   ->withEndDate(...)
-     *   ->withStartDate(...)
-     * ```
-     */
     public function __construct()
     {
         $this->initialize();
@@ -62,12 +46,14 @@ final class StatisticCalculateTotalTransactionsParams implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      */
-    public static function with(string $endDate, string $startDate): self
-    {
+    public static function with(
+        ?string $endDate = null,
+        ?string $startDate = null
+    ): self {
         $self = new self;
 
-        $self['endDate'] = $endDate;
-        $self['startDate'] = $startDate;
+        null !== $endDate && $self['endDate'] = $endDate;
+        null !== $startDate && $self['startDate'] = $startDate;
 
         return $self;
     }

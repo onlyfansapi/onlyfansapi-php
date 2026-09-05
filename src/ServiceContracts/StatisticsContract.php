@@ -2,17 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Statistics\StatisticCalculateTotalTransactionsResponse;
-use Onlyfansapi\Statistics\StatisticGetOverviewParams\Type;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse;
-use Onlyfansapi\Statistics\StatisticGetSubscriberMetricsResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Statistics\StatisticCalculateTotalTransactionsResponse;
+use OnlyFansAPI\Statistics\StatisticGetOverviewParams\Type;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse;
+use OnlyFansAPI\Statistics\StatisticGetSubscriberMetricsParams\DetailedType;
+use OnlyFansAPI\Statistics\StatisticGetSubscriberMetricsResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface StatisticsContract
 {
@@ -28,8 +29,8 @@ interface StatisticsContract
      */
     public function calculateTotalTransactions(
         string $account,
-        string $endDate,
-        string $startDate,
+        ?string $endDate = null,
+        ?string $startDate = null,
         RequestOptions|array|null $requestOptions = null,
     ): StatisticCalculateTotalTransactionsResponse;
 
@@ -59,6 +60,7 @@ interface StatisticsContract
      * @param string $endDate the end date for the metrics
      * @param string $startDate the start date for the metrics
      * @param bool|null $detailed Include paid and free fan metrics. Will slow down the response time, and might time out if timeframe is too large. Default = `false`
+     * @param DetailedType|value-of<DetailedType>|null $detailedType Use only with `detailed=true` - otherwise, it has no effect. Filter the subscriber statistics (default = total)
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -68,6 +70,7 @@ interface StatisticsContract
         string $endDate,
         string $startDate,
         ?bool $detailed = null,
+        DetailedType|string|null $detailedType = null,
         RequestOptions|array|null $requestOptions = null,
     ): StatisticGetSubscriberMetricsResponse;
 }

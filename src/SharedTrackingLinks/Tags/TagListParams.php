@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SharedTrackingLinks\Tags;
+namespace OnlyFansAPI\SharedTrackingLinks\Tags;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get tags for a specific shared Tracking Link. Tag namespace is shared with owned Tracking Links. This is a free endpoint.
  *
- * @see Onlyfansapi\Services\SharedTrackingLinks\TagsService::list()
+ * @see OnlyFansAPI\Services\SharedTrackingLinks\TagsService::list()
  *
  * @phpstan-type TagListParamsShape = array{account: string}
  */

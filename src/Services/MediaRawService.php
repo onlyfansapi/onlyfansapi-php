@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\FileParam;
-use Onlyfansapi\Media\MediaDownloadParams;
-use Onlyfansapi\Media\MediaScrapeParams;
-use Onlyfansapi\Media\MediaScrapeParams\FileType;
-use Onlyfansapi\Media\MediaScrapeResponse;
-use Onlyfansapi\Media\MediaUploadParams;
-use Onlyfansapi\Media\MediaUploadParams\Type;
-use Onlyfansapi\Media\MediaUploadResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\MediaRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\FileParam;
+use OnlyFansAPI\Media\MediaDownloadParams;
+use OnlyFansAPI\Media\MediaScrapeParams;
+use OnlyFansAPI\Media\MediaScrapeParams\FileType;
+use OnlyFansAPI\Media\MediaScrapeResponse;
+use OnlyFansAPI\Media\MediaUploadParams;
+use OnlyFansAPI\Media\MediaUploadParams\Type;
+use OnlyFansAPI\Media\MediaUploadResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\MediaRawContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class MediaRawService implements MediaRawContract
 {
@@ -32,13 +32,13 @@ final class MediaRawService implements MediaRawContract
     /**
      * @api
      *
-     * Downloads a file directly from a `https://cdn*.onlyfans.com/*` URL. When the file is already cached on our CDN, this endpoint returns a `302` redirect to a `https://cdn.fansapi.com/*` URL. Most HTTP clients follow redirects automatically (`curl` requires `-L`). Otherwise, the file is streamed through our proxies and queued for caching.
+     * Downloads a file directly from a `https://cdn*.onlyfans.com/*` URL. When the file is already cached on our CDN, this endpoint returns a `302` redirect to a `https://cdn.fansapi.com/*` URL. Most HTTP clients follow redirects automatically (`curl` requires `-L`). Otherwise, the file is redirected to `dl.fansapi.com`, which streams it through the account proxy and reports billing back to the API.
      *
      * @param string $cdnURL Optional parameter. The CDN URL to scrape. **Keep in mind that these URLs expire in approx. 20 minutes.** So for example, if you fetched Media Vault Items at 01:00pm, the URLs will expire at around 01:20pm
      * @param array{account: string}|MediaDownloadParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<string>
+     * @return BaseResponse<mixed>
      *
      * @throws APIException
      */
@@ -58,9 +58,8 @@ final class MediaRawService implements MediaRawContract
         return $this->client->request(
             method: 'get',
             path: ['api/%1$s/media/download/%2$s', $account, $cdnURL],
-            headers: ['Accept' => 'text/plain'],
             options: $options,
-            convert: 'string',
+            convert: null,
         );
     }
 

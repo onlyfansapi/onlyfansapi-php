@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Visitors;
+namespace OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Visitors;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Visitors\Subscriptions\New_;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Visitors\Subscriptions\Renew;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Visitors\Subscriptions\New_;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Visitors\Subscriptions\Renew;
 
 /**
- * @phpstan-import-type NewShape from \Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Visitors\Subscriptions\New_
- * @phpstan-import-type RenewShape from \Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Visitors\Subscriptions\Renew
+ * @phpstan-import-type NewShape from \OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Visitors\Subscriptions\New_
+ * @phpstan-import-type RenewShape from \OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Visitors\Subscriptions\Renew
  *
  * @phpstan-type SubscriptionsShape = array{
  *   new?: null|New_|NewShape, renew?: null|Renew|RenewShape

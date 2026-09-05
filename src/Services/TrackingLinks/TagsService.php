@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\TrackingLinks;
+namespace OnlyFansAPI\Services\TrackingLinks;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\TrackingLinks\TagsContract;
-use Onlyfansapi\TrackingLinks\Tags\TagAddResponse;
-use Onlyfansapi\TrackingLinks\Tags\TagListResponse;
-use Onlyfansapi\TrackingLinks\Tags\TagRemoveResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\TrackingLinks\TagsContract;
+use OnlyFansAPI\TrackingLinks\Tags\TagAddResponse;
+use OnlyFansAPI\TrackingLinks\Tags\TagListResponse;
+use OnlyFansAPI\TrackingLinks\Tags\TagRemoveResponse;
 
 /**
  * APIs for managing tracking links.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class TagsService implements TagsContract
 {

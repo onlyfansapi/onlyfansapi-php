@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Payouts\PayoutGetBalancesResponse;
-use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse;
-use Onlyfansapi\Payouts\PayoutGetEligibilityResponse;
-use Onlyfansapi\Payouts\PayoutListRequestsResponse;
-use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember0;
-use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1;
-use Onlyfansapi\Payouts\PayoutUpdateFrequencyParams\Frequency;
-use Onlyfansapi\Payouts\PayoutUpdateFrequencyResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Payouts\PayoutGetBalancesResponse;
+use OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse;
+use OnlyFansAPI\Payouts\PayoutGetEligibilityResponse;
+use OnlyFansAPI\Payouts\PayoutListRequestsResponse;
+use OnlyFansAPI\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember0;
+use OnlyFansAPI\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1;
+use OnlyFansAPI\Payouts\PayoutUpdateFrequencyParams\Frequency;
+use OnlyFansAPI\Payouts\PayoutUpdateFrequencyResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface PayoutsContract
 {

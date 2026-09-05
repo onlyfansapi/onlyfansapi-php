@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ClientSessions;
+namespace OnlyFansAPI\ClientSessions;
 
-use Onlyfansapi\ClientSessions\ClientSessionNewResponse\_Meta;
-use Onlyfansapi\ClientSessions\ClientSessionNewResponse\Data;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\ClientSessions\ClientSessionNewResponse\_Meta;
+use OnlyFansAPI\ClientSessions\ClientSessionNewResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\ClientSessions\ClientSessionNewResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\ClientSessions\ClientSessionNewResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\ClientSessions\ClientSessionNewResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\ClientSessions\ClientSessionNewResponse\Data
  *
  * @phpstan-type ClientSessionNewResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

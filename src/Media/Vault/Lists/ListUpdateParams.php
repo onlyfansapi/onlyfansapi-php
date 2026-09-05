@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\Vault\Lists;
+namespace OnlyFansAPI\Media\Vault\Lists;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Rename a Vault list.
  *
- * @see Onlyfansapi\Services\Media\Vault\ListsService::update()
+ * @see OnlyFansAPI\Services\Media\Vault\ListsService::update()
  *
- * @phpstan-type ListUpdateParamsShape = array{account: string}
+ * @phpstan-type ListUpdateParamsShape = array{account: string, name: string}
  */
 final class ListUpdateParams implements BaseModel
 {
@@ -26,17 +26,23 @@ final class ListUpdateParams implements BaseModel
     public string $account;
 
     /**
+     * The new name for the vault list. Must not be greater than 255 characters.
+     */
+    #[Required]
+    public string $name;
+
+    /**
      * `new ListUpdateParams()` is missing required properties by the API.
      *
      * To enforce required parameters use
      * ```
-     * ListUpdateParams::with(account: ...)
+     * ListUpdateParams::with(account: ..., name: ...)
      * ```
      *
      * Otherwise ensure the following setters are called
      *
      * ```
-     * (new ListUpdateParams)->withAccount(...)
+     * (new ListUpdateParams)->withAccount(...)->withName(...)
      * ```
      */
     public function __construct()
@@ -49,11 +55,12 @@ final class ListUpdateParams implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      */
-    public static function with(string $account): self
+    public static function with(string $account, string $name): self
     {
         $self = new self;
 
         $self['account'] = $account;
+        $self['name'] = $name;
 
         return $self;
     }
@@ -62,6 +69,17 @@ final class ListUpdateParams implements BaseModel
     {
         $self = clone $this;
         $self['account'] = $account;
+
+        return $self;
+    }
+
+    /**
+     * The new name for the vault list. Must not be greater than 255 characters.
+     */
+    public function withName(string $name): self
+    {
+        $self = clone $this;
+        $self['name'] = $name;
 
         return $self;
     }

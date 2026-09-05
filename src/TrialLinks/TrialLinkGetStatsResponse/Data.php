@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrialLinks\TrialLinkGetStatsResponse;
+namespace OnlyFansAPI\TrialLinks\TrialLinkGetStatsResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrialLinks\TrialLinkGetStatsResponse\Data\DailyMetric;
-use Onlyfansapi\TrialLinks\TrialLinkGetStatsResponse\Data\MonthlyMetric;
-use Onlyfansapi\TrialLinks\TrialLinkGetStatsResponse\Data\Summary;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\TrialLinks\TrialLinkGetStatsResponse\Data\DailyMetric;
+use OnlyFansAPI\TrialLinks\TrialLinkGetStatsResponse\Data\MonthlyMetric;
+use OnlyFansAPI\TrialLinks\TrialLinkGetStatsResponse\Data\Summary;
 
 /**
- * @phpstan-import-type DailyMetricShape from \Onlyfansapi\TrialLinks\TrialLinkGetStatsResponse\Data\DailyMetric
- * @phpstan-import-type MonthlyMetricShape from \Onlyfansapi\TrialLinks\TrialLinkGetStatsResponse\Data\MonthlyMetric
- * @phpstan-import-type SummaryShape from \Onlyfansapi\TrialLinks\TrialLinkGetStatsResponse\Data\Summary
+ * @phpstan-import-type DailyMetricShape from \OnlyFansAPI\TrialLinks\TrialLinkGetStatsResponse\Data\DailyMetric
+ * @phpstan-import-type MonthlyMetricShape from \OnlyFansAPI\TrialLinks\TrialLinkGetStatsResponse\Data\MonthlyMetric
+ * @phpstan-import-type SummaryShape from \OnlyFansAPI\TrialLinks\TrialLinkGetStatsResponse\Data\Summary
  *
  * @phpstan-type DataShape = array{
  *   dailyMetrics?: list<DailyMetric|DailyMetricShape>|null,

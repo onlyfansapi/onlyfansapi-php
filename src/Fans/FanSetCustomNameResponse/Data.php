@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans\FanSetCustomNameResponse;
+namespace OnlyFansAPI\Fans\FanSetCustomNameResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Fans\FanSetCustomNameResponse\Data\AvatarThumbs;
-use Onlyfansapi\Fans\FanSetCustomNameResponse\Data\HeaderSize;
-use Onlyfansapi\Fans\FanSetCustomNameResponse\Data\HeaderThumbs;
-use Onlyfansapi\Fans\FanSetCustomNameResponse\Data\ListsState;
-use Onlyfansapi\Fans\FanSetCustomNameResponse\Data\SubscribedByData;
-use Onlyfansapi\Fans\FanSetCustomNameResponse\Data\SubscribedOnData;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Fans\FanSetCustomNameResponse\Data\AvatarThumbs;
+use OnlyFansAPI\Fans\FanSetCustomNameResponse\Data\HeaderSize;
+use OnlyFansAPI\Fans\FanSetCustomNameResponse\Data\HeaderThumbs;
+use OnlyFansAPI\Fans\FanSetCustomNameResponse\Data\ListsState;
+use OnlyFansAPI\Fans\FanSetCustomNameResponse\Data\SubscribedByData;
+use OnlyFansAPI\Fans\FanSetCustomNameResponse\Data\SubscribedOnData;
 
 /**
- * @phpstan-import-type AvatarThumbsShape from \Onlyfansapi\Fans\FanSetCustomNameResponse\Data\AvatarThumbs
- * @phpstan-import-type HeaderSizeShape from \Onlyfansapi\Fans\FanSetCustomNameResponse\Data\HeaderSize
- * @phpstan-import-type HeaderThumbsShape from \Onlyfansapi\Fans\FanSetCustomNameResponse\Data\HeaderThumbs
- * @phpstan-import-type ListsStateShape from \Onlyfansapi\Fans\FanSetCustomNameResponse\Data\ListsState
- * @phpstan-import-type SubscribedByDataShape from \Onlyfansapi\Fans\FanSetCustomNameResponse\Data\SubscribedByData
- * @phpstan-import-type SubscribedOnDataShape from \Onlyfansapi\Fans\FanSetCustomNameResponse\Data\SubscribedOnData
+ * @phpstan-import-type AvatarThumbsShape from \OnlyFansAPI\Fans\FanSetCustomNameResponse\Data\AvatarThumbs
+ * @phpstan-import-type HeaderSizeShape from \OnlyFansAPI\Fans\FanSetCustomNameResponse\Data\HeaderSize
+ * @phpstan-import-type HeaderThumbsShape from \OnlyFansAPI\Fans\FanSetCustomNameResponse\Data\HeaderThumbs
+ * @phpstan-import-type ListsStateShape from \OnlyFansAPI\Fans\FanSetCustomNameResponse\Data\ListsState
+ * @phpstan-import-type SubscribedByDataShape from \OnlyFansAPI\Fans\FanSetCustomNameResponse\Data\SubscribedByData
+ * @phpstan-import-type SubscribedOnDataShape from \OnlyFansAPI\Fans\FanSetCustomNameResponse\Data\SubscribedOnData
  *
  * @phpstan-type DataShape = array{
  *   id?: int|null,

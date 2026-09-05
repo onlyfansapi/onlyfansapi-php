@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\TransactionsContract;
-use Onlyfansapi\Transactions\TransactionListResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\TransactionsContract;
+use OnlyFansAPI\Transactions\TransactionListResponse;
 
 /**
  * APIs for managing OnlyFans transactions.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class TransactionsService implements TransactionsContract
 {
@@ -39,7 +39,7 @@ final class TransactionsService implements TransactionsContract
      * @param string $account The Account ID
      * @param string $limit The number of transactions to return. Recommended: `10`
      * @param string $marker The marker used for pagination. Default: `null`
-     * @param string $startDate The start date for transactions list. Default: `-30days`
+     * @param string $startDate The start date for the transactions list. Defaults to 30 days ago.
      * @param string $tipsSource Filter tips by source. Only applies when `type=tips`. Options: `profile`, `post_all`, `chat`, `stream`, `story`
      * @param string $type Filter by transaction type. Options: `subscribes`, `tips`, `post`, `chat_messages`, `stream`
      * @param RequestOpts|null $requestOptions

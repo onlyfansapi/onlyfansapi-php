@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\LinkTags;
+namespace OnlyFansAPI\LinkTags;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\LinkTags\LinkTagListResponse\_Meta;
-use Onlyfansapi\LinkTags\LinkTagListResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\LinkTags\LinkTagListResponse\_Meta;
+use OnlyFansAPI\LinkTags\LinkTagListResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\LinkTags\LinkTagListResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\LinkTags\LinkTagListResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\LinkTags\LinkTagListResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\LinkTags\LinkTagListResponse\Data
  *
  * @phpstan-type LinkTagListResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

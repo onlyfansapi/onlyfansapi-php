@@ -2,22 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts;
+namespace OnlyFansAPI\Posts;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Posts\PostCreateParams\VotingType;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Posts\PostCreateParams\BlockBannedWords;
+use OnlyFansAPI\Posts\PostCreateParams\VotingType;
 
 /**
  * Compose and send a new post to your OnlyFans account.
  *
- * @see Onlyfansapi\Services\PostsService::create()
+ * @see OnlyFansAPI\Services\PostsService::create()
  *
  * @phpstan-type PostCreateParamsShape = array{
  *   text: string,
+ *   blockBannedWords?: null|BlockBannedWords|value-of<BlockBannedWords>,
  *   expireDays?: int|null,
  *   fundRaisingTargetAmount?: int|null,
  *   fundRaisingTipsPresets?: list<string>|null,
@@ -44,6 +46,14 @@ final class PostCreateParams implements BaseModel
      */
     #[Required]
     public string $text;
+
+    /**
+     * Screen `text` for OnlyFans banned words and block the post if any are found (returns a 422 listing the offending words). `strict_ban` blocks all tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften only. Omit to disable screening.
+     *
+     * @var value-of<BlockBannedWords>|null $blockBannedWords
+     */
+    #[Optional(enum: BlockBannedWords::class)]
+    public ?string $blockBannedWords;
 
     /**
      * Number of days after which the post will expire. Between 1 and 30 days. Keep empty for no expiration.
@@ -157,6 +167,7 @@ final class PostCreateParams implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
+     * @param BlockBannedWords|value-of<BlockBannedWords>|null $blockBannedWords
      * @param list<string>|null $fundRaisingTipsPresets
      * @param list<mixed>|null $mediaFiles
      * @param list<mixed>|null $previews
@@ -165,6 +176,7 @@ final class PostCreateParams implements BaseModel
      */
     public static function with(
         string $text,
+        BlockBannedWords|string|null $blockBannedWords = null,
         ?int $expireDays = null,
         ?int $fundRaisingTargetAmount = null,
         ?array $fundRaisingTipsPresets = null,
@@ -183,6 +195,7 @@ final class PostCreateParams implements BaseModel
 
         $self['text'] = $text;
 
+        null !== $blockBannedWords && $self['blockBannedWords'] = $blockBannedWords;
         null !== $expireDays && $self['expireDays'] = $expireDays;
         null !== $fundRaisingTargetAmount && $self['fundRaisingTargetAmount'] = $fundRaisingTargetAmount;
         null !== $fundRaisingTipsPresets && $self['fundRaisingTipsPresets'] = $fundRaisingTipsPresets;
@@ -207,6 +220,20 @@ final class PostCreateParams implements BaseModel
     {
         $self = clone $this;
         $self['text'] = $text;
+
+        return $self;
+    }
+
+    /**
+     * Screen `text` for OnlyFans banned words and block the post if any are found (returns a 422 listing the offending words). `strict_ban` blocks all tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften only. Omit to disable screening.
+     *
+     * @param BlockBannedWords|value-of<BlockBannedWords> $blockBannedWords
+     */
+    public function withBlockBannedWords(
+        BlockBannedWords|string $blockBannedWords
+    ): self {
+        $self = clone $this;
+        $self['blockBannedWords'] = $blockBannedWords;
 
         return $self;
     }

@@ -2,10 +2,10 @@
 
 namespace Tests\Services\Users;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Users\Subscribe\SubscribeDeleteResponse;
-use Onlyfansapi\Users\Subscribe\SubscribeNewResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Users\Subscribe\SubscribeDeleteResponse;
+use OnlyFansAPI\Users\Subscribe\SubscribeNewResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

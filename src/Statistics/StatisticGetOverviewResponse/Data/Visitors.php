@@ -2,27 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data;
+namespace OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Visitors\ChartData;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Visitors\Earnings;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Visitors\Subscriptions;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Visitors\ChartData;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Visitors\Earnings;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Visitors\Subscriptions;
 
 /**
- * @phpstan-import-type ChartDataShape from \Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Visitors\ChartData
- * @phpstan-import-type EarningsShape from \Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Visitors\Earnings
- * @phpstan-import-type SubscriptionsShape from \Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Visitors\Subscriptions
- * @phpstan-import-type VisitorsShape from \Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Visitors\Visitors as VisitorsShape1
+ * @phpstan-import-type ChartDataShape from \OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Visitors\ChartData
+ * @phpstan-import-type EarningsShape from \OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Visitors\Earnings
+ * @phpstan-import-type SubscriptionsShape from \OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Visitors\Subscriptions
+ * @phpstan-import-type VisitorsShape from \OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Visitors\Visitors as VisitorsShape1
  *
  * @phpstan-type VisitorsShape = array{
  *   chartData?: list<ChartData|ChartDataShape>|null,
  *   earnings?: null|Earnings|EarningsShape,
  *   hasStatistic?: bool|null,
  *   subscriptions?: null|Subscriptions|SubscriptionsShape,
- *   visitors?: null|\Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Visitors\Visitors|VisitorsShape1,
+ *   visitors?: null|\OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Visitors\Visitors|VisitorsShape1,
  * }
  */
 final class Visitors implements BaseModel

@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Following\FollowingListActiveParams;
-use Onlyfansapi\Following\FollowingListActiveResponse;
-use Onlyfansapi\Following\FollowingListAllParams;
-use Onlyfansapi\Following\FollowingListAllResponse;
-use Onlyfansapi\Following\FollowingListExpiredParams;
-use Onlyfansapi\Following\FollowingListExpiredResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Following\FollowingListActiveParams;
+use OnlyFansAPI\Following\FollowingListActiveResponse;
+use OnlyFansAPI\Following\FollowingListAllParams;
+use OnlyFansAPI\Following\FollowingListAllResponse;
+use OnlyFansAPI\Following\FollowingListExpiredParams;
+use OnlyFansAPI\Following\FollowingListExpiredResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface FollowingRawContract
 {

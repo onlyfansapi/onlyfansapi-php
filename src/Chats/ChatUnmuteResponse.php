@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats;
+namespace OnlyFansAPI\Chats;
 
-use Onlyfansapi\Chats\ChatUnmuteResponse\_Meta;
-use Onlyfansapi\Chats\ChatUnmuteResponse\Data;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chats\ChatUnmuteResponse\_Meta;
+use OnlyFansAPI\Chats\ChatUnmuteResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Chats\ChatUnmuteResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Chats\ChatUnmuteResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Chats\ChatUnmuteResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Chats\ChatUnmuteResponse\Data
  *
  * @phpstan-type ChatUnmuteResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\Messages;
+namespace OnlyFansAPI\Chats\Messages;
 
-use Onlyfansapi\Chats\Messages\MessageListParams\Filter;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chats\Messages\MessageListParams\Filter;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get messages from a specific chat.
  *
- * @see Onlyfansapi\Services\Chats\MessagesService::list()
+ * @see OnlyFansAPI\Services\Chats\MessagesService::list()
  *
  * @phpstan-type MessageListParamsShape = array{
  *   account: string,
@@ -68,7 +68,7 @@ final class MessageListParams implements BaseModel
     public ?string $order;
 
     /**
-     * Whether to skip user details (all or none).
+     * Whether to skip user details (`all` or `none`).
      */
     #[Optional]
     public ?string $skipUsers;
@@ -188,7 +188,7 @@ final class MessageListParams implements BaseModel
     }
 
     /**
-     * Whether to skip user details (all or none).
+     * Whether to skip user details (`all` or `none`).
      */
     public function withSkipUsers(string $skipUsers): self
     {

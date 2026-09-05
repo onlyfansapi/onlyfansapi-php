@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Bundles;
+namespace OnlyFansAPI\Bundles;
 
-use Onlyfansapi\Bundles\BundleListResponse\_Meta;
-use Onlyfansapi\Bundles\BundleListResponse\Data;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Bundles\BundleListResponse\_Meta;
+use OnlyFansAPI\Bundles\BundleListResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Bundles\BundleListResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Bundles\BundleListResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Bundles\BundleListResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Bundles\BundleListResponse\Data
  *
  * @phpstan-type BundleListResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: list<Data|DataShape>|null

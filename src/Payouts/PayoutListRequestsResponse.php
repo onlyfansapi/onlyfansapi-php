@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Payouts;
+namespace OnlyFansAPI\Payouts;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Payouts\PayoutListRequestsResponse\_Meta;
-use Onlyfansapi\Payouts\PayoutListRequestsResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Payouts\PayoutListRequestsResponse\_Meta;
+use OnlyFansAPI\Payouts\PayoutListRequestsResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Payouts\PayoutListRequestsResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Payouts\PayoutListRequestsResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Payouts\PayoutListRequestsResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Payouts\PayoutListRequestsResponse\Data
  *
  * @phpstan-type PayoutListRequestsResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

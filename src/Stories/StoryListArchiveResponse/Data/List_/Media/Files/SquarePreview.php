@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stories\StoryListArchiveResponse\Data\List_\Media\Files;
+namespace OnlyFansAPI\Stories\StoryListArchiveResponse\Data\List_\Media\Files;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Stories\StoryListArchiveResponse\Data\List_\Media\Files\SquarePreview\Sources;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Stories\StoryListArchiveResponse\Data\List_\Media\Files\SquarePreview\Sources;
 
 /**
- * @phpstan-import-type SourcesShape from \Onlyfansapi\Stories\StoryListArchiveResponse\Data\List_\Media\Files\SquarePreview\Sources
+ * @phpstan-import-type SourcesShape from \OnlyFansAPI\Stories\StoryListArchiveResponse\Data\List_\Media\Files\SquarePreview\Sources
  *
  * @phpstan-type SquarePreviewShape = array{
  *   height?: int|null,

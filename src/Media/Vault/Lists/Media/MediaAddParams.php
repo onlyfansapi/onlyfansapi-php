@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\Vault\Lists\Media;
+namespace OnlyFansAPI\Media\Vault\Lists\Media;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Add one or multiple media to a list.
  *
- * @see Onlyfansapi\Services\Media\Vault\Lists\MediaService::add()
+ * @see OnlyFansAPI\Services\Media\Vault\Lists\MediaService::add()
  *
  * @phpstan-type MediaAddParamsShape = array{
  *   account: string, mediaIDs: list<string>

@@ -2,17 +2,17 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Chats\ChatDeleteResponse;
-use Onlyfansapi\Chats\ChatHideResponse;
-use Onlyfansapi\Chats\ChatListMediaResponse;
-use Onlyfansapi\Chats\ChatListResponse;
-use Onlyfansapi\Chats\ChatMarkAsReadResponse;
-use Onlyfansapi\Chats\ChatMarkAsUnreadResponse;
-use Onlyfansapi\Chats\ChatMuteResponse;
-use Onlyfansapi\Chats\ChatStartTypingResponse;
-use Onlyfansapi\Chats\ChatUnmuteResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
+use OnlyFansAPI\Chats\ChatDeleteResponse;
+use OnlyFansAPI\Chats\ChatHideResponse;
+use OnlyFansAPI\Chats\ChatListMediaResponse;
+use OnlyFansAPI\Chats\ChatListResponse;
+use OnlyFansAPI\Chats\ChatMarkAsReadResponse;
+use OnlyFansAPI\Chats\ChatMarkAsUnreadResponse;
+use OnlyFansAPI\Chats\ChatMuteResponse;
+use OnlyFansAPI\Chats\ChatStartTypingResponse;
+use OnlyFansAPI\Chats\ChatUnmuteResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

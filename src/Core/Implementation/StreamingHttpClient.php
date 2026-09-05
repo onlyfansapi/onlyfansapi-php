@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Core\Implementation;
+namespace OnlyFansAPI\Core\Implementation;
 
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestInterface;
@@ -18,10 +18,15 @@ final class StreamingHttpClient implements ClientInterface
 {
     public function __construct(private ClientInterface $inner) {}
 
-    public function sendRequest(RequestInterface $request): ResponseInterface
+    public function sendRequest(RequestInterface $request, ?float $timeout = null): ResponseInterface
     {
         if (is_a($this->inner, '\GuzzleHttp\Client')) {
-            return $this->inner->send($request, ['stream' => true]);
+            $options = ['stream' => true];
+            if (null !== $timeout) {
+                $options['timeout'] = $timeout;
+            }
+
+            return $this->inner->send($request, $options);
         }
 
         return $this->inner->sendRequest($request);

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\UserLists\Users;
+namespace OnlyFansAPI\UserLists\Users;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Remove all users from a OnlyFans User List.
  *
- * @see Onlyfansapi\Services\UserLists\UsersService::clear()
+ * @see OnlyFansAPI\Services\UserLists\UsersService::clear()
  *
  * @phpstan-type UserClearParamsShape = array{account: string}
  */

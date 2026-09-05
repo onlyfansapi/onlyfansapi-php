@@ -2,15 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinks\SmartLinkListFansResponse\Data;
+namespace OnlyFansAPI\SmartLinks\SmartLinkListFansResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * @phpstan-type SummaryShape = array{
  *   fansTotal?: int|null,
+ *   fansWith1PlusMessagesTotal?: int|null,
  *   fansWith3PlusMessagesTotal?: int|null,
  *   revenueNetTotal?: int|null,
  *   tipsNetTotal?: int|null,
@@ -23,6 +24,9 @@ final class Summary implements BaseModel
 
     #[Optional('fans_total')]
     public ?int $fansTotal;
+
+    #[Optional('fans_with_1_plus_messages_total')]
+    public ?int $fansWith1PlusMessagesTotal;
 
     #[Optional('fans_with_3_plus_messages_total')]
     public ?int $fansWith3PlusMessagesTotal;
@@ -45,6 +49,7 @@ final class Summary implements BaseModel
      */
     public static function with(
         ?int $fansTotal = null,
+        ?int $fansWith1PlusMessagesTotal = null,
         ?int $fansWith3PlusMessagesTotal = null,
         ?int $revenueNetTotal = null,
         ?int $tipsNetTotal = null,
@@ -52,6 +57,7 @@ final class Summary implements BaseModel
         $self = new self;
 
         null !== $fansTotal && $self['fansTotal'] = $fansTotal;
+        null !== $fansWith1PlusMessagesTotal && $self['fansWith1PlusMessagesTotal'] = $fansWith1PlusMessagesTotal;
         null !== $fansWith3PlusMessagesTotal && $self['fansWith3PlusMessagesTotal'] = $fansWith3PlusMessagesTotal;
         null !== $revenueNetTotal && $self['revenueNetTotal'] = $revenueNetTotal;
         null !== $tipsNetTotal && $self['tipsNetTotal'] = $tipsNetTotal;
@@ -63,6 +69,15 @@ final class Summary implements BaseModel
     {
         $self = clone $this;
         $self['fansTotal'] = $fansTotal;
+
+        return $self;
+    }
+
+    public function withFansWith1PlusMessagesTotal(
+        int $fansWith1PlusMessagesTotal
+    ): self {
+        $self = clone $this;
+        $self['fansWith1PlusMessagesTotal'] = $fansWith1PlusMessagesTotal;
 
         return $self;
     }

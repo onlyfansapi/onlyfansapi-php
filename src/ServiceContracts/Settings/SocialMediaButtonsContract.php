@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Settings;
+namespace OnlyFansAPI\ServiceContracts\Settings;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonAddParams\Type;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonAddResponse;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonListResponse;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonReorderResponse;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonUpdateResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonAddParams\Type;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonAddResponse;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonListResponse;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonReorderResponse;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonUpdateResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface SocialMediaButtonsContract
 {

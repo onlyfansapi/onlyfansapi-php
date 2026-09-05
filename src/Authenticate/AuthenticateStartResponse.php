@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Authenticate;
+namespace OnlyFansAPI\Authenticate;
 
-use Onlyfansapi\Authenticate\AuthenticateStartResponse\UnionMember0;
-use Onlyfansapi\Authenticate\AuthenticateStartResponse\UnionMember1;
-use Onlyfansapi\Core\Concerns\SdkUnion;
-use Onlyfansapi\Core\Conversion\Contracts\Converter;
-use Onlyfansapi\Core\Conversion\Contracts\ConverterSource;
+use OnlyFansAPI\Authenticate\AuthenticateStartResponse\UnionMember0;
+use OnlyFansAPI\Authenticate\AuthenticateStartResponse\UnionMember1;
+use OnlyFansAPI\Core\Concerns\SdkUnion;
+use OnlyFansAPI\Core\Conversion\Contracts\Converter;
+use OnlyFansAPI\Core\Conversion\Contracts\ConverterSource;
 
 /**
  * For email_password or raw_data auth types.
  *
- * @phpstan-import-type UnionMember0Shape from \Onlyfansapi\Authenticate\AuthenticateStartResponse\UnionMember0
- * @phpstan-import-type UnionMember1Shape from \Onlyfansapi\Authenticate\AuthenticateStartResponse\UnionMember1
+ * @phpstan-import-type UnionMember0Shape from \OnlyFansAPI\Authenticate\AuthenticateStartResponse\UnionMember0
+ * @phpstan-import-type UnionMember1Shape from \OnlyFansAPI\Authenticate\AuthenticateStartResponse\UnionMember1
  *
  * @phpstan-type AuthenticateStartResponseVariants = UnionMember0|UnionMember1
  * @phpstan-type AuthenticateStartResponseShape = AuthenticateStartResponseVariants|UnionMember0Shape|UnionMember1Shape

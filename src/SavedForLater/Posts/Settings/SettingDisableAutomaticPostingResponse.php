@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SavedForLater\Posts\Settings;
+namespace OnlyFansAPI\SavedForLater\Posts\Settings;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SavedForLater\Posts\Settings\SettingDisableAutomaticPostingResponse\_Meta;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SavedForLater\Posts\Settings\SettingDisableAutomaticPostingResponse\_Meta;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\SavedForLater\Posts\Settings\SettingDisableAutomaticPostingResponse\_Meta
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\SavedForLater\Posts\Settings\SettingDisableAutomaticPostingResponse\_Meta
  *
  * @phpstan-type SettingDisableAutomaticPostingResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: list<mixed>|null

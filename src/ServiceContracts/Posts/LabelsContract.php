@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Posts;
+namespace OnlyFansAPI\ServiceContracts\Posts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Posts\Labels\LabelListResponse;
-use Onlyfansapi\Posts\Labels\LabelNewResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Posts\Labels\LabelListResponse;
+use OnlyFansAPI\Posts\Labels\LabelNewResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface LabelsContract
 {

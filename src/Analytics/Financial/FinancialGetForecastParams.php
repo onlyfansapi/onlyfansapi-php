@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Analytics\Financial;
+namespace OnlyFansAPI\Analytics\Financial;
 
-use Onlyfansapi\Analytics\Financial\FinancialGetForecastParams\Metric;
-use Onlyfansapi\Analytics\Financial\FinancialGetForecastParams\Model;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Analytics\Financial\FinancialGetForecastParams\Metric;
+use OnlyFansAPI\Analytics\Financial\FinancialGetForecastParams\Model;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Generate revenue or churn forecasts using statistical models (Moving Average, Linear Regression, ARIMA, SARIMA).
  *
- * @see Onlyfansapi\Services\Analytics\FinancialService::getForecast()
+ * @see OnlyFansAPI\Services\Analytics\FinancialService::getForecast()
  *
  * @phpstan-type FinancialGetForecastParamsShape = array{
  *   accountIDs: list<string>,

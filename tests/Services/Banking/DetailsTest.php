@@ -2,13 +2,13 @@
 
 namespace Tests\Services\Banking;
 
-use Onlyfansapi\Banking\Details\DetailGetAccountCountryDetailsResponse;
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse;
-use Onlyfansapi\Banking\Details\DetailGetDac7FormDetailsResponse;
-use Onlyfansapi\Banking\Details\DetailGetLegalAndTaxStatusResponse;
-use Onlyfansapi\Banking\Details\DetailGetLegalFormDetailsResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
+use OnlyFansAPI\Banking\Details\DetailGetAccountCountryDetailsResponse;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse;
+use OnlyFansAPI\Banking\Details\DetailGetDac7FormDetailsResponse;
+use OnlyFansAPI\Banking\Details\DetailGetLegalAndTaxStatusResponse;
+use OnlyFansAPI\Banking\Details\DetailGetLegalFormDetailsResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

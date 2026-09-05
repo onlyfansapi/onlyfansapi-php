@@ -2,14 +2,14 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\MassMessaging\MassMessagingDeleteResponse;
-use Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse;
-use Onlyfansapi\MassMessaging\MassMessagingGetResponse;
-use Onlyfansapi\MassMessaging\MassMessagingListResponse;
-use Onlyfansapi\MassMessaging\MassMessagingSendResponse;
-use Onlyfansapi\MassMessaging\MassMessagingUpdateResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\MassMessaging\MassMessagingDeleteResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingGetResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingListResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingSendResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingUpdateResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -93,11 +93,12 @@ final class MassMessagingTest extends TestCase
             'id',
             account: 'acct_XXXXXXXXXXXXXXX',
             text: 'Hello!',
+            blockBannedWords: 'strict_ban',
             giphyID: 'WAGC3LeqJvXglm5H7a',
             lockedText: true,
             mediaFiles: ['ofapi_media_abc123', 'string'],
             previews: ['ofapi_media_abc123', 'string'],
-            price: 100,
+            price: 6.97,
             scheduledDate: '2025-01-01T00:00:00.000Z',
             userIDs: ['string'],
             userLists: [
@@ -195,6 +196,7 @@ final class MassMessagingTest extends TestCase
         $result = $this->client->massMessaging->send(
             'acct_XXXXXXXXXXXXXXX',
             text: 'Hello!',
+            blockBannedWords: 'strict_ban',
             excludedLists: [
                 'fans', 'recent', 'following', 'rebill_off', 'tagged', 'string',
             ],
@@ -202,12 +204,13 @@ final class MassMessagingTest extends TestCase
             lockedText: true,
             mediaFiles: ['ofapi_media_abc123', 1234567890],
             previews: ['ofapi_media_abc123', 1234567890],
-            price: 100,
+            price: 6.97,
             rfGuest: 'rfGuest',
             rfPartner: 'rfPartner',
             rfTag: 'rfTag',
             saveForLater: true,
             scheduledDate: '2025-01-01T00:00:00.000Z',
+            subscribedWithinLastDays: 0,
             userIDs: ['string'],
             userLists: [
                 'fans', 'recent', 'following', 'rebill_off', 'tagged', 'string',

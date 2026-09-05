@@ -2,15 +2,15 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Fans\FanGetSubscriptionHistoryResponse;
-use Onlyfansapi\Fans\FanListActiveResponse;
-use Onlyfansapi\Fans\FanListAllResponse;
-use Onlyfansapi\Fans\FanListExpiredResponse;
-use Onlyfansapi\Fans\FanListLatestResponse;
-use Onlyfansapi\Fans\FanListTopResponse;
-use Onlyfansapi\Fans\FanSetCustomNameResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Fans\FanGetSubscriptionHistoryResponse;
+use OnlyFansAPI\Fans\FanListActiveResponse;
+use OnlyFansAPI\Fans\FanListAllResponse;
+use OnlyFansAPI\Fans\FanListExpiredResponse;
+use OnlyFansAPI\Fans\FanListLatestResponse;
+use OnlyFansAPI\Fans\FanListTopResponse;
+use OnlyFansAPI\Fans\FanSetCustomNameResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

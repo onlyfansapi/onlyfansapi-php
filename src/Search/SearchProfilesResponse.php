@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Search;
+namespace OnlyFansAPI\Search;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Search\SearchProfilesResponse\_Meta;
-use Onlyfansapi\Search\SearchProfilesResponse\_Pagination;
-use Onlyfansapi\Search\SearchProfilesResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Search\SearchProfilesResponse\_Meta;
+use OnlyFansAPI\Search\SearchProfilesResponse\_Pagination;
+use OnlyFansAPI\Search\SearchProfilesResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Search\SearchProfilesResponse\_Meta
- * @phpstan-import-type _PaginationShape from \Onlyfansapi\Search\SearchProfilesResponse\_Pagination
- * @phpstan-import-type DataShape from \Onlyfansapi\Search\SearchProfilesResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Search\SearchProfilesResponse\_Meta
+ * @phpstan-import-type _PaginationShape from \OnlyFansAPI\Search\SearchProfilesResponse\_Pagination
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Search\SearchProfilesResponse\Data
  *
  * @phpstan-type SearchProfilesResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape,

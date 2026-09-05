@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats;
+namespace OnlyFansAPI\Chats;
 
-use Onlyfansapi\Chats\ChatListMediaResponse\_Meta;
-use Onlyfansapi\Chats\ChatListMediaResponse\Data;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chats\ChatListMediaResponse\_Meta;
+use OnlyFansAPI\Chats\ChatListMediaResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Chats\ChatListMediaResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Chats\ChatListMediaResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Chats\ChatListMediaResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Chats\ChatListMediaResponse\Data
  *
  * @phpstan-type ChatListMediaResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

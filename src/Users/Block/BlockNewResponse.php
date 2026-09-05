@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Users\Block;
+namespace OnlyFansAPI\Users\Block;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Users\Block\BlockNewResponse\_Meta;
-use Onlyfansapi\Users\Block\BlockNewResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Users\Block\BlockNewResponse\_Meta;
+use OnlyFansAPI\Users\Block\BlockNewResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Users\Block\BlockNewResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Users\Block\BlockNewResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Users\Block\BlockNewResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Users\Block\BlockNewResponse\Data
  *
  * @phpstan-type BlockNewResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

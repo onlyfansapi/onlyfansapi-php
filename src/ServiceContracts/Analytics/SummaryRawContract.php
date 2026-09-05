@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Analytics;
+namespace OnlyFansAPI\ServiceContracts\Analytics;
 
-use Onlyfansapi\Analytics\Summary\SummaryGetEarningsOverviewParams;
-use Onlyfansapi\Analytics\Summary\SummaryGetEarningsOverviewResponse;
-use Onlyfansapi\Analytics\Summary\SummaryGetHistoricalPerformanceParams;
-use Onlyfansapi\Analytics\Summary\SummaryGetHistoricalPerformanceResponseItem;
-use Onlyfansapi\Analytics\Summary\SummaryGetPeriodComparisonParams;
-use Onlyfansapi\Analytics\Summary\SummaryGetPeriodComparisonResponse;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Analytics\Summary\SummaryGetEarningsOverviewParams;
+use OnlyFansAPI\Analytics\Summary\SummaryGetEarningsOverviewResponse;
+use OnlyFansAPI\Analytics\Summary\SummaryGetHistoricalPerformanceParams;
+use OnlyFansAPI\Analytics\Summary\SummaryGetHistoricalPerformanceResponseItem;
+use OnlyFansAPI\Analytics\Summary\SummaryGetPeriodComparisonParams;
+use OnlyFansAPI\Analytics\Summary\SummaryGetPeriodComparisonResponse;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface SummaryRawContract
 {

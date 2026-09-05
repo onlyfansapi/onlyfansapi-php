@@ -2,27 +2,28 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\MassMessaging\MassMessagingDeleteParams;
-use Onlyfansapi\MassMessaging\MassMessagingDeleteResponse;
-use Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse;
-use Onlyfansapi\MassMessaging\MassMessagingGetResponse;
-use Onlyfansapi\MassMessaging\MassMessagingListResponse;
-use Onlyfansapi\MassMessaging\MassMessagingRetrieveOverviewParams;
-use Onlyfansapi\MassMessaging\MassMessagingRetrieveParams;
-use Onlyfansapi\MassMessaging\MassMessagingSendParams;
-use Onlyfansapi\MassMessaging\MassMessagingSendResponse;
-use Onlyfansapi\MassMessaging\MassMessagingUpdateParams;
-use Onlyfansapi\MassMessaging\MassMessagingUpdateResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\MassMessagingRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\MassMessaging\MassMessagingDeleteParams;
+use OnlyFansAPI\MassMessaging\MassMessagingDeleteResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingGetResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingListResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingRetrieveOverviewParams;
+use OnlyFansAPI\MassMessaging\MassMessagingRetrieveParams;
+use OnlyFansAPI\MassMessaging\MassMessagingSendParams;
+use OnlyFansAPI\MassMessaging\MassMessagingSendResponse;
+use OnlyFansAPI\MassMessaging\MassMessagingUpdateParams;
+use OnlyFansAPI\MassMessaging\MassMessagingUpdateParams\BlockBannedWords;
+use OnlyFansAPI\MassMessaging\MassMessagingUpdateResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\MassMessagingRawContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class MassMessagingRawService implements MassMessagingRawContract
 {
@@ -35,7 +36,7 @@ final class MassMessagingRawService implements MassMessagingRawContract
     /**
      * @api
      *
-     * Get the content of a mass message.
+     * Get the content and settings of a mass message, including a message scheduled for later.
      *
      * @param string $id The ID of the message queue item. Can be retrieved from the above store and list endpoints.
      * @param array{account: string}|MassMessagingRetrieveParams $params
@@ -69,17 +70,18 @@ final class MassMessagingRawService implements MassMessagingRawContract
     /**
      * @api
      *
-     * Update a mass message.
+     * Update the content, recipients, media, price, or scheduled send time of an existing mass message.
      *
      * @param string $id Path param: The ID of the message queue item. Can be retrieved from the above store and list endpoints.
      * @param array{
      *   account: string,
      *   text: string,
+     *   blockBannedWords?: BlockBannedWords|value-of<BlockBannedWords>,
      *   giphyID?: string,
      *   lockedText?: bool,
      *   mediaFiles?: list<string>,
      *   previews?: list<string>,
-     *   price?: int,
+     *   price?: float,
      *   scheduledDate?: string,
      *   userIDs?: list<string>,
      *   userLists?: list<string>,
@@ -115,7 +117,7 @@ final class MassMessagingRawService implements MassMessagingRawContract
     /**
      * @api
      *
-     * List the pending or recently sent mass messages in the message queue.
+     * List pending, scheduled, and recently sent mass messages. Use an item ID to retrieve, update, reschedule, delete, or unsend the message.
      *
      * @param string $account The Account ID
      * @param RequestOpts|null $requestOptions
@@ -214,17 +216,19 @@ final class MassMessagingRawService implements MassMessagingRawContract
      * @param string $account The Account ID
      * @param array{
      *   text: string,
+     *   blockBannedWords?: MassMessagingSendParams\BlockBannedWords|value-of<MassMessagingSendParams\BlockBannedWords>,
      *   excludedLists?: list<string>,
      *   giphyID?: string,
      *   lockedText?: bool,
      *   mediaFiles?: list<mixed>,
      *   previews?: list<mixed>,
-     *   price?: int,
+     *   price?: float,
      *   rfGuest?: string,
      *   rfPartner?: string,
      *   rfTag?: string,
      *   saveForLater?: bool,
      *   scheduledDate?: string,
+     *   subscribedWithinLastDays?: int,
      *   userIDs?: list<string>,
      *   userLists?: list<string>,
      * }|MassMessagingSendParams $params

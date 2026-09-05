@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Engagement\Messages;
+namespace OnlyFansAPI\Services\Engagement\Messages;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageChartResponse;
-use Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageListResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Engagement\Messages\DirectMessagesContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageChartResponse;
+use OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageListResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Engagement\Messages\DirectMessagesContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class DirectMessagesService implements DirectMessagesContract
 {
@@ -36,7 +36,7 @@ final class DirectMessagesService implements DirectMessagesContract
      * List sent direct messages with engagement stats (sent, viewed, purchased, etc.).
      *
      * @param string $account The Account ID
-     * @param string $endDate The latest message to retrieve. Keep empty to get all. MUST BE DATE AFTER `startDate`. This is also used for pagination.
+     * @param string $endDate The latest message to retrieve. Keep empty to get all. It must be after `startDate` and is also used for pagination.
      * @param int $limit Number of messages to return (default = 10)
      * @param int $offset optional offset for manual pagination
      * @param string $query optionally, filter by message text
@@ -76,7 +76,7 @@ final class DirectMessagesService implements DirectMessagesContract
      * Get engagement chart metrics for direct messages: sent count and purchase amount over time.
      *
      * @param string $account The Account ID
-     * @param string $endDate End of the chart window in `Y-m-d H:i:s` format. Must be after `startDate`.
+     * @param string $endDate End of the chart window in `Y-m-d H:i:s` format. It must be after `startDate`.
      * @param string $startDate start of the chart window in `Y-m-d H:i:s` format
      * @param bool $withTotal Include `total` and `delta` aggregates in the response. Defaults to `true`.
      * @param RequestOpts|null $requestOptions

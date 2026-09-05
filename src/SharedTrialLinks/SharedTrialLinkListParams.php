@@ -2,20 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SharedTrialLinks;
+namespace OnlyFansAPI\SharedTrialLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkListParams\Pagination;
 
 /**
  * List all Free Trial Links shared with the account by other OF creators. Calls OnlyFans live and syncs to our cache.
  *
- * @see Onlyfansapi\Services\SharedTrialLinksService::list()
+ * @see OnlyFansAPI\Services\SharedTrialLinksService::list()
  *
  * @phpstan-type SharedTrialLinkListParamsShape = array{
- *   limit?: int|null, offset?: int|null, synchronous?: bool|null
+ *   limit?: int|null,
+ *   offset?: int|null,
+ *   pagination?: null|Pagination|value-of<Pagination>,
+ *   synchronous?: bool|null,
  * }
  */
 final class SharedTrialLinkListParams implements BaseModel
@@ -25,21 +29,25 @@ final class SharedTrialLinkListParams implements BaseModel
     use SdkParams;
 
     /**
-     * The number of shared trial links to return. Default `10`.
+     * The number of shared trial links to return. Default `10`. Must be at least 1. Must not be greater than 100.
      */
     #[Optional]
     public ?int $limit;
 
     /**
-     * The offset used for pagination. Default `0`.
+     * The offset used for pagination. Default `0`. Must be at least 0.
      */
     #[Optional]
     public ?int $offset;
 
+    /** @var value-of<Pagination>|null $pagination */
+    #[Optional(enum: Pagination::class)]
+    public ?int $pagination;
+
     /**
-     * Wait for the database sync to finish, instead of running it in the background. **Will result in longer response times, use with caution**. Default `false`.
+     * Wait for the database sync instead of processing it in the background.
      */
-    #[Optional(nullable: true)]
+    #[Optional]
     public ?bool $synchronous;
 
     public function __construct()
@@ -51,23 +59,27 @@ final class SharedTrialLinkListParams implements BaseModel
      * Construct an instance from the required parameters.
      *
      * You must use named parameters to construct any parameters with a default value.
+     *
+     * @param Pagination|value-of<Pagination>|null $pagination
      */
     public static function with(
         ?int $limit = null,
         ?int $offset = null,
-        ?bool $synchronous = null
+        Pagination|int|null $pagination = null,
+        ?bool $synchronous = null,
     ): self {
         $self = new self;
 
         null !== $limit && $self['limit'] = $limit;
         null !== $offset && $self['offset'] = $offset;
+        null !== $pagination && $self['pagination'] = $pagination;
         null !== $synchronous && $self['synchronous'] = $synchronous;
 
         return $self;
     }
 
     /**
-     * The number of shared trial links to return. Default `10`.
+     * The number of shared trial links to return. Default `10`. Must be at least 1. Must not be greater than 100.
      */
     public function withLimit(int $limit): self
     {
@@ -78,7 +90,7 @@ final class SharedTrialLinkListParams implements BaseModel
     }
 
     /**
-     * The offset used for pagination. Default `0`.
+     * The offset used for pagination. Default `0`. Must be at least 0.
      */
     public function withOffset(int $offset): self
     {
@@ -89,9 +101,20 @@ final class SharedTrialLinkListParams implements BaseModel
     }
 
     /**
-     * Wait for the database sync to finish, instead of running it in the background. **Will result in longer response times, use with caution**. Default `false`.
+     * @param Pagination|value-of<Pagination> $pagination
      */
-    public function withSynchronous(?bool $synchronous): self
+    public function withPagination(Pagination|int $pagination): self
+    {
+        $self = clone $this;
+        $self['pagination'] = $pagination;
+
+        return $self;
+    }
+
+    /**
+     * Wait for the database sync instead of processing it in the background.
+     */
+    public function withSynchronous(bool $synchronous): self
     {
         $self = clone $this;
         $self['synchronous'] = $synchronous;

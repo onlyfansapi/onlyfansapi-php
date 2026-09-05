@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Bundles\BundleCreateParams;
+namespace OnlyFansAPI\Bundles\BundleCreateParams;
 
 /**
  * The bundle's discount percentage.
