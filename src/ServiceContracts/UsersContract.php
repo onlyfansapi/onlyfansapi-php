@@ -17,7 +17,7 @@ interface UsersContract
     /**
      * @api
      *
-     * @param string $username the OnlyFans username of the user to retrieve details for
+     * @param string $username The OnlyFans username or numeric user ID to retrieve details for. Display names and profile URLs are not accepted.
      * @param string $account The Account ID
      * @param RequestOpts|null $requestOptions
      *
