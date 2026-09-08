@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Settings\SettingGetResponse\Data;
+namespace OnlyFansAPI\Settings\SettingGetResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Settings\SettingGetResponse\Data\CanAddSubscriberByBundle\Discounts;
-use Onlyfansapi\Settings\SettingGetResponse\Data\CanAddSubscriberByBundle\Durations;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Settings\SettingGetResponse\Data\CanAddSubscriberByBundle\Discounts;
+use OnlyFansAPI\Settings\SettingGetResponse\Data\CanAddSubscriberByBundle\Durations;
 
 /**
- * @phpstan-import-type DiscountsShape from \Onlyfansapi\Settings\SettingGetResponse\Data\CanAddSubscriberByBundle\Discounts
- * @phpstan-import-type DurationsShape from \Onlyfansapi\Settings\SettingGetResponse\Data\CanAddSubscriberByBundle\Durations
+ * @phpstan-import-type DiscountsShape from \OnlyFansAPI\Settings\SettingGetResponse\Data\CanAddSubscriberByBundle\Discounts
+ * @phpstan-import-type DurationsShape from \OnlyFansAPI\Settings\SettingGetResponse\Data\CanAddSubscriberByBundle\Durations
  *
  * @phpstan-type CanAddSubscriberByBundleShape = array{
  *   discounts?: null|Discounts|DiscountsShape,

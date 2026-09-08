@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Authenticate\AuthenticatePollStatusResponse;
-use Onlyfansapi\Authenticate\AuthenticateReauthenticateResponse;
-use Onlyfansapi\Authenticate\AuthenticateSend2faEmailResponse;
-use Onlyfansapi\Authenticate\AuthenticateStartParams;
-use Onlyfansapi\Authenticate\AuthenticateStartResponse\UnionMember0;
-use Onlyfansapi\Authenticate\AuthenticateStartResponse\UnionMember1;
-use Onlyfansapi\Authenticate\AuthenticateSubmit2faParams;
-use Onlyfansapi\Authenticate\AuthenticateSubmit2faResponse;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Authenticate\AuthenticatePollStatusResponse;
+use OnlyFansAPI\Authenticate\AuthenticateReauthenticateResponse;
+use OnlyFansAPI\Authenticate\AuthenticateSend2faEmailResponse;
+use OnlyFansAPI\Authenticate\AuthenticateStartParams;
+use OnlyFansAPI\Authenticate\AuthenticateStartResponse\UnionMember0;
+use OnlyFansAPI\Authenticate\AuthenticateStartResponse\UnionMember1;
+use OnlyFansAPI\Authenticate\AuthenticateSubmit2faParams;
+use OnlyFansAPI\Authenticate\AuthenticateSubmit2faResponse;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface AuthenticateRawContract
 {

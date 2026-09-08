@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Banking\Details\DetailGetDac7FormDetailsResponse;
+namespace OnlyFansAPI\Banking\Details\DetailGetDac7FormDetailsResponse;
 
-use Onlyfansapi\Banking\Details\DetailGetDac7FormDetailsResponse\_Meta\_Cache;
-use Onlyfansapi\Banking\Details\DetailGetDac7FormDetailsResponse\_Meta\_Credits;
-use Onlyfansapi\Banking\Details\DetailGetDac7FormDetailsResponse\_Meta\_RateLimits;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Banking\Details\DetailGetDac7FormDetailsResponse\_Meta\_Cache;
+use OnlyFansAPI\Banking\Details\DetailGetDac7FormDetailsResponse\_Meta\_Credits;
+use OnlyFansAPI\Banking\Details\DetailGetDac7FormDetailsResponse\_Meta\_RateLimits;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type _CacheShape from \Onlyfansapi\Banking\Details\DetailGetDac7FormDetailsResponse\_Meta\_Cache
- * @phpstan-import-type _CreditsShape from \Onlyfansapi\Banking\Details\DetailGetDac7FormDetailsResponse\_Meta\_Credits
- * @phpstan-import-type _RateLimitsShape from \Onlyfansapi\Banking\Details\DetailGetDac7FormDetailsResponse\_Meta\_RateLimits
+ * @phpstan-import-type _CacheShape from \OnlyFansAPI\Banking\Details\DetailGetDac7FormDetailsResponse\_Meta\_Cache
+ * @phpstan-import-type _CreditsShape from \OnlyFansAPI\Banking\Details\DetailGetDac7FormDetailsResponse\_Meta\_Credits
+ * @phpstan-import-type _RateLimitsShape from \OnlyFansAPI\Banking\Details\DetailGetDac7FormDetailsResponse\_Meta\_RateLimits
  *
  * @phpstan-type _MetaShape = array{
  *   _cache?: null|_Cache|_CacheShape,

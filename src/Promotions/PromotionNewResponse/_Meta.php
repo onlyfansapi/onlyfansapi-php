@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Promotions\PromotionNewResponse;
+namespace OnlyFansAPI\Promotions\PromotionNewResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Promotions\PromotionNewResponse\_Meta\_Cache;
-use Onlyfansapi\Promotions\PromotionNewResponse\_Meta\_Credits;
-use Onlyfansapi\Promotions\PromotionNewResponse\_Meta\_RateLimits;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Promotions\PromotionNewResponse\_Meta\_Cache;
+use OnlyFansAPI\Promotions\PromotionNewResponse\_Meta\_Credits;
+use OnlyFansAPI\Promotions\PromotionNewResponse\_Meta\_RateLimits;
 
 /**
- * @phpstan-import-type _CacheShape from \Onlyfansapi\Promotions\PromotionNewResponse\_Meta\_Cache
- * @phpstan-import-type _CreditsShape from \Onlyfansapi\Promotions\PromotionNewResponse\_Meta\_Credits
- * @phpstan-import-type _RateLimitsShape from \Onlyfansapi\Promotions\PromotionNewResponse\_Meta\_RateLimits
+ * @phpstan-import-type _CacheShape from \OnlyFansAPI\Promotions\PromotionNewResponse\_Meta\_Cache
+ * @phpstan-import-type _CreditsShape from \OnlyFansAPI\Promotions\PromotionNewResponse\_Meta\_Credits
+ * @phpstan-import-type _RateLimitsShape from \OnlyFansAPI\Promotions\PromotionNewResponse\_Meta\_RateLimits
  *
  * @phpstan-type _MetaShape = array{
  *   _cache?: null|_Cache|_CacheShape,

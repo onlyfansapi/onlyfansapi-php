@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stories\Highlights;
+namespace OnlyFansAPI\Stories\Highlights;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Stories\Highlights\HighlightListResponse\_Meta;
-use Onlyfansapi\Stories\Highlights\HighlightListResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Stories\Highlights\HighlightListResponse\_Meta;
+use OnlyFansAPI\Stories\Highlights\HighlightListResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Stories\Highlights\HighlightListResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Stories\Highlights\HighlightListResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Stories\Highlights\HighlightListResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Stories\Highlights\HighlightListResponse\Data
  *
  * @phpstan-type HighlightListResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

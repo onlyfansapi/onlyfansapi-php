@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrialLinks\TrialLinkListResponse\Data;
+namespace OnlyFansAPI\TrialLinks\TrialLinkListResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrialLinks\TrialLinkListResponse\Data\List_\Links;
-use Onlyfansapi\TrialLinks\TrialLinkListResponse\Data\List_\Revenue;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\TrialLinks\TrialLinkListResponse\Data\List_\Links;
+use OnlyFansAPI\TrialLinks\TrialLinkListResponse\Data\List_\Revenue;
 
 /**
- * @phpstan-import-type LinksShape from \Onlyfansapi\TrialLinks\TrialLinkListResponse\Data\List_\Links
- * @phpstan-import-type RevenueShape from \Onlyfansapi\TrialLinks\TrialLinkListResponse\Data\List_\Revenue
+ * @phpstan-import-type LinksShape from \OnlyFansAPI\TrialLinks\TrialLinkListResponse\Data\List_\Links
+ * @phpstan-import-type RevenueShape from \OnlyFansAPI\TrialLinks\TrialLinkListResponse\Data\List_\Revenue
  *
  * @phpstan-type ListShape = array{
  *   id?: int|null,

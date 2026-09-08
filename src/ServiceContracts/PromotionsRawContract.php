@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Promotions\PromotionCreateParams;
-use Onlyfansapi\Promotions\PromotionDeleteParams;
-use Onlyfansapi\Promotions\PromotionDeleteResponse;
-use Onlyfansapi\Promotions\PromotionListParams;
-use Onlyfansapi\Promotions\PromotionListResponse;
-use Onlyfansapi\Promotions\PromotionNewResponse;
-use Onlyfansapi\Promotions\PromotionStopParams;
-use Onlyfansapi\Promotions\PromotionStopResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Promotions\PromotionCreateParams;
+use OnlyFansAPI\Promotions\PromotionDeleteParams;
+use OnlyFansAPI\Promotions\PromotionDeleteResponse;
+use OnlyFansAPI\Promotions\PromotionListParams;
+use OnlyFansAPI\Promotions\PromotionListResponse;
+use OnlyFansAPI\Promotions\PromotionNewResponse;
+use OnlyFansAPI\Promotions\PromotionStopParams;
+use OnlyFansAPI\Promotions\PromotionStopResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface PromotionsRawContract
 {

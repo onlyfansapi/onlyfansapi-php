@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Payouts;
+namespace OnlyFansAPI\Payouts;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get total and monthly time-series earning statistics for the account.
  *
- * @see Onlyfansapi\Services\PayoutsService::retrieveEarningStatistics()
+ * @see OnlyFansAPI\Services\PayoutsService::retrieveEarningStatistics()
  *
  * @phpstan-type PayoutRetrieveEarningStatisticsParamsShape = array{
  *   endDate?: string|null, startDate?: string|null

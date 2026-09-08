@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\SharedTrialLinks\SharedTrialLinkListParams;
-use Onlyfansapi\SharedTrialLinks\SharedTrialLinkListResponse;
-use Onlyfansapi\SharedTrialLinks\SharedTrialLinkRevokeAccessParams;
-use Onlyfansapi\SharedTrialLinks\SharedTrialLinkRevokeAccessResponse;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkListParams;
+use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkListResponse;
+use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkRevokeAccessParams;
+use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkRevokeAccessResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface SharedTrialLinksRawContract
 {

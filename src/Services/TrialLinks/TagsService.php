@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\TrialLinks;
+namespace OnlyFansAPI\Services\TrialLinks;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\TrialLinks\TagsContract;
-use Onlyfansapi\TrialLinks\Tags\TagAddResponse;
-use Onlyfansapi\TrialLinks\Tags\TagListResponse;
-use Onlyfansapi\TrialLinks\Tags\TagRemoveResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\TrialLinks\TagsContract;
+use OnlyFansAPI\TrialLinks\Tags\TagAddResponse;
+use OnlyFansAPI\TrialLinks\Tags\TagListResponse;
+use OnlyFansAPI\TrialLinks\Tags\TagRemoveResponse;
 
 /**
  * APIs for managing Free Trial Links.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class TagsService implements TagsContract
 {

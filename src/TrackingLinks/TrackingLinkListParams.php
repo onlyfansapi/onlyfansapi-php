@@ -2,29 +2,32 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrackingLinks;
+namespace OnlyFansAPI\TrackingLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrackingLinks\TrackingLinkListParams\Sort;
-use Onlyfansapi\TrackingLinks\TrackingLinkListParams\Sortby;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\Pagination;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\Sort;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\Sortby;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\WithDeleted;
 
 /**
  * List all tracking links for the account and revenue data.
  *
- * @see Onlyfansapi\Services\TrackingLinksService::list()
+ * @see OnlyFansAPI\Services\TrackingLinksService::list()
  *
  * @phpstan-type TrackingLinkListParamsShape = array{
  *   endDate?: string|null,
  *   limit?: int|null,
  *   offset?: int|null,
+ *   pagination?: null|Pagination|value-of<Pagination>,
  *   sort?: null|Sort|value-of<Sort>,
  *   sortby?: null|Sortby|value-of<Sortby>,
  *   startDate?: string|null,
  *   synchronous?: bool|null,
- *   withDeleted?: bool|null,
+ *   withDeleted?: null|WithDeleted|value-of<WithDeleted>,
  * }
  */
 final class TrackingLinkListParams implements BaseModel
@@ -34,56 +37,62 @@ final class TrackingLinkListParams implements BaseModel
     use SdkParams;
 
     /**
-     * The end date for Tracking Links. Keep empty to get all.
+     * The end date for tracking links. Keep empty to get all. Must not be greater than 255 characters.
      */
     #[Optional(nullable: true)]
     public ?string $endDate;
 
     /**
-     * The number of tracking links to return. Default `3`.
+     * The number of tracking links to return. Default `10`. Must be at least 1. Must not be greater than 100.
      */
-    #[Optional(nullable: true)]
+    #[Optional]
     public ?int $limit;
 
     /**
-     * The offset used for pagination. Default `0`.
+     * The offset used for pagination. Default `0`. Must be at least 0.
      */
-    #[Optional(nullable: true)]
+    #[Optional]
     public ?int $offset;
 
+    /** @var value-of<Pagination>|null $pagination */
+    #[Optional(enum: Pagination::class)]
+    public ?int $pagination;
+
     /**
-     * Sort the results. Default `desc`.
+     * Sort direction. Default `desc`.
      *
      * @var value-of<Sort>|null $sort
      */
-    #[Optional(enum: Sort::class, nullable: true)]
+    #[Optional(enum: Sort::class)]
     public ?string $sort;
 
     /**
-     * Sort by subscriber count (claims), or creation date.
+     * Sort by subscriber count (`claims`) or creation date (`created_date`).
      *
      * @var value-of<Sortby>|null $sortby
      */
-    #[Optional(enum: Sortby::class, nullable: true)]
+    #[Optional(enum: Sortby::class)]
     public ?string $sortby;
 
     /**
-     * The start date for Tracking Links. Keep empty to get all.
+     * The start date for tracking links. Keep empty to get all. Must not be greater than 255 characters.
      */
     #[Optional(nullable: true)]
     public ?string $startDate;
 
     /**
-     * Wait for the revenue data to finish processing, instead of processing in the background. **Will result in longer response times, use with caution**. Default `false`.
+     * Wait for revenue calculation instead of processing it in the background.
      */
-    #[Optional(nullable: true)]
+    #[Optional]
     public ?bool $synchronous;
 
     /**
-     * Whether or not to include deleted tracking links in the response. Default `false`.
+     * Whether to include deleted tracking links. Default `true`.
+     *
+     * @var value-of<WithDeleted>|null $withDeleted
      */
-    #[Optional(nullable: true)]
-    public ?bool $withDeleted;
+    #[Optional(enum: WithDeleted::class)]
+    public ?int $withDeleted;
 
     public function __construct()
     {
@@ -95,24 +104,28 @@ final class TrackingLinkListParams implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
+     * @param Pagination|value-of<Pagination>|null $pagination
      * @param Sort|value-of<Sort>|null $sort
      * @param Sortby|value-of<Sortby>|null $sortby
+     * @param WithDeleted|value-of<WithDeleted>|null $withDeleted
      */
     public static function with(
         ?string $endDate = null,
         ?int $limit = null,
         ?int $offset = null,
+        Pagination|int|null $pagination = null,
         Sort|string|null $sort = null,
         Sortby|string|null $sortby = null,
         ?string $startDate = null,
         ?bool $synchronous = null,
-        ?bool $withDeleted = null,
+        WithDeleted|int|null $withDeleted = null,
     ): self {
         $self = new self;
 
         null !== $endDate && $self['endDate'] = $endDate;
         null !== $limit && $self['limit'] = $limit;
         null !== $offset && $self['offset'] = $offset;
+        null !== $pagination && $self['pagination'] = $pagination;
         null !== $sort && $self['sort'] = $sort;
         null !== $sortby && $self['sortby'] = $sortby;
         null !== $startDate && $self['startDate'] = $startDate;
@@ -123,7 +136,7 @@ final class TrackingLinkListParams implements BaseModel
     }
 
     /**
-     * The end date for Tracking Links. Keep empty to get all.
+     * The end date for tracking links. Keep empty to get all. Must not be greater than 255 characters.
      */
     public function withEndDate(?string $endDate): self
     {
@@ -134,9 +147,9 @@ final class TrackingLinkListParams implements BaseModel
     }
 
     /**
-     * The number of tracking links to return. Default `3`.
+     * The number of tracking links to return. Default `10`. Must be at least 1. Must not be greater than 100.
      */
-    public function withLimit(?int $limit): self
+    public function withLimit(int $limit): self
     {
         $self = clone $this;
         $self['limit'] = $limit;
@@ -145,9 +158,9 @@ final class TrackingLinkListParams implements BaseModel
     }
 
     /**
-     * The offset used for pagination. Default `0`.
+     * The offset used for pagination. Default `0`. Must be at least 0.
      */
-    public function withOffset(?int $offset): self
+    public function withOffset(int $offset): self
     {
         $self = clone $this;
         $self['offset'] = $offset;
@@ -156,11 +169,22 @@ final class TrackingLinkListParams implements BaseModel
     }
 
     /**
-     * Sort the results. Default `desc`.
-     *
-     * @param Sort|value-of<Sort>|null $sort
+     * @param Pagination|value-of<Pagination> $pagination
      */
-    public function withSort(Sort|string|null $sort): self
+    public function withPagination(Pagination|int $pagination): self
+    {
+        $self = clone $this;
+        $self['pagination'] = $pagination;
+
+        return $self;
+    }
+
+    /**
+     * Sort direction. Default `desc`.
+     *
+     * @param Sort|value-of<Sort> $sort
+     */
+    public function withSort(Sort|string $sort): self
     {
         $self = clone $this;
         $self['sort'] = $sort;
@@ -169,11 +193,11 @@ final class TrackingLinkListParams implements BaseModel
     }
 
     /**
-     * Sort by subscriber count (claims), or creation date.
+     * Sort by subscriber count (`claims`) or creation date (`created_date`).
      *
-     * @param Sortby|value-of<Sortby>|null $sortby
+     * @param Sortby|value-of<Sortby> $sortby
      */
-    public function withSortby(Sortby|string|null $sortby): self
+    public function withSortby(Sortby|string $sortby): self
     {
         $self = clone $this;
         $self['sortby'] = $sortby;
@@ -182,7 +206,7 @@ final class TrackingLinkListParams implements BaseModel
     }
 
     /**
-     * The start date for Tracking Links. Keep empty to get all.
+     * The start date for tracking links. Keep empty to get all. Must not be greater than 255 characters.
      */
     public function withStartDate(?string $startDate): self
     {
@@ -193,9 +217,9 @@ final class TrackingLinkListParams implements BaseModel
     }
 
     /**
-     * Wait for the revenue data to finish processing, instead of processing in the background. **Will result in longer response times, use with caution**. Default `false`.
+     * Wait for revenue calculation instead of processing it in the background.
      */
-    public function withSynchronous(?bool $synchronous): self
+    public function withSynchronous(bool $synchronous): self
     {
         $self = clone $this;
         $self['synchronous'] = $synchronous;
@@ -204,9 +228,11 @@ final class TrackingLinkListParams implements BaseModel
     }
 
     /**
-     * Whether or not to include deleted tracking links in the response. Default `false`.
+     * Whether to include deleted tracking links. Default `true`.
+     *
+     * @param WithDeleted|value-of<WithDeleted> $withDeleted
      */
-    public function withWithDeleted(?bool $withDeleted): self
+    public function withWithDeleted(WithDeleted|int $withDeleted): self
     {
         $self = clone $this;
         $self['withDeleted'] = $withDeleted;

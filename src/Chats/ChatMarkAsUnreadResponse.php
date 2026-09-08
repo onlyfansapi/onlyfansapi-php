@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats;
+namespace OnlyFansAPI\Chats;
 
-use Onlyfansapi\Chats\ChatMarkAsUnreadResponse\_Meta;
-use Onlyfansapi\Chats\ChatMarkAsUnreadResponse\Data;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chats\ChatMarkAsUnreadResponse\_Meta;
+use OnlyFansAPI\Chats\ChatMarkAsUnreadResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Chats\ChatMarkAsUnreadResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Chats\ChatMarkAsUnreadResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Chats\ChatMarkAsUnreadResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Chats\ChatMarkAsUnreadResponse\Data
  *
  * @phpstan-type ChatMarkAsUnreadResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

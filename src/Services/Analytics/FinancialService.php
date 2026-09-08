@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Analytics;
+namespace OnlyFansAPI\Services\Analytics;
 
-use Onlyfansapi\Analytics\Financial\FinancialGetForecastParams\Metric;
-use Onlyfansapi\Analytics\Financial\FinancialGetForecastParams\Model;
-use Onlyfansapi\Analytics\Financial\FinancialGetForecastResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Analytics\FinancialContract;
-use Onlyfansapi\Services\Analytics\Financial\ProfitabilityService;
-use Onlyfansapi\Services\Analytics\Financial\TransactionsService;
+use OnlyFansAPI\Analytics\Financial\FinancialGetForecastParams\Metric;
+use OnlyFansAPI\Analytics\Financial\FinancialGetForecastParams\Model;
+use OnlyFansAPI\Analytics\Financial\FinancialGetForecastResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Analytics\FinancialContract;
+use OnlyFansAPI\Services\Analytics\Financial\ProfitabilityService;
+use OnlyFansAPI\Services\Analytics\Financial\TransactionsService;
 
 /**
  * APIs for retrieving financial analytics data.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class FinancialService implements FinancialContract
 {

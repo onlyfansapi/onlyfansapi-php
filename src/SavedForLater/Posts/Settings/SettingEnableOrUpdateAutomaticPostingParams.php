@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SavedForLater\Posts\Settings;
+namespace OnlyFansAPI\SavedForLater\Posts\Settings;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SavedForLater\Posts\Settings\SettingEnableOrUpdateAutomaticPostingParams\Period;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SavedForLater\Posts\Settings\SettingEnableOrUpdateAutomaticPostingParams\Period;
 
 /**
  * Enable or update automatic posting of Saved For Later posts.
  *
- * @see Onlyfansapi\Services\SavedForLater\Posts\SettingsService::enableOrUpdateAutomaticPosting()
+ * @see OnlyFansAPI\Services\SavedForLater\Posts\SettingsService::enableOrUpdateAutomaticPosting()
  *
  * @phpstan-type SettingEnableOrUpdateAutomaticPostingParamsShape = array{
  *   period: Period|value-of<Period>

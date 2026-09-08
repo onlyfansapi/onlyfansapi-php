@@ -2,26 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\UserLists;
+namespace OnlyFansAPI\ServiceContracts\UserLists;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\UserLists\Users\UserAddParams;
-use Onlyfansapi\UserLists\Users\UserAddResponse;
-use Onlyfansapi\UserLists\Users\UserClearParams;
-use Onlyfansapi\UserLists\Users\UserClearResponse;
-use Onlyfansapi\UserLists\Users\UserListParams;
-use Onlyfansapi\UserLists\Users\UserListPinnedParams;
-use Onlyfansapi\UserLists\Users\UserListPinnedResponse;
-use Onlyfansapi\UserLists\Users\UserListResponse;
-use Onlyfansapi\UserLists\Users\UserPinParams;
-use Onlyfansapi\UserLists\Users\UserPinResponse;
-use Onlyfansapi\UserLists\Users\UserRemoveParams;
-use Onlyfansapi\UserLists\Users\UserRemoveResponse;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\UserLists\Users\UserAddParams;
+use OnlyFansAPI\UserLists\Users\UserAddResponse\UnionMember0;
+use OnlyFansAPI\UserLists\Users\UserAddResponse\UnionMember1;
+use OnlyFansAPI\UserLists\Users\UserClearParams;
+use OnlyFansAPI\UserLists\Users\UserClearResponse;
+use OnlyFansAPI\UserLists\Users\UserListParams;
+use OnlyFansAPI\UserLists\Users\UserListPinnedParams;
+use OnlyFansAPI\UserLists\Users\UserListPinnedResponse;
+use OnlyFansAPI\UserLists\Users\UserListResponse;
+use OnlyFansAPI\UserLists\Users\UserPinParams;
+use OnlyFansAPI\UserLists\Users\UserPinResponse;
+use OnlyFansAPI\UserLists\Users\UserRemoveParams;
+use OnlyFansAPI\UserLists\Users\UserRemoveResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface UsersRawContract
 {
@@ -49,7 +50,7 @@ interface UsersRawContract
      * @param array<string,mixed>|UserAddParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<UserAddResponse>
+     * @return BaseResponse<UnionMember0|UnionMember1>
      *
      * @throws APIException
      */

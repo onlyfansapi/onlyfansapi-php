@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Engagement\Messages;
+namespace OnlyFansAPI\Engagement\Messages;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Engagement\Messages\MessageGetMessageBuyersResponse\_Meta;
-use Onlyfansapi\Engagement\Messages\MessageGetMessageBuyersResponse\_Pagination;
-use Onlyfansapi\Engagement\Messages\MessageGetMessageBuyersResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Engagement\Messages\MessageGetMessageBuyersResponse\_Meta;
+use OnlyFansAPI\Engagement\Messages\MessageGetMessageBuyersResponse\_Pagination;
+use OnlyFansAPI\Engagement\Messages\MessageGetMessageBuyersResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Engagement\Messages\MessageGetMessageBuyersResponse\_Meta
- * @phpstan-import-type _PaginationShape from \Onlyfansapi\Engagement\Messages\MessageGetMessageBuyersResponse\_Pagination
- * @phpstan-import-type DataShape from \Onlyfansapi\Engagement\Messages\MessageGetMessageBuyersResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Engagement\Messages\MessageGetMessageBuyersResponse\_Meta
+ * @phpstan-import-type _PaginationShape from \OnlyFansAPI\Engagement\Messages\MessageGetMessageBuyersResponse\_Pagination
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Engagement\Messages\MessageGetMessageBuyersResponse\Data
  *
  * @phpstan-type MessageGetMessageBuyersResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape,

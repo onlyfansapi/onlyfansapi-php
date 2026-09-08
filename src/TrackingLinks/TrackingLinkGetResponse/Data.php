@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrackingLinks\TrackingLinkGetResponse;
+namespace OnlyFansAPI\TrackingLinks\TrackingLinkGetResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetResponse\Data\Cost;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetResponse\Data\Links;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetResponse\Data\Revenue;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetResponse\Data\Cost;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetResponse\Data\Links;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetResponse\Data\Revenue;
 
 /**
- * @phpstan-import-type CostShape from \Onlyfansapi\TrackingLinks\TrackingLinkGetResponse\Data\Cost
- * @phpstan-import-type LinksShape from \Onlyfansapi\TrackingLinks\TrackingLinkGetResponse\Data\Links
- * @phpstan-import-type RevenueShape from \Onlyfansapi\TrackingLinks\TrackingLinkGetResponse\Data\Revenue
+ * @phpstan-import-type CostShape from \OnlyFansAPI\TrackingLinks\TrackingLinkGetResponse\Data\Cost
+ * @phpstan-import-type LinksShape from \OnlyFansAPI\TrackingLinks\TrackingLinkGetResponse\Data\Links
+ * @phpstan-import-type RevenueShape from \OnlyFansAPI\TrackingLinks\TrackingLinkGetResponse\Data\Revenue
  *
  * @phpstan-type DataShape = array{
  *   id?: int|null,

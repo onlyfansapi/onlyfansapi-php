@@ -2,12 +2,12 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Authenticate\AuthenticatePollStatusResponse;
-use Onlyfansapi\Authenticate\AuthenticateReauthenticateResponse;
-use Onlyfansapi\Authenticate\AuthenticateSend2faEmailResponse;
-use Onlyfansapi\Authenticate\AuthenticateSubmit2faResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
+use OnlyFansAPI\Authenticate\AuthenticatePollStatusResponse;
+use OnlyFansAPI\Authenticate\AuthenticateReauthenticateResponse;
+use OnlyFansAPI\Authenticate\AuthenticateSend2faEmailResponse;
+use OnlyFansAPI\Authenticate\AuthenticateSubmit2faResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

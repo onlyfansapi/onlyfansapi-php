@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics\Statements;
+namespace OnlyFansAPI\Statistics\Statements;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Statistics\Statements\StatementGetEarningsParams\Type;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Statistics\Statements\StatementGetEarningsParams\Type;
 
 /**
  * Get the earnings for a given period.
  *
- * @see Onlyfansapi\Services\Statistics\StatementsService::getEarnings()
+ * @see OnlyFansAPI\Services\Statistics\StatementsService::getEarnings()
  *
  * @phpstan-type StatementGetEarningsParamsShape = array{
- *   startDate: string, endDate?: string|null, type?: null|Type|value-of<Type>
+ *   endDate: string, startDate: string, type?: null|Type|value-of<Type>
  * }
  */
 final class StatementGetEarningsParams implements BaseModel
@@ -27,16 +27,16 @@ final class StatementGetEarningsParams implements BaseModel
     use SdkParams;
 
     /**
+     * The end date for the period.
+     */
+    #[Required]
+    public string $endDate;
+
+    /**
      * The start date for the period.
      */
     #[Required]
     public string $startDate;
-
-    /**
-     * The end date for the period.
-     */
-    #[Optional]
-    public ?string $endDate;
 
     /**
      * Filter by All / Subscriptions / Tips / Posts / Messages / Streams.
@@ -51,13 +51,13 @@ final class StatementGetEarningsParams implements BaseModel
      *
      * To enforce required parameters use
      * ```
-     * StatementGetEarningsParams::with(startDate: ...)
+     * StatementGetEarningsParams::with(endDate: ..., startDate: ...)
      * ```
      *
      * Otherwise ensure the following setters are called
      *
      * ```
-     * (new StatementGetEarningsParams)->withStartDate(...)
+     * (new StatementGetEarningsParams)->withEndDate(...)->withStartDate(...)
      * ```
      */
     public function __construct()
@@ -73,27 +73,16 @@ final class StatementGetEarningsParams implements BaseModel
      * @param Type|value-of<Type>|null $type
      */
     public static function with(
+        string $endDate,
         string $startDate,
-        ?string $endDate = null,
         Type|string|null $type = null
     ): self {
         $self = new self;
 
+        $self['endDate'] = $endDate;
         $self['startDate'] = $startDate;
 
-        null !== $endDate && $self['endDate'] = $endDate;
         null !== $type && $self['type'] = $type;
-
-        return $self;
-    }
-
-    /**
-     * The start date for the period.
-     */
-    public function withStartDate(string $startDate): self
-    {
-        $self = clone $this;
-        $self['startDate'] = $startDate;
 
         return $self;
     }
@@ -105,6 +94,17 @@ final class StatementGetEarningsParams implements BaseModel
     {
         $self = clone $this;
         $self['endDate'] = $endDate;
+
+        return $self;
+    }
+
+    /**
+     * The start date for the period.
+     */
+    public function withStartDate(string $startDate): self
+    {
+        $self = clone $this;
+        $self['startDate'] = $startDate;
 
         return $self;
     }

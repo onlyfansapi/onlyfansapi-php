@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse;
+namespace OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse;
 
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type PayoutShape from \Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout
+ * @phpstan-import-type PayoutShape from \OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout
  *
  * @phpstan-type DataShape = array{
  *   isPayoutDataFilled?: bool|null,

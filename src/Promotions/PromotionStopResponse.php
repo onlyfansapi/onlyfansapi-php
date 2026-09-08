@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Promotions;
+namespace OnlyFansAPI\Promotions;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Promotions\PromotionStopResponse\_Meta;
-use Onlyfansapi\Promotions\PromotionStopResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Promotions\PromotionStopResponse\_Meta;
+use OnlyFansAPI\Promotions\PromotionStopResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Promotions\PromotionStopResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Promotions\PromotionStopResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Promotions\PromotionStopResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Promotions\PromotionStopResponse\Data
  *
  * @phpstan-type PromotionStopResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

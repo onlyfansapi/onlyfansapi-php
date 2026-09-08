@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Whoami;
+namespace OnlyFansAPI\Whoami;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Whoami\WhoamiGetResponse\APIKey;
-use Onlyfansapi\Whoami\WhoamiGetResponse\Team;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Whoami\WhoamiGetResponse\APIKey;
+use OnlyFansAPI\Whoami\WhoamiGetResponse\Team;
 
 /**
- * @phpstan-import-type APIKeyShape from \Onlyfansapi\Whoami\WhoamiGetResponse\APIKey
- * @phpstan-import-type TeamShape from \Onlyfansapi\Whoami\WhoamiGetResponse\Team
+ * @phpstan-import-type APIKeyShape from \OnlyFansAPI\Whoami\WhoamiGetResponse\APIKey
+ * @phpstan-import-type TeamShape from \OnlyFansAPI\Whoami\WhoamiGetResponse\Team
  *
  * @phpstan-type WhoamiGetResponseShape = array{
  *   apiKey?: null|APIKey|APIKeyShape, team?: null|Team|TeamShape

@@ -2,29 +2,29 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Authenticate\AuthenticatePollStatusResponse;
-use Onlyfansapi\Authenticate\AuthenticateReauthenticateResponse;
-use Onlyfansapi\Authenticate\AuthenticateSend2faEmailResponse;
-use Onlyfansapi\Authenticate\AuthenticateStartParams;
-use Onlyfansapi\Authenticate\AuthenticateStartParams\AuthType;
-use Onlyfansapi\Authenticate\AuthenticateStartParams\CustomProxy;
-use Onlyfansapi\Authenticate\AuthenticateStartParams\ProxyCountry;
-use Onlyfansapi\Authenticate\AuthenticateStartResponse;
-use Onlyfansapi\Authenticate\AuthenticateStartResponse\UnionMember0;
-use Onlyfansapi\Authenticate\AuthenticateStartResponse\UnionMember1;
-use Onlyfansapi\Authenticate\AuthenticateSubmit2faParams;
-use Onlyfansapi\Authenticate\AuthenticateSubmit2faResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\AuthenticateRawContract;
+use OnlyFansAPI\Authenticate\AuthenticatePollStatusResponse;
+use OnlyFansAPI\Authenticate\AuthenticateReauthenticateResponse;
+use OnlyFansAPI\Authenticate\AuthenticateSend2faEmailResponse;
+use OnlyFansAPI\Authenticate\AuthenticateStartParams;
+use OnlyFansAPI\Authenticate\AuthenticateStartParams\AuthType;
+use OnlyFansAPI\Authenticate\AuthenticateStartParams\CustomProxy;
+use OnlyFansAPI\Authenticate\AuthenticateStartParams\ProxyCountry;
+use OnlyFansAPI\Authenticate\AuthenticateStartResponse;
+use OnlyFansAPI\Authenticate\AuthenticateStartResponse\UnionMember0;
+use OnlyFansAPI\Authenticate\AuthenticateStartResponse\UnionMember1;
+use OnlyFansAPI\Authenticate\AuthenticateSubmit2faParams;
+use OnlyFansAPI\Authenticate\AuthenticateSubmit2faResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\AuthenticateRawContract;
 
 /**
- * @phpstan-import-type CustomProxyShape from \Onlyfansapi\Authenticate\AuthenticateStartParams\CustomProxy
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type CustomProxyShape from \OnlyFansAPI\Authenticate\AuthenticateStartParams\CustomProxy
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class AuthenticateRawService implements AuthenticateRawContract
 {

@@ -2,11 +2,11 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Bundles\BundleDeleteResponse;
-use Onlyfansapi\Bundles\BundleListResponse;
-use Onlyfansapi\Bundles\BundleNewResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
+use OnlyFansAPI\Bundles\BundleDeleteResponse;
+use OnlyFansAPI\Bundles\BundleListResponse;
+use OnlyFansAPI\Bundles\BundleNewResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

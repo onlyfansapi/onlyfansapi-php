@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Search\SearchProfilesParams\Filter;
+namespace OnlyFansAPI\Search\SearchProfilesParams\Filter;
 
 /**
  * Filter by gender (available: `female`, `male`, `trans`, `trans_ftm` (Female-to-Male), `trans_mft` (Male-to-Female), `couple`). ⭐️ Only available on the Pro and Enterprise plan.

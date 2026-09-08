@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Banking\Details;
+namespace OnlyFansAPI\Banking\Details;
 
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\_Meta;
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\_Meta;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data
  *
  * @phpstan-type DetailGetBankDetailsResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

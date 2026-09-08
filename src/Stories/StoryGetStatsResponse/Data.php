@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stories\StoryGetStatsResponse;
+namespace OnlyFansAPI\Stories\StoryGetStatsResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Stories\StoryGetStatsResponse\Data\StoryCommentChart;
-use Onlyfansapi\Stories\StoryGetStatsResponse\Data\StoryLikeChart;
-use Onlyfansapi\Stories\StoryGetStatsResponse\Data\StoryLookChart;
-use Onlyfansapi\Stories\StoryGetStatsResponse\Data\StoryTipChart;
-use Onlyfansapi\Stories\StoryGetStatsResponse\Data\StoryTipSumChart;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Stories\StoryGetStatsResponse\Data\StoryCommentChart;
+use OnlyFansAPI\Stories\StoryGetStatsResponse\Data\StoryLikeChart;
+use OnlyFansAPI\Stories\StoryGetStatsResponse\Data\StoryLookChart;
+use OnlyFansAPI\Stories\StoryGetStatsResponse\Data\StoryTipChart;
+use OnlyFansAPI\Stories\StoryGetStatsResponse\Data\StoryTipSumChart;
 
 /**
- * @phpstan-import-type StoryCommentChartShape from \Onlyfansapi\Stories\StoryGetStatsResponse\Data\StoryCommentChart
- * @phpstan-import-type StoryLikeChartShape from \Onlyfansapi\Stories\StoryGetStatsResponse\Data\StoryLikeChart
- * @phpstan-import-type StoryLookChartShape from \Onlyfansapi\Stories\StoryGetStatsResponse\Data\StoryLookChart
- * @phpstan-import-type StoryTipChartShape from \Onlyfansapi\Stories\StoryGetStatsResponse\Data\StoryTipChart
- * @phpstan-import-type StoryTipSumChartShape from \Onlyfansapi\Stories\StoryGetStatsResponse\Data\StoryTipSumChart
+ * @phpstan-import-type StoryCommentChartShape from \OnlyFansAPI\Stories\StoryGetStatsResponse\Data\StoryCommentChart
+ * @phpstan-import-type StoryLikeChartShape from \OnlyFansAPI\Stories\StoryGetStatsResponse\Data\StoryLikeChart
+ * @phpstan-import-type StoryLookChartShape from \OnlyFansAPI\Stories\StoryGetStatsResponse\Data\StoryLookChart
+ * @phpstan-import-type StoryTipChartShape from \OnlyFansAPI\Stories\StoryGetStatsResponse\Data\StoryTipChart
+ * @phpstan-import-type StoryTipSumChartShape from \OnlyFansAPI\Stories\StoryGetStatsResponse\Data\StoryTipSumChart
  *
  * @phpstan-type DataShape = array{
  *   createdAt?: string|null,

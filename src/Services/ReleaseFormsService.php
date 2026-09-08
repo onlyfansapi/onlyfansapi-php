@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersParams\Filter;
-use Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersParams\Sort;
-use Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersParams\SortDirection;
-use Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersResponse;
-use Onlyfansapi\ReleaseForms\ReleaseFormNewInvitationLinkResponse;
-use Onlyfansapi\ReleaseForms\ReleaseFormNewReleaseFormResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\ReleaseFormsContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersParams\Filter;
+use OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersParams\Sort;
+use OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersParams\SortDirection;
+use OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersResponse;
+use OnlyFansAPI\ReleaseForms\ReleaseFormNewInvitationLinkResponse;
+use OnlyFansAPI\ReleaseForms\ReleaseFormNewReleaseFormResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\ReleaseFormsContract;
 
 /**
  * APIs for managing OnlyFans release forms.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class ReleaseFormsService implements ReleaseFormsContract
 {
@@ -87,7 +87,7 @@ final class ReleaseFormsService implements ReleaseFormsContract
     /**
      * @api
      *
-     * Get a paginated list of users that can be tagged in release forms. These are verified creators who have signed release forms to appear in your content. Use `offset` and `limit` for pagination.
+     * Get a paginated list of users that can be tagged in release forms. These are verified creators who have signed release forms to appear in your content. Use `offset` and `limit` for pagination, following `_pagination.next_page` until it is `null`.
      *
      * @param string $account The Account ID
      * @param Filter|value-of<Filter>|null $filter filter users by type: `all` or `pending`

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Search\SearchProfilesParams;
+namespace OnlyFansAPI\Search\SearchProfilesParams;
 
 /**
  * Direction for sorting. `desc` - highest value first. `asc` - lowest value first.

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\ChatListResponse\Data\Fan;
+namespace OnlyFansAPI\Chats\ChatListResponse\Data\Fan;
 
-use Onlyfansapi\Chats\ChatListResponse\Data\Fan\SubscribedOnData\Subscribe;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chats\ChatListResponse\Data\Fan\SubscribedOnData\Subscribe;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type SubscribeShape from \Onlyfansapi\Chats\ChatListResponse\Data\Fan\SubscribedOnData\Subscribe
+ * @phpstan-import-type SubscribeShape from \OnlyFansAPI\Chats\ChatListResponse\Data\Fan\SubscribedOnData\Subscribe
  *
  * @phpstan-type SubscribedOnDataShape = array{
  *   discountFinishedAt?: string|null,

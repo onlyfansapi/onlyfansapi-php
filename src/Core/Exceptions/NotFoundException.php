@@ -1,9 +1,9 @@
 <?php
 
-namespace Onlyfansapi\Core\Exceptions;
+namespace OnlyFansAPI\Core\Exceptions;
 
 class NotFoundException extends APIStatusException
 {
     /** @var string */
-    protected const DESC = 'Onlyfansapi Not Found Exception';
+    protected const DESC = 'OnlyFansAPI Not Found Exception';
 }

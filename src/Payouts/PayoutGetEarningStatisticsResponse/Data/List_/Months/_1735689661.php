@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months;
+namespace OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months\_1735689661\Subscribe;
-use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months\_1735689661\Tip;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months\_1735689661\Subscribe;
+use OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months\_1735689661\Tip;
 
 /**
- * @phpstan-import-type SubscribeShape from \Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months\_1735689661\Subscribe
- * @phpstan-import-type TipShape from \Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months\_1735689661\Tip
+ * @phpstan-import-type SubscribeShape from \OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months\_1735689661\Subscribe
+ * @phpstan-import-type TipShape from \OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months\_1735689661\Tip
  *
  * @phpstan-type _1735689661Shape = array{
  *   subscribes?: list<Subscribe|SubscribeShape>|null,

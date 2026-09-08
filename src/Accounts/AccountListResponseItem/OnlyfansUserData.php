@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Accounts\AccountListResponseItem;
+namespace OnlyFansAPI\Accounts\AccountListResponseItem;
 
-use Onlyfansapi\Accounts\AccountListResponseItem\OnlyfansUserData\AvatarThumbs;
-use Onlyfansapi\Accounts\AccountListResponseItem\OnlyfansUserData\HasNewTicketReplies;
-use Onlyfansapi\Accounts\AccountListResponseItem\OnlyfansUserData\HeaderSize;
-use Onlyfansapi\Accounts\AccountListResponseItem\OnlyfansUserData\HeaderThumbs;
-use Onlyfansapi\Accounts\AccountListResponseItem\OnlyfansUserData\Upload;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Accounts\AccountListResponseItem\OnlyfansUserData\AvatarThumbs;
+use OnlyFansAPI\Accounts\AccountListResponseItem\OnlyfansUserData\HasNewTicketReplies;
+use OnlyFansAPI\Accounts\AccountListResponseItem\OnlyfansUserData\HeaderSize;
+use OnlyFansAPI\Accounts\AccountListResponseItem\OnlyfansUserData\HeaderThumbs;
+use OnlyFansAPI\Accounts\AccountListResponseItem\OnlyfansUserData\Upload;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type AvatarThumbsShape from \Onlyfansapi\Accounts\AccountListResponseItem\OnlyfansUserData\AvatarThumbs
- * @phpstan-import-type HasNewTicketRepliesShape from \Onlyfansapi\Accounts\AccountListResponseItem\OnlyfansUserData\HasNewTicketReplies
- * @phpstan-import-type HeaderSizeShape from \Onlyfansapi\Accounts\AccountListResponseItem\OnlyfansUserData\HeaderSize
- * @phpstan-import-type HeaderThumbsShape from \Onlyfansapi\Accounts\AccountListResponseItem\OnlyfansUserData\HeaderThumbs
- * @phpstan-import-type UploadShape from \Onlyfansapi\Accounts\AccountListResponseItem\OnlyfansUserData\Upload
+ * @phpstan-import-type AvatarThumbsShape from \OnlyFansAPI\Accounts\AccountListResponseItem\OnlyfansUserData\AvatarThumbs
+ * @phpstan-import-type HasNewTicketRepliesShape from \OnlyFansAPI\Accounts\AccountListResponseItem\OnlyfansUserData\HasNewTicketReplies
+ * @phpstan-import-type HeaderSizeShape from \OnlyFansAPI\Accounts\AccountListResponseItem\OnlyfansUserData\HeaderSize
+ * @phpstan-import-type HeaderThumbsShape from \OnlyFansAPI\Accounts\AccountListResponseItem\OnlyfansUserData\HeaderThumbs
+ * @phpstan-import-type UploadShape from \OnlyFansAPI\Accounts\AccountListResponseItem\OnlyfansUserData\Upload
  *
  * @phpstan-type OnlyfansUserDataShape = array{
  *   id?: int|null,

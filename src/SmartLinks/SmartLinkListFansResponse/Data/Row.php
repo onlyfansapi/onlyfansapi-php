@@ -2,13 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinks\SmartLinkListFansResponse\Data;
+namespace OnlyFansAPI\SmartLinks\SmartLinkListFansResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SmartLinks\SmartLinkListFansResponse\Data\Row\SubscriptionInsights;
 
 /**
+ * @phpstan-import-type SubscriptionInsightsShape from \OnlyFansAPI\SmartLinks\SmartLinkListFansResponse\Data\Row\SubscriptionInsights
+ *
  * @phpstan-type RowShape = array{
  *   avatarURL?: string|null,
  *   clickID?: string|null,
@@ -20,6 +23,7 @@ use Onlyfansapi\Core\Contracts\BaseModel;
  *   name?: string|null,
  *   onlyfansID?: string|null,
  *   revenueNet?: int|null,
+ *   subscriptionInsights?: null|SubscriptionInsights|SubscriptionInsightsShape,
  *   tipsNet?: int|null,
  *   username?: string|null,
  * }
@@ -59,6 +63,9 @@ final class Row implements BaseModel
     #[Optional('revenue_net')]
     public ?int $revenueNet;
 
+    #[Optional('subscription_insights')]
+    public ?SubscriptionInsights $subscriptionInsights;
+
     #[Optional('tips_net')]
     public ?int $tipsNet;
 
@@ -74,6 +81,8 @@ final class Row implements BaseModel
      * Construct an instance from the required parameters.
      *
      * You must use named parameters to construct any parameters with a default value.
+     *
+     * @param SubscriptionInsights|SubscriptionInsightsShape|null $subscriptionInsights
      */
     public static function with(
         ?string $avatarURL = null,
@@ -86,6 +95,7 @@ final class Row implements BaseModel
         ?string $name = null,
         ?string $onlyfansID = null,
         ?int $revenueNet = null,
+        SubscriptionInsights|array|null $subscriptionInsights = null,
         ?int $tipsNet = null,
         ?string $username = null,
     ): self {
@@ -101,6 +111,7 @@ final class Row implements BaseModel
         null !== $name && $self['name'] = $name;
         null !== $onlyfansID && $self['onlyfansID'] = $onlyfansID;
         null !== $revenueNet && $self['revenueNet'] = $revenueNet;
+        null !== $subscriptionInsights && $self['subscriptionInsights'] = $subscriptionInsights;
         null !== $tipsNet && $self['tipsNet'] = $tipsNet;
         null !== $username && $self['username'] = $username;
 
@@ -183,6 +194,18 @@ final class Row implements BaseModel
     {
         $self = clone $this;
         $self['revenueNet'] = $revenueNet;
+
+        return $self;
+    }
+
+    /**
+     * @param SubscriptionInsights|SubscriptionInsightsShape $subscriptionInsights
+     */
+    public function withSubscriptionInsights(
+        SubscriptionInsights|array $subscriptionInsights
+    ): self {
+        $self = clone $this;
+        $self['subscriptionInsights'] = $subscriptionInsights;
 
         return $self;
     }

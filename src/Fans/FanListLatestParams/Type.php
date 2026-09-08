@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans\FanListLatestParams;
+namespace OnlyFansAPI\Fans\FanListLatestParams;
 
 /**
  * Filter by type: total, renew, or new.

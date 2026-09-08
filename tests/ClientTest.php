@@ -4,7 +4,7 @@ namespace Tests;
 
 use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Mock\Client;
-use Onlyfansapi\Core\Util;
+use OnlyFansAPI\Core\Util;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -26,7 +26,7 @@ class ClientTest extends TestCase
 
         $transporter->setDefaultResponse($mockRsp);
 
-        $client = new \Onlyfansapi\Client(
+        $client = new \OnlyFansAPI\Client(
             baseUrl: 'http://localhost',
             apiKey: 'My API Key',
             requestOptions: ['transporter' => $transporter],

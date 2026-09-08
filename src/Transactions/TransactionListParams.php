@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Transactions;
+namespace OnlyFansAPI\Transactions;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get a paginated list of transactions for an Account. Newest transactions are first. You can filter by transaction type and tips source.
  *
- * @see Onlyfansapi\Services\TransactionsService::list()
+ * @see OnlyFansAPI\Services\TransactionsService::list()
  *
  * @phpstan-type TransactionListParamsShape = array{
  *   limit?: string|null,
@@ -41,7 +41,7 @@ final class TransactionListParams implements BaseModel
     public ?string $marker;
 
     /**
-     * The start date for transactions list. Default: `-30days`.
+     * The start date for the transactions list. Defaults to 30 days ago.
      */
     #[Optional]
     public ?string $startDate;
@@ -109,7 +109,7 @@ final class TransactionListParams implements BaseModel
     }
 
     /**
-     * The start date for transactions list. Default: `-30days`.
+     * The start date for the transactions list. Defaults to 30 days ago.
      */
     public function withStartDate(string $startDate): self
     {

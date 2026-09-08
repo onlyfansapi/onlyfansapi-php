@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data;
+namespace OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months;
-use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months;
+use OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total;
 
 /**
- * @phpstan-import-type MonthsShape from \Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months
- * @phpstan-import-type TotalShape from \Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total
+ * @phpstan-import-type MonthsShape from \OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months
+ * @phpstan-import-type TotalShape from \OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total
  *
  * @phpstan-type ListShape = array{
  *   months?: null|Months|MonthsShape, total?: null|Total|TotalShape

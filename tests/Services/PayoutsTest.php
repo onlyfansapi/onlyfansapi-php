@@ -2,13 +2,13 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Payouts\PayoutGetBalancesResponse;
-use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse;
-use Onlyfansapi\Payouts\PayoutGetEligibilityResponse;
-use Onlyfansapi\Payouts\PayoutListRequestsResponse;
-use Onlyfansapi\Payouts\PayoutUpdateFrequencyResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Payouts\PayoutGetBalancesResponse;
+use OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse;
+use OnlyFansAPI\Payouts\PayoutGetEligibilityResponse;
+use OnlyFansAPI\Payouts\PayoutListRequestsResponse;
+use OnlyFansAPI\Payouts\PayoutUpdateFrequencyResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

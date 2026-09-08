@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Engagement\Messages;
+namespace OnlyFansAPI\ServiceContracts\Engagement\Messages;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageChartParams;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageChartResponse;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageListParams;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageListResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageChartParams;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageChartResponse;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageListParams;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageListResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface MassMessagesRawContract
 {

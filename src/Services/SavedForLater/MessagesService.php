@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\SavedForLater;
+namespace OnlyFansAPI\Services\SavedForLater;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\SavedForLater\Messages\MessageListResponse;
-use Onlyfansapi\ServiceContracts\SavedForLater\MessagesContract;
-use Onlyfansapi\Services\SavedForLater\Messages\SettingsService;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\SavedForLater\Messages\MessageListResponse;
+use OnlyFansAPI\ServiceContracts\SavedForLater\MessagesContract;
+use OnlyFansAPI\Services\SavedForLater\Messages\SettingsService;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class MessagesService implements MessagesContract
 {

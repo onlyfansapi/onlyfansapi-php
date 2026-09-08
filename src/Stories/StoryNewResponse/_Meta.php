@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stories\StoryNewResponse;
+namespace OnlyFansAPI\Stories\StoryNewResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Stories\StoryNewResponse\_Meta\_Cache;
-use Onlyfansapi\Stories\StoryNewResponse\_Meta\_Credits;
-use Onlyfansapi\Stories\StoryNewResponse\_Meta\_RateLimits;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Stories\StoryNewResponse\_Meta\_Cache;
+use OnlyFansAPI\Stories\StoryNewResponse\_Meta\_Credits;
+use OnlyFansAPI\Stories\StoryNewResponse\_Meta\_RateLimits;
 
 /**
- * @phpstan-import-type _CacheShape from \Onlyfansapi\Stories\StoryNewResponse\_Meta\_Cache
- * @phpstan-import-type _CreditsShape from \Onlyfansapi\Stories\StoryNewResponse\_Meta\_Credits
- * @phpstan-import-type _RateLimitsShape from \Onlyfansapi\Stories\StoryNewResponse\_Meta\_RateLimits
+ * @phpstan-import-type _CacheShape from \OnlyFansAPI\Stories\StoryNewResponse\_Meta\_Cache
+ * @phpstan-import-type _CreditsShape from \OnlyFansAPI\Stories\StoryNewResponse\_Meta\_Credits
+ * @phpstan-import-type _RateLimitsShape from \OnlyFansAPI\Stories\StoryNewResponse\_Meta\_RateLimits
  *
  * @phpstan-type _MetaShape = array{
  *   _cache?: null|_Cache|_CacheShape,

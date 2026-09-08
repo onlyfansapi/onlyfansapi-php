@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Stories;
+namespace OnlyFansAPI\Services\Stories;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Stories\HighlightsContract;
-use Onlyfansapi\Stories\Highlights\HighlightAddStoryResponse;
-use Onlyfansapi\Stories\Highlights\HighlightDeleteResponse;
-use Onlyfansapi\Stories\Highlights\HighlightGetResponse;
-use Onlyfansapi\Stories\Highlights\HighlightListResponse;
-use Onlyfansapi\Stories\Highlights\HighlightNewResponse;
-use Onlyfansapi\Stories\Highlights\HighlightRemoveStoryResponse;
-use Onlyfansapi\Stories\Highlights\HighlightUpdateResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Stories\HighlightsContract;
+use OnlyFansAPI\Stories\Highlights\HighlightAddStoryResponse;
+use OnlyFansAPI\Stories\Highlights\HighlightDeleteResponse;
+use OnlyFansAPI\Stories\Highlights\HighlightGetResponse;
+use OnlyFansAPI\Stories\Highlights\HighlightListResponse;
+use OnlyFansAPI\Stories\Highlights\HighlightNewResponse;
+use OnlyFansAPI\Stories\Highlights\HighlightRemoveStoryResponse;
+use OnlyFansAPI\Stories\Highlights\HighlightUpdateResponse;
 
 /**
  * APIs for managing OnlyFans story highlights.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class HighlightsService implements HighlightsContract
 {

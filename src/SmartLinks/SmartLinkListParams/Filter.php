@@ -1,0 +1,60 @@
+<?php
+
+declare(strict_types=1);
+
+namespace OnlyFansAPI\SmartLinks\SmartLinkListParams;
+
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+
+/**
+ * @phpstan-type FilterShape = array{tags?: list<string>|null}
+ */
+final class Filter implements BaseModel
+{
+    /** @use SdkModel<FilterShape> */
+    use SdkModel;
+
+    /**
+     * Must not be greater than 50 characters.
+     *
+     * @var list<string>|null $tags
+     */
+    #[Optional(list: 'string')]
+    public ?array $tags;
+
+    public function __construct()
+    {
+        $this->initialize();
+    }
+
+    /**
+     * Construct an instance from the required parameters.
+     *
+     * You must use named parameters to construct any parameters with a default value.
+     *
+     * @param list<string>|null $tags
+     */
+    public static function with(?array $tags = null): self
+    {
+        $self = new self;
+
+        null !== $tags && $self['tags'] = $tags;
+
+        return $self;
+    }
+
+    /**
+     * Must not be greater than 50 characters.
+     *
+     * @param list<string> $tags
+     */
+    public function withTags(array $tags): self
+    {
+        $self = clone $this;
+        $self['tags'] = $tags;
+
+        return $self;
+    }
+}

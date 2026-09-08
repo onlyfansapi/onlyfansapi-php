@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Core\Concerns;
+namespace OnlyFansAPI\Core\Concerns;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Conversion\Contracts\Converter;
-use Onlyfansapi\Core\Conversion\Contracts\ConverterSource;
-use Onlyfansapi\Core\Exceptions\APIStatusException;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Conversion\Contracts\Converter;
+use OnlyFansAPI\Core\Conversion\Contracts\ConverterSource;
+use OnlyFansAPI\Core\Exceptions\APIStatusException;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type NormalizedRequest from \Onlyfansapi\Core\BaseClient
+ * @phpstan-import-type NormalizedRequest from \OnlyFansAPI\Core\BaseClient
  *
  * @internal
  *

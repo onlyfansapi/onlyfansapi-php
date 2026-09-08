@@ -2,22 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\StatisticsContract;
-use Onlyfansapi\Services\Statistics\ReachService;
-use Onlyfansapi\Services\Statistics\StatementsService;
-use Onlyfansapi\Statistics\StatisticCalculateTotalTransactionsResponse;
-use Onlyfansapi\Statistics\StatisticGetOverviewParams\Type;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse;
-use Onlyfansapi\Statistics\StatisticGetSubscriberMetricsResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\StatisticsContract;
+use OnlyFansAPI\Services\Statistics\ReachService;
+use OnlyFansAPI\Services\Statistics\StatementsService;
+use OnlyFansAPI\Statistics\StatisticCalculateTotalTransactionsResponse;
+use OnlyFansAPI\Statistics\StatisticGetOverviewParams\Type;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse;
+use OnlyFansAPI\Statistics\StatisticGetSubscriberMetricsParams\DetailedType;
+use OnlyFansAPI\Statistics\StatisticGetSubscriberMetricsResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class StatisticsService implements StatisticsContract
 {
@@ -60,8 +61,8 @@ final class StatisticsService implements StatisticsContract
      */
     public function calculateTotalTransactions(
         string $account,
-        string $endDate,
-        string $startDate,
+        ?string $endDate = null,
+        ?string $startDate = null,
         RequestOptions|array|null $requestOptions = null,
     ): StatisticCalculateTotalTransactionsResponse {
         $params = Util::removeNulls(
@@ -113,6 +114,7 @@ final class StatisticsService implements StatisticsContract
      * @param string $endDate the end date for the metrics
      * @param string $startDate the start date for the metrics
      * @param bool|null $detailed Include paid and free fan metrics. Will slow down the response time, and might time out if timeframe is too large. Default = `false`
+     * @param DetailedType|value-of<DetailedType>|null $detailedType Use only with `detailed=true` - otherwise, it has no effect. Filter the subscriber statistics (default = total)
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -122,6 +124,7 @@ final class StatisticsService implements StatisticsContract
         string $endDate,
         string $startDate,
         ?bool $detailed = null,
+        DetailedType|string|null $detailedType = null,
         RequestOptions|array|null $requestOptions = null,
     ): StatisticGetSubscriberMetricsResponse {
         $params = Util::removeNulls(
@@ -129,6 +132,7 @@ final class StatisticsService implements StatisticsContract
                 'endDate' => $endDate,
                 'startDate' => $startDate,
                 'detailed' => $detailed,
+                'detailedType' => $detailedType,
             ],
         );
 

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stories\Highlights;
+namespace OnlyFansAPI\Stories\Highlights;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Stories\Highlights\HighlightDeleteResponse\_Meta;
-use Onlyfansapi\Stories\Highlights\HighlightDeleteResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Stories\Highlights\HighlightDeleteResponse\_Meta;
+use OnlyFansAPI\Stories\Highlights\HighlightDeleteResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Stories\Highlights\HighlightDeleteResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Stories\Highlights\HighlightDeleteResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Stories\Highlights\HighlightDeleteResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Stories\Highlights\HighlightDeleteResponse\Data
  *
  * @phpstan-type HighlightDeleteResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

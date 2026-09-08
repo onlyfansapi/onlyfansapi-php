@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans\Summary;
+namespace OnlyFansAPI\Fans\Summary;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Queue generation or regeneration of an AI profile summary for a fan. Costs 200 credits (charged on completion). Use the GET endpoint to poll for results. To regenerate an existing summary, pass `regenerate: true`.
  *
- * @see Onlyfansapi\Services\Fans\SummaryService::generateSummary()
+ * @see OnlyFansAPI\Services\Fans\SummaryService::generateSummary()
  *
  * @phpstan-type SummaryGenerateSummaryParamsShape = array{
  *   account: string, regenerate?: bool|null

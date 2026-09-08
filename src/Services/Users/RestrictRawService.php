@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Users;
+namespace OnlyFansAPI\Services\Users;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Users\RestrictRawContract;
-use Onlyfansapi\Users\Restrict\RestrictCreateParams;
-use Onlyfansapi\Users\Restrict\RestrictDeleteParams;
-use Onlyfansapi\Users\Restrict\RestrictDeleteResponse;
-use Onlyfansapi\Users\Restrict\RestrictNewResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Users\RestrictRawContract;
+use OnlyFansAPI\Users\Restrict\RestrictCreateParams;
+use OnlyFansAPI\Users\Restrict\RestrictDeleteParams;
+use OnlyFansAPI\Users\Restrict\RestrictDeleteResponse;
+use OnlyFansAPI\Users\Restrict\RestrictNewResponse;
 
 /**
  * APIs for fetching OnlyFans users.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class RestrictRawService implements RestrictRawContract
 {

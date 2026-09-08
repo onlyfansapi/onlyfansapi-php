@@ -2,12 +2,12 @@
 
 namespace Tests\Services\Media;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Media\Vault\VaultDeleteResponse;
-use Onlyfansapi\Media\Vault\VaultGetResponse;
-use Onlyfansapi\Media\Vault\VaultListResponse;
-use Onlyfansapi\Media\Vault\VaultUploadResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Media\Vault\VaultDeleteResponse;
+use OnlyFansAPI\Media\Vault\VaultGetResponse;
+use OnlyFansAPI\Media\Vault\VaultListResponse;
+use OnlyFansAPI\Media\Vault\VaultUploadResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

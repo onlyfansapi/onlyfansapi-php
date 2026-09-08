@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans\FanGetSubscriptionHistoryResponse;
+namespace OnlyFansAPI\Fans\FanGetSubscriptionHistoryResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Fans\FanGetSubscriptionHistoryResponse\Data\List_;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Fans\FanGetSubscriptionHistoryResponse\Data\List_;
 
 /**
- * @phpstan-import-type ListShape from \Onlyfansapi\Fans\FanGetSubscriptionHistoryResponse\Data\List_
+ * @phpstan-import-type ListShape from \OnlyFansAPI\Fans\FanGetSubscriptionHistoryResponse\Data\List_
  *
  * @phpstan-type DataShape = array{
  *   hasMore?: bool|null, list?: list<List_|ListShape>|null

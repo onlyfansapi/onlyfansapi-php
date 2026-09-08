@@ -2,26 +2,30 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Following;
+namespace OnlyFansAPI\Following;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Following\FollowingListActiveParams\Filter;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Following\FollowingListActiveParams\Filter;
+use OnlyFansAPI\Following\FollowingListActiveParams\Sort;
+use OnlyFansAPI\Following\FollowingListActiveParams\SortDirection;
 
 /**
- * Get a paginated list of followings for an Account. Newest followings are first.
+ * Get a paginated list of followings for an Account. By default OnlyFans returns this list newest-first, sorted by `subscribedByData.subscribeAt` descending. The expired list does not share this order, so do not assume it applies there. Pass `sort` (optionally with `sortDirection`) to reorder the list — see the parameter description for the caveat that OnlyFans persists the chosen order account-wide. An empty page is not the end of the list: OnlyFans applies `offset` to the whole following collection before filtering it down to the requested list, so a page can come back empty while more results follow. Keep following `_pagination.next_page` until it is `null` instead of stopping at the first empty page.
  *
- * @see Onlyfansapi\Services\FollowingService::listActive()
+ * @see OnlyFansAPI\Services\FollowingService::listActive()
  *
- * @phpstan-import-type FilterShape from \Onlyfansapi\Following\FollowingListActiveParams\Filter
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Following\FollowingListActiveParams\Filter
  *
  * @phpstan-type FollowingListActiveParamsShape = array{
  *   filter?: null|Filter|FilterShape,
  *   limit?: int|null,
  *   offset?: int|null,
  *   query?: string|null,
+ *   sort?: null|Sort|value-of<Sort>,
+ *   sortDirection?: null|SortDirection|value-of<SortDirection>,
  * }
  */
 final class FollowingListActiveParams implements BaseModel
@@ -51,6 +55,22 @@ final class FollowingListActiveParams implements BaseModel
     #[Optional(nullable: true)]
     public ?string $query;
 
+    /**
+     * Order the list by `last_activity` (the followed creator's last activity), `expire_date` (subscription expiry), `subscribe_date` (subscription start) or `is_expired` (expired first — OnlyFans only offers this one on the expired list). Omit it to keep whichever order is currently stored for the account. **Note:** OnlyFans persists this order account-wide, so it also applies to later requests that omit `sort` and to the creator's own onlyfans.com UI, until it is changed again. **Expired list:** OnlyFans applies `offset` to the whole following collection and only then filters it down to expired subscriptions, so ordering by expiry descending puts the still-active subscriptions first and moves the expired rows to the tail of the collection — the first several hundred offsets then come back empty. Use `sortDirection=asc` or `sort=is_expired` to get expired-first results. For that reason `sort=expire_date` on the expired list defaults to `asc` instead of `desc` when you do not pass `sortDirection`. Whatever order you pick, an empty page is **not** the end of the list: keep following `_pagination.next_page` until it is `null` rather than stopping at the first empty page. This field is required when <code>sortDirection</code> is present.
+     *
+     * @var value-of<Sort>|null $sort
+     */
+    #[Optional(enum: Sort::class, nullable: true)]
+    public ?string $sort;
+
+    /**
+     * Direction for `sort`: `desc` (default) or `asc`. Requires `sort` to be set. Exception: `sort=expire_date` on the expired list defaults to `asc`, because `desc` moves the expired rows to the tail of the underlying collection and leaves the early pages empty. Passing `sortDirection` explicitly always wins.
+     *
+     * @var value-of<SortDirection>|null $sortDirection
+     */
+    #[Optional(enum: SortDirection::class, nullable: true)]
+    public ?string $sortDirection;
+
     public function __construct()
     {
         $this->initialize();
@@ -62,12 +82,16 @@ final class FollowingListActiveParams implements BaseModel
      * You must use named parameters to construct any parameters with a default value.
      *
      * @param Filter|FilterShape|null $filter
+     * @param Sort|value-of<Sort>|null $sort
+     * @param SortDirection|value-of<SortDirection>|null $sortDirection
      */
     public static function with(
         Filter|array|null $filter = null,
         ?int $limit = null,
         ?int $offset = null,
         ?string $query = null,
+        Sort|string|null $sort = null,
+        SortDirection|string|null $sortDirection = null,
     ): self {
         $self = new self;
 
@@ -75,6 +99,8 @@ final class FollowingListActiveParams implements BaseModel
         null !== $limit && $self['limit'] = $limit;
         null !== $offset && $self['offset'] = $offset;
         null !== $query && $self['query'] = $query;
+        null !== $sort && $self['sort'] = $sort;
+        null !== $sortDirection && $self['sortDirection'] = $sortDirection;
 
         return $self;
     }
@@ -119,6 +145,33 @@ final class FollowingListActiveParams implements BaseModel
     {
         $self = clone $this;
         $self['query'] = $query;
+
+        return $self;
+    }
+
+    /**
+     * Order the list by `last_activity` (the followed creator's last activity), `expire_date` (subscription expiry), `subscribe_date` (subscription start) or `is_expired` (expired first — OnlyFans only offers this one on the expired list). Omit it to keep whichever order is currently stored for the account. **Note:** OnlyFans persists this order account-wide, so it also applies to later requests that omit `sort` and to the creator's own onlyfans.com UI, until it is changed again. **Expired list:** OnlyFans applies `offset` to the whole following collection and only then filters it down to expired subscriptions, so ordering by expiry descending puts the still-active subscriptions first and moves the expired rows to the tail of the collection — the first several hundred offsets then come back empty. Use `sortDirection=asc` or `sort=is_expired` to get expired-first results. For that reason `sort=expire_date` on the expired list defaults to `asc` instead of `desc` when you do not pass `sortDirection`. Whatever order you pick, an empty page is **not** the end of the list: keep following `_pagination.next_page` until it is `null` rather than stopping at the first empty page. This field is required when <code>sortDirection</code> is present.
+     *
+     * @param Sort|value-of<Sort>|null $sort
+     */
+    public function withSort(Sort|string|null $sort): self
+    {
+        $self = clone $this;
+        $self['sort'] = $sort;
+
+        return $self;
+    }
+
+    /**
+     * Direction for `sort`: `desc` (default) or `asc`. Requires `sort` to be set. Exception: `sort=expire_date` on the expired list defaults to `asc`, because `desc` moves the expired rows to the tail of the underlying collection and leaves the early pages empty. Passing `sortDirection` explicitly always wins.
+     *
+     * @param SortDirection|value-of<SortDirection>|null $sortDirection
+     */
+    public function withSortDirection(
+        SortDirection|string|null $sortDirection
+    ): self {
+        $self = clone $this;
+        $self['sortDirection'] = $sortDirection;
 
         return $self;
     }

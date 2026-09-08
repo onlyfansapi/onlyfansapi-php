@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Posts;
+namespace OnlyFansAPI\ServiceContracts\Posts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Posts\Comments\CommentDeleteResponse;
-use Onlyfansapi\Posts\Comments\CommentLikeResponse;
-use Onlyfansapi\Posts\Comments\CommentListParams\Sort;
-use Onlyfansapi\Posts\Comments\CommentListResponse;
-use Onlyfansapi\Posts\Comments\CommentNewResponse;
-use Onlyfansapi\Posts\Comments\CommentPinResponse;
-use Onlyfansapi\Posts\Comments\CommentUnlikeResponse;
-use Onlyfansapi\Posts\Comments\CommentUnpinResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Posts\Comments\CommentDeleteResponse;
+use OnlyFansAPI\Posts\Comments\CommentLikeResponse;
+use OnlyFansAPI\Posts\Comments\CommentListParams\Sort;
+use OnlyFansAPI\Posts\Comments\CommentListResponse;
+use OnlyFansAPI\Posts\Comments\CommentNewResponse;
+use OnlyFansAPI\Posts\Comments\CommentPinResponse;
+use OnlyFansAPI\Posts\Comments\CommentUnlikeResponse;
+use OnlyFansAPI\Posts\Comments\CommentUnpinResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface CommentsContract
 {

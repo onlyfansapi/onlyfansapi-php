@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinks\SmartLinkNewResponse;
+namespace OnlyFansAPI\SmartLinks\SmartLinkNewResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SmartLinks\SmartLinkNewResponse\Data\Account;
-use Onlyfansapi\SmartLinks\SmartLinkNewResponse\Data\Cost;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SmartLinks\SmartLinkNewResponse\Data\Account;
+use OnlyFansAPI\SmartLinks\SmartLinkNewResponse\Data\Cost;
 
 /**
- * @phpstan-import-type AccountShape from \Onlyfansapi\SmartLinks\SmartLinkNewResponse\Data\Account
- * @phpstan-import-type CostShape from \Onlyfansapi\SmartLinks\SmartLinkNewResponse\Data\Cost
+ * @phpstan-import-type AccountShape from \OnlyFansAPI\SmartLinks\SmartLinkNewResponse\Data\Account
+ * @phpstan-import-type CostShape from \OnlyFansAPI\SmartLinks\SmartLinkNewResponse\Data\Cost
  *
  * @phpstan-type DataShape = array{
  *   id?: string|null,
@@ -62,7 +62,7 @@ final class Data implements BaseModel
     #[Optional]
     public ?string $name;
 
-    #[Optional(nullable: true)]
+    #[Optional]
     public ?string $revenue;
 
     #[Optional('subscribers_count')]
@@ -199,7 +199,7 @@ final class Data implements BaseModel
         return $self;
     }
 
-    public function withRevenue(?string $revenue): self
+    public function withRevenue(string $revenue): self
     {
         $self = clone $this;
         $self['revenue'] = $revenue;

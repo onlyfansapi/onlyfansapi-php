@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\DataExports\DataExportGetResponse;
+namespace OnlyFansAPI\DataExports\DataExportGetResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\DataExports\DataExportGetResponse\Data\Account;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\DataExports\DataExportGetResponse\Data\Account;
 
 /**
- * @phpstan-import-type AccountShape from \Onlyfansapi\DataExports\DataExportGetResponse\Data\Account
+ * @phpstan-import-type AccountShape from \OnlyFansAPI\DataExports\DataExportGetResponse\Data\Account
  *
  * @phpstan-type DataShape = array{
  *   id?: string|null,
@@ -21,6 +21,7 @@ use Onlyfansapi\DataExports\DataExportGetResponse\Data\Account;
  *   endDate?: string|null,
  *   exportColumns?: list<string>|null,
  *   failedAt?: string|null,
+ *   failedDownloads?: int|null,
  *   failedReason?: string|null,
  *   fileType?: string|null,
  *   progressPercentage?: int|null,
@@ -61,6 +62,9 @@ final class Data implements BaseModel
 
     #[Optional('failed_at', nullable: true)]
     public ?string $failedAt;
+
+    #[Optional('failed_downloads')]
+    public ?int $failedDownloads;
 
     #[Optional('failed_reason', nullable: true)]
     public ?string $failedReason;
@@ -108,6 +112,7 @@ final class Data implements BaseModel
         ?string $endDate = null,
         ?array $exportColumns = null,
         ?string $failedAt = null,
+        ?int $failedDownloads = null,
         ?string $failedReason = null,
         ?string $fileType = null,
         ?int $progressPercentage = null,
@@ -127,6 +132,7 @@ final class Data implements BaseModel
         null !== $endDate && $self['endDate'] = $endDate;
         null !== $exportColumns && $self['exportColumns'] = $exportColumns;
         null !== $failedAt && $self['failedAt'] = $failedAt;
+        null !== $failedDownloads && $self['failedDownloads'] = $failedDownloads;
         null !== $failedReason && $self['failedReason'] = $failedReason;
         null !== $fileType && $self['fileType'] = $fileType;
         null !== $progressPercentage && $self['progressPercentage'] = $progressPercentage;
@@ -205,6 +211,14 @@ final class Data implements BaseModel
     {
         $self = clone $this;
         $self['failedAt'] = $failedAt;
+
+        return $self;
+    }
+
+    public function withFailedDownloads(int $failedDownloads): self
+    {
+        $self = clone $this;
+        $self['failedDownloads'] = $failedDownloads;
 
         return $self;
     }

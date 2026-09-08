@@ -2,9 +2,9 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\ClientSessions\ClientSessionNewResponse;
-use Onlyfansapi\Core\Util;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\ClientSessions\ClientSessionNewResponse;
+use OnlyFansAPI\Core\Util;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -53,7 +53,7 @@ final class ClientSessionsTest extends TestCase
         $result = $this->client->clientSessions->create(
             displayName: 'STRLCxGLVC Agency / Model: Stella',
             clientReferenceID: 'my_crm_model_12345',
-            proxyCountry: 'uk',
+            proxyCountry: 'gb',
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType

@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Analytics;
+namespace OnlyFansAPI\Services\Analytics;
 
-use Onlyfansapi\Analytics\Financial\FinancialGetForecastParams;
-use Onlyfansapi\Analytics\Financial\FinancialGetForecastParams\Metric;
-use Onlyfansapi\Analytics\Financial\FinancialGetForecastParams\Model;
-use Onlyfansapi\Analytics\Financial\FinancialGetForecastResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Analytics\FinancialRawContract;
+use OnlyFansAPI\Analytics\Financial\FinancialGetForecastParams;
+use OnlyFansAPI\Analytics\Financial\FinancialGetForecastParams\Metric;
+use OnlyFansAPI\Analytics\Financial\FinancialGetForecastParams\Model;
+use OnlyFansAPI\Analytics\Financial\FinancialGetForecastResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Analytics\FinancialRawContract;
 
 /**
  * APIs for retrieving financial analytics data.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class FinancialRawService implements FinancialRawContract
 {

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SharedTrialLinks;
+namespace OnlyFansAPI\SharedTrialLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SharedTrialLinks\SharedTrialLinkRevokeAccessResponse\_Meta;
-use Onlyfansapi\SharedTrialLinks\SharedTrialLinkRevokeAccessResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkRevokeAccessResponse\_Meta;
+use OnlyFansAPI\SharedTrialLinks\SharedTrialLinkRevokeAccessResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\SharedTrialLinks\SharedTrialLinkRevokeAccessResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\SharedTrialLinks\SharedTrialLinkRevokeAccessResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\SharedTrialLinks\SharedTrialLinkRevokeAccessResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\SharedTrialLinks\SharedTrialLinkRevokeAccessResponse\Data
  *
  * @phpstan-type SharedTrialLinkRevokeAccessResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

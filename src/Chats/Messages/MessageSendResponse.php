@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\Messages;
+namespace OnlyFansAPI\Chats\Messages;
 
-use Onlyfansapi\Chats\Messages\MessageSendResponse\_Meta;
-use Onlyfansapi\Chats\Messages\MessageSendResponse\_Pagination;
-use Onlyfansapi\Chats\Messages\MessageSendResponse\Data;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chats\Messages\MessageSendResponse\_Meta;
+use OnlyFansAPI\Chats\Messages\MessageSendResponse\_Pagination;
+use OnlyFansAPI\Chats\Messages\MessageSendResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Chats\Messages\MessageSendResponse\_Meta
- * @phpstan-import-type _PaginationShape from \Onlyfansapi\Chats\Messages\MessageSendResponse\_Pagination
- * @phpstan-import-type DataShape from \Onlyfansapi\Chats\Messages\MessageSendResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Chats\Messages\MessageSendResponse\_Meta
+ * @phpstan-import-type _PaginationShape from \OnlyFansAPI\Chats\Messages\MessageSendResponse\_Pagination
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Chats\Messages\MessageSendResponse\Data
  *
  * @phpstan-type MessageSendResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape,

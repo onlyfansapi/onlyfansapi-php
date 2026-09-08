@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts\Comments\CommentListParams;
+namespace OnlyFansAPI\Posts\Comments\CommentListParams;
 
 /**
  * Sort the returned comments (default = desc).

@@ -2,24 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Core;
+namespace OnlyFansAPI\Core;
 
-use Onlyfansapi\Core\Contracts\BasePage;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Contracts\BaseStream;
-use Onlyfansapi\Core\Conversion\Contracts\Converter;
-use Onlyfansapi\Core\Conversion\Contracts\ConverterSource;
-use Onlyfansapi\Core\Exceptions\APIConnectionException;
-use Onlyfansapi\Core\Exceptions\APIStatusException;
-use Onlyfansapi\Core\Implementation\RawResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Contracts\BasePage;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Contracts\BaseStream;
+use OnlyFansAPI\Core\Conversion\Contracts\Converter;
+use OnlyFansAPI\Core\Conversion\Contracts\ConverterSource;
+use OnlyFansAPI\Core\Exceptions\APIConnectionException;
+use OnlyFansAPI\Core\Exceptions\APIStatusException;
+use OnlyFansAPI\Core\Implementation\RawResponse;
+use OnlyFansAPI\Core\Implementation\StreamingHttpClient;
+use OnlyFansAPI\RequestOptions;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  *
  * @phpstan-type NormalizedRequest = array{
  *   method: string,
@@ -129,10 +130,7 @@ abstract class BaseClient
         $parsedPath = Util::parsePath($path);
 
         /** @var array<string,mixed> $mergedQuery */
-        $mergedQuery = array_merge_recursive(
-            $query,
-            $options->extraQueryParams ?? []
-        );
+        $mergedQuery = [...$query, ...($options->extraQueryParams ?? [])];
         $uri = Util::joinUri($this->baseUrl, path: $parsedPath, query: $mergedQuery)->__toString();
         $idempotencyHeaders = $this->idempotencyHeader && !array_key_exists($this->idempotencyHeader, array: $headers)
             ? [$this->idempotencyHeader => $this->generateIdempotencyKey()]
@@ -249,7 +247,13 @@ abstract class BaseClient
         $err = null;
 
         try {
-            $rsp = $transporter->sendRequest($req);
+            if ($transporter instanceof StreamingHttpClient) {
+                $rsp = $transporter->sendRequest($req, timeout: $opts->timeout);
+            } elseif (is_a($transporter, '\GuzzleHttp\Client')) {
+                $rsp = $transporter->send($req, ['timeout' => $opts->timeout]);
+            } else {
+                $rsp = $transporter->sendRequest($req);
+            }
         } catch (ClientExceptionInterface $e) {
             $err = $e;
         }

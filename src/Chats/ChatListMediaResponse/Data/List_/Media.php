@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\ChatListMediaResponse\Data\List_;
+namespace OnlyFansAPI\Chats\ChatListMediaResponse\Data\List_;
 
-use Onlyfansapi\Chats\ChatListMediaResponse\Data\List_\Media\Files;
-use Onlyfansapi\Chats\ChatListMediaResponse\Data\List_\Media\VideoSources;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chats\ChatListMediaResponse\Data\List_\Media\Files;
+use OnlyFansAPI\Chats\ChatListMediaResponse\Data\List_\Media\VideoSources;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type FilesShape from \Onlyfansapi\Chats\ChatListMediaResponse\Data\List_\Media\Files
- * @phpstan-import-type VideoSourcesShape from \Onlyfansapi\Chats\ChatListMediaResponse\Data\List_\Media\VideoSources
+ * @phpstan-import-type FilesShape from \OnlyFansAPI\Chats\ChatListMediaResponse\Data\List_\Media\Files
+ * @phpstan-import-type VideoSourcesShape from \OnlyFansAPI\Chats\ChatListMediaResponse\Data\List_\Media\VideoSources
  *
  * @phpstan-type MediaShape = array{
  *   id?: int|null,

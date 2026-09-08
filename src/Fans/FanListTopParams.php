@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans;
+namespace OnlyFansAPI\Fans;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Fans\FanListTopParams\By;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Fans\FanListTopParams\By;
 
 /**
  * Get a list of top fans sorted by spending. Filterable by total, subscriptions, tips, messages, posts, or streams.
  *
- * @see Onlyfansapi\Services\FansService::listTop()
+ * @see OnlyFansAPI\Services\FansService::listTop()
  *
  * @phpstan-type FanListTopParamsShape = array{
  *   by?: null|By|value-of<By>, endDate?: string|null, startDate?: string|null
@@ -34,13 +34,13 @@ final class FanListTopParams implements BaseModel
     public ?string $by;
 
     /**
-     * End date for filtering (required with start_date). This field is required when <code>start_date</code> is present.
+     * End date for filtering (required with start_date). Must be a valid date. Must not be greater than 255 characters.
      */
     #[Optional(nullable: true)]
     public ?string $endDate;
 
     /**
-     * Start date for filtering (required with end_date). This field is required when <code>end_date</code> is present.
+     * Start date for filtering (required with end_date). Must be a valid date. Must not be greater than 255 characters.
      */
     #[Optional(nullable: true)]
     public ?string $startDate;
@@ -85,7 +85,7 @@ final class FanListTopParams implements BaseModel
     }
 
     /**
-     * End date for filtering (required with start_date). This field is required when <code>start_date</code> is present.
+     * End date for filtering (required with start_date). Must be a valid date. Must not be greater than 255 characters.
      */
     public function withEndDate(?string $endDate): self
     {
@@ -96,7 +96,7 @@ final class FanListTopParams implements BaseModel
     }
 
     /**
-     * Start date for filtering (required with end_date). This field is required when <code>end_date</code> is present.
+     * Start date for filtering (required with end_date). Must be a valid date. Must not be greater than 255 characters.
      */
     public function withStartDate(?string $startDate): self
     {

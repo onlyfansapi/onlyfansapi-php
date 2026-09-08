@@ -1,9 +1,9 @@
 <?php
 
-namespace Onlyfansapi\Core\Exceptions;
+namespace OnlyFansAPI\Core\Exceptions;
 
 class AuthenticationException extends APIStatusException
 {
     /** @var string */
-    protected const DESC = 'Onlyfansapi Authentication Exception';
+    protected const DESC = 'OnlyFansAPI Authentication Exception';
 }

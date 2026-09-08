@@ -2,29 +2,29 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\StoredRawContract;
-use Onlyfansapi\Stored\StoredListSharedTrackingLinksParams;
-use Onlyfansapi\Stored\StoredListSharedTrackingLinksParams\Filter;
-use Onlyfansapi\Stored\StoredListSharedTrackingLinksResponse;
-use Onlyfansapi\Stored\StoredListSharedTrialLinksParams;
-use Onlyfansapi\Stored\StoredListSharedTrialLinksResponse;
-use Onlyfansapi\Stored\StoredListTrackingLinksParams;
-use Onlyfansapi\Stored\StoredListTrackingLinksResponse;
-use Onlyfansapi\Stored\StoredListTrialLinksParams;
-use Onlyfansapi\Stored\StoredListTrialLinksResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\StoredRawContract;
+use OnlyFansAPI\Stored\StoredListSharedTrackingLinksParams;
+use OnlyFansAPI\Stored\StoredListSharedTrackingLinksParams\Filter;
+use OnlyFansAPI\Stored\StoredListSharedTrackingLinksResponse;
+use OnlyFansAPI\Stored\StoredListSharedTrialLinksParams;
+use OnlyFansAPI\Stored\StoredListSharedTrialLinksResponse;
+use OnlyFansAPI\Stored\StoredListTrackingLinksParams;
+use OnlyFansAPI\Stored\StoredListTrackingLinksResponse;
+use OnlyFansAPI\Stored\StoredListTrialLinksParams;
+use OnlyFansAPI\Stored\StoredListTrialLinksResponse;
 
 /**
- * @phpstan-import-type FilterShape from \Onlyfansapi\Stored\StoredListSharedTrackingLinksParams\Filter
- * @phpstan-import-type FilterShape from \Onlyfansapi\Stored\StoredListSharedTrialLinksParams\Filter as FilterShape1
- * @phpstan-import-type FilterShape from \Onlyfansapi\Stored\StoredListTrackingLinksParams\Filter as FilterShape2
- * @phpstan-import-type FilterShape from \Onlyfansapi\Stored\StoredListTrialLinksParams\Filter as FilterShape3
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Stored\StoredListSharedTrackingLinksParams\Filter
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Stored\StoredListSharedTrialLinksParams\Filter as FilterShape1
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Stored\StoredListTrackingLinksParams\Filter as FilterShape2
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Stored\StoredListTrialLinksParams\Filter as FilterShape3
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class StoredRawService implements StoredRawContract
 {

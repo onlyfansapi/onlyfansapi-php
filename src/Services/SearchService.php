@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Search\SearchProfilesParams\Filter;
-use Onlyfansapi\Search\SearchProfilesParams\Sort;
-use Onlyfansapi\Search\SearchProfilesParams\SortDirection;
-use Onlyfansapi\Search\SearchProfilesResponse;
-use Onlyfansapi\ServiceContracts\SearchContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Search\SearchProfilesParams\Filter;
+use OnlyFansAPI\Search\SearchProfilesParams\Sort;
+use OnlyFansAPI\Search\SearchProfilesParams\SortDirection;
+use OnlyFansAPI\Search\SearchProfilesResponse;
+use OnlyFansAPI\ServiceContracts\SearchContract;
 
 /**
- * @phpstan-import-type FilterShape from \Onlyfansapi\Search\SearchProfilesParams\Filter
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Search\SearchProfilesParams\Filter
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class SearchService implements SearchContract
 {

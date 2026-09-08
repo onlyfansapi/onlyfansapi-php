@@ -2,17 +2,17 @@
 
 namespace Tests\Services\Chats;
 
-use Onlyfansapi\Chats\Messages\MessageDeleteResponse;
-use Onlyfansapi\Chats\Messages\MessageGetResponse;
-use Onlyfansapi\Chats\Messages\MessageLikeResponse;
-use Onlyfansapi\Chats\Messages\MessageListResponse;
-use Onlyfansapi\Chats\Messages\MessagePinResponse;
-use Onlyfansapi\Chats\Messages\MessageSearchResponse;
-use Onlyfansapi\Chats\Messages\MessageSendResponse;
-use Onlyfansapi\Chats\Messages\MessageUnlikeResponse;
-use Onlyfansapi\Chats\Messages\MessageUnpinResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
+use OnlyFansAPI\Chats\Messages\MessageDeleteResponse;
+use OnlyFansAPI\Chats\Messages\MessageGetResponse;
+use OnlyFansAPI\Chats\Messages\MessageLikeResponse;
+use OnlyFansAPI\Chats\Messages\MessageListResponse;
+use OnlyFansAPI\Chats\Messages\MessagePinResponse;
+use OnlyFansAPI\Chats\Messages\MessageSearchResponse;
+use OnlyFansAPI\Chats\Messages\MessageSendResponse;
+use OnlyFansAPI\Chats\Messages\MessageUnlikeResponse;
+use OnlyFansAPI\Chats\Messages\MessageUnpinResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -270,16 +270,18 @@ final class MessagesTest extends TestCase
         $result = $this->client->chats->messages->send(
             '123',
             account: 'acct_XXXXXXXXXXXXXXX',
+            blockBannedWords: 'strict_ban',
             giphyID: 'WAGC3LeqJvXglm5H7a',
             lockedText: true,
             mediaFiles: ['ofapi_media_abc123', 1234567890],
             previews: ['ofapi_media_abc123', 1234567890],
-            price: 10,
+            price: 6.97,
             replyToMessageID: 123456789,
             rfGuest: 'rfGuest',
             rfPartner: 'rfPartner',
             rfTag: 'rfTag',
             text: 'Hello!',
+            idempotencyKey: 'a1b2c3d4-5e6f-4789-a0b1-c2d3e4f5a6b7',
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType

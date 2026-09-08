@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Analytics\Financial\Transactions;
+namespace OnlyFansAPI\Analytics\Financial\Transactions;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get transaction totals grouped by transaction type (subscriptions, tips, messages, etc.).
  *
- * @see Onlyfansapi\Services\Analytics\Financial\TransactionsService::getByType()
+ * @see OnlyFansAPI\Services\Analytics\Financial\TransactionsService::getByType()
  *
  * @phpstan-type TransactionGetByTypeParamsShape = array{
  *   accountIDs: list<string>, endDate: string, startDate: string

@@ -2,29 +2,29 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Stories\StoryCreateParams;
-use Onlyfansapi\Stories\StoryDeleteParams;
-use Onlyfansapi\Stories\StoryDeleteResponse;
-use Onlyfansapi\Stories\StoryGetResponse;
-use Onlyfansapi\Stories\StoryGetStatsResponse;
-use Onlyfansapi\Stories\StoryListActiveResponse;
-use Onlyfansapi\Stories\StoryListArchiveParams;
-use Onlyfansapi\Stories\StoryListArchiveResponse;
-use Onlyfansapi\Stories\StoryListViewersParams;
-use Onlyfansapi\Stories\StoryListViewersResponse;
-use Onlyfansapi\Stories\StoryMarkAsWatchedParams;
-use Onlyfansapi\Stories\StoryMarkAsWatchedResponse;
-use Onlyfansapi\Stories\StoryNewResponse;
-use Onlyfansapi\Stories\StoryRetrieveParams;
-use Onlyfansapi\Stories\StoryRetrieveStatsParams;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Stories\StoryCreateParams;
+use OnlyFansAPI\Stories\StoryDeleteParams;
+use OnlyFansAPI\Stories\StoryDeleteResponse;
+use OnlyFansAPI\Stories\StoryGetResponse;
+use OnlyFansAPI\Stories\StoryGetStatsResponse;
+use OnlyFansAPI\Stories\StoryListActiveResponse;
+use OnlyFansAPI\Stories\StoryListArchiveParams;
+use OnlyFansAPI\Stories\StoryListArchiveResponse;
+use OnlyFansAPI\Stories\StoryListViewersParams;
+use OnlyFansAPI\Stories\StoryListViewersResponse;
+use OnlyFansAPI\Stories\StoryMarkAsWatchedParams;
+use OnlyFansAPI\Stories\StoryMarkAsWatchedResponse;
+use OnlyFansAPI\Stories\StoryNewResponse;
+use OnlyFansAPI\Stories\StoryRetrieveParams;
+use OnlyFansAPI\Stories\StoryRetrieveStatsParams;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface StoriesRawContract
 {

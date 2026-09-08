@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Users;
+namespace OnlyFansAPI\ServiceContracts\Users;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Users\Restrict\RestrictDeleteResponse;
-use Onlyfansapi\Users\Restrict\RestrictNewResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Users\Restrict\RestrictDeleteResponse;
+use OnlyFansAPI\Users\Restrict\RestrictNewResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface RestrictContract
 {

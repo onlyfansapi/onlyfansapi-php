@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Notifications;
+namespace OnlyFansAPI\ServiceContracts\Notifications;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Notifications\TabsOrder\TabsOrderGetResponse;
-use Onlyfansapi\Notifications\TabsOrder\TabsOrderUpdateParams;
-use Onlyfansapi\Notifications\TabsOrder\TabsOrderUpdateResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Notifications\TabsOrder\TabsOrderGetResponse;
+use OnlyFansAPI\Notifications\TabsOrder\TabsOrderUpdateParams;
+use OnlyFansAPI\Notifications\TabsOrder\TabsOrderUpdateResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface TabsOrderRawContract
 {

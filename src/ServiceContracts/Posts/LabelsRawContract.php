@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Posts;
+namespace OnlyFansAPI\ServiceContracts\Posts;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Posts\Labels\LabelCreateParams;
-use Onlyfansapi\Posts\Labels\LabelListParams;
-use Onlyfansapi\Posts\Labels\LabelListResponse;
-use Onlyfansapi\Posts\Labels\LabelNewResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Posts\Labels\LabelCreateParams;
+use OnlyFansAPI\Posts\Labels\LabelListParams;
+use OnlyFansAPI\Posts\Labels\LabelListResponse;
+use OnlyFansAPI\Posts\Labels\LabelNewResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface LabelsRawContract
 {

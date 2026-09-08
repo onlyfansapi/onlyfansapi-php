@@ -2,33 +2,37 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\StoriesRawContract;
-use Onlyfansapi\Stories\StoryCreateParams;
-use Onlyfansapi\Stories\StoryDeleteParams;
-use Onlyfansapi\Stories\StoryDeleteResponse;
-use Onlyfansapi\Stories\StoryGetResponse;
-use Onlyfansapi\Stories\StoryGetStatsResponse;
-use Onlyfansapi\Stories\StoryListActiveResponse;
-use Onlyfansapi\Stories\StoryListArchiveParams;
-use Onlyfansapi\Stories\StoryListArchiveResponse;
-use Onlyfansapi\Stories\StoryListViewersParams;
-use Onlyfansapi\Stories\StoryListViewersResponse;
-use Onlyfansapi\Stories\StoryMarkAsWatchedParams;
-use Onlyfansapi\Stories\StoryMarkAsWatchedResponse;
-use Onlyfansapi\Stories\StoryNewResponse;
-use Onlyfansapi\Stories\StoryRetrieveParams;
-use Onlyfansapi\Stories\StoryRetrieveStatsParams;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\StoriesRawContract;
+use OnlyFansAPI\Stories\StoryCreateParams;
+use OnlyFansAPI\Stories\StoryCreateParams\Question;
+use OnlyFansAPI\Stories\StoryCreateParams\Text;
+use OnlyFansAPI\Stories\StoryDeleteParams;
+use OnlyFansAPI\Stories\StoryDeleteResponse;
+use OnlyFansAPI\Stories\StoryGetResponse;
+use OnlyFansAPI\Stories\StoryGetStatsResponse;
+use OnlyFansAPI\Stories\StoryListActiveResponse;
+use OnlyFansAPI\Stories\StoryListArchiveParams;
+use OnlyFansAPI\Stories\StoryListArchiveResponse;
+use OnlyFansAPI\Stories\StoryListViewersParams;
+use OnlyFansAPI\Stories\StoryListViewersResponse;
+use OnlyFansAPI\Stories\StoryMarkAsWatchedParams;
+use OnlyFansAPI\Stories\StoryMarkAsWatchedResponse;
+use OnlyFansAPI\Stories\StoryNewResponse;
+use OnlyFansAPI\Stories\StoryRetrieveParams;
+use OnlyFansAPI\Stories\StoryRetrieveStatsParams;
 
 /**
  * APIs for managing OnlyFans stories.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type QuestionShape from \OnlyFansAPI\Stories\StoryCreateParams\Question
+ * @phpstan-import-type TextShape from \OnlyFansAPI\Stories\StoryCreateParams\Text
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class StoriesRawService implements StoriesRawContract
 {
@@ -41,10 +45,16 @@ final class StoriesRawService implements StoriesRawContract
     /**
      * @api
      *
-     * Post a new media or vault file to your story.
+     * Post a new media or vault file to your story, optionally with text overlays, @mentions, and a question sticker. Overlay elements are rendered by OnlyFans on top of your story media at view time.
      *
      * @param string $account The Account ID
-     * @param array{mediaFiles: list<string>}|StoryCreateParams $params
+     * @param array{
+     *   mediaFiles: list<string>,
+     *   canvasHeight?: int,
+     *   canvasWidth?: int,
+     *   question?: Question|QuestionShape,
+     *   texts?: list<Text|TextShape>,
+     * }|StoryCreateParams $params
      * @param RequestOpts|null $requestOptions
      *
      * @return BaseResponse<StoryNewResponse>

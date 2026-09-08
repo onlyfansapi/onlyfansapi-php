@@ -2,12 +2,12 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Settings\SettingCheckUsernameAvailabilityResponse;
-use Onlyfansapi\Settings\SettingGetResponse;
-use Onlyfansapi\Settings\SettingUpdateProfileResponse;
-use Onlyfansapi\Settings\SettingUpdateSubscriptionPriceResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Settings\SettingCheckUsernameAvailabilityResponse;
+use OnlyFansAPI\Settings\SettingGetResponse;
+use OnlyFansAPI\Settings\SettingUpdateProfileResponse;
+use OnlyFansAPI\Settings\SettingUpdateSubscriptionPriceResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

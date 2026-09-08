@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Transactions;
+namespace OnlyFansAPI\Transactions;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Transactions\TransactionListResponse\_Meta;
-use Onlyfansapi\Transactions\TransactionListResponse\_Pagination;
-use Onlyfansapi\Transactions\TransactionListResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Transactions\TransactionListResponse\_Meta;
+use OnlyFansAPI\Transactions\TransactionListResponse\_Pagination;
+use OnlyFansAPI\Transactions\TransactionListResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Transactions\TransactionListResponse\_Meta
- * @phpstan-import-type _PaginationShape from \Onlyfansapi\Transactions\TransactionListResponse\_Pagination
- * @phpstan-import-type DataShape from \Onlyfansapi\Transactions\TransactionListResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Transactions\TransactionListResponse\_Meta
+ * @phpstan-import-type _PaginationShape from \OnlyFansAPI\Transactions\TransactionListResponse\_Pagination
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Transactions\TransactionListResponse\Data
  *
  * @phpstan-type TransactionListResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape,

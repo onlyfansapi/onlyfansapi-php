@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts\PostGetResponse;
+namespace OnlyFansAPI\Posts\PostGetResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Posts\PostGetResponse\Data\Author;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Posts\PostGetResponse\Data\Author;
 
 /**
- * @phpstan-import-type AuthorShape from \Onlyfansapi\Posts\PostGetResponse\Data\Author
+ * @phpstan-import-type AuthorShape from \OnlyFansAPI\Posts\PostGetResponse\Data\Author
  *
  * @phpstan-type DataShape = array{
  *   id?: int|null,

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\MassMessaging;
+namespace OnlyFansAPI\MassMessaging;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\_Meta;
-use Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\_Meta;
+use OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\Data
  *
  * @phpstan-type MassMessagingGetOverviewResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

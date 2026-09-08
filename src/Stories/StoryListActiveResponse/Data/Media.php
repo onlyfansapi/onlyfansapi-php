@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stories\StoryListActiveResponse\Data;
+namespace OnlyFansAPI\Stories\StoryListActiveResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Stories\StoryListActiveResponse\Data\Media\Files;
-use Onlyfansapi\Stories\StoryListActiveResponse\Data\Media\VideoSources;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Stories\StoryListActiveResponse\Data\Media\Files;
+use OnlyFansAPI\Stories\StoryListActiveResponse\Data\Media\VideoSources;
 
 /**
- * @phpstan-import-type FilesShape from \Onlyfansapi\Stories\StoryListActiveResponse\Data\Media\Files
- * @phpstan-import-type VideoSourcesShape from \Onlyfansapi\Stories\StoryListActiveResponse\Data\Media\VideoSources
+ * @phpstan-import-type FilesShape from \OnlyFansAPI\Stories\StoryListActiveResponse\Data\Media\Files
+ * @phpstan-import-type VideoSourcesShape from \OnlyFansAPI\Stories\StoryListActiveResponse\Data\Media\VideoSources
  *
  * @phpstan-type MediaShape = array{
  *   id?: int|null,

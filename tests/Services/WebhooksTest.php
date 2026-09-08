@@ -2,13 +2,13 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Webhooks\WebhookGetResponse;
-use Onlyfansapi\Webhooks\WebhookListEventsResponse;
-use Onlyfansapi\Webhooks\WebhookListResponse;
-use Onlyfansapi\Webhooks\WebhookNewResponse;
-use Onlyfansapi\Webhooks\WebhookUpdateResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Webhooks\WebhookGetResponse;
+use OnlyFansAPI\Webhooks\WebhookListEventsResponse;
+use OnlyFansAPI\Webhooks\WebhookListResponse;
+use OnlyFansAPI\Webhooks\WebhookNewResponse;
+use OnlyFansAPI\Webhooks\WebhookUpdateResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

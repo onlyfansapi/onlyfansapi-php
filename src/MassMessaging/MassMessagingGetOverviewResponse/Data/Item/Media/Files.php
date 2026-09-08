@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media;
+namespace OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media\Files\Full;
-use Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media\Files\Preview;
-use Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media\Files\SquarePreview;
-use Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media\Files\Thumb;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media\Files\Full;
+use OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media\Files\Preview;
+use OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media\Files\SquarePreview;
+use OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media\Files\Thumb;
 
 /**
- * @phpstan-import-type FullShape from \Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media\Files\Full
- * @phpstan-import-type PreviewShape from \Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media\Files\Preview
- * @phpstan-import-type SquarePreviewShape from \Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media\Files\SquarePreview
- * @phpstan-import-type ThumbShape from \Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media\Files\Thumb
+ * @phpstan-import-type FullShape from \OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media\Files\Full
+ * @phpstan-import-type PreviewShape from \OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media\Files\Preview
+ * @phpstan-import-type SquarePreviewShape from \OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media\Files\SquarePreview
+ * @phpstan-import-type ThumbShape from \OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media\Files\Thumb
  *
  * @phpstan-type FilesShape = array{
  *   full?: null|Full|FullShape,

@@ -2,37 +2,39 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\TrackingLinksRawContract;
-use Onlyfansapi\TrackingLinks\TrackingLinkCreateParams;
-use Onlyfansapi\TrackingLinks\TrackingLinkDeleteParams;
-use Onlyfansapi\TrackingLinks\TrackingLinkDeleteResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetCohortArpsParams;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetCohortArpsParams\RevenueBasis;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetStatsParams;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetStatsResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkListParams;
-use Onlyfansapi\TrackingLinks\TrackingLinkListParams\Sort;
-use Onlyfansapi\TrackingLinks\TrackingLinkListParams\Sortby;
-use Onlyfansapi\TrackingLinks\TrackingLinkListResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkListSpendersParams;
-use Onlyfansapi\TrackingLinks\TrackingLinkListSpendersResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkListSubscribersParams;
-use Onlyfansapi\TrackingLinks\TrackingLinkListSubscribersResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkNewResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkRetrieveParams;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\TrackingLinksRawContract;
+use OnlyFansAPI\TrackingLinks\TrackingLinkCreateParams;
+use OnlyFansAPI\TrackingLinks\TrackingLinkDeleteParams;
+use OnlyFansAPI\TrackingLinks\TrackingLinkDeleteResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetCohortArpsParams;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetCohortArpsParams\RevenueBasis;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetStatsParams;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetStatsResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\Pagination;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\Sort;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\Sortby;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\WithDeleted;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListSpendersParams;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListSpendersResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListSubscribersParams;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListSubscribersResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkNewResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkRetrieveParams;
 
 /**
  * APIs for managing tracking links.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class TrackingLinksRawService implements TrackingLinksRawContract
 {
@@ -117,13 +119,14 @@ final class TrackingLinksRawService implements TrackingLinksRawContract
      * @param string $account The Account ID
      * @param array{
      *   endDate?: string|null,
-     *   limit?: int|null,
-     *   offset?: int|null,
-     *   sort?: Sort|value-of<Sort>|null,
-     *   sortby?: Sortby|value-of<Sortby>|null,
+     *   limit?: int,
+     *   offset?: int,
+     *   pagination?: Pagination|value-of<Pagination>,
+     *   sort?: Sort|value-of<Sort>,
+     *   sortby?: Sortby|value-of<Sortby>,
      *   startDate?: string|null,
-     *   synchronous?: bool|null,
-     *   withDeleted?: bool|null,
+     *   synchronous?: bool,
+     *   withDeleted?: WithDeleted|value-of<WithDeleted>,
      * }|TrackingLinkListParams $params
      * @param RequestOpts|null $requestOptions
      *

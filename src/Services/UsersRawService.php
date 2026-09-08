@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\UsersRawContract;
-use Onlyfansapi\Users\UserGetResponse;
-use Onlyfansapi\Users\UserListParams;
-use Onlyfansapi\Users\UserListResponse;
-use Onlyfansapi\Users\UserRetrieveParams;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\UsersRawContract;
+use OnlyFansAPI\Users\UserGetResponse;
+use OnlyFansAPI\Users\UserListParams;
+use OnlyFansAPI\Users\UserListResponse;
+use OnlyFansAPI\Users\UserRetrieveParams;
 
 /**
  * APIs for fetching OnlyFans users.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class UsersRawService implements UsersRawContract
 {
@@ -32,7 +32,7 @@ final class UsersRawService implements UsersRawContract
      *
      * Get OnlyFans Profile details for a given username. User details are retrieved using the current `{account}` so fields like `subscribedOnData` which include potential subscription details will be included.
      *
-     * @param string $username the OnlyFans username of the user to retrieve details for
+     * @param string $username The OnlyFans username or numeric user ID to retrieve details for. Display names and profile URLs are not accepted.
      * @param array{account: string}|UserRetrieveParams $params
      * @param RequestOpts|null $requestOptions
      *

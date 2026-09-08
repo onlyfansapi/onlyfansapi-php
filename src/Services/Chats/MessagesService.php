@@ -2,26 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Chats;
+namespace OnlyFansAPI\Services\Chats;
 
-use Onlyfansapi\Chats\Messages\MessageDeleteResponse;
-use Onlyfansapi\Chats\Messages\MessageGetResponse;
-use Onlyfansapi\Chats\Messages\MessageLikeResponse;
-use Onlyfansapi\Chats\Messages\MessageListParams\Filter;
-use Onlyfansapi\Chats\Messages\MessageListResponse;
-use Onlyfansapi\Chats\Messages\MessagePinResponse;
-use Onlyfansapi\Chats\Messages\MessageSearchResponse;
-use Onlyfansapi\Chats\Messages\MessageSendResponse;
-use Onlyfansapi\Chats\Messages\MessageUnlikeResponse;
-use Onlyfansapi\Chats\Messages\MessageUnpinResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Chats\MessagesContract;
+use OnlyFansAPI\Chats\Messages\MessageDeleteResponse;
+use OnlyFansAPI\Chats\Messages\MessageGetResponse;
+use OnlyFansAPI\Chats\Messages\MessageLikeResponse;
+use OnlyFansAPI\Chats\Messages\MessageListParams\Filter;
+use OnlyFansAPI\Chats\Messages\MessageListResponse;
+use OnlyFansAPI\Chats\Messages\MessagePinResponse;
+use OnlyFansAPI\Chats\Messages\MessageSearchResponse;
+use OnlyFansAPI\Chats\Messages\MessageSendParams\BlockBannedWords;
+use OnlyFansAPI\Chats\Messages\MessageSendResponse;
+use OnlyFansAPI\Chats\Messages\MessageUnlikeResponse;
+use OnlyFansAPI\Chats\Messages\MessageUnpinResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Chats\MessagesContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class MessagesService implements MessagesContract
 {
@@ -76,7 +77,7 @@ final class MessagesService implements MessagesContract
      * @param string|null $lastID Query param: Use for pagination when `order=asc` (oldest to newest). Include this message ID as the first message in the results. WARNING! The response list of messages will also be inverted (oldest messages will be first, opposite to default where `order=desc`).
      * @param string $limit Query param: The number of messages to return (default = 10, max = 100)
      * @param string $order Query param: Sort order for messages (desc or asc)
-     * @param string $skipUsers Query param: Whether to skip user details (all or none)
+     * @param string $skipUsers query param: Whether to skip user details (`all` or `none`)
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -219,18 +220,37 @@ final class MessagesService implements MessagesContract
      *
      * Send a new message to a chat.
      *
+     * **Idempotency.** Pass an `Idempotency-Key` header to make retries safe. The first request with a
+     * given key is executed normally and its response is stored for **24 hours**; any later request with
+     * the same key returns that stored response, plus an `Idempotent-Replayed: true` header, without
+     * contacting OnlyFans and without consuming credits. The replayed body is the original response with
+     * its `_meta._credits` block rewritten to show `used: 0` and your current balance.
+     *
+     * Keys are scoped to your team, this endpoint and the account in the URL, so the same value can be
+     * reused safely against a different account. Use a fresh, unique value (a UUID works well) for each
+     * message you send; it must be 1-255 printable ASCII characters.
+     *
+     * - `400 IDEMPOTENCY_KEY_INVALID` — the header value is empty, too long, or contains non-ASCII characters.
+     * - `409 IDEMPOTENCY_CONFLICT` — an earlier request with this key is still running. Retry once it finishes.
+     * - `422 IDEMPOTENCY_KEY_MISMATCH` — this key was already used with a different request body or chat.
+     *
+     * Responses with a `5xx` status (and `408`/`429`) are never stored, so a failed send can be retried
+     * with the same key. The header is optional: omit it and the endpoint behaves exactly as before.
+     *
      * @param string $chatID Path param: The ID of the chat (usually a fan's OnlyFans User ID)
      * @param string $account Path param: The Account ID
+     * @param BlockBannedWords|value-of<BlockBannedWords> $blockBannedWords Body param: Screen `text` for OnlyFans banned words and block the send if any are found (returns a 422 listing the offending words). `strict_ban` blocks all tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften only. Omit to disable screening.
      * @param string $giphyID Body param: The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
      * @param bool $lockedText Body param: Whether the text should be shown or hidden
      * @param list<mixed> $mediaFiles Body param: Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs. Will be hidden if `price` is provided.
      * @param list<mixed> $previews Body param: Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices referencing uploaded files in `mediaFiles`. Will be shown if `price` is provided.
-     * @param int $price Body param: Price for paid content (0 or between 3-200). In case this is not zero, **mediaFiles** is required
+     * @param float $price Body param: Price for paid content in USD (0 or between 3-200). In case this is not zero, **mediaFiles** is required
      * @param int $replyToMessageID Body param: Mark this message as a reply to another (can be either your own, or the recipient's)
      * @param string $rfGuest Body param: Array of OnlyFans Release Form Guest IDs to tag in your message
      * @param string $rfPartner Body param: Array of OnlyFans Release Form Partners IDs to tag in your message
      * @param string $rfTag Body param: Array of OnlyFans Creator User IDs to tag in your message
      * @param string $text Body param: The message text content. Required unless a media file is present.
+     * @param string $idempotencyKey Header param
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -238,21 +258,24 @@ final class MessagesService implements MessagesContract
     public function send(
         string $chatID,
         string $account,
+        BlockBannedWords|string|null $blockBannedWords = null,
         ?string $giphyID = null,
         ?bool $lockedText = null,
         ?array $mediaFiles = null,
         ?array $previews = null,
-        ?int $price = null,
+        ?float $price = null,
         ?int $replyToMessageID = null,
         ?string $rfGuest = null,
         ?string $rfPartner = null,
         ?string $rfTag = null,
         ?string $text = null,
+        ?string $idempotencyKey = null,
         RequestOptions|array|null $requestOptions = null,
     ): MessageSendResponse {
         $params = Util::removeNulls(
             [
                 'account' => $account,
+                'blockBannedWords' => $blockBannedWords,
                 'giphyID' => $giphyID,
                 'lockedText' => $lockedText,
                 'mediaFiles' => $mediaFiles,
@@ -263,6 +286,7 @@ final class MessagesService implements MessagesContract
                 'rfPartner' => $rfPartner,
                 'rfTag' => $rfTag,
                 'text' => $text,
+                'idempotencyKey' => $idempotencyKey,
             ],
         );
 

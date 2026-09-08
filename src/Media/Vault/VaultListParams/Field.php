@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\Vault\VaultListParams;
+namespace OnlyFansAPI\Media\Vault\VaultListParams;
 
 /**
  * Sort the results by a field. Default `recent`.

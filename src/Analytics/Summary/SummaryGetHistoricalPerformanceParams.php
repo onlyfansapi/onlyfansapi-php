@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Analytics\Summary;
+namespace OnlyFansAPI\Analytics\Summary;
 
-use Onlyfansapi\Analytics\Summary\SummaryGetHistoricalPerformanceParams\TimeRange;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Analytics\Summary\SummaryGetHistoricalPerformanceParams\TimeRange;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get historical earnings chart data for the team. Returns monthly aggregated revenue data for the specified time range.
  *
- * @see Onlyfansapi\Services\Analytics\SummaryService::getHistoricalPerformance()
+ * @see OnlyFansAPI\Services\Analytics\SummaryService::getHistoricalPerformance()
  *
  * @phpstan-type SummaryGetHistoricalPerformanceParamsShape = array{
  *   timeRange?: null|TimeRange|value-of<TimeRange>

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\ServiceContracts\AnalyticsContract;
-use Onlyfansapi\Services\Analytics\FinancialService;
-use Onlyfansapi\Services\Analytics\SummaryService;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\ServiceContracts\AnalyticsContract;
+use OnlyFansAPI\Services\Analytics\FinancialService;
+use OnlyFansAPI\Services\Analytics\SummaryService;
 
 final class AnalyticsService implements AnalyticsContract
 {

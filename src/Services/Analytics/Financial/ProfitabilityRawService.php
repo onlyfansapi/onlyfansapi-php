@@ -2,24 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Analytics\Financial;
+namespace OnlyFansAPI\Services\Analytics\Financial;
 
-use Onlyfansapi\Analytics\Financial\Profitability\ProfitabilityGetHistoryParams;
-use Onlyfansapi\Analytics\Financial\Profitability\ProfitabilityGetHistoryResponseItem;
-use Onlyfansapi\Analytics\Financial\Profitability\ProfitabilityGetProfitabilityParams;
-use Onlyfansapi\Analytics\Financial\Profitability\ProfitabilityGetProfitabilityResponseItem;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Conversion\ListOf;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Analytics\Financial\ProfitabilityRawContract;
+use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetHistoryParams;
+use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetHistoryResponse;
+use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetProfitabilityParams;
+use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetProfitabilityResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Analytics\Financial\ProfitabilityRawContract;
 
 /**
  * APIs for retrieving financial analytics data.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class ProfitabilityRawService implements ProfitabilityRawContract
 {
@@ -40,7 +39,7 @@ final class ProfitabilityRawService implements ProfitabilityRawContract
      * }|ProfitabilityGetHistoryParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<list<ProfitabilityGetHistoryResponseItem>>
+     * @return BaseResponse<ProfitabilityGetHistoryResponse>
      *
      * @throws APIException
      */
@@ -63,7 +62,7 @@ final class ProfitabilityRawService implements ProfitabilityRawContract
                 ['accountPrefixedID' => 'account_prefixed_id']
             ),
             options: $options,
-            convert: new ListOf(ProfitabilityGetHistoryResponseItem::class),
+            convert: ProfitabilityGetHistoryResponse::class,
         );
     }
 
@@ -77,7 +76,7 @@ final class ProfitabilityRawService implements ProfitabilityRawContract
      * }|ProfitabilityGetProfitabilityParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<list<ProfitabilityGetProfitabilityResponseItem>>
+     * @return BaseResponse<ProfitabilityGetProfitabilityResponse>
      *
      * @throws APIException
      */
@@ -96,7 +95,7 @@ final class ProfitabilityRawService implements ProfitabilityRawContract
             path: 'api/analytics/financial/profitability',
             body: (object) $parsed,
             options: $options,
-            convert: new ListOf(ProfitabilityGetProfitabilityResponseItem::class),
+            convert: ProfitabilityGetProfitabilityResponse::class,
         );
     }
 }

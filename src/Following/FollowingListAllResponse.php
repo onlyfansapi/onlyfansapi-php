@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Following;
+namespace OnlyFansAPI\Following;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Following\FollowingListAllResponse\_Meta;
-use Onlyfansapi\Following\FollowingListAllResponse\_Pagination;
-use Onlyfansapi\Following\FollowingListAllResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Following\FollowingListAllResponse\_Meta;
+use OnlyFansAPI\Following\FollowingListAllResponse\_Pagination;
+use OnlyFansAPI\Following\FollowingListAllResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Following\FollowingListAllResponse\_Meta
- * @phpstan-import-type _PaginationShape from \Onlyfansapi\Following\FollowingListAllResponse\_Pagination
- * @phpstan-import-type DataShape from \Onlyfansapi\Following\FollowingListAllResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Following\FollowingListAllResponse\_Meta
+ * @phpstan-import-type _PaginationShape from \OnlyFansAPI\Following\FollowingListAllResponse\_Pagination
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Following\FollowingListAllResponse\Data
  *
  * @phpstan-type FollowingListAllResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape,

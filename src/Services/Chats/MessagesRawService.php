@@ -2,36 +2,37 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Chats;
+namespace OnlyFansAPI\Services\Chats;
 
-use Onlyfansapi\Chats\Messages\MessageDeleteParams;
-use Onlyfansapi\Chats\Messages\MessageDeleteResponse;
-use Onlyfansapi\Chats\Messages\MessageGetResponse;
-use Onlyfansapi\Chats\Messages\MessageLikeParams;
-use Onlyfansapi\Chats\Messages\MessageLikeResponse;
-use Onlyfansapi\Chats\Messages\MessageListParams;
-use Onlyfansapi\Chats\Messages\MessageListParams\Filter;
-use Onlyfansapi\Chats\Messages\MessageListResponse;
-use Onlyfansapi\Chats\Messages\MessagePinParams;
-use Onlyfansapi\Chats\Messages\MessagePinResponse;
-use Onlyfansapi\Chats\Messages\MessageRetrieveParams;
-use Onlyfansapi\Chats\Messages\MessageSearchParams;
-use Onlyfansapi\Chats\Messages\MessageSearchResponse;
-use Onlyfansapi\Chats\Messages\MessageSendParams;
-use Onlyfansapi\Chats\Messages\MessageSendResponse;
-use Onlyfansapi\Chats\Messages\MessageUnlikeParams;
-use Onlyfansapi\Chats\Messages\MessageUnlikeResponse;
-use Onlyfansapi\Chats\Messages\MessageUnpinParams;
-use Onlyfansapi\Chats\Messages\MessageUnpinResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Chats\MessagesRawContract;
+use OnlyFansAPI\Chats\Messages\MessageDeleteParams;
+use OnlyFansAPI\Chats\Messages\MessageDeleteResponse;
+use OnlyFansAPI\Chats\Messages\MessageGetResponse;
+use OnlyFansAPI\Chats\Messages\MessageLikeParams;
+use OnlyFansAPI\Chats\Messages\MessageLikeResponse;
+use OnlyFansAPI\Chats\Messages\MessageListParams;
+use OnlyFansAPI\Chats\Messages\MessageListParams\Filter;
+use OnlyFansAPI\Chats\Messages\MessageListResponse;
+use OnlyFansAPI\Chats\Messages\MessagePinParams;
+use OnlyFansAPI\Chats\Messages\MessagePinResponse;
+use OnlyFansAPI\Chats\Messages\MessageRetrieveParams;
+use OnlyFansAPI\Chats\Messages\MessageSearchParams;
+use OnlyFansAPI\Chats\Messages\MessageSearchResponse;
+use OnlyFansAPI\Chats\Messages\MessageSendParams;
+use OnlyFansAPI\Chats\Messages\MessageSendParams\BlockBannedWords;
+use OnlyFansAPI\Chats\Messages\MessageSendResponse;
+use OnlyFansAPI\Chats\Messages\MessageUnlikeParams;
+use OnlyFansAPI\Chats\Messages\MessageUnlikeResponse;
+use OnlyFansAPI\Chats\Messages\MessageUnpinParams;
+use OnlyFansAPI\Chats\Messages\MessageUnpinResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Chats\MessagesRawContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class MessagesRawService implements MessagesRawContract
 {
@@ -283,19 +284,38 @@ final class MessagesRawService implements MessagesRawContract
      *
      * Send a new message to a chat.
      *
+     * **Idempotency.** Pass an `Idempotency-Key` header to make retries safe. The first request with a
+     * given key is executed normally and its response is stored for **24 hours**; any later request with
+     * the same key returns that stored response, plus an `Idempotent-Replayed: true` header, without
+     * contacting OnlyFans and without consuming credits. The replayed body is the original response with
+     * its `_meta._credits` block rewritten to show `used: 0` and your current balance.
+     *
+     * Keys are scoped to your team, this endpoint and the account in the URL, so the same value can be
+     * reused safely against a different account. Use a fresh, unique value (a UUID works well) for each
+     * message you send; it must be 1-255 printable ASCII characters.
+     *
+     * - `400 IDEMPOTENCY_KEY_INVALID` — the header value is empty, too long, or contains non-ASCII characters.
+     * - `409 IDEMPOTENCY_CONFLICT` — an earlier request with this key is still running. Retry once it finishes.
+     * - `422 IDEMPOTENCY_KEY_MISMATCH` — this key was already used with a different request body or chat.
+     *
+     * Responses with a `5xx` status (and `408`/`429`) are never stored, so a failed send can be retried
+     * with the same key. The header is optional: omit it and the endpoint behaves exactly as before.
+     *
      * @param string $chatID Path param: The ID of the chat (usually a fan's OnlyFans User ID)
      * @param array{
      *   account: string,
+     *   blockBannedWords?: BlockBannedWords|value-of<BlockBannedWords>,
      *   giphyID?: string,
      *   lockedText?: bool,
      *   mediaFiles?: list<mixed>,
      *   previews?: list<mixed>,
-     *   price?: int,
+     *   price?: float,
      *   replyToMessageID?: int,
      *   rfGuest?: string,
      *   rfPartner?: string,
      *   rfTag?: string,
      *   text?: string,
+     *   idempotencyKey?: string,
      * }|MessageSendParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -314,12 +334,20 @@ final class MessagesRawService implements MessagesRawContract
         );
         $account = $parsed['account'];
         unset($parsed['account']);
+        $header_params = ['idempotencyKey' => 'Idempotency-Key'];
 
         // @phpstan-ignore-next-line return.type
         return $this->client->request(
             method: 'post',
             path: ['api/%1$s/chats/%2$s/messages', $account, $chatID],
-            body: (object) array_diff_key($parsed, array_flip(['account'])),
+            headers: Util::array_transform_keys(
+                array_intersect_key($parsed, array_flip(array_keys($header_params))),
+                $header_params,
+            ),
+            body: (object) array_diff_key(
+                array_diff_key($parsed, array_flip(array_keys($header_params))),
+                array_flip(['account']),
+            ),
             options: $options,
             convert: MessageSendResponse::class,
         );

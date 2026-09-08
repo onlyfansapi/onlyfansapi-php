@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts\Comments;
+namespace OnlyFansAPI\Posts\Comments;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Posts\Comments\CommentListParams\Sort;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Posts\Comments\CommentListParams\Sort;
 
 /**
  * Get comments from one of your posts.
  *
- * @see Onlyfansapi\Services\Posts\CommentsService::list()
+ * @see OnlyFansAPI\Services\Posts\CommentsService::list()
  *
  * @phpstan-type CommentListParamsShape = array{
  *   account: string,

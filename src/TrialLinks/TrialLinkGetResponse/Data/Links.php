@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrialLinks\TrialLinkGetResponse\Data;
+namespace OnlyFansAPI\TrialLinks\TrialLinkGetResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrialLinks\TrialLinkGetResponse\Data\Links\Related;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\TrialLinks\TrialLinkGetResponse\Data\Links\Related;
 
 /**
- * @phpstan-import-type RelatedShape from \Onlyfansapi\TrialLinks\TrialLinkGetResponse\Data\Links\Related
+ * @phpstan-import-type RelatedShape from \OnlyFansAPI\TrialLinks\TrialLinkGetResponse\Data\Links\Related
  *
  * @phpstan-type LinksShape = array{related?: null|Related|RelatedShape}
  */

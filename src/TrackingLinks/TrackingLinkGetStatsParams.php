@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrackingLinks;
+namespace OnlyFansAPI\TrackingLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  *           Get dashboard-style summary plus daily and monthly metrics for a specific Tracking Link.
@@ -19,7 +19,7 @@ use Onlyfansapi\Core\Contracts\BaseModel;
  *             - Daily data can only be tracked from the date the account was connected to OnlyFans API; earlier periods are not available.
  *           </Callout>.
  *
- * @see Onlyfansapi\Services\TrackingLinksService::getStats()
+ * @see OnlyFansAPI\Services\TrackingLinksService::getStats()
  *
  * @phpstan-type TrackingLinkGetStatsParamsShape = array{
  *   account: string, dateEnd?: string|null, dateStart?: string|null

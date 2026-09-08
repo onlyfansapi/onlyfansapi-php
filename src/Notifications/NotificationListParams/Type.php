@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Notifications\NotificationListParams;
+namespace OnlyFansAPI\Notifications\NotificationListParams;
 
 /**
  * Filter notifications by a specific type.

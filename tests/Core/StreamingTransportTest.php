@@ -4,9 +4,9 @@ namespace Tests\Core;
 
 use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Mock\Client as MockClient;
-use Onlyfansapi\Core\BaseClient;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\BaseClient;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

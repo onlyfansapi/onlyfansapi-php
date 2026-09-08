@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrialLinks;
+namespace OnlyFansAPI\TrialLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrialLinks\TrialLinkCreateParams\Duration;
-use Onlyfansapi\TrialLinks\TrialLinkCreateParams\OfferLimit;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\TrialLinks\TrialLinkCreateParams\Duration;
+use OnlyFansAPI\TrialLinks\TrialLinkCreateParams\OfferLimit;
 
 /**
  * Create a new free trial link for the account.
  *
- * @see Onlyfansapi\Services\TrialLinksService::create()
+ * @see OnlyFansAPI\Services\TrialLinksService::create()
  *
  * @phpstan-type TrialLinkCreateParamsShape = array{
  *   duration: Duration|value-of<Duration>,

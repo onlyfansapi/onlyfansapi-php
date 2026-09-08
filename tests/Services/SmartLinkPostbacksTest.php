@@ -2,12 +2,12 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackGetResponse;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackListResponse;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackNewResponse;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackUpdateResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackGetResponse;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackListResponse;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackNewResponse;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackUpdateResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -41,7 +41,7 @@ final class SmartLinkPostbacksTest extends TestCase
         $result = $this->client->smartLinkPostbacks->create(
             conversionTypes: ['new_subscriber', 'new_transaction'],
             smartLinkScope: 'campaign_specific',
-            url: 'https://example.com/postback?click={click_id}&type={conversion_type}&gclid={gclid}',
+            url: 'https://example.com/postback?click={external_click_id}&type={conversion_type}&gclid={gclid}',
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
@@ -58,7 +58,10 @@ final class SmartLinkPostbacksTest extends TestCase
         $result = $this->client->smartLinkPostbacks->create(
             conversionTypes: ['new_subscriber', 'new_transaction'],
             smartLinkScope: 'campaign_specific',
-            url: 'https://example.com/postback?click={click_id}&type={conversion_type}&gclid={gclid}',
+            url: 'https://example.com/postback?click={external_click_id}&type={conversion_type}&gclid={gclid}',
+            body: '{"click_id":"{click_id}","value":"{amount_gross}"}',
+            headers: [['name' => 'Authorization', 'value' => 'Bearer token']],
+            httpMethod: 'POST',
             smartLinkIDs: ['01JTESTLINK000000000000001'],
         );
 
@@ -90,7 +93,7 @@ final class SmartLinkPostbacksTest extends TestCase
             123,
             conversionTypes: ['new_subscriber'],
             smartLinkScope: 'global',
-            url: 'https://example.com/postback?click={click_id}&type={conversion_type}',
+            url: 'https://example.com/postback?click={external_click_id}&type={conversion_type}',
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
@@ -108,7 +111,10 @@ final class SmartLinkPostbacksTest extends TestCase
             123,
             conversionTypes: ['new_subscriber'],
             smartLinkScope: 'global',
-            url: 'https://example.com/postback?click={click_id}&type={conversion_type}',
+            url: 'https://example.com/postback?click={external_click_id}&type={conversion_type}',
+            body: '{"click_id":"{click_id}","value":"{amount_gross}"}',
+            headers: [['name' => 'Authorization', 'value' => 'Bearer token']],
+            httpMethod: 'POST',
             smartLinkIDs: ['01JTESTLINK000000000000001'],
         );
 

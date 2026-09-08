@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Analytics\Financial;
+namespace OnlyFansAPI\Services\Analytics\Financial;
 
-use Onlyfansapi\Analytics\Financial\Transactions\TransactionGetByTypeParams;
-use Onlyfansapi\Analytics\Financial\Transactions\TransactionGetByTypeResponseItem;
-use Onlyfansapi\Analytics\Financial\Transactions\TransactionGetSummaryParams;
-use Onlyfansapi\Analytics\Financial\Transactions\TransactionGetSummaryResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Conversion\ListOf;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Analytics\Financial\TransactionsRawContract;
+use OnlyFansAPI\Analytics\Financial\Transactions\TransactionGetByTypeParams;
+use OnlyFansAPI\Analytics\Financial\Transactions\TransactionGetByTypeResponseItem;
+use OnlyFansAPI\Analytics\Financial\Transactions\TransactionGetSummaryParams;
+use OnlyFansAPI\Analytics\Financial\Transactions\TransactionGetSummaryResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Conversion\ListOf;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Analytics\Financial\TransactionsRawContract;
 
 /**
  * APIs for retrieving financial analytics data.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class TransactionsRawService implements TransactionsRawContract
 {

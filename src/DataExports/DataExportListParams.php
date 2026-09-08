@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\DataExports;
+namespace OnlyFansAPI\DataExports;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\DataExports\DataExportListParams\Status;
-use Onlyfansapi\DataExports\DataExportListParams\Type;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\DataExports\DataExportListParams\Status;
+use OnlyFansAPI\DataExports\DataExportListParams\Type;
 
 /**
  * Get a paginated list of data exports for the team.
  *
- * @see Onlyfansapi\Services\DataExportsService::list()
+ * @see OnlyFansAPI\Services\DataExportsService::list()
  *
  * @phpstan-type DataExportListParamsShape = array{
  *   downloadURLExpiresIn?: int|null,

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Banking\Details\DetailGetLegalFormDetailsResponse\Data;
+namespace OnlyFansAPI\Banking\Details\DetailGetLegalFormDetailsResponse\Data;
 
-use Onlyfansapi\Banking\Details\DetailGetLegalFormDetailsResponse\Data\DocumentType\Value;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Banking\Details\DetailGetLegalFormDetailsResponse\Data\DocumentType\Value;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type ValueShape from \Onlyfansapi\Banking\Details\DetailGetLegalFormDetailsResponse\Data\DocumentType\Value
+ * @phpstan-import-type ValueShape from \OnlyFansAPI\Banking\Details\DetailGetLegalFormDetailsResponse\Data\DocumentType\Value
  *
  * @phpstan-type DocumentTypeShape = array{values?: list<Value|ValueShape>|null}
  */

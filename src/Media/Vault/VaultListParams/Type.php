@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\Vault\VaultListParams;
+namespace OnlyFansAPI\Media\Vault\VaultListParams;
 
 /**
  * Filter the results by a media type. Keep empty to show all media.

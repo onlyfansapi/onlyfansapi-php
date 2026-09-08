@@ -2,29 +2,29 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\TrackingLinks\TrackingLinkCreateParams;
-use Onlyfansapi\TrackingLinks\TrackingLinkDeleteParams;
-use Onlyfansapi\TrackingLinks\TrackingLinkDeleteResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetCohortArpsParams;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetStatsParams;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetStatsResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkListParams;
-use Onlyfansapi\TrackingLinks\TrackingLinkListResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkListSpendersParams;
-use Onlyfansapi\TrackingLinks\TrackingLinkListSpendersResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkListSubscribersParams;
-use Onlyfansapi\TrackingLinks\TrackingLinkListSubscribersResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkNewResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkRetrieveParams;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\TrackingLinks\TrackingLinkCreateParams;
+use OnlyFansAPI\TrackingLinks\TrackingLinkDeleteParams;
+use OnlyFansAPI\TrackingLinks\TrackingLinkDeleteResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetCohortArpsParams;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetStatsParams;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetStatsResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListSpendersParams;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListSpendersResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListSubscribersParams;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListSubscribersResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkNewResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkRetrieveParams;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface TrackingLinksRawContract
 {

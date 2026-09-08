@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts\PostListParams;
+namespace OnlyFansAPI\Posts\PostListParams;
 
 /**
  * Order the returned posts (default = publish_date).

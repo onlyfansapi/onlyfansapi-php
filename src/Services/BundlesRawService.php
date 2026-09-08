@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Bundles\BundleCreateParams;
-use Onlyfansapi\Bundles\BundleCreateParams\Discount;
-use Onlyfansapi\Bundles\BundleCreateParams\Duration;
-use Onlyfansapi\Bundles\BundleDeleteParams;
-use Onlyfansapi\Bundles\BundleDeleteResponse;
-use Onlyfansapi\Bundles\BundleListResponse;
-use Onlyfansapi\Bundles\BundleNewResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\BundlesRawContract;
+use OnlyFansAPI\Bundles\BundleCreateParams;
+use OnlyFansAPI\Bundles\BundleCreateParams\Discount;
+use OnlyFansAPI\Bundles\BundleCreateParams\Duration;
+use OnlyFansAPI\Bundles\BundleDeleteParams;
+use OnlyFansAPI\Bundles\BundleDeleteResponse;
+use OnlyFansAPI\Bundles\BundleListResponse;
+use OnlyFansAPI\Bundles\BundleNewResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\BundlesRawContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class BundlesRawService implements BundlesRawContract
 {

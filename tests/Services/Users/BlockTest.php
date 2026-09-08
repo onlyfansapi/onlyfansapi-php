@@ -2,10 +2,10 @@
 
 namespace Tests\Services\Users;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Users\Block\BlockDeleteResponse;
-use Onlyfansapi\Users\Block\BlockNewResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Users\Block\BlockDeleteResponse;
+use OnlyFansAPI\Users\Block\BlockNewResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

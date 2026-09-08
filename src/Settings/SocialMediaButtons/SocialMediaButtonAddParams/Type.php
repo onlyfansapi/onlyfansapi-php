@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonAddParams;
+namespace OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonAddParams;
 
 /**
  * The button type.

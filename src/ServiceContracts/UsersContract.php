@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Users\UserGetResponse;
-use Onlyfansapi\Users\UserListResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Users\UserGetResponse;
+use OnlyFansAPI\Users\UserListResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface UsersContract
 {
     /**
      * @api
      *
-     * @param string $username the OnlyFans username of the user to retrieve details for
+     * @param string $username The OnlyFans username or numeric user ID to retrieve details for. Display names and profile URLs are not accepted.
      * @param string $account The Account ID
      * @param RequestOpts|null $requestOptions
      *

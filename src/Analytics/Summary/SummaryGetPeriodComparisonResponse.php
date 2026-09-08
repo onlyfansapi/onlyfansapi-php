@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Analytics\Summary;
+namespace OnlyFansAPI\Analytics\Summary;
 
-use Onlyfansapi\Analytics\Summary\SummaryGetPeriodComparisonResponse\Summary;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Analytics\Summary\SummaryGetPeriodComparisonResponse\Summary;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type SummaryShape from \Onlyfansapi\Analytics\Summary\SummaryGetPeriodComparisonResponse\Summary
+ * @phpstan-import-type SummaryShape from \OnlyFansAPI\Analytics\Summary\SummaryGetPeriodComparisonResponse\Summary
  *
  * @phpstan-type SummaryGetPeriodComparisonResponseShape = array{
  *   breakdown?: list<mixed>|null,

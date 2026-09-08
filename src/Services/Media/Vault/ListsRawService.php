@@ -2,26 +2,28 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Media\Vault;
+namespace OnlyFansAPI\Services\Media\Vault;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Media\Vault\Lists\ListCreateParams;
-use Onlyfansapi\Media\Vault\Lists\ListDeleteParams;
-use Onlyfansapi\Media\Vault\Lists\ListDeleteResponse;
-use Onlyfansapi\Media\Vault\Lists\ListGetResponse;
-use Onlyfansapi\Media\Vault\Lists\ListListParams;
-use Onlyfansapi\Media\Vault\Lists\ListListResponse;
-use Onlyfansapi\Media\Vault\Lists\ListNewResponse;
-use Onlyfansapi\Media\Vault\Lists\ListRetrieveParams;
-use Onlyfansapi\Media\Vault\Lists\ListUpdateParams;
-use Onlyfansapi\Media\Vault\Lists\ListUpdateResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Media\Vault\ListsRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Media\Vault\Lists\ListCreateParams;
+use OnlyFansAPI\Media\Vault\Lists\ListDeleteParams;
+use OnlyFansAPI\Media\Vault\Lists\ListDeleteResponse;
+use OnlyFansAPI\Media\Vault\Lists\ListGetResponse;
+use OnlyFansAPI\Media\Vault\Lists\ListListParams;
+use OnlyFansAPI\Media\Vault\Lists\ListListResponse;
+use OnlyFansAPI\Media\Vault\Lists\ListListResponse\UnionMember0;
+use OnlyFansAPI\Media\Vault\Lists\ListListResponse\UnionMember1;
+use OnlyFansAPI\Media\Vault\Lists\ListNewResponse;
+use OnlyFansAPI\Media\Vault\Lists\ListRetrieveParams;
+use OnlyFansAPI\Media\Vault\Lists\ListUpdateParams;
+use OnlyFansAPI\Media\Vault\Lists\ListUpdateResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Media\Vault\ListsRawContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class ListsRawService implements ListsRawContract
 {
@@ -103,8 +105,8 @@ final class ListsRawService implements ListsRawContract
      *
      * Rename a Vault list.
      *
-     * @param string $listID The ID of the list
-     * @param array{account: string}|ListUpdateParams $params
+     * @param string $listID Path param: The ID of the list
+     * @param array{account: string, name: string}|ListUpdateParams $params
      * @param RequestOpts|null $requestOptions
      *
      * @return BaseResponse<ListUpdateResponse>
@@ -127,6 +129,7 @@ final class ListsRawService implements ListsRawContract
         return $this->client->request(
             method: 'put',
             path: ['api/%1$s/media/vault/lists/%2$s', $account, $listID],
+            body: (object) array_diff_key($parsed, array_flip(['account'])),
             options: $options,
             convert: ListUpdateResponse::class,
         );
@@ -137,11 +140,24 @@ final class ListsRawService implements ListsRawContract
      *
      * List your Vault lists (categories).
      *
+     * Every response carries an `ETag` computed over the `data` payload. Send it back as `If-None-Match` on your next
+     * call and you will get a `304 Not Modified` with an empty body when nothing changed, so you can keep serving your
+     * cached copy instead of re-parsing the full list. Credits are debited either way — we still have to ask OnlyFans
+     * for the current state to know whether it changed.
+     *
+     * The `ETag` covers `data` only, never `_meta` — your credits balance changes on every call, so including it would
+     * mean the `ETag` never matches. Because a `304` has no body, it also has no `_meta`: read the current credits and
+     * rate-limit counters from the `X-OFAPI-Credits-Used`, `X-OFAPI-Credits-Balance`, `X-Rate-Limit-Limit-Minute` and
+     * `X-Rate-Limit-Remaining-Minute` response headers, which are sent on `304` responses too. The `_meta` inside a
+     * body you cached earlier is stale by definition.
+     *
      * @param string $account The Account ID
-     * @param array{limit?: int, offset?: int, query?: string}|ListListParams $params
+     * @param array{
+     *   lightweight?: bool, limit?: int, offset?: int, query?: string
+     * }|ListListParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<ListListResponse>
+     * @return BaseResponse<UnionMember0|UnionMember1>
      *
      * @throws APIException
      */

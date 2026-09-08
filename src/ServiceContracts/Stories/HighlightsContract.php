@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Stories;
+namespace OnlyFansAPI\ServiceContracts\Stories;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Stories\Highlights\HighlightAddStoryResponse;
-use Onlyfansapi\Stories\Highlights\HighlightDeleteResponse;
-use Onlyfansapi\Stories\Highlights\HighlightGetResponse;
-use Onlyfansapi\Stories\Highlights\HighlightListResponse;
-use Onlyfansapi\Stories\Highlights\HighlightNewResponse;
-use Onlyfansapi\Stories\Highlights\HighlightRemoveStoryResponse;
-use Onlyfansapi\Stories\Highlights\HighlightUpdateResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Stories\Highlights\HighlightAddStoryResponse;
+use OnlyFansAPI\Stories\Highlights\HighlightDeleteResponse;
+use OnlyFansAPI\Stories\Highlights\HighlightGetResponse;
+use OnlyFansAPI\Stories\Highlights\HighlightListResponse;
+use OnlyFansAPI\Stories\Highlights\HighlightNewResponse;
+use OnlyFansAPI\Stories\Highlights\HighlightRemoveStoryResponse;
+use OnlyFansAPI\Stories\Highlights\HighlightUpdateResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface HighlightsContract
 {

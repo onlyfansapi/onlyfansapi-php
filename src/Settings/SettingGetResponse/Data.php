@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Settings\SettingGetResponse;
+namespace OnlyFansAPI\Settings\SettingGetResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Settings\SettingGetResponse\Data\CanAddSubscriberByBundle;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Settings\SettingGetResponse\Data\CanAddSubscriberByBundle;
 
 /**
- * @phpstan-import-type CanAddSubscriberByBundleShape from \Onlyfansapi\Settings\SettingGetResponse\Data\CanAddSubscriberByBundle
+ * @phpstan-import-type CanAddSubscriberByBundleShape from \OnlyFansAPI\Settings\SettingGetResponse\Data\CanAddSubscriberByBundle
  *
  * @phpstan-type DataShape = array{
  *   activityHubAllowed?: bool|null,

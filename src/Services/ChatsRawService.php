@@ -2,39 +2,39 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Chats\ChatDeleteParams;
-use Onlyfansapi\Chats\ChatDeleteResponse;
-use Onlyfansapi\Chats\ChatHideParams;
-use Onlyfansapi\Chats\ChatHideResponse;
-use Onlyfansapi\Chats\ChatListMediaParams;
-use Onlyfansapi\Chats\ChatListMediaParams\Type;
-use Onlyfansapi\Chats\ChatListMediaResponse;
-use Onlyfansapi\Chats\ChatListParams;
-use Onlyfansapi\Chats\ChatListParams\Filter;
-use Onlyfansapi\Chats\ChatListParams\Order;
-use Onlyfansapi\Chats\ChatListParams\SkipUsers;
-use Onlyfansapi\Chats\ChatListResponse;
-use Onlyfansapi\Chats\ChatMarkAsReadParams;
-use Onlyfansapi\Chats\ChatMarkAsReadResponse;
-use Onlyfansapi\Chats\ChatMarkAsUnreadParams;
-use Onlyfansapi\Chats\ChatMarkAsUnreadResponse;
-use Onlyfansapi\Chats\ChatMuteParams;
-use Onlyfansapi\Chats\ChatMuteResponse;
-use Onlyfansapi\Chats\ChatStartTypingParams;
-use Onlyfansapi\Chats\ChatStartTypingResponse;
-use Onlyfansapi\Chats\ChatUnmuteParams;
-use Onlyfansapi\Chats\ChatUnmuteResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\ChatsRawContract;
+use OnlyFansAPI\Chats\ChatDeleteParams;
+use OnlyFansAPI\Chats\ChatDeleteResponse;
+use OnlyFansAPI\Chats\ChatHideParams;
+use OnlyFansAPI\Chats\ChatHideResponse;
+use OnlyFansAPI\Chats\ChatListMediaParams;
+use OnlyFansAPI\Chats\ChatListMediaParams\Type;
+use OnlyFansAPI\Chats\ChatListMediaResponse;
+use OnlyFansAPI\Chats\ChatListParams;
+use OnlyFansAPI\Chats\ChatListParams\Filter;
+use OnlyFansAPI\Chats\ChatListParams\Order;
+use OnlyFansAPI\Chats\ChatListParams\SkipUsers;
+use OnlyFansAPI\Chats\ChatListResponse;
+use OnlyFansAPI\Chats\ChatMarkAsReadParams;
+use OnlyFansAPI\Chats\ChatMarkAsReadResponse;
+use OnlyFansAPI\Chats\ChatMarkAsUnreadParams;
+use OnlyFansAPI\Chats\ChatMarkAsUnreadResponse;
+use OnlyFansAPI\Chats\ChatMuteParams;
+use OnlyFansAPI\Chats\ChatMuteResponse;
+use OnlyFansAPI\Chats\ChatStartTypingParams;
+use OnlyFansAPI\Chats\ChatStartTypingResponse;
+use OnlyFansAPI\Chats\ChatUnmuteParams;
+use OnlyFansAPI\Chats\ChatUnmuteResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\ChatsRawContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class ChatsRawService implements ChatsRawContract
 {
@@ -298,7 +298,7 @@ final class ChatsRawService implements ChatsRawContract
     /**
      * @api
      *
-     * Calling this endpoint will show the target fan a "Model is typing..." note in the chat for ~4 seconds. If you want to continue showing the indicator call this endpoint multiple times. Free - no credits charged.
+     * Calling this endpoint will show the target fan a "Model is typing..." note in the chat for ~4 seconds. Duplicate calls for the same account and chat are coalesced during that window.
      *
      * @param string $chatID The ID of the chat (usually a fan's OnlyFans User ID)
      * @param array{account: string}|ChatStartTypingParams $params

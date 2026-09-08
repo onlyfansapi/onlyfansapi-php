@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Accounts;
+namespace OnlyFansAPI\Accounts;
 
-use Onlyfansapi\Accounts\AccountListResponseItem\OnlyfansUserData;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Accounts\AccountListResponseItem\OnlyfansUserData;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type OnlyfansUserDataShape from \Onlyfansapi\Accounts\AccountListResponseItem\OnlyfansUserData
+ * @phpstan-import-type OnlyfansUserDataShape from \OnlyFansAPI\Accounts\AccountListResponseItem\OnlyfansUserData
  *
  * @phpstan-type AccountListResponseItemShape = array{
  *   id?: string|null,

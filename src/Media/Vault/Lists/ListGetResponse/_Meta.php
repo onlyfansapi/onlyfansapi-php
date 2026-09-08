@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\Vault\Lists\ListGetResponse;
+namespace OnlyFansAPI\Media\Vault\Lists\ListGetResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Media\Vault\Lists\ListGetResponse\_Meta\_Cache;
-use Onlyfansapi\Media\Vault\Lists\ListGetResponse\_Meta\_Credits;
-use Onlyfansapi\Media\Vault\Lists\ListGetResponse\_Meta\_RateLimits;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Media\Vault\Lists\ListGetResponse\_Meta\_Cache;
+use OnlyFansAPI\Media\Vault\Lists\ListGetResponse\_Meta\_Credits;
+use OnlyFansAPI\Media\Vault\Lists\ListGetResponse\_Meta\_RateLimits;
 
 /**
- * @phpstan-import-type _CacheShape from \Onlyfansapi\Media\Vault\Lists\ListGetResponse\_Meta\_Cache
- * @phpstan-import-type _CreditsShape from \Onlyfansapi\Media\Vault\Lists\ListGetResponse\_Meta\_Credits
- * @phpstan-import-type _RateLimitsShape from \Onlyfansapi\Media\Vault\Lists\ListGetResponse\_Meta\_RateLimits
+ * @phpstan-import-type _CacheShape from \OnlyFansAPI\Media\Vault\Lists\ListGetResponse\_Meta\_Cache
+ * @phpstan-import-type _CreditsShape from \OnlyFansAPI\Media\Vault\Lists\ListGetResponse\_Meta\_Credits
+ * @phpstan-import-type _RateLimitsShape from \OnlyFansAPI\Media\Vault\Lists\ListGetResponse\_Meta\_RateLimits
  *
  * @phpstan-type _MetaShape = array{
  *   _cache?: null|_Cache|_CacheShape,

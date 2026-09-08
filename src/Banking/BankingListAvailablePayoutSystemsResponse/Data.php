@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Banking\BankingListAvailablePayoutSystemsResponse;
+namespace OnlyFansAPI\Banking\BankingListAvailablePayoutSystemsResponse;
 
-use Onlyfansapi\Banking\BankingListAvailablePayoutSystemsResponse\Data\Payout;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Banking\BankingListAvailablePayoutSystemsResponse\Data\Payout;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type PayoutShape from \Onlyfansapi\Banking\BankingListAvailablePayoutSystemsResponse\Data\Payout
+ * @phpstan-import-type PayoutShape from \OnlyFansAPI\Banking\BankingListAvailablePayoutSystemsResponse\Data\Payout
  *
  * @phpstan-type DataShape = array{
  *   payoutCode?: string|null, payouts?: list<Payout|PayoutShape>|null

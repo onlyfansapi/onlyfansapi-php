@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\TrackingLinks;
+namespace OnlyFansAPI\Services\TrackingLinks;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\TrackingLinks\TagsRawContract;
-use Onlyfansapi\TrackingLinks\Tags\TagAddParams;
-use Onlyfansapi\TrackingLinks\Tags\TagAddResponse;
-use Onlyfansapi\TrackingLinks\Tags\TagListParams;
-use Onlyfansapi\TrackingLinks\Tags\TagListResponse;
-use Onlyfansapi\TrackingLinks\Tags\TagRemoveParams;
-use Onlyfansapi\TrackingLinks\Tags\TagRemoveResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\TrackingLinks\TagsRawContract;
+use OnlyFansAPI\TrackingLinks\Tags\TagAddParams;
+use OnlyFansAPI\TrackingLinks\Tags\TagAddResponse;
+use OnlyFansAPI\TrackingLinks\Tags\TagListParams;
+use OnlyFansAPI\TrackingLinks\Tags\TagListResponse;
+use OnlyFansAPI\TrackingLinks\Tags\TagRemoveParams;
+use OnlyFansAPI\TrackingLinks\Tags\TagRemoveResponse;
 
 /**
  * APIs for managing tracking links.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class TagsRawService implements TagsRawContract
 {

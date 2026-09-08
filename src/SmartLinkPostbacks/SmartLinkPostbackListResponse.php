@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinkPostbacks;
+namespace OnlyFansAPI\SmartLinkPostbacks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackListResponse\_Meta;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackListResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackListResponse\_Meta;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackListResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackListResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackListResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackListResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackListResponse\Data
  *
  * @phpstan-type SmartLinkPostbackListResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: list<Data|DataShape>|null

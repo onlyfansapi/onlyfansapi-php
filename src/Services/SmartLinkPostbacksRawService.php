@@ -2,26 +2,30 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Conversion\MapOf;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\SmartLinkPostbacksRawContract;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackCreateParams;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackCreateParams\SmartLinkScope;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackGetResponse;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackListResponse;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackNewResponse;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackUpdateParams;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackUpdateResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Conversion\MapOf;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\SmartLinkPostbacksRawContract;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackCreateParams;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackCreateParams\Header;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackCreateParams\HTTPMethod;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackCreateParams\SmartLinkScope;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackGetResponse;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackListResponse;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackNewResponse;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackUpdateParams;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackUpdateResponse;
 
 /**
  * APIs for managing Smart Link postback destinations.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type HeaderShape from \OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackCreateParams\Header
+ * @phpstan-import-type HeaderShape from \OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackUpdateParams\Header as HeaderShape1
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class SmartLinkPostbacksRawService implements SmartLinkPostbacksRawContract
 {
@@ -40,6 +44,9 @@ final class SmartLinkPostbacksRawService implements SmartLinkPostbacksRawContrac
      *   conversionTypes: list<string>,
      *   smartLinkScope: SmartLinkScope|value-of<SmartLinkScope>,
      *   url: string,
+     *   body?: string,
+     *   headers?: list<Header|HeaderShape>,
+     *   httpMethod?: HTTPMethod|value-of<HTTPMethod>,
      *   smartLinkIDs?: list<string>,
      * }|SmartLinkPostbackCreateParams $params
      * @param RequestOpts|null $requestOptions
@@ -102,6 +109,9 @@ final class SmartLinkPostbacksRawService implements SmartLinkPostbacksRawContrac
      *   conversionTypes: list<string>,
      *   smartLinkScope: SmartLinkPostbackUpdateParams\SmartLinkScope|value-of<SmartLinkPostbackUpdateParams\SmartLinkScope>,
      *   url: string,
+     *   body?: string,
+     *   headers?: list<SmartLinkPostbackUpdateParams\Header|HeaderShape1>,
+     *   httpMethod?: SmartLinkPostbackUpdateParams\HTTPMethod|value-of<SmartLinkPostbackUpdateParams\HTTPMethod>,
      *   smartLinkIDs?: list<string>,
      * }|SmartLinkPostbackUpdateParams $params
      * @param RequestOpts|null $requestOptions

@@ -2,20 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Media;
+namespace OnlyFansAPI\Services\Media;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember0;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember1;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember2;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember3;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Media\UploadsContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember0;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember1;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember2;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember4;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Media\UploadsContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class UploadsService implements UploadsContract
 {
@@ -43,6 +44,8 @@ final class UploadsService implements UploadsContract
      * - `completed` — Upload finished, `media` and `credits_used` are included
      * - `failed` — Upload failed, `error` is included
      *
+     * Instead of polling, you can subscribe to the `media_uploads.completed` and `media_uploads.failed` webhook events. They carry the same fields as this endpoint and are only sent for async (`async=true`) uploads — synchronous uploads return their result directly.
+     *
      * @param string $upload the prefixed ID of the upload
      * @param string $account The Account ID
      * @param RequestOpts|null $requestOptions
@@ -53,7 +56,7 @@ final class UploadsService implements UploadsContract
         string $upload,
         string $account,
         RequestOptions|array|null $requestOptions = null,
-    ): UnionMember0|UnionMember1|UnionMember2|UnionMember3 {
+    ): UnionMember0|UnionMember1|UnionMember2|UnionMember3|UnionMember4 {
         $params = Util::removeNulls(['account' => $account]);
 
         // @phpstan-ignore-next-line argument.type

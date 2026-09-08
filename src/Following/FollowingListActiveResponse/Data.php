@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Following\FollowingListActiveResponse;
+namespace OnlyFansAPI\Following\FollowingListActiveResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Following\FollowingListActiveResponse\Data\List_;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Following\FollowingListActiveResponse\Data\List_;
 
 /**
- * @phpstan-import-type ListShape from \Onlyfansapi\Following\FollowingListActiveResponse\Data\List_
+ * @phpstan-import-type ListShape from \OnlyFansAPI\Following\FollowingListActiveResponse\Data\List_
  *
  * @phpstan-type DataShape = array{
  *   hasMore?: bool|null, list?: list<List_|ListShape>|null

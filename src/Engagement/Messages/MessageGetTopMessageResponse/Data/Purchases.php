@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data;
+namespace OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media;
-use Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Relationships;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media;
+use OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Relationships;
 
 /**
- * @phpstan-import-type MediaShape from \Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media
- * @phpstan-import-type RelationshipsShape from \Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Relationships
+ * @phpstan-import-type MediaShape from \OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media
+ * @phpstan-import-type RelationshipsShape from \OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Relationships
  *
  * @phpstan-type PurchasesShape = array{
  *   id?: int|null,

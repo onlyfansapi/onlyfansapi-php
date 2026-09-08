@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Users\Subscribe;
+namespace OnlyFansAPI\Users\Subscribe;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Subscribe to a user's profile.
  *
- * @see Onlyfansapi\Services\Users\SubscribeService::create()
+ * @see OnlyFansAPI\Services\Users\SubscribeService::create()
  *
  * @phpstan-type SubscribeCreateParamsShape = array{account: string}
  */

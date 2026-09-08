@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics\Statements;
+namespace OnlyFansAPI\Statistics\Statements;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Statistics\Statements\StatementGetEarningsResponse\_Meta;
-use Onlyfansapi\Statistics\Statements\StatementGetEarningsResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Statistics\Statements\StatementGetEarningsResponse\_Meta;
+use OnlyFansAPI\Statistics\Statements\StatementGetEarningsResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Statistics\Statements\StatementGetEarningsResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Statistics\Statements\StatementGetEarningsResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Statistics\Statements\StatementGetEarningsResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Statistics\Statements\StatementGetEarningsResponse\Data
  *
  * @phpstan-type StatementGetEarningsResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

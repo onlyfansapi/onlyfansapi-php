@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Core\Conversion\Contracts;
+namespace OnlyFansAPI\Core\Conversion\Contracts;
 
 /**
  * @internal

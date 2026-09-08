@@ -1,13 +1,13 @@
 <?php
 
-namespace Onlyfansapi\Core\Exceptions;
+namespace OnlyFansAPI\Core\Exceptions;
 
 use Psr\Http\Message\RequestInterface;
 
 class APITimeoutException extends APIConnectionException
 {
     /** @var string */
-    protected const DESC = 'Onlyfansapi API Timeout Exception';
+    protected const DESC = 'OnlyFansAPI API Timeout Exception';
 
     public function __construct(
         RequestInterface $request,

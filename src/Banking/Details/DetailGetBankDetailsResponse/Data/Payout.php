@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data;
+namespace OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data;
 
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields;
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\UiMapping;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\UiMapping;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type FieldsShape from \Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields
- * @phpstan-import-type UiMappingShape from \Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\UiMapping
+ * @phpstan-import-type FieldsShape from \OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields
+ * @phpstan-import-type UiMappingShape from \OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\UiMapping
  *
  * @phpstan-type PayoutShape = array{
  *   code?: string|null,

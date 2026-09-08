@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_;
+namespace OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months\_1735689661;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months\_1735689661;
 
 /**
- * @phpstan-import-type _1735689661Shape from \Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months\_1735689661
+ * @phpstan-import-type _1735689661Shape from \OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months\_1735689661
  *
  * @phpstan-type MonthsShape = array{
- *   _1735689661?: null|\Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months\_1735689661|_1735689661Shape,
+ *   _1735689661?: null|\OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Months\_1735689661|_1735689661Shape,
  * }
  */
 final class Months implements BaseModel

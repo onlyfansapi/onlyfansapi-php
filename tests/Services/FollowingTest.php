@@ -2,11 +2,11 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Following\FollowingListActiveResponse;
-use Onlyfansapi\Following\FollowingListAllResponse;
-use Onlyfansapi\Following\FollowingListExpiredResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Following\FollowingListActiveResponse;
+use OnlyFansAPI\Following\FollowingListAllResponse;
+use OnlyFansAPI\Following\FollowingListExpiredResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

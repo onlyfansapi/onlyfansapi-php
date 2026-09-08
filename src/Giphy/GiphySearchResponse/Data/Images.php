@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Giphy\GiphySearchResponse\Data;
+namespace OnlyFansAPI\Giphy\GiphySearchResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Giphy\GiphySearchResponse\Data\Images\FixedHeight;
-use Onlyfansapi\Giphy\GiphySearchResponse\Data\Images\Original;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Giphy\GiphySearchResponse\Data\Images\FixedHeight;
+use OnlyFansAPI\Giphy\GiphySearchResponse\Data\Images\Original;
 
 /**
- * @phpstan-import-type FixedHeightShape from \Onlyfansapi\Giphy\GiphySearchResponse\Data\Images\FixedHeight
- * @phpstan-import-type OriginalShape from \Onlyfansapi\Giphy\GiphySearchResponse\Data\Images\Original
+ * @phpstan-import-type FixedHeightShape from \OnlyFansAPI\Giphy\GiphySearchResponse\Data\Images\FixedHeight
+ * @phpstan-import-type OriginalShape from \OnlyFansAPI\Giphy\GiphySearchResponse\Data\Images\Original
  *
  * @phpstan-type ImagesShape = array{
  *   fixedHeight?: null|FixedHeight|FixedHeightShape,

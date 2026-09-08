@@ -2,14 +2,14 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\DataExports\DataExportCancelResponse;
-use Onlyfansapi\DataExports\DataExportGetResponse;
-use Onlyfansapi\DataExports\DataExportListResponse;
-use Onlyfansapi\DataExports\DataExportNewResponse;
-use Onlyfansapi\DataExports\DataExportRetryResponse;
-use Onlyfansapi\DataExports\DataExportStartResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\DataExports\DataExportCancelResponse;
+use OnlyFansAPI\DataExports\DataExportGetResponse;
+use OnlyFansAPI\DataExports\DataExportListResponse;
+use OnlyFansAPI\DataExports\DataExportNewResponse;
+use OnlyFansAPI\DataExports\DataExportRetryResponse;
+use OnlyFansAPI\DataExports\DataExportStartResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Subscribers;
+namespace OnlyFansAPI\Subscribers;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Subscribers\SubscriberRetrieveStatisticsParams\Type;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Subscribers\SubscriberRetrieveStatisticsParams\Type;
 
 /**
  * Get subscriber and earning statistics for an account for a specified timeframe. Optionally, filter by all, renews, or new subscribers.
  *
- * @see Onlyfansapi\Services\SubscribersService::retrieveStatistics()
+ * @see OnlyFansAPI\Services\SubscribersService::retrieveStatistics()
  *
  * @phpstan-type SubscriberRetrieveStatisticsParamsShape = array{
  *   endDate?: string|null,

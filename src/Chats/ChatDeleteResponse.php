@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats;
+namespace OnlyFansAPI\Chats;
 
-use Onlyfansapi\Chats\ChatDeleteResponse\_Meta;
-use Onlyfansapi\Chats\ChatDeleteResponse\Data;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chats\ChatDeleteResponse\_Meta;
+use OnlyFansAPI\Chats\ChatDeleteResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Chats\ChatDeleteResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Chats\ChatDeleteResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Chats\ChatDeleteResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Chats\ChatDeleteResponse\Data
  *
  * @phpstan-type ChatDeleteResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

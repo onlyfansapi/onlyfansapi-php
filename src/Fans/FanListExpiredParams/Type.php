@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans\FanListExpiredParams;
+namespace OnlyFansAPI\Fans\FanListExpiredParams;
 
 /**
  * Filter by fan type.

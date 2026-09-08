@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\Data;
+namespace OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media;
 
 /**
- * @phpstan-import-type MediaShape from \Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media
+ * @phpstan-import-type MediaShape from \OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\Data\Item\Media
  *
  * @phpstan-type ItemShape = array{
  *   id?: int|null,

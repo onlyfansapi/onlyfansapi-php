@@ -2,27 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts\PostStatsResponse;
+namespace OnlyFansAPI\Posts\PostStatsResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Posts\PostStatsResponse\Data\CommentChart;
-use Onlyfansapi\Posts\PostStatsResponse\Data\LikeChart;
-use Onlyfansapi\Posts\PostStatsResponse\Data\LookChart;
-use Onlyfansapi\Posts\PostStatsResponse\Data\PurchasesChart;
-use Onlyfansapi\Posts\PostStatsResponse\Data\TipChart;
-use Onlyfansapi\Posts\PostStatsResponse\Data\TipSumChart;
-use Onlyfansapi\Posts\PostStatsResponse\Data\UniqueLookChart;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Posts\PostStatsResponse\Data\CommentChart;
+use OnlyFansAPI\Posts\PostStatsResponse\Data\LikeChart;
+use OnlyFansAPI\Posts\PostStatsResponse\Data\LookChart;
+use OnlyFansAPI\Posts\PostStatsResponse\Data\PurchasesChart;
+use OnlyFansAPI\Posts\PostStatsResponse\Data\TipChart;
+use OnlyFansAPI\Posts\PostStatsResponse\Data\TipSumChart;
+use OnlyFansAPI\Posts\PostStatsResponse\Data\UniqueLookChart;
 
 /**
- * @phpstan-import-type CommentChartShape from \Onlyfansapi\Posts\PostStatsResponse\Data\CommentChart
- * @phpstan-import-type LikeChartShape from \Onlyfansapi\Posts\PostStatsResponse\Data\LikeChart
- * @phpstan-import-type LookChartShape from \Onlyfansapi\Posts\PostStatsResponse\Data\LookChart
- * @phpstan-import-type PurchasesChartShape from \Onlyfansapi\Posts\PostStatsResponse\Data\PurchasesChart
- * @phpstan-import-type TipChartShape from \Onlyfansapi\Posts\PostStatsResponse\Data\TipChart
- * @phpstan-import-type TipSumChartShape from \Onlyfansapi\Posts\PostStatsResponse\Data\TipSumChart
- * @phpstan-import-type UniqueLookChartShape from \Onlyfansapi\Posts\PostStatsResponse\Data\UniqueLookChart
+ * @phpstan-import-type CommentChartShape from \OnlyFansAPI\Posts\PostStatsResponse\Data\CommentChart
+ * @phpstan-import-type LikeChartShape from \OnlyFansAPI\Posts\PostStatsResponse\Data\LikeChart
+ * @phpstan-import-type LookChartShape from \OnlyFansAPI\Posts\PostStatsResponse\Data\LookChart
+ * @phpstan-import-type PurchasesChartShape from \OnlyFansAPI\Posts\PostStatsResponse\Data\PurchasesChart
+ * @phpstan-import-type TipChartShape from \OnlyFansAPI\Posts\PostStatsResponse\Data\TipChart
+ * @phpstan-import-type TipSumChartShape from \OnlyFansAPI\Posts\PostStatsResponse\Data\TipSumChart
+ * @phpstan-import-type UniqueLookChartShape from \OnlyFansAPI\Posts\PostStatsResponse\Data\UniqueLookChart
  *
  * @phpstan-type DataShape = array{
  *   commentChart?: list<CommentChart|CommentChartShape>|null,

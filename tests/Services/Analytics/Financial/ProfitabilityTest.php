@@ -2,8 +2,10 @@
 
 namespace Tests\Services\Analytics\Financial;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
+use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetHistoryResponse;
+use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetProfitabilityResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -40,7 +42,7 @@ final class ProfitabilityTest extends TestCase
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertIsList($result);
+        $this->assertInstanceOf(ProfitabilityGetHistoryResponse::class, $result);
     }
 
     #[Test]
@@ -57,7 +59,7 @@ final class ProfitabilityTest extends TestCase
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertIsList($result);
+        $this->assertInstanceOf(ProfitabilityGetHistoryResponse::class, $result);
     }
 
     #[Test]
@@ -80,7 +82,10 @@ final class ProfitabilityTest extends TestCase
         ;
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertIsList($result);
+        $this->assertInstanceOf(
+            ProfitabilityGetProfitabilityResponse::class,
+            $result
+        );
     }
 
     #[Test]
@@ -103,6 +108,9 @@ final class ProfitabilityTest extends TestCase
         ;
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertIsList($result);
+        $this->assertInstanceOf(
+            ProfitabilityGetProfitabilityResponse::class,
+            $result
+        );
     }
 }

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Statistics;
+namespace OnlyFansAPI\ServiceContracts\Statistics;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Statistics\Statements\StatementGetEarningsParams\Type;
-use Onlyfansapi\Statistics\Statements\StatementGetEarningsResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Statistics\Statements\StatementGetEarningsParams\Type;
+use OnlyFansAPI\Statistics\Statements\StatementGetEarningsResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface StatementsContract
 {
@@ -18,8 +18,8 @@ interface StatementsContract
      * @api
      *
      * @param string $account The Account ID
-     * @param string $startDate The start date for the period
      * @param string $endDate the end date for the period
+     * @param string $startDate the start date for the period
      * @param Type|value-of<Type> $type Filter by All / Subscriptions / Tips / Posts / Messages / Streams
      * @param RequestOpts|null $requestOptions
      *
@@ -27,8 +27,8 @@ interface StatementsContract
      */
     public function getEarnings(
         string $account,
+        string $endDate,
         string $startDate,
-        ?string $endDate = null,
         Type|string|null $type = null,
         RequestOptions|array|null $requestOptions = null,
     ): StatementGetEarningsResponse;

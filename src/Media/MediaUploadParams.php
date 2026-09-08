@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media;
+namespace OnlyFansAPI\Media;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Core\FileParam;
-use Onlyfansapi\Media\MediaUploadParams\Type;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\FileParam;
+use OnlyFansAPI\Media\MediaUploadParams\Type;
 
 /**
  * The response can be used **only once** to manually include media in a post or message. This endpoint does not upload media to the Vault. You must provide either `file` or `file_url`.
  *
- * @see Onlyfansapi\Services\MediaService::upload()
+ * @see OnlyFansAPI\Services\MediaService::upload()
  *
  * @phpstan-type MediaUploadParamsShape = array{
  *   async?: bool|null,
@@ -30,7 +30,7 @@ final class MediaUploadParams implements BaseModel
     use SdkParams;
 
     /**
-     * Set to `true` to process uploads in the background. Returns a `polling_url` to check status. Recommended for large files.
+     * Set to `true` to process uploads in the background. Returns a `polling_url` to check status. Recommended for large files. Instead of polling, you can subscribe to the `media_uploads.completed` and `media_uploads.failed` webhook events — they only fire for async uploads.
      */
     #[Optional]
     public ?bool $async;
@@ -84,7 +84,7 @@ final class MediaUploadParams implements BaseModel
     }
 
     /**
-     * Set to `true` to process uploads in the background. Returns a `polling_url` to check status. Recommended for large files.
+     * Set to `true` to process uploads in the background. Returns a `polling_url` to check status. Recommended for large files. Instead of polling, you can subscribe to the `media_uploads.completed` and `media_uploads.failed` webhook events — they only fire for async uploads.
      */
     public function withAsync(bool $async): self
     {

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinks\SmartLinkListFansResponse;
+namespace OnlyFansAPI\SmartLinks\SmartLinkListFansResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SmartLinks\SmartLinkListFansResponse\_Meta\_Cache;
-use Onlyfansapi\SmartLinks\SmartLinkListFansResponse\_Meta\_Credits;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SmartLinks\SmartLinkListFansResponse\_Meta\_Cache;
+use OnlyFansAPI\SmartLinks\SmartLinkListFansResponse\_Meta\_Credits;
 
 /**
- * @phpstan-import-type _CacheShape from \Onlyfansapi\SmartLinks\SmartLinkListFansResponse\_Meta\_Cache
- * @phpstan-import-type _CreditsShape from \Onlyfansapi\SmartLinks\SmartLinkListFansResponse\_Meta\_Credits
+ * @phpstan-import-type _CacheShape from \OnlyFansAPI\SmartLinks\SmartLinkListFansResponse\_Meta\_Cache
+ * @phpstan-import-type _CreditsShape from \OnlyFansAPI\SmartLinks\SmartLinkListFansResponse\_Meta\_Credits
  *
  * @phpstan-type _MetaShape = array{
  *   _cache?: null|_Cache|_CacheShape, _credits?: null|_Credits|_CreditsShape

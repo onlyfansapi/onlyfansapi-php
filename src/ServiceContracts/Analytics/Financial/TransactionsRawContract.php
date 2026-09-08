@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Analytics\Financial;
+namespace OnlyFansAPI\ServiceContracts\Analytics\Financial;
 
-use Onlyfansapi\Analytics\Financial\Transactions\TransactionGetByTypeParams;
-use Onlyfansapi\Analytics\Financial\Transactions\TransactionGetByTypeResponseItem;
-use Onlyfansapi\Analytics\Financial\Transactions\TransactionGetSummaryParams;
-use Onlyfansapi\Analytics\Financial\Transactions\TransactionGetSummaryResponse;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Analytics\Financial\Transactions\TransactionGetByTypeParams;
+use OnlyFansAPI\Analytics\Financial\Transactions\TransactionGetByTypeResponseItem;
+use OnlyFansAPI\Analytics\Financial\Transactions\TransactionGetSummaryParams;
+use OnlyFansAPI\Analytics\Financial\Transactions\TransactionGetSummaryResponse;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface TransactionsRawContract
 {

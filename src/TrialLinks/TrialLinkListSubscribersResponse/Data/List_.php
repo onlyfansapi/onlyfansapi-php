@@ -2,27 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse\Data;
+namespace OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\AvatarThumbs;
-use Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\HeaderSize;
-use Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\HeaderThumbs;
-use Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\ListsState;
-use Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\PromoOffer;
-use Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\SubscribedByData;
-use Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\SubscribedOnData;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\AvatarThumbs;
+use OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\HeaderSize;
+use OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\HeaderThumbs;
+use OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\ListsState;
+use OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\PromoOffer;
+use OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\SubscribedByData;
+use OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\SubscribedOnData;
 
 /**
- * @phpstan-import-type AvatarThumbsShape from \Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\AvatarThumbs
- * @phpstan-import-type HeaderSizeShape from \Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\HeaderSize
- * @phpstan-import-type HeaderThumbsShape from \Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\HeaderThumbs
- * @phpstan-import-type ListsStateShape from \Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\ListsState
- * @phpstan-import-type PromoOfferShape from \Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\PromoOffer
- * @phpstan-import-type SubscribedByDataShape from \Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\SubscribedByData
- * @phpstan-import-type SubscribedOnDataShape from \Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\SubscribedOnData
+ * @phpstan-import-type AvatarThumbsShape from \OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\AvatarThumbs
+ * @phpstan-import-type HeaderSizeShape from \OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\HeaderSize
+ * @phpstan-import-type HeaderThumbsShape from \OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\HeaderThumbs
+ * @phpstan-import-type ListsStateShape from \OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\ListsState
+ * @phpstan-import-type PromoOfferShape from \OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\PromoOffer
+ * @phpstan-import-type SubscribedByDataShape from \OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\SubscribedByData
+ * @phpstan-import-type SubscribedOnDataShape from \OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse\Data\List_\SubscribedOnData
  *
  * @phpstan-type ListShape = array{
  *   id?: int|null,

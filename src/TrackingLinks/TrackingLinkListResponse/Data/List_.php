@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrackingLinks\TrackingLinkListResponse\Data;
+namespace OnlyFansAPI\TrackingLinks\TrackingLinkListResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrackingLinks\TrackingLinkListResponse\Data\List_\Links;
-use Onlyfansapi\TrackingLinks\TrackingLinkListResponse\Data\List_\Revenue;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListResponse\Data\List_\Links;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListResponse\Data\List_\Revenue;
 
 /**
- * @phpstan-import-type LinksShape from \Onlyfansapi\TrackingLinks\TrackingLinkListResponse\Data\List_\Links
- * @phpstan-import-type RevenueShape from \Onlyfansapi\TrackingLinks\TrackingLinkListResponse\Data\List_\Revenue
+ * @phpstan-import-type LinksShape from \OnlyFansAPI\TrackingLinks\TrackingLinkListResponse\Data\List_\Links
+ * @phpstan-import-type RevenueShape from \OnlyFansAPI\TrackingLinks\TrackingLinkListResponse\Data\List_\Revenue
  *
  * @phpstan-type ListShape = array{
  *   id?: int|null,

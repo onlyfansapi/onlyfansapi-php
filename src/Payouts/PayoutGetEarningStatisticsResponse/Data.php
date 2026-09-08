@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse;
+namespace OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_;
 
 /**
- * @phpstan-import-type ListShape from \Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_
+ * @phpstan-import-type ListShape from \OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_
  *
  * @phpstan-type DataShape = array{list?: null|List_|ListShape}
  */

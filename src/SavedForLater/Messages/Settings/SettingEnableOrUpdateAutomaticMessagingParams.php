@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SavedForLater\Messages\Settings;
+namespace OnlyFansAPI\SavedForLater\Messages\Settings;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SavedForLater\Messages\Settings\SettingEnableOrUpdateAutomaticMessagingParams\Period;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SavedForLater\Messages\Settings\SettingEnableOrUpdateAutomaticMessagingParams\Period;
 
 /**
  * Enable or update automatic messaging of Saved For Later messages.
  *
- * @see Onlyfansapi\Services\SavedForLater\Messages\SettingsService::enableOrUpdateAutomaticMessaging()
+ * @see OnlyFansAPI\Services\SavedForLater\Messages\SettingsService::enableOrUpdateAutomaticMessaging()
  *
  * @phpstan-type SettingEnableOrUpdateAutomaticMessagingParamsShape = array{
  *   period: Period|value-of<Period>

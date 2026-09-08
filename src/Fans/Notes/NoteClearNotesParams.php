@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans\Notes;
+namespace OnlyFansAPI\Fans\Notes;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Clear notes for a specific fan.
  *
- * @see Onlyfansapi\Services\Fans\NotesService::clearNotes()
+ * @see OnlyFansAPI\Services\Fans\NotesService::clearNotes()
  *
  * @phpstan-type NoteClearNotesParamsShape = array{account: string}
  */

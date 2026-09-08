@@ -2,20 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\UserLists;
+namespace OnlyFansAPI\UserLists;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\UserLists\UserListListParams\View;
 
 /**
- * Get a list of OnlyFans Collections - User Lists.
+ * Get a list of OnlyFans Collections - User Lists. If you only want to get User Lists available for sending a Mass-Message, use `?view=queue`.
  *
- * @see Onlyfansapi\Services\UserListsService::list()
+ * @see OnlyFansAPI\Services\UserListsService::list()
  *
  * @phpstan-type UserListListParamsShape = array{
- *   limit?: int|null, offset?: int|null
+ *   limit?: int|null, offset?: int|null, view?: null|View|value-of<View>
  * }
  */
 final class UserListListParams implements BaseModel
@@ -36,6 +37,14 @@ final class UserListListParams implements BaseModel
     #[Optional(nullable: true)]
     public ?int $offset;
 
+    /**
+     * How to return the results. `queue` returns the user lists that are available for Mass-Messaging.
+     *
+     * @var value-of<View>|null $view
+     */
+    #[Optional(enum: View::class)]
+    public ?string $view;
+
     public function __construct()
     {
         $this->initialize();
@@ -45,13 +54,19 @@ final class UserListListParams implements BaseModel
      * Construct an instance from the required parameters.
      *
      * You must use named parameters to construct any parameters with a default value.
+     *
+     * @param View|value-of<View>|null $view
      */
-    public static function with(?int $limit = null, ?int $offset = null): self
-    {
+    public static function with(
+        ?int $limit = null,
+        ?int $offset = null,
+        View|string|null $view = null
+    ): self {
         $self = new self;
 
         null !== $limit && $self['limit'] = $limit;
         null !== $offset && $self['offset'] = $offset;
+        null !== $view && $self['view'] = $view;
 
         return $self;
     }
@@ -74,6 +89,19 @@ final class UserListListParams implements BaseModel
     {
         $self = clone $this;
         $self['offset'] = $offset;
+
+        return $self;
+    }
+
+    /**
+     * How to return the results. `queue` returns the user lists that are available for Mass-Messaging.
+     *
+     * @param View|value-of<View> $view
+     */
+    public function withView(View|string $view): self
+    {
+        $self = clone $this;
+        $self['view'] = $view;
 
         return $self;
     }

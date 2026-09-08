@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse;
+namespace OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember0\_Meta;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember0\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember0\_Meta;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember0\Data;
 
 /**
  * No filter.
  *
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember0\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember0\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember0\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember0\Data
  *
  * @phpstan-type UnionMember0Shape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

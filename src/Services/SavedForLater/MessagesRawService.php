@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\SavedForLater;
+namespace OnlyFansAPI\Services\SavedForLater;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\SavedForLater\Messages\MessageListParams;
-use Onlyfansapi\SavedForLater\Messages\MessageListResponse;
-use Onlyfansapi\ServiceContracts\SavedForLater\MessagesRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\SavedForLater\Messages\MessageListParams;
+use OnlyFansAPI\SavedForLater\Messages\MessageListResponse;
+use OnlyFansAPI\ServiceContracts\SavedForLater\MessagesRawContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class MessagesRawService implements MessagesRawContract
 {

@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media;
+namespace OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media\Files\Full;
-use Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media\Files\Preview;
-use Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media\Files\SquarePreview;
-use Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media\Files\Thumb;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media\Files\Full;
+use OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media\Files\Preview;
+use OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media\Files\SquarePreview;
+use OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media\Files\Thumb;
 
 /**
- * @phpstan-import-type FullShape from \Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media\Files\Full
- * @phpstan-import-type PreviewShape from \Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media\Files\Preview
- * @phpstan-import-type SquarePreviewShape from \Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media\Files\SquarePreview
- * @phpstan-import-type ThumbShape from \Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media\Files\Thumb
+ * @phpstan-import-type FullShape from \OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media\Files\Full
+ * @phpstan-import-type PreviewShape from \OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media\Files\Preview
+ * @phpstan-import-type SquarePreviewShape from \OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media\Files\SquarePreview
+ * @phpstan-import-type ThumbShape from \OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageUpdateResponse\Data\Media\Files\Thumb
  *
  * @phpstan-type FilesShape = array{
  *   full?: null|Full|FullShape,

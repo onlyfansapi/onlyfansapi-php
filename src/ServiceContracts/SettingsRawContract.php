@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Settings\SettingCheckUsernameAvailabilityParams;
-use Onlyfansapi\Settings\SettingCheckUsernameAvailabilityResponse;
-use Onlyfansapi\Settings\SettingGetResponse;
-use Onlyfansapi\Settings\SettingUpdateProfileParams;
-use Onlyfansapi\Settings\SettingUpdateProfileResponse;
-use Onlyfansapi\Settings\SettingUpdateSubscriptionPriceParams;
-use Onlyfansapi\Settings\SettingUpdateSubscriptionPriceResponse;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Settings\SettingCheckUsernameAvailabilityParams;
+use OnlyFansAPI\Settings\SettingCheckUsernameAvailabilityResponse;
+use OnlyFansAPI\Settings\SettingGetResponse;
+use OnlyFansAPI\Settings\SettingUpdateProfileParams;
+use OnlyFansAPI\Settings\SettingUpdateProfileResponse;
+use OnlyFansAPI\Settings\SettingUpdateSubscriptionPriceParams;
+use OnlyFansAPI\Settings\SettingUpdateSubscriptionPriceResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface SettingsRawContract
 {

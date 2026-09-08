@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats;
+namespace OnlyFansAPI\Chats;
 
-use Onlyfansapi\Chats\ChatHideResponse\_Meta;
-use Onlyfansapi\Chats\ChatHideResponse\Data;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chats\ChatHideResponse\_Meta;
+use OnlyFansAPI\Chats\ChatHideResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Chats\ChatHideResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Chats\ChatHideResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Chats\ChatHideResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Chats\ChatHideResponse\Data
  *
  * @phpstan-type ChatHideResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

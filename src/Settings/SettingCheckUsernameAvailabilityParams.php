@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Settings;
+namespace OnlyFansAPI\Settings;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Check if a username is taken. Returns `false` if the username is available, `true` if it is already taken.
  *
- * @see Onlyfansapi\Services\SettingsService::checkUsernameAvailability()
+ * @see OnlyFansAPI\Services\SettingsService::checkUsernameAvailability()
  *
  * @phpstan-type SettingCheckUsernameAvailabilityParamsShape = array{
  *   username: string

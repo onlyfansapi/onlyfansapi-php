@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans\Notes;
+namespace OnlyFansAPI\Fans\Notes;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Create or edit notes for a specific fan.
  *
- * @see Onlyfansapi\Services\Fans\NotesService::createEditNotes()
+ * @see OnlyFansAPI\Services\Fans\NotesService::createEditNotes()
  *
  * @phpstan-type NoteCreateEditNotesParamsShape = array{
  *   account: string, notes: string

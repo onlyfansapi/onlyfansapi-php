@@ -2,31 +2,31 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Chats\ChatDeleteResponse;
-use Onlyfansapi\Chats\ChatHideResponse;
-use Onlyfansapi\Chats\ChatListMediaParams\Type;
-use Onlyfansapi\Chats\ChatListMediaResponse;
-use Onlyfansapi\Chats\ChatListParams\Filter;
-use Onlyfansapi\Chats\ChatListParams\Order;
-use Onlyfansapi\Chats\ChatListParams\SkipUsers;
-use Onlyfansapi\Chats\ChatListResponse;
-use Onlyfansapi\Chats\ChatMarkAsReadResponse;
-use Onlyfansapi\Chats\ChatMarkAsUnreadResponse;
-use Onlyfansapi\Chats\ChatMuteResponse;
-use Onlyfansapi\Chats\ChatStartTypingResponse;
-use Onlyfansapi\Chats\ChatUnmuteResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\ChatsContract;
-use Onlyfansapi\Services\Chats\MarkAllAsReadService;
-use Onlyfansapi\Services\Chats\MessagesService;
+use OnlyFansAPI\Chats\ChatDeleteResponse;
+use OnlyFansAPI\Chats\ChatHideResponse;
+use OnlyFansAPI\Chats\ChatListMediaParams\Type;
+use OnlyFansAPI\Chats\ChatListMediaResponse;
+use OnlyFansAPI\Chats\ChatListParams\Filter;
+use OnlyFansAPI\Chats\ChatListParams\Order;
+use OnlyFansAPI\Chats\ChatListParams\SkipUsers;
+use OnlyFansAPI\Chats\ChatListResponse;
+use OnlyFansAPI\Chats\ChatMarkAsReadResponse;
+use OnlyFansAPI\Chats\ChatMarkAsUnreadResponse;
+use OnlyFansAPI\Chats\ChatMuteResponse;
+use OnlyFansAPI\Chats\ChatStartTypingResponse;
+use OnlyFansAPI\Chats\ChatUnmuteResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\ChatsContract;
+use OnlyFansAPI\Services\Chats\MarkAllAsReadService;
+use OnlyFansAPI\Services\Chats\MessagesService;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class ChatsService implements ChatsContract
 {
@@ -66,7 +66,7 @@ final class ChatsService implements ChatsContract
      * @param string $offset Number of chats to skip for pagination
      * @param Order|value-of<Order> $order Sort order for chats (recent or old). Default = recent
      * @param string $query Search query to filter chats
-     * @param SkipUsers|value-of<SkipUsers> $skipUsers Whether to skip user details in response (all or none). Default = all
+     * @param SkipUsers|value-of<SkipUsers> $skipUsers Whether to skip user details in the response (`all` or `none`). Defaults to `all`.
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -155,7 +155,7 @@ final class ChatsService implements ChatsContract
      * @param string $account Path param: The Account ID
      * @param string $limit Query param: Number of medias to return. Default = 20
      * @param string $offset Query param: Number of medias to skip for pagination
-     * @param string $skipUsers Query param: Whether to skip user details in response (all or none). Default = all
+     * @param string $skipUsers Query param: Whether to skip user details in the response (`all` or `none`). Defaults to `all`.
      * @param Type|value-of<Type>|null $type Query param: Filter by specific media types. Keep empty to return all.
      * @param RequestOpts|null $requestOptions
      *
@@ -261,7 +261,7 @@ final class ChatsService implements ChatsContract
     /**
      * @api
      *
-     * Calling this endpoint will show the target fan a "Model is typing..." note in the chat for ~4 seconds. If you want to continue showing the indicator call this endpoint multiple times. Free - no credits charged.
+     * Calling this endpoint will show the target fan a "Model is typing..." note in the chat for ~4 seconds. Duplicate calls for the same account and chat are coalesced during that window.
      *
      * @param string $chatID The ID of the chat (usually a fan's OnlyFans User ID)
      * @param string $account The Account ID

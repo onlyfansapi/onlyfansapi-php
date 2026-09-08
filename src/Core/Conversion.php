@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Core;
+namespace OnlyFansAPI\Core;
 
-use Onlyfansapi\Core\Conversion\CoerceState;
-use Onlyfansapi\Core\Conversion\Contracts\Converter;
-use Onlyfansapi\Core\Conversion\Contracts\ConverterSource;
-use Onlyfansapi\Core\Conversion\DumpState;
-use Onlyfansapi\Core\Conversion\EnumOf;
+use OnlyFansAPI\Core\Conversion\CoerceState;
+use OnlyFansAPI\Core\Conversion\Contracts\Converter;
+use OnlyFansAPI\Core\Conversion\Contracts\ConverterSource;
+use OnlyFansAPI\Core\Conversion\DumpState;
+use OnlyFansAPI\Core\Conversion\EnumOf;
 
 /**
  * @internal

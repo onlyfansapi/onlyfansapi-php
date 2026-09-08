@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ReleaseForms\ReleaseFormNewInvitationLinkResponse;
+namespace OnlyFansAPI\ReleaseForms\ReleaseFormNewInvitationLinkResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\ReleaseForms\ReleaseFormNewInvitationLinkResponse\_Meta\_Cache;
-use Onlyfansapi\ReleaseForms\ReleaseFormNewInvitationLinkResponse\_Meta\_Credits;
-use Onlyfansapi\ReleaseForms\ReleaseFormNewInvitationLinkResponse\_Meta\_RateLimits;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\ReleaseForms\ReleaseFormNewInvitationLinkResponse\_Meta\_Cache;
+use OnlyFansAPI\ReleaseForms\ReleaseFormNewInvitationLinkResponse\_Meta\_Credits;
+use OnlyFansAPI\ReleaseForms\ReleaseFormNewInvitationLinkResponse\_Meta\_RateLimits;
 
 /**
- * @phpstan-import-type _CacheShape from \Onlyfansapi\ReleaseForms\ReleaseFormNewInvitationLinkResponse\_Meta\_Cache
- * @phpstan-import-type _CreditsShape from \Onlyfansapi\ReleaseForms\ReleaseFormNewInvitationLinkResponse\_Meta\_Credits
- * @phpstan-import-type _RateLimitsShape from \Onlyfansapi\ReleaseForms\ReleaseFormNewInvitationLinkResponse\_Meta\_RateLimits
+ * @phpstan-import-type _CacheShape from \OnlyFansAPI\ReleaseForms\ReleaseFormNewInvitationLinkResponse\_Meta\_Cache
+ * @phpstan-import-type _CreditsShape from \OnlyFansAPI\ReleaseForms\ReleaseFormNewInvitationLinkResponse\_Meta\_Credits
+ * @phpstan-import-type _RateLimitsShape from \OnlyFansAPI\ReleaseForms\ReleaseFormNewInvitationLinkResponse\_Meta\_RateLimits
  *
  * @phpstan-type _MetaShape = array{
  *   _cache?: null|_Cache|_CacheShape,

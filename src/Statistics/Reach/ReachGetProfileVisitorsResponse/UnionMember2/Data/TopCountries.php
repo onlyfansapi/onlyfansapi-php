@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data;
+namespace OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data\TopCountries\Row;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data\TopCountries\Totals;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data\TopCountries\Row;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data\TopCountries\Totals;
 
 /**
- * @phpstan-import-type RowShape from \Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data\TopCountries\Row
- * @phpstan-import-type TotalsShape from \Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data\TopCountries\Totals
+ * @phpstan-import-type RowShape from \OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data\TopCountries\Row
+ * @phpstan-import-type TotalsShape from \OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data\TopCountries\Totals
  *
  * @phpstan-type TopCountriesShape = array{
  *   hasMore?: bool|null,

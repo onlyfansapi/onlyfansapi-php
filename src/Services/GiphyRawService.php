@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Giphy\GiphyListTrendingParams;
-use Onlyfansapi\Giphy\GiphyListTrendingResponse;
-use Onlyfansapi\Giphy\GiphySearchParams;
-use Onlyfansapi\Giphy\GiphySearchResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\GiphyRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Giphy\GiphyListTrendingParams;
+use OnlyFansAPI\Giphy\GiphyListTrendingResponse;
+use OnlyFansAPI\Giphy\GiphySearchParams;
+use OnlyFansAPI\Giphy\GiphySearchResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\GiphyRawContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class GiphyRawService implements GiphyRawContract
 {

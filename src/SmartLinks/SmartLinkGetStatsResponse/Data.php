@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinks\SmartLinkGetStatsResponse;
+namespace OnlyFansAPI\SmartLinks\SmartLinkGetStatsResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SmartLinks\SmartLinkGetStatsResponse\Data\DailyMetric;
-use Onlyfansapi\SmartLinks\SmartLinkGetStatsResponse\Data\MonthlyMetric;
-use Onlyfansapi\SmartLinks\SmartLinkGetStatsResponse\Data\Summary;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SmartLinks\SmartLinkGetStatsResponse\Data\DailyMetric;
+use OnlyFansAPI\SmartLinks\SmartLinkGetStatsResponse\Data\MonthlyMetric;
+use OnlyFansAPI\SmartLinks\SmartLinkGetStatsResponse\Data\Summary;
 
 /**
- * @phpstan-import-type DailyMetricShape from \Onlyfansapi\SmartLinks\SmartLinkGetStatsResponse\Data\DailyMetric
- * @phpstan-import-type MonthlyMetricShape from \Onlyfansapi\SmartLinks\SmartLinkGetStatsResponse\Data\MonthlyMetric
- * @phpstan-import-type SummaryShape from \Onlyfansapi\SmartLinks\SmartLinkGetStatsResponse\Data\Summary
+ * @phpstan-import-type DailyMetricShape from \OnlyFansAPI\SmartLinks\SmartLinkGetStatsResponse\Data\DailyMetric
+ * @phpstan-import-type MonthlyMetricShape from \OnlyFansAPI\SmartLinks\SmartLinkGetStatsResponse\Data\MonthlyMetric
+ * @phpstan-import-type SummaryShape from \OnlyFansAPI\SmartLinks\SmartLinkGetStatsResponse\Data\Summary
  *
  * @phpstan-type DataShape = array{
  *   dailyMetrics?: list<DailyMetric|DailyMetricShape>|null,

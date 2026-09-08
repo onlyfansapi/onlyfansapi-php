@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\ChatListResponse\Data;
+namespace OnlyFansAPI\Chats\ChatListResponse\Data;
 
-use Onlyfansapi\Chats\ChatListResponse\Data\LastMessage\FromUser;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chats\ChatListResponse\Data\LastMessage\FromUser;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type FromUserShape from \Onlyfansapi\Chats\ChatListResponse\Data\LastMessage\FromUser
+ * @phpstan-import-type FromUserShape from \OnlyFansAPI\Chats\ChatListResponse\Data\LastMessage\FromUser
  *
  * @phpstan-type LastMessageShape = array{
  *   id?: int|null,

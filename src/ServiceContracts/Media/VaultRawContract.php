@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Media;
+namespace OnlyFansAPI\ServiceContracts\Media;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Media\Vault\VaultDeleteParams;
-use Onlyfansapi\Media\Vault\VaultDeleteResponse;
-use Onlyfansapi\Media\Vault\VaultGetResponse;
-use Onlyfansapi\Media\Vault\VaultListParams;
-use Onlyfansapi\Media\Vault\VaultListResponse;
-use Onlyfansapi\Media\Vault\VaultRetrieveParams;
-use Onlyfansapi\Media\Vault\VaultUploadParams;
-use Onlyfansapi\Media\Vault\VaultUploadResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Media\Vault\VaultDeleteParams;
+use OnlyFansAPI\Media\Vault\VaultDeleteResponse;
+use OnlyFansAPI\Media\Vault\VaultGetResponse;
+use OnlyFansAPI\Media\Vault\VaultListParams;
+use OnlyFansAPI\Media\Vault\VaultListResponse;
+use OnlyFansAPI\Media\Vault\VaultRetrieveParams;
+use OnlyFansAPI\Media\Vault\VaultUploadParams;
+use OnlyFansAPI\Media\Vault\VaultUploadResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface VaultRawContract
 {

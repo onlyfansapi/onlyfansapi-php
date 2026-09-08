@@ -2,33 +2,33 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Fans\FanGetSubscriptionHistoryResponse;
-use Onlyfansapi\Fans\FanListActiveParams\Filter;
-use Onlyfansapi\Fans\FanListActiveParams\Type;
-use Onlyfansapi\Fans\FanListActiveResponse;
-use Onlyfansapi\Fans\FanListAllResponse;
-use Onlyfansapi\Fans\FanListExpiredResponse;
-use Onlyfansapi\Fans\FanListLatestResponse;
-use Onlyfansapi\Fans\FanListTopParams\By;
-use Onlyfansapi\Fans\FanListTopResponse;
-use Onlyfansapi\Fans\FanSetCustomNameResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\FansContract;
-use Onlyfansapi\Services\Fans\NotesService;
-use Onlyfansapi\Services\Fans\SummaryService;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Fans\FanGetSubscriptionHistoryResponse;
+use OnlyFansAPI\Fans\FanListActiveParams\Filter;
+use OnlyFansAPI\Fans\FanListActiveParams\Type;
+use OnlyFansAPI\Fans\FanListActiveResponse;
+use OnlyFansAPI\Fans\FanListAllResponse;
+use OnlyFansAPI\Fans\FanListExpiredResponse;
+use OnlyFansAPI\Fans\FanListLatestResponse;
+use OnlyFansAPI\Fans\FanListTopParams\By;
+use OnlyFansAPI\Fans\FanListTopResponse;
+use OnlyFansAPI\Fans\FanSetCustomNameResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\FansContract;
+use OnlyFansAPI\Services\Fans\NotesService;
+use OnlyFansAPI\Services\Fans\SummaryService;
 
 /**
  * APIs for managing OnlyFans fans (subscribers).
  *
- * @phpstan-import-type FilterShape from \Onlyfansapi\Fans\FanListActiveParams\Filter
- * @phpstan-import-type FilterShape from \Onlyfansapi\Fans\FanListAllParams\Filter as FilterShape1
- * @phpstan-import-type FilterShape from \Onlyfansapi\Fans\FanListExpiredParams\Filter as FilterShape2
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Fans\FanListActiveParams\Filter
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Fans\FanListAllParams\Filter as FilterShape1
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Fans\FanListExpiredParams\Filter as FilterShape2
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class FansService implements FansContract
 {
@@ -84,11 +84,13 @@ final class FansService implements FansContract
     /**
      * @api
      *
-     * Get a paginated list of fans for an Account. Newest fans are first.
+     * Get a paginated list of fans for an Account. Newest fans are first. Paginate by following `_pagination.next_page` until it is null (`data.hasMore` is the authoritative flag). Do NOT use the page's item count to detect the last page — OnlyFans occasionally returns fewer than `limit` items (e.g. 19 for limit=20) on a non-final page because it filters entries server-side; no fans are skipped. To track progress, GET `/{account}/me` returns data.subscribersCount (the current active-subscriber count) as a total.
+     *
+     * Supports `filter[max_total_spent]` (e.g. `filter[max_total_spent]=0` for fans who have never spent), which OnlyFans itself cannot do. Those requests are answered from OnlyFansAPI's own fan index rather than proxied, so the page is limited to fans we have already indexed for this account — see `data._source` in the response.
      *
      * @param string $account The Account ID
      * @param Filter|FilterShape $filter
-     * @param int $limit Number of fans to return (1-50). Must be at least 1. Must not be greater than 20.
+     * @param int $limit Number of fans to return (1-20). OnlyFans does not allow more than 20 per page. Must be at least 1. Must not be greater than 20.
      * @param int $offset Number of fans to skip. Must be at least 0.
      * @param string|null $query search within fan name/username
      * @param Type|value-of<Type> $type filter by fan type
@@ -124,25 +126,27 @@ final class FansService implements FansContract
     /**
      * @api
      *
-     * Get a paginated list of fans for an Account. Newest fans are first.
+     * Get a paginated list of fans for an Account. Newest fans are first. Paginate by following `_pagination.next_page` until it is null (`data.hasMore` is the authoritative flag). Do NOT use the page's item count to detect the last page — OnlyFans occasionally returns fewer than `limit` items (e.g. 19 for limit=20) on a non-final page because it filters entries server-side; no fans are skipped.
+     *
+     * Supports `filter[max_total_spent]` (e.g. `filter[max_total_spent]=0` for fans who have never spent), which OnlyFans itself cannot do. Those requests are answered from OnlyFansAPI's own fan index rather than proxied, so the page is limited to fans we have already indexed for this account — see `data._source` in the response.
      *
      * @param string $account The Account ID
-     * @param \Onlyfansapi\Fans\FanListAllParams\Filter|FilterShape1 $filter
-     * @param int $limit Number of fans to return (1-50). Must be at least 1. Must not be greater than 20.
+     * @param \OnlyFansAPI\Fans\FanListAllParams\Filter|FilterShape1 $filter
+     * @param int $limit Number of fans to return (1-20). OnlyFans does not allow more than 20 per page. Must be at least 1. Must not be greater than 20.
      * @param int $offset Number of fans to skip. Must be at least 0.
      * @param string|null $query search within fan name/username
-     * @param \Onlyfansapi\Fans\FanListAllParams\Type|value-of<\Onlyfansapi\Fans\FanListAllParams\Type> $type filter by fan type
+     * @param \OnlyFansAPI\Fans\FanListAllParams\Type|value-of<\OnlyFansAPI\Fans\FanListAllParams\Type> $type filter by fan type
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
      */
     public function listAll(
         string $account,
-        \Onlyfansapi\Fans\FanListAllParams\Filter|array|null $filter = null,
+        \OnlyFansAPI\Fans\FanListAllParams\Filter|array|null $filter = null,
         ?int $limit = null,
         ?int $offset = null,
         ?string $query = null,
-        \Onlyfansapi\Fans\FanListAllParams\Type|string|null $type = null,
+        \OnlyFansAPI\Fans\FanListAllParams\Type|string|null $type = null,
         RequestOptions|array|null $requestOptions = null,
     ): FanListAllResponse {
         $params = Util::removeNulls(
@@ -164,25 +168,27 @@ final class FansService implements FansContract
     /**
      * @api
      *
-     * Get a paginated list of expired fans for an Account. Newest fans are first.
+     * Get a paginated list of expired fans for an Account. Newest fans are first. Paginate by following `_pagination.next_page` until it is null (`data.hasMore` is the authoritative flag). Do NOT use the page's item count to detect the last page — OnlyFans occasionally returns fewer than `limit` items (e.g. 19 for limit=20) on a non-final page because it filters entries server-side; no fans are skipped.
+     *
+     * Supports `filter[max_total_spent]` (e.g. `filter[max_total_spent]=0` for fans who have never spent), which OnlyFans itself cannot do. Those requests are answered from OnlyFansAPI's own fan index rather than proxied, so the page is limited to fans we have already indexed for this account — see `data._source` in the response.
      *
      * @param string $account The Account ID
-     * @param \Onlyfansapi\Fans\FanListExpiredParams\Filter|FilterShape2 $filter
-     * @param int $limit Number of fans to return (1-50). Must be at least 1. Must not be greater than 20.
+     * @param \OnlyFansAPI\Fans\FanListExpiredParams\Filter|FilterShape2 $filter
+     * @param int $limit Number of fans to return (1-20). OnlyFans does not allow more than 20 per page. Must be at least 1. Must not be greater than 20.
      * @param int $offset Number of fans to skip. Must be at least 0.
      * @param string|null $query search within fan name/username
-     * @param \Onlyfansapi\Fans\FanListExpiredParams\Type|value-of<\Onlyfansapi\Fans\FanListExpiredParams\Type> $type filter by fan type
+     * @param \OnlyFansAPI\Fans\FanListExpiredParams\Type|value-of<\OnlyFansAPI\Fans\FanListExpiredParams\Type> $type filter by fan type
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
      */
     public function listExpired(
         string $account,
-        \Onlyfansapi\Fans\FanListExpiredParams\Filter|array|null $filter = null,
+        \OnlyFansAPI\Fans\FanListExpiredParams\Filter|array|null $filter = null,
         ?int $limit = null,
         ?int $offset = null,
         ?string $query = null,
-        \Onlyfansapi\Fans\FanListExpiredParams\Type|string|null $type = null,
+        \OnlyFansAPI\Fans\FanListExpiredParams\Type|string|null $type = null,
         RequestOptions|array|null $requestOptions = null,
     ): FanListExpiredResponse {
         $params = Util::removeNulls(
@@ -207,11 +213,11 @@ final class FansService implements FansContract
      * Get a paginated list fans, filterable by total, only new subscribers, or only renewals. Newest fans are first.
      *
      * @param string $account The Account ID
-     * @param string|null $endDate End date for filtering (required with start_date). This field is required when <code>start_date</code> is present.
-     * @param int $limit Number of fans to return (1-50). Must be at least 1. Must not be greater than 100.
+     * @param string|null $endDate End date for filtering (required with start_date). Must be a valid date. Must not be greater than 255 characters.
+     * @param int $limit Number of fans to return (1-50). Must be at least 1. Must not be greater than 50.
      * @param int $offset Number of fans to skip. Must be at least 0.
-     * @param string|null $startDate Start date for filtering (required with end_date). This field is required when <code>end_date</code> is present.
-     * @param \Onlyfansapi\Fans\FanListLatestParams\Type|value-of<\Onlyfansapi\Fans\FanListLatestParams\Type>|null $type filter by type: total, renew, or new
+     * @param string|null $startDate Start date for filtering (required with end_date). Must be a valid date. Must not be greater than 255 characters.
+     * @param \OnlyFansAPI\Fans\FanListLatestParams\Type|value-of<\OnlyFansAPI\Fans\FanListLatestParams\Type>|null $type filter by type: total, renew, or new
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -222,7 +228,7 @@ final class FansService implements FansContract
         ?int $limit = null,
         ?int $offset = null,
         ?string $startDate = null,
-        \Onlyfansapi\Fans\FanListLatestParams\Type|string|null $type = null,
+        \OnlyFansAPI\Fans\FanListLatestParams\Type|string|null $type = null,
         RequestOptions|array|null $requestOptions = null,
     ): FanListLatestResponse {
         $params = Util::removeNulls(
@@ -248,8 +254,8 @@ final class FansService implements FansContract
      *
      * @param string $account The Account ID
      * @param By|value-of<By>|null $by sort by: total (default), subscribes, tips, messages, post, streams
-     * @param string|null $endDate End date for filtering (required with start_date). This field is required when <code>start_date</code> is present.
-     * @param string|null $startDate Start date for filtering (required with end_date). This field is required when <code>end_date</code> is present.
+     * @param string|null $endDate End date for filtering (required with start_date). Must be a valid date. Must not be greater than 255 characters.
+     * @param string|null $startDate Start date for filtering (required with end_date). Must be a valid date. Must not be greater than 255 characters.
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException

@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Users;
+namespace OnlyFansAPI\Services\Users;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Users\BlockRawContract;
-use Onlyfansapi\Users\Block\BlockCreateParams;
-use Onlyfansapi\Users\Block\BlockDeleteParams;
-use Onlyfansapi\Users\Block\BlockDeleteResponse;
-use Onlyfansapi\Users\Block\BlockNewResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Users\BlockRawContract;
+use OnlyFansAPI\Users\Block\BlockCreateParams;
+use OnlyFansAPI\Users\Block\BlockDeleteParams;
+use OnlyFansAPI\Users\Block\BlockDeleteResponse;
+use OnlyFansAPI\Users\Block\BlockNewResponse;
 
 /**
  * APIs for fetching OnlyFans users.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class BlockRawService implements BlockRawContract
 {
