@@ -10,6 +10,7 @@ use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * @phpstan-type SummaryShape = array{
+ *   chargebacksTotal?: float|null,
  *   clicksTotal?: int|null,
  *   revenueCachedAt?: string|null,
  *   revenueTotal?: float|null,
@@ -21,6 +22,9 @@ final class Summary implements BaseModel
 {
     /** @use SdkModel<SummaryShape> */
     use SdkModel;
+
+    #[Optional('chargebacks_total')]
+    public ?float $chargebacksTotal;
 
     #[Optional('clicks_total')]
     public ?int $clicksTotal;
@@ -48,6 +52,7 @@ final class Summary implements BaseModel
      * You must use named parameters to construct any parameters with a default value.
      */
     public static function with(
+        ?float $chargebacksTotal = null,
         ?int $clicksTotal = null,
         ?string $revenueCachedAt = null,
         ?float $revenueTotal = null,
@@ -56,11 +61,20 @@ final class Summary implements BaseModel
     ): self {
         $self = new self;
 
+        null !== $chargebacksTotal && $self['chargebacksTotal'] = $chargebacksTotal;
         null !== $clicksTotal && $self['clicksTotal'] = $clicksTotal;
         null !== $revenueCachedAt && $self['revenueCachedAt'] = $revenueCachedAt;
         null !== $revenueTotal && $self['revenueTotal'] = $revenueTotal;
         null !== $spendersTotal && $self['spendersTotal'] = $spendersTotal;
         null !== $subsTotal && $self['subsTotal'] = $subsTotal;
+
+        return $self;
+    }
+
+    public function withChargebacksTotal(float $chargebacksTotal): self
+    {
+        $self = clone $this;
+        $self['chargebacksTotal'] = $chargebacksTotal;
 
         return $self;
     }
