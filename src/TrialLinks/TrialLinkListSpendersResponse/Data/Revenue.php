@@ -10,7 +10,7 @@ use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * @phpstan-type RevenueShape = array{
- *   calculatedAt?: string|null, total?: float|null
+ *   calculatedAt?: string|null, chargebacks?: float|null, total?: float|null
  * }
  */
 final class Revenue implements BaseModel
@@ -20,6 +20,9 @@ final class Revenue implements BaseModel
 
     #[Optional('calculated_at')]
     public ?string $calculatedAt;
+
+    #[Optional]
+    public ?float $chargebacks;
 
     #[Optional]
     public ?float $total;
@@ -36,11 +39,13 @@ final class Revenue implements BaseModel
      */
     public static function with(
         ?string $calculatedAt = null,
+        ?float $chargebacks = null,
         ?float $total = null
     ): self {
         $self = new self;
 
         null !== $calculatedAt && $self['calculatedAt'] = $calculatedAt;
+        null !== $chargebacks && $self['chargebacks'] = $chargebacks;
         null !== $total && $self['total'] = $total;
 
         return $self;
@@ -50,6 +55,14 @@ final class Revenue implements BaseModel
     {
         $self = clone $this;
         $self['calculatedAt'] = $calculatedAt;
+
+        return $self;
+    }
+
+    public function withChargebacks(float $chargebacks): self
+    {
+        $self = clone $this;
+        $self['chargebacks'] = $chargebacks;
 
         return $self;
     }
