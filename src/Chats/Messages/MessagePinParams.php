@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\Messages;
+namespace OnlyFansAPI\Chats\Messages;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Pin a message from a chat.
  *
- * @see Onlyfansapi\Services\Chats\MessagesService::pin()
+ * @see OnlyFansAPI\Services\Chats\MessagesService::pin()
  *
  * @phpstan-type MessagePinParamsShape = array{account: string, chatID: string}
  */

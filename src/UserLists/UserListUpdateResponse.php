@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\UserLists;
+namespace OnlyFansAPI\UserLists;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\UserLists\UserListUpdateResponse\_Meta;
-use Onlyfansapi\UserLists\UserListUpdateResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\UserLists\UserListUpdateResponse\_Meta;
+use OnlyFansAPI\UserLists\UserListUpdateResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\UserLists\UserListUpdateResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\UserLists\UserListUpdateResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\UserLists\UserListUpdateResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\UserLists\UserListUpdateResponse\Data
  *
  * @phpstan-type UserListUpdateResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Media\MediaDownloadParams;
-use Onlyfansapi\Media\MediaScrapeParams;
-use Onlyfansapi\Media\MediaScrapeResponse;
-use Onlyfansapi\Media\MediaUploadParams;
-use Onlyfansapi\Media\MediaUploadResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Media\MediaDownloadParams;
+use OnlyFansAPI\Media\MediaScrapeParams;
+use OnlyFansAPI\Media\MediaScrapeResponse;
+use OnlyFansAPI\Media\MediaUploadParams;
+use OnlyFansAPI\Media\MediaUploadResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface MediaRawContract
 {
@@ -25,7 +25,7 @@ interface MediaRawContract
      * @param array<string,mixed>|MediaDownloadParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<string>
+     * @return BaseResponse<mixed>
      *
      * @throws APIException
      */

@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Chats\ChatDeleteResponse;
-use Onlyfansapi\Chats\ChatHideResponse;
-use Onlyfansapi\Chats\ChatListMediaParams\Type;
-use Onlyfansapi\Chats\ChatListMediaResponse;
-use Onlyfansapi\Chats\ChatListParams\Filter;
-use Onlyfansapi\Chats\ChatListParams\Order;
-use Onlyfansapi\Chats\ChatListParams\SkipUsers;
-use Onlyfansapi\Chats\ChatListResponse;
-use Onlyfansapi\Chats\ChatMarkAsReadResponse;
-use Onlyfansapi\Chats\ChatMarkAsUnreadResponse;
-use Onlyfansapi\Chats\ChatMuteResponse;
-use Onlyfansapi\Chats\ChatStartTypingResponse;
-use Onlyfansapi\Chats\ChatUnmuteResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Chats\ChatDeleteResponse;
+use OnlyFansAPI\Chats\ChatHideResponse;
+use OnlyFansAPI\Chats\ChatListMediaParams\Type;
+use OnlyFansAPI\Chats\ChatListMediaResponse;
+use OnlyFansAPI\Chats\ChatListParams\Filter;
+use OnlyFansAPI\Chats\ChatListParams\Order;
+use OnlyFansAPI\Chats\ChatListParams\SkipUsers;
+use OnlyFansAPI\Chats\ChatListResponse;
+use OnlyFansAPI\Chats\ChatMarkAsReadResponse;
+use OnlyFansAPI\Chats\ChatMarkAsUnreadResponse;
+use OnlyFansAPI\Chats\ChatMuteResponse;
+use OnlyFansAPI\Chats\ChatStartTypingResponse;
+use OnlyFansAPI\Chats\ChatUnmuteResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface ChatsContract
 {
@@ -34,7 +34,7 @@ interface ChatsContract
      * @param string $offset Number of chats to skip for pagination
      * @param Order|value-of<Order> $order Sort order for chats (recent or old). Default = recent
      * @param string $query Search query to filter chats
-     * @param SkipUsers|value-of<SkipUsers> $skipUsers Whether to skip user details in response (all or none). Default = all
+     * @param SkipUsers|value-of<SkipUsers> $skipUsers Whether to skip user details in the response (`all` or `none`). Defaults to `all`.
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -87,7 +87,7 @@ interface ChatsContract
      * @param string $account Path param: The Account ID
      * @param string $limit Query param: Number of medias to return. Default = 20
      * @param string $offset Query param: Number of medias to skip for pagination
-     * @param string $skipUsers Query param: Whether to skip user details in response (all or none). Default = all
+     * @param string $skipUsers Query param: Whether to skip user details in the response (`all` or `none`). Defaults to `all`.
      * @param Type|value-of<Type>|null $type Query param: Filter by specific media types. Keep empty to return all.
      * @param RequestOpts|null $requestOptions
      *

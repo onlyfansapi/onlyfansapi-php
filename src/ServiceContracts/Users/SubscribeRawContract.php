@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Users;
+namespace OnlyFansAPI\ServiceContracts\Users;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Users\Subscribe\SubscribeCreateParams;
-use Onlyfansapi\Users\Subscribe\SubscribeDeleteParams;
-use Onlyfansapi\Users\Subscribe\SubscribeDeleteResponse;
-use Onlyfansapi\Users\Subscribe\SubscribeNewResponse;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Users\Subscribe\SubscribeCreateParams;
+use OnlyFansAPI\Users\Subscribe\SubscribeDeleteParams;
+use OnlyFansAPI\Users\Subscribe\SubscribeDeleteResponse;
+use OnlyFansAPI\Users\Subscribe\SubscribeNewResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface SubscribeRawContract
 {

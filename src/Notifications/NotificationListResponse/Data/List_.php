@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Notifications\NotificationListResponse\Data;
+namespace OnlyFansAPI\Notifications\NotificationListResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Notifications\NotificationListResponse\Data\List_\ReplacePairs;
-use Onlyfansapi\Notifications\NotificationListResponse\Data\List_\User;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Notifications\NotificationListResponse\Data\List_\ReplacePairs;
+use OnlyFansAPI\Notifications\NotificationListResponse\Data\List_\User;
 
 /**
- * @phpstan-import-type ReplacePairsShape from \Onlyfansapi\Notifications\NotificationListResponse\Data\List_\ReplacePairs
- * @phpstan-import-type UserShape from \Onlyfansapi\Notifications\NotificationListResponse\Data\List_\User
+ * @phpstan-import-type ReplacePairsShape from \OnlyFansAPI\Notifications\NotificationListResponse\Data\List_\ReplacePairs
+ * @phpstan-import-type UserShape from \OnlyFansAPI\Notifications\NotificationListResponse\Data\List_\User
  *
  * @phpstan-type ListShape = array{
  *   id?: int|null,

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrialLinks;
+namespace OnlyFansAPI\TrialLinks;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get individual Free Trial Link details and it's revenue data.
  *
- * @see Onlyfansapi\Services\TrialLinksService::retrieve()
+ * @see OnlyFansAPI\Services\TrialLinksService::retrieve()
  *
  * @phpstan-type TrialLinkRetrieveParamsShape = array{account: string}
  */

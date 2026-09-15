@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersParams;
+namespace OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersParams;
 
 /**
  * Sort field: `date` or `name`.

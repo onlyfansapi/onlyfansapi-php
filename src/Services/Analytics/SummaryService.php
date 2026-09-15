@@ -2,28 +2,28 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Analytics;
+namespace OnlyFansAPI\Services\Analytics;
 
-use Onlyfansapi\Analytics\Summary\SummaryGetEarningsOverviewResponse;
-use Onlyfansapi\Analytics\Summary\SummaryGetHistoricalPerformanceParams\TimeRange;
-use Onlyfansapi\Analytics\Summary\SummaryGetHistoricalPerformanceResponseItem;
-use Onlyfansapi\Analytics\Summary\SummaryGetPeriodComparisonParams\Granularity;
-use Onlyfansapi\Analytics\Summary\SummaryGetPeriodComparisonParams\PeriodA;
-use Onlyfansapi\Analytics\Summary\SummaryGetPeriodComparisonParams\PeriodB;
-use Onlyfansapi\Analytics\Summary\SummaryGetPeriodComparisonParams\StatType;
-use Onlyfansapi\Analytics\Summary\SummaryGetPeriodComparisonResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Analytics\SummaryContract;
+use OnlyFansAPI\Analytics\Summary\SummaryGetEarningsOverviewResponse;
+use OnlyFansAPI\Analytics\Summary\SummaryGetHistoricalPerformanceParams\TimeRange;
+use OnlyFansAPI\Analytics\Summary\SummaryGetHistoricalPerformanceResponseItem;
+use OnlyFansAPI\Analytics\Summary\SummaryGetPeriodComparisonParams\Granularity;
+use OnlyFansAPI\Analytics\Summary\SummaryGetPeriodComparisonParams\PeriodA;
+use OnlyFansAPI\Analytics\Summary\SummaryGetPeriodComparisonParams\PeriodB;
+use OnlyFansAPI\Analytics\Summary\SummaryGetPeriodComparisonParams\StatType;
+use OnlyFansAPI\Analytics\Summary\SummaryGetPeriodComparisonResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Analytics\SummaryContract;
 
 /**
  * APIs for retrieving summary analytics data.
  *
- * @phpstan-import-type PeriodAShape from \Onlyfansapi\Analytics\Summary\SummaryGetPeriodComparisonParams\PeriodA
- * @phpstan-import-type PeriodBShape from \Onlyfansapi\Analytics\Summary\SummaryGetPeriodComparisonParams\PeriodB
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type PeriodAShape from \OnlyFansAPI\Analytics\Summary\SummaryGetPeriodComparisonParams\PeriodA
+ * @phpstan-import-type PeriodBShape from \OnlyFansAPI\Analytics\Summary\SummaryGetPeriodComparisonParams\PeriodB
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class SummaryService implements SummaryContract
 {

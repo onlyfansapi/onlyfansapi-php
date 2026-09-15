@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Authenticate\AuthenticatePollStatusResponse\Account\OnlyfansData\Upload;
+namespace OnlyFansAPI\Authenticate\AuthenticatePollStatusResponse\Account\OnlyfansData\Upload;
 
-use Onlyfansapi\Authenticate\AuthenticatePollStatusResponse\Account\OnlyfansData\Upload\GeoUploadArgs\Additional;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Authenticate\AuthenticatePollStatusResponse\Account\OnlyfansData\Upload\GeoUploadArgs\Additional;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type AdditionalShape from \Onlyfansapi\Authenticate\AuthenticatePollStatusResponse\Account\OnlyfansData\Upload\GeoUploadArgs\Additional
+ * @phpstan-import-type AdditionalShape from \OnlyFansAPI\Authenticate\AuthenticatePollStatusResponse\Account\OnlyfansData\Upload\GeoUploadArgs\Additional
  *
  * @phpstan-type GeoUploadArgsShape = array{
  *   additional?: null|Additional|AdditionalShape,

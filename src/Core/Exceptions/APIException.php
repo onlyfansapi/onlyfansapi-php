@@ -1,11 +1,11 @@
 <?php
 
-namespace Onlyfansapi\Core\Exceptions;
+namespace OnlyFansAPI\Core\Exceptions;
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class APIException extends OnlyfansapiException
+class APIException extends OnlyFansAPIException
 {
     public ?int $status = null;
 

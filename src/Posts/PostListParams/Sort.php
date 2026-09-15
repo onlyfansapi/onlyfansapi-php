@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts\PostListParams;
+namespace OnlyFansAPI\Posts\PostListParams;
 
 /**
  * Sort the returned posts (default = desc).

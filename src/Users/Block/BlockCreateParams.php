@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Users\Block;
+namespace OnlyFansAPI\Users\Block;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Block user from accessing your profile.
  *
- * @see Onlyfansapi\Services\Users\BlockService::create()
+ * @see OnlyFansAPI\Services\Users\BlockService::create()
  *
  * @phpstan-type BlockCreateParamsShape = array{account: string}
  */

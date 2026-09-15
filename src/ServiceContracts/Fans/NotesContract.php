@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Fans;
+namespace OnlyFansAPI\ServiceContracts\Fans;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Fans\Notes\NoteClearNotesResponse;
-use Onlyfansapi\Fans\Notes\NoteGetNotesResponse;
-use Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Fans\Notes\NoteClearNotesResponse;
+use OnlyFansAPI\Fans\Notes\NoteGetNotesResponse;
+use OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface NotesContract
 {

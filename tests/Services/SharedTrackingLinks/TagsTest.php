@@ -2,11 +2,11 @@
 
 namespace Tests\Services\SharedTrackingLinks;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\SharedTrackingLinks\Tags\TagAddResponse;
-use Onlyfansapi\SharedTrackingLinks\Tags\TagListResponse;
-use Onlyfansapi\SharedTrackingLinks\Tags\TagRemoveResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\SharedTrackingLinks\Tags\TagAddResponse;
+use OnlyFansAPI\SharedTrackingLinks\Tags\TagListResponse;
+use OnlyFansAPI\SharedTrackingLinks\Tags\TagRemoveResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

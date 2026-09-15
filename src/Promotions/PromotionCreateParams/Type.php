@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Promotions\PromotionCreateParams;
+namespace OnlyFansAPI\Promotions\PromotionCreateParams;
 
 /**
  * Whether this promotion should apply to new subscribers, expired subscribers, or both. **IMPORTANT: when set to new_and_expired, the OF will create two separate promotions.**.

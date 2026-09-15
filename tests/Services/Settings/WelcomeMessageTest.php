@@ -2,11 +2,11 @@
 
 namespace Tests\Services\Settings;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageGetResponse;
-use Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageToggleResponse;
-use Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageUpdateResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageGetResponse;
+use OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageToggleResponse;
+use OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageUpdateResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

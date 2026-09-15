@@ -2,28 +2,30 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Following\FollowingListActiveParams;
-use Onlyfansapi\Following\FollowingListActiveParams\Filter;
-use Onlyfansapi\Following\FollowingListActiveResponse;
-use Onlyfansapi\Following\FollowingListAllParams;
-use Onlyfansapi\Following\FollowingListAllResponse;
-use Onlyfansapi\Following\FollowingListExpiredParams;
-use Onlyfansapi\Following\FollowingListExpiredResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\FollowingRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Following\FollowingListActiveParams;
+use OnlyFansAPI\Following\FollowingListActiveParams\Filter;
+use OnlyFansAPI\Following\FollowingListActiveParams\Sort;
+use OnlyFansAPI\Following\FollowingListActiveParams\SortDirection;
+use OnlyFansAPI\Following\FollowingListActiveResponse;
+use OnlyFansAPI\Following\FollowingListAllParams;
+use OnlyFansAPI\Following\FollowingListAllResponse;
+use OnlyFansAPI\Following\FollowingListExpiredParams;
+use OnlyFansAPI\Following\FollowingListExpiredResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\FollowingRawContract;
 
 /**
  * APIs for managing OnlyFans followings (people you're subscribed to).
  *
- * @phpstan-import-type FilterShape from \Onlyfansapi\Following\FollowingListActiveParams\Filter
- * @phpstan-import-type FilterShape from \Onlyfansapi\Following\FollowingListAllParams\Filter as FilterShape1
- * @phpstan-import-type FilterShape from \Onlyfansapi\Following\FollowingListExpiredParams\Filter as FilterShape2
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Following\FollowingListActiveParams\Filter
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Following\FollowingListAllParams\Filter as FilterShape1
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Following\FollowingListExpiredParams\Filter as FilterShape2
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class FollowingRawService implements FollowingRawContract
 {
@@ -36,11 +38,16 @@ final class FollowingRawService implements FollowingRawContract
     /**
      * @api
      *
-     * Get a paginated list of followings for an Account. Newest followings are first.
+     * Get a paginated list of followings for an Account. By default OnlyFans returns this list newest-first, sorted by `subscribedByData.subscribeAt` descending. The expired list does not share this order, so do not assume it applies there. Pass `sort` (optionally with `sortDirection`) to reorder the list — see the parameter description for the caveat that OnlyFans persists the chosen order account-wide. An empty page is not the end of the list: OnlyFans applies `offset` to the whole following collection before filtering it down to the requested list, so a page can come back empty while more results follow. Keep following `_pagination.next_page` until it is `null` instead of stopping at the first empty page.
      *
      * @param string $account The Account ID
      * @param array{
-     *   filter?: Filter|FilterShape, limit?: int, offset?: int, query?: string|null
+     *   filter?: Filter|FilterShape,
+     *   limit?: int,
+     *   offset?: int,
+     *   query?: string|null,
+     *   sort?: Sort|value-of<Sort>|null,
+     *   sortDirection?: SortDirection|value-of<SortDirection>|null,
      * }|FollowingListActiveParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -71,7 +78,7 @@ final class FollowingRawService implements FollowingRawContract
     /**
      * @api
      *
-     * Get a paginated list of followings for an Account. Newest followings are first.
+     * Get a paginated list of followings for an Account. By default OnlyFans returns this list newest-first, sorted by `subscribedByData.subscribeAt` descending. The expired list does not share this order, so do not assume it applies there. Pass `sort` (optionally with `sortDirection`) to reorder the list — see the parameter description for the caveat that OnlyFans persists the chosen order account-wide. An empty page is not the end of the list: OnlyFans applies `offset` to the whole following collection before filtering it down to the requested list, so a page can come back empty while more results follow. Keep following `_pagination.next_page` until it is `null` instead of stopping at the first empty page.
      *
      * @param string $account The Account ID
      * @param array{
@@ -79,6 +86,8 @@ final class FollowingRawService implements FollowingRawContract
      *   limit?: int,
      *   offset?: int,
      *   query?: string|null,
+     *   sort?: FollowingListAllParams\Sort|value-of<FollowingListAllParams\Sort>|null,
+     *   sortDirection?: FollowingListAllParams\SortDirection|value-of<FollowingListAllParams\SortDirection>|null,
      * }|FollowingListAllParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -109,7 +118,7 @@ final class FollowingRawService implements FollowingRawContract
     /**
      * @api
      *
-     * Get a paginated list of expired followings for an Account. Newest followings are first.
+     * Get a paginated list of expired followings for an Account. This list has no order guarantee. Unlike the all and active lists, it is sorted by neither `subscribedByData.subscribeAt` nor `subscribedByData.expiredAt`. To poll for new expirations, page through the full list each cycle (`limit=50`, follow `_pagination.next_page` until it is null) and diff it against your own store using `subscribedByData.expiredAt`. Do NOT stop early at the first entry you have already seen, as that can silently skip real expirations. An empty page is not the end of the list either: OnlyFans applies `offset` to the whole following collection and only then filters that window down to expired subscriptions, so early pages can come back empty while hundreds of expired rows still follow. Keep following `_pagination.next_page` until it is `null` instead of stopping at the first empty page. Pass `sort=expire_date` (optionally with `sortDirection`) to get a deterministic order instead — see the parameter description for the caveat that OnlyFans persists the chosen order account-wide. Ordering by expiry descending puts the still-active subscriptions first and moves the expired rows to the tail of the collection, so prefer `sortDirection=asc` or `sort=is_expired` for expired-first results; for that reason `sort=expire_date` defaults to `asc` on this list when no `sortDirection` is given.
      *
      * @param string $account The Account ID
      * @param array{
@@ -117,6 +126,8 @@ final class FollowingRawService implements FollowingRawContract
      *   limit?: int,
      *   offset?: int,
      *   query?: string|null,
+     *   sort?: FollowingListExpiredParams\Sort|value-of<FollowingListExpiredParams\Sort>|null,
+     *   sortDirection?: FollowingListExpiredParams\SortDirection|value-of<FollowingListExpiredParams\SortDirection>|null,
      * }|FollowingListExpiredParams $params
      * @param RequestOpts|null $requestOptions
      *

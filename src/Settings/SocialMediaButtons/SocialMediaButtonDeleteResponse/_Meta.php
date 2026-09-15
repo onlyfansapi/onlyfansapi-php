@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse;
+namespace OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse\_Meta\_Cache;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse\_Meta\_Credits;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse\_Meta\_RateLimits;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse\_Meta\_Cache;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse\_Meta\_Credits;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse\_Meta\_RateLimits;
 
 /**
- * @phpstan-import-type _CacheShape from \Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse\_Meta\_Cache
- * @phpstan-import-type _CreditsShape from \Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse\_Meta\_Credits
- * @phpstan-import-type _RateLimitsShape from \Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse\_Meta\_RateLimits
+ * @phpstan-import-type _CacheShape from \OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse\_Meta\_Cache
+ * @phpstan-import-type _CreditsShape from \OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse\_Meta\_Credits
+ * @phpstan-import-type _RateLimitsShape from \OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse\_Meta\_RateLimits
  *
  * @phpstan-type _MetaShape = array{
  *   _cache?: null|_Cache|_CacheShape,

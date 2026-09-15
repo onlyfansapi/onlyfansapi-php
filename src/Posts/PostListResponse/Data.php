@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts\PostListResponse;
+namespace OnlyFansAPI\Posts\PostListResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Posts\PostListResponse\Data\Counters;
-use Onlyfansapi\Posts\PostListResponse\Data\List_;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Posts\PostListResponse\Data\Counters;
+use OnlyFansAPI\Posts\PostListResponse\Data\List_;
 
 /**
- * @phpstan-import-type CountersShape from \Onlyfansapi\Posts\PostListResponse\Data\Counters
- * @phpstan-import-type ListShape from \Onlyfansapi\Posts\PostListResponse\Data\List_
+ * @phpstan-import-type CountersShape from \OnlyFansAPI\Posts\PostListResponse\Data\Counters
+ * @phpstan-import-type ListShape from \OnlyFansAPI\Posts\PostListResponse\Data\List_
  *
  * @phpstan-type DataShape = array{
  *   counters?: null|Counters|CountersShape,

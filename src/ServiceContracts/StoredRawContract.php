@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Stored\StoredListSharedTrackingLinksParams;
-use Onlyfansapi\Stored\StoredListSharedTrackingLinksResponse;
-use Onlyfansapi\Stored\StoredListSharedTrialLinksParams;
-use Onlyfansapi\Stored\StoredListSharedTrialLinksResponse;
-use Onlyfansapi\Stored\StoredListTrackingLinksParams;
-use Onlyfansapi\Stored\StoredListTrackingLinksResponse;
-use Onlyfansapi\Stored\StoredListTrialLinksParams;
-use Onlyfansapi\Stored\StoredListTrialLinksResponse;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Stored\StoredListSharedTrackingLinksParams;
+use OnlyFansAPI\Stored\StoredListSharedTrackingLinksResponse;
+use OnlyFansAPI\Stored\StoredListSharedTrialLinksParams;
+use OnlyFansAPI\Stored\StoredListSharedTrialLinksResponse;
+use OnlyFansAPI\Stored\StoredListTrackingLinksParams;
+use OnlyFansAPI\Stored\StoredListTrackingLinksResponse;
+use OnlyFansAPI\Stored\StoredListTrialLinksParams;
+use OnlyFansAPI\Stored\StoredListTrialLinksResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface StoredRawContract
 {

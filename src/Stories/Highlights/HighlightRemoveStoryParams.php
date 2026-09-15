@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stories\Highlights;
+namespace OnlyFansAPI\Stories\Highlights;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Remove a specific story from a story highlight.
  *
- * @see Onlyfansapi\Services\Stories\HighlightsService::removeStory()
+ * @see OnlyFansAPI\Services\Stories\HighlightsService::removeStory()
  *
  * @phpstan-type HighlightRemoveStoryParamsShape = array{
  *   account: string, highlightID: int

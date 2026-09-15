@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrialLinks;
+namespace OnlyFansAPI\TrialLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrialLinks\TrialLinkListSpendersResponse\_Meta;
-use Onlyfansapi\TrialLinks\TrialLinkListSpendersResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\TrialLinks\TrialLinkListSpendersResponse\_Meta;
+use OnlyFansAPI\TrialLinks\TrialLinkListSpendersResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\TrialLinks\TrialLinkListSpendersResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\TrialLinks\TrialLinkListSpendersResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\TrialLinks\TrialLinkListSpendersResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\TrialLinks\TrialLinkListSpendersResponse\Data
  *
  * @phpstan-type TrialLinkListSpendersResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: list<Data|DataShape>|null

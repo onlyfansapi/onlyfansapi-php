@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Stored\StoredListSharedTrackingLinksParams\Filter;
-use Onlyfansapi\Stored\StoredListSharedTrackingLinksResponse;
-use Onlyfansapi\Stored\StoredListSharedTrialLinksResponse;
-use Onlyfansapi\Stored\StoredListTrackingLinksResponse;
-use Onlyfansapi\Stored\StoredListTrialLinksResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Stored\StoredListSharedTrackingLinksParams\Filter;
+use OnlyFansAPI\Stored\StoredListSharedTrackingLinksResponse;
+use OnlyFansAPI\Stored\StoredListSharedTrialLinksResponse;
+use OnlyFansAPI\Stored\StoredListTrackingLinksResponse;
+use OnlyFansAPI\Stored\StoredListTrialLinksResponse;
 
 /**
- * @phpstan-import-type FilterShape from \Onlyfansapi\Stored\StoredListSharedTrackingLinksParams\Filter
- * @phpstan-import-type FilterShape from \Onlyfansapi\Stored\StoredListSharedTrialLinksParams\Filter as FilterShape1
- * @phpstan-import-type FilterShape from \Onlyfansapi\Stored\StoredListTrackingLinksParams\Filter as FilterShape2
- * @phpstan-import-type FilterShape from \Onlyfansapi\Stored\StoredListTrialLinksParams\Filter as FilterShape3
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Stored\StoredListSharedTrackingLinksParams\Filter
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Stored\StoredListSharedTrialLinksParams\Filter as FilterShape1
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Stored\StoredListTrackingLinksParams\Filter as FilterShape2
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Stored\StoredListTrialLinksParams\Filter as FilterShape3
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface StoredContract
 {
@@ -44,7 +44,7 @@ interface StoredContract
      * @api
      *
      * @param string $account The Account ID
-     * @param \Onlyfansapi\Stored\StoredListSharedTrialLinksParams\Filter|FilterShape1 $filter
+     * @param \OnlyFansAPI\Stored\StoredListSharedTrialLinksParams\Filter|FilterShape1 $filter
      * @param int $limit The number of shared trial links to return. Default `10`. Must be at least 1. Must not be greater than 1000.
      * @param int $offset The offset used for pagination. Default `0`. Must be at least 0.
      * @param RequestOpts|null $requestOptions
@@ -53,7 +53,7 @@ interface StoredContract
      */
     public function listSharedTrialLinks(
         string $account,
-        \Onlyfansapi\Stored\StoredListSharedTrialLinksParams\Filter|array|null $filter = null,
+        \OnlyFansAPI\Stored\StoredListSharedTrialLinksParams\Filter|array|null $filter = null,
         ?int $limit = null,
         ?int $offset = null,
         RequestOptions|array|null $requestOptions = null,
@@ -63,7 +63,7 @@ interface StoredContract
      * @api
      *
      * @param string $account The Account ID
-     * @param \Onlyfansapi\Stored\StoredListTrackingLinksParams\Filter|FilterShape2 $filter
+     * @param \OnlyFansAPI\Stored\StoredListTrackingLinksParams\Filter|FilterShape2 $filter
      * @param int $limit The number of tracking links to return. Default `10`. Must be at least 1. Must not be greater than 1000.
      * @param int $offset The offset used for pagination. Default `0`. Must be at least 0.
      * @param RequestOpts|null $requestOptions
@@ -72,7 +72,7 @@ interface StoredContract
      */
     public function listTrackingLinks(
         string $account,
-        \Onlyfansapi\Stored\StoredListTrackingLinksParams\Filter|array|null $filter = null,
+        \OnlyFansAPI\Stored\StoredListTrackingLinksParams\Filter|array|null $filter = null,
         ?int $limit = null,
         ?int $offset = null,
         RequestOptions|array|null $requestOptions = null,
@@ -82,7 +82,7 @@ interface StoredContract
      * @api
      *
      * @param string $account The Account ID
-     * @param \Onlyfansapi\Stored\StoredListTrialLinksParams\Filter|FilterShape3 $filter
+     * @param \OnlyFansAPI\Stored\StoredListTrialLinksParams\Filter|FilterShape3 $filter
      * @param int $limit The number of trial links to return. Default `10`. Must be at least 1. Must not be greater than 1000.
      * @param int $offset The offset used for pagination. Default `0`. Must be at least 0.
      * @param RequestOpts|null $requestOptions
@@ -91,7 +91,7 @@ interface StoredContract
      */
     public function listTrialLinks(
         string $account,
-        \Onlyfansapi\Stored\StoredListTrialLinksParams\Filter|array|null $filter = null,
+        \OnlyFansAPI\Stored\StoredListTrialLinksParams\Filter|array|null $filter = null,
         ?int $limit = null,
         ?int $offset = null,
         RequestOptions|array|null $requestOptions = null,

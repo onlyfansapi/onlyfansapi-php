@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Subscribers\SubscriberGetStatisticsResponse;
-use Onlyfansapi\Subscribers\SubscriberRetrieveStatisticsParams\Type;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Subscribers\SubscriberGetStatisticsResponse;
+use OnlyFansAPI\Subscribers\SubscriberRetrieveStatisticsParams\Type;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface SubscribersContract
 {

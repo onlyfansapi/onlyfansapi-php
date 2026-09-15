@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ReleaseForms\ReleaseFormNewInvitationLinkResponse;
+namespace OnlyFansAPI\ReleaseForms\ReleaseFormNewInvitationLinkResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\ReleaseForms\ReleaseFormNewInvitationLinkResponse\Data\User;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\ReleaseForms\ReleaseFormNewInvitationLinkResponse\Data\User;
 
 /**
- * @phpstan-import-type UserShape from \Onlyfansapi\ReleaseForms\ReleaseFormNewInvitationLinkResponse\Data\User
+ * @phpstan-import-type UserShape from \OnlyFansAPI\ReleaseForms\ReleaseFormNewInvitationLinkResponse\Data\User
  *
  * @phpstan-type DataShape = array{
  *   id?: int|null,

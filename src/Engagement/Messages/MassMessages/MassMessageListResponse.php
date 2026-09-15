@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Engagement\Messages\MassMessages;
+namespace OnlyFansAPI\Engagement\Messages\MassMessages;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageListResponse\_Meta;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageListResponse\_Pagination;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageListResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageListResponse\_Meta;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageListResponse\_Pagination;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageListResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Engagement\Messages\MassMessages\MassMessageListResponse\_Meta
- * @phpstan-import-type _PaginationShape from \Onlyfansapi\Engagement\Messages\MassMessages\MassMessageListResponse\_Pagination
- * @phpstan-import-type DataShape from \Onlyfansapi\Engagement\Messages\MassMessages\MassMessageListResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageListResponse\_Meta
+ * @phpstan-import-type _PaginationShape from \OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageListResponse\_Pagination
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageListResponse\Data
  *
  * @phpstan-type MassMessageListResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape,

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Settings\WelcomeMessage;
+namespace OnlyFansAPI\Settings\WelcomeMessage;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Update the automatic welcome message template that is sent when someone subscribes.
  *
- * @see Onlyfansapi\Services\Settings\WelcomeMessageService::update()
+ * @see OnlyFansAPI\Services\Settings\WelcomeMessageService::update()
  *
  * @phpstan-type WelcomeMessageUpdateParamsShape = array{
  *   isForward?: bool|null,

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\ChatListResponse;
+namespace OnlyFansAPI\Chats\ChatListResponse;
 
-use Onlyfansapi\Chats\ChatListResponse\Data\Fan;
-use Onlyfansapi\Chats\ChatListResponse\Data\LastMessage;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chats\ChatListResponse\Data\Fan;
+use OnlyFansAPI\Chats\ChatListResponse\Data\LastMessage;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type FanShape from \Onlyfansapi\Chats\ChatListResponse\Data\Fan
- * @phpstan-import-type LastMessageShape from \Onlyfansapi\Chats\ChatListResponse\Data\LastMessage
+ * @phpstan-import-type FanShape from \OnlyFansAPI\Chats\ChatListResponse\Data\Fan
+ * @phpstan-import-type LastMessageShape from \OnlyFansAPI\Chats\ChatListResponse\Data\LastMessage
  *
  * @phpstan-type DataShape = array{
  *   canGoToProfile?: bool|null,

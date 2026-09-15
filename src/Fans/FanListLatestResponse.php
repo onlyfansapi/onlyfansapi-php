@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans;
+namespace OnlyFansAPI\Fans;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Fans\FanListLatestResponse\_Meta;
-use Onlyfansapi\Fans\FanListLatestResponse\_Pagination;
-use Onlyfansapi\Fans\FanListLatestResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Fans\FanListLatestResponse\_Meta;
+use OnlyFansAPI\Fans\FanListLatestResponse\_Pagination;
+use OnlyFansAPI\Fans\FanListLatestResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Fans\FanListLatestResponse\_Meta
- * @phpstan-import-type _PaginationShape from \Onlyfansapi\Fans\FanListLatestResponse\_Pagination
- * @phpstan-import-type DataShape from \Onlyfansapi\Fans\FanListLatestResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Fans\FanListLatestResponse\_Meta
+ * @phpstan-import-type _PaginationShape from \OnlyFansAPI\Fans\FanListLatestResponse\_Pagination
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Fans\FanListLatestResponse\Data
  *
  * @phpstan-type FanListLatestResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape,

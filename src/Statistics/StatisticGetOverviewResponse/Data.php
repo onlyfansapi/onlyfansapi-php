@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics\StatisticGetOverviewResponse;
+namespace OnlyFansAPI\Statistics\StatisticGetOverviewResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Earning;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\MassMessages;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Posts;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Streams;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Visitors;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Earning;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\MassMessages;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Posts;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Streams;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Visitors;
 
 /**
- * @phpstan-import-type EarningShape from \Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Earning
- * @phpstan-import-type MassMessagesShape from \Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\MassMessages
- * @phpstan-import-type PostsShape from \Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Posts
- * @phpstan-import-type StreamsShape from \Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Streams
- * @phpstan-import-type VisitorsShape from \Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Visitors
+ * @phpstan-import-type EarningShape from \OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Earning
+ * @phpstan-import-type MassMessagesShape from \OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\MassMessages
+ * @phpstan-import-type PostsShape from \OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Posts
+ * @phpstan-import-type StreamsShape from \OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Streams
+ * @phpstan-import-type VisitorsShape from \OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Visitors
  *
  * @phpstan-type DataShape = array{
  *   earning?: null|Earning|EarningShape,

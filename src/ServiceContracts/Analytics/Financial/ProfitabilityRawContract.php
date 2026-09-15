@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Analytics\Financial;
+namespace OnlyFansAPI\ServiceContracts\Analytics\Financial;
 
-use Onlyfansapi\Analytics\Financial\Profitability\ProfitabilityGetHistoryParams;
-use Onlyfansapi\Analytics\Financial\Profitability\ProfitabilityGetHistoryResponseItem;
-use Onlyfansapi\Analytics\Financial\Profitability\ProfitabilityGetProfitabilityParams;
-use Onlyfansapi\Analytics\Financial\Profitability\ProfitabilityGetProfitabilityResponseItem;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetHistoryParams;
+use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetHistoryResponse;
+use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetProfitabilityParams;
+use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetProfitabilityResponse;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface ProfitabilityRawContract
 {
@@ -24,7 +24,7 @@ interface ProfitabilityRawContract
      * @param array<string,mixed>|ProfitabilityGetHistoryParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<list<ProfitabilityGetHistoryResponseItem>>
+     * @return BaseResponse<ProfitabilityGetHistoryResponse>
      *
      * @throws APIException
      */
@@ -40,7 +40,7 @@ interface ProfitabilityRawContract
      * @param array<string,mixed>|ProfitabilityGetProfitabilityParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<list<ProfitabilityGetProfitabilityResponseItem>>
+     * @return BaseResponse<ProfitabilityGetProfitabilityResponse>
      *
      * @throws APIException
      */

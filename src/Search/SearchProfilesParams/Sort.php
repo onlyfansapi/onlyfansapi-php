@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Search\SearchProfilesParams;
+namespace OnlyFansAPI\Search\SearchProfilesParams;
 
 /**
  * Field to sort by. ⭐️ Only available on the Pro and Enterprise plan.

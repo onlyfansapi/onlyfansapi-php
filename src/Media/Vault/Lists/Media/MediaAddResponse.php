@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\Vault\Lists\Media;
+namespace OnlyFansAPI\Media\Vault\Lists\Media;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Media\Vault\Lists\Media\MediaAddResponse\_Meta;
-use Onlyfansapi\Media\Vault\Lists\Media\MediaAddResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Media\Vault\Lists\Media\MediaAddResponse\_Meta;
+use OnlyFansAPI\Media\Vault\Lists\Media\MediaAddResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Media\Vault\Lists\Media\MediaAddResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Media\Vault\Lists\Media\MediaAddResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Media\Vault\Lists\Media\MediaAddResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Media\Vault\Lists\Media\MediaAddResponse\Data
  *
  * @phpstan-type MediaAddResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

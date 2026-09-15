@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Notifications\TabsOrder;
+namespace OnlyFansAPI\Notifications\TabsOrder;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Update the order of an account's notification tabs as displayed on the OnlyFans notifications page.
  *
- * @see Onlyfansapi\Services\Notifications\TabsOrderService::update()
+ * @see OnlyFansAPI\Services\Notifications\TabsOrderService::update()
  *
  * @phpstan-type TabsOrderUpdateParamsShape = array{tabs: list<string>}
  */

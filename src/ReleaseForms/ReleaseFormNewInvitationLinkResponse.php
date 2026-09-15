@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ReleaseForms;
+namespace OnlyFansAPI\ReleaseForms;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\ReleaseForms\ReleaseFormNewInvitationLinkResponse\_Meta;
-use Onlyfansapi\ReleaseForms\ReleaseFormNewInvitationLinkResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\ReleaseForms\ReleaseFormNewInvitationLinkResponse\_Meta;
+use OnlyFansAPI\ReleaseForms\ReleaseFormNewInvitationLinkResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\ReleaseForms\ReleaseFormNewInvitationLinkResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\ReleaseForms\ReleaseFormNewInvitationLinkResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\ReleaseForms\ReleaseFormNewInvitationLinkResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\ReleaseForms\ReleaseFormNewInvitationLinkResponse\Data
  *
  * @phpstan-type ReleaseFormNewInvitationLinkResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\SettingsContract;
-use Onlyfansapi\Services\Settings\BlockedCountriesService;
-use Onlyfansapi\Services\Settings\SocialMediaButtonsService;
-use Onlyfansapi\Services\Settings\WelcomeMessageService;
-use Onlyfansapi\Settings\SettingCheckUsernameAvailabilityResponse;
-use Onlyfansapi\Settings\SettingGetResponse;
-use Onlyfansapi\Settings\SettingUpdateProfileResponse;
-use Onlyfansapi\Settings\SettingUpdateSubscriptionPriceResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\SettingsContract;
+use OnlyFansAPI\Services\Settings\BlockedCountriesService;
+use OnlyFansAPI\Services\Settings\SocialMediaButtonsService;
+use OnlyFansAPI\Services\Settings\WelcomeMessageService;
+use OnlyFansAPI\Settings\SettingCheckUsernameAvailabilityResponse;
+use OnlyFansAPI\Settings\SettingGetResponse;
+use OnlyFansAPI\Settings\SettingUpdateProfileResponse;
+use OnlyFansAPI\Settings\SettingUpdateSubscriptionPriceResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class SettingsService implements SettingsContract
 {

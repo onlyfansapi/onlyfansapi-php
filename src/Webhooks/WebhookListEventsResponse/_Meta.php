@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Webhooks\WebhookListEventsResponse;
+namespace OnlyFansAPI\Webhooks\WebhookListEventsResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Webhooks\WebhookListEventsResponse\_Meta\_Cache;
-use Onlyfansapi\Webhooks\WebhookListEventsResponse\_Meta\_Credits;
-use Onlyfansapi\Webhooks\WebhookListEventsResponse\_Meta\_RateLimits;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Webhooks\WebhookListEventsResponse\_Meta\_Cache;
+use OnlyFansAPI\Webhooks\WebhookListEventsResponse\_Meta\_Credits;
+use OnlyFansAPI\Webhooks\WebhookListEventsResponse\_Meta\_RateLimits;
 
 /**
- * @phpstan-import-type _CacheShape from \Onlyfansapi\Webhooks\WebhookListEventsResponse\_Meta\_Cache
- * @phpstan-import-type _CreditsShape from \Onlyfansapi\Webhooks\WebhookListEventsResponse\_Meta\_Credits
- * @phpstan-import-type _RateLimitsShape from \Onlyfansapi\Webhooks\WebhookListEventsResponse\_Meta\_RateLimits
+ * @phpstan-import-type _CacheShape from \OnlyFansAPI\Webhooks\WebhookListEventsResponse\_Meta\_Cache
+ * @phpstan-import-type _CreditsShape from \OnlyFansAPI\Webhooks\WebhookListEventsResponse\_Meta\_Credits
+ * @phpstan-import-type _RateLimitsShape from \OnlyFansAPI\Webhooks\WebhookListEventsResponse\_Meta\_RateLimits
  *
  * @phpstan-type _MetaShape = array{
  *   _cache?: null|_Cache|_CacheShape,

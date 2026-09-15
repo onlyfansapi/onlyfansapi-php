@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats;
+namespace OnlyFansAPI\Chats;
 
-use Onlyfansapi\Chats\ChatListResponse\_Meta;
-use Onlyfansapi\Chats\ChatListResponse\_Pagination;
-use Onlyfansapi\Chats\ChatListResponse\Data;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chats\ChatListResponse\_Meta;
+use OnlyFansAPI\Chats\ChatListResponse\_Pagination;
+use OnlyFansAPI\Chats\ChatListResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Chats\ChatListResponse\_Meta
- * @phpstan-import-type _PaginationShape from \Onlyfansapi\Chats\ChatListResponse\_Pagination
- * @phpstan-import-type DataShape from \Onlyfansapi\Chats\ChatListResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Chats\ChatListResponse\_Meta
+ * @phpstan-import-type _PaginationShape from \OnlyFansAPI\Chats\ChatListResponse\_Pagination
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Chats\ChatListResponse\Data
  *
  * @phpstan-type ChatListResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape,

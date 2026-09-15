@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SharedTrialLinks\Tags;
+namespace OnlyFansAPI\SharedTrialLinks\Tags;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Add tags to a shared Free Trial Link. Existing tags are preserved. Tag namespace is shared with owned Free Trial Links. This is a free endpoint.
  *
- * @see Onlyfansapi\Services\SharedTrialLinks\TagsService::add()
+ * @see OnlyFansAPI\Services\SharedTrialLinks\TagsService::add()
  *
  * @phpstan-type TagAddParamsShape = array{account: string, tags: list<string>}
  */

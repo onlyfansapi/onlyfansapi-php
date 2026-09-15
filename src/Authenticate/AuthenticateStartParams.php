@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Authenticate;
+namespace OnlyFansAPI\Authenticate;
 
-use Onlyfansapi\Authenticate\AuthenticateStartParams\AuthType;
-use Onlyfansapi\Authenticate\AuthenticateStartParams\CustomProxy;
-use Onlyfansapi\Authenticate\AuthenticateStartParams\ProxyCountry;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Authenticate\AuthenticateStartParams\AuthType;
+use OnlyFansAPI\Authenticate\AuthenticateStartParams\CustomProxy;
+use OnlyFansAPI\Authenticate\AuthenticateStartParams\ProxyCountry;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Start the authentication process for a new account. Supports three methods: email/password (default), cookies & headers (raw_data), or FansAPI Auth+ mobile app (mobile_app). For email/password, our systems will bypass Captcha and ask you for 2FA if required. For raw_data, provide session cookies directly for instant authentication. For mobile_app, the response includes a `mobile_auth_session_deeplink` that the creator opens on their phone (or scans as a QR code) to complete authentication via the FansAPI Auth+ mobile app. All credentials are stored securely and encrypted at rest.
  *
- * @see Onlyfansapi\Services\AuthenticateService::start()
+ * @see OnlyFansAPI\Services\AuthenticateService::start()
  *
- * @phpstan-import-type CustomProxyShape from \Onlyfansapi\Authenticate\AuthenticateStartParams\CustomProxy
+ * @phpstan-import-type CustomProxyShape from \OnlyFansAPI\Authenticate\AuthenticateStartParams\CustomProxy
  *
  * @phpstan-type AuthenticateStartParamsShape = array{
  *   authID?: string|null,

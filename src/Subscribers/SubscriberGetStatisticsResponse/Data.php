@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Subscribers\SubscriberGetStatisticsResponse;
+namespace OnlyFansAPI\Subscribers\SubscriberGetStatisticsResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Subscribers\SubscriberGetStatisticsResponse\Data\Earning;
-use Onlyfansapi\Subscribers\SubscriberGetStatisticsResponse\Data\Subscribe;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Subscribers\SubscriberGetStatisticsResponse\Data\Earning;
+use OnlyFansAPI\Subscribers\SubscriberGetStatisticsResponse\Data\Subscribe;
 
 /**
- * @phpstan-import-type EarningShape from \Onlyfansapi\Subscribers\SubscriberGetStatisticsResponse\Data\Earning
- * @phpstan-import-type SubscribeShape from \Onlyfansapi\Subscribers\SubscriberGetStatisticsResponse\Data\Subscribe
+ * @phpstan-import-type EarningShape from \OnlyFansAPI\Subscribers\SubscriberGetStatisticsResponse\Data\Earning
+ * @phpstan-import-type SubscribeShape from \OnlyFansAPI\Subscribers\SubscriberGetStatisticsResponse\Data\Subscribe
  *
  * @phpstan-type DataShape = array{
  *   delta?: float|null,

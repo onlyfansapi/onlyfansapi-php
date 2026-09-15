@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\LinkTags;
+namespace OnlyFansAPI\LinkTags;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\LinkTags\LinkTagListParams\Type;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\LinkTags\LinkTagListParams\Type;
 
 /**
- * Get all existing tags that have been used on free trial links and/or tracking links for this account. This is a free endpoint.
+ * Get all existing tags that have been used on free trial links, tracking links, and/or Smart Links for this account. This is a free endpoint.
  *
- * @see Onlyfansapi\Services\LinkTagsService::list()
+ * @see OnlyFansAPI\Services\LinkTagsService::list()
  *
  * @phpstan-type LinkTagListParamsShape = array{type?: null|Type|value-of<Type>}
  */
@@ -24,7 +24,7 @@ final class LinkTagListParams implements BaseModel
     use SdkParams;
 
     /**
-     * Filter by link type. If not provided, returns tags for both types.
+     * Filter by link type. If not provided, returns tags for all types.
      *
      * @var value-of<Type>|null $type
      */
@@ -53,7 +53,7 @@ final class LinkTagListParams implements BaseModel
     }
 
     /**
-     * Filter by link type. If not provided, returns tags for both types.
+     * Filter by link type. If not provided, returns tags for all types.
      *
      * @param Type|value-of<Type> $type
      */

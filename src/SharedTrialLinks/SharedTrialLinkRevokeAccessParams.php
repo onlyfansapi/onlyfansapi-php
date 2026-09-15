@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SharedTrialLinks;
+namespace OnlyFansAPI\SharedTrialLinks;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Revoke the account's access to a shared Free Trial Link. Calls OnlyFans `DELETE /trials/share-access`, then removes the local cache row. The owner keeps the link.
  *
- * @see Onlyfansapi\Services\SharedTrialLinksService::revokeAccess()
+ * @see OnlyFansAPI\Services\SharedTrialLinksService::revokeAccess()
  *
  * @phpstan-type SharedTrialLinkRevokeAccessParamsShape = array{account: string}
  */

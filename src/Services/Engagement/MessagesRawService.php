@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Engagement;
+namespace OnlyFansAPI\Services\Engagement;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Engagement\Messages\MessageGetMessageBuyersParams;
-use Onlyfansapi\Engagement\Messages\MessageGetMessageBuyersResponse;
-use Onlyfansapi\Engagement\Messages\MessageGetTopMessageParams;
-use Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Engagement\MessagesRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Engagement\Messages\MessageGetMessageBuyersParams;
+use OnlyFansAPI\Engagement\Messages\MessageGetMessageBuyersResponse;
+use OnlyFansAPI\Engagement\Messages\MessageGetTopMessageParams;
+use OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Engagement\MessagesRawContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class MessagesRawService implements MessagesRawContract
 {

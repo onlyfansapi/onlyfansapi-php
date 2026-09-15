@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Settings;
+namespace OnlyFansAPI\ServiceContracts\Settings;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageGetResponse;
-use Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageToggleResponse;
-use Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageUpdateResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageGetResponse;
+use OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageToggleResponse;
+use OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageUpdateResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface WelcomeMessageContract
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\MediaScrapeParams;
+namespace OnlyFansAPI\Media\MediaScrapeParams;
 
 /**
  * The file type to scrape. Only allowed when using `media_id`.
