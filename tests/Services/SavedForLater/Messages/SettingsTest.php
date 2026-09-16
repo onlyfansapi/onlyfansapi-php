@@ -79,7 +79,7 @@ final class SettingsTest extends TestCase
             ->savedForLater
             ->messages
             ->settings
-            ->enableOrUpdateAutomaticMessaging('acct_XXXXXXXXXXXXXXX', period: 12)
+            ->enableOrUpdateAutomaticMessaging('acct_XXXXXXXXXXXXXXX', period: 48)
         ;
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
@@ -101,7 +101,7 @@ final class SettingsTest extends TestCase
             ->savedForLater
             ->messages
             ->settings
-            ->enableOrUpdateAutomaticMessaging('acct_XXXXXXXXXXXXXXX', period: 12)
+            ->enableOrUpdateAutomaticMessaging('acct_XXXXXXXXXXXXXXX', period: 48)
         ;
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
