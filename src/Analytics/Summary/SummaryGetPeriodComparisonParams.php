@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Analytics\Summary;
+namespace OnlyFansAPI\Analytics\Summary;
 
-use Onlyfansapi\Analytics\Summary\SummaryGetPeriodComparisonParams\Granularity;
-use Onlyfansapi\Analytics\Summary\SummaryGetPeriodComparisonParams\PeriodA;
-use Onlyfansapi\Analytics\Summary\SummaryGetPeriodComparisonParams\PeriodB;
-use Onlyfansapi\Analytics\Summary\SummaryGetPeriodComparisonParams\StatType;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Analytics\Summary\SummaryGetPeriodComparisonParams\Granularity;
+use OnlyFansAPI\Analytics\Summary\SummaryGetPeriodComparisonParams\PeriodA;
+use OnlyFansAPI\Analytics\Summary\SummaryGetPeriodComparisonParams\PeriodB;
+use OnlyFansAPI\Analytics\Summary\SummaryGetPeriodComparisonParams\StatType;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Compare two time periods to analyze performance changes. Returns summary, breakdown, and chart data for the comparison.
  *
- * @see Onlyfansapi\Services\Analytics\SummaryService::getPeriodComparison()
+ * @see OnlyFansAPI\Services\Analytics\SummaryService::getPeriodComparison()
  *
- * @phpstan-import-type PeriodAShape from \Onlyfansapi\Analytics\Summary\SummaryGetPeriodComparisonParams\PeriodA
- * @phpstan-import-type PeriodBShape from \Onlyfansapi\Analytics\Summary\SummaryGetPeriodComparisonParams\PeriodB
+ * @phpstan-import-type PeriodAShape from \OnlyFansAPI\Analytics\Summary\SummaryGetPeriodComparisonParams\PeriodA
+ * @phpstan-import-type PeriodBShape from \OnlyFansAPI\Analytics\Summary\SummaryGetPeriodComparisonParams\PeriodB
  *
  * @phpstan-type SummaryGetPeriodComparisonParamsShape = array{
  *   accountIDs: list<string>,

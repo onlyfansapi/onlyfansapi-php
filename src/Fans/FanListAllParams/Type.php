@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans\FanListAllParams;
+namespace OnlyFansAPI\Fans\FanListAllParams;
 
 /**
  * Filter by fan type.

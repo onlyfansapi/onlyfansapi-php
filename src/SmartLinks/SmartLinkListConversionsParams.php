@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinks;
+namespace OnlyFansAPI\SmartLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SmartLinks\SmartLinkListConversionsParams\ConversionType;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SmartLinks\SmartLinkListConversionsParams\ConversionType;
 
 /**
  * Query smart link conversions in a date range with optional bot/duplicate and conversion type filtering.
  *
- * @see Onlyfansapi\Services\SmartLinksService::listConversions()
+ * @see OnlyFansAPI\Services\SmartLinksService::listConversions()
  *
  * @phpstan-type SmartLinkListConversionsParamsShape = array{
  *   conversionType?: null|ConversionType|value-of<ConversionType>,

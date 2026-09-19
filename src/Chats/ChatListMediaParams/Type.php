@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\ChatListMediaParams;
+namespace OnlyFansAPI\Chats\ChatListMediaParams;
 
 /**
  * Filter by specific media types. Keep empty to return all.

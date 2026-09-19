@@ -2,9 +2,9 @@
 
 namespace Tests\Services\Analytics;
 
-use Onlyfansapi\Analytics\Financial\FinancialGetForecastResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
+use OnlyFansAPI\Analytics\Financial\FinancialGetForecastResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

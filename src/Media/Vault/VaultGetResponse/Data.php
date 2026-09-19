@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\Vault\VaultGetResponse;
+namespace OnlyFansAPI\Media\Vault\VaultGetResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Media\Vault\VaultGetResponse\Data\Files;
-use Onlyfansapi\Media\Vault\VaultGetResponse\Data\ListState;
-use Onlyfansapi\Media\Vault\VaultGetResponse\Data\VideoSources;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Media\Vault\VaultGetResponse\Data\Files;
+use OnlyFansAPI\Media\Vault\VaultGetResponse\Data\ListState;
+use OnlyFansAPI\Media\Vault\VaultGetResponse\Data\VideoSources;
 
 /**
- * @phpstan-import-type FilesShape from \Onlyfansapi\Media\Vault\VaultGetResponse\Data\Files
- * @phpstan-import-type ListStateShape from \Onlyfansapi\Media\Vault\VaultGetResponse\Data\ListState
- * @phpstan-import-type VideoSourcesShape from \Onlyfansapi\Media\Vault\VaultGetResponse\Data\VideoSources
+ * @phpstan-import-type FilesShape from \OnlyFansAPI\Media\Vault\VaultGetResponse\Data\Files
+ * @phpstan-import-type ListStateShape from \OnlyFansAPI\Media\Vault\VaultGetResponse\Data\ListState
+ * @phpstan-import-type VideoSourcesShape from \OnlyFansAPI\Media\Vault\VaultGetResponse\Data\VideoSources
  *
  * @phpstan-type DataShape = array{
  *   id?: int|null,

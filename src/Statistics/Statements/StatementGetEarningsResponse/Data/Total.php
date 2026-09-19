@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics\Statements\StatementGetEarningsResponse\Data;
+namespace OnlyFansAPI\Statistics\Statements\StatementGetEarningsResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Statistics\Statements\StatementGetEarningsResponse\Data\Total\ChartAmount;
-use Onlyfansapi\Statistics\Statements\StatementGetEarningsResponse\Data\Total\ChartCount;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Statistics\Statements\StatementGetEarningsResponse\Data\Total\ChartAmount;
+use OnlyFansAPI\Statistics\Statements\StatementGetEarningsResponse\Data\Total\ChartCount;
 
 /**
- * @phpstan-import-type ChartAmountShape from \Onlyfansapi\Statistics\Statements\StatementGetEarningsResponse\Data\Total\ChartAmount
- * @phpstan-import-type ChartCountShape from \Onlyfansapi\Statistics\Statements\StatementGetEarningsResponse\Data\Total\ChartCount
+ * @phpstan-import-type ChartAmountShape from \OnlyFansAPI\Statistics\Statements\StatementGetEarningsResponse\Data\Total\ChartAmount
+ * @phpstan-import-type ChartCountShape from \OnlyFansAPI\Statistics\Statements\StatementGetEarningsResponse\Data\Total\ChartCount
  *
  * @phpstan-type TotalShape = array{
  *   chartAmount?: list<ChartAmount|ChartAmountShape>|null,

@@ -2,18 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\UserLists\UserListDeleteResponse;
-use Onlyfansapi\UserLists\UserListGetResponse;
-use Onlyfansapi\UserLists\UserListListResponse;
-use Onlyfansapi\UserLists\UserListNewResponse;
-use Onlyfansapi\UserLists\UserListUpdateResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\UserLists\UserListDeleteResponse;
+use OnlyFansAPI\UserLists\UserListGetResponse;
+use OnlyFansAPI\UserLists\UserListListParams\View;
+use OnlyFansAPI\UserLists\UserListListResponse;
+use OnlyFansAPI\UserLists\UserListNewResponse;
+use OnlyFansAPI\UserLists\UserListUpdateResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface UserListsContract
 {
@@ -72,6 +73,7 @@ interface UserListsContract
      * @param string $account The Account ID
      * @param int|null $limit How many results to return in the request. Max. 50 user lists. Must be at least 10. Must not be greater than 50.
      * @param int|null $offset must be at least 0
+     * @param View|value-of<View> $view How to return the results. `queue` returns the user lists that are available for Mass-Messaging.
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -80,6 +82,7 @@ interface UserListsContract
         string $account,
         ?int $limit = null,
         ?int $offset = null,
+        View|string|null $view = null,
         RequestOptions|array|null $requestOptions = null,
     ): UserListListResponse;
 

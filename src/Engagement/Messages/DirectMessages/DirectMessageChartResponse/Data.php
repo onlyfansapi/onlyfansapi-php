@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageChartResponse;
+namespace OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageChartResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageChartResponse\Data\DirectMessages;
-use Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageChartResponse\Data\DirectMessagesPurchases;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageChartResponse\Data\DirectMessages;
+use OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageChartResponse\Data\DirectMessagesPurchases;
 
 /**
- * @phpstan-import-type DirectMessagesShape from \Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageChartResponse\Data\DirectMessages
- * @phpstan-import-type DirectMessagesPurchasesShape from \Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageChartResponse\Data\DirectMessagesPurchases
+ * @phpstan-import-type DirectMessagesShape from \OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageChartResponse\Data\DirectMessages
+ * @phpstan-import-type DirectMessagesPurchasesShape from \OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageChartResponse\Data\DirectMessagesPurchases
  *
  * @phpstan-type DataShape = array{
  *   directMessages?: null|DirectMessages|DirectMessagesShape,

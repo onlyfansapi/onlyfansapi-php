@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse;
+namespace OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\_Meta\_Cache;
-use Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\_Meta\_Credits;
-use Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\_Meta\_RateLimits;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\_Meta\_Cache;
+use OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\_Meta\_Credits;
+use OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\_Meta\_RateLimits;
 
 /**
- * @phpstan-import-type _CacheShape from \Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\_Meta\_Cache
- * @phpstan-import-type _CreditsShape from \Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\_Meta\_Credits
- * @phpstan-import-type _RateLimitsShape from \Onlyfansapi\MassMessaging\MassMessagingGetOverviewResponse\_Meta\_RateLimits
+ * @phpstan-import-type _CacheShape from \OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\_Meta\_Cache
+ * @phpstan-import-type _CreditsShape from \OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\_Meta\_Credits
+ * @phpstan-import-type _RateLimitsShape from \OnlyFansAPI\MassMessaging\MassMessagingGetOverviewResponse\_Meta\_RateLimits
  *
  * @phpstan-type _MetaShape = array{
  *   _cache?: null|_Cache|_CacheShape,

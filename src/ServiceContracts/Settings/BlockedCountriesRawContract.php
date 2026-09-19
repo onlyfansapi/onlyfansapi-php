@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Settings;
+namespace OnlyFansAPI\ServiceContracts\Settings;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Settings\BlockedCountries\BlockedCountryGetResponse;
-use Onlyfansapi\Settings\BlockedCountries\BlockedCountryUpdateParams;
-use Onlyfansapi\Settings\BlockedCountries\BlockedCountryUpdateResponse;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Settings\BlockedCountries\BlockedCountryGetResponse;
+use OnlyFansAPI\Settings\BlockedCountries\BlockedCountryUpdateParams;
+use OnlyFansAPI\Settings\BlockedCountries\BlockedCountryUpdateResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface BlockedCountriesRawContract
 {

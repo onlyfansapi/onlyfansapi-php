@@ -1,20 +1,20 @@
 <?php
 
-namespace Onlyfansapi\Core\Implementation;
+namespace OnlyFansAPI\Core\Implementation;
 
-use Onlyfansapi\Core\BaseClient;
-use Onlyfansapi\Core\Concerns\ResponseProxy;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Conversion;
-use Onlyfansapi\Core\Conversion\Contracts\Converter;
-use Onlyfansapi\Core\Conversion\Contracts\ConverterSource;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\BaseClient;
+use OnlyFansAPI\Core\Concerns\ResponseProxy;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Conversion;
+use OnlyFansAPI\Core\Conversion\Contracts\Converter;
+use OnlyFansAPI\Core\Conversion\Contracts\ConverterSource;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * @phpstan-import-type NormalizedRequest from \Onlyfansapi\Core\BaseClient
+ * @phpstan-import-type NormalizedRequest from \OnlyFansAPI\Core\BaseClient
  *
  * @internal
  *

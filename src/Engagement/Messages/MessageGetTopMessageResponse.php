@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Engagement\Messages;
+namespace OnlyFansAPI\Engagement\Messages;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\_Meta;
-use Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\_Meta;
+use OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data
  *
  * @phpstan-type MessageGetTopMessageResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

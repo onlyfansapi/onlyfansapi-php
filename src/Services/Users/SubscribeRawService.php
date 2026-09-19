@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Users;
+namespace OnlyFansAPI\Services\Users;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Users\SubscribeRawContract;
-use Onlyfansapi\Users\Subscribe\SubscribeCreateParams;
-use Onlyfansapi\Users\Subscribe\SubscribeDeleteParams;
-use Onlyfansapi\Users\Subscribe\SubscribeDeleteResponse;
-use Onlyfansapi\Users\Subscribe\SubscribeNewResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Users\SubscribeRawContract;
+use OnlyFansAPI\Users\Subscribe\SubscribeCreateParams;
+use OnlyFansAPI\Users\Subscribe\SubscribeDeleteParams;
+use OnlyFansAPI\Users\Subscribe\SubscribeDeleteResponse;
+use OnlyFansAPI\Users\Subscribe\SubscribeNewResponse;
 
 /**
  * APIs for fetching OnlyFans users.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class SubscribeRawService implements SubscribeRawContract
 {

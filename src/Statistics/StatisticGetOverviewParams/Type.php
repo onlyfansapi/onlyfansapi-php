@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics\StatisticGetOverviewParams;
+namespace OnlyFansAPI\Statistics\StatisticGetOverviewParams;
 
 /**
  * The type of statistics to retrieve (default = empty).

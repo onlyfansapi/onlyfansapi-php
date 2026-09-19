@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SavedForLater\Messages;
+namespace OnlyFansAPI\SavedForLater\Messages;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SavedForLater\Messages\MessageListResponse\_Meta;
-use Onlyfansapi\SavedForLater\Messages\MessageListResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SavedForLater\Messages\MessageListResponse\_Meta;
+use OnlyFansAPI\SavedForLater\Messages\MessageListResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\SavedForLater\Messages\MessageListResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\SavedForLater\Messages\MessageListResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\SavedForLater\Messages\MessageListResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\SavedForLater\Messages\MessageListResponse\Data
  *
  * @phpstan-type MessageListResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

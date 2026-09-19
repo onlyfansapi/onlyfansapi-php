@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Users;
+namespace OnlyFansAPI\ServiceContracts\Users;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Users\Restrict\RestrictCreateParams;
-use Onlyfansapi\Users\Restrict\RestrictDeleteParams;
-use Onlyfansapi\Users\Restrict\RestrictDeleteResponse;
-use Onlyfansapi\Users\Restrict\RestrictNewResponse;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Users\Restrict\RestrictCreateParams;
+use OnlyFansAPI\Users\Restrict\RestrictDeleteParams;
+use OnlyFansAPI\Users\Restrict\RestrictDeleteResponse;
+use OnlyFansAPI\Users\Restrict\RestrictNewResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface RestrictRawContract
 {

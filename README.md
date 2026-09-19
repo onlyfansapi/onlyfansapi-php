@@ -38,7 +38,7 @@ Parameters with a default value must be set by name.
 ```php
 <?php
 
-use Onlyfansapi\Client;
+use OnlyFansAPI\Client;
 
 $client = new Client(apiKey: getenv('ONLYFANSAPI_API_KEY') ?: 'My API Key');
 
@@ -56,14 +56,14 @@ However, builders are also provided `(new Dog)->withName("Joey")`.
 
 ### Handling errors
 
-When the library is unable to connect to the API, or if the API returns a non-success status code (i.e., 4xx or 5xx response), a subclass of `Onlyfansapi\Core\Exceptions\APIException` will be thrown:
+When the library is unable to connect to the API, or if the API returns a non-success status code (i.e., 4xx or 5xx response), a subclass of `OnlyFansAPI\Core\Exceptions\APIException` will be thrown:
 
 ```php
 <?php
 
-use Onlyfansapi\Core\Exceptions\APIConnectionException;
-use Onlyfansapi\Core\Exceptions\RateLimitException;
-use Onlyfansapi\Core\Exceptions\APIStatusException;
+use OnlyFansAPI\Core\Exceptions\APIConnectionException;
+use OnlyFansAPI\Core\Exceptions\RateLimitException;
+use OnlyFansAPI\Core\Exceptions\APIStatusException;
 
 try {
   $whoami = $client->whoami->retrieve();
@@ -105,7 +105,7 @@ You can use the `maxRetries` option to configure or disable this:
 ```php
 <?php
 
-use Onlyfansapi\Client;
+use OnlyFansAPI\Client;
 
 // Configure the default for all requests:
 $client = new Client(requestOptions: ['maxRetries' => 0]);
@@ -121,7 +121,7 @@ Request parameters that correspond to file uploads can be passed as a resource r
 ```php
 <?php
 
-use Onlyfansapi\Core\FileParam;
+use OnlyFansAPI\Core\FileParam;
 
 // Pass a string with filename and content type:
 $contents = file_get_contents('/path/to/file');

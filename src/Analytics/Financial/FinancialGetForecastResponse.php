@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Analytics\Financial;
+namespace OnlyFansAPI\Analytics\Financial;
 
-use Onlyfansapi\Analytics\Financial\FinancialGetForecastResponse\Forecast;
-use Onlyfansapi\Analytics\Financial\FinancialGetForecastResponse\Historical;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Analytics\Financial\FinancialGetForecastResponse\Forecast;
+use OnlyFansAPI\Analytics\Financial\FinancialGetForecastResponse\Historical;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type ForecastShape from \Onlyfansapi\Analytics\Financial\FinancialGetForecastResponse\Forecast
- * @phpstan-import-type HistoricalShape from \Onlyfansapi\Analytics\Financial\FinancialGetForecastResponse\Historical
+ * @phpstan-import-type ForecastShape from \OnlyFansAPI\Analytics\Financial\FinancialGetForecastResponse\Forecast
+ * @phpstan-import-type HistoricalShape from \OnlyFansAPI\Analytics\Financial\FinancialGetForecastResponse\Historical
  *
  * @phpstan-type FinancialGetForecastResponseShape = array{
  *   forecast?: list<Forecast|ForecastShape>|null,

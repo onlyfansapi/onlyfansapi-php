@@ -2,31 +2,33 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\SmartLinksContract;
-use Onlyfansapi\SmartLinks\SmartLinkCreateParams\LinkType;
-use Onlyfansapi\SmartLinks\SmartLinkDeleteResponse;
-use Onlyfansapi\SmartLinks\SmartLinkGetResponse;
-use Onlyfansapi\SmartLinks\SmartLinkGetStatsResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListClicksResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListConversionsParams\ConversionType;
-use Onlyfansapi\SmartLinks\SmartLinkListConversionsResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListFansParams\Sort;
-use Onlyfansapi\SmartLinks\SmartLinkListFansResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListResponse;
-use Onlyfansapi\SmartLinks\SmartLinkListSpendersResponse;
-use Onlyfansapi\SmartLinks\SmartLinkNewResponse;
-use Onlyfansapi\SmartLinks\SmartLinkRetrieveCohortArpsParams\RevenueBasis;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\SmartLinksContract;
+use OnlyFansAPI\SmartLinks\SmartLinkCreateParams\LinkType;
+use OnlyFansAPI\SmartLinks\SmartLinkDeleteResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkGetResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkGetStatsResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListClicksResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListConversionsParams\ConversionType;
+use OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListFansParams\Sort;
+use OnlyFansAPI\SmartLinks\SmartLinkListFansResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListParams\Filter;
+use OnlyFansAPI\SmartLinks\SmartLinkListResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkListSpendersResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkNewResponse;
+use OnlyFansAPI\SmartLinks\SmartLinkRetrieveCohortArpsParams\RevenueBasis;
 
 /**
  * APIs for managing Smart Links (Free Trial Links and Tracking Links with pooled inventory).
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\SmartLinks\SmartLinkListParams\Filter
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class SmartLinksService implements SmartLinksContract
 {
@@ -104,29 +106,32 @@ final class SmartLinksService implements SmartLinksContract
      * List all Smart Links
      *
      * @param string|null $accountIDs comma-separated account prefixed IDs to include
+     * @param Filter|FilterShape $filter
      * @param int $limit The number of Smart Links to return. Default `50`. Must be at least 1. Must not be greater than 1000.
-     * @param string|null $metaPixelIDs comma-separated Meta Pixel IDs to include
      * @param string|null $name Filter Smart Links by name. Must not be greater than 255 characters.
      * @param int $offset The offset used for pagination. Default `0`. Must be at least 0.
+     * @param string|null $pixelIDs comma-separated ad platform Pixel IDs to include
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
      */
     public function list(
         ?string $accountIDs = null,
+        Filter|array|null $filter = null,
         ?int $limit = null,
-        ?string $metaPixelIDs = null,
         ?string $name = null,
         ?int $offset = null,
+        ?string $pixelIDs = null,
         RequestOptions|array|null $requestOptions = null,
     ): SmartLinkListResponse {
         $params = Util::removeNulls(
             [
                 'accountIDs' => $accountIDs,
+                'filter' => $filter,
                 'limit' => $limit,
-                'metaPixelIDs' => $metaPixelIDs,
                 'name' => $name,
                 'offset' => $offset,
+                'pixelIDs' => $pixelIDs,
             ],
         );
 
@@ -260,7 +265,9 @@ final class SmartLinksService implements SmartLinksContract
      * @param float $minRevenueNet Optional minimum net revenue
      * @param float $minTipsNet Optional minimum net tips
      * @param int $offset Offset for pagination. Default `0`
+     * @param bool $previouslySubscribed Optional - Filter to returning subscribers (fans previously subscribed before this subscription)
      * @param Sort|value-of<Sort> $sort Optional sort field. Default `-revenue_net`
+     * @param bool $subscribedUsingPromo Optional - Filter to fans who subscribed via a promotion/offer
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -273,7 +280,9 @@ final class SmartLinksService implements SmartLinksContract
         ?float $minRevenueNet = null,
         ?float $minTipsNet = null,
         ?int $offset = null,
+        ?bool $previouslySubscribed = null,
         Sort|string|null $sort = null,
+        ?bool $subscribedUsingPromo = null,
         RequestOptions|array|null $requestOptions = null,
     ): SmartLinkListFansResponse {
         $params = Util::removeNulls(
@@ -284,7 +293,9 @@ final class SmartLinksService implements SmartLinksContract
                 'minRevenueNet' => $minRevenueNet,
                 'minTipsNet' => $minTipsNet,
                 'offset' => $offset,
+                'previouslySubscribed' => $previouslySubscribed,
                 'sort' => $sort,
+                'subscribedUsingPromo' => $subscribedUsingPromo,
             ],
         );
 

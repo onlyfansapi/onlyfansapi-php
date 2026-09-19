@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Engagement\Messages;
+namespace OnlyFansAPI\ServiceContracts\Engagement\Messages;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageChartResponse;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageListResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageChartResponse;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageListResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface MassMessagesContract
 {
@@ -18,7 +18,7 @@ interface MassMessagesContract
      * @api
      *
      * @param string $account The Account ID
-     * @param string $endDate The latest message to retrieve. Keep empty to get all. MUST BE DATE AFTER `startDate`. This is also used for pagination.
+     * @param string $endDate The latest message to retrieve. Keep empty to get all. It must be after `startDate` and is also used for pagination.
      * @param int $limit Number of messages to return (default = 10)
      * @param string $query optionally, filter by message text
      * @param string $startDate The earliest message to retrieve. Keep empty to get all.
@@ -39,7 +39,7 @@ interface MassMessagesContract
      * @api
      *
      * @param string $account The Account ID
-     * @param string $endDate End of the chart window in `Y-m-d H:i:s` format. Must be after `startDate`.
+     * @param string $endDate End of the chart window in `Y-m-d H:i:s` format. It must be after `startDate`.
      * @param string $startDate start of the chart window in `Y-m-d H:i:s` format
      * @param bool $withTotal Include `total` and `delta` aggregates in the response. Defaults to `true`.
      * @param RequestOpts|null $requestOptions

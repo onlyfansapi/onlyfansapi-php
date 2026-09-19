@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts;
+namespace OnlyFansAPI\Posts;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Pin or unpin a post to your account.
  *
- * @see Onlyfansapi\Services\PostsService::pin()
+ * @see OnlyFansAPI\Services\PostsService::pin()
  *
  * @phpstan-type PostPinParamsShape = array{account: string}
  */

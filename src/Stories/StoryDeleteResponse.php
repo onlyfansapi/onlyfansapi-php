@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stories;
+namespace OnlyFansAPI\Stories;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Stories\StoryDeleteResponse\_Meta;
-use Onlyfansapi\Stories\StoryDeleteResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Stories\StoryDeleteResponse\_Meta;
+use OnlyFansAPI\Stories\StoryDeleteResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Stories\StoryDeleteResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Stories\StoryDeleteResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Stories\StoryDeleteResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Stories\StoryDeleteResponse\Data
  *
  * @phpstan-type StoryDeleteResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

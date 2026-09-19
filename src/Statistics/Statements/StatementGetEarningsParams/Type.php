@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics\Statements\StatementGetEarningsParams;
+namespace OnlyFansAPI\Statistics\Statements\StatementGetEarningsParams;
 
 /**
  * Filter by All / Subscriptions / Tips / Posts / Messages / Streams.

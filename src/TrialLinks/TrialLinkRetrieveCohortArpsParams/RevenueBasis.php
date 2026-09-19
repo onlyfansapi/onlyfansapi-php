@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrialLinks\TrialLinkRetrieveCohortArpsParams;
+namespace OnlyFansAPI\TrialLinks\TrialLinkRetrieveCohortArpsParams;
 
 /**
  * Revenue basis. Defaults to `net`.

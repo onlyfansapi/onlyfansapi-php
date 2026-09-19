@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chargebacks;
+namespace OnlyFansAPI\Chargebacks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * The Chargeback Ratio reflects the number of chargebacks compared to the total number of payments as a percentage. Ideally, your Chargeback Ratio should be under 1%.
  *
- * @see Onlyfansapi\Services\ChargebacksService::calculateRatio()
+ * @see OnlyFansAPI\Services\ChargebacksService::calculateRatio()
  *
  * @phpstan-type ChargebackCalculateRatioParamsShape = array{
  *   endDate?: string|null, startDate?: string|null

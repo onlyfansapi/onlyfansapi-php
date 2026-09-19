@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse;
+namespace OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse\Data\List_;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse\Data\List_;
 
 /**
- * @phpstan-import-type ListShape from \Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse\Data\List_
+ * @phpstan-import-type ListShape from \OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse\Data\List_
  *
  * @phpstan-type DataShape = array{
  *   hasMore?: bool|null, list?: list<List_|ListShape>|null

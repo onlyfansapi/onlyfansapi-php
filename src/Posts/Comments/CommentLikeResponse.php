@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts\Comments;
+namespace OnlyFansAPI\Posts\Comments;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Posts\Comments\CommentLikeResponse\_Meta;
-use Onlyfansapi\Posts\Comments\CommentLikeResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Posts\Comments\CommentLikeResponse\_Meta;
+use OnlyFansAPI\Posts\Comments\CommentLikeResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Posts\Comments\CommentLikeResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Posts\Comments\CommentLikeResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Posts\Comments\CommentLikeResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Posts\Comments\CommentLikeResponse\Data
  *
  * @phpstan-type CommentLikeResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

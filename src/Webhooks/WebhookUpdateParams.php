@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Webhooks;
+namespace OnlyFansAPI\Webhooks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Update an existing webhook.
  *
- * @see Onlyfansapi\Services\WebhooksService::update()
+ * @see OnlyFansAPI\Services\WebhooksService::update()
  *
  * @phpstan-type WebhookUpdateParamsShape = array{
  *   accountScope: string,
@@ -30,7 +30,7 @@ final class WebhookUpdateParams implements BaseModel
     use SdkParams;
 
     /**
-     * The account scope for the webhook. Use "global" for all accounts, "inclusive" for only selected accounts, or "exclusive" for all except selected accounts.
+     * The account scope for the webhook (OnlyFans and Fansly webhooks alike). Use "global" for all accounts, "inclusive" for only selected accounts, or "exclusive" for all except selected accounts.
      */
     #[Required('account_scope')]
     public string $accountScope;
@@ -42,7 +42,7 @@ final class WebhookUpdateParams implements BaseModel
     public string $endpointURL;
 
     /**
-     * An array of webhook events to subscribe to. For all options, refer to our **List Available Events** endpoint.
+     * An array of webhook events to subscribe to. For all options, refer to our **List Available Events** endpoint. A webhook is single-platform: subscribe to either OnlyFans events or Fansly (`fansly.*`) events, never both in one webhook.
      *
      * @var list<string> $events
      */
@@ -50,7 +50,7 @@ final class WebhookUpdateParams implements BaseModel
     public array $events;
 
     /**
-     * An array of account IDs to apply the scope to. Required unless account_scope is "global".
+     * An array of account IDs to apply the scope to. Use OnlyFans account IDs (`acct_...`) for OnlyFans webhooks and Fansly account IDs (`fansly_acct_...`) for Fansly webhooks. Required unless account_scope is "global".
      *
      * @var list<string>|null $accountIDs
      */
@@ -113,7 +113,7 @@ final class WebhookUpdateParams implements BaseModel
     }
 
     /**
-     * The account scope for the webhook. Use "global" for all accounts, "inclusive" for only selected accounts, or "exclusive" for all except selected accounts.
+     * The account scope for the webhook (OnlyFans and Fansly webhooks alike). Use "global" for all accounts, "inclusive" for only selected accounts, or "exclusive" for all except selected accounts.
      */
     public function withAccountScope(string $accountScope): self
     {
@@ -135,7 +135,7 @@ final class WebhookUpdateParams implements BaseModel
     }
 
     /**
-     * An array of webhook events to subscribe to. For all options, refer to our **List Available Events** endpoint.
+     * An array of webhook events to subscribe to. For all options, refer to our **List Available Events** endpoint. A webhook is single-platform: subscribe to either OnlyFans events or Fansly (`fansly.*`) events, never both in one webhook.
      *
      * @param list<string> $events
      */
@@ -148,7 +148,7 @@ final class WebhookUpdateParams implements BaseModel
     }
 
     /**
-     * An array of account IDs to apply the scope to. Required unless account_scope is "global".
+     * An array of account IDs to apply the scope to. Use OnlyFans account IDs (`acct_...`) for OnlyFans webhooks and Fansly account IDs (`fansly_acct_...`) for Fansly webhooks. Required unless account_scope is "global".
      *
      * @param list<string> $accountIDs
      */

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\Messages\MessageSendResponse;
+namespace OnlyFansAPI\Chats\Messages\MessageSendResponse;
 
-use Onlyfansapi\Chats\Messages\MessageSendResponse\Data\FromUser;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chats\Messages\MessageSendResponse\Data\FromUser;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type FromUserShape from \Onlyfansapi\Chats\Messages\MessageSendResponse\Data\FromUser
+ * @phpstan-import-type FromUserShape from \OnlyFansAPI\Chats\Messages\MessageSendResponse\Data\FromUser
  *
  * @phpstan-type DataShape = array{
  *   id?: int|null,

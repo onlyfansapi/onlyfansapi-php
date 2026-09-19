@@ -2,32 +2,35 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\MassMessaging;
+namespace OnlyFansAPI\MassMessaging;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\MassMessaging\MassMessagingSendParams\BlockBannedWords;
 
 /**
  * Send a mass message to lists and/or users. You may use both the `userLists` and `userIds` parameters to send the same message to both lists and individual users.
  *
- * @see Onlyfansapi\Services\MassMessagingService::send()
+ * @see OnlyFansAPI\Services\MassMessagingService::send()
  *
  * @phpstan-type MassMessagingSendParamsShape = array{
  *   text: string,
+ *   blockBannedWords?: null|BlockBannedWords|value-of<BlockBannedWords>,
  *   excludedLists?: list<string>|null,
  *   giphyID?: string|null,
  *   lockedText?: bool|null,
  *   mediaFiles?: list<mixed>|null,
  *   previews?: list<mixed>|null,
- *   price?: int|null,
+ *   price?: float|null,
  *   rfGuest?: string|null,
  *   rfPartner?: string|null,
  *   rfTag?: string|null,
  *   saveForLater?: bool|null,
  *   scheduledDate?: string|null,
+ *   subscribedWithinLastDays?: int|null,
  *   userIDs?: list<string>|null,
  *   userLists?: list<string>|null,
  * }
@@ -43,6 +46,14 @@ final class MassMessagingSendParams implements BaseModel
      */
     #[Required]
     public string $text;
+
+    /**
+     * Screen `text` for OnlyFans banned words and block the send if any are found (returns a 422 listing the offending words). `strict_ban` blocks all tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften only. Omit to disable screening.
+     *
+     * @var value-of<BlockBannedWords>|null $blockBannedWords
+     */
+    #[Optional(enum: BlockBannedWords::class)]
+    public ?string $blockBannedWords;
 
     /**
      * Array of user list IDs that the mass message will NOT be sent to.
@@ -81,10 +92,10 @@ final class MassMessagingSendParams implements BaseModel
     public ?array $previews;
 
     /**
-     * Price for paid content (0 or between 3-200). In case this is not zero, **mediaFiles** is required.
+     * Price for paid content in USD (0 or between 3-200). In case this is not zero, **mediaFiles** is required.
      */
     #[Optional]
-    public ?int $price;
+    public ?float $price;
 
     /**
      * Array of OnlyFans Release Form Guest IDs to tag in your mass message.
@@ -115,6 +126,12 @@ final class MassMessagingSendParams implements BaseModel
      */
     #[Optional]
     public ?string $scheduledDate;
+
+    /**
+     * Only send to fans who subscribed within the last N calendar days (1-30, including today). Can be combined with `userLists` and `userIds`. Cannot be combined with `scheduledDate` or `saveForLater`.
+     */
+    #[Optional]
+    public ?int $subscribedWithinLastDays;
 
     /**
      * Array of user IDs that the mass message will be sent to.
@@ -156,6 +173,7 @@ final class MassMessagingSendParams implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
+     * @param BlockBannedWords|value-of<BlockBannedWords>|null $blockBannedWords
      * @param list<string>|null $excludedLists
      * @param list<mixed>|null $mediaFiles
      * @param list<mixed>|null $previews
@@ -164,17 +182,19 @@ final class MassMessagingSendParams implements BaseModel
      */
     public static function with(
         string $text,
+        BlockBannedWords|string|null $blockBannedWords = null,
         ?array $excludedLists = null,
         ?string $giphyID = null,
         ?bool $lockedText = null,
         ?array $mediaFiles = null,
         ?array $previews = null,
-        ?int $price = null,
+        ?float $price = null,
         ?string $rfGuest = null,
         ?string $rfPartner = null,
         ?string $rfTag = null,
         ?bool $saveForLater = null,
         ?string $scheduledDate = null,
+        ?int $subscribedWithinLastDays = null,
         ?array $userIDs = null,
         ?array $userLists = null,
     ): self {
@@ -182,6 +202,7 @@ final class MassMessagingSendParams implements BaseModel
 
         $self['text'] = $text;
 
+        null !== $blockBannedWords && $self['blockBannedWords'] = $blockBannedWords;
         null !== $excludedLists && $self['excludedLists'] = $excludedLists;
         null !== $giphyID && $self['giphyID'] = $giphyID;
         null !== $lockedText && $self['lockedText'] = $lockedText;
@@ -193,6 +214,7 @@ final class MassMessagingSendParams implements BaseModel
         null !== $rfTag && $self['rfTag'] = $rfTag;
         null !== $saveForLater && $self['saveForLater'] = $saveForLater;
         null !== $scheduledDate && $self['scheduledDate'] = $scheduledDate;
+        null !== $subscribedWithinLastDays && $self['subscribedWithinLastDays'] = $subscribedWithinLastDays;
         null !== $userIDs && $self['userIDs'] = $userIDs;
         null !== $userLists && $self['userLists'] = $userLists;
 
@@ -206,6 +228,20 @@ final class MassMessagingSendParams implements BaseModel
     {
         $self = clone $this;
         $self['text'] = $text;
+
+        return $self;
+    }
+
+    /**
+     * Screen `text` for OnlyFans banned words and block the send if any are found (returns a 422 listing the offending words). `strict_ban` blocks all tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften only. Omit to disable screening.
+     *
+     * @param BlockBannedWords|value-of<BlockBannedWords> $blockBannedWords
+     */
+    public function withBlockBannedWords(
+        BlockBannedWords|string $blockBannedWords
+    ): self {
+        $self = clone $this;
+        $self['blockBannedWords'] = $blockBannedWords;
 
         return $self;
     }
@@ -272,9 +308,9 @@ final class MassMessagingSendParams implements BaseModel
     }
 
     /**
-     * Price for paid content (0 or between 3-200). In case this is not zero, **mediaFiles** is required.
+     * Price for paid content in USD (0 or between 3-200). In case this is not zero, **mediaFiles** is required.
      */
-    public function withPrice(int $price): self
+    public function withPrice(float $price): self
     {
         $self = clone $this;
         $self['price'] = $price;
@@ -333,6 +369,18 @@ final class MassMessagingSendParams implements BaseModel
     {
         $self = clone $this;
         $self['scheduledDate'] = $scheduledDate;
+
+        return $self;
+    }
+
+    /**
+     * Only send to fans who subscribed within the last N calendar days (1-30, including today). Can be combined with `userLists` and `userIds`. Cannot be combined with `scheduledDate` or `saveForLater`.
+     */
+    public function withSubscribedWithinLastDays(
+        int $subscribedWithinLastDays
+    ): self {
+        $self = clone $this;
+        $self['subscribedWithinLastDays'] = $subscribedWithinLastDays;
 
         return $self;
     }

@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stories\StoryListArchiveResponse\Data\List_\Media;
+namespace OnlyFansAPI\Stories\StoryListArchiveResponse\Data\List_\Media;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Stories\StoryListArchiveResponse\Data\List_\Media\Files\Full;
-use Onlyfansapi\Stories\StoryListArchiveResponse\Data\List_\Media\Files\Preview;
-use Onlyfansapi\Stories\StoryListArchiveResponse\Data\List_\Media\Files\SquarePreview;
-use Onlyfansapi\Stories\StoryListArchiveResponse\Data\List_\Media\Files\Thumb;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Stories\StoryListArchiveResponse\Data\List_\Media\Files\Full;
+use OnlyFansAPI\Stories\StoryListArchiveResponse\Data\List_\Media\Files\Preview;
+use OnlyFansAPI\Stories\StoryListArchiveResponse\Data\List_\Media\Files\SquarePreview;
+use OnlyFansAPI\Stories\StoryListArchiveResponse\Data\List_\Media\Files\Thumb;
 
 /**
- * @phpstan-import-type FullShape from \Onlyfansapi\Stories\StoryListArchiveResponse\Data\List_\Media\Files\Full
- * @phpstan-import-type PreviewShape from \Onlyfansapi\Stories\StoryListArchiveResponse\Data\List_\Media\Files\Preview
- * @phpstan-import-type SquarePreviewShape from \Onlyfansapi\Stories\StoryListArchiveResponse\Data\List_\Media\Files\SquarePreview
- * @phpstan-import-type ThumbShape from \Onlyfansapi\Stories\StoryListArchiveResponse\Data\List_\Media\Files\Thumb
+ * @phpstan-import-type FullShape from \OnlyFansAPI\Stories\StoryListArchiveResponse\Data\List_\Media\Files\Full
+ * @phpstan-import-type PreviewShape from \OnlyFansAPI\Stories\StoryListArchiveResponse\Data\List_\Media\Files\Preview
+ * @phpstan-import-type SquarePreviewShape from \OnlyFansAPI\Stories\StoryListArchiveResponse\Data\List_\Media\Files\SquarePreview
+ * @phpstan-import-type ThumbShape from \OnlyFansAPI\Stories\StoryListArchiveResponse\Data\List_\Media\Files\Thumb
  *
  * @phpstan-type FilesShape = array{
  *   full?: null|Full|FullShape,

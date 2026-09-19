@@ -2,22 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\UserLists;
+namespace OnlyFansAPI\Services\UserLists;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\UserLists\UsersContract;
-use Onlyfansapi\UserLists\Users\UserAddResponse;
-use Onlyfansapi\UserLists\Users\UserClearResponse;
-use Onlyfansapi\UserLists\Users\UserListPinnedResponse;
-use Onlyfansapi\UserLists\Users\UserListResponse;
-use Onlyfansapi\UserLists\Users\UserPinResponse;
-use Onlyfansapi\UserLists\Users\UserRemoveResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\UserLists\UsersContract;
+use OnlyFansAPI\UserLists\Users\UserAddResponse\UnionMember0;
+use OnlyFansAPI\UserLists\Users\UserAddResponse\UnionMember1;
+use OnlyFansAPI\UserLists\Users\UserClearResponse;
+use OnlyFansAPI\UserLists\Users\UserListPinnedResponse;
+use OnlyFansAPI\UserLists\Users\UserListResponse;
+use OnlyFansAPI\UserLists\Users\UserPinResponse;
+use OnlyFansAPI\UserLists\Users\UserRemoveResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class UsersService implements UsersContract
 {
@@ -72,6 +73,7 @@ final class UsersService implements UsersContract
      * @param string $userListID Path param: OnlyFans User List ID, or a default list name like `tagged`
      * @param string $account Path param: The Account ID
      * @param list<string> $ids Body param: Array of OnlyFans User IDs to be added into the list
+     * @param bool $skipInvalid Body param: Set to `true` to skip the User IDs OnlyFans refuses instead of failing the whole batch. We drop the rejected IDs and retry the remainder for you (up to 5 OnlyFans attempts, each costing 1 credit), then respond `200` with `data.added` (the IDs that made it in) and `data.failed` (an object mapping each rejected User ID to the reason OnlyFans gave). Note this changes the shape of `data` — see the example responses. Failures that are not about individual users (e.g. an invalid or inaccessible list ID) still return the regular `400`.
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -80,9 +82,12 @@ final class UsersService implements UsersContract
         string $userListID,
         string $account,
         array $ids,
+        ?bool $skipInvalid = null,
         RequestOptions|array|null $requestOptions = null,
-    ): UserAddResponse {
-        $params = Util::removeNulls(['account' => $account, 'ids' => $ids]);
+    ): UnionMember0|UnionMember1 {
+        $params = Util::removeNulls(
+            ['account' => $account, 'ids' => $ids, 'skipInvalid' => $skipInvalid]
+        );
 
         // @phpstan-ignore-next-line argument.type
         $response = $this->raw->add($userListID, params: $params, requestOptions: $requestOptions);

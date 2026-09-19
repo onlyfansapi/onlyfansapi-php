@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data;
+namespace OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Streams\ChartData;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Streams\Count;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Streams\Earnings;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Streams\Views;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Streams\ChartData;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Streams\Count;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Streams\Earnings;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Streams\Views;
 
 /**
- * @phpstan-import-type ChartDataShape from \Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Streams\ChartData
- * @phpstan-import-type CountShape from \Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Streams\Count
- * @phpstan-import-type EarningsShape from \Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Streams\Earnings
- * @phpstan-import-type ViewsShape from \Onlyfansapi\Statistics\StatisticGetOverviewResponse\Data\Streams\Views
+ * @phpstan-import-type ChartDataShape from \OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Streams\ChartData
+ * @phpstan-import-type CountShape from \OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Streams\Count
+ * @phpstan-import-type EarningsShape from \OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Streams\Earnings
+ * @phpstan-import-type ViewsShape from \OnlyFansAPI\Statistics\StatisticGetOverviewResponse\Data\Streams\Views
  *
  * @phpstan-type StreamsShape = array{
  *   chartData?: list<ChartData|ChartDataShape>|null,

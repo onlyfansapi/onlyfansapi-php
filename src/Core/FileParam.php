@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Core;
+namespace OnlyFansAPI\Core;
 
 /**
  * Represents a file to upload in a multipart request.

@@ -2,24 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\StatisticsRawContract;
-use Onlyfansapi\Statistics\StatisticCalculateTotalTransactionsParams;
-use Onlyfansapi\Statistics\StatisticCalculateTotalTransactionsResponse;
-use Onlyfansapi\Statistics\StatisticGetOverviewParams;
-use Onlyfansapi\Statistics\StatisticGetOverviewParams\Type;
-use Onlyfansapi\Statistics\StatisticGetOverviewResponse;
-use Onlyfansapi\Statistics\StatisticGetSubscriberMetricsParams;
-use Onlyfansapi\Statistics\StatisticGetSubscriberMetricsResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\StatisticsRawContract;
+use OnlyFansAPI\Statistics\StatisticCalculateTotalTransactionsParams;
+use OnlyFansAPI\Statistics\StatisticCalculateTotalTransactionsResponse;
+use OnlyFansAPI\Statistics\StatisticGetOverviewParams;
+use OnlyFansAPI\Statistics\StatisticGetOverviewParams\Type;
+use OnlyFansAPI\Statistics\StatisticGetOverviewResponse;
+use OnlyFansAPI\Statistics\StatisticGetSubscriberMetricsParams;
+use OnlyFansAPI\Statistics\StatisticGetSubscriberMetricsParams\DetailedType;
+use OnlyFansAPI\Statistics\StatisticGetSubscriberMetricsResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class StatisticsRawService implements StatisticsRawContract
 {
@@ -36,7 +37,7 @@ final class StatisticsRawService implements StatisticsRawContract
      *
      * @param string $account The Account ID
      * @param array{
-     *   endDate: string, startDate: string
+     *   endDate?: string, startDate?: string
      * }|StatisticCalculateTotalTransactionsParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -112,7 +113,10 @@ final class StatisticsRawService implements StatisticsRawContract
      *
      * @param string $account The Account ID
      * @param array{
-     *   endDate: string, startDate: string, detailed?: bool|null
+     *   endDate: string,
+     *   startDate: string,
+     *   detailed?: bool|null,
+     *   detailedType?: DetailedType|value-of<DetailedType>|null,
      * }|StatisticGetSubscriberMetricsParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -136,7 +140,11 @@ final class StatisticsRawService implements StatisticsRawContract
             path: ['api/%1$s/statistics/subscriber-metrics', $account],
             query: Util::array_transform_keys(
                 $parsed,
-                ['endDate' => 'end_date', 'startDate' => 'start_date']
+                [
+                    'endDate' => 'end_date',
+                    'startDate' => 'start_date',
+                    'detailedType' => 'detailed_type',
+                ],
             ),
             options: $options,
             convert: StatisticGetSubscriberMetricsResponse::class,

@@ -2,24 +2,31 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinkPostbacks;
+namespace OnlyFansAPI\SmartLinkPostbacks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackCreateParams\SmartLinkScope;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackCreateParams\Header;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackCreateParams\HTTPMethod;
+use OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackCreateParams\SmartLinkScope;
 
 /**
  * Create a postback that fires for selected Smart Link conversion types.
  *
- * @see Onlyfansapi\Services\SmartLinkPostbacksService::create()
+ * @see OnlyFansAPI\Services\SmartLinkPostbacksService::create()
+ *
+ * @phpstan-import-type HeaderShape from \OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackCreateParams\Header
  *
  * @phpstan-type SmartLinkPostbackCreateParamsShape = array{
  *   conversionTypes: list<string>,
  *   smartLinkScope: SmartLinkScope|value-of<SmartLinkScope>,
  *   url: string,
+ *   body?: string|null,
+ *   headers?: list<Header|HeaderShape>|null,
+ *   httpMethod?: null|HTTPMethod|value-of<HTTPMethod>,
  *   smartLinkIDs?: list<string>|null,
  * }
  */
@@ -46,10 +53,32 @@ final class SmartLinkPostbackCreateParams implements BaseModel
     public string $smartLinkScope;
 
     /**
-     * The destination URL. Variables such as `{click_id}`, `{fbclid}`, `{gclid}`, and `{ttclid}` are replaced when the postback is dispatched.
+     * The destination URL. Variables such as `{external_click_id}`, `{fbclid}`, `{gclid}`, `{gbraid}`, `{wbraid}`, `{ttclid}`, and `{sccid}` are replaced when the postback is dispatched.
      */
     #[Required]
     public string $url;
+
+    /**
+     * Optional request body template for POST postbacks. Variables are replaced when the postback is dispatched.
+     */
+    #[Optional]
+    public ?string $body;
+
+    /**
+     * Optional request headers. Header values may include postback variables.
+     *
+     * @var list<Header>|null $headers
+     */
+    #[Optional(list: Header::class)]
+    public ?array $headers;
+
+    /**
+     * HTTP method used for the postback request. Defaults to `GET` when omitted.
+     *
+     * @var value-of<HTTPMethod>|null $httpMethod
+     */
+    #[Optional('http_method', enum: HTTPMethod::class)]
+    public ?string $httpMethod;
 
     /**
      * Smart Link ULIDs. Required when `smart_link_scope` is `campaign_specific`.
@@ -90,12 +119,17 @@ final class SmartLinkPostbackCreateParams implements BaseModel
      *
      * @param list<string> $conversionTypes
      * @param SmartLinkScope|value-of<SmartLinkScope> $smartLinkScope
+     * @param list<Header|HeaderShape>|null $headers
+     * @param HTTPMethod|value-of<HTTPMethod>|null $httpMethod
      * @param list<string>|null $smartLinkIDs
      */
     public static function with(
         array $conversionTypes,
         SmartLinkScope|string $smartLinkScope,
         string $url,
+        ?string $body = null,
+        ?array $headers = null,
+        HTTPMethod|string|null $httpMethod = null,
         ?array $smartLinkIDs = null,
     ): self {
         $self = new self;
@@ -104,6 +138,9 @@ final class SmartLinkPostbackCreateParams implements BaseModel
         $self['smartLinkScope'] = $smartLinkScope;
         $self['url'] = $url;
 
+        null !== $body && $self['body'] = $body;
+        null !== $headers && $self['headers'] = $headers;
+        null !== $httpMethod && $self['httpMethod'] = $httpMethod;
         null !== $smartLinkIDs && $self['smartLinkIDs'] = $smartLinkIDs;
 
         return $self;
@@ -137,12 +174,49 @@ final class SmartLinkPostbackCreateParams implements BaseModel
     }
 
     /**
-     * The destination URL. Variables such as `{click_id}`, `{fbclid}`, `{gclid}`, and `{ttclid}` are replaced when the postback is dispatched.
+     * The destination URL. Variables such as `{external_click_id}`, `{fbclid}`, `{gclid}`, `{gbraid}`, `{wbraid}`, `{ttclid}`, and `{sccid}` are replaced when the postback is dispatched.
      */
     public function withURL(string $url): self
     {
         $self = clone $this;
         $self['url'] = $url;
+
+        return $self;
+    }
+
+    /**
+     * Optional request body template for POST postbacks. Variables are replaced when the postback is dispatched.
+     */
+    public function withBody(string $body): self
+    {
+        $self = clone $this;
+        $self['body'] = $body;
+
+        return $self;
+    }
+
+    /**
+     * Optional request headers. Header values may include postback variables.
+     *
+     * @param list<Header|HeaderShape> $headers
+     */
+    public function withHeaders(array $headers): self
+    {
+        $self = clone $this;
+        $self['headers'] = $headers;
+
+        return $self;
+    }
+
+    /**
+     * HTTP method used for the postback request. Defaults to `GET` when omitted.
+     *
+     * @param HTTPMethod|value-of<HTTPMethod> $httpMethod
+     */
+    public function withHTTPMethod(HTTPMethod|string $httpMethod): self
+    {
+        $self = clone $this;
+        $self['httpMethod'] = $httpMethod;
 
         return $self;
     }
