@@ -46,7 +46,7 @@ interface MessagesContract
      * @param string $chatID Path param: The ID of the chat (usually a fan's OnlyFans User ID)
      * @param string $account Path param: The Account ID
      * @param Filter|value-of<Filter> $filter Query param: Filter by certain messages. Currently, only pins are filterable.
-     * @param string|null $firstID Query param: Use for pagination when `order=desc` (newest to oldest). Include this message ID as the first message in the results. Used to retrieve messages from e.g. the Search Chat Messages endpoint IDs.
+     * @param string|null $firstID Query param: Use for pagination when `order=desc` (newest to oldest). Pass the last message ID from the previous page to retrieve older messages, excluding that cursor message.
      * @param string|null $lastID Query param: Use for pagination when `order=asc` (oldest to newest). Include this message ID as the first message in the results. WARNING! The response list of messages will also be inverted (oldest messages will be first, opposite to default where `order=desc`).
      * @param string $limit Query param: The number of messages to return (default = 10, max = 100)
      * @param string $order Query param: Sort order for messages (desc or asc)
