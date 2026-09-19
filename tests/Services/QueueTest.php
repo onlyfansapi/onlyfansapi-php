@@ -61,7 +61,7 @@ final class QueueTest extends TestCase
             publishDateStart: '2025-01-01',
             timezone: 'Europe/Prague',
             limit: 20,
-            type: ['post'],
+            type: ['chat'],
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
