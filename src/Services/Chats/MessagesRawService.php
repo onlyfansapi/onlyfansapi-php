@@ -83,7 +83,7 @@ final class MessagesRawService implements MessagesRawContract
     /**
      * @api
      *
-     * Get messages from a specific chat.
+     * Get messages from a specific chat. Use `filter=pinned` or [List Pinned Chat Messages](https://docs.onlyfansapi.com/api-reference/chat-messages/list-pinned-chat-messages) to retrieve only pinned messages. Follow `_pagination.next_page` until it is null; a short page can still have more results.
      *
      * @param string $chatID Path param: The ID of the chat (usually a fan's OnlyFans User ID)
      * @param array{
@@ -209,7 +209,7 @@ final class MessagesRawService implements MessagesRawContract
     /**
      * @api
      *
-     * Pin a message from a chat.
+     * Pin a message from a chat. Requires API-key write permission. No request body is needed. Use [List Pinned Chat Messages](https://docs.onlyfansapi.com/api-reference/chat-messages/list-pinned-chat-messages) to read the current pins.
      *
      * @param string $messageID The ID of the message to pin
      * @param array{account: string, chatID: string}|MessagePinParams $params
@@ -397,7 +397,7 @@ final class MessagesRawService implements MessagesRawContract
     /**
      * @api
      *
-     * Unpin a message from a chat.
+     * Unpin a message from a chat. Requires API-key delete permission; a read_write key cannot unpin. No request body is needed. Use [List Pinned Chat Messages](https://docs.onlyfansapi.com/api-reference/chat-messages/list-pinned-chat-messages) to read the current pins.
      *
      * @param string $messageID The ID of the message to unpin
      * @param array{account: string, chatID: string}|MessageUnpinParams $params

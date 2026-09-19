@@ -68,12 +68,12 @@ final class MessagesService implements MessagesContract
     /**
      * @api
      *
-     * Get messages from a specific chat.
+     * Get messages from a specific chat. Use `filter=pinned` or [List Pinned Chat Messages](https://docs.onlyfansapi.com/api-reference/chat-messages/list-pinned-chat-messages) to retrieve only pinned messages. Follow `_pagination.next_page` until it is null; a short page can still have more results.
      *
      * @param string $chatID Path param: The ID of the chat (usually a fan's OnlyFans User ID)
      * @param string $account Path param: The Account ID
      * @param Filter|value-of<Filter> $filter Query param: Filter by certain messages. Currently, only pins are filterable.
-     * @param string|null $firstID Query param: Use for pagination when `order=desc` (newest to oldest). Include this message ID as the first message in the results. Used to retrieve messages from e.g. the Search Chat Messages endpoint IDs.
+     * @param string|null $firstID Query param: Use for pagination when `order=desc` (newest to oldest). Pass the last message ID from the previous page to retrieve older messages, excluding that cursor message.
      * @param string|null $lastID Query param: Use for pagination when `order=asc` (oldest to newest). Include this message ID as the first message in the results. WARNING! The response list of messages will also be inverted (oldest messages will be first, opposite to default where `order=desc`).
      * @param string $limit Query param: The number of messages to return (default = 10, max = 100)
      * @param string $order Query param: Sort order for messages (desc or asc)
@@ -166,7 +166,7 @@ final class MessagesService implements MessagesContract
     /**
      * @api
      *
-     * Pin a message from a chat.
+     * Pin a message from a chat. Requires API-key write permission. No request body is needed. Use [List Pinned Chat Messages](https://docs.onlyfansapi.com/api-reference/chat-messages/list-pinned-chat-messages) to read the current pins.
      *
      * @param string $messageID The ID of the message to pin
      * @param string $account The Account ID
@@ -325,7 +325,7 @@ final class MessagesService implements MessagesContract
     /**
      * @api
      *
-     * Unpin a message from a chat.
+     * Unpin a message from a chat. Requires API-key delete permission; a read_write key cannot unpin. No request body is needed. Use [List Pinned Chat Messages](https://docs.onlyfansapi.com/api-reference/chat-messages/list-pinned-chat-messages) to read the current pins.
      *
      * @param string $messageID The ID of the message to unpin
      * @param string $account The Account ID
