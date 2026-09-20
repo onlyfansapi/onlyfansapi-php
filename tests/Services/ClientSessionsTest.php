@@ -53,7 +53,7 @@ final class ClientSessionsTest extends TestCase
         $result = $this->client->clientSessions->create(
             displayName: 'STRLCxGLVC Agency / Model: Stella',
             clientReferenceID: 'my_crm_model_12345',
-            proxyCountry: 'us',
+            proxyCountry: 'gb',
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
