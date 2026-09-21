@@ -9,11 +9,14 @@ use OnlyFansAPI\Core\Contracts\BaseResponse;
 use OnlyFansAPI\Core\Exceptions\APIException;
 use OnlyFansAPI\Core\Util;
 use OnlyFansAPI\DataExports\DataExportCancelResponse;
+use OnlyFansAPI\DataExports\DataExportCreateParams;
+use OnlyFansAPI\DataExports\DataExportCreateParams\FileType;
+use OnlyFansAPI\DataExports\DataExportCreateParams\Type;
 use OnlyFansAPI\DataExports\DataExportGetResponse;
 use OnlyFansAPI\DataExports\DataExportListParams;
 use OnlyFansAPI\DataExports\DataExportListParams\Status;
-use OnlyFansAPI\DataExports\DataExportListParams\Type;
 use OnlyFansAPI\DataExports\DataExportListResponse;
+use OnlyFansAPI\DataExports\DataExportNewResponse;
 use OnlyFansAPI\DataExports\DataExportRetrieveParams;
 use OnlyFansAPI\DataExports\DataExportRetryResponse;
 use OnlyFansAPI\DataExports\DataExportStartResponse;
@@ -32,6 +35,46 @@ final class DataExportsRawService implements DataExportsRawContract
      * @internal
      */
     public function __construct(private Client $client) {}
+
+    /**
+     * @api
+     *
+     * Create a new data export request. This will calculate the required credits and prepare the export for starting.
+     *
+     * @param array{
+     *   endDate: string,
+     *   fileType: FileType|value-of<FileType>,
+     *   startDate: string,
+     *   type: value-of<Type>,
+     *   accountIDs?: list<string>,
+     *   autoStart?: bool,
+     *   exportColumns?: list<string>,
+     *   options?: array<string,mixed>,
+     * }|DataExportCreateParams $params
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<DataExportNewResponse>
+     *
+     * @throws APIException
+     */
+    public function create(
+        array|DataExportCreateParams $params,
+        RequestOptions|array|null $requestOptions = null,
+    ): BaseResponse {
+        [$parsed, $options] = DataExportCreateParams::parseRequest(
+            $params,
+            $requestOptions,
+        );
+
+        // @phpstan-ignore-next-line return.type
+        return $this->client->request(
+            method: 'post',
+            path: 'api/data-exports',
+            body: (object) $parsed,
+            options: $options,
+            convert: DataExportNewResponse::class,
+        );
+    }
 
     /**
      * @api
@@ -79,7 +122,7 @@ final class DataExportsRawService implements DataExportsRawContract
      *   page?: int,
      *   perPage?: int,
      *   status?: value-of<Status>,
-     *   type?: value-of<Type>,
+     *   type?: value-of<DataExportListParams\Type>,
      * }|DataExportListParams $params
      * @param RequestOpts|null $requestOptions
      *

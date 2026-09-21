@@ -7,9 +7,11 @@ namespace OnlyFansAPI\ServiceContracts;
 use OnlyFansAPI\Core\Contracts\BaseResponse;
 use OnlyFansAPI\Core\Exceptions\APIException;
 use OnlyFansAPI\DataExports\DataExportCancelResponse;
+use OnlyFansAPI\DataExports\DataExportCreateParams;
 use OnlyFansAPI\DataExports\DataExportGetResponse;
 use OnlyFansAPI\DataExports\DataExportListParams;
 use OnlyFansAPI\DataExports\DataExportListResponse;
+use OnlyFansAPI\DataExports\DataExportNewResponse;
 use OnlyFansAPI\DataExports\DataExportRetrieveParams;
 use OnlyFansAPI\DataExports\DataExportRetryResponse;
 use OnlyFansAPI\DataExports\DataExportStartResponse;
@@ -20,6 +22,21 @@ use OnlyFansAPI\RequestOptions;
  */
 interface DataExportsRawContract
 {
+    /**
+     * @api
+     *
+     * @param array<string,mixed>|DataExportCreateParams $params
+     * @param RequestOpts|null $requestOptions
+     *
+     * @return BaseResponse<DataExportNewResponse>
+     *
+     * @throws APIException
+     */
+    public function create(
+        array|DataExportCreateParams $params,
+        RequestOptions|array|null $requestOptions = null,
+    ): BaseResponse;
+
     /**
      * @api
      *
