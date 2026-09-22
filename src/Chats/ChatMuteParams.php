@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats;
+namespace OnlyFansAPI\Chats;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Mute notifications for a specific chat.
  *
- * @see Onlyfansapi\Services\ChatsService::mute()
+ * @see OnlyFansAPI\Services\ChatsService::mute()
  *
  * @phpstan-type ChatMuteParamsShape = array{account: string}
  */

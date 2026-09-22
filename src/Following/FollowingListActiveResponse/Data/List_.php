@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Following\FollowingListActiveResponse\Data;
+namespace OnlyFansAPI\Following\FollowingListActiveResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Following\FollowingListActiveResponse\Data\List_\AvatarThumbs;
-use Onlyfansapi\Following\FollowingListActiveResponse\Data\List_\HeaderSize;
-use Onlyfansapi\Following\FollowingListActiveResponse\Data\List_\HeaderThumbs;
-use Onlyfansapi\Following\FollowingListActiveResponse\Data\List_\ListsState;
-use Onlyfansapi\Following\FollowingListActiveResponse\Data\List_\SubscribedByData;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Following\FollowingListActiveResponse\Data\List_\AvatarThumbs;
+use OnlyFansAPI\Following\FollowingListActiveResponse\Data\List_\HeaderSize;
+use OnlyFansAPI\Following\FollowingListActiveResponse\Data\List_\HeaderThumbs;
+use OnlyFansAPI\Following\FollowingListActiveResponse\Data\List_\ListsState;
+use OnlyFansAPI\Following\FollowingListActiveResponse\Data\List_\SubscribedByData;
 
 /**
- * @phpstan-import-type AvatarThumbsShape from \Onlyfansapi\Following\FollowingListActiveResponse\Data\List_\AvatarThumbs
- * @phpstan-import-type HeaderSizeShape from \Onlyfansapi\Following\FollowingListActiveResponse\Data\List_\HeaderSize
- * @phpstan-import-type HeaderThumbsShape from \Onlyfansapi\Following\FollowingListActiveResponse\Data\List_\HeaderThumbs
- * @phpstan-import-type ListsStateShape from \Onlyfansapi\Following\FollowingListActiveResponse\Data\List_\ListsState
- * @phpstan-import-type SubscribedByDataShape from \Onlyfansapi\Following\FollowingListActiveResponse\Data\List_\SubscribedByData
+ * @phpstan-import-type AvatarThumbsShape from \OnlyFansAPI\Following\FollowingListActiveResponse\Data\List_\AvatarThumbs
+ * @phpstan-import-type HeaderSizeShape from \OnlyFansAPI\Following\FollowingListActiveResponse\Data\List_\HeaderSize
+ * @phpstan-import-type HeaderThumbsShape from \OnlyFansAPI\Following\FollowingListActiveResponse\Data\List_\HeaderThumbs
+ * @phpstan-import-type ListsStateShape from \OnlyFansAPI\Following\FollowingListActiveResponse\Data\List_\ListsState
+ * @phpstan-import-type SubscribedByDataShape from \OnlyFansAPI\Following\FollowingListActiveResponse\Data\List_\SubscribedByData
  *
  * @phpstan-type ListShape = array{
  *   id?: int|null,

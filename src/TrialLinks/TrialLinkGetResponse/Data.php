@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrialLinks\TrialLinkGetResponse;
+namespace OnlyFansAPI\TrialLinks\TrialLinkGetResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrialLinks\TrialLinkGetResponse\Data\Cost;
-use Onlyfansapi\TrialLinks\TrialLinkGetResponse\Data\Links;
-use Onlyfansapi\TrialLinks\TrialLinkGetResponse\Data\Revenue;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\TrialLinks\TrialLinkGetResponse\Data\Cost;
+use OnlyFansAPI\TrialLinks\TrialLinkGetResponse\Data\Links;
+use OnlyFansAPI\TrialLinks\TrialLinkGetResponse\Data\Revenue;
 
 /**
- * @phpstan-import-type CostShape from \Onlyfansapi\TrialLinks\TrialLinkGetResponse\Data\Cost
- * @phpstan-import-type LinksShape from \Onlyfansapi\TrialLinks\TrialLinkGetResponse\Data\Links
- * @phpstan-import-type RevenueShape from \Onlyfansapi\TrialLinks\TrialLinkGetResponse\Data\Revenue
+ * @phpstan-import-type CostShape from \OnlyFansAPI\TrialLinks\TrialLinkGetResponse\Data\Cost
+ * @phpstan-import-type LinksShape from \OnlyFansAPI\TrialLinks\TrialLinkGetResponse\Data\Links
+ * @phpstan-import-type RevenueShape from \OnlyFansAPI\TrialLinks\TrialLinkGetResponse\Data\Revenue
  *
  * @phpstan-type DataShape = array{
  *   id?: int|null,

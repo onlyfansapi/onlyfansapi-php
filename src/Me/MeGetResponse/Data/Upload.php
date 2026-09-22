@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Me\MeGetResponse\Data;
+namespace OnlyFansAPI\Me\MeGetResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Me\MeGetResponse\Data\Upload\GeoUploadArgs;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Me\MeGetResponse\Data\Upload\GeoUploadArgs;
 
 /**
- * @phpstan-import-type GeoUploadArgsShape from \Onlyfansapi\Me\MeGetResponse\Data\Upload\GeoUploadArgs
+ * @phpstan-import-type GeoUploadArgsShape from \OnlyFansAPI\Me\MeGetResponse\Data\Upload\GeoUploadArgs
  *
  * @phpstan-type UploadShape = array{
  *   geoUploadArgs?: null|GeoUploadArgs|GeoUploadArgsShape

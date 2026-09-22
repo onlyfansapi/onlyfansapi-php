@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Analytics\Summary\SummaryGetHistoricalPerformanceParams;
+namespace OnlyFansAPI\Analytics\Summary\SummaryGetHistoricalPerformanceParams;
 
 /**
  * The time range for historical data.

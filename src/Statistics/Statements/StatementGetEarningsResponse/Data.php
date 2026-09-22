@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics\Statements\StatementGetEarningsResponse;
+namespace OnlyFansAPI\Statistics\Statements\StatementGetEarningsResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Statistics\Statements\StatementGetEarningsResponse\Data\Total;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Statistics\Statements\StatementGetEarningsResponse\Data\Total;
 
 /**
- * @phpstan-import-type TotalShape from \Onlyfansapi\Statistics\Statements\StatementGetEarningsResponse\Data\Total
+ * @phpstan-import-type TotalShape from \OnlyFansAPI\Statistics\Statements\StatementGetEarningsResponse\Data\Total
  *
  * @phpstan-type DataShape = array{total?: null|Total|TotalShape}
  */

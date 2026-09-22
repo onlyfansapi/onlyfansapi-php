@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SavedForLater\Posts\PostListResponse;
+namespace OnlyFansAPI\SavedForLater\Posts\PostListResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SavedForLater\Posts\PostListResponse\Data\List_;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SavedForLater\Posts\PostListResponse\Data\List_;
 
 /**
- * @phpstan-import-type ListShape from \Onlyfansapi\SavedForLater\Posts\PostListResponse\Data\List_
+ * @phpstan-import-type ListShape from \OnlyFansAPI\SavedForLater\Posts\PostListResponse\Data\List_
  *
  * @phpstan-type DataShape = array{
  *   hasMore?: bool|null,

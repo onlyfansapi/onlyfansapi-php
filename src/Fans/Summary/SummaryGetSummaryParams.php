@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans\Summary;
+namespace OnlyFansAPI\Fans\Summary;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Retrieve the AI profile summary for a fan. Poll this endpoint after triggering a generation to check for completion.
  *
- * @see Onlyfansapi\Services\Fans\SummaryService::getSummary()
+ * @see OnlyFansAPI\Services\Fans\SummaryService::getSummary()
  *
  * @phpstan-type SummaryGetSummaryParamsShape = array{account: string}
  */

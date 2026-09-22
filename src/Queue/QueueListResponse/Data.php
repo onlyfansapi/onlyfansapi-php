@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Queue\QueueListResponse;
+namespace OnlyFansAPI\Queue\QueueListResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Queue\QueueListResponse\Data\List_;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Queue\QueueListResponse\Data\List_;
 
 /**
- * @phpstan-import-type ListShape from \Onlyfansapi\Queue\QueueListResponse\Data\List_
+ * @phpstan-import-type ListShape from \OnlyFansAPI\Queue\QueueListResponse\Data\List_
  *
  * @phpstan-type DataShape = array{
  *   list?: list<List_|ListShape>|null, syncInProcess?: bool|null

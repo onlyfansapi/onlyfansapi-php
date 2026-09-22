@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\ServiceContracts\SavedForLaterContract;
-use Onlyfansapi\Services\SavedForLater\MessagesService;
-use Onlyfansapi\Services\SavedForLater\PostsService;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\ServiceContracts\SavedForLaterContract;
+use OnlyFansAPI\Services\SavedForLater\MessagesService;
+use OnlyFansAPI\Services\SavedForLater\PostsService;
 
 final class SavedForLaterService implements SavedForLaterContract
 {

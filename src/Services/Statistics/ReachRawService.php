@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Statistics;
+namespace OnlyFansAPI\Services\Statistics;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Statistics\ReachRawContract;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsParams;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsParams\Filter;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsParams\Type;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember0;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Statistics\ReachRawContract;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsParams;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsParams\Filter;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsParams\Type;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember0;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class ReachRawService implements ReachRawContract
 {

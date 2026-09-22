@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\Messages\MessageListParams;
+namespace OnlyFansAPI\Chats\Messages\MessageListParams;
 
 /**
  * Filter by certain messages. Currently, only pins are filterable.

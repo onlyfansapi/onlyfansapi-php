@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Settings;
+namespace OnlyFansAPI\Services\Settings;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Settings\SocialMediaButtonsRawContract;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonAddParams;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonAddParams\Type;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonAddResponse;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonDeleteParams;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonListResponse;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonReorderParams;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonReorderResponse;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonUpdateParams;
-use Onlyfansapi\Settings\SocialMediaButtons\SocialMediaButtonUpdateResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Settings\SocialMediaButtonsRawContract;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonAddParams;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonAddParams\Type;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonAddResponse;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonDeleteParams;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonDeleteResponse;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonListResponse;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonReorderParams;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonReorderResponse;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonUpdateParams;
+use OnlyFansAPI\Settings\SocialMediaButtons\SocialMediaButtonUpdateResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class SocialMediaButtonsRawService implements SocialMediaButtonsRawContract
 {

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Users;
+namespace OnlyFansAPI\Users;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Save on credits by getting up to 10 user details with a single request. User details are retrieved using the current `{account}` so fields like `subscribedOnData` which include potential subscription details will be included.
  *
- * @see Onlyfansapi\Services\UsersService::list()
+ * @see OnlyFansAPI\Services\UsersService::list()
  *
  * @phpstan-type UserListParamsShape = array{ids: string}
  */

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\UserLists\UserListGetResponse;
+namespace OnlyFansAPI\UserLists\UserListGetResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\UserLists\UserListGetResponse\Data\User;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\UserLists\UserListGetResponse\Data\User;
 
 /**
- * @phpstan-import-type UserShape from \Onlyfansapi\UserLists\UserListGetResponse\Data\User
+ * @phpstan-import-type UserShape from \OnlyFansAPI\UserLists\UserListGetResponse\Data\User
  *
  * @phpstan-type DataShape = array{
  *   id?: int|null,

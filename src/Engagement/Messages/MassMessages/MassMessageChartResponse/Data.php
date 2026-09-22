@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Engagement\Messages\MassMessages\MassMessageChartResponse;
+namespace OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageChartResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageChartResponse\Data\GroupMessages;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageChartResponse\Data\GroupMessagesPurchases;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageChartResponse\Data\GroupMessages;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageChartResponse\Data\GroupMessagesPurchases;
 
 /**
- * @phpstan-import-type GroupMessagesShape from \Onlyfansapi\Engagement\Messages\MassMessages\MassMessageChartResponse\Data\GroupMessages
- * @phpstan-import-type GroupMessagesPurchasesShape from \Onlyfansapi\Engagement\Messages\MassMessages\MassMessageChartResponse\Data\GroupMessagesPurchases
+ * @phpstan-import-type GroupMessagesShape from \OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageChartResponse\Data\GroupMessages
+ * @phpstan-import-type GroupMessagesPurchasesShape from \OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageChartResponse\Data\GroupMessagesPurchases
  *
  * @phpstan-type DataShape = array{
  *   groupMessages?: null|GroupMessages|GroupMessagesShape,

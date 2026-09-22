@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Webhooks\WebhookCreateParams;
-use Onlyfansapi\Webhooks\WebhookGetResponse;
-use Onlyfansapi\Webhooks\WebhookListEventsResponse;
-use Onlyfansapi\Webhooks\WebhookListResponse;
-use Onlyfansapi\Webhooks\WebhookNewResponse;
-use Onlyfansapi\Webhooks\WebhookUpdateParams;
-use Onlyfansapi\Webhooks\WebhookUpdateResponse;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Webhooks\WebhookCreateParams;
+use OnlyFansAPI\Webhooks\WebhookGetResponse;
+use OnlyFansAPI\Webhooks\WebhookListEventsResponse;
+use OnlyFansAPI\Webhooks\WebhookListResponse;
+use OnlyFansAPI\Webhooks\WebhookNewResponse;
+use OnlyFansAPI\Webhooks\WebhookUpdateParams;
+use OnlyFansAPI\Webhooks\WebhookUpdateResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface WebhooksRawContract
 {

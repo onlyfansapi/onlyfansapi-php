@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\SharedTrackingLinks;
+namespace OnlyFansAPI\Services\SharedTrackingLinks;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\SharedTrackingLinks\TagsRawContract;
-use Onlyfansapi\SharedTrackingLinks\Tags\TagAddParams;
-use Onlyfansapi\SharedTrackingLinks\Tags\TagAddResponse;
-use Onlyfansapi\SharedTrackingLinks\Tags\TagListParams;
-use Onlyfansapi\SharedTrackingLinks\Tags\TagListResponse;
-use Onlyfansapi\SharedTrackingLinks\Tags\TagRemoveParams;
-use Onlyfansapi\SharedTrackingLinks\Tags\TagRemoveResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\SharedTrackingLinks\TagsRawContract;
+use OnlyFansAPI\SharedTrackingLinks\Tags\TagAddParams;
+use OnlyFansAPI\SharedTrackingLinks\Tags\TagAddResponse;
+use OnlyFansAPI\SharedTrackingLinks\Tags\TagListParams;
+use OnlyFansAPI\SharedTrackingLinks\Tags\TagListResponse;
+use OnlyFansAPI\SharedTrackingLinks\Tags\TagRemoveParams;
+use OnlyFansAPI\SharedTrackingLinks\Tags\TagRemoveResponse;
 
 /**
  * APIs for Tracking Links (campaigns) that other OF creators have shared with this account. Revenue, cost, and spender data are not available for shared campaigns.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class TagsRawService implements TagsRawContract
 {

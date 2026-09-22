@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrialLinks\Tags;
+namespace OnlyFansAPI\TrialLinks\Tags;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Remove tags from a specific free trial link. This is a free endpoint.
  *
- * @see Onlyfansapi\Services\TrialLinks\TagsService::remove()
+ * @see OnlyFansAPI\Services\TrialLinks\TagsService::remove()
  *
  * @phpstan-type TagRemoveParamsShape = array{account: string, tags: list<string>}
  */

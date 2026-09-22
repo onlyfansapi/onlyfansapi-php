@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Me\MeGetModelStartDateResponse;
-use Onlyfansapi\Me\MeGetResponse;
-use Onlyfansapi\Me\MeGetTopPercentageResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\MeRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Me\MeGetModelStartDateResponse;
+use OnlyFansAPI\Me\MeGetResponse;
+use OnlyFansAPI\Me\MeGetTopPercentageResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\MeRawContract;
 
 /**
  * Endpoints for your linked accounts.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class MeRawService implements MeRawContract
 {

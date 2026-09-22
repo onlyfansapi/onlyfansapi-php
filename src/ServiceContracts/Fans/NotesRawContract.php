@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Fans;
+namespace OnlyFansAPI\ServiceContracts\Fans;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Fans\Notes\NoteClearNotesParams;
-use Onlyfansapi\Fans\Notes\NoteClearNotesResponse;
-use Onlyfansapi\Fans\Notes\NoteCreateEditNotesParams;
-use Onlyfansapi\Fans\Notes\NoteGetNotesParams;
-use Onlyfansapi\Fans\Notes\NoteGetNotesResponse;
-use Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Fans\Notes\NoteClearNotesParams;
+use OnlyFansAPI\Fans\Notes\NoteClearNotesResponse;
+use OnlyFansAPI\Fans\Notes\NoteCreateEditNotesParams;
+use OnlyFansAPI\Fans\Notes\NoteGetNotesParams;
+use OnlyFansAPI\Fans\Notes\NoteGetNotesResponse;
+use OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface NotesRawContract
 {

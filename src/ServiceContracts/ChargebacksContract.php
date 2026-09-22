@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Chargebacks\ChargebackCalculateRatioResponse;
-use Onlyfansapi\Chargebacks\ChargebackListResponse;
-use Onlyfansapi\Chargebacks\ChargebackListStatisticsResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Chargebacks\ChargebackCalculateRatioResponse;
+use OnlyFansAPI\Chargebacks\ChargebackListResponse;
+use OnlyFansAPI\Chargebacks\ChargebackListStatisticsResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface ChargebacksContract
 {

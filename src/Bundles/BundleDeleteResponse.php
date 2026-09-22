@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Bundles;
+namespace OnlyFansAPI\Bundles;
 
-use Onlyfansapi\Bundles\BundleDeleteResponse\_Meta;
-use Onlyfansapi\Bundles\BundleDeleteResponse\Data;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Bundles\BundleDeleteResponse\_Meta;
+use OnlyFansAPI\Bundles\BundleDeleteResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Bundles\BundleDeleteResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Bundles\BundleDeleteResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Bundles\BundleDeleteResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Bundles\BundleDeleteResponse\Data
  *
  * @phpstan-type BundleDeleteResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

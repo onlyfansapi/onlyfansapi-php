@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files;
+namespace OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * @phpstan-type PreviewShape = array{

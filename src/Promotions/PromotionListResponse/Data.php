@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Promotions\PromotionListResponse;
+namespace OnlyFansAPI\Promotions\PromotionListResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Promotions\PromotionListResponse\Data\Item;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Promotions\PromotionListResponse\Data\Item;
 
 /**
- * @phpstan-import-type ItemShape from \Onlyfansapi\Promotions\PromotionListResponse\Data\Item
+ * @phpstan-import-type ItemShape from \OnlyFansAPI\Promotions\PromotionListResponse\Data\Item
  *
  * @phpstan-type DataShape = array{
  *   hasMore?: bool|null, items?: list<Item|ItemShape>|null

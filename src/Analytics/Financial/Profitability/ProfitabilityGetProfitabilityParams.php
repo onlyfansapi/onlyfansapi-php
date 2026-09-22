@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Analytics\Financial\Profitability;
+namespace OnlyFansAPI\Analytics\Financial\Profitability;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Calculate profitability for creators including revenue, costs, commissions, and margins for a specific month.
  *
- * @see Onlyfansapi\Services\Analytics\Financial\ProfitabilityService::getProfitability()
+ * @see OnlyFansAPI\Services\Analytics\Financial\ProfitabilityService::getProfitability()
  *
  * @phpstan-type ProfitabilityGetProfitabilityParamsShape = array{
  *   accountIDs: list<string>, month: int, year: int

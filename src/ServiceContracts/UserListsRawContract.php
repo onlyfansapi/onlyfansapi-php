@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\UserLists\UserListCreateParams;
-use Onlyfansapi\UserLists\UserListDeleteParams;
-use Onlyfansapi\UserLists\UserListDeleteResponse;
-use Onlyfansapi\UserLists\UserListGetResponse;
-use Onlyfansapi\UserLists\UserListListParams;
-use Onlyfansapi\UserLists\UserListListResponse;
-use Onlyfansapi\UserLists\UserListNewResponse;
-use Onlyfansapi\UserLists\UserListRetrieveParams;
-use Onlyfansapi\UserLists\UserListUpdateParams;
-use Onlyfansapi\UserLists\UserListUpdateResponse;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\UserLists\UserListCreateParams;
+use OnlyFansAPI\UserLists\UserListDeleteParams;
+use OnlyFansAPI\UserLists\UserListDeleteResponse;
+use OnlyFansAPI\UserLists\UserListGetResponse;
+use OnlyFansAPI\UserLists\UserListListParams;
+use OnlyFansAPI\UserLists\UserListListResponse;
+use OnlyFansAPI\UserLists\UserListNewResponse;
+use OnlyFansAPI\UserLists\UserListRetrieveParams;
+use OnlyFansAPI\UserLists\UserListUpdateParams;
+use OnlyFansAPI\UserLists\UserListUpdateResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface UserListsRawContract
 {

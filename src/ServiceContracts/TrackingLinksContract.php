@@ -2,23 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\TrackingLinks\TrackingLinkDeleteResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetCohortArpsParams\RevenueBasis;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkGetStatsResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkListParams\Sort;
-use Onlyfansapi\TrackingLinks\TrackingLinkListParams\Sortby;
-use Onlyfansapi\TrackingLinks\TrackingLinkListResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkListSpendersResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkListSubscribersResponse;
-use Onlyfansapi\TrackingLinks\TrackingLinkNewResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\TrackingLinks\TrackingLinkDeleteResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetCohortArpsParams\RevenueBasis;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkGetStatsResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\Pagination;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\Sort;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\Sortby;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListParams\WithDeleted;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListSpendersResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListSubscribersResponse;
+use OnlyFansAPI\TrackingLinks\TrackingLinkNewResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface TrackingLinksContract
 {
@@ -58,14 +60,15 @@ interface TrackingLinksContract
      * @api
      *
      * @param string $account The Account ID
-     * @param string|null $endDate The end date for Tracking Links. Keep empty to get all.
-     * @param int|null $limit The number of tracking links to return. Default `3`
-     * @param int|null $offset The offset used for pagination. Default `0`
-     * @param Sort|value-of<Sort>|null $sort Sort the results. Default `desc`
-     * @param Sortby|value-of<Sortby>|null $sortby Sort by subscriber count (claims), or creation date
-     * @param string|null $startDate The start date for Tracking Links. Keep empty to get all.
-     * @param bool|null $synchronous Wait for the revenue data to finish processing, instead of processing in the background. **Will result in longer response times, use with caution**. Default `false`
-     * @param bool|null $withDeleted Whether or not to include deleted tracking links in the response. Default `false`
+     * @param string|null $endDate The end date for tracking links. Keep empty to get all. Must not be greater than 255 characters.
+     * @param int $limit The number of tracking links to return. Default `10`. Must be at least 1. Must not be greater than 100.
+     * @param int $offset The offset used for pagination. Default `0`. Must be at least 0.
+     * @param Pagination|value-of<Pagination> $pagination
+     * @param Sort|value-of<Sort> $sort Sort direction. Default `desc`.
+     * @param Sortby|value-of<Sortby> $sortby sort by subscriber count (`claims`) or creation date (`created_date`)
+     * @param string|null $startDate The start date for tracking links. Keep empty to get all. Must not be greater than 255 characters.
+     * @param bool $synchronous wait for revenue calculation instead of processing it in the background
+     * @param WithDeleted|value-of<WithDeleted> $withDeleted Whether to include deleted tracking links. Default `true`.
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -75,11 +78,12 @@ interface TrackingLinksContract
         ?string $endDate = null,
         ?int $limit = null,
         ?int $offset = null,
+        Pagination|int|null $pagination = null,
         Sort|string|null $sort = null,
         Sortby|string|null $sortby = null,
         ?string $startDate = null,
         ?bool $synchronous = null,
-        ?bool $withDeleted = null,
+        WithDeleted|int|null $withDeleted = null,
         RequestOptions|array|null $requestOptions = null,
     ): TrackingLinkListResponse;
 

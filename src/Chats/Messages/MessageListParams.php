@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\Messages;
+namespace OnlyFansAPI\Chats\Messages;
 
-use Onlyfansapi\Chats\Messages\MessageListParams\Filter;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chats\Messages\MessageListParams\Filter;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * Get messages from a specific chat.
+ * Get messages from a specific chat. Use `filter=pinned` or [List Pinned Chat Messages](https://docs.onlyfansapi.com/api-reference/chat-messages/list-pinned-chat-messages) to retrieve only pinned messages. Follow `_pagination.next_page` until it is null; a short page can still have more results.
  *
- * @see Onlyfansapi\Services\Chats\MessagesService::list()
+ * @see OnlyFansAPI\Services\Chats\MessagesService::list()
  *
  * @phpstan-type MessageListParamsShape = array{
  *   account: string,
@@ -44,7 +44,7 @@ final class MessageListParams implements BaseModel
     public ?string $filter;
 
     /**
-     * Use for pagination when `order=desc` (newest to oldest). Include this message ID as the first message in the results. Used to retrieve messages from e.g. the Search Chat Messages endpoint IDs.
+     * Use for pagination when `order=desc` (newest to oldest). Pass the last message ID from the previous page to retrieve older messages, excluding that cursor message.
      */
     #[Optional(nullable: true)]
     public ?string $firstID;
@@ -68,7 +68,7 @@ final class MessageListParams implements BaseModel
     public ?string $order;
 
     /**
-     * Whether to skip user details (all or none).
+     * Whether to skip user details (`all` or `none`).
      */
     #[Optional]
     public ?string $skipUsers;
@@ -144,7 +144,7 @@ final class MessageListParams implements BaseModel
     }
 
     /**
-     * Use for pagination when `order=desc` (newest to oldest). Include this message ID as the first message in the results. Used to retrieve messages from e.g. the Search Chat Messages endpoint IDs.
+     * Use for pagination when `order=desc` (newest to oldest). Pass the last message ID from the previous page to retrieve older messages, excluding that cursor message.
      */
     public function withFirstID(?string $firstID): self
     {
@@ -188,7 +188,7 @@ final class MessageListParams implements BaseModel
     }
 
     /**
-     * Whether to skip user details (all or none).
+     * Whether to skip user details (`all` or `none`).
      */
     public function withSkipUsers(string $skipUsers): self
     {

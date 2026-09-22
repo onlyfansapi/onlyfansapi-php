@@ -2,60 +2,60 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi;
+namespace OnlyFansAPI;
 
 use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Discovery\Psr18ClientDiscovery;
-use Onlyfansapi\Core\BaseClient;
-use Onlyfansapi\Core\Implementation\StreamingHttpClient;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Services\AccountsService;
-use Onlyfansapi\Services\AnalyticsService;
-use Onlyfansapi\Services\AuthenticateService;
-use Onlyfansapi\Services\BankingService;
-use Onlyfansapi\Services\BundlesService;
-use Onlyfansapi\Services\ChargebacksService;
-use Onlyfansapi\Services\ChatsService;
-use Onlyfansapi\Services\ClientSessionsService;
-use Onlyfansapi\Services\DataExportsService;
-use Onlyfansapi\Services\EngagementService;
-use Onlyfansapi\Services\FansService;
-use Onlyfansapi\Services\FollowingService;
-use Onlyfansapi\Services\GiphyService;
-use Onlyfansapi\Services\LinkTagsService;
-use Onlyfansapi\Services\MassMessagingService;
-use Onlyfansapi\Services\MediaService;
-use Onlyfansapi\Services\MeService;
-use Onlyfansapi\Services\MessagesService;
-use Onlyfansapi\Services\NotificationsService;
-use Onlyfansapi\Services\PayoutsService;
-use Onlyfansapi\Services\PostsService;
-use Onlyfansapi\Services\ProfilesService;
-use Onlyfansapi\Services\PromotionsService;
-use Onlyfansapi\Services\QueueService;
-use Onlyfansapi\Services\ReleaseFormsService;
-use Onlyfansapi\Services\SavedForLaterService;
-use Onlyfansapi\Services\SearchService;
-use Onlyfansapi\Services\SettingsService;
-use Onlyfansapi\Services\SharedTrackingLinksService;
-use Onlyfansapi\Services\SharedTrialLinksService;
-use Onlyfansapi\Services\SmartLinkPostbacksService;
-use Onlyfansapi\Services\SmartLinksService;
-use Onlyfansapi\Services\StatisticsService;
-use Onlyfansapi\Services\StoredService;
-use Onlyfansapi\Services\StoriesService;
-use Onlyfansapi\Services\SubscribersService;
-use Onlyfansapi\Services\TrackingLinksService;
-use Onlyfansapi\Services\TransactionsService;
-use Onlyfansapi\Services\TrialLinksService;
-use Onlyfansapi\Services\UserListsService;
-use Onlyfansapi\Services\UsersService;
-use Onlyfansapi\Services\WebhooksService;
-use Onlyfansapi\Services\WhoamiService;
+use OnlyFansAPI\Core\BaseClient;
+use OnlyFansAPI\Core\Implementation\StreamingHttpClient;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Services\AccountsService;
+use OnlyFansAPI\Services\AnalyticsService;
+use OnlyFansAPI\Services\AuthenticateService;
+use OnlyFansAPI\Services\BankingService;
+use OnlyFansAPI\Services\BundlesService;
+use OnlyFansAPI\Services\ChargebacksService;
+use OnlyFansAPI\Services\ChatsService;
+use OnlyFansAPI\Services\ClientSessionsService;
+use OnlyFansAPI\Services\DataExportsService;
+use OnlyFansAPI\Services\EngagementService;
+use OnlyFansAPI\Services\FansService;
+use OnlyFansAPI\Services\FollowingService;
+use OnlyFansAPI\Services\GiphyService;
+use OnlyFansAPI\Services\LinkTagsService;
+use OnlyFansAPI\Services\MassMessagingService;
+use OnlyFansAPI\Services\MediaService;
+use OnlyFansAPI\Services\MeService;
+use OnlyFansAPI\Services\MessagesService;
+use OnlyFansAPI\Services\NotificationsService;
+use OnlyFansAPI\Services\PayoutsService;
+use OnlyFansAPI\Services\PostsService;
+use OnlyFansAPI\Services\ProfilesService;
+use OnlyFansAPI\Services\PromotionsService;
+use OnlyFansAPI\Services\QueueService;
+use OnlyFansAPI\Services\ReleaseFormsService;
+use OnlyFansAPI\Services\SavedForLaterService;
+use OnlyFansAPI\Services\SearchService;
+use OnlyFansAPI\Services\SettingsService;
+use OnlyFansAPI\Services\SharedTrackingLinksService;
+use OnlyFansAPI\Services\SharedTrialLinksService;
+use OnlyFansAPI\Services\SmartLinkPostbacksService;
+use OnlyFansAPI\Services\SmartLinksService;
+use OnlyFansAPI\Services\StatisticsService;
+use OnlyFansAPI\Services\StoredService;
+use OnlyFansAPI\Services\StoriesService;
+use OnlyFansAPI\Services\SubscribersService;
+use OnlyFansAPI\Services\TrackingLinksService;
+use OnlyFansAPI\Services\TransactionsService;
+use OnlyFansAPI\Services\TrialLinksService;
+use OnlyFansAPI\Services\UserListsService;
+use OnlyFansAPI\Services\UsersService;
+use OnlyFansAPI\Services\WebhooksService;
+use OnlyFansAPI\Services\WhoamiService;
 
 /**
- * @phpstan-import-type NormalizedRequest from \Onlyfansapi\Core\BaseClient
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type NormalizedRequest from \OnlyFansAPI\Core\BaseClient
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 class Client extends BaseClient
 {

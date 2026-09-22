@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts\PostNewResponse;
+namespace OnlyFansAPI\Posts\PostNewResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Posts\PostNewResponse\Data\Author;
-use Onlyfansapi\Posts\PostNewResponse\Data\Media;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Posts\PostNewResponse\Data\Author;
+use OnlyFansAPI\Posts\PostNewResponse\Data\Media;
 
 /**
- * @phpstan-import-type AuthorShape from \Onlyfansapi\Posts\PostNewResponse\Data\Author
- * @phpstan-import-type MediaShape from \Onlyfansapi\Posts\PostNewResponse\Data\Media
+ * @phpstan-import-type AuthorShape from \OnlyFansAPI\Posts\PostNewResponse\Data\Author
+ * @phpstan-import-type MediaShape from \OnlyFansAPI\Posts\PostNewResponse\Data\Media
  *
  * @phpstan-type DataShape = array{
  *   id?: int|null,

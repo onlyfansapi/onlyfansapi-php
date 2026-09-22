@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media;
+namespace OnlyFansAPI\Media;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * Downloads a file directly from a `https://cdn*.onlyfans.com/*` URL. When the file is already cached on our CDN, this endpoint returns a `302` redirect to a `https://cdn.fansapi.com/*` URL. Most HTTP clients follow redirects automatically (`curl` requires `-L`). Otherwise, the file is streamed through our proxies and queued for caching.
+ * Downloads a file from a `https://cdn*.onlyfans.com/*` URL through a `302` redirect. Follow redirects (`curl -L`). Cached `cdn.fansapi.com` files are free; otherwise `dl.fansapi.com` streams through the account proxy. Send one `Range: bytes=start-end` header to request a chunk for playback or a preview. A supported range returns `206`, `Content-Range`, and the chunk Content-Length; an upstream that ignores Range can return a full `200`, so check the response. Each nonempty transfer costs 3 credits per decimal MB streamed (minimum 1 credit). Credits for the selected response are reserved before streaming; unused reserved credits are released on completion, including an interrupted transfer. HEAD follows the same redirects and returns metadata without a body or download charge. HEAD does not populate the media cache. This regular endpoint does not decrypt DRM media.
  *
- * @see Onlyfansapi\Services\MediaService::download()
+ * @see OnlyFansAPI\Services\MediaService::download()
  *
  * @phpstan-type MediaDownloadParamsShape = array{account: string}
  */

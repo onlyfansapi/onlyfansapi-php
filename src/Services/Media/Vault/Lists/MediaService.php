@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Media\Vault\Lists;
+namespace OnlyFansAPI\Services\Media\Vault\Lists;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Media\Vault\Lists\Media\MediaAddResponse;
-use Onlyfansapi\Media\Vault\Lists\Media\MediaRemoveResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Media\Vault\Lists\MediaContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Media\Vault\Lists\Media\MediaAddResponse;
+use OnlyFansAPI\Media\Vault\Lists\Media\MediaRemoveResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Media\Vault\Lists\MediaContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class MediaService implements MediaContract
 {

@@ -2,29 +2,29 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\TrialLinks\TrialLinkCreateParams;
-use Onlyfansapi\TrialLinks\TrialLinkDeleteParams;
-use Onlyfansapi\TrialLinks\TrialLinkDeleteResponse;
-use Onlyfansapi\TrialLinks\TrialLinkGetResponse;
-use Onlyfansapi\TrialLinks\TrialLinkGetStatsResponse;
-use Onlyfansapi\TrialLinks\TrialLinkListParams;
-use Onlyfansapi\TrialLinks\TrialLinkListResponse;
-use Onlyfansapi\TrialLinks\TrialLinkListSpendersParams;
-use Onlyfansapi\TrialLinks\TrialLinkListSpendersResponse;
-use Onlyfansapi\TrialLinks\TrialLinkListSubscribersParams;
-use Onlyfansapi\TrialLinks\TrialLinkListSubscribersResponse;
-use Onlyfansapi\TrialLinks\TrialLinkNewResponse;
-use Onlyfansapi\TrialLinks\TrialLinkRetrieveCohortArpsParams;
-use Onlyfansapi\TrialLinks\TrialLinkRetrieveParams;
-use Onlyfansapi\TrialLinks\TrialLinkRetrieveStatsParams;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\TrialLinks\TrialLinkCreateParams;
+use OnlyFansAPI\TrialLinks\TrialLinkDeleteParams;
+use OnlyFansAPI\TrialLinks\TrialLinkDeleteResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkGetResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkGetStatsResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkListParams;
+use OnlyFansAPI\TrialLinks\TrialLinkListResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkListSpendersParams;
+use OnlyFansAPI\TrialLinks\TrialLinkListSpendersResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkListSubscribersParams;
+use OnlyFansAPI\TrialLinks\TrialLinkListSubscribersResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkNewResponse;
+use OnlyFansAPI\TrialLinks\TrialLinkRetrieveCohortArpsParams;
+use OnlyFansAPI\TrialLinks\TrialLinkRetrieveParams;
+use OnlyFansAPI\TrialLinks\TrialLinkRetrieveStatsParams;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface TrialLinksRawContract
 {

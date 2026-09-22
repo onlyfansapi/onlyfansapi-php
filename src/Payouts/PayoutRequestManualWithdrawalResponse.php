@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Payouts;
+namespace OnlyFansAPI\Payouts;
 
-use Onlyfansapi\Core\Concerns\SdkUnion;
-use Onlyfansapi\Core\Conversion\Contracts\Converter;
-use Onlyfansapi\Core\Conversion\Contracts\ConverterSource;
-use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember0;
-use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1;
+use OnlyFansAPI\Core\Concerns\SdkUnion;
+use OnlyFansAPI\Core\Conversion\Contracts\Converter;
+use OnlyFansAPI\Core\Conversion\Contracts\ConverterSource;
+use OnlyFansAPI\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember0;
+use OnlyFansAPI\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1;
 
 /**
- * @phpstan-import-type UnionMember0Shape from \Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember0
- * @phpstan-import-type UnionMember1Shape from \Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1
+ * @phpstan-import-type UnionMember0Shape from \OnlyFansAPI\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember0
+ * @phpstan-import-type UnionMember1Shape from \OnlyFansAPI\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1
  *
  * @phpstan-type PayoutRequestManualWithdrawalResponseVariants = UnionMember0|UnionMember1
  * @phpstan-type PayoutRequestManualWithdrawalResponseShape = PayoutRequestManualWithdrawalResponseVariants|UnionMember0Shape|UnionMember1Shape

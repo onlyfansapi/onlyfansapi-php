@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts;
+namespace OnlyFansAPI\Posts;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Archive a post from your account. Also can be used to move posts between the Regular and Private Archive.
  *
- * @see Onlyfansapi\Services\PostsService::archive()
+ * @see OnlyFansAPI\Services\PostsService::archive()
  *
  * @phpstan-type PostArchiveParamsShape = array{
  *   account: string, privateArchive?: bool|null

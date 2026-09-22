@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Accounts;
+namespace OnlyFansAPI\Accounts;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * List all connected OnlyFans accounts.
  *
- * @see Onlyfansapi\Services\AccountsService::list()
+ * @see OnlyFansAPI\Services\AccountsService::list()
  *
  * @phpstan-type AccountListParamsShape = array{
  *   onlyfansEmail?: string|null,

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse;
+namespace OnlyFansAPI\Payouts\PayoutRequestManualWithdrawalResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1\_Meta;
-use Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1\_Meta;
+use OnlyFansAPI\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Payouts\PayoutRequestManualWithdrawalResponse\UnionMember1\Data
  *
  * @phpstan-type UnionMember1Shape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

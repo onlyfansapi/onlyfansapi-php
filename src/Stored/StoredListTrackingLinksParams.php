@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stored;
+namespace OnlyFansAPI\Stored;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Stored\StoredListTrackingLinksParams\Filter;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Stored\StoredListTrackingLinksParams\Filter;
 
 /**
  * List all stored tracking links from the OnlyFansAPI Cache. This is a free endpoint that does not call the OnlyFans API.
  *
- * @see Onlyfansapi\Services\StoredService::listTrackingLinks()
+ * @see OnlyFansAPI\Services\StoredService::listTrackingLinks()
  *
- * @phpstan-import-type FilterShape from \Onlyfansapi\Stored\StoredListTrackingLinksParams\Filter
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Stored\StoredListTrackingLinksParams\Filter
  *
  * @phpstan-type StoredListTrackingLinksParamsShape = array{
  *   filter?: null|Filter|FilterShape, limit?: int|null, offset?: int|null

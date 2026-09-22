@@ -2,24 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Posts\PostArchiveResponse;
-use Onlyfansapi\Posts\PostCreateParams\VotingType;
-use Onlyfansapi\Posts\PostDeleteResponse;
-use Onlyfansapi\Posts\PostGetResponse;
-use Onlyfansapi\Posts\PostListParams\Order;
-use Onlyfansapi\Posts\PostListParams\Sort;
-use Onlyfansapi\Posts\PostListResponse;
-use Onlyfansapi\Posts\PostNewResponse;
-use Onlyfansapi\Posts\PostPinResponse;
-use Onlyfansapi\Posts\PostStatsResponse;
-use Onlyfansapi\Posts\PostUnarchiveResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Posts\PostArchiveResponse;
+use OnlyFansAPI\Posts\PostCreateParams\BlockBannedWords;
+use OnlyFansAPI\Posts\PostCreateParams\VotingType;
+use OnlyFansAPI\Posts\PostDeleteResponse;
+use OnlyFansAPI\Posts\PostGetResponse;
+use OnlyFansAPI\Posts\PostListParams\Order;
+use OnlyFansAPI\Posts\PostListParams\Sort;
+use OnlyFansAPI\Posts\PostListResponse;
+use OnlyFansAPI\Posts\PostNewResponse;
+use OnlyFansAPI\Posts\PostPinResponse;
+use OnlyFansAPI\Posts\PostStatsResponse;
+use OnlyFansAPI\Posts\PostUnarchiveResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface PostsContract
 {
@@ -28,6 +29,7 @@ interface PostsContract
      *
      * @param string $account The Account ID
      * @param string $text The post text content
+     * @param BlockBannedWords|value-of<BlockBannedWords> $blockBannedWords Screen `text` for OnlyFans banned words and block the post if any are found (returns a 422 listing the offending words). `strict_ban` blocks all tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften only. Omit to disable screening.
      * @param int $expireDays Number of days after which the post will expire. Between 1 and 30 days. Keep empty for no expiration.
      * @param int $fundRaisingTargetAmount Add a fundraising target to your post. If present, value must be at least 10.
      * @param list<string> $fundRaisingTipsPresets Specify which tip amounts will be listed under the fundraising card. Required with `fundRaisingTargetAmount`, and you must provide at least 1 option. Array items cannot be higher than the `fundRaisingTargetAmount`.
@@ -48,6 +50,7 @@ interface PostsContract
     public function create(
         string $account,
         string $text,
+        BlockBannedWords|string|null $blockBannedWords = null,
         ?int $expireDays = null,
         ?int $fundRaisingTargetAmount = null,
         ?array $fundRaisingTipsPresets = null,
@@ -85,6 +88,7 @@ interface PostsContract
      * @param int $postID Path param: The ID of the post
      * @param string $account Path param: The Account ID
      * @param string $text Body param: The post text content
+     * @param \OnlyFansAPI\Posts\PostUpdateParams\BlockBannedWords|value-of<\OnlyFansAPI\Posts\PostUpdateParams\BlockBannedWords> $blockBannedWords Body param: Screen `text` for OnlyFans banned words and block the update if any are found (returns a 422 listing the offending words). `strict_ban` blocks all tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften only. Omit to disable screening.
      * @param int $expireDays Body param: Number of days after which the post will expire. Between 1 and 30 days. Keep empty for no expiration.
      * @param int $fundRaisingTargetAmount Body param: Add a fundraising target to your post. If present, value must be at least 10.
      * @param list<string> $fundRaisingTipsPresets Body param: Specify which tip amounts will be listed under the fundraising card. Required with `fundRaisingTargetAmount`, and you must provide at least 1 option. Array items cannot be higher than the `fundRaisingTargetAmount`.
@@ -97,7 +101,7 @@ interface PostsContract
      * @param int $votingCorrectIndex Body param: The array key of your quiz' correct answer. Required when `votingType` is "quiz". Keep in mind that arrays start at `0`
      * @param int $votingDue Body param: The due date (in days) of your poll/quiz. Can be 1, 3, 7 or 30 days. Can only be filled with `votingType`.
      * @param list<string> $votingOptions Body param: The options of your poll/quiz. Required with `votingType`.
-     * @param \Onlyfansapi\Posts\PostUpdateParams\VotingType|value-of<\Onlyfansapi\Posts\PostUpdateParams\VotingType> $votingType body param: Include a poll or quiz within your post
+     * @param \OnlyFansAPI\Posts\PostUpdateParams\VotingType|value-of<\OnlyFansAPI\Posts\PostUpdateParams\VotingType> $votingType body param: Include a poll or quiz within your post
      * @param RequestOpts|null $requestOptions
      *
      * @throws APIException
@@ -106,6 +110,7 @@ interface PostsContract
         int $postID,
         string $account,
         string $text,
+        \OnlyFansAPI\Posts\PostUpdateParams\BlockBannedWords|string|null $blockBannedWords = null,
         ?int $expireDays = null,
         ?int $fundRaisingTargetAmount = null,
         ?array $fundRaisingTipsPresets = null,
@@ -118,7 +123,7 @@ interface PostsContract
         ?int $votingCorrectIndex = null,
         ?int $votingDue = null,
         ?array $votingOptions = null,
-        \Onlyfansapi\Posts\PostUpdateParams\VotingType|string|null $votingType = null,
+        \OnlyFansAPI\Posts\PostUpdateParams\VotingType|string|null $votingType = null,
         RequestOptions|array|null $requestOptions = null,
     ): string;
 

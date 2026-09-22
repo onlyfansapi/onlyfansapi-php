@@ -1,9 +1,9 @@
 <?php
 
-namespace Onlyfansapi\Core\Exceptions;
+namespace OnlyFansAPI\Core\Exceptions;
 
 class PermissionDeniedException extends APIStatusException
 {
     /** @var string */
-    protected const DESC = 'Onlyfansapi Permission Denied Exception';
+    protected const DESC = 'OnlyFansAPI Permission Denied Exception';
 }

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data\TopCountries;
+namespace OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data\TopCountries;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data\TopCountries\Row\ViewsCount;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data\TopCountries\Row\ViewsCount;
 
 /**
- * @phpstan-import-type ViewsCountShape from \Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data\TopCountries\Row\ViewsCount
+ * @phpstan-import-type ViewsCountShape from \OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember2\Data\TopCountries\Row\ViewsCount
  *
  * @phpstan-type RowShape = array{
  *   countryCode?: string|null,

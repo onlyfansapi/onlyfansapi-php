@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Authenticate;
+namespace OnlyFansAPI\Authenticate;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Submit the 2FA code, or Selfie Verification status, for the authentication process.
  *
- * @see Onlyfansapi\Services\AuthenticateService::submit2fa()
+ * @see OnlyFansAPI\Services\AuthenticateService::submit2fa()
  *
  * @phpstan-type AuthenticateSubmit2faParamsShape = array{
  *   code?: string|null, selfieVerificationCompleted?: mixed

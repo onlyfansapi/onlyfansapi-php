@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Bundles;
+namespace OnlyFansAPI\Bundles;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Delete a bundle for the account.
  *
- * @see Onlyfansapi\Services\BundlesService::delete()
+ * @see OnlyFansAPI\Services\BundlesService::delete()
  *
  * @phpstan-type BundleDeleteParamsShape = array{account: string}
  */

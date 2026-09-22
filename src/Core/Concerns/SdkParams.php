@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Core\Concerns;
+namespace OnlyFansAPI\Core\Concerns;
 
-use Onlyfansapi\Core\Conversion;
-use Onlyfansapi\Core\Conversion\DumpState;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Conversion;
+use OnlyFansAPI\Core\Conversion\DumpState;
+use OnlyFansAPI\RequestOptions;
 
 /**
  * @internal

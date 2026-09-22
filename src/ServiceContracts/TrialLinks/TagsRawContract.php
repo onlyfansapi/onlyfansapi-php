@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\TrialLinks;
+namespace OnlyFansAPI\ServiceContracts\TrialLinks;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\TrialLinks\Tags\TagAddParams;
-use Onlyfansapi\TrialLinks\Tags\TagAddResponse;
-use Onlyfansapi\TrialLinks\Tags\TagListParams;
-use Onlyfansapi\TrialLinks\Tags\TagListResponse;
-use Onlyfansapi\TrialLinks\Tags\TagRemoveParams;
-use Onlyfansapi\TrialLinks\Tags\TagRemoveResponse;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\TrialLinks\Tags\TagAddParams;
+use OnlyFansAPI\TrialLinks\Tags\TagAddResponse;
+use OnlyFansAPI\TrialLinks\Tags\TagListParams;
+use OnlyFansAPI\TrialLinks\Tags\TagListResponse;
+use OnlyFansAPI\TrialLinks\Tags\TagRemoveParams;
+use OnlyFansAPI\TrialLinks\Tags\TagRemoveResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface TagsRawContract
 {

@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\Vault;
+namespace OnlyFansAPI\Media\Vault;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Media\Vault\VaultListParams\Field;
-use Onlyfansapi\Media\Vault\VaultListParams\Sort;
-use Onlyfansapi\Media\Vault\VaultListParams\Type;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Media\Vault\VaultListParams\Field;
+use OnlyFansAPI\Media\Vault\VaultListParams\Sort;
+use OnlyFansAPI\Media\Vault\VaultListParams\Type;
 
 /**
  * List media items stored in your vault. See how many likes and how much tips did they get.
  *
- * @see Onlyfansapi\Services\Media\VaultService::list()
+ * @see OnlyFansAPI\Services\Media\VaultService::list()
  *
  * @phpstan-type VaultListParamsShape = array{
  *   field?: null|Field|value-of<Field>,

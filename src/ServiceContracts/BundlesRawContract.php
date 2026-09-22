@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Bundles\BundleCreateParams;
-use Onlyfansapi\Bundles\BundleDeleteParams;
-use Onlyfansapi\Bundles\BundleDeleteResponse;
-use Onlyfansapi\Bundles\BundleListResponse;
-use Onlyfansapi\Bundles\BundleNewResponse;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Bundles\BundleCreateParams;
+use OnlyFansAPI\Bundles\BundleDeleteParams;
+use OnlyFansAPI\Bundles\BundleDeleteResponse;
+use OnlyFansAPI\Bundles\BundleListResponse;
+use OnlyFansAPI\Bundles\BundleNewResponse;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface BundlesRawContract
 {

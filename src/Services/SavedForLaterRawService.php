@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\ServiceContracts\SavedForLaterRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\ServiceContracts\SavedForLaterRawContract;
 
 final class SavedForLaterRawService implements SavedForLaterRawContract
 {

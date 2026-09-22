@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\FirstName;
+namespace OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\FirstName;
 
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\FirstName\Oninput\Replace;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\FirstName\Oninput\Replace;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type ReplaceShape from \Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\FirstName\Oninput\Replace
+ * @phpstan-import-type ReplaceShape from \OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\FirstName\Oninput\Replace
  *
  * @phpstan-type OninputShape = array{replace?: null|Replace|ReplaceShape}
  */

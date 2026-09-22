@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Settings;
+namespace OnlyFansAPI\Services\Settings;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Settings\WelcomeMessageRawContract;
-use Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageGetResponse;
-use Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageToggleParams;
-use Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageToggleResponse;
-use Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageUpdateParams;
-use Onlyfansapi\Settings\WelcomeMessage\WelcomeMessageUpdateResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Settings\WelcomeMessageRawContract;
+use OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageGetResponse;
+use OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageToggleParams;
+use OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageToggleResponse;
+use OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageUpdateParams;
+use OnlyFansAPI\Settings\WelcomeMessage\WelcomeMessageUpdateResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class WelcomeMessageRawService implements WelcomeMessageRawContract
 {

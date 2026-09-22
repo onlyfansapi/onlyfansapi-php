@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\ServiceContracts\AnalyticsRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\ServiceContracts\AnalyticsRawContract;
 
 final class AnalyticsRawService implements AnalyticsRawContract
 {
