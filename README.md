@@ -1,8 +1,13 @@
-# Only Fans API PHP API library
+# OnlyFans PHP SDK
 
-The Only Fans API PHP library provides convenient access to the Only Fans API REST API from any PHP 8.1.0+ application.
+[![Packagist version](https://img.shields.io/packagist/v/onlyfansapi/onlyfansapi-php.svg)](https://packagist.org/packages/onlyfansapi/onlyfansapi-php)
 
-It is generated with [Stainless](https://www.stainless.com/).
+The OnlyFans PHP SDK for the [OnlyFans API](https://onlyfansapi.com). Install with Composer and call any OnlyFans API endpoint from PHP 8.1+ or Laravel, with typed responses, automatic retries and webhook examples.
+
+- **OnlyFans PHP SDK guide:** [onlyfansapi.com/sdk/php](https://onlyfansapi.com/sdk/php)
+- **OnlyFans API:** [onlyfansapi.com](https://onlyfansapi.com)
+- **API reference:** [docs.onlyfansapi.com](https://docs.onlyfansapi.com)
+- **Get an API key:** [app.onlyfansapi.com](https://app.onlyfansapi.com)
 
 ## Documentation
 
@@ -10,25 +15,11 @@ The REST API documentation can be found on [docs.onlyfansapi.com](https://docs.o
 
 ## Installation
 
-To use this package, install via Composer by adding the following to your application's `composer.json`:
+To use this package, install it from [Packagist](https://packagist.org/packages/onlyfansapi/onlyfansapi-php) with Composer:
 
-<!-- x-release-please-start-version -->
-
-```json
-{
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "git@github.com:onlyfansapi/onlyfansapi-php.git"
-    }
-  ],
-  "require": {
-    "onlyfansapi/onlyfansapi-php": "dev-main"
-  }
-}
+```sh
+composer require onlyfansapi/onlyfansapi-php
 ```
-
-<!-- x-release-please-end -->
 
 ## Usage
 
