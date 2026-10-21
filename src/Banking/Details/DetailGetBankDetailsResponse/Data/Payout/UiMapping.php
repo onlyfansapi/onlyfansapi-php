@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout;
+namespace OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout;
 
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\UiMapping\Alert;
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\UiMapping\BtnSubmit;
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\UiMapping\Title;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\UiMapping\Alert;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\UiMapping\BtnSubmit;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\UiMapping\Title;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type AlertShape from \Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\UiMapping\Alert
- * @phpstan-import-type BtnSubmitShape from \Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\UiMapping\BtnSubmit
- * @phpstan-import-type TitleShape from \Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\UiMapping\Title
+ * @phpstan-import-type AlertShape from \OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\UiMapping\Alert
+ * @phpstan-import-type BtnSubmitShape from \OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\UiMapping\BtnSubmit
+ * @phpstan-import-type TitleShape from \OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\UiMapping\Title
  *
  * @phpstan-type UiMappingShape = array{
  *   alert?: null|Alert|AlertShape,

@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Fans;
+namespace OnlyFansAPI\Services\Fans;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Fans\Notes\NoteClearNotesResponse;
-use Onlyfansapi\Fans\Notes\NoteGetNotesResponse;
-use Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Fans\NotesContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Fans\Notes\NoteClearNotesResponse;
+use OnlyFansAPI\Fans\Notes\NoteGetNotesResponse;
+use OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Fans\NotesContract;
 
 /**
  * APIs for managing OnlyFans fans (subscribers).
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class NotesService implements NotesContract
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinks\SmartLinkCreateParams;
+namespace OnlyFansAPI\SmartLinks\SmartLinkCreateParams;
 
 /**
  * The type of Smart Link to create.

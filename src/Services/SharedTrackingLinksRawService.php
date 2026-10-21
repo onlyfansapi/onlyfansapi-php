@@ -2,22 +2,26 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\SharedTrackingLinksRawContract;
-use Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkListParams;
-use Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkListResponse;
-use Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkRevokeAccessParams;
-use Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkRevokeAccessResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\SharedTrackingLinksRawContract;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListParams;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListParams\Pagination;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListParams\SortingDeleted;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListParams\WithDeleted;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListResponse;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkRevokeAccessParams;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkRevokeAccessResponse;
 
 /**
  * APIs for Tracking Links (campaigns) that other OF creators have shared with this account. Revenue, cost, and spender data are not available for shared campaigns.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class SharedTrackingLinksRawService implements SharedTrackingLinksRawContract
 {
@@ -34,7 +38,13 @@ final class SharedTrackingLinksRawService implements SharedTrackingLinksRawContr
      *
      * @param string $account The Account ID
      * @param array{
-     *   limit?: int, offset?: int, synchronous?: bool|null
+     *   limit?: int,
+     *   offset?: int,
+     *   pagination?: Pagination|value-of<Pagination>,
+     *   sortingDeleted?: SortingDeleted|value-of<SortingDeleted>,
+     *   stats?: string,
+     *   synchronous?: bool,
+     *   withDeleted?: WithDeleted|value-of<WithDeleted>,
      * }|SharedTrackingLinkListParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -56,7 +66,12 @@ final class SharedTrackingLinksRawService implements SharedTrackingLinksRawContr
         return $this->client->request(
             method: 'get',
             path: ['api/%1$s/shared-tracking-links', $account],
-            query: $parsed,
+            query: Util::array_transform_keys(
+                $parsed,
+                [
+                    'sortingDeleted' => 'sorting_deleted', 'withDeleted' => 'with_deleted',
+                ],
+            ),
             options: $options,
             convert: SharedTrackingLinkListResponse::class,
         );

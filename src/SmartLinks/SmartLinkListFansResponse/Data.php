@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinks\SmartLinkListFansResponse;
+namespace OnlyFansAPI\SmartLinks\SmartLinkListFansResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SmartLinks\SmartLinkListFansResponse\Data\Filters;
-use Onlyfansapi\SmartLinks\SmartLinkListFansResponse\Data\Row;
-use Onlyfansapi\SmartLinks\SmartLinkListFansResponse\Data\Summary;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SmartLinks\SmartLinkListFansResponse\Data\Filters;
+use OnlyFansAPI\SmartLinks\SmartLinkListFansResponse\Data\Row;
+use OnlyFansAPI\SmartLinks\SmartLinkListFansResponse\Data\Summary;
 
 /**
- * @phpstan-import-type FiltersShape from \Onlyfansapi\SmartLinks\SmartLinkListFansResponse\Data\Filters
- * @phpstan-import-type RowShape from \Onlyfansapi\SmartLinks\SmartLinkListFansResponse\Data\Row
- * @phpstan-import-type SummaryShape from \Onlyfansapi\SmartLinks\SmartLinkListFansResponse\Data\Summary
+ * @phpstan-import-type FiltersShape from \OnlyFansAPI\SmartLinks\SmartLinkListFansResponse\Data\Filters
+ * @phpstan-import-type RowShape from \OnlyFansAPI\SmartLinks\SmartLinkListFansResponse\Data\Row
+ * @phpstan-import-type SummaryShape from \OnlyFansAPI\SmartLinks\SmartLinkListFansResponse\Data\Summary
  *
  * @phpstan-type DataShape = array{
  *   filters?: null|Filters|FiltersShape,

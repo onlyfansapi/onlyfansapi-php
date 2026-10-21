@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrialLinks\TrialLinkCreateParams;
+namespace OnlyFansAPI\TrialLinks\TrialLinkCreateParams;
 
 /**
  * The duration of the free trial **in days**. Must be **1**, **3**, **7**, **14**, **30** (1 month), **90** (3 months), **180** (6 months), or **360** (12 months).

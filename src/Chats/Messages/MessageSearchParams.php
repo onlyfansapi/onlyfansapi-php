@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\Messages;
+namespace OnlyFansAPI\Chats\Messages;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Search messages in a specific chat. Returns a list of message IDs matching the search query.
  *
- * @see Onlyfansapi\Services\Chats\MessagesService::search()
+ * @see OnlyFansAPI\Services\Chats\MessagesService::search()
  *
  * @phpstan-type MessageSearchParamsShape = array{account: string, query: string}
  */

@@ -2,26 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\UserListsRawContract;
-use Onlyfansapi\UserLists\UserListCreateParams;
-use Onlyfansapi\UserLists\UserListDeleteParams;
-use Onlyfansapi\UserLists\UserListDeleteResponse;
-use Onlyfansapi\UserLists\UserListGetResponse;
-use Onlyfansapi\UserLists\UserListListParams;
-use Onlyfansapi\UserLists\UserListListResponse;
-use Onlyfansapi\UserLists\UserListNewResponse;
-use Onlyfansapi\UserLists\UserListRetrieveParams;
-use Onlyfansapi\UserLists\UserListUpdateParams;
-use Onlyfansapi\UserLists\UserListUpdateResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\UserListsRawContract;
+use OnlyFansAPI\UserLists\UserListCreateParams;
+use OnlyFansAPI\UserLists\UserListDeleteParams;
+use OnlyFansAPI\UserLists\UserListDeleteResponse;
+use OnlyFansAPI\UserLists\UserListGetResponse;
+use OnlyFansAPI\UserLists\UserListListParams;
+use OnlyFansAPI\UserLists\UserListListParams\View;
+use OnlyFansAPI\UserLists\UserListListResponse;
+use OnlyFansAPI\UserLists\UserListNewResponse;
+use OnlyFansAPI\UserLists\UserListRetrieveParams;
+use OnlyFansAPI\UserLists\UserListUpdateParams;
+use OnlyFansAPI\UserLists\UserListUpdateResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class UserListsRawService implements UserListsRawContract
 {
@@ -138,10 +139,12 @@ final class UserListsRawService implements UserListsRawContract
     /**
      * @api
      *
-     * Get a list of OnlyFans Collections - User Lists
+     * Get a list of OnlyFans Collections - User Lists. If you only want to get User Lists available for sending a Mass-Message, use `?view=queue`
      *
      * @param string $account The Account ID
-     * @param array{limit?: int|null, offset?: int|null}|UserListListParams $params
+     * @param array{
+     *   limit?: int|null, offset?: int|null, view?: View|value-of<View>
+     * }|UserListListParams $params
      * @param RequestOpts|null $requestOptions
      *
      * @return BaseResponse<UserListListResponse>

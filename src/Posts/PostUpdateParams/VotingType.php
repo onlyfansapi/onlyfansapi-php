@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts\PostUpdateParams;
+namespace OnlyFansAPI\Posts\PostUpdateParams;
 
 /**
  * Include a poll or quiz within your post.

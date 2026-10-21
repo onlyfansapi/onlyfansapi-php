@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Profiles\ProfileGetResponse;
-use Onlyfansapi\Profiles\ProfileRetrieveParams;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\ProfilesRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Profiles\ProfileGetResponse;
+use OnlyFansAPI\Profiles\ProfileRetrieveParams;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\ProfilesRawContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class ProfilesRawService implements ProfilesRawContract
 {

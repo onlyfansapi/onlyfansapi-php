@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrackingLinks\Tags\TagRemoveResponse;
+namespace OnlyFansAPI\TrackingLinks\Tags\TagRemoveResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrackingLinks\Tags\TagRemoveResponse\_Meta\_Cache;
-use Onlyfansapi\TrackingLinks\Tags\TagRemoveResponse\_Meta\_Credits;
-use Onlyfansapi\TrackingLinks\Tags\TagRemoveResponse\_Meta\_RateLimits;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\TrackingLinks\Tags\TagRemoveResponse\_Meta\_Cache;
+use OnlyFansAPI\TrackingLinks\Tags\TagRemoveResponse\_Meta\_Credits;
+use OnlyFansAPI\TrackingLinks\Tags\TagRemoveResponse\_Meta\_RateLimits;
 
 /**
- * @phpstan-import-type _CacheShape from \Onlyfansapi\TrackingLinks\Tags\TagRemoveResponse\_Meta\_Cache
- * @phpstan-import-type _CreditsShape from \Onlyfansapi\TrackingLinks\Tags\TagRemoveResponse\_Meta\_Credits
- * @phpstan-import-type _RateLimitsShape from \Onlyfansapi\TrackingLinks\Tags\TagRemoveResponse\_Meta\_RateLimits
+ * @phpstan-import-type _CacheShape from \OnlyFansAPI\TrackingLinks\Tags\TagRemoveResponse\_Meta\_Cache
+ * @phpstan-import-type _CreditsShape from \OnlyFansAPI\TrackingLinks\Tags\TagRemoveResponse\_Meta\_Credits
+ * @phpstan-import-type _RateLimitsShape from \OnlyFansAPI\TrackingLinks\Tags\TagRemoveResponse\_Meta\_RateLimits
  *
  * @phpstan-type _MetaShape = array{
  *   _cache?: null|_Cache|_CacheShape,

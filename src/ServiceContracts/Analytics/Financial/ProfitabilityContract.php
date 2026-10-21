@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Analytics\Financial;
+namespace OnlyFansAPI\ServiceContracts\Analytics\Financial;
 
-use Onlyfansapi\Analytics\Financial\Profitability\ProfitabilityGetHistoryResponseItem;
-use Onlyfansapi\Analytics\Financial\Profitability\ProfitabilityGetProfitabilityResponseItem;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetHistoryResponse;
+use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetProfitabilityResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface ProfitabilityContract
 {
@@ -22,8 +22,6 @@ interface ProfitabilityContract
      * @param int $months Number of months of history to retrieve (1-60, default 12). Must be at least 1. Must not be greater than 60.
      * @param RequestOpts|null $requestOptions
      *
-     * @return list<ProfitabilityGetHistoryResponseItem>
-     *
      * @throws APIException
      */
     public function getHistory(
@@ -31,7 +29,7 @@ interface ProfitabilityContract
         string $accountPrefixedID,
         ?int $months = null,
         RequestOptions|array|null $requestOptions = null,
-    ): array;
+    ): ProfitabilityGetHistoryResponse;
 
     /**
      * @api
@@ -41,8 +39,6 @@ interface ProfitabilityContract
      * @param int $year The year to calculate profitability for
      * @param RequestOpts|null $requestOptions
      *
-     * @return list<ProfitabilityGetProfitabilityResponseItem>
-     *
      * @throws APIException
      */
     public function getProfitability(
@@ -50,5 +46,5 @@ interface ProfitabilityContract
         int $month,
         int $year,
         RequestOptions|array|null $requestOptions = null,
-    ): array;
+    ): ProfitabilityGetProfitabilityResponse;
 }

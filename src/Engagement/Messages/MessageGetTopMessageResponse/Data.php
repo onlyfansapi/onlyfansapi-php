@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse;
+namespace OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases;
 
 /**
- * @phpstan-import-type PurchasesShape from \Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases
+ * @phpstan-import-type PurchasesShape from \OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases
  *
  * @phpstan-type DataShape = array{purchases?: null|Purchases|PurchasesShape}
  */

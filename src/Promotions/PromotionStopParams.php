@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Promotions;
+namespace OnlyFansAPI\Promotions;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Stop an active promotion for the account.
  *
- * @see Onlyfansapi\Services\PromotionsService::stop()
+ * @see OnlyFansAPI\Services\PromotionsService::stop()
  *
  * @phpstan-type PromotionStopParamsShape = array{account: string}
  */

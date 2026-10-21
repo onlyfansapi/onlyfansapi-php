@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Analytics\Summary\SummaryGetPeriodComparisonParams;
+namespace OnlyFansAPI\Analytics\Summary\SummaryGetPeriodComparisonParams;
 
 /**
  * The statistic type to compare.

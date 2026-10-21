@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Payouts;
+namespace OnlyFansAPI\Payouts;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Payouts\PayoutGetEligibilityResponse\_Meta;
-use Onlyfansapi\Payouts\PayoutGetEligibilityResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Payouts\PayoutGetEligibilityResponse\_Meta;
+use OnlyFansAPI\Payouts\PayoutGetEligibilityResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Payouts\PayoutGetEligibilityResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Payouts\PayoutGetEligibilityResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Payouts\PayoutGetEligibilityResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Payouts\PayoutGetEligibilityResponse\Data
  *
  * @phpstan-type PayoutGetEligibilityResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

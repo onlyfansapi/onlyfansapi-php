@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\UserLists\UserListGetResponse\Data;
+namespace OnlyFansAPI\UserLists\UserListGetResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\UserLists\UserListGetResponse\Data\User\AvatarThumbs;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\UserLists\UserListGetResponse\Data\User\AvatarThumbs;
 
 /**
- * @phpstan-import-type AvatarThumbsShape from \Onlyfansapi\UserLists\UserListGetResponse\Data\User\AvatarThumbs
+ * @phpstan-import-type AvatarThumbsShape from \OnlyFansAPI\UserLists\UserListGetResponse\Data\User\AvatarThumbs
  *
  * @phpstan-type UserShape = array{
  *   id?: int|null,

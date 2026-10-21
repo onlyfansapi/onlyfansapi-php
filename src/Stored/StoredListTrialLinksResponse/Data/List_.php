@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stored\StoredListTrialLinksResponse\Data;
+namespace OnlyFansAPI\Stored\StoredListTrialLinksResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Stored\StoredListTrialLinksResponse\Data\List_\Cost;
-use Onlyfansapi\Stored\StoredListTrialLinksResponse\Data\List_\Links;
-use Onlyfansapi\Stored\StoredListTrialLinksResponse\Data\List_\Revenue;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Stored\StoredListTrialLinksResponse\Data\List_\Cost;
+use OnlyFansAPI\Stored\StoredListTrialLinksResponse\Data\List_\Links;
+use OnlyFansAPI\Stored\StoredListTrialLinksResponse\Data\List_\Revenue;
 
 /**
- * @phpstan-import-type CostShape from \Onlyfansapi\Stored\StoredListTrialLinksResponse\Data\List_\Cost
- * @phpstan-import-type LinksShape from \Onlyfansapi\Stored\StoredListTrialLinksResponse\Data\List_\Links
- * @phpstan-import-type RevenueShape from \Onlyfansapi\Stored\StoredListTrialLinksResponse\Data\List_\Revenue
+ * @phpstan-import-type CostShape from \OnlyFansAPI\Stored\StoredListTrialLinksResponse\Data\List_\Cost
+ * @phpstan-import-type LinksShape from \OnlyFansAPI\Stored\StoredListTrialLinksResponse\Data\List_\Links
+ * @phpstan-import-type RevenueShape from \OnlyFansAPI\Stored\StoredListTrialLinksResponse\Data\List_\Revenue
  *
  * @phpstan-type ListShape = array{
  *   id?: int|null,

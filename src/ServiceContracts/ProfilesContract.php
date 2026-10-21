@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Profiles\ProfileGetResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Profiles\ProfileGetResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface ProfilesContract
 {

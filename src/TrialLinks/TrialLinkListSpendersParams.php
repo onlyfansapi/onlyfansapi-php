@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrialLinks;
+namespace OnlyFansAPI\TrialLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Only available if we already scraped subscribers and calculated revenue per fan.
  *
- * @see Onlyfansapi\Services\TrialLinksService::listSpenders()
+ * @see OnlyFansAPI\Services\TrialLinksService::listSpenders()
  *
  * @phpstan-type TrialLinkListSpendersParamsShape = array{
  *   account: string, limit?: int|null, minSpend?: float|null, offset?: int|null

@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Engagement\Messages;
+namespace OnlyFansAPI\ServiceContracts\Engagement\Messages;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageChartParams;
-use Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageChartResponse;
-use Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageListParams;
-use Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageListResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageChartParams;
+use OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageChartResponse;
+use OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageListParams;
+use OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageListResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface DirectMessagesRawContract
 {

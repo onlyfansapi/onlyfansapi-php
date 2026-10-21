@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stories\Highlights\HighlightGetResponse\Data\Story;
+namespace OnlyFansAPI\Stories\Highlights\HighlightGetResponse\Data\Story;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files;
-use Onlyfansapi\Stories\Highlights\HighlightGetResponse\Data\Story\Media\VideoSources;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files;
+use OnlyFansAPI\Stories\Highlights\HighlightGetResponse\Data\Story\Media\VideoSources;
 
 /**
- * @phpstan-import-type FilesShape from \Onlyfansapi\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files
- * @phpstan-import-type VideoSourcesShape from \Onlyfansapi\Stories\Highlights\HighlightGetResponse\Data\Story\Media\VideoSources
+ * @phpstan-import-type FilesShape from \OnlyFansAPI\Stories\Highlights\HighlightGetResponse\Data\Story\Media\Files
+ * @phpstan-import-type VideoSourcesShape from \OnlyFansAPI\Stories\Highlights\HighlightGetResponse\Data\Story\Media\VideoSources
  *
  * @phpstan-type MediaShape = array{
  *   id?: int|null,

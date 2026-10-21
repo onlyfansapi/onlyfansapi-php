@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrackingLinks\Tags;
+namespace OnlyFansAPI\TrackingLinks\Tags;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrackingLinks\Tags\TagListResponse\_Meta;
-use Onlyfansapi\TrackingLinks\Tags\TagListResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\TrackingLinks\Tags\TagListResponse\_Meta;
+use OnlyFansAPI\TrackingLinks\Tags\TagListResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\TrackingLinks\Tags\TagListResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\TrackingLinks\Tags\TagListResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\TrackingLinks\Tags\TagListResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\TrackingLinks\Tags\TagListResponse\Data
  *
  * @phpstan-type TagListResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

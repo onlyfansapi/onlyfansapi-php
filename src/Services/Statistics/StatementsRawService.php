@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Statistics;
+namespace OnlyFansAPI\Services\Statistics;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Statistics\StatementsRawContract;
-use Onlyfansapi\Statistics\Statements\StatementGetEarningsParams;
-use Onlyfansapi\Statistics\Statements\StatementGetEarningsParams\Type;
-use Onlyfansapi\Statistics\Statements\StatementGetEarningsResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Statistics\StatementsRawContract;
+use OnlyFansAPI\Statistics\Statements\StatementGetEarningsParams;
+use OnlyFansAPI\Statistics\Statements\StatementGetEarningsParams\Type;
+use OnlyFansAPI\Statistics\Statements\StatementGetEarningsResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class StatementsRawService implements StatementsRawContract
 {
@@ -32,7 +32,7 @@ final class StatementsRawService implements StatementsRawContract
      *
      * @param string $account The Account ID
      * @param array{
-     *   startDate: string, endDate?: string, type?: Type|value-of<Type>
+     *   endDate: string, startDate: string, type?: Type|value-of<Type>
      * }|StatementGetEarningsParams $params
      * @param RequestOpts|null $requestOptions
      *
@@ -56,7 +56,7 @@ final class StatementsRawService implements StatementsRawContract
             path: ['api/%1$s/statistics/statements/earnings', $account],
             query: Util::array_transform_keys(
                 $parsed,
-                ['startDate' => 'start_date', 'endDate' => 'end_date']
+                ['endDate' => 'end_date', 'startDate' => 'start_date']
             ),
             options: $options,
             convert: StatementGetEarningsResponse::class,

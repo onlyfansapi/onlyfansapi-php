@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans;
+namespace OnlyFansAPI\Fans;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Fans\FanListExpiredResponse\_Meta;
-use Onlyfansapi\Fans\FanListExpiredResponse\_Pagination;
-use Onlyfansapi\Fans\FanListExpiredResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Fans\FanListExpiredResponse\_Meta;
+use OnlyFansAPI\Fans\FanListExpiredResponse\_Pagination;
+use OnlyFansAPI\Fans\FanListExpiredResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Fans\FanListExpiredResponse\_Meta
- * @phpstan-import-type _PaginationShape from \Onlyfansapi\Fans\FanListExpiredResponse\_Pagination
- * @phpstan-import-type DataShape from \Onlyfansapi\Fans\FanListExpiredResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Fans\FanListExpiredResponse\_Meta
+ * @phpstan-import-type _PaginationShape from \OnlyFansAPI\Fans\FanListExpiredResponse\_Pagination
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Fans\FanListExpiredResponse\Data
  *
  * @phpstan-type FanListExpiredResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape,

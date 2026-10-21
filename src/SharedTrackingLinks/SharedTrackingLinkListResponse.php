@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SharedTrackingLinks;
+namespace OnlyFansAPI\SharedTrackingLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkListResponse\_Meta;
-use Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkListResponse\_Pagination;
-use Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkListResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListResponse\_Meta;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListResponse\_Pagination;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkListResponse\_Meta
- * @phpstan-import-type _PaginationShape from \Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkListResponse\_Pagination
- * @phpstan-import-type DataShape from \Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkListResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListResponse\_Meta
+ * @phpstan-import-type _PaginationShape from \OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListResponse\_Pagination
+ * @phpstan-import-type DataShape from \OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListResponse\Data
  *
  * @phpstan-type SharedTrackingLinkListResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape,

@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stored;
+namespace OnlyFansAPI\Stored;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Stored\StoredListTrialLinksParams\Filter;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Stored\StoredListTrialLinksParams\Filter;
 
 /**
  * List all stored free trial links from the OnlyFansAPI Cache. This is a free endpoint that does not call the OnlyFans API.
  *
- * @see Onlyfansapi\Services\StoredService::listTrialLinks()
+ * @see OnlyFansAPI\Services\StoredService::listTrialLinks()
  *
- * @phpstan-import-type FilterShape from \Onlyfansapi\Stored\StoredListTrialLinksParams\Filter
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Stored\StoredListTrialLinksParams\Filter
  *
  * @phpstan-type StoredListTrialLinksParamsShape = array{
  *   filter?: null|Filter|FilterShape, limit?: int|null, offset?: int|null

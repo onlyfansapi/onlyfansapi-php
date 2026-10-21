@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts;
+namespace OnlyFansAPI\Posts;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Posts\PostListParams\Order;
-use Onlyfansapi\Posts\PostListParams\Sort;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Posts\PostListParams\Order;
+use OnlyFansAPI\Posts\PostListParams\Sort;
 
 /**
  * Get posts from your OnlyFans account.
  *
- * @see Onlyfansapi\Services\PostsService::list()
+ * @see OnlyFansAPI\Services\PostsService::list()
  *
  * @phpstan-type PostListParamsShape = array{
  *   counters?: bool|null,

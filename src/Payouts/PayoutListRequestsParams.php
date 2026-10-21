@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Payouts;
+namespace OnlyFansAPI\Payouts;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * List all payout requests for the account.
  *
- * @see Onlyfansapi\Services\PayoutsService::listRequests()
+ * @see OnlyFansAPI\Services\PayoutsService::listRequests()
  *
  * @phpstan-type PayoutListRequestsParamsShape = array{
  *   limit?: string|null, offset?: string|null

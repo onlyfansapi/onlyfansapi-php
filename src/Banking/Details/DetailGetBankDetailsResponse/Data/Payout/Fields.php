@@ -2,31 +2,31 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout;
+namespace OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout;
 
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Address;
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\BankName;
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Bic;
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\City;
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Country;
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\FirstName;
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Iban;
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\LastName;
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Postal;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Address;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\BankName;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Bic;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\City;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Country;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\FirstName;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Iban;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\LastName;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Postal;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type AddressShape from \Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Address
- * @phpstan-import-type BankNameShape from \Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\BankName
- * @phpstan-import-type BicShape from \Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Bic
- * @phpstan-import-type CityShape from \Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\City
- * @phpstan-import-type CountryShape from \Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Country
- * @phpstan-import-type FirstNameShape from \Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\FirstName
- * @phpstan-import-type IbanShape from \Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Iban
- * @phpstan-import-type LastNameShape from \Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\LastName
- * @phpstan-import-type PostalShape from \Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Postal
+ * @phpstan-import-type AddressShape from \OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Address
+ * @phpstan-import-type BankNameShape from \OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\BankName
+ * @phpstan-import-type BicShape from \OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Bic
+ * @phpstan-import-type CityShape from \OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\City
+ * @phpstan-import-type CountryShape from \OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Country
+ * @phpstan-import-type FirstNameShape from \OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\FirstName
+ * @phpstan-import-type IbanShape from \OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Iban
+ * @phpstan-import-type LastNameShape from \OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\LastName
+ * @phpstan-import-type PostalShape from \OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse\Data\Payout\Fields\Postal
  *
  * @phpstan-type FieldsShape = array{
  *   address?: null|Address|AddressShape,

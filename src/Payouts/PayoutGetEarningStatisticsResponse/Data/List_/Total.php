@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_;
+namespace OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\All;
-use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\ChatMessages;
-use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\Post;
-use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\Subscribes;
-use Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\Tips;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\All;
+use OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\ChatMessages;
+use OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\Post;
+use OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\Subscribes;
+use OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\Tips;
 
 /**
- * @phpstan-import-type AllShape from \Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\All
- * @phpstan-import-type ChatMessagesShape from \Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\ChatMessages
- * @phpstan-import-type PostShape from \Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\Post
- * @phpstan-import-type SubscribesShape from \Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\Subscribes
- * @phpstan-import-type TipsShape from \Onlyfansapi\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\Tips
+ * @phpstan-import-type AllShape from \OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\All
+ * @phpstan-import-type ChatMessagesShape from \OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\ChatMessages
+ * @phpstan-import-type PostShape from \OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\Post
+ * @phpstan-import-type SubscribesShape from \OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\Subscribes
+ * @phpstan-import-type TipsShape from \OnlyFansAPI\Payouts\PayoutGetEarningStatisticsResponse\Data\List_\Total\Tips
  *
  * @phpstan-type TotalShape = array{
  *   all?: null|All|AllShape,

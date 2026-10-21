@@ -2,31 +2,31 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\DataExports\DataExportCancelResponse;
-use Onlyfansapi\DataExports\DataExportCreateParams;
-use Onlyfansapi\DataExports\DataExportCreateParams\FileType;
-use Onlyfansapi\DataExports\DataExportCreateParams\Type;
-use Onlyfansapi\DataExports\DataExportGetResponse;
-use Onlyfansapi\DataExports\DataExportListParams;
-use Onlyfansapi\DataExports\DataExportListParams\Status;
-use Onlyfansapi\DataExports\DataExportListResponse;
-use Onlyfansapi\DataExports\DataExportNewResponse;
-use Onlyfansapi\DataExports\DataExportRetrieveParams;
-use Onlyfansapi\DataExports\DataExportRetryResponse;
-use Onlyfansapi\DataExports\DataExportStartResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\DataExportsRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\DataExports\DataExportCancelResponse;
+use OnlyFansAPI\DataExports\DataExportCreateParams;
+use OnlyFansAPI\DataExports\DataExportCreateParams\FileType;
+use OnlyFansAPI\DataExports\DataExportCreateParams\Type;
+use OnlyFansAPI\DataExports\DataExportGetResponse;
+use OnlyFansAPI\DataExports\DataExportListParams;
+use OnlyFansAPI\DataExports\DataExportListParams\Status;
+use OnlyFansAPI\DataExports\DataExportListResponse;
+use OnlyFansAPI\DataExports\DataExportNewResponse;
+use OnlyFansAPI\DataExports\DataExportRetrieveParams;
+use OnlyFansAPI\DataExports\DataExportRetryResponse;
+use OnlyFansAPI\DataExports\DataExportStartResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\DataExportsRawContract;
 
 /**
  * APIs for managing data exports.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class DataExportsRawService implements DataExportsRawContract
 {

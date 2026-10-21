@@ -2,32 +2,32 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Posts;
+namespace OnlyFansAPI\Services\Posts;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Posts\Comments\CommentCreateParams;
-use Onlyfansapi\Posts\Comments\CommentDeleteParams;
-use Onlyfansapi\Posts\Comments\CommentDeleteResponse;
-use Onlyfansapi\Posts\Comments\CommentLikeParams;
-use Onlyfansapi\Posts\Comments\CommentLikeResponse;
-use Onlyfansapi\Posts\Comments\CommentListParams;
-use Onlyfansapi\Posts\Comments\CommentListParams\Sort;
-use Onlyfansapi\Posts\Comments\CommentListResponse;
-use Onlyfansapi\Posts\Comments\CommentNewResponse;
-use Onlyfansapi\Posts\Comments\CommentPinParams;
-use Onlyfansapi\Posts\Comments\CommentPinResponse;
-use Onlyfansapi\Posts\Comments\CommentUnlikeParams;
-use Onlyfansapi\Posts\Comments\CommentUnlikeResponse;
-use Onlyfansapi\Posts\Comments\CommentUnpinParams;
-use Onlyfansapi\Posts\Comments\CommentUnpinResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Posts\CommentsRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Posts\Comments\CommentCreateParams;
+use OnlyFansAPI\Posts\Comments\CommentDeleteParams;
+use OnlyFansAPI\Posts\Comments\CommentDeleteResponse;
+use OnlyFansAPI\Posts\Comments\CommentLikeParams;
+use OnlyFansAPI\Posts\Comments\CommentLikeResponse;
+use OnlyFansAPI\Posts\Comments\CommentListParams;
+use OnlyFansAPI\Posts\Comments\CommentListParams\Sort;
+use OnlyFansAPI\Posts\Comments\CommentListResponse;
+use OnlyFansAPI\Posts\Comments\CommentNewResponse;
+use OnlyFansAPI\Posts\Comments\CommentPinParams;
+use OnlyFansAPI\Posts\Comments\CommentPinResponse;
+use OnlyFansAPI\Posts\Comments\CommentUnlikeParams;
+use OnlyFansAPI\Posts\Comments\CommentUnlikeResponse;
+use OnlyFansAPI\Posts\Comments\CommentUnpinParams;
+use OnlyFansAPI\Posts\Comments\CommentUnpinResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Posts\CommentsRawContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class CommentsRawService implements CommentsRawContract
 {

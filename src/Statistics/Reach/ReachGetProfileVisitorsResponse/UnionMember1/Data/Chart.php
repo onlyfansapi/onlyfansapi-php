@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1\Data;
+namespace OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1\Data\Chart\Duration;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1\Data\Chart\Visitor;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1\Data\Chart\Duration;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1\Data\Chart\Visitor;
 
 /**
- * @phpstan-import-type DurationShape from \Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1\Data\Chart\Duration
- * @phpstan-import-type VisitorShape from \Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1\Data\Chart\Visitor
+ * @phpstan-import-type DurationShape from \OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1\Data\Chart\Duration
+ * @phpstan-import-type VisitorShape from \OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1\Data\Chart\Visitor
  *
  * @phpstan-type ChartShape = array{
  *   duration?: list<Duration|DurationShape>|null,

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Core\Conversion\Contracts;
+namespace OnlyFansAPI\Core\Conversion\Contracts;
 
-use Onlyfansapi\Core\Conversion\CoerceState;
-use Onlyfansapi\Core\Conversion\DumpState;
+use OnlyFansAPI\Core\Conversion\CoerceState;
+use OnlyFansAPI\Core\Conversion\DumpState;
 
 /**
  * @internal

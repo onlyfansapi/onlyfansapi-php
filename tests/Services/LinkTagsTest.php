@@ -2,9 +2,9 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\LinkTags\LinkTagListResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\LinkTags\LinkTagListResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

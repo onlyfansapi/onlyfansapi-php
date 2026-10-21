@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Following\FollowingListExpiredResponse\Data;
+namespace OnlyFansAPI\Following\FollowingListExpiredResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Following\FollowingListExpiredResponse\Data\List_\AvatarThumbs;
-use Onlyfansapi\Following\FollowingListExpiredResponse\Data\List_\HeaderSize;
-use Onlyfansapi\Following\FollowingListExpiredResponse\Data\List_\HeaderThumbs;
-use Onlyfansapi\Following\FollowingListExpiredResponse\Data\List_\ListsState;
-use Onlyfansapi\Following\FollowingListExpiredResponse\Data\List_\SubscribedByData;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Following\FollowingListExpiredResponse\Data\List_\AvatarThumbs;
+use OnlyFansAPI\Following\FollowingListExpiredResponse\Data\List_\HeaderSize;
+use OnlyFansAPI\Following\FollowingListExpiredResponse\Data\List_\HeaderThumbs;
+use OnlyFansAPI\Following\FollowingListExpiredResponse\Data\List_\ListsState;
+use OnlyFansAPI\Following\FollowingListExpiredResponse\Data\List_\SubscribedByData;
 
 /**
- * @phpstan-import-type AvatarThumbsShape from \Onlyfansapi\Following\FollowingListExpiredResponse\Data\List_\AvatarThumbs
- * @phpstan-import-type HeaderSizeShape from \Onlyfansapi\Following\FollowingListExpiredResponse\Data\List_\HeaderSize
- * @phpstan-import-type HeaderThumbsShape from \Onlyfansapi\Following\FollowingListExpiredResponse\Data\List_\HeaderThumbs
- * @phpstan-import-type ListsStateShape from \Onlyfansapi\Following\FollowingListExpiredResponse\Data\List_\ListsState
- * @phpstan-import-type SubscribedByDataShape from \Onlyfansapi\Following\FollowingListExpiredResponse\Data\List_\SubscribedByData
+ * @phpstan-import-type AvatarThumbsShape from \OnlyFansAPI\Following\FollowingListExpiredResponse\Data\List_\AvatarThumbs
+ * @phpstan-import-type HeaderSizeShape from \OnlyFansAPI\Following\FollowingListExpiredResponse\Data\List_\HeaderSize
+ * @phpstan-import-type HeaderThumbsShape from \OnlyFansAPI\Following\FollowingListExpiredResponse\Data\List_\HeaderThumbs
+ * @phpstan-import-type ListsStateShape from \OnlyFansAPI\Following\FollowingListExpiredResponse\Data\List_\ListsState
+ * @phpstan-import-type SubscribedByDataShape from \OnlyFansAPI\Following\FollowingListExpiredResponse\Data\List_\SubscribedByData
  *
  * @phpstan-type ListShape = array{
  *   id?: int|null,

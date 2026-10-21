@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Engagement\Messages\DirectMessages;
+namespace OnlyFansAPI\Engagement\Messages\DirectMessages;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageListResponse\_Meta;
-use Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageListResponse\_Pagination;
-use Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageListResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageListResponse\_Meta;
+use OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageListResponse\_Pagination;
+use OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageListResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageListResponse\_Meta
- * @phpstan-import-type _PaginationShape from \Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageListResponse\_Pagination
- * @phpstan-import-type DataShape from \Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageListResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageListResponse\_Meta
+ * @phpstan-import-type _PaginationShape from \OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageListResponse\_Pagination
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageListResponse\Data
  *
  * @phpstan-type DirectMessageListResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape,

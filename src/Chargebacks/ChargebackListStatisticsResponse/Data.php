@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chargebacks\ChargebackListStatisticsResponse;
+namespace OnlyFansAPI\Chargebacks\ChargebackListStatisticsResponse;
 
-use Onlyfansapi\Chargebacks\ChargebackListStatisticsResponse\Data\ChartAmount;
-use Onlyfansapi\Chargebacks\ChargebackListStatisticsResponse\Data\ChartCount;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chargebacks\ChargebackListStatisticsResponse\Data\ChartAmount;
+use OnlyFansAPI\Chargebacks\ChargebackListStatisticsResponse\Data\ChartCount;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type ChartAmountShape from \Onlyfansapi\Chargebacks\ChargebackListStatisticsResponse\Data\ChartAmount
- * @phpstan-import-type ChartCountShape from \Onlyfansapi\Chargebacks\ChargebackListStatisticsResponse\Data\ChartCount
+ * @phpstan-import-type ChartAmountShape from \OnlyFansAPI\Chargebacks\ChargebackListStatisticsResponse\Data\ChartAmount
+ * @phpstan-import-type ChartCountShape from \OnlyFansAPI\Chargebacks\ChargebackListStatisticsResponse\Data\ChartCount
  *
  * @phpstan-type DataShape = array{
  *   chartAmount?: list<ChartAmount|ChartAmountShape>|null,

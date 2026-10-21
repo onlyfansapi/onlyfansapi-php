@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media\Vault;
+namespace OnlyFansAPI\Media\Vault;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Media\Vault\VaultUploadResponse\_Meta;
-use Onlyfansapi\Media\Vault\VaultUploadResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Media\Vault\VaultUploadResponse\_Meta;
+use OnlyFansAPI\Media\Vault\VaultUploadResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Media\Vault\VaultUploadResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Media\Vault\VaultUploadResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Media\Vault\VaultUploadResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Media\Vault\VaultUploadResponse\Data
  *
  * @phpstan-type VaultUploadResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

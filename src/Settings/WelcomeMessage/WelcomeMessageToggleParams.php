@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Settings\WelcomeMessage;
+namespace OnlyFansAPI\Settings\WelcomeMessage;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Enable or disable the automatic welcome message that is sent when someone subscribes.
  *
- * @see Onlyfansapi\Services\Settings\WelcomeMessageService::toggle()
+ * @see OnlyFansAPI\Services\Settings\WelcomeMessageService::toggle()
  *
  * @phpstan-type WelcomeMessageToggleParamsShape = array{enabled: bool}
  */

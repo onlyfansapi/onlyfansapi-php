@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinks\SmartLinkGetResponse;
+namespace OnlyFansAPI\SmartLinks\SmartLinkGetResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SmartLinks\SmartLinkGetResponse\Data\Account;
-use Onlyfansapi\SmartLinks\SmartLinkGetResponse\Data\Cost;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SmartLinks\SmartLinkGetResponse\Data\Account;
+use OnlyFansAPI\SmartLinks\SmartLinkGetResponse\Data\Cost;
 
 /**
- * @phpstan-import-type AccountShape from \Onlyfansapi\SmartLinks\SmartLinkGetResponse\Data\Account
- * @phpstan-import-type CostShape from \Onlyfansapi\SmartLinks\SmartLinkGetResponse\Data\Cost
+ * @phpstan-import-type AccountShape from \OnlyFansAPI\SmartLinks\SmartLinkGetResponse\Data\Account
+ * @phpstan-import-type CostShape from \OnlyFansAPI\SmartLinks\SmartLinkGetResponse\Data\Cost
  *
  * @phpstan-type DataShape = array{
  *   id?: string|null,

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Engagement\Messages\MassMessages;
+namespace OnlyFansAPI\Engagement\Messages\MassMessages;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * List sent mass messages with engagement stats (sent, viewed, purchased, etc.).
  *
- * @see Onlyfansapi\Services\Engagement\Messages\MassMessagesService::list()
+ * @see OnlyFansAPI\Services\Engagement\Messages\MassMessagesService::list()
  *
  * @phpstan-type MassMessageListParamsShape = array{
  *   endDate?: string|null,
@@ -28,7 +28,7 @@ final class MassMessageListParams implements BaseModel
     use SdkParams;
 
     /**
-     * The latest message to retrieve. Keep empty to get all. MUST BE DATE AFTER `startDate`. This is also used for pagination.
+     * The latest message to retrieve. Keep empty to get all. It must be after `startDate` and is also used for pagination.
      */
     #[Optional]
     public ?string $endDate;
@@ -78,7 +78,7 @@ final class MassMessageListParams implements BaseModel
     }
 
     /**
-     * The latest message to retrieve. Keep empty to get all. MUST BE DATE AFTER `startDate`. This is also used for pagination.
+     * The latest message to retrieve. Keep empty to get all. It must be after `startDate` and is also used for pagination.
      */
     public function withEndDate(string $endDate): self
     {

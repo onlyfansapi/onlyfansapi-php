@@ -2,10 +2,10 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Media\MediaScrapeResponse;
-use Onlyfansapi\Media\MediaUploadResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Media\MediaScrapeResponse;
+use OnlyFansAPI\Media\MediaUploadResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -42,7 +42,7 @@ final class MediaTest extends TestCase
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertIsString($result);
+        $this->assertNull($result);
     }
 
     #[Test]
@@ -58,7 +58,7 @@ final class MediaTest extends TestCase
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertIsString($result);
+        $this->assertNull($result);
     }
 
     #[Test]

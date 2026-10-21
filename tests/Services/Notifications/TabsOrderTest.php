@@ -2,10 +2,10 @@
 
 namespace Tests\Services\Notifications;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Notifications\TabsOrder\TabsOrderGetResponse;
-use Onlyfansapi\Notifications\TabsOrder\TabsOrderUpdateResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Notifications\TabsOrder\TabsOrderGetResponse;
+use OnlyFansAPI\Notifications\TabsOrder\TabsOrderUpdateResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

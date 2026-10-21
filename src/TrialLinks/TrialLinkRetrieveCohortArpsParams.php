@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrialLinks;
+namespace OnlyFansAPI\TrialLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrialLinks\TrialLinkRetrieveCohortArpsParams\RevenueBasis;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\TrialLinks\TrialLinkRetrieveCohortArpsParams\RevenueBasis;
 
 /**
  * Get per-link time-to-profit cohort ARPS windows for a specific Free Trial Link.
  *
- * @see Onlyfansapi\Services\TrialLinksService::retrieveCohortArps()
+ * @see OnlyFansAPI\Services\TrialLinksService::retrieveCohortArps()
  *
  * @phpstan-type TrialLinkRetrieveCohortArpsParamsShape = array{
  *   account: string,

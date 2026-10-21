@@ -2,10 +2,10 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkListResponse;
-use Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkRevokeAccessResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListResponse;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkRevokeAccessResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

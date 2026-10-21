@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\SavedForLater\Messages;
+namespace OnlyFansAPI\ServiceContracts\SavedForLater\Messages;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\SavedForLater\Messages\Settings\SettingDisableAutomaticMessagingResponse;
-use Onlyfansapi\SavedForLater\Messages\Settings\SettingEnableOrUpdateAutomaticMessagingParams\Period;
-use Onlyfansapi\SavedForLater\Messages\Settings\SettingEnableOrUpdateAutomaticMessagingResponse;
-use Onlyfansapi\SavedForLater\Messages\Settings\SettingGetResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\SavedForLater\Messages\Settings\SettingDisableAutomaticMessagingResponse;
+use OnlyFansAPI\SavedForLater\Messages\Settings\SettingEnableOrUpdateAutomaticMessagingParams\Period;
+use OnlyFansAPI\SavedForLater\Messages\Settings\SettingEnableOrUpdateAutomaticMessagingResponse;
+use OnlyFansAPI\SavedForLater\Messages\Settings\SettingGetResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface SettingsContract
 {

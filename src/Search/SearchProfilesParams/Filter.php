@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Search\SearchProfilesParams;
+namespace OnlyFansAPI\Search\SearchProfilesParams;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Search\SearchProfilesParams\Filter\Gender;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Search\SearchProfilesParams\Filter\Gender;
 
 /**
  * @phpstan-type FilterShape = array{gender?: null|Gender|value-of<Gender>}

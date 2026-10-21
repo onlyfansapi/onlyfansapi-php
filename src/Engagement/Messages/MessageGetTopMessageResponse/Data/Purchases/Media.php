@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases;
+namespace OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files;
-use Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\VideoSources;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files;
+use OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\VideoSources;
 
 /**
- * @phpstan-import-type FilesShape from \Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files
- * @phpstan-import-type VideoSourcesShape from \Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\VideoSources
+ * @phpstan-import-type FilesShape from \OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files
+ * @phpstan-import-type VideoSourcesShape from \OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\VideoSources
  *
  * @phpstan-type MediaShape = array{
  *   id?: int|null,

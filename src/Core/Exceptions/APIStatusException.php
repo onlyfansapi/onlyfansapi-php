@@ -1,15 +1,15 @@
 <?php
 
-namespace Onlyfansapi\Core\Exceptions;
+namespace OnlyFansAPI\Core\Exceptions;
 
-use Onlyfansapi\Core\Util;
+use OnlyFansAPI\Core\Util;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
 class APIStatusException extends APIException
 {
     /** @var string */
-    protected const DESC = 'Onlyfansapi API Status Error';
+    protected const DESC = 'OnlyFansAPI API Status Error';
 
     public ?int $status;
 

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ReleaseForms;
+namespace OnlyFansAPI\ReleaseForms;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Create a new release form link.
  *
- * @see Onlyfansapi\Services\ReleaseFormsService::createReleaseForm()
+ * @see OnlyFansAPI\Services\ReleaseFormsService::createReleaseForm()
  *
  * @phpstan-type ReleaseFormCreateReleaseFormParamsShape = array{name: string}
  */

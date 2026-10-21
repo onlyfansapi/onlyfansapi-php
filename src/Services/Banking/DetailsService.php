@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Banking;
+namespace OnlyFansAPI\Services\Banking;
 
-use Onlyfansapi\Banking\Details\DetailGetAccountCountryDetailsResponse;
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse;
-use Onlyfansapi\Banking\Details\DetailGetDac7FormDetailsResponse;
-use Onlyfansapi\Banking\Details\DetailGetLegalAndTaxStatusResponse;
-use Onlyfansapi\Banking\Details\DetailGetLegalFormDetailsResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Banking\DetailsContract;
+use OnlyFansAPI\Banking\Details\DetailGetAccountCountryDetailsResponse;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse;
+use OnlyFansAPI\Banking\Details\DetailGetDac7FormDetailsResponse;
+use OnlyFansAPI\Banking\Details\DetailGetLegalAndTaxStatusResponse;
+use OnlyFansAPI\Banking\Details\DetailGetLegalFormDetailsResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Banking\DetailsContract;
 
 /**
  * Operations related to user banking details, payout methods, legal and tax information, and account country settings.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class DetailsService implements DetailsContract
 {

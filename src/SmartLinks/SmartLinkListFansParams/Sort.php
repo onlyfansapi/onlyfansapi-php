@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinks\SmartLinkListFansParams;
+namespace OnlyFansAPI\SmartLinks\SmartLinkListFansParams;
 
 /**
  * Optional sort field. Default `-revenue_net`.

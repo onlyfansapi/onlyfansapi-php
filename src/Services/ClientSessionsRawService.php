@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\ClientSessions\ClientSessionCreateParams;
-use Onlyfansapi\ClientSessions\ClientSessionCreateParams\ProxyCountry;
-use Onlyfansapi\ClientSessions\ClientSessionNewResponse;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\ClientSessionsRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\ClientSessions\ClientSessionCreateParams;
+use OnlyFansAPI\ClientSessions\ClientSessionCreateParams\ProxyCountry;
+use OnlyFansAPI\ClientSessions\ClientSessionNewResponse;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\ClientSessionsRawContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class ClientSessionsRawService implements ClientSessionsRawContract
 {

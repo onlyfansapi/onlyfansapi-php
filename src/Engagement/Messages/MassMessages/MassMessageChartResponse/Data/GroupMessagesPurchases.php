@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Engagement\Messages\MassMessages\MassMessageChartResponse\Data;
+namespace OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageChartResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageChartResponse\Data\GroupMessagesPurchases\Chart;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageChartResponse\Data\GroupMessagesPurchases\Chart;
 
 /**
- * @phpstan-import-type ChartShape from \Onlyfansapi\Engagement\Messages\MassMessages\MassMessageChartResponse\Data\GroupMessagesPurchases\Chart
+ * @phpstan-import-type ChartShape from \OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageChartResponse\Data\GroupMessagesPurchases\Chart
  *
  * @phpstan-type GroupMessagesPurchasesShape = array{
  *   chart?: list<Chart|ChartShape>|null, delta?: float|null, total?: int|null

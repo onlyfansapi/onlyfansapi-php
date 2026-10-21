@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ReleaseForms;
+namespace OnlyFansAPI\ReleaseForms;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersResponse\_Meta;
-use Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersResponse\_Pagination;
-use Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersResponse\_Meta;
+use OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersResponse\_Pagination;
+use OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersResponse\_Meta
- * @phpstan-import-type _PaginationShape from \Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersResponse\_Pagination
- * @phpstan-import-type DataShape from \Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersResponse\_Meta
+ * @phpstan-import-type _PaginationShape from \OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersResponse\_Pagination
+ * @phpstan-import-type DataShape from \OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersResponse\Data
  *
  * @phpstan-type ReleaseFormListTaggableUsersResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape,

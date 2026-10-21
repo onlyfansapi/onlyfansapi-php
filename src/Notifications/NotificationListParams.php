@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Notifications;
+namespace OnlyFansAPI\Notifications;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Notifications\NotificationListParams\SkipUsers;
-use Onlyfansapi\Notifications\NotificationListParams\Type;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Notifications\NotificationListParams\SkipUsers;
+use OnlyFansAPI\Notifications\NotificationListParams\Type;
 
 /**
  * List all notifications for the account.
  *
- * @see Onlyfansapi\Services\NotificationsService::list()
+ * @see OnlyFansAPI\Services\NotificationsService::list()
  *
  * @phpstan-type NotificationListParamsShape = array{
  *   fromID?: int|null,
@@ -42,7 +42,7 @@ final class NotificationListParams implements BaseModel
     public ?int $limit;
 
     /**
-     * Whether to skip user details. Default `all`.
+     * Whether to skip user details. Defaults to `all`.
      *
      * @var value-of<SkipUsers>|null $skipUsers
      */
@@ -109,7 +109,7 @@ final class NotificationListParams implements BaseModel
     }
 
     /**
-     * Whether to skip user details. Default `all`.
+     * Whether to skip user details. Defaults to `all`.
      *
      * @param SkipUsers|value-of<SkipUsers> $skipUsers
      */

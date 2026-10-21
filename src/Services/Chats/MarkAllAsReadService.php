@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Chats;
+namespace OnlyFansAPI\Services\Chats;
 
-use Onlyfansapi\Chats\MarkAllAsRead\MarkAllAsReadAllResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Chats\MarkAllAsReadContract;
+use OnlyFansAPI\Chats\MarkAllAsRead\MarkAllAsReadAllResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Chats\MarkAllAsReadContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class MarkAllAsReadService implements MarkAllAsReadContract
 {

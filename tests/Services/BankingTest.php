@@ -2,10 +2,10 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Banking\BankingListAvailablePayoutSystemsResponse;
-use Onlyfansapi\Banking\BankingListCountriesResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
+use OnlyFansAPI\Banking\BankingListAvailablePayoutSystemsResponse;
+use OnlyFansAPI\Banking\BankingListCountriesResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

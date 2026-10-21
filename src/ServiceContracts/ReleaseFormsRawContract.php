@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\ReleaseForms\ReleaseFormCreateInvitationLinkParams;
-use Onlyfansapi\ReleaseForms\ReleaseFormCreateReleaseFormParams;
-use Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersParams;
-use Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersResponse;
-use Onlyfansapi\ReleaseForms\ReleaseFormNewInvitationLinkResponse;
-use Onlyfansapi\ReleaseForms\ReleaseFormNewReleaseFormResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\ReleaseForms\ReleaseFormCreateInvitationLinkParams;
+use OnlyFansAPI\ReleaseForms\ReleaseFormCreateReleaseFormParams;
+use OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersParams;
+use OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersResponse;
+use OnlyFansAPI\ReleaseForms\ReleaseFormNewInvitationLinkResponse;
+use OnlyFansAPI\ReleaseForms\ReleaseFormNewReleaseFormResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface ReleaseFormsRawContract
 {

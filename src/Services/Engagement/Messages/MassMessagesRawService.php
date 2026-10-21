@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Engagement\Messages;
+namespace OnlyFansAPI\Services\Engagement\Messages;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageChartParams;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageChartResponse;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageListParams;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageListResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Engagement\Messages\MassMessagesRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageChartParams;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageChartResponse;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageListParams;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageListResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Engagement\Messages\MassMessagesRawContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class MassMessagesRawService implements MassMessagesRawContract
 {

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Notifications\TabsOrder;
+namespace OnlyFansAPI\Notifications\TabsOrder;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Notifications\TabsOrder\TabsOrderGetResponse\_Meta;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Notifications\TabsOrder\TabsOrderGetResponse\_Meta;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Notifications\TabsOrder\TabsOrderGetResponse\_Meta
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Notifications\TabsOrder\TabsOrderGetResponse\_Meta
  *
  * @phpstan-type TabsOrderGetResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: list<string>|null

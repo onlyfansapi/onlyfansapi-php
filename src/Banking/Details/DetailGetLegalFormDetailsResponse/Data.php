@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Banking\Details\DetailGetLegalFormDetailsResponse;
+namespace OnlyFansAPI\Banking\Details\DetailGetLegalFormDetailsResponse;
 
-use Onlyfansapi\Banking\Details\DetailGetLegalFormDetailsResponse\Data\DocumentType;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Banking\Details\DetailGetLegalFormDetailsResponse\Data\DocumentType;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type DocumentTypeShape from \Onlyfansapi\Banking\Details\DetailGetLegalFormDetailsResponse\Data\DocumentType
+ * @phpstan-import-type DocumentTypeShape from \OnlyFansAPI\Banking\Details\DetailGetLegalFormDetailsResponse\Data\DocumentType
  *
  * @phpstan-type DataShape = array{
  *   dateOfBirth?: string|null,

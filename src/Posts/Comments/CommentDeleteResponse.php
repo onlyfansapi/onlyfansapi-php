@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts\Comments;
+namespace OnlyFansAPI\Posts\Comments;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Posts\Comments\CommentDeleteResponse\_Meta;
-use Onlyfansapi\Posts\Comments\CommentDeleteResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Posts\Comments\CommentDeleteResponse\_Meta;
+use OnlyFansAPI\Posts\Comments\CommentDeleteResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Posts\Comments\CommentDeleteResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Posts\Comments\CommentDeleteResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Posts\Comments\CommentDeleteResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Posts\Comments\CommentDeleteResponse\Data
  *
  * @phpstan-type CommentDeleteResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

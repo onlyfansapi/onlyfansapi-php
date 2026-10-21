@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Following\FollowingListExpiredResponse;
+namespace OnlyFansAPI\Following\FollowingListExpiredResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Following\FollowingListExpiredResponse\Data\List_;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Following\FollowingListExpiredResponse\Data\List_;
 
 /**
- * @phpstan-import-type ListShape from \Onlyfansapi\Following\FollowingListExpiredResponse\Data\List_
+ * @phpstan-import-type ListShape from \OnlyFansAPI\Following\FollowingListExpiredResponse\Data\List_
  *
  * @phpstan-type DataShape = array{
  *   hasMore?: bool|null, list?: list<List_|ListShape>|null

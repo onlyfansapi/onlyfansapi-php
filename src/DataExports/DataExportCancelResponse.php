@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\DataExports;
+namespace OnlyFansAPI\DataExports;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\DataExports\DataExportCancelResponse\_Meta;
-use Onlyfansapi\DataExports\DataExportCancelResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\DataExports\DataExportCancelResponse\_Meta;
+use OnlyFansAPI\DataExports\DataExportCancelResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\DataExports\DataExportCancelResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\DataExports\DataExportCancelResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\DataExports\DataExportCancelResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\DataExports\DataExportCancelResponse\Data
  *
  * @phpstan-type DataExportCancelResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

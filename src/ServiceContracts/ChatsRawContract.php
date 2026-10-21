@@ -2,32 +2,32 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Chats\ChatDeleteParams;
-use Onlyfansapi\Chats\ChatDeleteResponse;
-use Onlyfansapi\Chats\ChatHideParams;
-use Onlyfansapi\Chats\ChatHideResponse;
-use Onlyfansapi\Chats\ChatListMediaParams;
-use Onlyfansapi\Chats\ChatListMediaResponse;
-use Onlyfansapi\Chats\ChatListParams;
-use Onlyfansapi\Chats\ChatListResponse;
-use Onlyfansapi\Chats\ChatMarkAsReadParams;
-use Onlyfansapi\Chats\ChatMarkAsReadResponse;
-use Onlyfansapi\Chats\ChatMarkAsUnreadParams;
-use Onlyfansapi\Chats\ChatMarkAsUnreadResponse;
-use Onlyfansapi\Chats\ChatMuteParams;
-use Onlyfansapi\Chats\ChatMuteResponse;
-use Onlyfansapi\Chats\ChatStartTypingParams;
-use Onlyfansapi\Chats\ChatStartTypingResponse;
-use Onlyfansapi\Chats\ChatUnmuteParams;
-use Onlyfansapi\Chats\ChatUnmuteResponse;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Chats\ChatDeleteParams;
+use OnlyFansAPI\Chats\ChatDeleteResponse;
+use OnlyFansAPI\Chats\ChatHideParams;
+use OnlyFansAPI\Chats\ChatHideResponse;
+use OnlyFansAPI\Chats\ChatListMediaParams;
+use OnlyFansAPI\Chats\ChatListMediaResponse;
+use OnlyFansAPI\Chats\ChatListParams;
+use OnlyFansAPI\Chats\ChatListResponse;
+use OnlyFansAPI\Chats\ChatMarkAsReadParams;
+use OnlyFansAPI\Chats\ChatMarkAsReadResponse;
+use OnlyFansAPI\Chats\ChatMarkAsUnreadParams;
+use OnlyFansAPI\Chats\ChatMarkAsUnreadResponse;
+use OnlyFansAPI\Chats\ChatMuteParams;
+use OnlyFansAPI\Chats\ChatMuteResponse;
+use OnlyFansAPI\Chats\ChatStartTypingParams;
+use OnlyFansAPI\Chats\ChatStartTypingResponse;
+use OnlyFansAPI\Chats\ChatUnmuteParams;
+use OnlyFansAPI\Chats\ChatUnmuteResponse;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface ChatsRawContract
 {

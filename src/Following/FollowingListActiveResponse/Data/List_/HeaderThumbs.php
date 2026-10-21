@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Following\FollowingListActiveResponse\Data\List_;
+namespace OnlyFansAPI\Following\FollowingListActiveResponse\Data\List_;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * @phpstan-type HeaderThumbsShape = array{w480?: string|null, w760?: string|null}

@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinks;
+namespace OnlyFansAPI\SmartLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SmartLinks\SmartLinkCreateParams\LinkType;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SmartLinks\SmartLinkCreateParams\LinkType;
 
 /**
  * Create a new Smart Link for the account. Smart Links are pooled Free Trial or Tracking links that rotate inventory automatically.
  *
- * @see Onlyfansapi\Services\SmartLinksService::create()
+ * @see OnlyFansAPI\Services\SmartLinksService::create()
  *
  * @phpstan-type SmartLinkCreateParamsShape = array{
  *   accountID: string,

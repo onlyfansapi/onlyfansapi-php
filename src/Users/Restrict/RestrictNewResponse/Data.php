@@ -2,27 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Users\Restrict\RestrictNewResponse;
+namespace OnlyFansAPI\Users\Restrict\RestrictNewResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Users\Restrict\RestrictNewResponse\Data\AvatarThumbs;
-use Onlyfansapi\Users\Restrict\RestrictNewResponse\Data\HeaderSize;
-use Onlyfansapi\Users\Restrict\RestrictNewResponse\Data\HeaderThumbs;
-use Onlyfansapi\Users\Restrict\RestrictNewResponse\Data\ListsState;
-use Onlyfansapi\Users\Restrict\RestrictNewResponse\Data\SubscribedByData;
-use Onlyfansapi\Users\Restrict\RestrictNewResponse\Data\SubscribedOnData;
-use Onlyfansapi\Users\Restrict\RestrictNewResponse\Data\SubscriptionBundle;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Users\Restrict\RestrictNewResponse\Data\AvatarThumbs;
+use OnlyFansAPI\Users\Restrict\RestrictNewResponse\Data\HeaderSize;
+use OnlyFansAPI\Users\Restrict\RestrictNewResponse\Data\HeaderThumbs;
+use OnlyFansAPI\Users\Restrict\RestrictNewResponse\Data\ListsState;
+use OnlyFansAPI\Users\Restrict\RestrictNewResponse\Data\SubscribedByData;
+use OnlyFansAPI\Users\Restrict\RestrictNewResponse\Data\SubscribedOnData;
+use OnlyFansAPI\Users\Restrict\RestrictNewResponse\Data\SubscriptionBundle;
 
 /**
- * @phpstan-import-type AvatarThumbsShape from \Onlyfansapi\Users\Restrict\RestrictNewResponse\Data\AvatarThumbs
- * @phpstan-import-type HeaderSizeShape from \Onlyfansapi\Users\Restrict\RestrictNewResponse\Data\HeaderSize
- * @phpstan-import-type HeaderThumbsShape from \Onlyfansapi\Users\Restrict\RestrictNewResponse\Data\HeaderThumbs
- * @phpstan-import-type ListsStateShape from \Onlyfansapi\Users\Restrict\RestrictNewResponse\Data\ListsState
- * @phpstan-import-type SubscribedByDataShape from \Onlyfansapi\Users\Restrict\RestrictNewResponse\Data\SubscribedByData
- * @phpstan-import-type SubscribedOnDataShape from \Onlyfansapi\Users\Restrict\RestrictNewResponse\Data\SubscribedOnData
- * @phpstan-import-type SubscriptionBundleShape from \Onlyfansapi\Users\Restrict\RestrictNewResponse\Data\SubscriptionBundle
+ * @phpstan-import-type AvatarThumbsShape from \OnlyFansAPI\Users\Restrict\RestrictNewResponse\Data\AvatarThumbs
+ * @phpstan-import-type HeaderSizeShape from \OnlyFansAPI\Users\Restrict\RestrictNewResponse\Data\HeaderSize
+ * @phpstan-import-type HeaderThumbsShape from \OnlyFansAPI\Users\Restrict\RestrictNewResponse\Data\HeaderThumbs
+ * @phpstan-import-type ListsStateShape from \OnlyFansAPI\Users\Restrict\RestrictNewResponse\Data\ListsState
+ * @phpstan-import-type SubscribedByDataShape from \OnlyFansAPI\Users\Restrict\RestrictNewResponse\Data\SubscribedByData
+ * @phpstan-import-type SubscribedOnDataShape from \OnlyFansAPI\Users\Restrict\RestrictNewResponse\Data\SubscribedOnData
+ * @phpstan-import-type SubscriptionBundleShape from \OnlyFansAPI\Users\Restrict\RestrictNewResponse\Data\SubscriptionBundle
  *
  * @phpstan-type DataShape = array{
  *   id?: int|null,

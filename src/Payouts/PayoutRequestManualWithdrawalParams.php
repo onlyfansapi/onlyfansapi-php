@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Payouts;
+namespace OnlyFansAPI\Payouts;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Request a payout withdrawal, if the frequency is set to manual. Refer to our `/payouts/balances` endpoint to retrieve the minimum and maximum withdrawal amounts.
  *
- * @see Onlyfansapi\Services\PayoutsService::requestManualWithdrawal()
+ * @see OnlyFansAPI\Services\PayoutsService::requestManualWithdrawal()
  *
  * @phpstan-type PayoutRequestManualWithdrawalParamsShape = array{amount: int}
  */

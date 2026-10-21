@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Fans;
+namespace OnlyFansAPI\Services\Fans;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Fans\Summary\SummaryGenerateSummaryParams;
-use Onlyfansapi\Fans\Summary\SummaryGenerateSummaryResponse;
-use Onlyfansapi\Fans\Summary\SummaryGetSummaryParams;
-use Onlyfansapi\Fans\Summary\SummaryGetSummaryResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Fans\SummaryRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Fans\Summary\SummaryGenerateSummaryParams;
+use OnlyFansAPI\Fans\Summary\SummaryGenerateSummaryResponse;
+use OnlyFansAPI\Fans\Summary\SummaryGetSummaryParams;
+use OnlyFansAPI\Fans\Summary\SummaryGetSummaryResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Fans\SummaryRawContract;
 
 /**
  * APIs for generating and retrieving AI-powered fan profile summaries.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class SummaryRawService implements SummaryRawContract
 {

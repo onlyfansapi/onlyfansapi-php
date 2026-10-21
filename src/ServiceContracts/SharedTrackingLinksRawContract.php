@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkListParams;
-use Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkListResponse;
-use Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkRevokeAccessParams;
-use Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkRevokeAccessResponse;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListParams;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkListResponse;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkRevokeAccessParams;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkRevokeAccessResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface SharedTrackingLinksRawContract
 {

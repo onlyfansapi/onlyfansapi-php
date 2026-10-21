@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Following\FollowingListExpiredParams;
+namespace OnlyFansAPI\Following\FollowingListExpiredParams;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Following\FollowingListExpiredParams\Filter\Online;
-use Onlyfansapi\Following\FollowingListExpiredParams\Filter\Paid;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Following\FollowingListExpiredParams\Filter\Online;
+use OnlyFansAPI\Following\FollowingListExpiredParams\Filter\Paid;
 
 /**
  * @phpstan-type FilterShape = array{

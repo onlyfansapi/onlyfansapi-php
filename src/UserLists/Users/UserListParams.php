@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\UserLists\Users;
+namespace OnlyFansAPI\UserLists\Users;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get all users in a OnlyFans User List.
  *
- * @see Onlyfansapi\Services\UserLists\UsersService::list()
+ * @see OnlyFansAPI\Services\UserLists\UsersService::list()
  *
  * @phpstan-type UserListParamsShape = array{
  *   account: string, limit?: string|null, offset?: string|null

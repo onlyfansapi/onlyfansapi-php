@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Payouts\PayoutUpdateFrequencyParams;
+namespace OnlyFansAPI\Payouts\PayoutUpdateFrequencyParams;
 
 /**
  * The new payout frequency.

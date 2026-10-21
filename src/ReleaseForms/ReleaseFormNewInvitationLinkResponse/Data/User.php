@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ReleaseForms\ReleaseFormNewInvitationLinkResponse\Data;
+namespace OnlyFansAPI\ReleaseForms\ReleaseFormNewInvitationLinkResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\ReleaseForms\ReleaseFormNewInvitationLinkResponse\Data\User\AvatarThumbs;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\ReleaseForms\ReleaseFormNewInvitationLinkResponse\Data\User\AvatarThumbs;
 
 /**
- * @phpstan-import-type AvatarThumbsShape from \Onlyfansapi\ReleaseForms\ReleaseFormNewInvitationLinkResponse\Data\User\AvatarThumbs
+ * @phpstan-import-type AvatarThumbsShape from \OnlyFansAPI\ReleaseForms\ReleaseFormNewInvitationLinkResponse\Data\User\AvatarThumbs
  *
  * @phpstan-type UserShape = array{
  *   id?: int|null,

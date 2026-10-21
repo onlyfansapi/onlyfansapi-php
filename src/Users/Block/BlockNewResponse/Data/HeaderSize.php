@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Users\Block\BlockNewResponse\Data;
+namespace OnlyFansAPI\Users\Block\BlockNewResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * @phpstan-type HeaderSizeShape = array{height?: int|null, width?: int|null}

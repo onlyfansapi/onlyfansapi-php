@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\UserLists;
+namespace OnlyFansAPI\UserLists;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Create a OnlyFans User List.
  *
- * @see Onlyfansapi\Services\UserListsService::create()
+ * @see OnlyFansAPI\Services\UserListsService::create()
  *
  * @phpstan-type UserListCreateParamsShape = array{name: string}
  */

@@ -2,10 +2,10 @@
 
 namespace Tests\Services\Analytics;
 
-use Onlyfansapi\Analytics\Summary\SummaryGetEarningsOverviewResponse;
-use Onlyfansapi\Analytics\Summary\SummaryGetPeriodComparisonResponse;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
+use OnlyFansAPI\Analytics\Summary\SummaryGetEarningsOverviewResponse;
+use OnlyFansAPI\Analytics\Summary\SummaryGetPeriodComparisonResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

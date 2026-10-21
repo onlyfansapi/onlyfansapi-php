@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services;
+namespace OnlyFansAPI\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\TransactionsRawContract;
-use Onlyfansapi\Transactions\TransactionListParams;
-use Onlyfansapi\Transactions\TransactionListResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\TransactionsRawContract;
+use OnlyFansAPI\Transactions\TransactionListParams;
+use OnlyFansAPI\Transactions\TransactionListResponse;
 
 /**
  * APIs for managing OnlyFans transactions.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class TransactionsRawService implements TransactionsRawContract
 {

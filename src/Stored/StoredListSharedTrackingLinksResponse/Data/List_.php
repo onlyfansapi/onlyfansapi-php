@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stored\StoredListSharedTrackingLinksResponse\Data;
+namespace OnlyFansAPI\Stored\StoredListSharedTrackingLinksResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Stored\StoredListSharedTrackingLinksResponse\Data\List_\Owner;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Stored\StoredListSharedTrackingLinksResponse\Data\List_\Owner;
 
 /**
- * @phpstan-import-type OwnerShape from \Onlyfansapi\Stored\StoredListSharedTrackingLinksResponse\Data\List_\Owner
+ * @phpstan-import-type OwnerShape from \OnlyFansAPI\Stored\StoredListSharedTrackingLinksResponse\Data\List_\Owner
  *
  * @phpstan-type ListShape = array{
  *   id?: int|null,

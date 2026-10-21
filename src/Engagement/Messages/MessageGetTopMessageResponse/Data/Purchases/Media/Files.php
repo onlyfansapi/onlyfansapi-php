@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media;
+namespace OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files\Full;
-use Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files\Preview;
-use Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files\SquarePreview;
-use Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files\Thumb;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files\Full;
+use OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files\Preview;
+use OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files\SquarePreview;
+use OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files\Thumb;
 
 /**
- * @phpstan-import-type FullShape from \Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files\Full
- * @phpstan-import-type PreviewShape from \Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files\Preview
- * @phpstan-import-type SquarePreviewShape from \Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files\SquarePreview
- * @phpstan-import-type ThumbShape from \Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files\Thumb
+ * @phpstan-import-type FullShape from \OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files\Full
+ * @phpstan-import-type PreviewShape from \OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files\Preview
+ * @phpstan-import-type SquarePreviewShape from \OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files\SquarePreview
+ * @phpstan-import-type ThumbShape from \OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse\Data\Purchases\Media\Files\Thumb
  *
  * @phpstan-type FilesShape = array{
  *   full?: null|Full|FullShape,

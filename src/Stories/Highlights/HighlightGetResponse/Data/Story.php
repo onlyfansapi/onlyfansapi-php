@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stories\Highlights\HighlightGetResponse\Data;
+namespace OnlyFansAPI\Stories\Highlights\HighlightGetResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Stories\Highlights\HighlightGetResponse\Data\Story\Media;
-use Onlyfansapi\Stories\Highlights\HighlightGetResponse\Data\Story\Text;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Stories\Highlights\HighlightGetResponse\Data\Story\Media;
+use OnlyFansAPI\Stories\Highlights\HighlightGetResponse\Data\Story\Text;
 
 /**
- * @phpstan-import-type MediaShape from \Onlyfansapi\Stories\Highlights\HighlightGetResponse\Data\Story\Media
- * @phpstan-import-type TextShape from \Onlyfansapi\Stories\Highlights\HighlightGetResponse\Data\Story\Text
+ * @phpstan-import-type MediaShape from \OnlyFansAPI\Stories\Highlights\HighlightGetResponse\Data\Story\Media
+ * @phpstan-import-type TextShape from \OnlyFansAPI\Stories\Highlights\HighlightGetResponse\Data\Story\Text
  *
  * @phpstan-type StoryShape = array{
  *   id?: int|null,

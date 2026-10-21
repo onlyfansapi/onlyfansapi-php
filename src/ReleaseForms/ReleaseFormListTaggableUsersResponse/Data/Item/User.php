@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersResponse\Data\Item;
+namespace OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersResponse\Data\Item;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersResponse\Data\Item\User\AvatarThumbs;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersResponse\Data\Item\User\AvatarThumbs;
 
 /**
- * @phpstan-import-type AvatarThumbsShape from \Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersResponse\Data\Item\User\AvatarThumbs
+ * @phpstan-import-type AvatarThumbsShape from \OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersResponse\Data\Item\User\AvatarThumbs
  *
  * @phpstan-type UserShape = array{
  *   id?: int|null,

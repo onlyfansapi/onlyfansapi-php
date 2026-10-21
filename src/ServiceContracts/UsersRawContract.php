@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\Users\UserGetResponse;
-use Onlyfansapi\Users\UserListParams;
-use Onlyfansapi\Users\UserListResponse;
-use Onlyfansapi\Users\UserRetrieveParams;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\Users\UserGetResponse;
+use OnlyFansAPI\Users\UserListParams;
+use OnlyFansAPI\Users\UserListResponse;
+use OnlyFansAPI\Users\UserRetrieveParams;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface UsersRawContract
 {
     /**
      * @api
      *
-     * @param string $username the OnlyFans username of the user to retrieve details for
+     * @param string $username The OnlyFans username or numeric user ID to retrieve details for. Display names and profile URLs are not accepted.
      * @param array<string,mixed>|UserRetrieveParams $params
      * @param RequestOpts|null $requestOptions
      *

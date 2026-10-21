@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Authenticate;
+namespace OnlyFansAPI\Authenticate;
 
-use Onlyfansapi\Authenticate\AuthenticatePollStatusResponse\Account;
-use Onlyfansapi\Authenticate\AuthenticatePollStatusResponse\LastAttempt;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Authenticate\AuthenticatePollStatusResponse\Account;
+use OnlyFansAPI\Authenticate\AuthenticatePollStatusResponse\LastAttempt;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type AccountShape from \Onlyfansapi\Authenticate\AuthenticatePollStatusResponse\Account
- * @phpstan-import-type LastAttemptShape from \Onlyfansapi\Authenticate\AuthenticatePollStatusResponse\LastAttempt
+ * @phpstan-import-type AccountShape from \OnlyFansAPI\Authenticate\AuthenticatePollStatusResponse\Account
+ * @phpstan-import-type LastAttemptShape from \OnlyFansAPI\Authenticate\AuthenticatePollStatusResponse\LastAttempt
  *
  * @phpstan-type AuthenticatePollStatusResponseShape = array{
  *   account?: null|Account|AccountShape,

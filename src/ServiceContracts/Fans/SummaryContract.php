@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Fans;
+namespace OnlyFansAPI\ServiceContracts\Fans;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Fans\Summary\SummaryGenerateSummaryResponse;
-use Onlyfansapi\Fans\Summary\SummaryGetSummaryResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Fans\Summary\SummaryGenerateSummaryResponse;
+use OnlyFansAPI\Fans\Summary\SummaryGetSummaryResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface SummaryContract
 {

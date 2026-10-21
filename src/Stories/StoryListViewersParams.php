@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stories;
+namespace OnlyFansAPI\Stories;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Retrieve the list of viewers for a specific story by its ID.
  *
- * @see Onlyfansapi\Services\StoriesService::listViewers()
+ * @see OnlyFansAPI\Services\StoriesService::listViewers()
  *
  * @phpstan-type StoryListViewersParamsShape = array{
  *   account: string, limit?: int|null, offset?: int|null

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Notifications;
+namespace OnlyFansAPI\Notifications;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Notifications\NotificationSearchUsersResponse\_Meta;
-use Onlyfansapi\Notifications\NotificationSearchUsersResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Notifications\NotificationSearchUsersResponse\_Meta;
+use OnlyFansAPI\Notifications\NotificationSearchUsersResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Notifications\NotificationSearchUsersResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Notifications\NotificationSearchUsersResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Notifications\NotificationSearchUsersResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Notifications\NotificationSearchUsersResponse\Data
  *
  * @phpstan-type NotificationSearchUsersResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: list<Data|DataShape>|null

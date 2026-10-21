@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Notifications\NotificationSearchUsersResponse;
+namespace OnlyFansAPI\Notifications\NotificationSearchUsersResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Notifications\NotificationSearchUsersResponse\Data\ListsState;
-use Onlyfansapi\Notifications\NotificationSearchUsersResponse\Data\SubscribedByData;
-use Onlyfansapi\Notifications\NotificationSearchUsersResponse\Data\SubscribedOnData;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Notifications\NotificationSearchUsersResponse\Data\ListsState;
+use OnlyFansAPI\Notifications\NotificationSearchUsersResponse\Data\SubscribedByData;
+use OnlyFansAPI\Notifications\NotificationSearchUsersResponse\Data\SubscribedOnData;
 
 /**
- * @phpstan-import-type ListsStateShape from \Onlyfansapi\Notifications\NotificationSearchUsersResponse\Data\ListsState
- * @phpstan-import-type SubscribedByDataShape from \Onlyfansapi\Notifications\NotificationSearchUsersResponse\Data\SubscribedByData
- * @phpstan-import-type SubscribedOnDataShape from \Onlyfansapi\Notifications\NotificationSearchUsersResponse\Data\SubscribedOnData
+ * @phpstan-import-type ListsStateShape from \OnlyFansAPI\Notifications\NotificationSearchUsersResponse\Data\ListsState
+ * @phpstan-import-type SubscribedByDataShape from \OnlyFansAPI\Notifications\NotificationSearchUsersResponse\Data\SubscribedByData
+ * @phpstan-import-type SubscribedOnDataShape from \OnlyFansAPI\Notifications\NotificationSearchUsersResponse\Data\SubscribedOnData
  *
  * @phpstan-type DataShape = array{
  *   id?: int|null,

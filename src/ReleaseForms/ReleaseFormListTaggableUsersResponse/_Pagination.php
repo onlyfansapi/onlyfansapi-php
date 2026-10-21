@@ -2,14 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ReleaseForms\ReleaseFormListTaggableUsersResponse;
+namespace OnlyFansAPI\ReleaseForms\ReleaseFormListTaggableUsersResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-type _PaginationShape = array{nextPage?: string|null}
+ * @phpstan-type _PaginationShape = array{
+ *   nextPage?: string|null, notice?: string|null
+ * }
  */
 final class _Pagination implements BaseModel
 {
@@ -18,6 +20,9 @@ final class _Pagination implements BaseModel
 
     #[Optional('next_page')]
     public ?string $nextPage;
+
+    #[Optional]
+    public ?string $notice;
 
     public function __construct()
     {
@@ -29,11 +34,14 @@ final class _Pagination implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      */
-    public static function with(?string $nextPage = null): self
-    {
+    public static function with(
+        ?string $nextPage = null,
+        ?string $notice = null
+    ): self {
         $self = new self;
 
         null !== $nextPage && $self['nextPage'] = $nextPage;
+        null !== $notice && $self['notice'] = $notice;
 
         return $self;
     }
@@ -42,6 +50,14 @@ final class _Pagination implements BaseModel
     {
         $self = clone $this;
         $self['nextPage'] = $nextPage;
+
+        return $self;
+    }
+
+    public function withNotice(string $notice): self
+    {
+        $self = clone $this;
+        $self['notice'] = $notice;
 
         return $self;
     }

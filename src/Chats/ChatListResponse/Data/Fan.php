@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\ChatListResponse\Data;
+namespace OnlyFansAPI\Chats\ChatListResponse\Data;
 
-use Onlyfansapi\Chats\ChatListResponse\Data\Fan\AvatarThumbs;
-use Onlyfansapi\Chats\ChatListResponse\Data\Fan\HeaderSize;
-use Onlyfansapi\Chats\ChatListResponse\Data\Fan\HeaderThumbs;
-use Onlyfansapi\Chats\ChatListResponse\Data\Fan\ListsState;
-use Onlyfansapi\Chats\ChatListResponse\Data\Fan\SubscribedByData;
-use Onlyfansapi\Chats\ChatListResponse\Data\Fan\SubscribedOnData;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chats\ChatListResponse\Data\Fan\AvatarThumbs;
+use OnlyFansAPI\Chats\ChatListResponse\Data\Fan\HeaderSize;
+use OnlyFansAPI\Chats\ChatListResponse\Data\Fan\HeaderThumbs;
+use OnlyFansAPI\Chats\ChatListResponse\Data\Fan\ListsState;
+use OnlyFansAPI\Chats\ChatListResponse\Data\Fan\SubscribedByData;
+use OnlyFansAPI\Chats\ChatListResponse\Data\Fan\SubscribedOnData;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type AvatarThumbsShape from \Onlyfansapi\Chats\ChatListResponse\Data\Fan\AvatarThumbs
- * @phpstan-import-type HeaderSizeShape from \Onlyfansapi\Chats\ChatListResponse\Data\Fan\HeaderSize
- * @phpstan-import-type HeaderThumbsShape from \Onlyfansapi\Chats\ChatListResponse\Data\Fan\HeaderThumbs
- * @phpstan-import-type ListsStateShape from \Onlyfansapi\Chats\ChatListResponse\Data\Fan\ListsState
- * @phpstan-import-type SubscribedByDataShape from \Onlyfansapi\Chats\ChatListResponse\Data\Fan\SubscribedByData
- * @phpstan-import-type SubscribedOnDataShape from \Onlyfansapi\Chats\ChatListResponse\Data\Fan\SubscribedOnData
+ * @phpstan-import-type AvatarThumbsShape from \OnlyFansAPI\Chats\ChatListResponse\Data\Fan\AvatarThumbs
+ * @phpstan-import-type HeaderSizeShape from \OnlyFansAPI\Chats\ChatListResponse\Data\Fan\HeaderSize
+ * @phpstan-import-type HeaderThumbsShape from \OnlyFansAPI\Chats\ChatListResponse\Data\Fan\HeaderThumbs
+ * @phpstan-import-type ListsStateShape from \OnlyFansAPI\Chats\ChatListResponse\Data\Fan\ListsState
+ * @phpstan-import-type SubscribedByDataShape from \OnlyFansAPI\Chats\ChatListResponse\Data\Fan\SubscribedByData
+ * @phpstan-import-type SubscribedOnDataShape from \OnlyFansAPI\Chats\ChatListResponse\Data\Fan\SubscribedOnData
  *
  * @phpstan-type FanShape = array{
  *   id?: int|null,

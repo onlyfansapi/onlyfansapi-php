@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Engagement\Messages;
+namespace OnlyFansAPI\Services\Engagement\Messages;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageChartParams;
-use Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageChartResponse;
-use Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageListParams;
-use Onlyfansapi\Engagement\Messages\DirectMessages\DirectMessageListResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Engagement\Messages\DirectMessagesRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageChartParams;
+use OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageChartResponse;
+use OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageListParams;
+use OnlyFansAPI\Engagement\Messages\DirectMessages\DirectMessageListResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Engagement\Messages\DirectMessagesRawContract;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class DirectMessagesRawService implements DirectMessagesRawContract
 {

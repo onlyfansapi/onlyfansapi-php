@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SharedTrackingLinks;
+namespace OnlyFansAPI\SharedTrackingLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkRevokeAccessResponse\_Meta;
-use Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkRevokeAccessResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkRevokeAccessResponse\_Meta;
+use OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkRevokeAccessResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkRevokeAccessResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\SharedTrackingLinks\SharedTrackingLinkRevokeAccessResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkRevokeAccessResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\SharedTrackingLinks\SharedTrackingLinkRevokeAccessResponse\Data
  *
  * @phpstan-type SharedTrackingLinkRevokeAccessResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

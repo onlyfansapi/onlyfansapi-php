@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Fans;
+namespace OnlyFansAPI\Services\Fans;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Fans\Notes\NoteClearNotesParams;
-use Onlyfansapi\Fans\Notes\NoteClearNotesResponse;
-use Onlyfansapi\Fans\Notes\NoteCreateEditNotesParams;
-use Onlyfansapi\Fans\Notes\NoteGetNotesParams;
-use Onlyfansapi\Fans\Notes\NoteGetNotesResponse;
-use Onlyfansapi\Fans\Notes\NoteNewEditNotesResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Fans\NotesRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Fans\Notes\NoteClearNotesParams;
+use OnlyFansAPI\Fans\Notes\NoteClearNotesResponse;
+use OnlyFansAPI\Fans\Notes\NoteCreateEditNotesParams;
+use OnlyFansAPI\Fans\Notes\NoteGetNotesParams;
+use OnlyFansAPI\Fans\Notes\NoteGetNotesResponse;
+use OnlyFansAPI\Fans\Notes\NoteNewEditNotesResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Fans\NotesRawContract;
 
 /**
  * APIs for managing OnlyFans fans (subscribers).
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class NotesRawService implements NotesRawContract
 {

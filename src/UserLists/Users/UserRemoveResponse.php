@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\UserLists\Users;
+namespace OnlyFansAPI\UserLists\Users;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\UserLists\Users\UserRemoveResponse\_Meta;
-use Onlyfansapi\UserLists\Users\UserRemoveResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\UserLists\Users\UserRemoveResponse\_Meta;
+use OnlyFansAPI\UserLists\Users\UserRemoveResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\UserLists\Users\UserRemoveResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\UserLists\Users\UserRemoveResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\UserLists\Users\UserRemoveResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\UserLists\Users\UserRemoveResponse\Data
  *
  * @phpstan-type UserRemoveResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

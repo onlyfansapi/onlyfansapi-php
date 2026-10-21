@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinks;
+namespace OnlyFansAPI\SmartLinks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Compatibility endpoint returning fans with attributed spend through a Smart Link.
  *
- * @see Onlyfansapi\Services\SmartLinksService::listSpenders()
+ * @see OnlyFansAPI\Services\SmartLinksService::listSpenders()
  *
  * @phpstan-type SmartLinkListSpendersParamsShape = array{
  *   limit?: int|null, minSpend?: float|null, offset?: int|null

@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Settings\BlockedCountries;
+namespace OnlyFansAPI\Settings\BlockedCountries;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Updates the countries blocked from viewing the account.
  *
- * @see Onlyfansapi\Services\Settings\BlockedCountriesService::update()
+ * @see OnlyFansAPI\Services\Settings\BlockedCountriesService::update()
  *
  * @phpstan-type BlockedCountryUpdateParamsShape = array{
  *   blockedCountries: list<string>, blockedStates?: list<string>|null

@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans;
+namespace OnlyFansAPI\Fans;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Fans\FanListLatestParams\Type;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Fans\FanListLatestParams\Type;
 
 /**
  * Get a paginated list fans, filterable by total, only new subscribers, or only renewals. Newest fans are first.
  *
- * @see Onlyfansapi\Services\FansService::listLatest()
+ * @see OnlyFansAPI\Services\FansService::listLatest()
  *
  * @phpstan-type FanListLatestParamsShape = array{
  *   endDate?: string|null,
@@ -30,13 +30,13 @@ final class FanListLatestParams implements BaseModel
     use SdkParams;
 
     /**
-     * End date for filtering (required with start_date). This field is required when <code>start_date</code> is present.
+     * End date for filtering (required with start_date). Must be a valid date. Must not be greater than 255 characters.
      */
     #[Optional(nullable: true)]
     public ?string $endDate;
 
     /**
-     * Number of fans to return (1-50). Must be at least 1. Must not be greater than 100.
+     * Number of fans to return (1-50). Must be at least 1. Must not be greater than 50.
      */
     #[Optional]
     public ?int $limit;
@@ -48,7 +48,7 @@ final class FanListLatestParams implements BaseModel
     public ?int $offset;
 
     /**
-     * Start date for filtering (required with end_date). This field is required when <code>end_date</code> is present.
+     * Start date for filtering (required with end_date). Must be a valid date. Must not be greater than 255 characters.
      */
     #[Optional(nullable: true)]
     public ?string $startDate;
@@ -92,7 +92,7 @@ final class FanListLatestParams implements BaseModel
     }
 
     /**
-     * End date for filtering (required with start_date). This field is required when <code>start_date</code> is present.
+     * End date for filtering (required with start_date). Must be a valid date. Must not be greater than 255 characters.
      */
     public function withEndDate(?string $endDate): self
     {
@@ -103,7 +103,7 @@ final class FanListLatestParams implements BaseModel
     }
 
     /**
-     * Number of fans to return (1-50). Must be at least 1. Must not be greater than 100.
+     * Number of fans to return (1-50). Must be at least 1. Must not be greater than 50.
      */
     public function withLimit(int $limit): self
     {
@@ -125,7 +125,7 @@ final class FanListLatestParams implements BaseModel
     }
 
     /**
-     * Start date for filtering (required with end_date). This field is required when <code>end_date</code> is present.
+     * Start date for filtering (required with end_date). Must be a valid date. Must not be greater than 255 characters.
      */
     public function withStartDate(?string $startDate): self
     {

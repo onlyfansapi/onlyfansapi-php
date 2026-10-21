@@ -2,12 +2,12 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Stored\StoredListSharedTrackingLinksResponse;
-use Onlyfansapi\Stored\StoredListSharedTrialLinksResponse;
-use Onlyfansapi\Stored\StoredListTrackingLinksResponse;
-use Onlyfansapi\Stored\StoredListTrialLinksResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Stored\StoredListSharedTrackingLinksResponse;
+use OnlyFansAPI\Stored\StoredListSharedTrialLinksResponse;
+use OnlyFansAPI\Stored\StoredListTrackingLinksResponse;
+use OnlyFansAPI\Stored\StoredListTrialLinksResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

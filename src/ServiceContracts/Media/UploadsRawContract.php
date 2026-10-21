@@ -2,19 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Media;
+namespace OnlyFansAPI\ServiceContracts\Media;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Media\Uploads\UploadGetStatusParams;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember0;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember1;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember2;
-use Onlyfansapi\Media\Uploads\UploadGetStatusResponse\UnionMember3;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusParams;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember0;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember1;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember2;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember3;
+use OnlyFansAPI\Media\Uploads\UploadGetStatusResponse\UnionMember4;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface UploadsRawContract
 {
@@ -25,7 +26,7 @@ interface UploadsRawContract
      * @param array<string,mixed>|UploadGetStatusParams $params
      * @param RequestOpts|null $requestOptions
      *
-     * @return BaseResponse<UnionMember0|UnionMember1|UnionMember2|UnionMember3>
+     * @return BaseResponse<UnionMember0|UnionMember1|UnionMember2|UnionMember3|UnionMember4,>
      *
      * @throws APIException
      */

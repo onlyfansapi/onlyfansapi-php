@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts;
+namespace OnlyFansAPI\Posts;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Retrieve details of a post from your account.
  *
- * @see Onlyfansapi\Services\PostsService::retrieve()
+ * @see OnlyFansAPI\Services\PostsService::retrieve()
  *
  * @phpstan-type PostRetrieveParamsShape = array{account: string}
  */

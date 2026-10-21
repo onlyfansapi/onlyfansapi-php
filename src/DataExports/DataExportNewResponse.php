@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\DataExports;
+namespace OnlyFansAPI\DataExports;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\DataExports\DataExportNewResponse\_Meta;
-use Onlyfansapi\DataExports\DataExportNewResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\DataExports\DataExportNewResponse\_Meta;
+use OnlyFansAPI\DataExports\DataExportNewResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\DataExports\DataExportNewResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\DataExports\DataExportNewResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\DataExports\DataExportNewResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\DataExports\DataExportNewResponse\Data
  *
  * @phpstan-type DataExportNewResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

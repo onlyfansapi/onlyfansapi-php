@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinks\SmartLinkRetrieveCohortArpsParams;
+namespace OnlyFansAPI\SmartLinks\SmartLinkRetrieveCohortArpsParams;
 
 /**
  * Revenue basis. Defaults to `net`.

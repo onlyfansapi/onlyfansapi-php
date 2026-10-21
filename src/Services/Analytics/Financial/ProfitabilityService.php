@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Analytics\Financial;
+namespace OnlyFansAPI\Services\Analytics\Financial;
 
-use Onlyfansapi\Analytics\Financial\Profitability\ProfitabilityGetHistoryResponseItem;
-use Onlyfansapi\Analytics\Financial\Profitability\ProfitabilityGetProfitabilityResponseItem;
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Analytics\Financial\ProfitabilityContract;
+use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetHistoryResponse;
+use OnlyFansAPI\Analytics\Financial\Profitability\ProfitabilityGetProfitabilityResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Analytics\Financial\ProfitabilityContract;
 
 /**
  * APIs for retrieving financial analytics data.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class ProfitabilityService implements ProfitabilityContract
 {
@@ -42,8 +42,6 @@ final class ProfitabilityService implements ProfitabilityContract
      * @param int $months Number of months of history to retrieve (1-60, default 12). Must be at least 1. Must not be greater than 60.
      * @param RequestOpts|null $requestOptions
      *
-     * @return list<ProfitabilityGetHistoryResponseItem>
-     *
      * @throws APIException
      */
     public function getHistory(
@@ -51,7 +49,7 @@ final class ProfitabilityService implements ProfitabilityContract
         string $accountPrefixedID,
         ?int $months = null,
         RequestOptions|array|null $requestOptions = null,
-    ): array {
+    ): ProfitabilityGetHistoryResponse {
         $params = Util::removeNulls(
             ['accountPrefixedID' => $accountPrefixedID, 'months' => $months]
         );
@@ -72,8 +70,6 @@ final class ProfitabilityService implements ProfitabilityContract
      * @param int $year The year to calculate profitability for
      * @param RequestOpts|null $requestOptions
      *
-     * @return list<ProfitabilityGetProfitabilityResponseItem>
-     *
      * @throws APIException
      */
     public function getProfitability(
@@ -81,7 +77,7 @@ final class ProfitabilityService implements ProfitabilityContract
         int $month,
         int $year,
         RequestOptions|array|null $requestOptions = null,
-    ): array {
+    ): ProfitabilityGetProfitabilityResponse {
         $params = Util::removeNulls(
             ['accountIDs' => $accountIDs, 'month' => $month, 'year' => $year]
         );

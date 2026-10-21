@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans\FanListTopResponse\Data;
+namespace OnlyFansAPI\Fans\FanListTopResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Fans\FanListTopResponse\Data\User\AvatarThumbs;
-use Onlyfansapi\Fans\FanListTopResponse\Data\User\ListsState;
-use Onlyfansapi\Fans\FanListTopResponse\Data\User\SubscribedOnData;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Fans\FanListTopResponse\Data\User\AvatarThumbs;
+use OnlyFansAPI\Fans\FanListTopResponse\Data\User\ListsState;
+use OnlyFansAPI\Fans\FanListTopResponse\Data\User\SubscribedOnData;
 
 /**
- * @phpstan-import-type AvatarThumbsShape from \Onlyfansapi\Fans\FanListTopResponse\Data\User\AvatarThumbs
- * @phpstan-import-type ListsStateShape from \Onlyfansapi\Fans\FanListTopResponse\Data\User\ListsState
- * @phpstan-import-type SubscribedOnDataShape from \Onlyfansapi\Fans\FanListTopResponse\Data\User\SubscribedOnData
+ * @phpstan-import-type AvatarThumbsShape from \OnlyFansAPI\Fans\FanListTopResponse\Data\User\AvatarThumbs
+ * @phpstan-import-type ListsStateShape from \OnlyFansAPI\Fans\FanListTopResponse\Data\User\ListsState
+ * @phpstan-import-type SubscribedOnDataShape from \OnlyFansAPI\Fans\FanListTopResponse\Data\User\SubscribedOnData
  *
  * @phpstan-type UserShape = array{
  *   id?: int|null,

@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ReleaseForms\ReleaseFormNewReleaseFormResponse\Data;
+namespace OnlyFansAPI\ReleaseForms\ReleaseFormNewReleaseFormResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\ReleaseForms\ReleaseFormNewReleaseFormResponse\Data\User\AvatarThumbs;
-use Onlyfansapi\ReleaseForms\ReleaseFormNewReleaseFormResponse\Data\User\HeaderSize;
-use Onlyfansapi\ReleaseForms\ReleaseFormNewReleaseFormResponse\Data\User\HeaderThumbs;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\ReleaseForms\ReleaseFormNewReleaseFormResponse\Data\User\AvatarThumbs;
+use OnlyFansAPI\ReleaseForms\ReleaseFormNewReleaseFormResponse\Data\User\HeaderSize;
+use OnlyFansAPI\ReleaseForms\ReleaseFormNewReleaseFormResponse\Data\User\HeaderThumbs;
 
 /**
- * @phpstan-import-type AvatarThumbsShape from \Onlyfansapi\ReleaseForms\ReleaseFormNewReleaseFormResponse\Data\User\AvatarThumbs
- * @phpstan-import-type HeaderSizeShape from \Onlyfansapi\ReleaseForms\ReleaseFormNewReleaseFormResponse\Data\User\HeaderSize
- * @phpstan-import-type HeaderThumbsShape from \Onlyfansapi\ReleaseForms\ReleaseFormNewReleaseFormResponse\Data\User\HeaderThumbs
+ * @phpstan-import-type AvatarThumbsShape from \OnlyFansAPI\ReleaseForms\ReleaseFormNewReleaseFormResponse\Data\User\AvatarThumbs
+ * @phpstan-import-type HeaderSizeShape from \OnlyFansAPI\ReleaseForms\ReleaseFormNewReleaseFormResponse\Data\User\HeaderSize
+ * @phpstan-import-type HeaderThumbsShape from \OnlyFansAPI\ReleaseForms\ReleaseFormNewReleaseFormResponse\Data\User\HeaderThumbs
  *
  * @phpstan-type UserShape = array{
  *   id?: int|null,

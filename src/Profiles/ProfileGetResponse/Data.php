@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Profiles\ProfileGetResponse;
+namespace OnlyFansAPI\Profiles\ProfileGetResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Profiles\ProfileGetResponse\Data\AvatarThumbs;
-use Onlyfansapi\Profiles\ProfileGetResponse\Data\HeaderSize;
-use Onlyfansapi\Profiles\ProfileGetResponse\Data\HeaderThumbs;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Profiles\ProfileGetResponse\Data\AvatarThumbs;
+use OnlyFansAPI\Profiles\ProfileGetResponse\Data\HeaderSize;
+use OnlyFansAPI\Profiles\ProfileGetResponse\Data\HeaderThumbs;
 
 /**
- * @phpstan-import-type AvatarThumbsShape from \Onlyfansapi\Profiles\ProfileGetResponse\Data\AvatarThumbs
- * @phpstan-import-type HeaderSizeShape from \Onlyfansapi\Profiles\ProfileGetResponse\Data\HeaderSize
- * @phpstan-import-type HeaderThumbsShape from \Onlyfansapi\Profiles\ProfileGetResponse\Data\HeaderThumbs
+ * @phpstan-import-type AvatarThumbsShape from \OnlyFansAPI\Profiles\ProfileGetResponse\Data\AvatarThumbs
+ * @phpstan-import-type HeaderSizeShape from \OnlyFansAPI\Profiles\ProfileGetResponse\Data\HeaderSize
+ * @phpstan-import-type HeaderThumbsShape from \OnlyFansAPI\Profiles\ProfileGetResponse\Data\HeaderThumbs
  *
  * @phpstan-type DataShape = array{
  *   id?: int|null,

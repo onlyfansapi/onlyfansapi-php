@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Analytics\Financial;
+namespace OnlyFansAPI\ServiceContracts\Analytics\Financial;
 
-use Onlyfansapi\Analytics\Financial\Transactions\TransactionGetByTypeResponseItem;
-use Onlyfansapi\Analytics\Financial\Transactions\TransactionGetSummaryResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Analytics\Financial\Transactions\TransactionGetByTypeResponseItem;
+use OnlyFansAPI\Analytics\Financial\Transactions\TransactionGetSummaryResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface TransactionsContract
 {

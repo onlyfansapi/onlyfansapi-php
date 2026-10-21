@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Settings;
+namespace OnlyFansAPI\Settings;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Settings\SettingCheckUsernameAvailabilityResponse\_Meta;
-use Onlyfansapi\Settings\SettingCheckUsernameAvailabilityResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Settings\SettingCheckUsernameAvailabilityResponse\_Meta;
+use OnlyFansAPI\Settings\SettingCheckUsernameAvailabilityResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Settings\SettingCheckUsernameAvailabilityResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Settings\SettingCheckUsernameAvailabilityResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Settings\SettingCheckUsernameAvailabilityResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Settings\SettingCheckUsernameAvailabilityResponse\Data
  *
  * @phpstan-type SettingCheckUsernameAvailabilityResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

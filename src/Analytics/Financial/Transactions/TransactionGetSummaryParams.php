@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Analytics\Financial\Transactions;
+namespace OnlyFansAPI\Analytics\Financial\Transactions;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get transaction summary including counts for succeeded, refunded, and disputed transactions, plus gross, net, and fee totals.
  *
- * @see Onlyfansapi\Services\Analytics\Financial\TransactionsService::getSummary()
+ * @see OnlyFansAPI\Services\Analytics\Financial\TransactionsService::getSummary()
  *
  * @phpstan-type TransactionGetSummaryParamsShape = array{
  *   accountIDs: list<string>, endDate: string, startDate: string

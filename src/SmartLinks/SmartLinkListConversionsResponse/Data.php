@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinks\SmartLinkListConversionsResponse;
+namespace OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SmartLinks\SmartLinkListConversionsResponse\Data\Chart;
-use Onlyfansapi\SmartLinks\SmartLinkListConversionsResponse\Data\Filters;
-use Onlyfansapi\SmartLinks\SmartLinkListConversionsResponse\Data\Row;
-use Onlyfansapi\SmartLinks\SmartLinkListConversionsResponse\Data\Summary;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse\Data\Chart;
+use OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse\Data\Filters;
+use OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse\Data\Row;
+use OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse\Data\Summary;
 
 /**
- * @phpstan-import-type ChartShape from \Onlyfansapi\SmartLinks\SmartLinkListConversionsResponse\Data\Chart
- * @phpstan-import-type FiltersShape from \Onlyfansapi\SmartLinks\SmartLinkListConversionsResponse\Data\Filters
- * @phpstan-import-type RowShape from \Onlyfansapi\SmartLinks\SmartLinkListConversionsResponse\Data\Row
- * @phpstan-import-type SummaryShape from \Onlyfansapi\SmartLinks\SmartLinkListConversionsResponse\Data\Summary
+ * @phpstan-import-type ChartShape from \OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse\Data\Chart
+ * @phpstan-import-type FiltersShape from \OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse\Data\Filters
+ * @phpstan-import-type RowShape from \OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse\Data\Row
+ * @phpstan-import-type SummaryShape from \OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse\Data\Summary
  *
  * @phpstan-type DataShape = array{
  *   chart?: list<Chart|ChartShape>|null,

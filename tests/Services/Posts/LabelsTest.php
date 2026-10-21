@@ -2,10 +2,10 @@
 
 namespace Tests\Services\Posts;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Posts\Labels\LabelListResponse;
-use Onlyfansapi\Posts\Labels\LabelNewResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Posts\Labels\LabelListResponse;
+use OnlyFansAPI\Posts\Labels\LabelNewResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

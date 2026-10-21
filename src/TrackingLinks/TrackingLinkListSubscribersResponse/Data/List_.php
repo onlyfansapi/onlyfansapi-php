@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\TrackingLinks\TrackingLinkListSubscribersResponse\Data;
+namespace OnlyFansAPI\TrackingLinks\TrackingLinkListSubscribersResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\TrackingLinks\TrackingLinkListSubscribersResponse\Data\List_\AvatarThumbs;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\TrackingLinks\TrackingLinkListSubscribersResponse\Data\List_\AvatarThumbs;
 
 /**
- * @phpstan-import-type AvatarThumbsShape from \Onlyfansapi\TrackingLinks\TrackingLinkListSubscribersResponse\Data\List_\AvatarThumbs
+ * @phpstan-import-type AvatarThumbsShape from \OnlyFansAPI\TrackingLinks\TrackingLinkListSubscribersResponse\Data\List_\AvatarThumbs
  *
  * @phpstan-type ListShape = array{
  *   id?: int|null,

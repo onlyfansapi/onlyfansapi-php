@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Engagement;
+namespace OnlyFansAPI\ServiceContracts\Engagement;
 
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Engagement\Messages\MessageGetMessageBuyersParams;
-use Onlyfansapi\Engagement\Messages\MessageGetMessageBuyersResponse;
-use Onlyfansapi\Engagement\Messages\MessageGetTopMessageParams;
-use Onlyfansapi\Engagement\Messages\MessageGetTopMessageResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Engagement\Messages\MessageGetMessageBuyersParams;
+use OnlyFansAPI\Engagement\Messages\MessageGetMessageBuyersResponse;
+use OnlyFansAPI\Engagement\Messages\MessageGetTopMessageParams;
+use OnlyFansAPI\Engagement\Messages\MessageGetTopMessageResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface MessagesRawContract
 {

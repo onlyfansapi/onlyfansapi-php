@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Me\MeGetModelStartDateResponse;
-use Onlyfansapi\Me\MeGetResponse;
-use Onlyfansapi\Me\MeGetTopPercentageResponse;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Me\MeGetModelStartDateResponse;
+use OnlyFansAPI\Me\MeGetResponse;
+use OnlyFansAPI\Me\MeGetTopPercentageResponse;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface MeContract
 {

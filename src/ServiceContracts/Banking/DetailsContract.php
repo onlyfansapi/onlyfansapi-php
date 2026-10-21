@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\Banking;
+namespace OnlyFansAPI\ServiceContracts\Banking;
 
-use Onlyfansapi\Banking\Details\DetailGetAccountCountryDetailsResponse;
-use Onlyfansapi\Banking\Details\DetailGetBankDetailsResponse;
-use Onlyfansapi\Banking\Details\DetailGetDac7FormDetailsResponse;
-use Onlyfansapi\Banking\Details\DetailGetLegalAndTaxStatusResponse;
-use Onlyfansapi\Banking\Details\DetailGetLegalFormDetailsResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Banking\Details\DetailGetAccountCountryDetailsResponse;
+use OnlyFansAPI\Banking\Details\DetailGetBankDetailsResponse;
+use OnlyFansAPI\Banking\Details\DetailGetDac7FormDetailsResponse;
+use OnlyFansAPI\Banking\Details\DetailGetLegalAndTaxStatusResponse;
+use OnlyFansAPI\Banking\Details\DetailGetLegalFormDetailsResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface DetailsContract
 {

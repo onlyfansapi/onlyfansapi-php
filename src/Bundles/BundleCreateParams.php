@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Bundles;
+namespace OnlyFansAPI\Bundles;
 
-use Onlyfansapi\Bundles\BundleCreateParams\Discount;
-use Onlyfansapi\Bundles\BundleCreateParams\Duration;
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Bundles\BundleCreateParams\Discount;
+use OnlyFansAPI\Bundles\BundleCreateParams\Duration;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Create a new bundle for the account.
  *
- * @see Onlyfansapi\Services\BundlesService::create()
+ * @see OnlyFansAPI\Services\BundlesService::create()
  *
  * @phpstan-type BundleCreateParamsShape = array{
  *   discount: Discount|value-of<Discount>, duration: Duration|value-of<Duration>

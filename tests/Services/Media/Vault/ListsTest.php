@@ -2,13 +2,12 @@
 
 namespace Tests\Services\Media\Vault;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Media\Vault\Lists\ListDeleteResponse;
-use Onlyfansapi\Media\Vault\Lists\ListGetResponse;
-use Onlyfansapi\Media\Vault\Lists\ListListResponse;
-use Onlyfansapi\Media\Vault\Lists\ListNewResponse;
-use Onlyfansapi\Media\Vault\Lists\ListUpdateResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Media\Vault\Lists\ListDeleteResponse;
+use OnlyFansAPI\Media\Vault\Lists\ListGetResponse;
+use OnlyFansAPI\Media\Vault\Lists\ListNewResponse;
+use OnlyFansAPI\Media\Vault\Lists\ListUpdateResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -105,7 +104,8 @@ final class ListsTest extends TestCase
 
         $result = $this->client->media->vault->lists->update(
             '123',
-            account: 'acct_XXXXXXXXXXXXXXX'
+            account: 'acct_XXXXXXXXXXXXXXX',
+            name: 'My renamed list'
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
@@ -121,7 +121,8 @@ final class ListsTest extends TestCase
 
         $result = $this->client->media->vault->lists->update(
             '123',
-            account: 'acct_XXXXXXXXXXXXXXX'
+            account: 'acct_XXXXXXXXXXXXXXX',
+            name: 'My renamed list'
         );
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
@@ -138,7 +139,7 @@ final class ListsTest extends TestCase
         $result = $this->client->media->vault->lists->list('acct_XXXXXXXXXXXXXXX');
 
         // @phpstan-ignore-next-line method.alreadyNarrowedType
-        $this->assertInstanceOf(ListListResponse::class, $result);
+        $this->assertNotNull($result);
     }
 
     #[Test]

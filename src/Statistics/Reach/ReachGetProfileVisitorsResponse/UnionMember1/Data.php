@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1;
+namespace OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1\Data\Chart;
-use Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1\Data\Total;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1\Data\Chart;
+use OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1\Data\Total;
 
 /**
- * @phpstan-import-type ChartShape from \Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1\Data\Chart
- * @phpstan-import-type TotalShape from \Onlyfansapi\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1\Data\Total
+ * @phpstan-import-type ChartShape from \OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1\Data\Chart
+ * @phpstan-import-type TotalShape from \OnlyFansAPI\Statistics\Reach\ReachGetProfileVisitorsResponse\UnionMember1\Data\Total
  *
  * @phpstan-type DataShape = array{
  *   chart?: null|Chart|ChartShape,

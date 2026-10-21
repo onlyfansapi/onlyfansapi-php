@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans;
+namespace OnlyFansAPI\Fans;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Fans\FanSetCustomNameResponse\_Meta;
-use Onlyfansapi\Fans\FanSetCustomNameResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Fans\FanSetCustomNameResponse\_Meta;
+use OnlyFansAPI\Fans\FanSetCustomNameResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Fans\FanSetCustomNameResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Fans\FanSetCustomNameResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Fans\FanSetCustomNameResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Fans\FanSetCustomNameResponse\Data
  *
  * @phpstan-type FanSetCustomNameResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Stories\StoryListArchiveResponse\Data\List_\Media\Files\SquarePreview;
+namespace OnlyFansAPI\Stories\StoryListArchiveResponse\Data\List_\Media\Files\SquarePreview;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * @phpstan-type SourcesShape = array{w150?: string|null, w480?: string|null}

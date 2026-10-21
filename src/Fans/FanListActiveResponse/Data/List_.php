@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans\FanListActiveResponse\Data;
+namespace OnlyFansAPI\Fans\FanListActiveResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Fans\FanListActiveResponse\Data\List_\AvatarThumbs;
-use Onlyfansapi\Fans\FanListActiveResponse\Data\List_\ListsState;
-use Onlyfansapi\Fans\FanListActiveResponse\Data\List_\PromoOffer;
-use Onlyfansapi\Fans\FanListActiveResponse\Data\List_\SubscribedOnData;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Fans\FanListActiveResponse\Data\List_\AvatarThumbs;
+use OnlyFansAPI\Fans\FanListActiveResponse\Data\List_\ListsState;
+use OnlyFansAPI\Fans\FanListActiveResponse\Data\List_\PromoOffer;
+use OnlyFansAPI\Fans\FanListActiveResponse\Data\List_\SubscribedOnData;
 
 /**
- * @phpstan-import-type AvatarThumbsShape from \Onlyfansapi\Fans\FanListActiveResponse\Data\List_\AvatarThumbs
- * @phpstan-import-type ListsStateShape from \Onlyfansapi\Fans\FanListActiveResponse\Data\List_\ListsState
- * @phpstan-import-type PromoOfferShape from \Onlyfansapi\Fans\FanListActiveResponse\Data\List_\PromoOffer
- * @phpstan-import-type SubscribedOnDataShape from \Onlyfansapi\Fans\FanListActiveResponse\Data\List_\SubscribedOnData
+ * @phpstan-import-type AvatarThumbsShape from \OnlyFansAPI\Fans\FanListActiveResponse\Data\List_\AvatarThumbs
+ * @phpstan-import-type ListsStateShape from \OnlyFansAPI\Fans\FanListActiveResponse\Data\List_\ListsState
+ * @phpstan-import-type PromoOfferShape from \OnlyFansAPI\Fans\FanListActiveResponse\Data\List_\PromoOffer
+ * @phpstan-import-type SubscribedOnDataShape from \OnlyFansAPI\Fans\FanListActiveResponse\Data\List_\SubscribedOnData
  *
  * @phpstan-type ListShape = array{
  *   id?: int|null,

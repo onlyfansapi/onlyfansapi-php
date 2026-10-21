@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Media;
+namespace OnlyFansAPI\Media;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Media\MediaUploadResponse\Additional;
-use Onlyfansapi\Media\MediaUploadResponse\Thumb;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Media\MediaUploadResponse\Additional;
+use OnlyFansAPI\Media\MediaUploadResponse\Thumb;
 
 /**
- * @phpstan-import-type AdditionalShape from \Onlyfansapi\Media\MediaUploadResponse\Additional
- * @phpstan-import-type ThumbShape from \Onlyfansapi\Media\MediaUploadResponse\Thumb
+ * @phpstan-import-type AdditionalShape from \OnlyFansAPI\Media\MediaUploadResponse\Additional
+ * @phpstan-import-type ThumbShape from \OnlyFansAPI\Media\MediaUploadResponse\Thumb
  *
  * @phpstan-type MediaUploadResponseShape = array{
  *   additional?: null|Additional|AdditionalShape,

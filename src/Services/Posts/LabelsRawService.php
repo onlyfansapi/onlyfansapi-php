@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Posts;
+namespace OnlyFansAPI\Services\Posts;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Contracts\BaseResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Posts\Labels\LabelCreateParams;
-use Onlyfansapi\Posts\Labels\LabelListParams;
-use Onlyfansapi\Posts\Labels\LabelListResponse;
-use Onlyfansapi\Posts\Labels\LabelNewResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Posts\LabelsRawContract;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Contracts\BaseResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Posts\Labels\LabelCreateParams;
+use OnlyFansAPI\Posts\Labels\LabelListParams;
+use OnlyFansAPI\Posts\Labels\LabelListResponse;
+use OnlyFansAPI\Posts\Labels\LabelNewResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Posts\LabelsRawContract;
 
 /**
  * APIs for managing your post labels.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class LabelsRawService implements LabelsRawContract
 {

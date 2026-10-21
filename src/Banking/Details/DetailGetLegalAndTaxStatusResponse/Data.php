@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Banking\Details\DetailGetLegalAndTaxStatusResponse;
+namespace OnlyFansAPI\Banking\Details\DetailGetLegalAndTaxStatusResponse;
 
-use Onlyfansapi\Banking\Details\DetailGetLegalAndTaxStatusResponse\Data\Dac7;
-use Onlyfansapi\Banking\Details\DetailGetLegalAndTaxStatusResponse\Data\Tax;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Banking\Details\DetailGetLegalAndTaxStatusResponse\Data\Dac7;
+use OnlyFansAPI\Banking\Details\DetailGetLegalAndTaxStatusResponse\Data\Tax;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type Dac7Shape from \Onlyfansapi\Banking\Details\DetailGetLegalAndTaxStatusResponse\Data\Dac7
- * @phpstan-import-type TaxShape from \Onlyfansapi\Banking\Details\DetailGetLegalAndTaxStatusResponse\Data\Tax
+ * @phpstan-import-type Dac7Shape from \OnlyFansAPI\Banking\Details\DetailGetLegalAndTaxStatusResponse\Data\Dac7
+ * @phpstan-import-type TaxShape from \OnlyFansAPI\Banking\Details\DetailGetLegalAndTaxStatusResponse\Data\Tax
  *
  * @phpstan-type DataShape = array{
  *   canChangePayoutType?: bool|null,

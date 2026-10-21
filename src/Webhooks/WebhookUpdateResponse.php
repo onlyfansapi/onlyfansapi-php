@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Webhooks;
+namespace OnlyFansAPI\Webhooks;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Webhooks\WebhookUpdateResponse\_Meta;
-use Onlyfansapi\Webhooks\WebhookUpdateResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Webhooks\WebhookUpdateResponse\_Meta;
+use OnlyFansAPI\Webhooks\WebhookUpdateResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Webhooks\WebhookUpdateResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Webhooks\WebhookUpdateResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Webhooks\WebhookUpdateResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Webhooks\WebhookUpdateResponse\Data
  *
  * @phpstan-type WebhookUpdateResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

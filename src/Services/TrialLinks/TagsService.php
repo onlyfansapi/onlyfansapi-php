@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\TrialLinks;
+namespace OnlyFansAPI\Services\TrialLinks;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\TrialLinks\TagsContract;
-use Onlyfansapi\TrialLinks\Tags\TagAddResponse;
-use Onlyfansapi\TrialLinks\Tags\TagListResponse;
-use Onlyfansapi\TrialLinks\Tags\TagRemoveResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\TrialLinks\TagsContract;
+use OnlyFansAPI\TrialLinks\Tags\TagAddResponse;
+use OnlyFansAPI\TrialLinks\Tags\TagListResponse;
+use OnlyFansAPI\TrialLinks\Tags\TagRemoveResponse;
 
 /**
- * APIs for managing Free Trial Links.
+ * APIs for managing Free Trial Links. Revenue totals are net earnings after refunds and chargebacks. `revenue.chargebacks` (or `summary.chargebacks_total` in stats) is the positive cached net amount already excluded from revenue; do not subtract it again. Spender responses include chargebacks across all attributed periods for each fan with positive net revenue.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class TagsService implements TagsContract
 {

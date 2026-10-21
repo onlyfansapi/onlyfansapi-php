@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Search;
+namespace OnlyFansAPI\Search;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Search\SearchProfilesParams\Filter;
-use Onlyfansapi\Search\SearchProfilesParams\Sort;
-use Onlyfansapi\Search\SearchProfilesParams\SortDirection;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Search\SearchProfilesParams\Filter;
+use OnlyFansAPI\Search\SearchProfilesParams\Sort;
+use OnlyFansAPI\Search\SearchProfilesParams\SortDirection;
 
 /**
  * Full-text search for profiles with filters for pricing, free trials, location, media count and more.
  *
- * @see Onlyfansapi\Services\SearchService::profiles()
+ * @see OnlyFansAPI\Services\SearchService::profiles()
  *
- * @phpstan-import-type FilterShape from \Onlyfansapi\Search\SearchProfilesParams\Filter
+ * @phpstan-import-type FilterShape from \OnlyFansAPI\Search\SearchProfilesParams\Filter
  *
  * @phpstan-type SearchProfilesParamsShape = array{
  *   cursor?: string|null,

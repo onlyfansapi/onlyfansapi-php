@@ -2,12 +2,12 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Promotions\PromotionDeleteResponse;
-use Onlyfansapi\Promotions\PromotionListResponse;
-use Onlyfansapi\Promotions\PromotionNewResponse;
-use Onlyfansapi\Promotions\PromotionStopResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Promotions\PromotionDeleteResponse;
+use OnlyFansAPI\Promotions\PromotionListResponse;
+use OnlyFansAPI\Promotions\PromotionNewResponse;
+use OnlyFansAPI\Promotions\PromotionStopResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

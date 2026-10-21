@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats;
+namespace OnlyFansAPI\Chats;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Mark a specific chat as read. Alternative to List Chat Messages endpoint, if you just want to mark the chat as read without fetching messages.
  *
- * @see Onlyfansapi\Services\ChatsService::markAsRead()
+ * @see OnlyFansAPI\Services\ChatsService::markAsRead()
  *
  * @phpstan-type ChatMarkAsReadParamsShape = array{account: string}
  */

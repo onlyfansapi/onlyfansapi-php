@@ -2,10 +2,10 @@
 
 namespace Tests\Services\Fans;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Fans\Summary\SummaryGenerateSummaryResponse;
-use Onlyfansapi\Fans\Summary\SummaryGetSummaryResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Fans\Summary\SummaryGenerateSummaryResponse;
+use OnlyFansAPI\Fans\Summary\SummaryGetSummaryResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

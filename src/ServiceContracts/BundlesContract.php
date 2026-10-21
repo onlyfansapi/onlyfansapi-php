@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts;
+namespace OnlyFansAPI\ServiceContracts;
 
-use Onlyfansapi\Bundles\BundleCreateParams\Discount;
-use Onlyfansapi\Bundles\BundleCreateParams\Duration;
-use Onlyfansapi\Bundles\BundleDeleteResponse;
-use Onlyfansapi\Bundles\BundleListResponse;
-use Onlyfansapi\Bundles\BundleNewResponse;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
+use OnlyFansAPI\Bundles\BundleCreateParams\Discount;
+use OnlyFansAPI\Bundles\BundleCreateParams\Duration;
+use OnlyFansAPI\Bundles\BundleDeleteResponse;
+use OnlyFansAPI\Bundles\BundleListResponse;
+use OnlyFansAPI\Bundles\BundleNewResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface BundlesContract
 {

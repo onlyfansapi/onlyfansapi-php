@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinkPostbacks\SmartLinkPostbackCreateParams;
+namespace OnlyFansAPI\SmartLinkPostbacks\SmartLinkPostbackCreateParams;
 
 /**
  * `global` fires for all Smart Links. `campaign_specific` fires only for selected Smart Links.

@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats\ChatStartTypingResponse;
+namespace OnlyFansAPI\Chats\ChatStartTypingResponse;
 
-use Onlyfansapi\Chats\ChatStartTypingResponse\_Meta\_Cache;
-use Onlyfansapi\Chats\ChatStartTypingResponse\_Meta\_Credits;
-use Onlyfansapi\Chats\ChatStartTypingResponse\_Meta\_RateLimits;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chats\ChatStartTypingResponse\_Meta\_Cache;
+use OnlyFansAPI\Chats\ChatStartTypingResponse\_Meta\_Credits;
+use OnlyFansAPI\Chats\ChatStartTypingResponse\_Meta\_RateLimits;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type _CacheShape from \Onlyfansapi\Chats\ChatStartTypingResponse\_Meta\_Cache
- * @phpstan-import-type _CreditsShape from \Onlyfansapi\Chats\ChatStartTypingResponse\_Meta\_Credits
- * @phpstan-import-type _RateLimitsShape from \Onlyfansapi\Chats\ChatStartTypingResponse\_Meta\_RateLimits
+ * @phpstan-import-type _CacheShape from \OnlyFansAPI\Chats\ChatStartTypingResponse\_Meta\_Cache
+ * @phpstan-import-type _CreditsShape from \OnlyFansAPI\Chats\ChatStartTypingResponse\_Meta\_Credits
+ * @phpstan-import-type _RateLimitsShape from \OnlyFansAPI\Chats\ChatStartTypingResponse\_Meta\_RateLimits
  *
  * @phpstan-type _MetaShape = array{
  *   _cache?: null|_Cache|_CacheShape,

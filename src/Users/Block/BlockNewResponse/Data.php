@@ -2,27 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Users\Block\BlockNewResponse;
+namespace OnlyFansAPI\Users\Block\BlockNewResponse;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Users\Block\BlockNewResponse\Data\AvatarThumbs;
-use Onlyfansapi\Users\Block\BlockNewResponse\Data\HeaderSize;
-use Onlyfansapi\Users\Block\BlockNewResponse\Data\HeaderThumbs;
-use Onlyfansapi\Users\Block\BlockNewResponse\Data\ListsState;
-use Onlyfansapi\Users\Block\BlockNewResponse\Data\SubscribedByData;
-use Onlyfansapi\Users\Block\BlockNewResponse\Data\SubscribedOnData;
-use Onlyfansapi\Users\Block\BlockNewResponse\Data\SubscriptionBundle;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Users\Block\BlockNewResponse\Data\AvatarThumbs;
+use OnlyFansAPI\Users\Block\BlockNewResponse\Data\HeaderSize;
+use OnlyFansAPI\Users\Block\BlockNewResponse\Data\HeaderThumbs;
+use OnlyFansAPI\Users\Block\BlockNewResponse\Data\ListsState;
+use OnlyFansAPI\Users\Block\BlockNewResponse\Data\SubscribedByData;
+use OnlyFansAPI\Users\Block\BlockNewResponse\Data\SubscribedOnData;
+use OnlyFansAPI\Users\Block\BlockNewResponse\Data\SubscriptionBundle;
 
 /**
- * @phpstan-import-type AvatarThumbsShape from \Onlyfansapi\Users\Block\BlockNewResponse\Data\AvatarThumbs
- * @phpstan-import-type HeaderSizeShape from \Onlyfansapi\Users\Block\BlockNewResponse\Data\HeaderSize
- * @phpstan-import-type HeaderThumbsShape from \Onlyfansapi\Users\Block\BlockNewResponse\Data\HeaderThumbs
- * @phpstan-import-type ListsStateShape from \Onlyfansapi\Users\Block\BlockNewResponse\Data\ListsState
- * @phpstan-import-type SubscribedByDataShape from \Onlyfansapi\Users\Block\BlockNewResponse\Data\SubscribedByData
- * @phpstan-import-type SubscribedOnDataShape from \Onlyfansapi\Users\Block\BlockNewResponse\Data\SubscribedOnData
- * @phpstan-import-type SubscriptionBundleShape from \Onlyfansapi\Users\Block\BlockNewResponse\Data\SubscriptionBundle
+ * @phpstan-import-type AvatarThumbsShape from \OnlyFansAPI\Users\Block\BlockNewResponse\Data\AvatarThumbs
+ * @phpstan-import-type HeaderSizeShape from \OnlyFansAPI\Users\Block\BlockNewResponse\Data\HeaderSize
+ * @phpstan-import-type HeaderThumbsShape from \OnlyFansAPI\Users\Block\BlockNewResponse\Data\HeaderThumbs
+ * @phpstan-import-type ListsStateShape from \OnlyFansAPI\Users\Block\BlockNewResponse\Data\ListsState
+ * @phpstan-import-type SubscribedByDataShape from \OnlyFansAPI\Users\Block\BlockNewResponse\Data\SubscribedByData
+ * @phpstan-import-type SubscribedOnDataShape from \OnlyFansAPI\Users\Block\BlockNewResponse\Data\SubscribedOnData
+ * @phpstan-import-type SubscriptionBundleShape from \OnlyFansAPI\Users\Block\BlockNewResponse\Data\SubscriptionBundle
  *
  * @phpstan-type DataShape = array{
  *   id?: int|null,

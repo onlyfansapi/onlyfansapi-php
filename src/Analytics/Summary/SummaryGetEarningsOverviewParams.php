@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Analytics\Summary;
+namespace OnlyFansAPI\Analytics\Summary;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get earnings overview by category for selected accounts within a date range. Returns total earnings, subscriptions, posts, messages, tips, streams, and content stats.
  *
- * @see Onlyfansapi\Services\Analytics\SummaryService::getEarningsOverview()
+ * @see OnlyFansAPI\Services\Analytics\SummaryService::getEarningsOverview()
  *
  * @phpstan-type SummaryGetEarningsOverviewParamsShape = array{
  *   accountIDs: list<string>, endDate: string, startDate: string

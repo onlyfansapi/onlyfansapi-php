@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Fans\FanListActiveParams\Filter;
+namespace OnlyFansAPI\Fans\FanListActiveParams\Filter;
 
 /**
- * Filter by online status (`1` for online fans).
+ * Filter by online status (`1` for online fans). Must use bracket syntax: filter[online]=1 — the dot form (filter.online=1) is rejected with a 422, because PHP rewrites it to `filter_online` and the filter could not be applied.
  */
 enum Online: int
 {

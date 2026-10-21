@@ -2,16 +2,16 @@
 
 namespace Tests\Services;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Posts\PostArchiveResponse;
-use Onlyfansapi\Posts\PostDeleteResponse;
-use Onlyfansapi\Posts\PostGetResponse;
-use Onlyfansapi\Posts\PostListResponse;
-use Onlyfansapi\Posts\PostNewResponse;
-use Onlyfansapi\Posts\PostPinResponse;
-use Onlyfansapi\Posts\PostStatsResponse;
-use Onlyfansapi\Posts\PostUnarchiveResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Posts\PostArchiveResponse;
+use OnlyFansAPI\Posts\PostDeleteResponse;
+use OnlyFansAPI\Posts\PostGetResponse;
+use OnlyFansAPI\Posts\PostListResponse;
+use OnlyFansAPI\Posts\PostNewResponse;
+use OnlyFansAPI\Posts\PostPinResponse;
+use OnlyFansAPI\Posts\PostStatsResponse;
+use OnlyFansAPI\Posts\PostUnarchiveResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -61,6 +61,7 @@ final class PostsTest extends TestCase
         $result = $this->client->posts->create(
             'acct_XXXXXXXXXXXXXXX',
             text: 'Hello!',
+            blockBannedWords: 'strict_ban',
             expireDays: 3,
             fundRaisingTargetAmount: 30,
             fundRaisingTipsPresets: ['string', 'string', 'string'],
@@ -140,6 +141,7 @@ final class PostsTest extends TestCase
             1234567890,
             account: 'acct_XXXXXXXXXXXXXXX',
             text: 'Hello!',
+            blockBannedWords: 'strict_ban',
             expireDays: 3,
             fundRaisingTargetAmount: 30,
             fundRaisingTipsPresets: ['string', 'string', 'string'],

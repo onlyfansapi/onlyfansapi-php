@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Giphy;
+namespace OnlyFansAPI\Giphy;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Giphy\GiphyListTrendingResponse\_Meta;
-use Onlyfansapi\Giphy\GiphyListTrendingResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Giphy\GiphyListTrendingResponse\_Meta;
+use OnlyFansAPI\Giphy\GiphyListTrendingResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Giphy\GiphyListTrendingResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Giphy\GiphyListTrendingResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Giphy\GiphyListTrendingResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Giphy\GiphyListTrendingResponse\Data
  *
  * @phpstan-type GiphyListTrendingResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: list<Data|DataShape>|null

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts\Comments;
+namespace OnlyFansAPI\Posts\Comments;
 
-use Onlyfansapi\Core\Attributes\Required;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Required;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Unlike a comment on one of your posts.
  *
- * @see Onlyfansapi\Services\Posts\CommentsService::unlike()
+ * @see OnlyFansAPI\Services\Posts\CommentsService::unlike()
  *
  * @phpstan-type CommentUnlikeParamsShape = array{account: string, postID: int}
  */

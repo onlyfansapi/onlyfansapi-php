@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Chats;
+namespace OnlyFansAPI\Chats;
 
-use Onlyfansapi\Chats\ChatMarkAsReadResponse\_Meta;
-use Onlyfansapi\Chats\ChatMarkAsReadResponse\Data;
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Chats\ChatMarkAsReadResponse\_Meta;
+use OnlyFansAPI\Chats\ChatMarkAsReadResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Chats\ChatMarkAsReadResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Chats\ChatMarkAsReadResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Chats\ChatMarkAsReadResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Chats\ChatMarkAsReadResponse\Data
  *
  * @phpstan-type ChatMarkAsReadResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape

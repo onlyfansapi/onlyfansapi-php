@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Core\Contracts;
+namespace OnlyFansAPI\Core\Contracts;
 
 /**
- * @phpstan-import-type NormalizedRequest from \Onlyfansapi\Core\BaseClient
+ * @phpstan-import-type NormalizedRequest from \OnlyFansAPI\Core\BaseClient
  *
  * @internal
  *

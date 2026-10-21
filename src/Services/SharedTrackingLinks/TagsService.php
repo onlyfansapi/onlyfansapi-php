@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\SharedTrackingLinks;
+namespace OnlyFansAPI\Services\SharedTrackingLinks;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\SharedTrackingLinks\TagsContract;
-use Onlyfansapi\SharedTrackingLinks\Tags\TagAddResponse;
-use Onlyfansapi\SharedTrackingLinks\Tags\TagListResponse;
-use Onlyfansapi\SharedTrackingLinks\Tags\TagRemoveResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\SharedTrackingLinks\TagsContract;
+use OnlyFansAPI\SharedTrackingLinks\Tags\TagAddResponse;
+use OnlyFansAPI\SharedTrackingLinks\Tags\TagListResponse;
+use OnlyFansAPI\SharedTrackingLinks\Tags\TagRemoveResponse;
 
 /**
  * APIs for Tracking Links (campaigns) that other OF creators have shared with this account. Revenue, cost, and spender data are not available for shared campaigns.
  *
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class TagsService implements TagsContract
 {

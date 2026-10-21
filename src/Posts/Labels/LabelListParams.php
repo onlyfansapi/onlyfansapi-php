@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts\Labels;
+namespace OnlyFansAPI\Posts\Labels;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * List the labels that you can use to organize your posts.
  *
- * @see Onlyfansapi\Services\Posts\LabelsService::list()
+ * @see OnlyFansAPI\Services\Posts\LabelsService::list()
  *
  * @phpstan-type LabelListParamsShape = array{
  *   limit?: string|null, offset?: string|null

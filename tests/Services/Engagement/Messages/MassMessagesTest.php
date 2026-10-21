@@ -2,10 +2,10 @@
 
 namespace Tests\Services\Engagement\Messages;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageChartResponse;
-use Onlyfansapi\Engagement\Messages\MassMessages\MassMessageListResponse;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageChartResponse;
+use OnlyFansAPI\Engagement\Messages\MassMessages\MassMessageListResponse;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

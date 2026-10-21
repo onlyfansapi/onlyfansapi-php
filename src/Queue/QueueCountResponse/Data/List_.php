@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Queue\QueueCountResponse\Data;
+namespace OnlyFansAPI\Queue\QueueCountResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Queue\QueueCountResponse\Data\List_\_2025_01_01;
-use Onlyfansapi\Queue\QueueCountResponse\Data\List_\_2025_01_02;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Queue\QueueCountResponse\Data\List_\_2025_01_01;
+use OnlyFansAPI\Queue\QueueCountResponse\Data\List_\_2025_01_02;
 
 /**
- * @phpstan-import-type _2025_01_01Shape from \Onlyfansapi\Queue\QueueCountResponse\Data\List_\_2025_01_01
- * @phpstan-import-type _2025_01_02Shape from \Onlyfansapi\Queue\QueueCountResponse\Data\List_\_2025_01_02
+ * @phpstan-import-type _2025_01_01Shape from \OnlyFansAPI\Queue\QueueCountResponse\Data\List_\_2025_01_01
+ * @phpstan-import-type _2025_01_02Shape from \OnlyFansAPI\Queue\QueueCountResponse\Data\List_\_2025_01_02
  *
  * @phpstan-type ListShape = array{
- *   _2025_01_01?: null|\Onlyfansapi\Queue\QueueCountResponse\Data\List_\_2025_01_01|_2025_01_01Shape,
- *   _2025_01_02?: null|\Onlyfansapi\Queue\QueueCountResponse\Data\List_\_2025_01_02|_2025_01_02Shape,
+ *   _2025_01_01?: null|\OnlyFansAPI\Queue\QueueCountResponse\Data\List_\_2025_01_01|_2025_01_01Shape,
+ *   _2025_01_02?: null|\OnlyFansAPI\Queue\QueueCountResponse\Data\List_\_2025_01_02|_2025_01_02Shape,
  * }
  */
 final class List_ implements BaseModel

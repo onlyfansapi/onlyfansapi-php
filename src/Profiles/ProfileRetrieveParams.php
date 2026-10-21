@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Profiles;
+namespace OnlyFansAPI\Profiles;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Concerns\SdkParams;
-use Onlyfansapi\Core\Contracts\BaseModel;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Concerns\SdkParams;
+use OnlyFansAPI\Core\Contracts\BaseModel;
 
 /**
  * Get profile details by username.
  *
- * @see Onlyfansapi\Services\ProfilesService::retrieve()
+ * @see OnlyFansAPI\Services\ProfilesService::retrieve()
  *
  * @phpstan-type ProfileRetrieveParamsShape = array{fresh?: bool|null}
  */

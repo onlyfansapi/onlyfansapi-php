@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\SmartLinks\SmartLinkListConversionsResponse\Data;
+namespace OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse\Data;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\SmartLinks\SmartLinkListConversionsResponse\Data\Row\Click;
-use Onlyfansapi\SmartLinks\SmartLinkListConversionsResponse\Data\Row\Fan;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse\Data\Row\Click;
+use OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse\Data\Row\Fan;
 
 /**
- * @phpstan-import-type ClickShape from \Onlyfansapi\SmartLinks\SmartLinkListConversionsResponse\Data\Row\Click
- * @phpstan-import-type FanShape from \Onlyfansapi\SmartLinks\SmartLinkListConversionsResponse\Data\Row\Fan
+ * @phpstan-import-type ClickShape from \OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse\Data\Row\Click
+ * @phpstan-import-type FanShape from \OnlyFansAPI\SmartLinks\SmartLinkListConversionsResponse\Data\Row\Fan
  *
  * @phpstan-type RowShape = array{
  *   id?: string|null,

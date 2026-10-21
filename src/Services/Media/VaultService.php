@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Services\Media;
+namespace OnlyFansAPI\Services\Media;
 
-use Onlyfansapi\Client;
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\Core\FileParam;
-use Onlyfansapi\Core\Util;
-use Onlyfansapi\Media\Vault\VaultDeleteResponse;
-use Onlyfansapi\Media\Vault\VaultGetResponse;
-use Onlyfansapi\Media\Vault\VaultListParams\Field;
-use Onlyfansapi\Media\Vault\VaultListParams\Sort;
-use Onlyfansapi\Media\Vault\VaultListParams\Type;
-use Onlyfansapi\Media\Vault\VaultListResponse;
-use Onlyfansapi\Media\Vault\VaultUploadResponse;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\ServiceContracts\Media\VaultContract;
-use Onlyfansapi\Services\Media\Vault\ListsService;
+use OnlyFansAPI\Client;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\Core\FileParam;
+use OnlyFansAPI\Core\Util;
+use OnlyFansAPI\Media\Vault\VaultDeleteResponse;
+use OnlyFansAPI\Media\Vault\VaultGetResponse;
+use OnlyFansAPI\Media\Vault\VaultListParams\Field;
+use OnlyFansAPI\Media\Vault\VaultListParams\Sort;
+use OnlyFansAPI\Media\Vault\VaultListParams\Type;
+use OnlyFansAPI\Media\Vault\VaultListResponse;
+use OnlyFansAPI\Media\Vault\VaultUploadResponse;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\ServiceContracts\Media\VaultContract;
+use OnlyFansAPI\Services\Media\Vault\ListsService;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 final class VaultService implements VaultContract
 {
@@ -143,7 +143,7 @@ final class VaultService implements VaultContract
      * Upload a media file directly to your vault.
      *
      * @param string $account The Account ID
-     * @param bool $async Set to `true` to process uploads in the background. Returns a `polling_url` to check status. Recommended for large files.
+     * @param bool $async Set to `true` to process uploads in the background. Returns a `polling_url` to check status. Recommended for large files. Instead of polling, you can subscribe to the `media_uploads.completed` and `media_uploads.failed` webhook events — they only fire for async uploads.
      * @param string|FileParam $file The file to upload. Required if `file_url` is not provided. Maximum file size: 100 MB (limited by Cloudflare).
      * @param string $fileURL A URL to download the file from. Required if `file` is not provided. Maximum file size depends on the subscription configuration.
      * @param RequestOpts|null $requestOptions

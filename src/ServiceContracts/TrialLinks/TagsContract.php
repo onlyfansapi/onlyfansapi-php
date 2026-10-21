@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\ServiceContracts\TrialLinks;
+namespace OnlyFansAPI\ServiceContracts\TrialLinks;
 
-use Onlyfansapi\Core\Exceptions\APIException;
-use Onlyfansapi\RequestOptions;
-use Onlyfansapi\TrialLinks\Tags\TagAddResponse;
-use Onlyfansapi\TrialLinks\Tags\TagListResponse;
-use Onlyfansapi\TrialLinks\Tags\TagRemoveResponse;
+use OnlyFansAPI\Core\Exceptions\APIException;
+use OnlyFansAPI\RequestOptions;
+use OnlyFansAPI\TrialLinks\Tags\TagAddResponse;
+use OnlyFansAPI\TrialLinks\Tags\TagListResponse;
+use OnlyFansAPI\TrialLinks\Tags\TagRemoveResponse;
 
 /**
- * @phpstan-import-type RequestOpts from \Onlyfansapi\RequestOptions
+ * @phpstan-import-type RequestOpts from \OnlyFansAPI\RequestOptions
  */
 interface TagsContract
 {

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Onlyfansapi\Posts\Labels;
+namespace OnlyFansAPI\Posts\Labels;
 
-use Onlyfansapi\Core\Attributes\Optional;
-use Onlyfansapi\Core\Concerns\SdkModel;
-use Onlyfansapi\Core\Contracts\BaseModel;
-use Onlyfansapi\Posts\Labels\LabelListResponse\_Meta;
-use Onlyfansapi\Posts\Labels\LabelListResponse\Data;
+use OnlyFansAPI\Core\Attributes\Optional;
+use OnlyFansAPI\Core\Concerns\SdkModel;
+use OnlyFansAPI\Core\Contracts\BaseModel;
+use OnlyFansAPI\Posts\Labels\LabelListResponse\_Meta;
+use OnlyFansAPI\Posts\Labels\LabelListResponse\Data;
 
 /**
- * @phpstan-import-type _MetaShape from \Onlyfansapi\Posts\Labels\LabelListResponse\_Meta
- * @phpstan-import-type DataShape from \Onlyfansapi\Posts\Labels\LabelListResponse\Data
+ * @phpstan-import-type _MetaShape from \OnlyFansAPI\Posts\Labels\LabelListResponse\_Meta
+ * @phpstan-import-type DataShape from \OnlyFansAPI\Posts\Labels\LabelListResponse\Data
  *
  * @phpstan-type LabelListResponseShape = array{
  *   _meta?: null|_Meta|_MetaShape, data?: null|Data|DataShape
